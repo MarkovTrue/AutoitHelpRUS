@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetDIBits</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetDIBits</h1>
+<p class="funcdesc">Устанавливает пиксели в совместимом растре, используя данные о цвете, найденные в DIB.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetDIBits.htm"><span class="S15">_WinAPI_SetDIBits</span></a> <span class="S8">(</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$iStartScan</span><span class="S8">,</span> <span class="S9">$iScanLines</span><span class="S8">,</span> <span class="S9">$pBits</span><span class="S8">,</span> <span class="S9">$tBMI</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iColorUse</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$hBitmap</span></td>
+<td>Дескриптор совместимого растра (DDB) для изменения с использованием данных о цвете из DIB.</td>
+</tr>
+<tr>
+<td><span class="S91">$iStartScan</span></td>
+<td>Начальную строку сканирования для независимого от устройства цвета в массиве, на который указывает параметр <span class="S91">$pBits</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iScanLines</span></td>
+<td>Определяет количество строк сканирования в массиве, содержащем независимые от устройства данные о цвете.</td>
+</tr>
+<tr>
+<td><span class="S91">$pBits</span></td>
+<td>Указатель на данные о цвете DIB, хранящиеся как массив байтов.<br />
+Формат значений растра зависит от члена biBitCount структуры <span class="S91">$tagBITMAPINFO</span>, на которую указывает параметр <span class="S91">$pBMI</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$tBMI</span></td>
+<td>Структура <span class="S91">$tagBITMAPINFO</span> или указатель на неё, содержащая информацию о DIB.</td>
+</tr>
+<tr>
+<td><span class="S91">$iColorUse</span></td>
+<td><strong>[необязательный]</strong> Определяет, был ли предоставлен член iColors структуры <span class="S91">$tagBITMAPINFO</span> и, если да,<br />
+содержит ли iColors явные значения красного, зелёного, синего (RGB) или индексы палитры.<br />
+Параметр <span class="S91">$iColorUse</span> должен быть одним из следующих значений:<br />
+0 – таблица цветов предоставлена и содержит литеральные значения RGB<br />
+1 – таблица цветов состоит из массива 16-битных индексов в логической палитре <span class="S91">$hDC</span></td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Контекст устройства, определённый параметром <span class="S91">$hDC</span>, используется только если <span class="S91">$iColorUse</span> установлен в 1, иначе он игнорируется.<br />
+Растр, определённый параметром hBmp, не должен быть выбран в контекст устройства при вызове этой функции.<br />
+Строки сканирования должны быть выровнены на DWORD, кроме RLE-сжатых растров.<br />
+Начало отсчёта для DIB снизу вверх – левый нижний угол растра; начало отсчёта для DIB сверху вниз – левый верхний угол растра.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="$tagBITMAPINFO.htm">$tagBITMAPINFO</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetDIBits">SetDIBits</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

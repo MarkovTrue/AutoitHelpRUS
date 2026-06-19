@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _DebugReportVar</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_DebugReportVar</h1>
+<p class="funcdesc">Записывает содержимое переменной в сеанс отладки.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Debug.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a> <span class="S8">(</span> <span class="S9">$sVarName</span><span class="S8">,</span> <span class="S9">$vVar</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bErrExt</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iDebugLineNumber</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sVarName</span></td>
+<td style="width:85%">Строка с именем переменной или комментарием.</td>
+</tr>
+<tr>
+<td><span class="S91">$vVar</span></td>
+<td>Переменная для записи в журнал.</td>
+</tr>
+<tr>
+<td><span class="S91">$bErrExt</span></td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> – дополнительно выводить <span class="S61">@error</span> и <span class="S61">@extended</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iDebugLineNumber</span></td>
+<td><strong>[необязательный]</strong> Позволяет переопределить номер строки вызывающего кода. По умолчанию – <span class="S61">@ScriptLineNumber</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Отсутствует.<br />
+
+
+<h2>Примечания</h2>
+<p>Если <a class="le" href="_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">()</span> не была вызвана, функция всегда возвращает управление.<br />
+Значения <span class="S61">@error</span> и <span class="S61">@extended</span> вызывающего кода сохраняются.<br />
+<br />
+Каждый вызов <a class="le" href="_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">()</span> выводит данные на отдельной строке.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_DebugSetup.htm">_DebugSetup</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Debug.au3&gt;</span><br>
+<br>
+<a class="le" href="../libfunctions/_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">(</span><span class="S7">"_DebugReportVar examples"</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray2D</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$r</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray2D</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$c</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray2D</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray2D</span><span class="S8">[</span><span class="S9">$r</span><span class="S8">]</span><span class="S8">[</span><span class="S9">$c</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$r</span> <span class="S8">&amp;</span> <span class="S7">","</span> <span class="S8">&amp;</span> <span class="S9">$c</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"Array2D"</span><span class="S8">,</span> <span class="S9">$aArray2D</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">1.1</span><span class="S8">,</span> <span class="S7">"string"</span><span class="S8">,</span> <a class="le" href="../functions/Binary.htm"><span class="S4">Binary</span></a><span class="S8">(</span><span class="S3">0x010203</span><span class="S8">)</span><span class="S8">,</span> <a class="le" href="../functions/Ptr.htm"><span class="S4">Ptr</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">]</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"Array"</span><span class="S8">,</span> <span class="S9">$aArray</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray3D</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$r</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray3D</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$c</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray3D</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$k</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray3D</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray3D</span><span class="S8">[</span><span class="S9">$r</span><span class="S8">]</span><span class="S8">[</span><span class="S9">$c</span><span class="S8">]</span><span class="S8">[</span><span class="S9">$k</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$r</span> <span class="S8">&amp;</span> <span class="S7">","</span> <span class="S8">&amp;</span> <span class="S9">$c</span> <span class="S8">&amp;</span> <span class="S7">","</span> <span class="S8">&amp;</span> <span class="S9">$k</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"Array3D"</span><span class="S8">,</span> <span class="S9">$aArray3D</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray4D</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"Array4D"</span><span class="S8">,</span> <span class="S9">$aArray4D</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iInt</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"int"</span><span class="S8">,</span> <span class="S9">$iInt</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iInt64</span> <span class="S8">=</span> <span class="S3">2</span> ^ <span class="S3">63</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"int64"</span><span class="S8">,</span> <span class="S9">$iInt64</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$bBool</span> <span class="S8">=</span> <span class="S5">True</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"bool"</span><span class="S8">,</span> <span class="S9">$bBool</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$fFloat</span> <span class="S8">=</span> <span class="S3">1.1</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"float"</span><span class="S8">,</span> <span class="S9">$fFloat</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vKeyword</span> <span class="S8">=</span> <span class="S5">Default</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"keyword"</span><span class="S8">,</span> <span class="S9">$vKeyword</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">"stringstring"</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"string"</span><span class="S8">,</span> <span class="S9">$sString</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$dBinary</span> <span class="S8">=</span> <a class="le" href="../functions/Binary.htm"><span class="S4">Binary</span></a><span class="S8">(</span><span class="S7">"0x0102030405060708"</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"binary"</span><span class="S8">,</span> <span class="S9">$dBinary</span><span class="S8">)</span><br>
+<br>
+<span class="S9">$dBinary</span> <span class="S8">=</span> <a class="le" href="../functions/Binary.htm"><span class="S4">Binary</span></a><span class="S8">(</span><span class="S7">"abcdefghij"</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"binary"</span><span class="S8">,</span> <span class="S9">$dBinary</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$pPtr</span> <span class="S8">=</span> <a class="le" href="../functions/Ptr.htm"><span class="S4">Ptr</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"ptr"</span><span class="S8">,</span> <span class="S9">$pPtr</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinActive.htm"><span class="S4">WinActive</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"hwnd"</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tDllstruct</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"int; ptr"</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"dllstruct"</span><span class="S8">,</span> <span class="S9">$tDllstruct</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oObj</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a><span class="S8">(</span><span class="S7">"shell.application"</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">(</span><span class="S7">"obj"</span><span class="S8">,</span> <span class="S9">$oObj</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_DebugReportVar.au3,"></object>
+</body>
+</html>

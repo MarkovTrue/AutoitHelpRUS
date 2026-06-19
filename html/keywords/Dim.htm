@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово Dim / Global / Local / Const</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>Dim / Global / Local / Const</h1>
+<p class="funcdesc">Объявить переменную, константу или создать массив.</p>
+<p class="codeheader"><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> | <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">[</span><a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a><span class="S8">]</span> <span class="S9">$variable</span> <span class="S8">[</span> <span class="S8">=</span> <span class="S0">initializer</span> <span class="S8">]</span><br>
+<span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> | <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">[</span><a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a><span class="S8">]</span> <span class="S9">$aArray</span><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S8">[</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S0">subscript</span> <span class="S3">1</span><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S8">]</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span>...<span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S8">[</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S0">subscript</span> <span class="S0">n</span><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S8">]</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">[</span> <span class="S8">=</span> <span class="S0">initializer</span> <span class="S8">]</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Const</td>
+<td style="width:85%"><strong>[необязательный]</strong> Если присутствует, ключевое слово Const создаёт константу вместо переменной.</td>
+</tr>
+<tr>
+<td><span class="S91">$variable</span></td>
+<td>Имя объявляемой переменной/константы.</td>
+</tr>
+<tr>
+<td>initializer</td>
+<td>Значение, которое будет изначально присвоено переменной. Const должен включать инициализатор. Инициализатор может быть вызовом функции.</td>
+</tr>
+<tr>
+<td>subscript</td>
+<td>Количество элементов измерения массива (нумерация с 0 до n-1).</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Ключевые слова Dim/Local/Global выполняют схожие функции:<br />
+1. Объявить переменную перед её использованием (как в VBScript)<br />
+2. Создать массив<br />
+<br />
+<strong>Примечание</strong>: В AutoIt вы можете создать переменную просто присвоив значение (<span class="S91">$myvar</span> = 0), но многие люди любят явно их объявлять. Если активно <strong><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption("MustDeclareVars", 1)</a></strong>, то переменные должны быть объявлены до использования.<br />
+<br />
+Вы также можете объявить несколько переменных на одной строке:<br />
+<p class="code">Local <span class="S91">$vVar_1</span>, <span class="S91">$vVar_2</span>, <span class="S91">$vVar_3</span></p><br />
+И инициализировать переменные:<br />
+<p class="code">Local <span class="S91">$vVar_1</span> = 10, <span class="S91">$vVar_2</span> = "20", <span class="S91">$vVar_3</span> = 30</p><br />
+Создание констант можно делать аналогичным образом:<br />
+<p class="code">Const <span class="S91">$CONST_1</span> = 1, <span class="S91">$CONST_2</span> = 2, <span class="S91">$CONST_3</span> = 3<br />
+Global Const <span class="S91">$PI</span> = 3.14, <span class="S91">$MEANING_OF_LIFE</span> = 42<br />
+Local Const <span class="S91">$iApples</span> = 500<br />
+</p><br />
+Однажды созданную константу нельзя изменить. Также нельзя преобразовать существующую переменную в константу.<br />
+<br />
+Для инициализации массива укажите значения для каждого элемента в квадратных скобках, разделённые запятыми. Для нескольких измерений вложите инициализаторы. Вы можете указать меньше элементов в инициализаторе, чем объявлено, но не больше. Вызовы функций также можно поместить в инициализаторы массива. Если вызов функции возвращает массив, то один элемент массива будет содержать возвращённый массив.<br />
+<p class="code">Local <span class="S91">$aArray_1</span><span class="S8">[</span><span class="S3">12</span><span class="S8">]</span> = [3, 7.5, "string"], <span class="S91">$aArray_1</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> = [8, 4, 5, 9, 1]<br />
+Local <span class="S91">$aGrid</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> = [["Paul", "Jim", "Richard", "Louis"], [485.44, 160.68, 275.16, 320.00]]<br />
+Global <span class="S91">$aTest</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> = [3, 1, <a class="le" href="../functions/StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span>"Abe|Jack|Bobby|Marty", "|"<span class="S8">)</span>, <a class="le" href="../functions/Cos.htm"><span class="S4">Cos</span></a><span class="S8">(</span>0<span class="S8">)</span>]<br />
+</p><br />
+Разница между Dim, Local и Global в области видимости, в которой они создаются:<br />
+<strong>Dim</strong> = Локальная область видимости, если имя переменной не существует глобально (в этом случае переиспользуется глобальная переменная!)<br />
+<strong>Global</strong> = Принудительно создаёт переменную в глобальной области видимости<br />
+<strong>Local</strong> = Принудительно создаёт переменную в локальной области видимости/области видимости функции<br />
+<br />
+Вы должны использовать Local или Global вместо Dim, чтобы явно указать, какая область видимости требуется для переменной/константы/массива.<br />
+<br />
+При использовании переменных сначала проверяется локальная область видимости, затем глобальная.<br />
+<br />
+При создании массивов вы ограничены до 64 измерений и/или всего 16 миллионов элементов.<br />
+<br />
+Особенность AutoIt – возможность копировать массивы вот так:<br />
+<span class="S91">$mycopy</span> = <span class="S91">$myarray</span><br />
+В этом случае <span class="S91">$mycopy</span> будет точной копией <span class="S91">$myarray</span> и будет иметь те же размеры – инструкция Dim не требуется для предварительного изменения размера массива. Если активно <strong><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption ( "MustDeclareVars", 1)</a></strong>, то переменная <span class="S91">$mycopy</span> всё равно должна быть объявлена первой, но не требуется её размер. Если переменная <span class="S91">$mycopy</span> уже была массивом или одним значением, она будет стёрта перед выполнением копии.<br />
+<br />
+Для удаления массива (может быть, потому что это большой глобальный массив и вы хотите освободить память), просто присвойте ему одно значение:<br />
+<span class="S91">$aArray</span> = 0<br />
+Это освободит массив и преобразует его обратно в одиночное значение 0.<br />
+<br />
+Объявление того же имени переменной снова сотрёт все значения массива и переустановит размеры на новое определение. Объявление переменной с простым значением в той же области видимости не изменит значение в переменной.<br />
+<br />
+Если вы объявляете переменную с тем же именем, что и параметр, используя <strong>Local</strong> внутри пользовательской функции, произойдёт ошибка. <strong>Global</strong> можно использовать для присвоения глобальным переменным внутри функции, но если локальная переменная (или параметр) имеет то же имя, что и глобальная переменная, будет использоваться только локальная переменная. Рекомендуется давать локальным и глобальным переменным разные имена.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a>, <a href="../functions/UBound.htm">UBound</a>, <a href="ReDim.htm">ReDim</a>, <a href="Static.htm">Static</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Объявление переменных
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$i</span><span class="S8">,</span> <span class="S9">$j</span> <span class="S8">=</span> <span class="S3">23</span><span class="S8">,</span> <span class="S9">$k</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_fPI</span> <span class="S8">=</span> <span class="S3">3.14159</span><span class="S8">,</span> <span class="S9">$g_iRADIUS</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iDaysWorking</span> <span class="S8">=</span> <span class="S3">5</span><br>
+<br>
+<span class="S1">; Объявление массивов
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_aChessBoard</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_aEmptyArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_aAutoSize</span><span class="S8">[</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aStates</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aWindowsStats</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$a2Dimensions</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S3">4</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">]</span><span class="S8">]</span><br>
+<br>
+<span class="S1">; Объявление переменных-констант
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$iX1</span> <span class="S8">=</span> <span class="S3">11</span><span class="S8">,</span> <span class="S9">$iY1</span> <span class="S8">=</span> <span class="S3">23</span><span class="S8">,</span> <span class="S9">$iZ1</span> <span class="S8">=</span> <span class="S3">55</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$PI</span> <span class="S8">=</span> <span class="S3">3.14159</span><span class="S8">,</span> <span class="S9">$E</span> <span class="S8">=</span> <span class="S3">2.71828</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$DAYS_WORKING</span> <span class="S8">=</span> <span class="S3">5</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\Dim.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S11">#AutoIt3Wrapper_Au3Check_Parameters</span><span class="S8">=</span><span class="S8">-</span><span class="S0">q</span> <span class="S8">-</span><span class="S0">d</span> <span class="S8">-</span><span class="S0">w</span><span class="S8">-</span> <span class="S3">3</span> <span class="S8">-</span><span class="S0">w</span><span class="S8">-</span> <span class="S3">6</span>&nbsp;<span class="S1">; Уже объявленная переменная=off, предупреждение при использовании Dim=off
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Dim</span></a> <span class="S9">$vVariableThatIsGlobal</span> <span class="S8">=</span> <span class="S7">"This is a variable that has ""Program Scope"" aka Global."</span><br>
+<br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"An example of why Dim can cause more problems than solve them."</span><span class="S8">)</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это выглядит нормально, так как отображает следующий текст: This is a variable that has "Program Scope" aka Global.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$vVariableThatIsGlobal</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вызвать случайную функцию.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vReturn</span> <span class="S8">=</span> <span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Глобальная переменная ($vVariableThatIsGlobal) изменилась, так как я совершенно забыл, что у меня было дублирующееся имя переменной в "SomeFunc".
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S9">$vReturn</span><span class="S8">,</span> <span class="S7">"The variable has now changed: "</span> <span class="S8">&amp;</span> <span class="S9">$vVariableThatIsGlobal</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это должно создать переменную в локальной области видимости, если имя переменной ещё не существует.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ради аргумента я совершенно забыл, что уже объявил переменную с тем же именем.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ну, я хочу, чтобы это менялось только в функции, а не в переменной вверху скрипта.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Должно быть хорошо, правда? Подумайте ещё раз.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Dim</span></a> <span class="S9">$vVariableThatIsGlobal</span> <span class="S8">=</span> <span class="S7">""</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">10</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vVariableThatIsGlobal</span> <span class="S8">&amp;=</span> <span class="S9">$i</span>&nbsp;<span class="S1">; Это вернёт 12345678910, полностью стирая предыдущее содержимое $vVariableThatIsGlobal.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$vVariableThatIsGlobal</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;SomeFunc
+</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\Dim[2].au3,"></object>
+</body>
+</html>

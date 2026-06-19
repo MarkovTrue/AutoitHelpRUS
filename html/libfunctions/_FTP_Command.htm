@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _FTP_Command</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_FTP_Command</h1>
+<p class="funcdesc">Отправляет команду FTP-серверу.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FTPEx.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_FTP_Command.htm"><span class="S15">_FTP_Command</span></a> <span class="S8">(</span> <span class="S9">$hFTPSession</span><span class="S8">,</span> <span class="S9">$sFTPCommand</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S9">$FTP_TRANSFER_TYPE_ASCII</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iExpectResponse</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iContext</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hFTPSession</span></td>
+<td style="width:85%">возвращается функцией <a href="_FTP_Connect.htm"><span class="S15">_FTP_Connect</span><span class="S8">()</span></a></td>
+</tr>
+<tr>
+<td><span class="S91">$sFTPCommand</span></td>
+<td>Строка команды для отправки FTP-серверу.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> <span class="S91">$FTP_TRANSFER_TYPE_ASCII</span> (1) или <span class="S91">$FTP_TRANSFER_TYPE_BINARY</span> (2)</td>
+</tr>
+<tr>
+<td><span class="S91">$iExpectResponse</span></td>
+<td><strong>[необязательный]</strong> Сокет данных для ответа в асинхронном режиме. См. раздел Примечания.</td>
+</tr>
+<tr>
+<td><span class="S91">$iContext</span></td>
+<td><strong>[необязательный]</strong> Переменная, содержащая определённое приложением значение, которое связывает этот поиск с данными приложения.<br />
+Используется только если приложение уже вызывало <a href="_FTP_SetStatusCallback.htm"><span class="S15">_FTP_SetStatusCallback</span><span class="S8">()</span></a> для установки функции обратного вызова статуса.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает идентификатор.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Примеры команд зависят от синтаксиса сервера.<br />
+Для двоичной передачи, ASCII-передачи и пассивного режима (используется с межсетевыми экранами) применяются команды 'type I', 'type A', 'pasv'.<br />
+<br />
+Если <span class="S91">$iExpectResponse</span> = <span class="S5">True</span>, в <span class="S61">@extended</span> возвращается указатель на дескриптор, созданный при открытии допустимого сокета данных.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_FTP_Connect.htm">_FTP_Connect</a>, <a href="_FTP_SetStatusCallback.htm">_FTP_SetStatusCallback</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=FtpCommand">FtpCommand</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

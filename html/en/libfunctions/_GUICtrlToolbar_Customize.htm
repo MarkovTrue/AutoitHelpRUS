@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _GUICtrlToolbar_Customize</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_GUICtrlToolbar_Customize</h1>
+<p class="funcdesc">Displays the Customize Toolbar dialog box<br /></p>
+<p class="codeheader">
+#include &lt;GuiToolbar.au3&gt;<br />
+_GUICtrlToolbar_Customize ( $hWnd )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$hWnd</td>
+<td style="width:85%">Handle to the control</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+None.<br />
+
+
+<h2>Remarks</h2>
+<p>The toolbar must handle the $TBN_QUERYINSERT and $TBN_QUERYDELETE notifications for the Customize Toolbar dialog box to appear.<br />
+If the toolbar does not handle those notifications, $TB_CUSTOMIZE has no effect.<br />
+</p>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AutoIt</title>
+  <meta charset="utf-8">
+  <link href="css/default.css" rel="stylesheet">
+<script src="css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1><a id="FAQ"></a>Frequently Asked Questions (FAQ)</h1>
+  <p>This section gives some of the more frequently asked questions from the <a class="ext" href="http://www.autoitscript.com/forum/" target="_blank">forum</a>. If you can't find the answer you seek here then the <a class="ext" href=
+  "http://www.autoitscript.com/forum/">forum</a> should be your first port of call.</p>
+  <h2>Questions</h2>
+  <ol>
+    <li><a href="#1">How can I run a DOS program from within AutoIt?</a></li>
+    <li><a href="#2">Why can I only use Run() to execute .exe and .com files? What about .msi / .txt and others?</a></li>
+    <li><a href="#3">Why do I get errors when I try and use double quotes (") ?</a></li>
+    <li><a href="#4">What do the window "title" and "text" parameters mean?</a></li>
+    <li><a href="#5">Why can't I print a variable using "My var is $vVariable"?</a></li>
+    <li><a href="#6">When I use Send() to send a variable odd things happen?</a></li>
+    <li><a href="#7">What is the difference between the return value and @error?</a></li>
+    <li><a href="#8">How can I exit my script with a hot-key?</a></li>
+    <li><a href="#9">How can I use a custom icon when compiling my scripts?</a></li>
+    <li><a href="#10">How can I make sure only one copy of my script is run?</a></li>
+    <li><a href="#11">What are the current technical limits of AutoIt v3?</a></li>
+    <li><a href="#12">I get a missing picture symbol in the Help file under the Examples.</a></li>
+  </ol>
+  <hr>
+  <h2><a id="1"></a>1. <a href="#1">How can I run a DOS program from within AutoIt?</a></h2>
+  <p>If you wanted to run something like a DOS "Dir" command then you must run it though the command interpreter (command.com or cmd.exe depending on your OS). The <a href="macros.htm">@ComSpec</a> macro contains the correct location of this file. You
+  should use the <a href="functions/RunWait.htm">RunWait()</a> function as it waits for the DOS program to finish before continuing with the next line of the script. Here is an example of running the DOS Dir command on the C: drive: (effectively running
+  the command <strong>command.com /c Dir C:\</strong> )</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@ComSpec"><span class="S6">@ComSpec</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" /c Dir C:\"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="2"></a>2. <a href="#2">Why can I only use Run() to execute .exe files? What about .msi / .txt and others?</a></h2>
+  <p>Only a few file extensions are usually "runable" - these are .exe, .bat, .com, .pif. Other file types like .txt and .msi are actually executed with another program. When you double click on a "my_installer.msi" file what actually happens in the background
+  is that "msiexec.exe my_installer.msi" is executed. So to run a .msi file from AutoIt you would do:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><span class="S7">"msiexec my_installer.msi"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Or, run the command "start" which will automatically work out how to execute the file for you:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@ComSpec"><span class="S6">@ComSpec</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" /c Start my_installer.msi"</span><span class="S8">)</span></span>
+</p>
+  <p>Or, use the ShellExecuteWait function which will automatically work out how to execute the file for you:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ShellExecuteWait.htm"><span class="S4">ShellExecuteWait</span></a><span class="S8">(</span><span class="S7">"my_installer.msi"</span><span class="S8">)</span></span>
+</p>
+<!--QuoteEnd-->
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="3"></a>3. <a href="#3">Why do I get errors when I try and use double quotes (") ?</a></h2>
+  <p>If you want to use double-quotes inside a string then you must "double them up". So for every one quote you want you should use two. For example if you wanted to set a variable to the string: <strong>A word in "this" sentence has quotes around
+  it!</strong> You would do:</p>
+<p class="codebox">
+<span><span class="S9">$vVar</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">"A word in ""this"" sentence has quotes around it!"</span></span>
+</p>
+  <p>or use single quotes instead:</p>
+<p class="codebox">
+<span><span class="S9">$vVar</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">'A word in "this" sentence has quotes around it!'</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="4"></a>4. <a href="#4">What do the window "title" and "text" parameters mean?</a></h2>
+  <p>There is a detailed description <a href="intro/windowsbasic.htm">here</a>.</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="5"></a>5. <a href="#5">Why can't I print a variable using "My var is $vVariable"?</a></h2>
+  <p>If you have a variable called $msg and you want to print in inside a MsgBox then this will NOT work:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Example"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My variable is $msg"</span><span class="S8">)</span></span>
+</p>
+  <p>It will actually print <strong>My variable is $msg</strong>. What you need to do is tell AutoIt to join the string and the variable together using the <a href="intro/lang_operators.htm">&amp; operator</a>:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Example"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My variable is "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$msg</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><strong>Advanced:</strong> If you have many variables to add into a string then you may find the <a href="functions/StringFormat.htm">StringFormat()</a> function useful. For example, if I wanted to insert $vVar1 to $vVar5 into a string then it may be
+  easier to do:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sMessage</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"Var1 is %s, Var2 is %s, Var3 is %s, Var4 is %s"</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar1</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar2</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar3</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar4</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$sMessage</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="6"></a>6. <a href="#6">When I use Send() to send a variable odd things happen?</a></h2>
+  <p>If you are <a href="functions/Send.htm">sending</a> the contents of a variable then be mindful that if it contains special send characters like ! ^ + {SPACE} then these will be translated into special keystrokes - rarely what is wanted. To overcome
+  this use the RAW mode of <a href="functions/Send.htm">Send()</a> that does not translate special keys:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S9">$vMyVar</span><span class="S8">,</span><span class="S0"> </span><span class="S3">1</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="7"></a>7. <a href="#7">What is the difference between the return value and @error?</a></h2>
+  <p>Generally a return value is used to indicate the success of a function. But, if a function is already returning something ( like <a href="functions/WinGetText.htm">WinGetText()</a> ) then we need to have a way of working out if the function was
+  successful, so we set @error instead.</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="8"></a>8. <a href="#8">How can I exit my script with a hot-key?</a></h2>
+  <p>Ah, an easy one. If you want to make your script exit when you press a certain key combination then use the <a href="functions/HotKeySet.htm">HotKeySet()</a> function to make a user function run when the desired key is pressed. This user function
+  should just contain the <a href="keywords/Exit.htm">Exit</a> keyword.</p>
+  <p>Here some code that will cause the script to exit when CTRL+ALT+x is pressed:<br /></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/HotKeySet.htm"><span class="S4">HotKeySet</span></a><span class="S8">(</span><span class="S7">"^!x"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"MyExit"</span><span class="S8">)</span><br /><span class="S8">...</span><br /><span class="S8">...</span><br /><span class="S1">; Rest of Script</span><br /><span class="S8">...</span><br /><span class="S8">...</span><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> MyExit</span><span class="S8">()</span><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;MyExit</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="9"></a>9. <a href="#9">How can I use a custom icon when compiling my scripts?</a></h2>
+  <p>You need to run the full compiler program (rather than just right-clicking a script and selecting compile). <a href="intro/compiler.htm">This page</a> describes the compiler in detail.</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="10"></a>10. <a href="#10">How can I make sure only one copy of my script is run?</a></h2>
+  <p>Use the <a href="libfunctions/_Singleton.htm">_Singleton()</a> function. See the User Defined Functions documentation for more information on _Singleton() and how to use it.</p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="11"></a>11. <a href="#11">What are the current technical limits of AutoIt v3?</a></h2>
+  <p>Please refer to the <a href="appendix/LimitsDefaults.htm">Limits and Defaults</a> section for the technical limits of AutoIt3.<br />
+  <br />
+  Additional information about theoretical limits of AutoIt3.</p>
+  <table>
+    <tr>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td class="right">No limit</td>
+      <td>Maximum number of GUI windows.</td>
+    </tr>
+    <tr>
+      <td class="right">No limit</td>
+      <td>Maximum number of use defined functions.</td>
+    </tr>
+    <tr>
+      <td class="right">No limit</td>
+      <td>Maximum number of variables in use at one time.</td>
+    </tr>
+    <tr>
+      <td class="right">1.7E308 to 1.7E+308</td>
+      <td>Number range (floating point) with 15-digit precision.</td>
+    </tr>
+    <tr>
+      <td class="right">0x8000000000000000 to 0x7FFFFFFFFFFFFFFF</td>
+      <td>Hexadecimal number range (32-bit/64-bit signed integer).</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+  <h2><a id="12"></a>12. <a href="#12">I get a missing picture symbol in the Help file under the Examples.</a></h2>
+  <p>This should be the Open button that enable you to open the Examples in the Help file.<br />
+  This issue is that the hhctrl.ocx isn't properly registered or corrupted.<br />
+  Try registering it by doing "regsvr32 hhctrl.ocx" from the command prompt or check if the file is still valid.<br /></p>
+  <p>&nbsp;</p>
+  <p><a href="#FAQ">Back To Top</a></p>
+  <hr>
+</body>
+</html>

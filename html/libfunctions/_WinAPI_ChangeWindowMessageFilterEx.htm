@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_ChangeWindowMessageFilterEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_ChangeWindowMessageFilterEx</h1>
+<p class="funcdesc">Изменяет фильтр сообщений изоляции привилегий пользовательского интерфейса (UIPI) для указанного окна.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_ChangeWindowMessageFilterEx.htm"><span class="S15">_WinAPI_ChangeWindowMessageFilterEx</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$iAction</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMsg</span></td>
+<td>Сообщение, которое фильтр сообщений пропускает или блокирует.</td>
+</tr>
+<tr>
+<td><span class="S91">$iAction</span></td>
+<td>Действие, которое должно быть выполнено. Этот параметр может быть одним из следующих значений:<br />
+<span class="S91">$MSGFLT_ALLOW</span><br />
+<span class="S91">$MSGFLT_DISALLOW</span><br />
+<br />
+<strong>Windows 7 или выше</strong><br />
+<span class="S91">$MSGFLT_RESET</span></td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">1 и устанавливает флаг <span class="S61">@extended</span> на 0 или одно из следующих значений (только в <strong>Windows 7 или выше</strong>).<br />
+<span class="S91">$MSGFLTINFO_ALLOWED_HIGHER</span><br />
+<span class="S91">$MSGFLTINFO_ALREADYALLOWED_FORWND</span><br />
+<span class="S91">$MSGFLTINFO_ALREADYDISALLOWED_FORWND</span><br />
+<span class="S91">$MSGFLTINFO_NONE</span><br />
+(подробнее см. в MSDN)</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>0 и устанавливает флаг <span class="S61">@error</span> в ненулевое значение, вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения расширенной информации об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>UIPI – это функция безопасности, которая предотвращает получение сообщений от отправителя с более низким уровнем целостности.<br />
+Вы можете использовать эту функцию для разрешения доставки определённых сообщений в окно, даже если сообщение происходит из процесса с более низким уровнем целостности.<br />
+<br />
+Определённые сообщения, значение которых меньше WM_USER, должны проходить через фильтр, независимо от параметров фильтра. Попытка использования этой функции для разрешения или блокирования таких сообщений не будет иметь эффекта.<br />
+<br />
+Эта функция требует <strong>Windows Vista или выше</strong>.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=ChangeWindowMessageFilterEx">ChangeWindowMessageFilterEx</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Macro Reference - Directory</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Macro Reference - Directory</h1>
+  <p>Below is a list of Directory macros. Note that paths do not contain a trailing backslash.</p>
+  <p>The full list of macros can be found <a href="../macros.htm">here</a>.</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2">Macros for "All Users" data.</td>
+    </tr>
+    <tr>
+      <td><a id="@AppDataCommonDir"></a><strong>@AppDataCommonDir</strong></td>
+      <td>Path to Application Data</td>
+    </tr>
+    <tr>
+      <td><a id="@DesktopCommonDir"></a><strong>@DesktopCommonDir</strong></td>
+      <td>Path to Desktop</td>
+    </tr>
+    <tr>
+      <td><a id="@DocumentsCommonDir"></a><strong>@DocumentsCommonDir</strong></td>
+      <td>Path to Documents</td>
+    </tr>
+    <tr>
+      <td><a id="@FavoritesCommonDir"></a><strong>@FavoritesCommonDir</strong></td>
+      <td>Path to Favorites</td>
+    </tr>
+    <tr>
+      <td><a id="@ProgramsCommonDir"></a><strong>@ProgramsCommonDir</strong></td>
+      <td>Path to Start Menu's Programs folder</td>
+    </tr>
+    <tr>
+      <td><a id="@StartMenuCommonDir"></a><strong>@StartMenuCommonDir</strong></td>
+      <td>Path to Start Menu folder</td>
+    </tr>
+    <tr>
+      <td><a id="@StartupCommonDir"></a><strong>@StartupCommonDir</strong></td>
+      <td>Path to Startup folder</td>
+    </tr>
+    <tr>
+      <td colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2">Macros for Current User data.</td>
+    </tr>
+    <tr>
+      <td><a id="@AppDataDir"></a><strong>@AppDataDir</strong></td>
+      <td>Path to current user's Roaming Application Data</td>
+    </tr>
+    <tr>
+      <td><a id="@LocalAppDataDir"></a><strong>@LocalAppDataDir</strong></td>
+      <td>Path to current user's Local Application Data</td>
+    </tr>
+    <tr>
+      <td><a id="@DesktopDir"></a><strong>@DesktopDir</strong></td>
+      <td>Path to current user's Desktop</td>
+    </tr>
+    <tr>
+      <td><a id="@MyDocumentsDir"></a><strong>@MyDocumentsDir</strong></td>
+      <td>Path to My Documents target</td>
+    </tr>
+    <tr>
+      <td><a id="@FavoritesDir"></a><strong>@FavoritesDir</strong></td>
+      <td>Path to current user's Favorites</td>
+    </tr>
+    <tr>
+      <td><a id="@ProgramsDir"></a><strong>@ProgramsDir</strong></td>
+      <td>Path to current user's Programs (folder on Start Menu)</td>
+    </tr>
+    <tr>
+      <td><a id="@StartMenuDir"></a><strong>@StartMenuDir</strong></td>
+      <td>Path to current user's Start Menu</td>
+    </tr>
+    <tr>
+      <td><a id="@StartupDir"></a><strong>@StartupDir</strong></td>
+      <td>current user's Startup folder</td>
+    </tr>
+    <tr>
+      <td><a id="@UserProfileDir"></a><strong>@UserProfileDir</strong></td>
+      <td>Path to current user's Profile folder.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2">Other macros for the computer system:</td>
+    </tr>
+    <tr>
+      <td><a id="@HomeDrive"></a><strong>@HomeDrive</strong></td>
+      <td>Drive letter of drive containing current user's home directory.</td>
+    </tr>
+    <tr>
+      <td><a id="@HomePath"></a><strong>@HomePath</strong></td>
+      <td>Directory part of current user's home directory. To get the full path, use in conjunction with @HomeDrive.</td>
+    </tr>
+    <tr>
+      <td><a id="@HomeShare"></a><strong>@HomeShare</strong></td>
+      <td>Server and share name containing current user's home directory.</td>
+    </tr>
+    <tr>
+      <td><a id="@LogonDNSDomain"></a><strong>@LogonDNSDomain</strong></td>
+      <td>Logon DNS Domain.</td>
+    </tr>
+    <tr>
+      <td><a id="@LogonDomain"></a><strong>@LogonDomain</strong></td>
+      <td>Logon Domain.</td>
+    </tr>
+    <tr>
+      <td><a id="@LogonServer"></a><strong>@LogonServer</strong></td>
+      <td>Logon server.</td>
+    </tr>
+    <tr>
+      <td><a id="@ProgramFilesDir"></a><strong>@ProgramFilesDir</strong></td>
+      <td>Path to Program Files folder</td>
+    </tr>
+    <tr>
+      <td><a id="@CommonFilesDir"></a><strong>@CommonFilesDir</strong></td>
+      <td>Path to Common Files folder</td>
+    </tr>
+    <tr>
+      <td><a id="@WindowsDir"></a><strong>@WindowsDir</strong></td>
+      <td>Path to Windows folder</td>
+    </tr>
+    <tr>
+      <td><a id="@SystemDir"></a><strong>@SystemDir</strong></td>
+      <td>Path to the Windows' System (or System32) folder.</td>
+    </tr>
+    <tr>
+      <td><a id="@TempDir"></a><strong>@TempDir</strong></td>
+      <td>Path to the temporary files folder.</td>
+    </tr>
+    <tr>
+      <td><a id="@ComSpec"></a><strong>@ComSpec</strong></td>
+      <td>Value of %COMSPEC%, the SPECified secondary COMmand interpreter;<br />
+      primary for command line uses, e.g. <a href="../functions/Run.htm">Run</a>(@ComSpec &amp; " /k help | more")</td>
+    </tr>
+  </table>
+</body>
+</html>

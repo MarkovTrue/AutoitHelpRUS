@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinAPI_SetThreadExecutionState</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetThreadExecutionState</h1>
+<p class="funcdesc">Prevents the system from entering sleep or turning off the display while the current application is running<br /></p>
+<p class="codeheader">
+#include &lt;WinAPIProc.au3&gt;<br />
+_WinAPI_SetThreadExecutionState ( $iFlags )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$iFlags</td>
+<td style="width:85%">The thread's execution requirements. This parameter can be one or more of the following values.<br />
+$ES_AWAYMODE_REQUIRED<br />
+$ES_CONTINUOUS<br />
+$ES_DISPLAY_REQUIRED<br />
+$ES_SYSTEM_REQUIRED<br />
+$ES_USER_PRESENT</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">The value is the previous thread execution state.</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>0.</td>
+</tr>
+</table>
+
+<h2>Remarks</h2>
+<p>The <a href="_WinAPI_SetThreadExecutionState.htm">_WinAPI_SetThreadExecutionState()</a> function cannot be used to prevent the user from putting the computer to sleep.<br />
+Applications should respect that the user expects a certain behavior when they close the lid on their laptop or press the power button.<br />
+<br />
+This function does not stop the screen saver from executing.<br />
+According to <a href="https://docs.microsoft.com/en-us/windows/desktop/api/winbase/nf-winbase-setthreadexecutionstate">Microsoft Docs</a> $ES_USER_PRESENT should not be used, and $ES_AWAYMODE_REQUIRED should be used only when absolutely necessary.<br />
+Constants are defined in APIProcConstants.au3<br />
+</p>
+
+<h2>See Also</h2>
+<p>Search <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(SetThreadExecutionState);k(DevLang-C);k(TargetOS-WINDOWS)&rd=true">SetThreadExecutionState</a> in MSDN  Library.
+</p>
+
+<h2 class="bottom">Example</h2>
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") && (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+function copyToClipboard(section) {
+if (window.clipboardData && clipboardData.setData) {
+clipboardData.setData("text", section + "\r\n");
+alert("Copied to clipboard");
+}
+}
+</script>
+<div class="codeSnippetContainer">
+	<div class="codeSnippetContainerTabs">
+<script type="text/javascript">
+if (document.URL.match(/^mk:@MSITStore:/i)) {
+document.write('<div class="codeSnippetContainerTab codeSnippetContainerTabSingle" dir="ltr">');
+document.write('<object id=hhctrl type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Open this Script"><param name="Item1" value=",Examples\\HelpFile\\_WinAPI_SetThreadExecutionState.au3,"></object>');
+document.write('<\/div>');
+}
+</script>
+</div>
+
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetToolBar">
+<div class="codeSnippetToolBarText">
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") && (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+document.write('<a href="#" id="copy" onclick="copyToClipboard(document.getElementById(\'copytext1\').innerText)">Copy to clipboard<\/a>');
+</script>
+</div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="copytext1">
+<pre>
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;WinAPIProc.au3&gt;</span>
+
+<span class="S0">_Example</span><span class="S8">()</span>
+
+<a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> _Example</span><span class="S8">()</span>
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; disable ScreenSaver and other windows sleep features</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_WinAPI_SetThreadExecutionState.htm"><span class="S15">_WinAPI_SetThreadExecutionState</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$ES_DISPLAY_REQUIRED</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$ES_CONTINUOUS</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$ES_SYSTEM_REQUIRED</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$ES_AWAYMODE_REQUIRED</span><span class="S8">))</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'Testing'</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'Close this tester window when you be sure that your ScreeSaver not runing.'</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; back to normal windows behavior</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_WinAPI_SetThreadExecutionState.htm"><span class="S15">_WinAPI_SetThreadExecutionState</span></a><span class="S8">(</span><span class="S9">$ES_CONTINUOUS</span><span class="S8">)</span>
+<a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;_Example</span>
+<span class="S0"></span></span>
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

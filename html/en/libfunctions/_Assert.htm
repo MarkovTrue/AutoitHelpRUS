@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _Assert</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_Assert</h1>
+<p class="funcdesc">Display a message if assertion fails<br /></p>
+<p class="codeheader">
+#include &lt;Debug.au3&gt;<br />
+_Assert ( $sCondition [, $bExit = True [, $iCode = 0x7FFFFFFF [, $sLine = @ScriptLineNumber]]] )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$sCondition</td>
+<td style="width:85%">The condition (expression quoted) that must evaluate to true.</td>
+</tr>
+<tr>
+<td>$bExit</td>
+<td><strong>[optional]</strong> If true (Default), the script is aborted.</td>
+</tr>
+<tr>
+<td>$iCode</td>
+<td><strong>[optional]</strong> The exit code to use if the script is aborted.</td>
+</tr>
+<tr>
+<td>$sLine</td>
+<td><strong>[optional]</strong> Displays the line number where the assertion failed. If this value is not changed, then the default value will show the correct line.</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+Returns&nbsp;the result of the condition (Only valid when not exiting).<br />
+
+
+<h2>Remarks</h2>
+<p>@error and @extended are not destroyed on return.<br />
+If <a href="_DebugSetup.htm">_DebugSetup()</a> has been call, instead of displaying a <a href="../functions/MsgBox.htm">MsgBox()</a>,<br />
+<a href="_DebugReport.htm">_DebugReport()</a> will be used and $bExit will be force to False to avoid script termination.<br />
+</p>
+
+<h2>Related</h2>
+<p><a href="_DebugReport.htm">_DebugReport</a>, <a href="_DebugSetup.htm">_DebugSetup</a></p>
+
+<h2 class="bottom">Example</h2>
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") && (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+function copyToClipboard(section) {
+if (window.clipboardData && clipboardData.setData) {
+clipboardData.setData("text", section + "\r\n");
+alert("Copied to clipboard");
+}
+}
+</script>
+<div class="codeSnippetContainer">
+	<div class="codeSnippetContainerTabs">
+<script type="text/javascript">
+if (document.URL.match(/^mk:@MSITStore:/i)) {
+document.write('<div class="codeSnippetContainerTab codeSnippetContainerTabSingle" dir="ltr">');
+document.write('<object id=hhctrl type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Open this Script"><param name="Item1" value=",Examples\\HelpFile\\_Assert.au3,"></object>');
+document.write('<\/div>');
+}
+</script>
+</div>
+
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetToolBar">
+<div class="codeSnippetToolBarText">
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") && (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+document.write('<a href="#" id="copy" onclick="copyToClipboard(document.getElementById(\'copytext1\').innerText)">Copy to clipboard<\/a>');
+</script>
+</div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="copytext1">
+<pre>
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;Debug.au3&gt;</span>
+
+<a class="codeSnippetLink" href="../libfunctions/_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../keywords/Default.htm"><span class="S5">Default</span></a><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/Booleans.htm"><span class="S5">True</span></a><span class="S8">)</span>
+
+<span class="S0">Example</span><span class="S8">()</span>
+
+<a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> Example</span><span class="S8">()</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sABC</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">""</span>
+<span class="S0">&nbsp; &nbsp; </span><span class="S12">#forceref</span><span class="S0"> </span><span class="S9">$sABC</span>
+
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_Assert.htm"><span class="S15">_Assert</span></a><span class="S8">(</span><span class="S7">'$sABC &gt; ""'</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_Assert.htm"><span class="S15">_Assert</span></a><span class="S8">(</span><span class="S7">'$sABC &gt; ""'</span><span class="S8">)</span>
+<a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;Example</span>
+<span class="S0"></span></span>
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

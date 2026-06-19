@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Install Directory Structure</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+  <style type="text/css">
+td.c5 {width: 40%;}
+  td.c4 {width: 30%;}
+  td.c3 {width: 70%;}
+  td.c2 {width: 20%;}
+  td.c1 {width: 10%;}
+  </style>
+</head>
+<body>
+  <h1>Install Directory Structure</h1>
+  <p>The AutoIt installer creates a directory structure (usually located in <em>\Program Files\AutoIt3</em>) summarized in the following table. The installer also creates Start Menu shortcuts, but no other files are added or modified.<br />
+  <br /></p>
+  <table>
+    <tbody>
+      <tr>
+        <th colspan="2">Files and Directories</th>
+        <th>Description</th>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="3">(Top-level files)</td>
+      </tr>
+      <tr>
+        <td colspan="2">AutoIt3.exe</td>
+        <td>The AutoIt main program and <strong>only</strong> file required to run scripts!</td>
+      </tr>
+      <tr>
+        <td colspan="2">AutoIt3_x64.exe</td>
+        <td>The x64 version of AutoIt (if installed).</td>
+      </tr>
+      <tr>
+        <td colspan="2">Au3Info.exe</td>
+        <td>The <a href="au3spy.htm">AutoIt Window Info Tool.</a></td>
+      </tr>
+      <tr>
+        <td colspan="2">Au3Info_x64.exe</td>
+        <td>The x64 version of <a href="au3spy.htm">Au3Info</a> (if installed).</td>
+      </tr>
+      <tr>
+        <td colspan="2">AU3Check.exe</td>
+        <td>The <a href="au3check.htm">AutoIt syntax checker.</a></td>
+      </tr>
+      <tr>
+        <td colspan="2">AutoIt.chm</td>
+        <td>This help file.</td>
+      </tr>
+      <tr>
+        <td colspan="2">Uninstall.exe</td>
+        <td>The AutoIt uninstaller.</td>
+      </tr>
+      <tr>
+        <td colspan="2">AutoIt v3 Website.url</td>
+        <td>A shortcut to <a href="https://www.autoitscript.com/site/autoit/" target="_blank">https://www.autoitscript.com/site/autoit/</a></td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="3">Aut2Exe</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td class="c2"><strong>Icons\</strong></td>
+        <td class="c3">Contains icons used for the .au3 filetype icon in Explorer.</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td>Aut2Exe.exe</td>
+        <td>The script compiler.</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td>Aut2Exe_x64.exe</td>
+        <td>The x64 version of Aut2Exe (if installed).</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td>UPX.exe</td>
+        <td>The UPX compressor (reduces the size of exe files).</td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="3">Examples</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td class="c2"><strong>COM\</strong></td>
+        <td class="c3">Contains examples of COMs written in AutoIt.</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td><strong>GUI\</strong></td>
+        <td>Contains examples of GUIs written in AutoIt.</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td><strong>Helpfile\</strong></td>
+        <td>Contains scripts used in many of the help file examples.</td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="3">Extras</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td><strong>AutoUpdateIt\</strong></td>
+        <td>Contains a script for easily retrieving the latest version of AutoIt3.</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td><strong>Editors\</strong></td>
+        <td>Contains syntax coloring definitions for some popular text editors.</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td><strong>Geshi\</strong></td>
+        <td>Contains syntax coloring file for the <a href="http://qbnz.com/highlighter/" target="_blank">Geshi</a> server-side syntax highlighter.</td>
+      </tr>
+      <tr>
+        <td><br /></td>
+        <td><strong>Prettify\</strong></td>
+        <td>Contains syntax coloring file the <a href="https://github.com/google/code-prettify/" target="_blank">Google Prettify</a> client-side javascript highlighter.</td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="3">Icons</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td colspan="2">Contains icons used for the .au3 filetype icon in Explorer.</td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="3">Include</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td colspan="2">Contains standard include files (pre-written user functions). See User Defined Function Reference.</td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="3">AutoItX</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td colspan="2">Contains a DLL version of AutoIt v3 that provides a subset of the features of AutoIt via an ActiveX/COM and DLL interface.</td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="3">SciTE</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td colspan="2">Contains a light version of SciTE which allows syntax coloring.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>It should be noted that to run AutoIt scripts, the only required file is <strong>AutoIt3.exe</strong>. If you compile a script into an executable then a user does not require AutoIt to be installed to run a compiled executable.</p>
+  <h2>Registry Keys</h2>
+  <p>The AutoIt installer creates registry keys under <em>HKEY_LOCAL_MACHINE\Software\AutoIt v3</em> or <em>HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\AutoIt v3\</em> if using a 64-bit machine and <em>HKEY_CURRENT_USER\Software\AutoIt v3</em>. The keys are NOT used/created when AutoIt utilities are run on machines that lack a full AutoIt
+  installation--AutoIt is "clean" to run on servers, etc.</p>
+  <p>The table below shows the default (or typical) registry keys. The keys in italic are not created by the installer itself but by the first execution of the corresponding utility:</p>
+  <table>
+    <tbody>
+      <tr>
+        <th colspan="4">HKEY_LOCAL_MACHINE\SOFTWARE\AutoIt v3\</th>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="4">AutoIt</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td class="c4">(Default)</td>
+        <td class="c2">REG_SZ</td>
+        <td class="c5">(value not set)</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>InstallDir</td>
+        <td>REG_SZ</td>
+        <td>C:\Program Files\AutoIt3</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>Version</td>
+        <td>REG_SZ</td>
+        <td><em>Version Number</em></td>
+      </tr>
+      <tr>
+        <th colspan="4">HKEY_CURRENT_USER\Software\AutoIt v3\</th>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="4">Aut2Exe</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>(Default)</td>
+        <td>REG_SZ</td>
+        <td>(value not set)</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>LastCompression</td>
+        <td>REG_DWORD</td>
+        <td>0x2</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>LastExeDir</td>
+        <td>REG_SZ</td>
+        <td>My Documents</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>LastIcon</td>
+        <td>REG_SZ</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>LastIconDir</td>
+        <td>REG_SZ</td>
+        <td>C:\Program Files\AutoIt3\Aut2Exe\Icons</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>LastScriptDir</td>
+        <td>REG_SZ</td>
+        <td>My Documents</td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="4">AutoUpdateIt</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>(Default)</td>
+        <td>REG_SZ</td>
+        <td>(value not set)</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>DoneOption</td>
+        <td>REG_SZ</td>
+        <td>Notify</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>DownloadDir</td>
+        <td>REG_SZ</td>
+        <td>C:\Downloads\ForExample\</td>
+      </tr>
+      <tr class="yellowbold">
+        <td colspan="4">Au3Info</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>Default</td>
+        <td>REG_SZ</td>
+        <td>(value not set)</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>AlwaysOnTop</td>
+        <td>REG_DWORD</td>
+        <td>0x1</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>ColorMode</td>
+        <td>REG_DWORD</td>
+        <td>0x1</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>CoordMode</td>
+        <td>REG_DWORD</td>
+        <td>0x1</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>HighlightColor</td>
+        <td>REG_DWORD</td>
+        <td>0x0</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>HighlightControls</td>
+        <td>REG_DWORD</td>
+        <td>0x1</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>Magnify</td>
+        <td>REG_DWORD</td>
+        <td>0x0</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>WinH</td>
+        <td>REG_DWORD</td>
+        <td>0x01c2</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>WinW</td>
+        <td>REG_DWORD</td>
+        <td>0x012c</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>WinX</td>
+        <td>REG_DWORD</td>
+        <td>0x0064</td>
+      </tr>
+      <tr>
+        <td class="c1"><br /></td>
+        <td>WinY</td>
+        <td>REG_DWORD</td>
+        <td>0x0064</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

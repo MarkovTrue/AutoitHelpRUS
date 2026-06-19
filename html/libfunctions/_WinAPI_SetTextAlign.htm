@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetTextAlign</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetTextAlign</h1>
+<p class="funcdesc">Устанавливает флаги выравнивания текста для указанного контекста устройства.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetTextAlign.htm"><span class="S15">_WinAPI_SetTextAlign</span></a> <span class="S8">(</span> <span class="S9">$hDC</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iMode</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMode</span></td>
+<td><strong>[необязательный]</strong> Выравнивание текста с использованием маски значений в следующем списке. Можно выбрать только один флаг<br />
+из тех, которые влияют на горизонтальное и вертикальное выравнивание. Кроме того, можно выбрать только один из двух флагов, которые<br />
+изменяют текущую позицию.<br />
+<span class="S91">$TA_BASELINE</span><br />
+<span class="S91">$TA_BOTTOM</span><br />
+<span class="S91">$TA_TOP</span> (по умолчанию)<br />
+<span class="S91">$TA_CENTER</span><br />
+<span class="S91">$TA_LEFT</span> (по умолчанию)<br />
+<span class="S91">$TA_RIGHT</span><br />
+<span class="S91">$TA_NOUPDATECP</span> (по умолчанию)<br />
+<span class="S91">$TA_RTLREADING</span><br />
+<span class="S91">$TA_UPDATECP</span><br />
+<br />
+Когда текущий шрифт имеет вертикальную базовую линию по умолчанию, как с Kanji, следующие значения должны быть<br />
+используется вместо <span class="S91">$TA_BASELINE</span> и <span class="S91">$TA_CENTER</span>.<br />
+<span class="S91">$VTA_BASELINE</span><br />
+<span class="S91">$VTA_CENTER</span><br />
+<br />
+Значения по умолчанию – <span class="S91">$TA_LEFT</span>, <span class="S91">$TA_TOP</span> и <span class="S91">$TA_NOUPDATECP</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает предыдущая настройка выравнивания текста (<span class="S91">$TA_*</span> и <span class="S91">$VTA_*</span>).</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>(-1) GDI_ERROR.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetTextAlign">SetTextAlign</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

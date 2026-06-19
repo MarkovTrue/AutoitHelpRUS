@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetSystemCursor</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetSystemCursor</h1>
+<p class="funcdesc">Позволяет приложению настраивать системные курсоры.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetSystemCursor.htm"><span class="S15">_WinAPI_SetSystemCursor</span></a> <span class="S8">(</span> <span class="S9">$hCursor</span><span class="S8">,</span> <span class="S9">$iID</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bCopy</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hCursor</span></td>
+<td style="width:85%">Дескриптор курсора.</td>
+</tr>
+<tr>
+<td><span class="S91">$iID</span></td>
+<td>Этот параметр указывает системный курсор для замены содержимым <span class="S91">$hCursor</span>,<br />
+и может быть одним из следующих значений.<br />
+<span class="S91">$OCR_NORMAL</span><br />
+<span class="S91">$OCR_IBEAM</span><br />
+<span class="S91">$OCR_WAIT</span><br />
+<span class="S91">$OCR_CROSS</span><br />
+<span class="S91">$OCR_UP</span><br />
+<span class="S91">$OCR_SIZE</span><br />
+<span class="S91">$OCR_ICON</span><br />
+<span class="S91">$OCR_SIZENWSE</span><br />
+<span class="S91">$OCR_SIZENESW</span><br />
+<span class="S91">$OCR_SIZEWE</span><br />
+<span class="S91">$OCR_SIZENS</span><br />
+<span class="S91">$OCR_SIZEALL</span><br />
+<span class="S91">$OCR_ICOCUR</span><br />
+<span class="S91">$OCR_NO</span><br />
+<span class="S91">$OCR_HAND</span><br />
+<span class="S91">$OCR_APPSTARTING</span><br />
+<span class="S91">$OCR_HELP</span></td>
+</tr>
+<tr>
+<td><span class="S91">$bCopy</span></td>
+<td><strong>[необязательный]</strong> Указывает, следует ли дублировать курсор, допустимые значения:<br />
+<span class="S5">True</span>	- Курсор дублируется.<br />
+<span class="S5">False</span> - Курсор не дублируется (По умолчанию).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Функция заменяет содержимое системного курсора, указанного ID, содержимым курсора, обработанным<br />
+<span class="S91">$hCursor</span>. Система уничтожает <span class="S91">$hCursor</span> путём вызова функции <a href="_WinAPI_DestroyCursor.htm"><span class="S15">_WinAPI_DestroyCursor</span><span class="S8">()</span></a>. Поэтому <span class="S91">$hCursor</span> не может<br />
+быть курсором, загруженным с использованием функции <a href="_WinAPI_LoadCursor.htm"><span class="S15">_WinAPI_LoadCursor</span><span class="S8">()</span></a>. Для указания курсора, загруженного из ресурса, скопируйте<br />
+курсор с помощью функции <a href="_WinAPI_CopyCursor.htm"><span class="S15">_WinAPI_CopyCursor</span><span class="S8">()</span></a>, а затем передайте копию в <a href="_WinAPI_SetSystemCursor.htm"><span class="S15">_WinAPI_SetSystemCursor</span><span class="S8">()</span></a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_CopyCursor.htm">_WinAPI_CopyCursor</a>, <a href="_WinAPI_DestroyCursor.htm">_WinAPI_DestroyCursor</a>, <a href="_WinAPI_LoadCursor.htm">_WinAPI_LoadCursor</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetSystemCursor">SetSystemCursor</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hPrev</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CopyCursor.htm"><span class="S15">_WinAPI_CopyCursor</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_LoadCursor.htm"><span class="S15">_WinAPI_LoadCursor</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S9">$OCR_NORMAL</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sCur</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">'Lens.cur'</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetSystemCursor.htm"><span class="S15">_WinAPI_SetSystemCursor</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_LoadCursorFromFile.htm"><span class="S15">_WinAPI_LoadCursorFromFile</span></a><span class="S8">(</span><span class="S9">$sCur</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$OCR_NORMAL</span><span class="S8">)</span><br>
+<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">5000</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetSystemCursor.htm"><span class="S15">_WinAPI_SetSystemCursor</span></a><span class="S8">(</span><span class="S9">$hPrev</span><span class="S8">,</span> <span class="S9">$OCR_NORMAL</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_SetSystemCursor.au3,"></object>
+</body>
+</html>

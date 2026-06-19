@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetCompressedFileSize</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetCompressedFileSize</h1>
+<p class="funcdesc">Получает фактическое количество байт дискового хранилища, используемых для хранения указанного файла.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetCompressedFileSize.htm"><span class="S15">_WinAPI_GetCompressedFileSize</span></a> <span class="S8">(</span> <span class="S9">$sFilePath</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sFilePath</span></td>
+<td style="width:85%">Имя файла.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает фактическое количество байт дискового хранилища.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает флаг <span class="S61">@error</span> в ненулевое значение. <span class="S61">@extended</span> содержит системную ошибку.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если файл находится не на томе, поддерживающем сжатие или разреженные файлы, или если файл не сжат или не является разреженным, полученное значение представляет собой фактический размер файла.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetCompressedFileSize">GetCompressedFileSize</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

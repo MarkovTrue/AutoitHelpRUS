@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Связанные с AutoIt</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Связанные с AutoIt</h1>
+  <p>Ниже приведён список макросов, связанных с AutoIt.<br /></p>
+  <p>Полный список макросов – <a href="../macros.htm">здесь</a>.</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th>Макрос</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a id="@Compiled"></a><strong><span class="S61">@Compiled</span></strong></td>
+      <td>Возвращает 1, если скрипт – скомпилированный исполняемый файл или .a3x; возвращает 0, если это .au3.</td>
+    </tr>
+    <tr>
+      <td><a id="@error"></a><strong><span class="S61">@error</span></strong></td>
+      <td>Флаг ошибки. См. функцию <a href="../functions/SetError.htm"><span class="S4">SetError</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@exitCode"></a><strong><span class="S61">@exitCode</span></strong></td>
+      <td>Код завершения, установленный оператором <a href="../keywords/Exit.htm">Exit</a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@exitMethod"></a><strong><span class="S61">@exitMethod</span></strong></td>
+      <td>Метод завершения скрипта. См. функцию <a href="../functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@extended"></a><strong><span class="S61">@extended</span></strong></td>
+      <td>Расширенный код возврата – используется в ряде функций, например <a href="../functions/StringReplace.htm"><span class="S4">StringReplace</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@NumParams"></a><strong><span class="S61">@NumParams</span></strong></td>
+      <td>Количество параметров, переданных при вызове пользовательской функции.</td>
+    </tr>
+    <tr>
+      <td><a id="@ScriptName"></a><strong><span class="S61">@ScriptName</span></strong></td>
+      <td>Имя файла запущенного скрипта.</td>
+    </tr>
+    <tr>
+      <td><a id="@ScriptDir"></a><strong><span class="S61">@ScriptDir</span></strong></td>
+      <td>Каталог, содержащий запущенный скрипт. Завершающая обратная косая черта добавляется только если скрипт находится в корне диска.</td>
+    </tr>
+    <tr>
+      <td><a id="@ScriptFullPath"></a><strong><span class="S61">@ScriptFullPath</span></strong></td>
+      <td>Эквивалентно <span class="S61">@ScriptDir</span> &amp; "\" &amp; <span class="S61">@ScriptName</span>.</td>
+    </tr>
+    <tr>
+      <td><a id="@ScriptLineNumber"></a><strong><span class="S61">@ScriptLineNumber</span></strong></td>
+      <td>Номер выполняемой строки – полезен для отладочных сообщений (например, для отображения места вызова функции). Значим только в неоткомпилированных скриптах; файлы <span class="S111">#include</span> возвращают собственную нумерацию строк.</td>
+    </tr>
+    <tr>
+      <td><a id="@WorkingDir"></a><strong><span class="S61">@WorkingDir</span></strong></td>
+      <td>Текущий (активный) рабочий каталог. Завершающая обратная косая черта добавляется только если скрипт находится в корне диска.</td>
+    </tr>
+    <tr>
+      <td><a id="@AutoItExe"></a><strong><span class="S61">@AutoItExe</span></strong></td>
+      <td>Полный путь и имя выполняющегося в данный момент исполняемого файла AutoIt. Для скомпилированных скриптов – путь к скомпилированному скрипту; для .a3x и .au3 – путь к интерпретатору, запустившему файл.</td>
+    </tr>
+    <tr>
+      <td><a id="@AutoItPID"></a><strong><span class="S61">@AutoItPID</span></strong></td>
+      <td>Идентификатор процесса (PID) текущего скрипта.</td>
+    </tr>
+    <tr>
+      <td><a id="@AutoItVersion"></a><strong><span class="S61">@AutoItVersion</span></strong></td>
+      <td>Номер версии AutoIt, например, 3.3.10.2.</td>
+    </tr>
+    <tr>
+      <td><a id="@AutoItX64"></a><strong><span class="S61">@AutoItX64</span></strong></td>
+      <td>Возвращает 1, если скрипт выполняется под нативной x64-версией AutoIt.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td><a id="@COM_EventObj"></a><strong><span class="S61">@COM_EventObj</span></strong></td>
+      <td>Объект, для которого сработало COM-событие. Действителен только внутри функции-обработчика COM-события.</td>
+    </tr>
+    <tr>
+      <td><a id="@GUI_CtrlId"></a><strong><span class="S61">@GUI_CtrlId</span></strong></td>
+      <td>Идентификатор последнего нажатого элемента GUI. Действителен только в функции обработки события. См. <a href="../functions/GUICtrlSetOnEvent.htm"><span class="S4">GUICtrlSetOnEvent</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@GUI_CtrlHandle"></a><strong><span class="S61">@GUI_CtrlHandle</span></strong></td>
+      <td>Дескриптор последнего нажатого элемента GUI. Действителен только в функции обработки события. См. <a href="../functions/GUICtrlSetOnEvent.htm"><span class="S4">GUICtrlSetOnEvent</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@GUI_DragId"></a><strong><span class="S61">@GUI_DragId</span></strong></td>
+      <td>Идентификатор источника перетаскивания (Drag). Действителен только в событии Drop. См. <a href="../functions/GUISetOnEvent.htm"><span class="S4">GUISetOnEvent</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@GUI_DragFile"></a><strong><span class="S61">@GUI_DragFile</span></strong></td>
+      <td>Имя перетаскиваемого файла. Действителен только в событии Drop. См. <a href="../functions/GUISetOnEvent.htm"><span class="S4">GUISetOnEvent</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@GUI_DropId"></a><strong><span class="S61">@GUI_DropId</span></strong></td>
+      <td>Идентификатор цели перетаскивания (Drop). Действителен только в событии Drop. См. <a href="../functions/GUISetOnEvent.htm"><span class="S4">GUISetOnEvent</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@GUI_WinHandle"></a><strong><span class="S61">@GUI_WinHandle</span></strong></td>
+      <td>Дескриптор последнего нажатого окна GUI. Действителен только в функции обработки события. См. <a href="../functions/GUICtrlSetOnEvent.htm"><span class="S4">GUICtrlSetOnEvent</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@HotKeyPressed"></a><strong><span class="S61">@HotKeyPressed</span></strong></td>
+      <td>Последнее нажатое сочетание клавиш. См. функцию <a href="../functions/HotKeySet.htm"><span class="S4">HotKeySet</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2">Для использования с функциями <a href="../functions/WinSetState.htm"><span class="S4">WinSetState</span><span class="S8">()</span></a>, <a href="../functions/Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>, <a href="../functions/RunWait.htm">RunWait</a>, <a href=
+      "../functions/FileCreateShortcut.htm">FileCreateShortcut()</a> и <a href="../functions/FileGetShortcut.htm"><span class="S4">FileGetShortcut</span><span class="S8">()</span></a>:</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_DISABLE"></a><strong><span class="S61">@SW_DISABLE</span></strong></td>
+      <td>Отключает окно.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_ENABLE"></a><strong><span class="S61">@SW_ENABLE</span></strong></td>
+      <td>Включает окно.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_HIDE"></a><strong><span class="S61">@SW_HIDE</span></strong></td>
+      <td>Скрывает окно и активирует другое окно.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_LOCK"></a><strong><span class="S61">@SW_LOCK</span></strong></td>
+      <td>Блокирует окно, чтобы избежать перерисовки.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_MAXIMIZE"></a><strong><span class="S61">@SW_MAXIMIZE</span></strong></td>
+      <td>Активирует окно и показывает его развёрнутым на весь экран.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_MINIMIZE"></a><strong><span class="S61">@SW_MINIMIZE</span></strong></td>
+      <td>Сворачивает указанное окно и активирует следующее верхнеуровневое окно в Z-порядке.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_RESTORE"></a><strong><span class="S61">@SW_RESTORE</span></strong></td>
+      <td>Активирует и показывает окно. Если окно свёрнуто или развёрнуто, система восстанавливает его исходный размер и положение. Приложение должно указывать этот флаг при восстановлении свёрнутого окна.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_SHOW"></a><strong><span class="S61">@SW_SHOW</span></strong></td>
+      <td>Активирует окно и показывает его в текущем размере и положении.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_SHOWDEFAULT"></a><strong><span class="S61">@SW_SHOWDEFAULT</span></strong></td>
+      <td>Устанавливает состояние отображения на основе SW_-значения, заданного программой, которая запустила приложение.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_SHOWMAXIMIZED"></a><strong><span class="S61">@SW_SHOWMAXIMIZED</span></strong></td>
+      <td>Активирует окно и показывает его развёрнутым на весь экран.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_SHOWMINIMIZED"></a><strong><span class="S61">@SW_SHOWMINIMIZED</span></strong></td>
+      <td>Активирует окно и показывает его свёрнутым.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_SHOWMINNOACTIVE"></a><strong><span class="S61">@SW_SHOWMINNOACTIVE</span></strong></td>
+      <td>Отображает окно свёрнутым. Аналогично <span class="S61">@SW_SHOWMINIMIZED</span>, но без активации окна.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_SHOWNA"></a><strong><span class="S61">@SW_SHOWNA</span></strong></td>
+      <td>Отображает окно в текущем размере и положении. Аналогично <span class="S61">@SW_SHOW</span>, но без активации окна.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_SHOWNOACTIVATE"></a><strong><span class="S61">@SW_SHOWNOACTIVATE</span></strong></td>
+      <td>Отображает окно в последнем размере и положении. Аналогично <span class="S61">@SW_SHOWNORMAL</span>, но без активации окна.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_SHOWNORMAL"></a><strong><span class="S61">@SW_SHOWNORMAL</span></strong></td>
+      <td>Активирует и показывает окно. Если окно свёрнуто или развёрнуто, система восстанавливает его исходный размер и положение. Приложение должно указывать этот флаг при первом отображении окна.</td>
+    </tr>
+    <tr>
+      <td><a id="@SW_UNLOCK"></a><strong><span class="S61">@SW_UNLOCK</span></strong></td>
+      <td>Разблокирует окно, разрешая перерисовку.</td>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td><a id="@TRAY_ID"></a><strong><span class="S61">@TRAY_ID</span></strong></td>
+      <td>Идентификатор последнего нажатого элемента при обработке события <a href="../functions/TraySetOnEvent.htm"><span class="S4">TraySetOnEvent</span><span class="S8">()</span></a> или <a href="../functions/TrayItemSetOnEvent.htm"><span class="S4">TrayItemSetOnEvent</span><span class="S8">()</span></a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@TrayIconFlashing"></a><strong><span class="S61">@TrayIconFlashing</span></strong></td>
+      <td>Возвращает 1, если значок в трее мигает; иначе возвращает 0.</td>
+    </tr>
+    <tr>
+      <td><a id="@TrayIconVisible"></a><strong><span class="S61">@TrayIconVisible</span></strong></td>
+      <td>Возвращает 1, если значок в трее видим; иначе возвращает 0.</td>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td><a id="@CR"></a><strong><span class="S61">@CR</span></strong></td>
+      <td>Возврат каретки, <a href="../functions/Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>13<span class="S8">)</span>; иногда используется для переноса строки.</td>
+    </tr>
+    <tr>
+      <td><a id="@LF"></a><strong><span class="S61">@LF</span></strong></td>
+      <td>Перевод строки, <a href="../functions/Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>10<span class="S8">)</span>; иногда используется для переноса строки.</td>
+    </tr>
+    <tr>
+      <td><a id="@CRLF"></a><strong><span class="S61">@CRLF</span></strong></td>
+      <td><span class="S61">@CR</span> &amp; <span class="S61">@LF</span>; обычно используется для переноса строки.</td>
+    </tr>
+    <tr>
+      <td><a id="@TAB"></a><strong><span class="S61">@TAB</span></strong></td>
+      <td>Символ табуляции, <a href="../functions/Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>9<span class="S8">)</span>.</td>
+    </tr>
+  </table>
+</body>
+</html>

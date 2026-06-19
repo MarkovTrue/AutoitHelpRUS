@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _INetSmtpMail</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_INetSmtpMail</h1>
+<p class="funcdesc">Отправляет электронное письмо без использования внешней почтовой программы.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Inet.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_INetSmtpMail.htm"><span class="S15">_INetSmtpMail</span></a> <span class="S8">(</span> <span class="S9">$sSMTPServer</span><span class="S8">,</span> <span class="S9">$sFromName</span><span class="S8">,</span> <span class="S9">$sFromAddress</span><span class="S8">,</span> <span class="S9">$sToAddress</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sSubject</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$aBody</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sEHLO</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sFirst</span> <span class="S8">=</span> <span class="S7">" "</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bTrace</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sSMTPServer</span></td>
+<td style="width:85%">SMTP-сервер, через который будет отправлено письмо. Может быть либо имя сервера, либо численный IP-адрес. Для борьбы со спамом многие провайдеры требуют использовать их серверы.<br />
+например "smtp.ispdomain.com", "mail.ispdomain.com" или "192.168.1.1"</td>
+</tr>
+<tr>
+<td><span class="S91">$sFromName</span></td>
+<td>Имя отправителя, которое будет показано в письме.<br />
+например "Bob Smith"</td>
+</tr>
+<tr>
+<td><span class="S91">$sFromAddress</span></td>
+<td>Адрес электронной почты, который будет показан как адрес отправителя.<br />
+например "bob.smith@mydomain.com".</td>
+</tr>
+<tr>
+<td><span class="S91">$sToAddress</span></td>
+<td>Адрес электронной почты получателя.<br />
+например "jane.brown@yourdomain.com"</td>
+</tr>
+<tr>
+<td><span class="S91">$sSubject</span></td>
+<td><strong>[необязательный]</strong> Тема письма.</td>
+</tr>
+<tr>
+<td><span class="S91">$aBody</span></td>
+<td><strong>[необязательный]</strong> Текст письма в виде одномерного массива строк. Каждая строка в письме будет завершена символом <span class="S61">@CRLF</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$sEHLO</span></td>
+<td><strong>[необязательный]</strong> Идентификатор для подключения к SMTP-серверу (по умолчанию <span class="S61">@ComputerName</span>). Если SMTP-сервер требует строку "EHLO", установите значение "EHLO " & <span class="S61">@ComputerName</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$sFirst</span></td>
+<td><strong>[необязательный]</strong> Строка, отправляемая перед HELO для подключения к SMTP-серверу (по умолчанию пробел). Чтобы не отправлять символы, установите значение -1; некоторые SMTP-серверы это требуют.</td>
+</tr>
+<tr>
+<td><span class="S91">$bTrace</span></td>
+<td><strong>[необязательный]</strong> Отобразить диалог в окне сообщения</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>1<br />
+2	–&nbsp;Не удалось запустить TCP<br />
+3	–&nbsp;Не удалось разрешить IP<br />
+4	–&nbsp;Не удалось создать сокет<br />
+5	–&nbsp;Не удалось получить информацию о часовом поясе<br />
+5x&nbsp;– Не удалось открыть сеанс SMTP. x – номер индекса последней команды, отправленной на SMTP-сервер.<br />
+50x&nbsp;– Не удалось отправить текст письма. x – номер строки массива <span class="S91">$aBody</span> (первая строка имеет номер 0).<br />
+5000&nbsp;– Не удалось закрыть сеанс SMTP</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Функция отправляет письмо напрямую через SMTP-сервер без использования сторонних почтовых клиентов.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_INetMail.htm">_INetMail</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Inet.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$s_SmtpServer</span> <span class="S8">=</span> <span class="S7">"mysmtpserver.com.au"</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$s_FromName</span> <span class="S8">=</span> <span class="S7">"My Name"</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$s_FromAddress</span> <span class="S8">=</span> <span class="S7">"From eMail Address"</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$s_ToAddress</span> <span class="S8">=</span> <span class="S7">"To eMail Address"</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$s_Subject</span> <span class="S8">=</span> <span class="S7">"My Test UDF"</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$as_Body</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
+<span class="S9">$as_Body</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Testing the new email udf"</span><br>
+<span class="S9">$as_Body</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Second Line"</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iResponse</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_INetSmtpMail.htm"><span class="S15">_INetSmtpMail</span></a><span class="S8">(</span><span class="S9">$s_SmtpServer</span><span class="S8">,</span> <span class="S9">$s_FromName</span><span class="S8">,</span> <span class="S9">$s_FromAddress</span><span class="S8">,</span> <span class="S9">$s_ToAddress</span><span class="S8">,</span> <span class="S9">$s_Subject</span><span class="S8">,</span> <span class="S9">$as_Body</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iErr</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iResponse</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Success!"</span><span class="S8">,</span> <span class="S7">"Mail sent"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Error!"</span><span class="S8">,</span> <span class="S7">"Mail failed with error code "</span> <span class="S8">&amp;</span> <span class="S9">$iErr</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_INetSmtpMail.au3,"></object>
+</body>
+</html>

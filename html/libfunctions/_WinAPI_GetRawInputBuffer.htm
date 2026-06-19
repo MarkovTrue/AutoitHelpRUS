@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetRawInputBuffer</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetRawInputBuffer</h1>
+<p class="funcdesc">Выполняет буферизованное чтение данных сырого ввода.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetRawInputBuffer.htm"><span class="S15">_WinAPI_GetRawInputBuffer</span></a> <span class="S8">(</span> <span class="S9">$pBuffer</span><span class="S8">,</span> <span class="S9">$iLength</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$pBuffer</span></td>
+<td style="width:85%">Указатель на буфер для получения массива структур <span class="S91">$tagRAWINPUT</span>, содержащих данные сырого ввода.</td>
+</tr>
+<tr>
+<td><span class="S91">$iLength</span></td>
+<td>Размер буфера в байтах.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает количество структур <span class="S91">$tagRAWINPUT</span>, записанных в буфер.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Чтобы получить минимальный требуемый размер буфера для вызова этой функции, используйте <a href="_WinAPI_GetRawInputBufferLength.htm"><span class="S15">_WinAPI_GetRawInputBufferLength</span><span class="S8">()</span></a>.<br />
+<br />
+Для обеспечения правильной работы функции <a href="_WinAPI_GetRawInputBuffer.htm"><span class="S15">_WinAPI_GetRawInputBuffer</span><span class="S8">()</span></a> на WOW64<br />
+вы должны выровнять структуру <span class="S91">$tagRAWINPUT</span> по 8 байт.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_GetRawInputBufferLength.htm">_WinAPI_GetRawInputBufferLength</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetRawInputBuffer">GetRawInputBuffer</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

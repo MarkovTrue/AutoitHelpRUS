@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_RegisterShellHookWindow</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_RegisterShellHookWindow</h1>
+<p class="funcdesc">Регистрирует указанное окно Shell для получения определённых сообщений для событий или уведомлений.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_RegisterShellHookWindow.htm"><span class="S15">_WinAPI_RegisterShellHookWindow</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_WinAPI_DeRegisterShellHookWindow.htm">_WinAPI_DeRegisterShellHookWindow</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=RegisterShellHookWindow">RegisterShellHookWindow</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;APISysConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">'TrayAutoPause'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span></a><span class="S8">(</span><span class="S0">OnAutoItExit</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_hForm</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_RegisterWindowMessage.htm"><span class="S15">_WinAPI_RegisterWindowMessage</span></a><span class="S8">(</span><span class="S7">'SHELLHOOK'</span><span class="S8">)</span><span class="S8">,</span> <span class="S0">WM_SHELLHOOK</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_RegisterShellHookWindow.htm"><span class="S15">_WinAPI_RegisterShellHookWindow</span></a><span class="S8">(</span><span class="S9">$g_hForm</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/ToolTip.htm"><span class="S4">ToolTip</span></a><span class="S8">(</span><span class="S7">"Type ESC to exit the script"</span><span class="S8">)</span><br>
+<a class="le" href="../functions/HotKeySet.htm"><span class="S4">HotKeySet</span></a><span class="S8">(</span><span class="S7">"{ESC}"</span><span class="S8">,</span> <span class="S7">"_Exit"</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">100</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">WM_SHELLHOOK</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$iMsg</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sTitle</span> <span class="S8">=</span> <a class="le" href="../functions/WinGetTitle.htm"><span class="S4">WinGetTitle</span></a><span class="S8">(</span><span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$hWnd</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$g_hForm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$wParam</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$HSHELL_REDRAW</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'Redrawn: '</span> <span class="S8">&amp;</span> <span class="S9">$sTitle</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$HSHELL_WINDOWACTIVATED</span><span class="S8">,</span> <span class="S9">$HSHELL_RUDEAPPACTIVATED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'Activated: '</span> <span class="S8">&amp;</span> <span class="S9">$sTitle</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;WM_SHELLHOOK
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">OnAutoItExit</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeregisterShellHookWindow.htm"><span class="S15">_WinAPI_DeregisterShellHookWindow</span></a><span class="S8">(</span><span class="S9">$g_hForm</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;OnAutoItExit
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_Exit</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S3">1</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_Exit
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_RegisterShellHookWindow.au3,"></object>
+</body>
+</html>

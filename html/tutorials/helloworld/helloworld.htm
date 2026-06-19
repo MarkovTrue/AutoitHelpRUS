@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Мой первый скрипт (Привет Мир!)</title>
+  <meta charset="utf-8">
+  <link href="../../css/default.css" rel="stylesheet">
+<script src="../../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Мой первый скрипт (Привет Мир!)</h1>
+  <p>Этот урок объясняет основы создания скрипта AutoIt и его запуска. Предполагается, что вы уже полностью установили AutoIt v3 с помощью предоставленного инсталлятора.</p>
+  <p>&nbsp;</p>
+  <p>Сначала откройте папку, в которой хотите создать скрипт. Щелкните правой кнопкой мыши в папке и выберите <strong>Создать / AutoIt v3 Script</strong>.</p>
+  <p><img src="filenew.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Будет создан новый файл, который сразу же позволит переименовать его на что-то более подходящее. Измените «New AutoIt v3 Script» на <strong>«helloworld»</strong>, оставив расширение '.au3' в имени, если оно видно.</p>
+  <p><img src="folderview.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Теперь, когда мы создали файл скрипта, нам нужно отредактировать его, чтобы он делал что-то полезное. Щелкните правой кнопкой мыши на <span class="S7">helloworld.au3</span> и выберите <strong>Edit Script</strong>.</p>
+  <p><img src="fileedit.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Откроется редактор SciTE, и вы увидите примерно следующее:</p>
+  <p><img src="template.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Код, который вы видите – это просто комментарии, которые можно использовать для организации скриптов. Строки, начинающиеся с точки с запятой <strong>;</strong>, рассматриваются как комментарии (пропускаются). ; похожа на оператор <strong>REM</strong> в батнике DOS. Шаблон хранится в «C:\Windows\ShellNew\<span class="S7">Template.au3</span>» – вы можете настроить его под свои требования.</p>
+  <p>&nbsp;</p>
+  <p>Теперь мы хотим сказать AutoIt отобразить окно сообщения – это делается с помощью функции <a href="../../functions/MsgBox.htm">MsgBox</a>.</p>
+  <p>В конце файла введите следующее:</p>
+  <p>&nbsp;</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Tutorial"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello World!"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Все функции принимают параметры; MsgBox принимает три – флаг, заголовок и сообщение. Флаг – это число, которое меняет то, как MsgBox отображается – мы будем использовать <strong><span class="S91">$MB_OK</span></strong> пока. Заголовок и сообщение – оба параметра типа <strong>string</strong> – при использовании строк в AutoIt заключите текст в двойные или одинарные кавычки. "This is some text" или 'This is some text' – оба варианта работают хорошо.</p>
+  <p>Теперь сохраните скрипт и закройте редактор. Вы только что написали свой первый скрипт AutoIt! Чтобы запустить скрипт, просто дважды щелкните на файле <span class="S7">helloworld.au3</span> (вы также можете щелкнуть правой кнопкой мыши на файле и выбрать <strong>Run Script</strong>).</p>
+  <p>Вы должны увидеть это:</p>
+  <p><img src="msgbox.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Теперь давайте ещё раз посмотрим на параметр <em>flag</em> функции <a href="../../functions/MsgBox.htm">MsgBox</a>. На странице документации мы можем увидеть различные значения, которые меняют то, как MsgBox отображается. Значение <strong><span class="S91">$MB_OK</span></strong> просто показывает простое окно сообщения с кнопкой <strong>OK</strong>. Значение <strong><span class="S91">$MB_ICONINFORMATION</span></strong> отображает окно сообщения с <em>иконкой информации</em>.</p>
+  <p>Отредактируйте скрипт снова и измените <span class="S91">$MB_OK</span> на <span class="S91">$MB_ICONINFORMATION</span>, чтобы у вас было:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_ICONINFORMATION</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Tutorial"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello World!"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Запустите скрипт, и вы увидите:</p>
+  <p><img src="msgbox2.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Экспериментируйте с различными значениями флага, чтобы посмотреть, какие результаты вы можете получить. Помните, если вы хотите использовать более одного значения флага, просто сложите нужные значения.</p>
+</body>
+</html>

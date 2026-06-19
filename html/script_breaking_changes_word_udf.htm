@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word UDF – критические изменения</title>
+  <meta charset="utf-8">
+  <link href="css/default.css" rel="stylesheet">
+<script src="css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+<h1>Word UDF – критические изменения</h1>
+Word UDF полностью переписан для поддержки новых форматов файлов и новых возможностей Microsoft Word.<br />
+Это означает, что скрипты, написанные для AutoIt до версии 3.3.8.1, не будут работать с более поздними версиями и потребуют изменений.<br />
+В таблице ниже перечислены различия между старой и новой версией.<br />
+Дополнительную информацию можно найти в <a href="https://www.autoitscript.com/wiki/Word_UDF#Script_breaking_changes_after_AutoIt_version_3.3.8.1" target="_blank">вики.</a>
+<br /><br />
+<strong>Переименованные, удалённые и изменённые функции/параметры</strong>
+<table>
+  <tr>
+    <th class=width25>Старая функция/<br />параметр UDF</th>
+    <th class=width25>Новая функция/<br />параметр UDF</th>
+    <th>Примечания</th>
+  </tr>
+ <tr>
+  <td>All Functions</td>
+  <td>&nbsp;</td>
+  <td><span class="S61">@extended</span> больше не содержит номер недопустимого параметра.</td>
+ </tr>
+ <tr>
+  <td>_Word_VersionInfo</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordAttach</td>
+  <td><a class="le" href="../libfunctions/_Word_DocAttach.htm"><span class="S15">_Word_DocAttach</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$s_mode</span> = HWND</td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$s_mode</span> = Title</td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$iCase</span></td>
+  <td>Добавлен: задаёт чувствительность к регистру для режима поиска "Text".</td>
+ </tr>
+ <tr>
+  <td>_WordCreate</td>
+  <td><a class="le" href="../libfunctions/_Word_Create.htm"><span class="S15">_Word_Create</span><span class="S8">()</span></a></td>
+  <td>Теперь обязательно вызывать эту функцию перед любой другой. В старом Word UDF можно было начать с _WordCreate или _WordAttach.<br />
+    <span class="S61">@extended</span> устанавливается, если Word уже был запущен.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$s_FilePath</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён. Используйте <a class="le" href="../libfunctions/_Word_DocOpen.htm"><span class="S15">_Word_DocOpen</span><span class="S8">()</span></a> или <a class="le" href="../libfunctions/_Word_DocAdd.htm"><span class="S15">_Word_DocAdd</span><span class="S8">()</span></a>.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$f_takeFocus</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$f_tryAttach</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$bForceNew</span></td>
+  <td>Добавлен: принудительно создаёт новый экземпляр Word, даже если уже есть запущенный.</td>
+ </tr>
+ <tr>
+  <td>_WordDocAdd</td>
+  <td><a class="le" href="../libfunctions/_Word_DocAdd.htm"><span class="S15">_Word_DocAdd</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>_WordDocAddLink</td>
+  <td><a class="le" href="../libfunctions/_Word_DocLinkAdd.htm"><span class="S15">_Word_DocLinkAdd</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>_WordDocAddPicture</td>
+  <td><a class="le" href="../libfunctions/_Word_DocPictureAdd.htm"><span class="S15">_Word_DocPictureAdd</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>_WordDocClose</td>
+  <td><a class="le" href="../libfunctions/_Word_DocClose.htm"><span class="S15">_Word_DocClose</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$f_RouteDocument</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>_WordDocFindReplace</td>
+  <td><a class="le" href="../libfunctions/_Word_DocFindReplace.htm"><span class="S15">_Word_DocFindReplace</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>_WordDocGetCollection</td>
+  <td><a class="le" href="../libfunctions/_Word_DocGet.htm"><span class="S15">_Word_DocGet</span><span class="S8">()</span></a></td>
+  <td><span class="S61">@extended</span> содержит общее количество документов.</td>
+ </tr>
+ <tr>
+  <td>_WordDocLinkGetCollection</td>
+  <td><a class="le" href="../libfunctions/_Word_DocLinkGet.htm"><span class="S15">_Word_DocLinkGet</span><span class="S8">()</span></a></td>
+  <td><span class="S61">@extended</span> содержит общее количество ссылок.</td>
+ </tr>
+ <tr>
+  <td>_WordDocOpen</td>
+  <td><a class="le" href="../libfunctions/_Word_DocOpen.htm"><span class="S15">_Word_DocOpen</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>_WordDocPrint</td>
+  <td><a class="le" href="../libfunctions/_Word_DocPrint.htm"><span class="S15">_Word_DocPrint</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>_WordDocPropertyGet</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordDocPropertySet</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordDocSave</td>
+  <td><a class="le" href="../libfunctions/_Word_DocSave.htm"><span class="S15">_Word_DocSave</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>_WordDocSaveAs</td>
+  <td><a class="le" href="../libfunctions/_Word_DocSaveAs.htm"><span class="S15">_Word_DocSaveAs</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$f_LockComments</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>_WordErrorHandlerDeRegister</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordErrorHandlerRegister</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordErrorNotify</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordMacroRun</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordPropertyGet</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordPropertySet</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_WordQuit</td>
+  <td><a class="le" href="../libfunctions/_Word_Quit.htm"><span class="S15">_Word_Quit</span><span class="S8">()</span></a></td>
+  <td>Теперь закрывает приложение Word только если оно было запущено этим UDF.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$f_RouteDocument</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$bForceClose</span></td>
+  <td>Добавлен: если <span class="S5">True</span>, приложение Word закрывается, даже если оно было запущено до вызова <a class="le" href="../libfunctions/_Word_Create.htm"><span class="S15">_Word_Create</span><span class="S8">()</span></a>.</td>
+ </tr>
+</table>
+<br /><br />
+<strong>Новые функции</strong>
+<table>
+  <tr>
+    <th class=width25>Новая функция/<br />параметр UDF</th>
+    <th>Примечания</th>
+  </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Word_DocExport.htm"><span class="S15">_Word_DocExport</span><span class="S8">()</span></a></td>
+  <td>Экспортирует документ или диапазон в формате PDF или XPS.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Word_DocFind.htm"><span class="S15">_Word_DocFind</span><span class="S8">()</span></a></td>
+  <td>Выполняет или повторяет указанную операцию поиска.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Word_DocRangeSet.htm"><span class="S15">_Word_DocRangeSet</span><span class="S8">()</span></a></td>
+  <td>Задаёт или изменяет диапазон в документе.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Word_DocTableRead.htm"><span class="S15">_Word_DocTableRead</span><span class="S8">()</span></a></td>
+  <td>Читает таблицу Word в двумерный массив.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Word_DocTableWrite.htm"><span class="S15">_Word_DocTableWrite</span><span class="S8">()</span></a></td>
+  <td>Записывает одномерный или двумерный массив в таблицу Word.</td>
+ </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinAPI_FatalAppExit</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinAPI_FatalAppExit</h1>
+<p class="funcdesc">Displays a message box and terminates the application<br /></p>
+<p class="codeheader">
+#include &lt;WinAPIProc.au3&gt;<br />
+_WinAPI_FatalAppExit ( $sMessage )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$sMessage</td>
+<td style="width:85%">The string that is displayed in the message box</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+None.<br />
+
+
+<h2>Remarks</h2>
+<p>An application calls FatalAppExit only when it is not capable of terminating any other way.<br />
+FatalAppExit may not always free an application's memory or close its files, and it may cause a general failure of the system.<br />
+An application that encounters an unexpected error should terminate by freeing all its memory and returning from its main message loop.<br />
+</p>
+
+<h2>See Also</h2>
+<p>Search <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(FatalAppExit);k(DevLang-C);k(TargetOS-WINDOWS)&rd=true">FatalAppExit</a> in MSDN  Library.
+</p>
+
+</body>
+</html>

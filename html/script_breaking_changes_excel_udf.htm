@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Excel UDF – критические изменения</title>
+  <meta charset="utf-8">
+  <link href="css/default.css" rel="stylesheet">
+<script src="css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+<h1>Excel UDF – критические изменения</h1>
+Excel UDF полностью переписан для поддержки новых форматов файлов и новых возможностей Microsoft Excel.<br />
+Это означает, что скрипты, написанные для AutoIt до версии 3.3.8.1, не будут работать с более поздними версиями и потребуют изменений.<br />
+В таблице ниже перечислены различия между старой и новой версией.<br />
+Дополнительную информацию можно найти в <a href="https://www.autoitscript.com/wiki/Excel_UDF#Script_breaking_changes_after_AutoIt_version_3.3.10.2." target="_blank">вики.</a>
+<br /><br />
+<strong>Переименованные, удалённые и изменённые функции/параметры</strong>
+<table>
+  <tr>
+    <th class=width25>Старая функция/<br />параметр UDF</th>
+    <th class=width25>Новая функция/<br />параметр UDF</th>
+    <th>Примечания</th>
+  </tr>
+ <tr>
+  <td>_ExcelBookAttach</td>
+  <td><a class="le" href="../libfunctions/_Excel_BookAttach.htm"><span class="S15">_Excel_BookAttach</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$oInstance</span></td>
+  <td>Добавлен: объект экземпляра Excel для поиска.</td>
+ </tr>
+ <tr>
+  <td>_ExcelBookClose</td>
+  <td><a class="le" href="../libfunctions/_Excel_BookClose.htm"><span class="S15">_Excel_BookClose</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$fAlerts</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>_ExcelBookNew</td>
+  <td><a class="le" href="../libfunctions/_Excel_BookNew.htm"><span class="S15">_Excel_BookNew</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$fVisible</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$iSheets</span></td>
+  <td>Добавлен: количество листов в новой книге.</td>
+ </tr>
+ <tr>
+  <td>_ExcelBookOpen</td>
+  <td><a class="le" href="../libfunctions/_Excel_BookOpen.htm"><span class="S15">_Excel_BookOpen</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$oExcel</span></td>
+  <td>Добавлен: объект приложения Excel, в котором нужно открыть книгу.</td>
+ </tr>
+ <tr>
+  <td>_ExcelBookSave</td>
+  <td><a class="le" href="../libfunctions/_Excel_BookSave.htm"><span class="S15">_Excel_BookSave</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$fAlerts</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>_ExcelBookSaveAs</td>
+  <td><a class="le" href="../libfunctions/_Excel_BookSaveAs.htm"><span class="S15">_Excel_BookSaveAs</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$vType</span></td>
+  <td>&nbsp;</td>
+  <td>Переименован в <span class="S91">$iFormat</span>. Принимает любое значение перечисления XlFileFormat.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$fAlerts</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$iAccessMode</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$iConflictResolution</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$bReadOnlyRecommended</span></td>
+  <td>Добавлен: позволяет показывать при открытии файла сообщение с рекомендацией открыть его только для чтения.</td>
+ </tr>
+ <tr>
+  <td>_ExcelColumnDelete</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeDelete.htm"><span class="S15">_Excel_RangeDelete</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$iColumn</span></td>
+  <td>&nbsp;</td>
+  <td>Заменён объектом диапазона <span class="S91">$vRange</span>.</td>
+ </tr>
+ <tr>
+  <td>_ExcelColumnInsert</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeInsert.htm"><span class="S15">_Excel_RangeInsert</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$iColumn</span></td>
+  <td>&nbsp;</td>
+  <td>Заменён объектом диапазона <span class="S91">$vRange</span>.</td>
+ </tr>
+ <tr>
+  <td>_ExcelFontSetProperties</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_ExcelHorizontalAlignSet</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_ExcelHyperlinkInsert</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeLinkAddRemove.htm"><span class="S15">_Excel_RangeLinkAddRemove</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelReadArray</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeRead.htm"><span class="S15">_Excel_RangeRead</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelReadCell</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeRead.htm"><span class="S15">_Excel_RangeRead</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelReadSheetToArray</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeRead.htm"><span class="S15">_Excel_RangeRead</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelRowDelete</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeDelete.htm"><span class="S15">_Excel_RangeDelete</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$iRow</span></td>
+  <td>&nbsp;</td>
+  <td>Заменён объектом диапазона <span class="S91">$vRange</span>.</td>
+ </tr>
+ <tr>
+  <td>_ExcelRowInsert</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeInsert.htm"><span class="S15">_Excel_RangeInsert</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$iRow</span></td>
+  <td>&nbsp;</td>
+  <td>Заменён объектом диапазона <span class="S91">$vRange</span>.</td>
+ </tr>
+ <tr>
+  <td>_ExcelSheetActivate</td>
+  <td></td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_ExcelSheetNameGet</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_ExcelSheetNameSet</td>
+  <td>&nbsp;</td>
+  <td>Удалена.</td>
+ </tr>
+ <tr>
+  <td>_ExcelWriteArray</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelWriteCell</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelWriteFormula</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelWriteSheetFromArray</td>
+  <td><a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelSheetAddNew</td>
+  <td><a class="le" href="../libfunctions/_Excel_SheetAdd.htm"><span class="S15">_Excel_SheetAdd</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+ <tr>
+  <td>_ExcelSheetDelete</td>
+  <td><a class="le" href="../libfunctions/_Excel_SheetDelete.htm"><span class="S15">_Excel_SheetDelete</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$fAlerts</span></td>
+  <td>&nbsp;</td>
+  <td>Удалён.</td>
+ </tr>
+ <tr>
+  <td>_ExcelSheetList</td>
+  <td><a class="le" href="../libfunctions/_Excel_SheetList.htm"><span class="S15">_Excel_SheetList</span><span class="S8">()</span></a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>_ExcelSheetMove</td>
+  <td><a class="le" href="../libfunctions/_Excel_SheetCopyMove.htm"><span class="S15">_Excel_SheetCopyMove</span><span class="S8">()</span></a></td>
+  <td>Изменены параметры для адресации конкретных листов.</td>
+ </tr>
+</table>
+<br />
+<strong>Новые функции</strong>
+<table>
+ <tr>
+  <th class=width25>Новая функция/<br />параметр UDF</th>
+  <th>Примечания</th>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_BookList.htm"><span class="S15">_Excel_BookList</span><span class="S8">()</span></a></td>
+  <td>Возвращает список книг заданного или всех экземпляров Excel.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_BookOpenText.htm"><span class="S15">_Excel_BookOpenText</span><span class="S8">()</span></a></td>
+  <td>Открывает текстовый файл и разбирает его содержимое в новую книгу с одним листом.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_Close.htm"><span class="S15">_Excel_Close</span><span class="S8">()</span></a></td>
+  <td>Закрывает все листы и экземпляр приложения Excel.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span><span class="S8">()</span></a></td>
+  <td>Подключается к существующему экземпляру Excel или создаёт новый.<br />
+    Теперь обязательно вызывать <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span><span class="S8">()</span></a> перед любой другой функцией.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_ColumnToLetter.htm"><span class="S15">_Excel_ColumnToLetter</span><span class="S8">()</span></a></td>
+  <td>Преобразует номер столбца в буквенное обозначение.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_ColumnToNumber.htm"><span class="S15">_Excel_ColumnToNumber</span><span class="S8">()</span></a></td>
+  <td>Преобразует буквенное обозначение столбца в номер.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_ConvertFormula.htm"><span class="S15">_Excel_ConvertFormula</span><span class="S8">()</span></a></td>
+  <td>Конвертирует ссылки на ячейки в формуле между стилями A1 и R1C1, между относительными и абсолютными ссылками или между обоими.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_Export.htm"><span class="S15">_Excel_Export</span><span class="S8">()</span></a></td>
+  <td>Экспортирует книгу, лист, диаграмму или диапазон в формате PDF или XPS.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_FilterGet.htm"><span class="S15">_Excel_FilterGet</span><span class="S8">()</span></a></td>
+  <td>Возвращает список установленных фильтров.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span><span class="S8">()</span></a></td>
+  <td>Устанавливает или снимает определения фильтров и фильтрует диапазон.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_PictureAdd.htm"><span class="S15">_Excel_PictureAdd</span><span class="S8">()</span></a></td>
+  <td>Добавляет рисунок на указанный лист книги.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_Print.htm"><span class="S15">_Excel_Print</span><span class="S8">()</span></a></td>
+  <td>Печатает книгу, лист, диаграмму или диапазон.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span><span class="S8">()</span></a></td>
+  <td>Вырезает или копирует одну или несколько ячеек, строк или столбцов в диапазон или из/в буфер обмена.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeDelete.htm"><span class="S15">_Excel_RangeDelete</span><span class="S8">()</span></a></td>
+  <td>Удаляет одну или несколько ячеек, строк или столбцов с указанного листа.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeFind.htm"><span class="S15">_Excel_RangeFind</span><span class="S8">()</span></a></td>
+  <td>Находит совпадающие ячейки в диапазоне или книге и возвращает массив с информацией о найденных ячейках.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeInsert.htm"><span class="S15">_Excel_RangeInsert</span><span class="S8">()</span></a></td>
+  <td>Вставляет одну или несколько пустых ячеек, строк или столбцов на указанный лист.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeLinkAddRemove.htm"><span class="S15">_Excel_RangeLinkAddRemove</span><span class="S8">()</span></a></td>
+  <td>Добавляет гиперссылку к указанному диапазону или удаляет её.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeRead.htm"><span class="S15">_Excel_RangeRead</span><span class="S8">()</span></a></td>
+  <td>Читает значение, формулу или отображаемый текст из ячейки или диапазона ячеек указанной книги и листа.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeReplace.htm"><span class="S15">_Excel_RangeReplace</span><span class="S8">()</span></a></td>
+  <td>Находит и заменяет совпадающие строки в диапазоне или на листе.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeSort.htm"><span class="S15">_Excel_RangeSort</span><span class="S8">()</span></a></td>
+  <td>Сортирует диапазон ячеек.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeValidate.htm"><span class="S15">_Excel_RangeValidate</span><span class="S8">()</span></a></td>
+  <td>Добавляет проверку данных к указанному диапазону.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span><span class="S8">()</span></a></td>
+  <td>Записывает значения или формулы в ячейку или диапазон ячеек указанной книги и листа.</td>
+ </tr>
+ <tr>
+  <td><a class="le" href="../libfunctions/_Excel_SheetCopyMove.htm"><span class="S15">_Excel_SheetCopyMove</span><span class="S8">()</span></a></td>
+  <td>Копирует или перемещает указанный лист перед или после заданного листа в той же или другой книге.</td>
+ </tr>
+</table>
+</body>
+</html>

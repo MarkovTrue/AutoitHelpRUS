@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _Excel_ConvertFormula</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_Excel_ConvertFormula</h1>
+<p class="funcdesc">Преобразует ссылки на ячейки в формуле между стилями A1 и R1C1, между относительным и абсолютным типами ссылок, либо одновременно и то и другое.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_Excel_ConvertFormula.htm"><span class="S15">_Excel_ConvertFormula</span></a> <span class="S8">(</span> <span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$sFormula</span><span class="S8">,</span> <span class="S9">$iFromStyle</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iToStyle</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iToAbsolute</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vRelativeTo</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$oExcel</span></td>
+<td style="width:85%">Объект приложения Excel.</td>
+</tr>
+<tr>
+<td><span class="S91">$sFormula</span></td>
+<td>Строка, содержащая формулу для преобразования.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFromStyle</span></td>
+<td>Стиль ссылок исходной формулы. Допустимые значения – константы XlReferenceStyle.</td>
+</tr>
+<tr>
+<td><span class="S91">$iToStyle</span></td>
+<td><strong>[необязательный]</strong> Константа XlReferenceStyle, задающая стиль ссылок в результате. Если не указан, стиль ссылок не изменяется.</td>
+</tr>
+<tr>
+<td><span class="S91">$iToAbsolute</span></td>
+<td><strong>[необязательный]</strong> Константа XlReferenceType, задающая тип ссылки в результате. Если не указан, тип ссылки не изменяется.</td>
+</tr>
+<tr>
+<td><span class="S91">$vRelativeTo</span></td>
+<td><strong>[необязательный]</strong> Объект Range или диапазон A1, содержащий одну ячейку. Относительные ссылки вычисляются относительно этой ячейки. Если не указан, используется A1.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает преобразованную формулу в виде строки.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает пустую строку и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>1 – <span class="S91">$oExcel</span> не является объектом или объектом приложения<br />
+2 – <span class="S91">$vRelativeTo</span> не является объектом или допустимым диапазоном A1</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Ссылки в стиле R1C1 зависят от языка интерфейса.<br />
+На английском: "R10C5" (строка 10 столбец 5), на немецком: "Z10S5" (Zeile 10 Spalte 5).<br />
+</p>
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Создать объект приложения и открыть новую рабочую книгу</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example"</span><span class="S8">,</span> <span class="S7">"Error creating the Excel application object."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oWorkbook</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_BookNew.htm"><span class="S15">_Excel_BookNew</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example"</span><span class="S8">,</span> <span class="S7">"Error creating new workbook."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_Excel_Close.htm"><span class="S15">_Excel_Close</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Преобразуем диапазон из стиля A1 в R1C1 и обратно.
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFormula</span> <span class="S8">=</span> <span class="S7">"C4:G12"</span><br>
+<span class="S1">; Относительная: A1 в R1C1.
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sR1C1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_ConvertFormula.htm"><span class="S15">_Excel_ConvertFormula</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$sFormula</span><span class="S8">,</span> <span class="S9">$xlA1</span><span class="S8">,</span> <span class="S9">$xlR1C1</span><span class="S8">,</span> <span class="S9">$xlRelative</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example 1"</span><span class="S8">,</span> <span class="S7">"Error converting formula to R1C1 style."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+<span class="S1">; R1C1 в A1</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sA1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_ConvertFormula.htm"><span class="S15">_Excel_ConvertFormula</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$sR1C1</span><span class="S8">,</span> <span class="S9">$xlR1C1</span><span class="S8">,</span> <span class="S9">$xlA1</span><span class="S8">,</span> <span class="S9">$xlRelative</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example 1"</span><span class="S8">,</span> <span class="S7">"Error converting formula to A1 style."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+<span class="S1">; Показать результат</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example 1"</span><span class="S8">,</span> <span class="S7">"Conversion type: Relative"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"  A1 to a R1C1 style: "</span> <span class="S8">&amp;</span> <span class="S9">$sFormula</span> <span class="S8">&amp;</span> <span class="S7">" to "</span> <span class="S8">&amp;</span> <span class="S9">$sR1C1</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"  R1C1 to A1 style: "</span> <span class="S8">&amp;</span> <span class="S9">$sR1C1</span> <span class="S8">&amp;</span> <span class="S7">" to "</span> <span class="S8">&amp;</span> <span class="S9">$sA1</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Абсолютная: A1 в R1C1.
+</span><br>
+<span class="S9">$sR1C1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_ConvertFormula.htm"><span class="S15">_Excel_ConvertFormula</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$sFormula</span><span class="S8">,</span> <span class="S9">$xlA1</span><span class="S8">,</span> <span class="S9">$xlR1C1</span><span class="S8">,</span> <span class="S9">$xlAbsolute</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example 1"</span><span class="S8">,</span> <span class="S7">"Error converting formula to R1C1 style."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+<span class="S1">; R1C1 в A1</span><br>
+<span class="S9">$sA1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_ConvertFormula.htm"><span class="S15">_Excel_ConvertFormula</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$sR1C1</span><span class="S8">,</span> <span class="S9">$xlR1C1</span><span class="S8">,</span> <span class="S9">$xlA1</span><span class="S8">,</span> <span class="S9">$xlAbsolute</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example 1"</span><span class="S8">,</span> <span class="S7">"Error converting formula to A1 style."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+<span class="S1">; Показать результат</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example 1"</span><span class="S8">,</span> <span class="S7">"Conversion type: Absolute"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"  A1 to a R1C1 style: "</span> <span class="S8">&amp;</span> <span class="S9">$sFormula</span> <span class="S8">&amp;</span> <span class="S7">" to "</span> <span class="S8">&amp;</span> <span class="S9">$sR1C1</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"  R1C1 to A1 style: "</span> <span class="S8">&amp;</span> <span class="S9">$sR1C1</span> <span class="S8">&amp;</span> <span class="S7">" to "</span> <span class="S8">&amp;</span> <span class="S9">$sA1</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_Excel_ConvertFormula.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Создать объект приложения и открыть новую рабочую книгу</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example"</span><span class="S8">,</span> <span class="S7">"Error creating the Excel application object."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oWorkbook</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_BookNew.htm"><span class="S15">_Excel_BookNew</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example"</span><span class="S8">,</span> <span class="S7">"Error creating new workbook."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_Excel_Close.htm"><span class="S15">_Excel_Close</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Преобразуем формулу из стиля A1 в R1C1 с использованием относительной ссылки.
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFormula</span> <span class="S8">=</span> <span class="S7">"=SUM(C4:G12)"</span><span class="S8">,</span> <span class="S9">$sReference</span> <span class="S8">=</span> <span class="S7">"B2"</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sConverted</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_ConvertFormula.htm"><span class="S15">_Excel_ConvertFormula</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$sFormula</span><span class="S8">,</span> <span class="S9">$xlA1</span><span class="S8">,</span> <span class="S9">$xlR1C1</span><span class="S8">,</span> <span class="S9">$xlRelative</span><span class="S8">,</span> <span class="S9">$oExcel</span>.<span class="Scom">Range</span><span class="S8">(</span><span class="S9">$sReference</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example 2"</span><span class="S8">,</span> <span class="S7">"Error converting formula."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_ConvertFormula Example 2"</span><span class="S8">,</span> <span class="S7">"Translate an A1 formula to a R1C1 and use "</span> <span class="S8">&amp;</span> <span class="S9">$sReference</span> <span class="S8">&amp;</span> <span class="S7">" as relative reference:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sFormula</span> <span class="S8">&amp;</span> <span class="S7">" to "</span> <span class="S8">&amp;</span> <span class="S9">$sConverted</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_Excel_ConvertFormula[2].au3,"></object>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция CDTray</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>CDTray</h1>
+<p class="funcdesc">Открывает или закрывает лоток CD.</p>
+<p class="codeheader"><a class="le" href="../functions/CDTray.htm"><span class="S4">CDTray</span></a> <span class="S8">(</span> <span class="S7">"drive"</span><span class="S8">,</span> <span class="S7">"status"</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">drive</td>
+<td style="width:85%">Буква диска CD, которым требуется управлять, в формате <strong>D:</strong>, <strong>E:</strong> и т. д.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Указывает, должен ли лоток CD быть открыт или закрыт:<br />
+<span class="S91">$CDTRAY_OPEN</span> ("open") 	– открыть<br />
+<span class="S91">$CDTRAY_CLOSED</span> ("closed") 	– закрыть (не подходит для ноутбучных лотков)<br />
+<br />
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0, если диск заблокирован программой записи CD или буква не относится к CD-приводу.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p><a href="CDTray.htm"><span class="S4">CDTray</span><span class="S8">()</span></a> корректно работает с виртуальными CD-приводами (например, DAEMON Tools).<br />
+<a href="CDTray.htm"><span class="S4">CDTray</span><span class="S8">()</span></a> не работает на нелокальных и сетевых CD-приводах; <a href="CDTray.htm"><span class="S4">CDTray</span><span class="S8">()</span></a> должен запускаться на компьютере, привод которого требуется открыть/закрыть.<br />
+<a href="CDTray.htm"><span class="S4">CDTray</span></a><span class="S8">(</span>"X:", "close"<span class="S8">)</span> возвращает 1 для ноутбучных лотков, которые можно закрыть только вручную.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="DriveGetType.htm">DriveGetType</a>, <a href="DriveStatus.htm">DriveStatus</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;AutoItConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Получить список всех CD-приводов
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aCDRom</span> <span class="S8">=</span> <a class="le" href="../functions/DriveGetDrive.htm"><span class="S4">DriveGetDrive</span></a><span class="S8">(</span><span class="S9">$DT_CDROM</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"No CDRom found."</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Открыть лоток CD первого привода
+</span><br>
+<a class="le" href="../functions/CDTray.htm"><span class="S4">CDTray</span></a><span class="S8">(</span><span class="S9">$aCDRom</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$CDTRAY_OPEN</span><span class="S8">)</span><br>
+<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
+<a class="le" href="../functions/CDTray.htm"><span class="S4">CDTray</span></a><span class="S8">(</span><span class="S9">$aCDRom</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$CDTRAY_CLOSED</span><span class="S8">)</span>&nbsp;<span class="S1">; не работает для ноутбучных лотков, которые можно закрыть только вручную.
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\CDTray.au3,"></object>
+</body>
+</html>

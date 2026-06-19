@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _GUICtrlRebar_Create</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_GUICtrlRebar_Create</h1>
+<p class="funcdesc">Create a Rebar control<br /></p>
+<p class="codeheader">
+#include &lt;GuiReBar.au3&gt;<br />
+_GUICtrlRebar_Create ( $hWnd [, $iStyles = 0x513] )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$hWnd</td>
+<td style="width:85%">Handle to parent or owner window</td>
+</tr>
+<tr>
+<td>$iStyles</td>
+<td><strong>[optional]</strong> Rebar controls support a variety of control styles in addition to standard window styles:<br />
+&nbsp;&nbsp;&nbsp; $RBS_AUTOSIZE - Version 4.71. The rebar control will automatically change the layout of the bands when the size or position of the control changes.<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; An $RBN_AUTOSIZE notification will be sent when this occurs<br />
+&nbsp;&nbsp;&nbsp; $RBS_BANDBORDERS - Version 4.71. The rebar control displays narrow lines to separate adjacent bands<br />
+&nbsp;&nbsp;&nbsp; $RBS_DBLCLKTOGGLE - Version 4.71. The rebar band will toggle its maximized or minimized state when the user double-clicks the band.<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Without this style, the maximized or minimized state is toggled when the user single-clicks on the band<br />
+&nbsp;&nbsp;&nbsp; $RBS_FIXEDORDER - Version 4.70. The rebar control always displays bands in the same order. You can move bands to different rows, but the band order is static<br />
+&nbsp;&nbsp;&nbsp; $RBS_REGISTERDROP - Version 4.71. The rebar control generates $RBN_GETOBJECT notification messages when an object is dragged over a band in the control<br />
+&nbsp;&nbsp;&nbsp; $RBS_TOOLTIPS - Version 4.71. Not yet supported<br />
+&nbsp;&nbsp;&nbsp; $RBS_VARHEIGHT - Version 4.71. The rebar control displays bands at the minimum required height, when possible.<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Without this style, the rebar control displays all bands at the same height, using the height of the tallest visible band to determine the height of other bands<br />
+&nbsp;&nbsp;&nbsp; $RBS_VERTICALGRIPPER - Version 4.71. The size grip will be displayed vertically instead of horizontally in a vertical rebar control.<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; This style is ignored for rebar controls that do not have the $CCS_VERT style<br />
+&nbsp;&nbsp;&nbsp; $CCS_LEFT - Version 4.70. Causes the control to be displayed vertically on the left side of the parent window<br />
+&nbsp;&nbsp;&nbsp; $CCS_NODIVIDER - Prevents a two-pixel highlight from being drawn at the top of the control<br />
+&nbsp;&nbsp;&nbsp; $CCS_RIGHT - Version 4.70. Causes the control to be displayed vertically on the right side of the parent window<br />
+&nbsp;&nbsp;&nbsp; $CCS_VERT - Version 4.70. Causes the control to be displayed vertically<br />
+<br />
+Default: $CCS_TOP, $RBS_VARHEIGHT<br />
+Forced: $WS_CHILD, $WS_VISIBLE, $WS_CLIPCHILDREN, $WS_CLIPSIBLINGS</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">the handle to the Rebar control.</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>sets the @error flag to non-zero.</td>
+</tr>
+</table>
+
+<h2>Related</h2>
+<p><a href="_GUICtrlRebar_Destroy.htm">_GUICtrlRebar_Destroy</a></p>
+
+<h2 class="bottom">Example</h2>
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") && (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+function copyToClipboard(section) {
+if (window.clipboardData && clipboardData.setData) {
+clipboardData.setData("text", section + "\r\n");
+alert("Copied to clipboard");
+}
+}
+</script>
+<div class="codeSnippetContainer">
+	<div class="codeSnippetContainerTabs">
+<script type="text/javascript">
+if (document.URL.match(/^mk:@MSITStore:/i)) {
+document.write('<div class="codeSnippetContainerTab codeSnippetContainerTabSingle" dir="ltr">');
+document.write('<object id=hhctrl type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Open this Script"><param name="Item1" value=",Examples\\HelpFile\\_GUICtrlRebar_Create.au3,"></object>');
+document.write('<\/div>');
+}
+</script>
+</div>
+
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetToolBar">
+<div class="codeSnippetToolBarText">
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") && (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+document.write('<a href="#" id="copy" onclick="copyToClipboard(document.getElementById(\'copytext1\').innerText)">Copy to clipboard<\/a>');
+</script>
+</div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="copytext1">
+<pre>
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">"Extras\WM_NOTIFY.au3"</span>
+
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;AutoItConstants.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GuiComboBox.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GUIConstantsEx.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GuiDateTimePicker.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GuiEdit.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GuiReBar.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GuiToolbar.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;StructureConstants.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;WinAPIConstants.au3&gt;</span>
+<a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;WindowsStylesConstants.au3&gt;</span>
+
+<a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Global</span></a><span class="S0"> </span><span class="S9">$g_hReBar</span>
+
+<span class="S0">Example</span><span class="S8">()</span>
+
+<a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> Example</span><span class="S8">()</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$hGui</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Rebar Create (v"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><a class="codeSnippetLink" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">")"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">400</span><span class="S8">,</span><span class="S0"> </span><span class="S3">396</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">-</span></a><span class="S3">1</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">-</span></a><span class="S3">1</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_MINIMIZEBOX</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$WS_CAPTION</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$WS_POPUP</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$WS_SYSMENU</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$WS_MAXIMIZEBOX</span><span class="S8">))</span>
+
+<span class="S0">&nbsp; &nbsp; _WM_NOTIFY_Register</span><span class="S8">()</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; create the rebar control</span>
+<span class="S0">&nbsp; &nbsp; </span><span class="S9">$g_hReBar</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlRebar_Create.htm"><span class="S15">_GUICtrlRebar_Create</span></a><span class="S8">(</span><span class="S9">$hGui</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$CCS_TOP</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$WS_BORDER</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$RBS_VARHEIGHT</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$RBS_AUTOSIZE</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$RBS_BANDBORDERS</span><span class="S8">))</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; create a toolbar to put in the rebar</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$hToolbar</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_Create.htm"><span class="S15">_GUICtrlToolbar_Create</span></a><span class="S8">(</span><span class="S9">$hGui</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$TBSTYLE_FLAT</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$CCS_NORESIZE</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$CCS_NOPARENTALIGN</span><span class="S8">))</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; Add standard system bitmaps</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Switch</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_GetBitmapFlags.htm"><span class="S15">_GUICtrlToolbar_GetBitmapFlags</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S3">0</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_AddBitmap.htm"><span class="S15">_GUICtrlToolbar_AddBitmap</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span><span class="S0"> </span><span class="S3">1</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">-</span></a><span class="S3">1</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$IDB_STD_SMALL_COLOR</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S3">2</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_AddBitmap.htm"><span class="S15">_GUICtrlToolbar_AddBitmap</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span><span class="S0"> </span><span class="S3">1</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">-</span></a><span class="S3">1</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$IDB_STD_LARGE_COLOR</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; Add buttons</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/Enum.htm"><span class="S5">Enum</span></a><span class="S0"> </span><span class="S9">$e_idNew</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S3">1000</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$e_idOpen</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$e_idSave</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$e_idHelp</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_AddButton.htm"><span class="S15">_GUICtrlToolbar_AddButton</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$e_idNew</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$STD_FILENEW</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_AddButton.htm"><span class="S15">_GUICtrlToolbar_AddButton</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$e_idOpen</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$STD_FILEOPEN</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_AddButton.htm"><span class="S15">_GUICtrlToolbar_AddButton</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$e_idSave</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$STD_FILESAVE</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_AddButtonSep.htm"><span class="S15">_GUICtrlToolbar_AddButtonSep</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlToolbar_AddButton.htm"><span class="S15">_GUICtrlToolbar_AddButton</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$e_idHelp</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$STD_HELP</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; create a combobox to put in the rebar</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$hCombo</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlComboBox_Create.htm"><span class="S15">_GUICtrlComboBox_Create</span></a><span class="S8">(</span><span class="S9">$hGui</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S3">120</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlComboBox_BeginUpdate.htm"><span class="S15">_GUICtrlComboBox_BeginUpdate</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlComboBox_AddDir.htm"><span class="S15">_GUICtrlComboBox_AddDir</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../macros.htm#@WindowsDir"><span class="S6">@WindowsDir</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">"\*.exe"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlComboBox_EndUpdate.htm"><span class="S15">_GUICtrlComboBox_EndUpdate</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; create a date time picker to put in the rebar</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$hDTP</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlDTP_Create.htm"><span class="S15">_GUICtrlDTP_Create</span></a><span class="S8">(</span><span class="S9">$hGui</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S3">190</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; create a input box to put in the rebar</span>
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; $hInput = GUICtrlCreateInput("Input control", 0, 0, 120, 20)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$hInput</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlEdit_Create.htm"><span class="S15">_GUICtrlEdit_Create</span></a><span class="S8">(</span><span class="S9">$hGui</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Input control"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S3">120</span><span class="S8">,</span><span class="S0"> </span><span class="S3">20</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; default for add is append</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; add band with control</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlRebar_AddBand.htm"><span class="S15">_GUICtrlRebar_AddBand</span></a><span class="S8">(</span><span class="S9">$g_hReBar</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$hCombo</span><span class="S8">,</span><span class="S0"> </span><span class="S3">120</span><span class="S8">,</span><span class="S0"> </span><span class="S3">200</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Dir *.exe"</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; add band with date time picker</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlRebar_AddBand.htm"><span class="S15">_GUICtrlRebar_AddBand</span></a><span class="S8">(</span><span class="S9">$g_hReBar</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$hDTP</span><span class="S8">,</span><span class="S0"> </span><span class="S3">120</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; add band with toolbar to beginning of rebar</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlRebar_AddToolBarBand.htm"><span class="S15">_GUICtrlRebar_AddToolBarBand</span></a><span class="S8">(</span><span class="S9">$g_hReBar</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$hToolbar</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">;add another control</span>
+<span class="S0">&nbsp; &nbsp; </span><span class="S1">; _GUICtrlRebar_AddBand($g_hReBar, GUICtrlGetHandle($hInput), 120, 200, "Name:")</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../libfunctions/_GUICtrlRebar_AddBand.htm"><span class="S15">_GUICtrlRebar_AddBand</span></a><span class="S8">(</span><span class="S9">$g_hReBar</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$hInput</span><span class="S8">,</span><span class="S0"> </span><span class="S3">120</span><span class="S8">,</span><span class="S0"> </span><span class="S3">200</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Name:"</span><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$idBtn_Exit</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Exit"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">150</span><span class="S8">,</span><span class="S0"> </span><span class="S3">360</span><span class="S8">,</span><span class="S0"> </span><span class="S3">100</span><span class="S8">,</span><span class="S0"> </span><span class="S3">25</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span>
+
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/While.htm"><span class="S5">While</span></a><span class="S0"> </span><span class="S3">1</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Switch</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">()</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$GUI_EVENT_CLOSE</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$idBtn_Exit</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Exit.htm"><span class="S5">Exit</span></a>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/While.htm"><span class="S5">WEnd</span></a>
+<a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;Example</span>
+
+<a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> WM_NOTIFY</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$iMsg</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$wParam</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><span class="S12">#forceref</span><span class="S0"> </span><span class="S9">$hWnd</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$iMsg</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$wParam</span>
+
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$tNMHDR</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><a class="codeSnippetLink" href="$tagNMHDR.htm"><span class="S9">$tagNMHDR</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$hWndFrom</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/HWnd.htm"><span class="S4">HWnd</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tNMHDR</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"hWndFrom"</span><span class="S8">))</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$iCode</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tNMHDR</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Code"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Switch</span></a><span class="S0"> </span><span class="S9">$hWndFrom</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$g_hReBar</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Switch</span></a><span class="S0"> </span><span class="S9">$iCode</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_AUTOBREAK</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Notifies a rebar's parent that a break will appear in the bar. The parent determines whether to make the break</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_AUTOBREAK"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMREBARAUTOBREAK.htm"><span class="S9">$tagNMREBARAUTOBREAK</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,uBand,wID,lParam,uMsg,fStyleCurrent,fAutoBreak"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_AUTOSIZE</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control created with the $RBS_AUTOSIZE style when the rebar automatically resizes itself</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_AUTOSIZE"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMRBAUTOSIZE.htm"><span class="S9">$tagNMRBAUTOSIZE</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,fChanged,TargetLeft,TargetTop,TargetRight,TargetBottom,,ActualLeft,ActualTop,ActualRight,ActualBottom"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_BEGINDRAG</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control when the user begins dragging a band</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_BEGINDRAG"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMREBAR.htm"><span class="S9">$tagNMREBAR</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,dwMask,uBand,fStyle,wID,lParam"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Return</span></a><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S1">; to allow the rebar to continue the drag operation</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return 1 ; nonzero to abort the drag operation</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_CHEVRONPUSHED</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control when a chevron is pushed</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; When an application receives this notification, it is responsible for displaying a popup menu with items for each hidden tool.</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Use the rc member of the NMREBARCHEVRON structure to find the correct position for the popup menu</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_CHEVRONPUSHED"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMREBARCHEVRON.htm"><span class="S9">$tagNMREBARCHEVRON</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,uBand,wID,lParam,Left,Top,Right,lParamNM"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_CHILDSIZE</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control when a band's child window is resized</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_CHILDSIZE"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMREBARCHILDSIZE.htm"><span class="S9">$tagNMREBARCHILDSIZE</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,uBand,wID,CLeft,CTop,CRight,CBottom,BandLeft,,BTop,BRight,BBottom"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_DELETEDBAND</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control after a band has been deleted</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_DELETEDBAND"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMREBAR.htm"><span class="S9">$tagNMREBAR</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,dwMask,uBand,fStyle,wID,lParam"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_DELETINGBAND</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control when a band is about to be deleted</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_DELETINGBAND"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMREBAR.htm"><span class="S9">$tagNMREBAR</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,dwMask,uBand,fStyle,wID,lParam"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_ENDDRAG</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control when the user stops dragging a band</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_ENDDRAG"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMREBAR.htm"><span class="S9">$tagNMREBAR</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,dwMask,uBand,fStyle,wID,lParam"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_GETOBJECT</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control created with the $RBS_REGISTERDROP style when an object is dragged over a band in the control</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_GETOBJECT"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMOBJECTNOTIFY.htm"><span class="S9">$tagNMOBJECTNOTIFY</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"IDFrom,,Item,piid,pObject,Result"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_HEIGHTCHANGE</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control when its height has changed</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Rebar controls that use the $CCS_VERT style send this notification message when their width changes</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_HEIGHTCHANGE"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMHDR.htm"><span class="S9">$tagNMHDR</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_LAYOUTCHANGED</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control when the user changes the layout of the control's bands</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_LAYOUTCHANGED"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMHDR.htm"><span class="S9">$tagNMHDR</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return value not used</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">Case</span></a><span class="S0"> </span><span class="S9">$RBN_MINMAX</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Sent by a rebar control prior to maximizing or minimizing a band</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$RBN_MINMAX"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="$tagNMHDR.htm"><span class="S9">$tagNMHDR</span></a><span class="S8">,</span><span class="S0"> </span><span class="S9">$lParam</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S1">; Return 1 ; a non-zero value to prevent the operation from taking place</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Return</span></a><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S1">; zero to allow it to continue</span>
+<span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a>
+<span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Return</span></a><span class="S0"> </span><span class="S9">$GUI_RUNDEFMSG</span>
+<a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;WM_NOTIFY</span>
+<span class="S0"></span></span>
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

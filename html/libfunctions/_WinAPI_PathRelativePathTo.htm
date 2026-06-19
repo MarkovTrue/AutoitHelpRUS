@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_PathRelativePathTo</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_PathRelativePathTo</h1>
+<p class="funcdesc">Создаёт относительный путь от одного файла или папки к другому.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShPath.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_PathRelativePathTo.htm"><span class="S15">_WinAPI_PathRelativePathTo</span></a> <span class="S8">(</span> <span class="S9">$sPathFrom</span><span class="S8">,</span> <span class="S9">$bDirFrom</span><span class="S8">,</span> <span class="S9">$sPathTo</span><span class="S8">,</span> <span class="S9">$bDirTo</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sPathFrom</span></td>
+<td style="width:85%">Путь к файлу или папке, который определяет начало относительного пути.</td>
+</tr>
+<tr>
+<td><span class="S91">$bDirFrom</span></td>
+<td>Является ли <span class="S91">$sPathFrom</span> путём к папке, допустимые значения:<br />
+Истина – папка.<br />
+Ложь – файл.</td>
+</tr>
+<tr>
+<td><span class="S91">$sPathTo</span></td>
+<td>Путь к файлу или папке, который определяет конечную точку относительного пути.</td>
+</tr>
+<tr>
+<td><span class="S91">$bDirTo</span></td>
+<td>Является ли <span class="S91">$fDirTo</span> путём к папке, допустимые значения:<br />
+Истина – папка.<br />
+Ложь – файл.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает относительный путь.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает пустую строку.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта функция принимает пару путей и генерирует относительный путь от одного к другому. Пути не обязательно должны<br />
+быть полностью определены, но они должны иметь общий префикс, иначе функция завершается с ошибкой.<br />
+<br />
+Например, пусть начальная точка <span class="S91">$sPathFrom</span> будет "C:\A\B\C", а конечная точка <span class="S91">$sPathTo</span> будет "C:\A\D".<br />
+<a href="_WinAPI_PathRelativePathTo.htm"><span class="S15">_WinAPI_PathRelativePathTo</span><span class="S8">()</span></a> вернёт относительный путь от <span class="S91">$sPathFrom</span> к <span class="S91">$sPathTo</span> как: "..\..\D\E". Вы получите<br />
+тот же результат, если установите <span class="S91">$sPathFrom</span> на "\A\B\C" и <span class="S91">$sPathTo</span> на "\A\D\E". С другой стороны, "C:\A\B\C"<br />
+и "D:\A\D" не имеют общего префикса, и функция завершается с ошибкой. Заметьте, что "\" не считается префиксом<br />
+и игнорируется. Если установить <span class="S91">$sPathFrom</span> на "\\A\B\C" и <span class="S91">$sPathTo</span> на "\\C\D", функция завершится с ошибкой.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=PathRelativePathTo">PathRelativePathTo</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShPath.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_PathRelativePathTo.htm"><span class="S15">_WinAPI_PathRelativePathTo</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\.."</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'Relative path: '</span> <span class="S8">&amp;</span> <span class="S9">$sPath</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$sPath</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S9">$sPath</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_PathRelativePathTo.au3,"></object>
+</body>
+</html>

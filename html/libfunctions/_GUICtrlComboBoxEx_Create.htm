@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUICtrlComboBoxEx_Create</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUICtrlComboBoxEx_Create</h1>
+<p class="funcdesc">Создаёт элемент управления ComboBoxEx.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiComboBoxEx.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_Create.htm"><span class="S15">_GUICtrlComboBoxEx_Create</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWidth</span> <span class="S8">=</span> <span class="S3">100</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iHeight</span> <span class="S8">=</span> <span class="S3">200</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStyle</span> <span class="S8">=</span> <span class="S3">0x00200002</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iExStyle</span> <span class="S8">=</span> <span class="S3">0x00000000</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор родительского или владеющего окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$sText</span></td>
+<td>Текст с разделителями для добавления в ComboBox.</td>
+</tr>
+<tr>
+<td><span class="S91">$iX</span></td>
+<td>Горизонтальная позиция элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$iY</span></td>
+<td>Вертикальная позиция элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$iWidth</span></td>
+<td><strong>[необязательный]</strong> Ширина элемента управления</td>
+</tr>
+<tr>
+<td><span class="S91">$iHeight</span></td>
+<td><strong>[необязательный]</strong> Высота элемента управления</td>
+</tr>
+<tr>
+<td><span class="S91">$iStyle</span></td>
+<td><strong>[необязательный]</strong> Стиль элемента управления:<br />
+<span class="S91">$CBS_DROPDOWN</span> – похоже на <span class="S91">$CBS_SIMPLE</span>, кроме того, что список не отображается, пока пользователь не выберет значок рядом с edit элементом управления<br />
+<span class="S91">$CBS_DROPDOWNLIST</span> – похоже на <span class="S91">$CBS_DROPDOWN</span>, кроме того, что edit элемент заменяется статическим текстовым элементом, отображающим текущее выделение из списка<br />
+<span class="S91">$CBS_SIMPLE</span> – отображает список всё время<br />
+<br />
+По умолчанию: <span class="S91">$CBS_DROPDOWN</span>, <span class="S91">$WS_VSCROLL</span><br />
+Обязательно: <span class="S91">$WS_CHILD</span>, <span class="S91">$WS_TABSTOP</span>, <span class="S91">$WS_VISIBLE</span>.<br /></td>
+</tr>
+<tr>
+<td><span class="S91">$iExStyle</span></td>
+<td><strong>[необязательный]</strong> Расширенный стиль элемента управления:<br />
+<span class="S91">$CBES_EX_CASESENSITIVE</span> – поиск в списке будет чувствителен к регистру<br />
+<span class="S91">$CBES_EX_NOEDITIMAGE</span> – edit поле и выпадающий список не будут отображать значки элементов<br />
+<span class="S91">$CBES_EX_NOEDITIMAGEINDENT</span> – edit поле и выпадающий список не будут отображать значки элементов<br />
+<span class="S91">$CBES_EX_NOSIZELIMIT</span> – позволяет изменять размер элемента управления ComboBoxEx вертикально меньше, чем его содержащийся ComboBox.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает обработчик элемента управления ComboBoxEx.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_GUICtrlComboBoxEx_Destroy.htm">_GUICtrlComboBoxEx_Destroy</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\WM_NOTIFY.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiComboBoxEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StructureConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_hCombo</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"ComboBoxEx Create (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hCombo</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlComboBoxEx_Create.htm"><span class="S15">_GUICtrlComboBoxEx_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">"This is a test|Line 2"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">394</span><span class="S8">,</span> <span class="S3">268</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_Register</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_AddString.htm"><span class="S15">_GUICtrlComboBoxEx_AddString</span></a><span class="S8">(</span><span class="S9">$g_hCombo</span><span class="S8">,</span> <span class="S7">"Some More Text"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_InsertString.htm"><span class="S15">_GUICtrlComboBoxEx_InsertString</span></a><span class="S8">(</span><span class="S9">$g_hCombo</span><span class="S8">,</span> <span class="S7">"Text to be deleted"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_DeleteString.htm"><span class="S15">_GUICtrlComboBoxEx_DeleteString</span></a><span class="S8">(</span><span class="S9">$g_hCombo</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_InsertString.htm"><span class="S15">_GUICtrlComboBoxEx_InsertString</span></a><span class="S8">(</span><span class="S9">$g_hCombo</span><span class="S8">,</span> <span class="S7">"Inserted Text"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">WM_NOTIFY</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tNMHDR</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWndFrom</span> <span class="S8">=</span> <a class="le" href="../functions/HWnd.htm"><span class="S4">HWnd</span></a><span class="S8">(</span><a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tNMHDR</span><span class="S8">,</span> <span class="S7">"hWndFrom"</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iCode</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tNMHDR</span><span class="S8">,</span> <span class="S7">"Code"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tInfo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$hWndFrom</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$g_hCombo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iCode</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$CBEN_BEGINEDIT</span>&nbsp;<span class="S1">; Отправляется когда пользователь активирует выпадающий список или нажимает в edit элемента управления.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$CBEN_BEGINEDIT"</span><span class="S8">,</span> <span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$CBEN_DELETEITEM</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$CBEN_DELETEITEM"</span><span class="S8">,</span> <span class="S9">$tagNMCOMBOBOXEX</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Mask,Item,*Text,TextMax,Indent,Image,SelectedImage,OverlayImage,Param"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$CBEN_DRAGBEGINA</span><span class="S8">,</span> <span class="S9">$CBEN_DRAGBEGINW</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tInfo</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagNMCBEDRAGBEGIN</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tInfo</span><span class="S8">,</span> <span class="S7">"ItemID"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$CBEN_DRAGBEGIN"</span><span class="S8">,</span> <span class="S9">$tagNMCOMBOBOXEX</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Mask,Item,*Text,TextMax,Indent,Image,SelectedImage,OverlayImage,Param"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$CBEN_DRAGBEGIN"</span><span class="S8">,</span> <span class="S9">$tagNMCBEDRAGBEGIN</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,ItemID,Text"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; возвращаемое значение игнорируется
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$CBEN_ENDEDITA</span><span class="S8">,</span> <span class="S9">$CBEN_ENDEDITW</span>&nbsp;<span class="S1">; Отправляется когда пользователь завершает операцию в edit или выбирает элемент из выпадающего списка элемента управления.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$CBEN_ENDEDIT"</span><span class="S8">,</span> <span class="S9">$tagNMCBEENDEDIT</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,fChanged,NewSelection,Text,Why"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span>&nbsp;<span class="S1">; принять уведомление и разрешить элементу управления отображать выбранный элемент
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возвращает True или иное
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$CBEN_GETDISPINFOA</span><span class="S8">,</span> <span class="S9">$CBEN_GETDISPINFOW</span>&nbsp;<span class="S1">; Отправляется для получения информации отображения элемента с обратным вызовом
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$CBEN_GETDISPINFOW"</span><span class="S8">,</span> <span class="S9">$tagNMCOMBOBOXEX</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Mask,Item,*Text,TextMax,Indent,Image,SelectedImage,OverlayImage,Param"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$CBEN_INSERTITEM</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$CBEN_INSERTITEM"</span><span class="S8">,</span> <span class="S9">$tagNMCOMBOBOXEX</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Mask,Item,*Text,TextMax,Indent,Image,SelectedImage,OverlayImage,Param"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;WM_NOTIFY
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlComboBoxEx_Create.au3,"></object>
+</body>
+</html>

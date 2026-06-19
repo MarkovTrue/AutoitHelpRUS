@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _FormatAutoItExitMethod</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_FormatAutoItExitMethod</h1>
+<p class="funcdesc">Форматирует <span class="S61">@exitMethod</span>.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;AutoItExitCodes.au3&gt;</span><br>
+<span class="S0">_FormatAutoItExitMethod</span> <span class="S8">(</span>  <span class="S8">)</span></p>
+
+<h2>Возвращаемое значение</h2>
+Возвращает строку, соответствующую значению <span class="S61">@exitMethod</span>.<br />
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;AutoItExitCodes.au3&gt;</span><br>
+<br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"SetExitCode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span></a><span class="S8">(</span><span class="S7">'_My_Exit'</span><span class="S8">)</span><br>
+<br>
+<span class="S0">_UngracefulExit</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S3">100</span>&nbsp;<span class="S1">; выполняется, если _UngracefulExit() закомментирована
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_UngracefulExit</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$a</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$a</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_UngracefulExit
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_My_Exit</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">'_my_Exit()'</span><span class="S8">,</span> <span class="S7">'@exitCode: "'</span> <span class="S8">&amp;</span> <span class="S0">_FormatAutoItExitCode</span><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">'"'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'@exitMethod: '</span> <span class="S8">&amp;</span> <span class="S0">_FormatAutoItExitMethod</span><span class="S8">(</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_My_Exit
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_FormatAutoItExitCode.au3,"></object>
+</body>
+</html>

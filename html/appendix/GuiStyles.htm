@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Стили GUI и элементов</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+  <style type="text/css">
+th.c2 {width:9%}
+  th.c1 {width:22%}
+  </style>
+</head>
+<body>
+  <h1>Стили GUI и элементов</h1><br />
+  <p>На этой странице приведён список общих и расширенных стилей, которые можно использовать с окнами, а также особых стилей для конкретных контролов. Эти стили используются в параметрах "style" и/или "exStyle" многих функций GUI. Для их применения нужно сделать <span class="S111">#include</span> файла, указанного в начале каждого раздела.</p>
+  <p><a id="Top"></a><a href="#Extended">Расширенные</a> | <a href="#Avi">Avi</a> | <a href="#Button">Button</a> | <a href="#Checkbox">Checkbox</a> | <a href="#Combo">Combo</a> | <a href="#Date">Date</a> | <a href="#Edit">Edit/Input</a> |
+  <a href="#Label">Label/Static</a> | <a href="#ListBox">ListBox</a> | <a href="#ListView">ListView</a> | <a href="#ListViewExtended">ListView расширенные</a> | <a href="#MonthCal">MonthCal</a> | <a href="#Progress">Progress</a> | <a href=
+  "#Slider">Slider</a> | <a href="#Tab">Tab</a> | <a href="#TreeView">TreeView</a> | <a href="#UpDown">UpDown</a></p>
+  <p><strong>Примечание:</strong> столбец "Значение" приведён только для справки. Всегда используйте "имя" стиля – так скрипт остаётся читабельным.</p>
+  <p><br /></p>
+  <table>
+    <tr>
+      <th class="c1">Общие стили</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">WindowsStylesConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно при создании GUI</td>
+      <td>&nbsp;</td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_GUI</span></span> см. функцию <a href="../functions/GUICreate.htm">GUICreate</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_BORDER</span></td>
+      <td>0x00800000</td>
+      <td>Создаёт границы окна/элемента в виде тонкой линии. Попробуйте со стилем <span class="S91">$WS_POPUP</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_POPUP</span></td>
+      <td>0x80000000</td>
+      <td>Создает временное окно.  Несовместим со стилем <span class="S91">$WS_CHILD</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_CAPTION</span></td>
+      <td>0x00C00000</td>
+      <td>Создаёт окно с заголовком (включает в себя стили <span class="S91">$WS_DLGFRAME</span> + <span class="S91">$WS_BORDER</span>)</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_CLIPCHILDREN</span></td>
+      <td>0x02000000</td>
+      <td>Исключает перерисовку областей, занятых дочерними окнами при перерисовке родительского окна. Этот стиль применяется для родительского окна при его создании. Уменьшает мерцание окна при изменении его размера</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_CLIPSIBLINGS</span></td>
+      <td>0x04000000</td>
+      <td>Отсекает дочерние окна друг от друга, то есть когда определенное дочернее окно получает сообщение WM_PAINT, стиль <span class="S91">$WS_CLIPSIBLINGS</span> отсекает все другие дочерние окна, которые перекрывают данное дочернее окно, от той области дочернего окна, которая будет обновлена. Если стиль <span class="S91">$WS_CLIPSIBLINGS</span> не определен и дочерние окна перекрывают друг друга, то можно при рисовании в клиентской области одного дочернего окна рисовать и в клиентской области соседнего дочернего окна.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_DISABLED</span></td>
+      <td>0x08000000</td>
+      <td>Создает изначально недоступное окно/элемент.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_DLGFRAME</span></td>
+      <td>0x00400000</td>
+      <td>Создает окно с выпуклым контуром обычно для диалоговых окон.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_HSCROLL</span></td>
+      <td>0x00100000</td>
+      <td>Создает окно/элемент c горизонтальной полосой прокрутки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_MAXIMIZE</span></td>
+      <td>0x01000000</td>
+      <td>Создает изначально развёрнутое на весь экран окно.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_MAXIMIZEBOX</span></td>
+      <td>0x00010000</td>
+      <td>Добавляет окну или делает активной кнопку "Развернуть". Несовместим со стилем <span class="S91">$WS_EX_CONTEXTHELP</span>. Стиль <span class="S91">$WS_SYSMENU</span> должен быть указан. Окно всегда будет иметь 3 кнопки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_MINIMIZE</span></td>
+      <td>0x20000000</td>
+      <td>Создает изначально свёрнутое окно.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_MINIMIZEBOX</span></td>
+      <td>0x00020000</td>
+      <td>Добавляет окну или делает активной кнопку "Свернуть". Несовместим со стилем <span class="S91">$WS_EX_CONTEXTHELP</span>. Стиль <span class="S91">$WS_SYSMENU</span> должен быть указан. Окно всегда будет иметь 3 кнопки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_OVERLAPPED</span></td>
+      <td>0x00000000</td>
+      <td>Создает перекрывающееся окно, имеющее заголовок и границы. Тоже что и устаревший стиль <span class="S91">$WS_TILED</span></td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_OVERLAPPEDWINDOW</span></td>
+      <td>0x00CF0000</td>
+      <td>Лучший стиль для создания окна с изменением размеров. Содержит стили <span class="S91">$WS_OVERLAPPED</span>, <span class="S91">$WS_CAPTION</span>, <span class="S91">$WS_SYSMENU</span>, <span class="S91">$WS_THICKFRAME</span>, <span class="S91">$WS_MINIMIZEBOX</span>, и <span class="S91">$WS_MAXIMIZEBOX</span>. Тоже что и устаревший стиль <span class="S91">$WS_TILEDWINDOW</span>. Используйте со стилем <span class="S91">$WS_POPUP</span></td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_POPUPWINDOW</span></td>
+      <td>0x80880000</td>
+      <td>Создает всплывающее окно со стилями <span class="S91">$WS_BORDER</span>, <span class="S91">$WS_POPUP</span>, и <span class="S91">$WS_SYSMENU</span>. Для того чтобы сделать системное меню доступным, необходимо суммировать со стилем <span class="S91">$WS_CAPTION</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_SIZEBOX</span></td>
+      <td>0x00040000</td>
+      <td>Создаёт окно с возможностью менять размер. Тоже что и стиль <span class="S91">$WS_THICKFRAME</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_SYSMENU</span></td>
+      <td>0x00080000</td>
+      <td>Добавляет окну системное меню на иконке в заголовке и на кнопке, находящейся на панели задач. Визуально добавляет иконку и кнопку "Закрыть" в заголовке. Необходим стиль <span class="S91">$WS_CAPTION</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_THICKFRAME</span></td>
+      <td>0x00040000</td>
+      <td>Создаёт окно с возможностью менять размер. Тоже что и устаревший стиль <span class="S91">$WS_SIZEBOX</span></td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_VSCROLL</span></td>
+      <td>0x00200000</td>
+      <td>Создает окно/элемент c вертикальной полосой прокрутки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_VISIBLE</span></td>
+      <td>0x10000000</td>
+      <td>Создает изначально видимое окно.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_CHILD</span></td>
+      <td>0x40000000</td>
+      <td>Создает дочернее окно внутри родительского (требуется указать родительское). Окно с этим стилем не может иметь меню. Несовместим со стилем <span class="S91">$WS_POPUP</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_GROUP</span></td>
+      <td>0x00020000</td>
+      <td>Указывает первый элемент управления группы элементов. Группа состоит из этого первого элемента управления и всех элементов управления, указанных после него, до следующего элемента со стилем <span class="S91">$WS_GROUP</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_TABSTOP</span></td>
+      <td>0x00010000</td>
+      <td>Позволяет пользователю выбирать элементы управления используя TAB и SHIFT+TAB. Добавьте этот стиль к элементу GUICtrlCreateSlider</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DS_MODALFRAME</span></td>
+      <td>0x00000080</td>
+      <td>Создает диалоговое окно с границами модального диалогового окна, которое может объединятся с заголовком и системным меню <b>окна</b> указанием стилей <span class="S91">$WS_CAPTION</span> и <span class="S91">$WS_SYSMENU</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DS_SETFOREGROUND</span></td>
+      <td>0x00000200</td>
+      <td>Этот стиль полезен для модальных диалоговых окон, которые требуют немедленного внимания от пользователя, независимо от того, владелец окна является ли окном переднего плана.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DS_CONTEXTHELP</span></td>
+      <td>0x00002000</td>
+      <td>Добавляет кнопку с вопросительным знаком. Несовместим со стилями <span class="S91">$WS_MAXIMIZEBOX</span> или <span class="S91">$WS_MINIMIZEBOX</span>. Тоже что расширенный стиль <span class="S91">$WS_EX_CONTEXTHELP</span>.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Extended"></a>Общие расширенные стили</th>
+      <th width="5%">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">WindowsStylesConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_ACCEPTFILES</span></td>
+      <td>0x00000010</td>
+      <td>Разрешает элементам Edit, Input (и другим) в пределах окна получать путь / имена методом перетаскивания в окно (drag and drop). Также элементы управления должны иметь состояние <span class="S91">$GUI_DROPACCEPTED</span>, устанавливаемое функцией <a href="../functions/GUICtrlSetState.htm">GUICtrlSetState</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_APPWINDOW</span></td>
+      <td>0x00040000</td>
+      <td>Заставляет дочернее окно отображаться на панели задач.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_CLIENTEDGE</span></td>
+      <td>0x00000200</td>
+      <td>Границы окна/элемента. Чаще для полей ввода, списков (в виде декоративной линии). Для лейблов придаёт утопленный вид.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_COMPOSITED</span></td>
+      <td>0x02000000</td>
+      <td>Windows XP или выше: Рисует всех потомков окна по порядку снизу-вверх используя двойную буферизацию. Уменьшает мерцание элементов окна при изменении размера окна</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_CONTEXTHELP</span></td>
+      <td>0x00000400</td>
+      <td>Добавляет системную кнопку - знак вопроса в заголовок окна. Несовместим со стилями <span class="S91">$WS_MAXIMIZEBOX</span> или <span class="S91">$WS_MINIMIZEBOX</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_CONTROLPARENT</span></td>
+      <td>0x00010000</td>
+      <td>Разрешает перетаскивание окна за клиентскую область</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_DLGMODALFRAME</span></td>
+      <td>0x00000001</td>
+      <td>Создаёт окно/элемент с двойными границами; при необходимости окно может быть создано с заголовком при указании стиля <span class="S91">$WS_CAPTION</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_LAYERED</span></td>
+      <td>0x00080000</td>
+      <td>Создаёт многослойное окно. Не может быть использовано в качестве дочернего окна.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_LAYOUTRTL</span></td>
+      <td>0x00400000</td>
+      <td>Указывает, что окно имеет вид справа налево (RTL) вместо стандартных слева направо (LTR).</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_LEFT</span></td>
+      <td>0x00000000</td>
+      <td>Окно имеет стандартные свойства выравнивания по левому краю. Используется по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_LEFTSCROLLBAR</span></td>
+      <td>0x00004000</td>
+      <td>Если язык оболочки – иврит, арабский или другой язык с порядком чтения справа налево, вертикальная полоса прокрутки (если есть) располагается слева от клиентской области. Для других языков стиль игнорируется.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_LTRREADING</span></td>
+      <td>0x00000000</td>
+      <td>Текст окна отображается со свойствами порядка чтения слева направо. Используется по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_MDICHILD</span></td>
+      <td>0x00000040</td>
+      <td>Создание дочернего окна, которое будет перемещаться вместе с родительским.(имитация окна MDI, развернуть/свернуть не имитируется).</td>
+    </tr>
+    <tr>
+     <td><span class="S91">$WS_EX_NOACTIVATE</span></td>
+      <td>0x08000000</td>
+      <td>Верхнеуровневое окно с этим стилем не становится передним при щелчке пользователем. Система не выводит его на передний план при сворачивании или закрытии текущего активного окна.
+Окно не должно активироваться программно или через навигацию с клавиатуры специальными средствами, например Narrator.
+Для активации окна используйте SetActiveWindow или SetForegroundWindow.
+По умолчанию окно не отображается на панели задач. Чтобы окно появилось на панели задач, используйте стиль WS_EX_APPWINDOW.</td>
+    </tr>
+    <tr>
+     <td><span class="S91">$WS_EX_NOINHERITLAYOUT</span></td>
+      <td>0x00100000</td>
+      <td>Окно не передаёт свою раскладку дочерним окнам.</td>
+    </tr>
+    <tr>
+     <td><span class="S91">$WS_EX_NOPARENTNOTIFY</span></td>
+      <td>0x00000004</td>
+      <td>Дочернее окно с этим стилем не отправляет сообщение WM_PARENTNOTIFY родительскому окну при создании или уничтожении.</td>
+    </tr>
+    <tr>
+     <td><span class="S91">$WS_EX_NOREDIRECTIONBITMAP</span></td>
+      <td>0x00200000</td>
+      <td>Окно не отрисовывается в поверхность перенаправления. Подходит для окон без видимого содержимого или использующих иные механизмы отрисовки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_OVERLAPPEDWINDOW</span></td>
+      <td>0x00000300</td>
+      <td>Объединяет стили <span class="S91">$WS_EX_CLIENTEDGE</span> и <span class="S91">$WS_EX_WINDOWEDGE</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_PALETTEWINDOW</span></td>
+      <td>0x00000188</td>
+      <td>Объединяет стили WS_EX_WINDOWEDGE, WS_EX_TOOLWINDOW и WS_EX_TOPMOST. Окно является палитрой – немодальным диалоговым окном с набором команд.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_RIGHT</span></td>
+      <td>0x00001000</td>
+      <td>Окно имеет стандартные свойства выравнивания по правому краю. Поведение зависит от класса окна. Стиль действует только если язык оболочки – иврит, арабский или другой язык с порядком чтения справа налево; иначе игнорируется.
+Использование WS_EX_RIGHT для контролов static или edit равнозначно использованию SS_RIGHT или ES_RIGHT соответственно. Использование с кнопками равнозначно стилям BS_RIGHT и BS_RIGHTBUTTON.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_RIGHTSCROLLBAR</span></td>
+      <td>0x00000000</td>
+      <td>Вертикальная полоса прокрутки (если есть) располагается справа от клиентской области. Используется по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_RTLREADING</span></td>
+      <td>0x00002000</td>
+      <td>Если язык оболочки – иврит, арабский или другой язык с порядком чтения справа налево, текст окна отображается со свойствами порядка чтения справа налево. Для других языков стиль игнорируется.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_STATICEDGE</span></td>
+      <td>0x00020000</td>
+      <td>Создает окно с границами в трех-мерном стиле, используется для управляющих элементов не предназначенных для ввода данных от пользователя.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_TOOLWINDOW</span></td>
+      <td>0x00000080</td>
+      <td>Создаёт сервисное окно, т.е. окно предназначенное для использования как плавающая панель инструментов. Ширина заголовка окна меньше обычного и уменьшенный шрифт заголовка. Окно не появляется в панели задач и в списке выбора при нажатии ALT + TAB. Если окно инструментов имеет системное меню, его значок не отображается в строке заголовка. Тем не менее, окно отображает системное меню по нажатию ALT+SPACE.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_TOPMOST</span></td>
+      <td>0x00000008</td>
+      <td>Поверх всех окон, даже если окно неактивно.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_TRANSPARENT</span></td>
+      <td>0x00000020</td>
+      <td>Прозрачное окно (подложка из окон уже отрисована).</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$WS_EX_WINDOWEDGE</span></td>
+      <td>0x00000100</td>
+      <td>Окно с приподнятыми краями.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$GUI_WS_EX_PARENTDRAG</span></td>
+      <td>0x00100000</td>
+      <td>Применив этот стиль к элементам <a href="../functions/GUICtrlCreateLabel.htm">Label</a> или <a href="../functions/GUICtrlCreatePic.htm">Pic</a> позволяет перетаскивать окно за этот элемент как за заголовок окна.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Checkbox"></a>Стили Checkbox</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">ButtonConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td>См. функцию <a href="../functions/GUICtrlCreateCheckbox.htm">GUICtrlCreateCheckbox</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_3STATE</span></td>
+      <td>0x0005</td>
+      <td>Создаёт Checkbox в котором выбор недоступен, а также состояния "с галочкой", "квадратик" и "неотмеченный". Используйте недоступное состояние, показывая, что состояние не определено.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_AUTO3STATE</span></td>
+      <td>0x0006</td>
+      <td>Создаёт Checkbox с тремя состояниями, в котором состояние поочерёдно переключается на "с галочкой", "квадратик" и "неотмеченный", при каждом клике.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_AUTOCHECKBOX</span></td>
+      <td>0x0003</td>
+      <td>Создаёт Checkbox с двумя состояниями, в котором состояние поочерёдно переключается между "с галочкой" и "неотмеченный", при каждом клике.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_CHECKBOX</span></td>
+      <td>0x0002</td>
+      <td>Делает вид как у checkbox. Для отображения текста слева, а квадратика справа суммируйте со стилем <span class="S91">$BS_RIGHTBUTTON</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_LEFT</span></td>
+      <td>0x0100</td>
+      <td>Выравнивание текста по левому краю на кнопке (Button) или Checkbox.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_PUSHLIKE</span></td>
+      <td>0x1000</td>
+      <td>Делает вид как у кнопки для таких как checkbox, трёх-статусный checkbox, или радио-кнопки. Кнопка выглядит приподнятой, когда не отмечена, и утопленной, когда отмечена.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_RIGHT</span></td>
+      <td>0x0200</td>
+      <td>Выравнивание текста по правому краю на кнопке (Button) или Checkbox.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_RIGHTBUTTON</span></td>
+      <td>0x0020</td>
+      <td>Позиция отмечаемого квадратика Checkbox справа.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_GROUPBOX</span></td>
+      <td>0x0007</td>
+      <td>Создает прямоугольный контур, в котором другие кнопки группируются. Любой текст, связанный с этим стилем отображается в верхнем левом углу прямоугольника.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_AUTORADIOBUTTON</span></td>
+      <td>0x0009</td>
+      <td>Аналог радио-кнопки, кроме того, когда пользователь выбирает его, кнопка автоматически подсвечивает себя и удаляет выделение из любой другой радио-кнопки с тем же стилем в одной группе.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Button"></a>Стили Push Button</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">ButtonConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td>См. функции <a href="../functions/GUICtrlCreateButton.htm">GUICtrlCreateButton</a>, <a href="../functions/GUICtrlCreateCheckbox.htm">GUICtrlCreateCheckbox</a>, <a href="../functions/GUICtrlCreateRadio.htm">GUICtrlCreateRadio</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_BOTTOM</span></td>
+      <td>0x0800</td>
+      <td>Выравнивание текста кнопки по нижнему краю.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_CENTER</span></td>
+      <td>0x0300</td>
+      <td>Выравнивание текста кнопки по центру по горизонтали.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_DEFPUSHBUTTON</span></td>
+      <td>0x0001</td>
+      <td>Создаёт кнопку с жирным чёрным контуром. Если кнопка находится в диалоговом окне, пользователь может выбрать кнопку, нажав клавишу ENTER, даже если кнопка не имеет фокуса ввода. Этот стиль полезен возможностью пользователю быстро выбрать наиболее вероятный вариант, или по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_MULTILINE</span></td>
+      <td>0x2000</td>
+      <td>Текст на кнопке в несколько строк, если текст слишком длинный, чтоб уместится на кнопке в одну строку.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_TOP</span></td>
+      <td>0x0400</td>
+      <td>Выравнивание текста кнопки по верхнему краю.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_VCENTER</span></td>
+      <td>0x0C00</td>
+      <td>Выравнивание текста кнопки по центру по вертикали.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_ICON</span></td>
+      <td>0x0040</td>
+      <td>Указывает кнопке отображать иконку.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_BITMAP</span></td>
+      <td>0x0080</td>
+      <td>Указывает кнопке отображать рисунок (bitmap).</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_FLAT</span></td>
+      <td>0x8000</td>
+      <td>Плоская кнопка (двумерный вид); не использует стандартные тени по контуру, создающие объёмный 3D вид.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$BS_NOTIFY</span></td>
+      <td>0x4000</td>
+      <td>Разрешает кнопке высылать уведомления <span class="S91">$BN_KILLFOCUS</span> и <span class="S91">$BN_SETFOCUS</span> в родительское окно. Обратите внимание, что кнопки высылают уведомления <span class="S91">$BN_CLICKED</span> независимо от этого стиля. Чтобы получить уведомление двойного клика - <span class="S91">$BN_DBLCLK</span>, кнопки должны иметь стили <span class="S91">$BS_RADIOBUTTON</span> или <span class="S91">$BS_OWNERDRAW</span>.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Combo"></a>Стили Combo</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">ComboConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_COMBO</span></span> см. функцию <a href="../functions/GUICtrlCreateCombo.htm">GUICtrlCreateCombo</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_AUTOHSCROLL</span></td>
+      <td>0x0040</td>
+      <td>Автоматически сдвигает текст в поле ввода, когда пользователь вводит символ в конце строки у правого края элемента. Если этот стиль не установлен, то позволяется ввод текста, только до границы поля ввода.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_DISABLENOSCROLL</span></td>
+      <td>0x0800</td>
+      <td>Отображает вертикальную полосу прокрутки в раскрывающемся списке, даже если список содержит недостаточное количество элементов. Без этого стиля, полоса прокрутки скрыта, если список содержит недостаточное количество элементов.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_DROPDOWN</span></td>
+      <td>0x0002</td>
+      <td>Отображает только поле ввода по умолчанию. Пользователь может просмотреть список кликнув элемент раскрытия списка справа.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_DROPDOWNLIST</span></td>
+      <td>0x0003</td>
+      <td>Отображает статический текст, который не доступен для редактирования. Список раскрывается при клике на тексте.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_LOWERCASE</span></td>
+      <td>0x4000</td>
+      <td>Преобразует любой вводимый символ верхнего регистра (ЗАГЛАВНЫЕ) в нижний (строчные).</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_NOINTEGRALHEIGHT</span></td>
+      <td>0x0400</td>
+      <td>Высота списка будет равна точно указанной в пятом параметре высоте, иначе для отображаемого списка (<span class="S91">$CBS_SIMPLE</span>) высота кратна высоте строк, не допуская частичного отображения строки, а высота раскрывающегося списка (<span class="S91">$CBS_DROPDOWN</span>) равна половине экрана монитора.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_OEMCONVERT</span></td>
+      <td>0x0080</td>
+      <td>Преобразует текст, введенный в раскрывающийся список из набора символов Windows в набор символов OEM (DOS), а затем обратно в набор Windows. Этот стиль наиболее полезен для раскрывающегося списка, который содержит имена файлов и применяются только для раскрывающегося списка, созданного со стилем <span class="S91">$CBS_SIMPLE</span> или <span class="S91">$CBS_DROPDOWN</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_SIMPLE</span></td>
+      <td>0x0001</td>
+      <td>Список отображается всегда (раскрытый). Текущий выбор в списке отображается в поле ввода.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_SORT</span></td>
+      <td>0x0100</td>
+      <td>Автоматически сортирует строки в раскрывающемся списке.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$CBS_UPPERCASE</span></td>
+      <td>0x2000</td>
+      <td>Преобразует любой вводимый символ нижнего регистра (строчные) в верхний (ЗАГЛАВНЫЕ).</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="ListBox"></a>Стили List</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">ListBoxConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_LIST</span></span> см. функцию <a href="../functions/GUICtrlCreateList.htm">GUICtrlCreateList</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LBS_DISABLENOSCROLL</span></td>
+      <td>0x1000</td>
+      <td>Отображает вертикальную полосу прокрутки в списке, даже если список содержит недостаточное количество элементов. Без этого стиля, полоса прокрутки скрыта, если список содержит недостаточное количество элементов.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LBS_NOINTEGRALHEIGHT</span></td>
+      <td>0x0100</td>
+      <td>Список точно указанной высоты. Без этого стиля элемент подстраивает свою высоту кратно высоте строк, не допуская частичного отображения строки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LBS_NOSEL</span></td>
+      <td>0x4000</td>
+      <td>Разрешает пользователю видеть строки элемента list, но не позволяет выбрать их.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LBS_NOTIFY</span></td>
+      <td>0x0001</td>
+      <td>Уведомляет родительское окно, при клике или двойном клике на пункте списка.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LBS_SORT</span></td>
+      <td>0x0002</td>
+      <td>Пункты в списке сортируются по алфавиту.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LBS_STANDARD</span></td>
+      <td>0xA00003</td>
+      <td>Сортировка строк в списке по алфавиту. Родительское окно получает входящее сообщение при клике или двойном клике на пункте. Список имеет рамку. (<span class="S91">$LBS_NOTIFY</span> | <span class="S91">$LBS_SORT</span> | <span class="S91">$WS_VSCROLL</span> | <span class="S91">$WS_BORDER</span>)</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LBS_USETABSTOPS</span></td>
+      <td>0x0080</td>
+      <td>Разрешает распознавание Tab (табуляции) в строке пункта. Позиции табуляции по умолчанию составляет 32 единицы диалогового окна. Единица диалогового окна равна одной четверти ширины единицы текущего базового диалогового окна.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Edit"></a>Стили Edit/Input</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">EditConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_EDIT</span></span>, <span class="default-const"><span class="S91">$GUI_SS_DEFAULT_INPUT</span></span> см. функции <a href="../functions/GUICtrlCreateEdit.htm">GUICtrlCreateEdit</a> или <a href="../functions/GUICtrlCreateInput.htm">GUICtrlCreateInput</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_AUTOHSCROLL</span></td>
+      <td>0x0080</td>
+      <td>Автоматически сдвигает текст в поле ввода, когда пользователь вводит символ в конце строки у правого края элемента. Когда пользователь нажимает клавишу ENTER, курсор перемещается в нулевую позицию. Подобно "без переноса строк"</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_AUTOVSCROLL</span></td>
+      <td>0x0040</td>
+      <td>Прокручивать текст вверх на одну строку, когда пользователь нажимает клавишу ENTER на последней строке.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_CENTER</span></td>
+      <td>0x0001</td>
+      <td>Выравнивание текста по центру в многострочном элементе.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_LOWERCASE</span></td>
+      <td>0x0010</td>
+      <td>Преобразует любой вводимый символ верхнего регистра (ЗАГЛАВНЫЕ) в нижний (строчные).</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_NOHIDESEL</span></td>
+      <td>0x0100</td>
+      <td>Поведение противоположное поведению по умолчанию. По умолчанию выделенное скрывается, когда элемент теряет фокус ввода и инвертируется в выделенное, когда элемент получает фокус ввода. При указании <span class="S91">$ES_NOHIDESEL</span>, выделенный текст инвертируется, даже если элемент не имеет фокуса.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_NUMBER</span></td>
+      <td>0x2000</td>
+      <td>Разрешает ввод только цифр.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_OEMCONVERT</span></td>
+      <td>0x0400</td>
+      <td>Этот стиль больше всего подходит для элементов, содержащих имена файлов.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_MULTILINE</span></td>
+      <td>0x0004</td>
+      <td>Определяет многострочный элемент. По умолчанию в одну строку.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_PASSWORD</span></td>
+      <td>0x0020</td>
+      <td>Отображает звёздочки (*) вместо символов при вводе текста.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_READONLY</span></td>
+      <td>0x0800</td>
+      <td>Запрещает пользователю ввод и правку текста.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_RIGHT</span></td>
+      <td>0x0002</td>
+      <td>Выравнивание многострочного текста по правому краю.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_UPPERCASE</span></td>
+      <td>0x0008</td>
+      <td>Преобразует любой вводимый символ нижнего регистра (строчные) в верхний (ЗАГЛАВНЫЕ).</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ES_WANTRETURN</span></td>
+      <td>0x1000</td>
+      <td>Указывает выполнить возврат каретки (перенос на новую строку) при нажатии клавиши ENTER при вводе текста в многострочном элементе. Если вы не укажете этот стиль, нажатие клавиши ENTER имеет тот же эффект, что и нажатие кнопки по умолчанию в диалоговом окне. Этот стиль не имеет эффекта в однострочных элементах.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Progress"></a>Стили Progress Bar</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">ProgressConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="S91">$PBS_MARQUEE</span></td>
+      <td>0x08</td>
+      <td>Отображает полосу прогресса в виде бегунка.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$PBS_SMOOTH</span></td>
+      <td>0x01</td>
+      <td>Отображает полосу прогресса цельной полосой, а не сегментированной по умолчанию. Для классической темы.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$PBS_SMOOTHREVERSE</span></td>
+      <td>0x10</td>
+      <td>Отображает статус прогресса с плавным обратным переходом при уменьшении значения. По умолчанию контрол мгновенно переходит к меньшему значению.<br />
+	  <strong>Примечание:</strong> стиль поддерживается только в Windows Vista и выше.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$PBS_VERTICAL</span></td>
+      <td>0x04</td>
+      <td>Отображает полосу прогресса вертикально, снизу вверх.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="UpDown"></a>Стили Up-down</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">UpDownConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_UPDOWN</span></span> см. функцию <a href="../functions/GUICtrlCreateUpdown.htm">GUICtrlCreateUpdown</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$UDS_ALIGNLEFT</span></td>
+      <td>0x08</td>
+      <td>Элемент up-down с левого края от поля ввода. Поле ввода с правого края и его ширина уменьшилась на величину элемента up-down.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$UDS_ALIGNRIGHT</span></td>
+      <td>0x04</td>
+      <td>Элемент up-down с правого края от поля ввода. Поле ввода с левого края и его ширина уменьшилась на величину элемента up-down.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$UDS_ARROWKEYS</span></td>
+      <td>0x20</td>
+      <td>Вызов элемента up-down происходит клавишами UP ARROW (стрелка вверх) и DOWN ARROW (стрелка вниз) на клавиатуре.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$UDS_HORZ</span></td>
+      <td>0x40</td>
+      <td>Элемент up-down отображает указывающие стрелки влево/вправо, а не вверх/вниз.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$UDS_NOTHOUSANDS</span></td>
+      <td>0x80</td>
+      <td>В четырёх-значных и более числах, используется разделительный пробел после каждой тройки цифр, начиная с младшего регистра, например "12 730", а не "12730".</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$UDS_WRAP</span></td>
+      <td>0x01</td>
+      <td>Возвращает счёт "по кругу" (из начала в конец или из конца в начало), если выйти за грани указанного диапазона.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Label"></a>Стили Label/Static</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">StaticConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_LABEL</span></span>, <span class="default-const"><span class="S91">$GUI_SS_DEFAULT_ICON</span></span>, <span class="default-const"><span class="S91">$GUI_SS_DEFAULT_PIC</span></span> см. функции <a href="../functions/GUICtrlCreateLabel.htm">GUICtrlCreateLabel</a>, <a href="../functions/GUICtrlCreateIcon.htm">GUICtrlCreateIcon</a>, <a href=
+      "../functions/GUICtrlCreatePic.htm">GUICtrlCreatePic</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_BLACKFRAME</span></td>
+      <td>0x07</td>
+      <td>Прямоугольная рамка с тем же цветом, что и фрейм окна. Это чёрный цвет по умолчанию в цветовой теме.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_BLACKRECT</span></td>
+      <td>0x04</td>
+      <td>Прямоугольник заполненный цветом, что и фрейм окна. Это чёрный цвет по умолчанию в цветовой теме.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_CENTER</span></td>
+      <td>0x01</td>
+      <td>Выравнивание текста по центру по горизонтали. Если текст не помещается по ширине, то автоматически переносится на следующую строку к центру.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_CENTERIMAGE</span></td>
+      <td>0x0200</td>
+      <td>Выравнивание текста по центру по вертикали. Для элементов Icon и Pic изображение в средине будет оставаться фиксированным при изменении размеров элемента. Указывает, что статический элемент со стилем <span class="S91">$SS_BITMAP</span> в средине будет оставаться фиксированным при изменении размеров элемента. Четыре стороны корректируют размещение нового рисунка (bitmap). Если рисунок (bitmap) меньше клиентской области элемента, остальная клиентская область заполняется цветом пикселя левого верхнего угла рисунки (bitmap). Это может быть использовано со статическим элементом, имеющим только <b>одну</b> строку текста.<br>Microsoft Windows XP: Этот стиль bit no longer results в неиспользованных частях элемента заполненного цветом левого верхнего пикселя рисунка (bitmap) или иконки. Неиспользованные участки элемента остаются закрашенными цветом фона.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_ETCHEDFRAME</span></td>
+      <td>0x12</td>
+      <td>Создаёт статичную рамку используя стиль <span class="S91">$EDGE_ETCHED</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_ETCHEDHORZ</span></td>
+      <td>0x10</td>
+      <td>Создаёт статичную горизонтальную линию используя стиль <span class="S91">$EDGE_ETCHED</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_ETCHEDVERT</span></td>
+      <td>0x11</td>
+      <td>Создаёт статичную вертикальную линию используя стиль <span class="S91">$EDGE_ETCHED</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_GRAYFRAME</span></td>
+      <td>0x08</td>
+      <td>Прямоугольная рамка с тем же цветом, что и фоновый цвет рабочего стола. Это серый цвет по умолчанию в цветовой теме</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_GRAYRECT</span></td>
+      <td>0x05</td>
+      <td>Прямоугольник заполненный цветом, что и фоновый цвет рабочего стола. Это серый цвет по умолчанию в цветовой теме.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_LEFT</span></td>
+      <td>0x0000</td>
+      <td>Указывает простой прямоугольник и выравнивание текста по левому краю в нём. Текст форматируется до его отображения. Слова выходящие за конец прямоугольника автоматически переносятся на новую строку к левому краю. Слова, которые длиннее прямоугольника обрезаются.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_LEFTNOWORDWRAP</span></td>
+      <td>0x0C</td>
+      <td>Выравнивание текста по левому краю и без авто-переноса строк. Табуляторы увеличены, но слова не переносятся. Текст длиннее прямоугольника обрезается.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_NOPREFIX</span></td>
+      <td>0x80</td>
+      <td>Предотвращает интерпретацию любого символа амперсанда (&amp;) в тексте элемента как нижнее подчёркивание для последующего символа.<br> Стиль <span class="S91">$SS_NOPREFIX</span> можно суммировать с другим стилем, используя оператор BitOR. Это может быть полезным, когда имена файлов или другие строки, содержащие амперсанд (&amp;) должны быть показаны в статическом элементе в диалоговом окне.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_NOTIFY</span></td>
+      <td>0x0100</td>
+      <td>Посылает родительскому окну уведомление <span class="S91">STN_CLICKED</span>, когда пользователь кликает элемент.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_RIGHT</span></td>
+      <td>0x0002</td>
+      <td>Выравнивание текста по правому краю.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_RIGHTJUST</span></td>
+      <td>0x0400</td>
+      <td>Указывает, что в нижнем правом углу статического элемента управления со стилем <span class="S91">$SS_BITMAP</span> или <span class="S91">$SS_ICON</span> оставляет неизменным изображение при изменении размеров элемента управления. Только верхняя и левая сторона корректируются для нового положения рисунка (bitmap) или иконки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_SIMPLE</span></td>
+      <td>0x0B</td>
+      <td>Указывает простой прямоугольник и отображает текст в одну строку (игнорируя <a class="le" href="../macros.htm#@CRLF"><span class="S61">@CRLF</span></a>) с левым выравниванием. Текстовая строка не может быть сокращена или изменена в любом случае. Кроме того, если элемент недоступен (состояние <span class="S91">$GUI_DISABLE</span>), то текст элемента не будет серым.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_SUNKEN</span></td>
+      <td>0x1000</td>
+      <td>Создаёт утопленный прямоугольник.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_WHITEFRAME</span></td>
+      <td>0x09</td>
+      <td>Прямоугольная рамка с тем же цветом, что и фоновый цвет окна. Это белый цвет по умолчанию в цветовой теме</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$SS_WHITERECT</span></td>
+      <td>0x06</td>
+      <td>Прямоугольник заполненный цветом, что и фоновый цвет окна. Это белый цвет по умолчанию в цветовой теме.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Tab"></a>Стили Tab</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">TabConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td>See <a href="../functions/GUICtrlCreateTab.htm">GUICtrlCreateTab</a> function.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_SCROLLOPPOSITE</span></td>
+      <td>0x0001</td>
+      <td>Неиспользуемые ряды вкладок переместить на противоположную сторону элемента при переходе по вкладкам.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_BOTTOM</span></td>
+      <td>0x0002</td>
+      <td>Вкладки отображаются снизу под элементом. Этот параметр равен <span class="S91">$TCS_RIGHT</span>. Этот стиль не поддерживается, если используется ComCtl32.dll версии 6.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_RIGHT</span></td>
+      <td>0x0002</td>
+      <td>Вкладки отображаются вертикально на правой стороне элемента при использовании стиля <span class="S91">$TCS_VERTICAL</span>. Этот параметр равен <span class="S91">$TCS_BOTTOM</span>. Этот стиль не поддерживается, если вы используете визуальные стили.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_MULTISELECT</span></td>
+      <td>0x0004</td>
+      <td>Может быть выбрано несколько вкладок при удерживании нажатой клавиши <small>CTRL</small>. Этот стиль должен использоваться со стилем <span class="S91">$TCS_BUTTONS</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_FLATBUTTONS</span></td>
+      <td>0x0008</td>
+      <td>Выбранная вкладка отображается утопленной, в то время, как другие вкладки плоские (сливаются с фоном) с разделителем вкладок в виде вертикальной линии. Этот стиль влияет только на элемент Tab со стилем <span class="S91">$TCS_BUTTONS</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_FORCEICONLEFT</span></td>
+      <td>0x0010</td>
+      <td>Иконки выравниваются к левому краю каждой вкладки фиксированной ширины. Этот стиль используется только со стилем <span class="S91">$TCS_FIXEDWIDTH</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_FORCELABELLEFT</span></td>
+      <td>0x0020</td>
+      <td>Название вкладки выравнивается к левому краю вкладки фиксированной ширины. То есть название отображается сразу же справа от иконки, а не по центру. <p>Этот стиль используется только со стилем <span class="S91">$TCS_FIXEDWIDTH</span>, и подразумевает стиль <span class="S91">$TCS_FORCEICONLEFT</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_HOTTRACK</span></td>
+      <td>0x0040</td>
+      <td>Название вкладок автоматически подсвечиваются при наведении мыши.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_VERTICAL</span></td>
+      <td>0x0080</td>
+      <td>Вкладки слева от элемента Tab, и отображаются вертикально. Этот стиль используется только со стилем <span class="S91">$TCS_MULTILINE</span>. Используйте стиль <span class="S91">$TCS_RIGHT</span>, чтоб отобразить вкладки справа. Этот стиль не поддерживается, если используется ComCtl32.dll версии 6.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_TABS</span></td>
+      <td>0x0000</td>
+      <td>Обычные вкладки, и обводящая рамка вокруг области элемента. Этот стиль по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_BUTTONS</span></td>
+      <td>0x0100</td>
+      <td>Вкладки в виде кнопок, и нет обводящей рамки вокруг области элемента.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_SINGLELINE</span></td>
+      <td>0x0000</td>
+      <td>Отображается только один ряд вкладок. Если необходимо пользователь может прокручивать ряд вкладок, чтоб увидеть не вмещающиеся вкладки. Этот стиль по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_MULTILINE</span></td>
+      <td>0x0200</td>
+      <td>Многорядное отображение вкладок, видны все сразу.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_RIGHTJUSTIFY</span></td>
+      <td>0x0000</td>
+      <td>Ширина каждой вкладки увеличивается, по необходимости, так что каждый ряд вкладок заполняет всю ширину элемента вкладок. <p>Этот стиль игнорируется, если не указан стиль <span class="S91">$TCS_MULTILINE</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_FIXEDWIDTH</span></td>
+      <td>0x0400</td>
+      <td>Все вкладки одинаковой ширины. Несовместим со стилем <span class="S91">$TCS_RIGHTJUSTIFY</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_RAGGEDRIGHT</span></td>
+      <td>0x0800</td>
+      <td>Ряд вкладок не будет растянут, чтобы заполнить всю ширину элемента. Этот стиль по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_FOCUSONBUTTONDOWN</span></td>
+      <td>0x1000</td>
+      <td>Элемент Tab получает фокус при клике.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_OWNERDRAWFIXED</span></td>
+      <td>0x2000</td>
+      <td>Родительское окно отвечает за отрисовку вкладок.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_TOOLTIPS</span></td>
+      <td>0x4000</td>
+      <td>Элемент Tab имеет всплывающую подсказку вкладки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TCS_FOCUSNEVER</span></td>
+      <td>0x8000</td>
+      <td>Элемент Tab не получает фокус при клике.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Avi"></a>Стили Avi Clip</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">AVIConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td></td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_AVI</span></span> см. функцию <a href="../functions/GUICtrlCreateAvi.htm">GUICtrlCreateAvi</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ACS_AUTOPLAY</span></td>
+      <td>0x04</td>
+      <td>Запуск воспроизведения анимации, как только клип AVI открыт.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ACS_CENTER</span></td>
+      <td>0x01</td>
+      <td>Центрирует анимацию в анимационном элементе окна.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ACS_TRANSPARENT</span></td>
+      <td>0x02</td>
+      <td>Позволяет сопоставить цвет фона анимации, с цветом окна, создавая &quot;прозрачный&quot; фон. (По умолчанию)</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$ACS_NONTRANSPARENT</span></td>
+      <td>0x10</td>
+      <td>Переназначает на противоположное по умолчанию стилю <span class="S91">$ACS_TRANSPARENT</span></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Date"></a>Стили Date</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">DateTimeConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_DATE</span></span> см. функцию <a href="../functions/GUICtrlCreateDate.htm">GUICtrlCreateDate</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DTS_UPDOWN</span></td>
+      <td>0x01</td>
+      <td>Устанавливает элемент up-down (стрелочки вверх-вниз) справа от элемента даты (DTP) для изменения значения времени. Этот стиль может использоваться вместо выпадающего календаря, который по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DTS_SHOWNONE</span></td>
+      <td>0x02</td>
+      <td>Отображает галочку в элементе. Позволяет элементу соглашаться с отсутствием даты, как с правильным выбором.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DTS_LONGDATEFORMAT</span></td>
+      <td>0x04</td>
+      <td>Отображает дату в расширенном формате. По умолчанию формат строки для этого стиля определяет LOCALE_SLONGDATEFORMAT, который выдаёт как "Пятница, Апрель 19, 1998.”</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DTS_TIMEFORMAT</span></td>
+      <td>0x09</td>
+      <td>Отображает время. По умолчанию формат строки для этого стиля определяет <span class="S91">$LOCALE_STIMEFORMAT</span>, который выдаёт как “5:31:42 PM.”</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DTS_RIGHTALIGN</span></td>
+      <td>0x20</td>
+      <td>Раскрывающийся календарь выравнивается по правому краю элемента, а не по левому, которое по умолчанию.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$DTS_SHORTDATEFORMAT</span></td>
+      <td>0x00</td>
+      <td>Отображает дату в кратком формате. По умолчанию формат строки для этого стиля определяет <span class="S91">$LOCALE_SSHORTDATE</span>, который выдаёт как &quot;4/19/96&quot;.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="MonthCal"></a> Стили MonthCal</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">DateTimeConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td>&nbsp;</td>
+      <td>See <a href="../functions/GUICtrlCreateMonthCal.htm">GUICtrlCreateMonthCal</a> function.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$MCS_NOTODAY</span></td>
+      <td>0x10</td>
+      <td>Элемент календарь не отображает &quot;текущую&quot; дату в нижней части элемента.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$MCS_NOTODAYCIRCLE</span></td>
+      <td>0x08</td>
+      <td>Элемент календарь не отображает рамку вокруг &quot;текущей&quot; даты.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$MCS_WEEKNUMBERS</span></td>
+      <td>0x04</td>
+      <td>Элемент календарь отображает номера недель (1-52) слева от каждого ряда дней (счёт от начала года). Неделя под номером 1 определяется как первая неделя, которая содержит не менее четырех дней.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="TreeView"></a>Стили TreeView</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">TreeViewConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td></td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_TREEVIEW</span></span> см. функцию <a href="../functions/GUICtrlCreateTreeView.htm">GUICtrlCreateTreeView</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_HASBUTTONS</span></td>
+      <td>0x0001</td>
+      <td>Отображает кнопки плюс (+) и минус (-) у пунктов имеющих вложенные пункты. Пользователь кликает их, чтобы развернуть/свернуть дерево вложенных пунктов. Чтобы добавить кнопки плюс (+) и минус (-) для пунктов в корне дерева укажите также стиль <span class="S91">$TVS_LINESATROOT</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_HASLINES</span></td>
+      <td>0x0002</td>
+      <td>Использовать линии, отображающие иерархию пунктов.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_LINESATROOT</span></td>
+      <td>0x0004</td>
+      <td>Использовать линии, отображающие иерархию для пунктов в корне дерева. Это значение игнорируется, если не указан стиль <span class="S91">$TVS_HASLINES</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_DISABLEDRAGDROP</span></td>
+      <td>0x0010</td>
+      <td>Предотвращает высылку уведомления TVN_BEGINDRAG элементу TreeView.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_SHOWSELALWAYS</span></td>
+      <td>0x0020</td>
+      <td>Выделенный пункт остаётся выделенным, когда TreeView теряет фокус.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_RTLREADING</span></td>
+      <td>0x0040</td>
+      <td>Обычное окно отображает текст слева-направо (LTR). Окно может быть <i> зеркальным</i> отображая такие языки, как иврит или арабский, которые читаются справа-налево (RTL). Обычное, текст дерева TreeView отображается в том же направлении, что и текст в его родительском окне. Если установлен <span class="S91">$TVS_RTLREADING</span>, то текст TreeView будет отображаться в противоположном направлении от текста родительского окна.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_NOTOOLTIPS</span></td>
+      <td>0x0080</td>
+      <td>Элемент TreeView не поддерживает всплывающие подсказки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_CHECKBOXES</span></td>
+      <td>0x0100</td>
+      <td>Использование check-boxes для пунктов в элементе TreeView. После создания элемента TreeView с этим стилем, этот стиль не может быть удален. Вместо этого, вы должны удалить элемент TreeView и создать новый на его месте.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_TRACKSELECT</span></td>
+      <td>0x0200</td>
+      <td>Подчёркивает текст пункта при наведении на него.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_SINGLEEXPAND</span></td>
+      <td>0x0400</td>
+      <td>При включении этого стиля, клик на пункте будет автоматически разворачивать его дерево и сворачивать остальные невыбранные пункты оставшееся от предыдущего выбора. Если мышь использует одиночный клик для выбора пункта и этот пункт свёрнут, то клик развернёт пункт. Если пользователь удерживает клавишу CTRL при выборе пункта, остальные невыбранные пункты не будет сворачиваться.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_FULLROWSELECT</span></td>
+      <td>0x1000</td>
+      <td>Выделяется вся строка при выборе пункта. При клике на любом участке строки пункт выделяется. Несовместим со стилем <span class="S91">$TVS_HASLINES</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_NOSCROLL</span></td>
+      <td>0x2000</td>
+      <td>Отключает вертикальную и горизонтальную прокрутку. TreeView не будет отображать ни каких полос прокрутки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TVS_NONEVENHEIGHT</span></td>
+      <td>0x4000</td>
+      <td>Высота пунктов может быть установлена до нечетного значения высоты с использованием сообщения <span class="S91">$TVM_SETITEMHEIGHT</span>. По умолчанию высота пунктов должна быть четным значением.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="Slider"></a>Стили Slider</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">SliderConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td></td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_SLIDER</span></span> см. функцию <a href="../functions/GUICtrlCreateSlider.htm">GUICtrlCreateSlider</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_AUTOTICKS</span></td>
+      <td>0x0001</td>
+      <td>Добавляет метки делений при установке диапазона слайдера с помощью сообщение <span class="S91">$TBM_SETRANGE</span>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_BOTH</span></td>
+      <td>0x0008</td>
+      <td>Установить метки делений слайдера с обоих сторон.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_BOTTOM</span></td>
+      <td>0x0000</td>
+      <td>Установить метки делений снизу для горизонтального слайдера.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_HORZ</span></td>
+      <td>0x0000</td>
+      <td>Создаёт горизонтальный слайдер (по умолчанию).</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_VERT</span></td>
+      <td>0x0002</td>
+      <td>Создаёт вертикальный слайдер.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_NOTHUMB</span></td>
+      <td>0x0080</td>
+      <td>Создаёт слайдер без ползунка.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_NOTICKS</span></td>
+      <td>0x0010</td>
+      <td>Не отображать меток делений у слайдера.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_LEFT</span></td>
+      <td>0x0004</td>
+      <td>Установить метки делений слева для вертикального слайдера.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_RIGHT</span></td>
+      <td>0x0000</td>
+      <td>Установить метки делений справа для вертикального слайдера.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$TBS_TOP</span></td>
+      <td>0x0004</td>
+      <td>Установить метки делений сверху для горизонтального слайдера.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="ListView"></a>Стили ListView</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">ListViewConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>По умолчанию / принудительно</td>
+      <td></td>
+      <td><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_LISTVIEW</span></span> см. функцию <a href="../functions/GUICtrlCreateListView.htm">GUICtrlCreateListView</a>.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_ICON</span></td>
+      <td>0x0000</td>
+      <td>Стиль с иконками.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_REPORT</span></td>
+      <td>0x0001</td>
+      <td>Стиль report (в виде таблицы).</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_SMALLICON</span></td>
+      <td>0x0002</td>
+      <td>Стиль с маленькими иконками.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_LIST</span></td>
+      <td>0x0003</td>
+      <td>В виде обычного списка.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EDITLABELS</span></td>
+      <td>0x0200</td>
+      <td>Текст пункта можно редактировать в окне.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_NOCOLUMNHEADER</span></td>
+      <td>0x4000</td>
+      <td>Не отображать заголовки колонок. По умолчанию колонки имеют заголовки.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_NOSORTHEADER</span></td>
+      <td>0x8000</td>
+      <td>Заголовки колонок не работают как кнопки. Этот стиль предназначен для отображения заголовков колонок, но не используя их для каких либо действия, как например сортировка.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_SINGLESEL</span></td>
+      <td>0x0004</td>
+      <td>Только один пункт может быть выделен.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_SHOWSELALWAYS</span></td>
+      <td>0x0008</td>
+      <td>Выделенный пункт, если таковой имеются, всегда отображается выделенным, даже если элемент не имеет фокуса.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_SORTASCENDING</span></td>
+      <td>0x0010</td>
+      <td>Пункты сортируются по тексту в пунктах в порядке возрастания.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_SORTDESCENDING</span></td>
+      <td>0x0020</td>
+      <td>Пункты сортируются по тексту в пунктах в порядке убывания.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_NOLABELWRAP</span></td>
+      <td>0x0080</td>
+      <td>Текст пункта отображается в одну строку в стиле с иконками. По умолчанию, текст пункта поддерживает перенос строк в стиле с иконками.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th class="c1"><a id="ListViewExtended"></a> Расширенные стили ListView</th>
+      <th class="c2">Значение</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="#Top">Наверх</a></td>
+      <td>&nbsp;</td>
+      <td>
+        <p class="center"><span class="S111">#include</span> &lt;<span class="S7">ListViewConstants.au3</span>&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_FULLROWSELECT</span></td>
+      <td>0x00000020</td>
+      <td>При клике пункта или подпункта, выделяется сам пункт и все его подпункты.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_GRIDLINES</span></td>
+      <td>0x00000001</td>
+      <td>Отображает сетку вокруг пунктов и подпунктов.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_HEADERDRAGDROP</span></td>
+      <td>0x00000010</td>
+      <td>Разрешает перетаскивание колонок за заголовок (drag-and-drop) изменяя их порядок.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_TRACKSELECT</span></td>
+      <td>0x00000008</td>
+      <td>Горячий выбор в элементе ListView. Это означает автоматическое выделение пункта при наведении на него курсора мыши и удержание в течение определенного периода времени</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_CHECKBOXES</span></td>
+      <td>0x00000004</td>
+      <td>Добавляет check-boxes для пунктов в элементе ListView.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_BORDERSELECT</span></td>
+      <td>0x00008000</td>
+      <td>Если этот стиль установлен, то у выбранного элемента изменяется цвет рамки, а не происходит выделение пункта.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_DOUBLEBUFFER</span></td>
+      <td>0x00010000</td>
+      <td>Перерисовка с помощью двойной буферизации, которая уменьшает мерцание</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_FLATSB</span></td>
+      <td>0x00000100</td>
+      <td>Плоская полоса прокрутки в элементе ListView.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_MULTIWORKAREAS</span></td>
+      <td>0x00002000</td>
+      <td>ListView не будет автоматически размещать иконки пока одна или более рабочих областей не будут определены.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_SNAPTOGRID</span></td>
+      <td>0x00080000</td>
+      <td>При отображении в виде иконок, иконки автоматически располагаются по сетке</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_SUBITEMIMAGES</span></td>
+      <td>0x00000002</td>
+      <td>Позволяет отображать рисунки в подпунктах.</td>
+    </tr>
+    <tr>
+      <td><span class="S91">$LVS_EX_INFOTIP</span></td>
+      <td>0x00000400</td>
+      <td>Выводит всплывающую подсказку, если пункт виден не полностью. Высылает уведомительное сообщение <span class="S91">$LVN_GETINFOTIP</span></td>
+    </tr>
+  </table>
+</body>
+</html>

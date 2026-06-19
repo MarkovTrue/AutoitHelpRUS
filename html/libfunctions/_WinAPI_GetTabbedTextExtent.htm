@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetTabbedTextExtent</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetTabbedTextExtent</h1>
+<p class="funcdesc">Вычисляет ширину и высоту строки символов, которая может содержать один или несколько символов табуляции.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetTabbedTextExtent.htm"><span class="S15">_WinAPI_GetTabbedTextExtent</span></a> <span class="S8">(</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$sText</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$aTab</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$sText</span></td>
+<td>Строка символов.</td>
+</tr>
+<tr>
+<td><span class="S91">$aTab</span></td>
+<td><strong>[необязательный]</strong> массив, содержащий позиции табуляции в единицах устройства. Позиции табуляции должны быть отсортированы в порядке возрастания;<br />
+наименьшее значение x должно быть первым элементом в массиве. Также может быть целое число, которое<br />
+является одной позицией табуляции. В этом случае позиции табуляции разделены расстоянием, указанным этим значением.<br />
+Если этот параметр равен 0 (по умолчанию), табуляции расширяются в восемь раз больше среднего символа.</td>
+</tr>
+<tr>
+<td><span class="S91">$iStart</span></td>
+<td><strong>[необязательный]</strong> индекс элемента массива, содержащего первую позицию табуляции.</td>
+</tr>
+<tr>
+<td><span class="S91">$iEnd</span></td>
+<td><strong>[необязательный]</strong> индекс элемента массива, содержащего последнюю позицию табуляции.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает структура <span class="S91">$tagSIZE</span>, которая содержит размеры строки в логических единицах.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта функция использует текущий выбранный шрифт для вычисления размеров строки.<br />
+<br />
+Поскольку некоторые устройства не размещают символы в обычных массивах ячеек (то есть они выполняют кернинг символов), сумма<br />
+ширин символов в строке может не быть равна ширине строки.<br />
+<br />
+Текущий регион отсечения не влияет на возвращаемый результат.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetTabbedTextExtent">GetTabbedTextExtent</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;SendMessage.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StructureConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdiDC.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsNotifsConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sTxt</span> <span class="S8">=</span> <span class="S7">'String'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">'with'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">'tab'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">'characters'</span><br>
+<br>
+<span class="S1">; Создать GUI</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hForm</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_CAPTION</span><span class="S8">,</span> <span class="S9">$WS_POPUP</span><span class="S8">,</span> <span class="S9">$WS_SYSMENU</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S9">$sTxt</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUICtrlSetFont.htm"><span class="S4">GUICtrlSetFont</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">26</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">'Comic Sans MS'</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Вычислить размеры строки и изменить размер окна
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSize</span> <span class="S8">=</span> <span class="S0">_GetTabbedStringSize</span><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$sTxt</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/IsArray.htm"><span class="S4">IsArray</span></a><span class="S8">(</span><span class="S9">$iSize</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetPos.htm"><span class="S4">GUICtrlSetPos</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aPos</span> <span class="S8">=</span> <a class="le" href="../functions/WinGetPos.htm"><span class="S4">WinGetPos</span></a><span class="S8">(</span><span class="S9">$hForm</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinMove.htm"><span class="S4">WinMove</span></a><span class="S8">(</span><span class="S9">$hForm</span><span class="S8">,</span> <span class="S7">''</span><span class="S8">,</span> <span class="S8">(</span><a class="le" href="../macros.htm#@DesktopWidth"><span class="S6">@DesktopWidth</span></a> <span class="S8">-</span> <span class="S8">(</span><span class="S9">$aPos</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">+</span> <span class="S9">$iSize</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">,</span> <span class="S8">(</span><a class="le" href="../macros.htm#@DesktopHeight"><span class="S6">@DesktopHeight</span></a> <span class="S8">-</span> <span class="S8">(</span><span class="S9">$aPos</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">+</span> <span class="S9">$iSize</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">+</span> <span class="S9">$iSize</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">+</span> <span class="S9">$iSize</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Показать GUI</span><br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_GetTabbedStringSize</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tTM</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagTEXTMETRIC</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/IsHWnd.htm"><span class="S4">IsHWnd</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$hWnd</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDC.htm"><span class="S15">_WinAPI_GetDC</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hFont</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SendMessage.htm"><span class="S15">_SendMessage</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$WM_GETFONT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hSv</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hFont</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iTab</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aRet</span> <span class="S8">=</span> <a class="le" href="../functions/DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">(</span><span class="S7">'gdi32.dll'</span><span class="S8">,</span> <span class="S7">'int'</span><span class="S8">,</span> <span class="S7">'GetTextMetricsW'</span><span class="S8">,</span> <span class="S7">'handle'</span><span class="S8">,</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S7">'struct*'</span><span class="S8">,</span> <span class="S9">$tTM</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S9">$aRet</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iTab</span> <span class="S8">=</span> <span class="S3">8</span> <span class="S8">*</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tTM</span><span class="S8">,</span> <span class="S7">'tmAveCharWidth'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSize</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tSIZE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetTabbedTextExtent.htm"><span class="S15">_WinAPI_GetTabbedTextExtent</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$iTab</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Dim</span></a> <span class="S9">$iSize</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iSize</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tSIZE</span><span class="S8">,</span> <span class="S9">$i</span> <span class="S8">+</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hSv</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ReleaseDC.htm"><span class="S15">_WinAPI_ReleaseDC</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$hDC</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$iSize</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_GetTabbedStringSize
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_GetTabbedTextExtent.au3,"></object>
+</body>
+</html>

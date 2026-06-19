@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция StringFormat</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>StringFormat</h1>
+<p class="funcdesc">Возвращает форматированную строку (аналогично функции sprintf() в языке C).</p>
+<p class="codeheader"><a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a> <span class="S8">(</span> <span class="S7">"format control"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">var1</span> <span class="S8">[</span><span class="S8">,</span> ... <span class="S0">var32</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">format control</td>
+<td style="width:85%">Строка формата и флаги (см. раздел Примечания).</td>
+</tr>
+<tr>
+<td>var1...var32</td>
+<td>До 32 переменных, выводимых в соответствии со строкой формата.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращает строку, сформатированную согласно параметру строки формата.<br />
+
+<h2>Примечания</h2>
+<p>Во избежание переполнения буфера каждая переменная ограничена 65535 символами.<br />
+В строке формата можно использовать управляющие символы: \n (<span class="S61">@LF</span>), \r (<span class="S61">@CR</span>), \t (<span class="S61">@TAB</span>). Для вывода "\" используйте \\, для "%" – %%.<br />
+<br />
+Формат переменной: %[флаги] [ширина] [.точность] тип<br />
+<br />
+При недопустимой спецификации формата поведение не определено. Некорректные входные данные могут в особых случаях привести к необработанному исключению и завершению программы.<br />
+<br />
+&nbsp;&nbsp;&nbsp; <strong>Спецификация ширины</strong><br />
+<br />
+Второе необязательное поле – спецификация ширины. Это неотрицательное целое число, задающее минимальное количество выводимых символов. Если результат короче, слева (или справа при флаге –) добавляются пробелы. Если ширина начинается с 0, вместо пробелов добавляются нули (для чисел с выравниванием влево не имеет смысла).<br />
+<br />
+Спецификация ширины никогда не вызывает усечения значения. Если результат длиннее ширины или ширина не задана, выводятся все символы (с учётом точности).<br />
+<br />
+&nbsp;&nbsp;&nbsp; <strong>Спецификация типа</strong><br />
+<br />
+<table>
+<tr class="header">
+<th><strong>Тип</strong></th>
+<th><strong>Тип переменной</strong></th>
+<th><strong>Формат вывода</strong></th>
+</tr>
+
+<tr>
+<td>d, i</td>
+<td>Integer</td>
+<td>Десятичное целое со знаком.</td>
+</tr>
+
+<tr>
+<td>o</td>
+<td>Integer</td>
+<td>Восьмеричное целое без знака.</td>
+</tr>
+
+<tr>
+<td>u</td>
+<td>Integer</td>
+<td>Десятичное целое без знака.</td>
+</tr>
+
+<tr>
+<td>x</td>
+<td>Integer</td>
+<td>Шестнадцатеричное целое без знака, строчные буквы "abcdef".</td>
+</tr>
+
+<tr>
+<td>X</td>
+<td>Integer</td>
+<td>Шестнадцатеричное целое без знака, прописные буквы "ABCDEF".</td>
+</tr>
+
+<tr>
+<td>e</td>
+<td>Float</td>
+<td>Значение со знаком в форме [ - ]<em>d</em><strong>.</strong><em>dddd</em> <strong>e</strong> [<em>знак</em>]<em>ddd</em>, где <em>d</em> – одна десятичная цифра, <em>dddd</em> – одна или более цифр, <em>ddd</em> – ровно три цифры, <em>знак</em> – "+" или "–".</td>
+</tr>
+
+<tr>
+<td>E</td>
+<td>Float</td>
+<td>Аналогично <strong>e</strong>, но экспонента вводится буквой <strong>E</strong>.</td>
+</tr>
+
+<tr>
+<td>f</td>
+<td>Float</td>
+<td>Значение со знаком в форме [ - ]<em>dddd</em><strong>.</strong><em>dddd</em>. Количество цифр до точки зависит от величины числа, после – от заданной точности.</td>
+</tr>
+
+<tr>
+<td>g</td>
+<td>Float</td>
+<td>Значение со знаком в формате <strong>f</strong> или <strong>e</strong> – в зависимости от того, который компактнее. Формат <strong>e</strong> используется, если показатель степени меньше –4 или не меньше precision. Конечные нули отбрасываются; десятичная точка выводится только при наличии цифр после неё.</td>
+</tr>
+
+<tr>
+<td>G</td>
+<td>Float</td>
+<td>Аналогично <strong>g</strong>, но экспонента вводится буквой <strong>E</strong>.</td>
+</tr>
+
+<tr>
+<td>s</td>
+<td>String</td>
+<td>Строка.</td>
+</tr>
+</table><br />
+&nbsp;&nbsp;&nbsp; <strong>Спецификация флагов</strong><br />
+<br />
+<table>
+<tr class="header">
+<th><strong>Флаг</strong></th>
+<th><strong>Значение</strong></th>
+<th><strong>По умолчанию</strong></th>
+</tr>
+
+<tr>
+<td>-</td>
+<td>Выравнивание результата по левому краю поля.</td>
+<td>По правому краю.</td>
+</tr>
+
+<tr>
+<td>+</td>
+<td>Перед значением всегда ставится знак (+ или –), если тип со знаком.</td>
+<td>Знак ставится только для отрицательных значений (–).</td>
+</tr>
+
+<tr>
+<td>0</td>
+<td>Если <em>ширина</em> начинается с <strong>0</strong>, дополняется нулями. При наличии флага – флаг <strong>0</strong> игнорируется. Для целых форматов (<strong>i</strong>, <strong>u</strong>, <strong>x</strong>, <strong>X</strong>, <strong>o</strong>, <strong>d</strong>) также игнорируется.</td>
+<td>Без дополнения.</td>
+</tr>
+
+<tr>
+<td>Пробел</td>
+<td>Перед положительным значением со знаком ставится пробел; если указаны оба флага – пробел и +, пробел игнорируется.</td>
+<td>Без пробела.</td>
+</tr>
+
+<tr>
+<td>#</td>
+<td>С форматами <strong>o</strong>, <strong>x</strong>, <strong>X</strong>: ненулевые значения предваряются префиксом 0, 0x или 0X соответственно.</td>
+<td>Без пробела.</td>
+</tr>
+
+<tr>
+<td>#</td>
+<td>С форматами <strong>e</strong>, <strong>E</strong>, <strong>f</strong>: десятичная точка выводится всегда.</td>
+<td>Точка выводится только при наличии цифр после неё.</td>
+</tr>
+
+<tr>
+<td>#</td>
+<td>С форматами <strong>g</strong>, <strong>G</strong>: десятичная точка выводится всегда, конечные нули не отбрасываются.<br />Игнорируется с <strong>d</strong>, <strong>i</strong>, <strong>u</strong>, <strong>s</strong>.</td>
+<td>Точка выводится только при наличии цифр после неё. Конечные нули отбрасываются.</td>
+</tr>
+</table><br />
+&nbsp;&nbsp;&nbsp; <strong>Спецификация точности</strong><br />
+<br />
+Третье необязательное поле – спецификация точности: неотрицательное десятичное число, предваряемое точкой (.), задающее количество выводимых символов, десятичных знаков или значащих цифр (см. таблицу). В отличие от ширины, точность может вызвать усечение или округление числа с плавающей точкой. Если precision равно 0 и преобразуемое значение равно 0, вывод пуст:<br />
+<br />
+<a href="StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span> "%.0d", 0 <span class="S8">)</span>; /* Символы не выводятся */<br />
+<br />
+&nbsp;&nbsp;&nbsp; <strong>Влияние точности на типы</strong><br />
+<br />
+<table>
+<tr class="header">
+<th><strong>Тип</strong></th>
+<th><strong>Значение</strong></th>
+<th><strong>По умолчанию</strong></th>
+</tr>
+
+<tr>
+<td>d, i, u, o, x, X</td>
+<td>Минимальное количество выводимых цифр. При нехватке цифр слева добавляются нули. При превышении precision значение не усекается.</td>
+<td>Точность по умолчанию – 1.</td>
+</tr>
+
+<tr>
+<td>e, E</td>
+<td>Количество цифр после десятичной точки. Последняя цифра округляется.</td>
+<td>По умолчанию 6; при precision=0 или одиночной точке без числа десятичная точка не выводится.</td>
+</tr>
+
+<tr>
+<td>f Количество цифр после десятичной точки. При наличии точки перед ней стоит хотя бы одна цифра. Значение округляется.</td>
+<td>По умолчанию 6; при precision=0 или одиночной точке без числа десятичная точка не выводится.</td>
+</tr>
+
+<tr>
+<td>g, G</td>
+<td>Максимальное количество значащих цифр.</td>
+<td>6 значащих цифр; конечные нули отбрасываются.</td>
+</tr>
+
+<tr>
+<td>s</td>
+<td>Максимальное количество выводимых символов; лишние символы не выводятся.</td>
+<td>Вывод до нулевого символа.</td>
+</tr>
+</table></p>
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iInt_Unsigned</span> <span class="S8">=</span> <span class="S3">43951789</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iInt_Negative</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">43951789</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Numeric Formats"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%d"</span><span class="S8">,</span> <span class="S7">"standard positive integer with no sign"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 43951789
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Negative</span><span class="S8">,</span> <span class="S7">"%d"</span><span class="S8">,</span> <span class="S7">"standard negative integer with sign"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; -43951789
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%i"</span><span class="S8">,</span> <span class="S7">"standard integer"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 43951789
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%09i"</span><span class="S8">,</span> <span class="S7">"9 digits with leading zero"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 043951789
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%e"</span><span class="S8">,</span> <span class="S7">"scientific notation"</span><span class="S8">)</span>&nbsp;<span class="S1">; 4.395179e+007
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%u"</span><span class="S8">,</span> <span class="S7">"unsigned integer with positive integer"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 43951789
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Negative</span><span class="S8">,</span> <span class="S7">"%u"</span><span class="S8">,</span> <span class="S7">"unsigned integer with negative integer"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 4251015507
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%f"</span><span class="S8">,</span> <span class="S7">"floating point"</span><span class="S8">)</span>&nbsp;<span class="S1">; 43951789.000000
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%.2f"</span><span class="S8">,</span> <span class="S7">"floating point with 2 digits after decimal point"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 43951789.00
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%o"</span><span class="S8">,</span> <span class="S7">"octal"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 247523255
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%s"</span><span class="S8">,</span> <span class="S7">"string"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 43951789
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%x"</span><span class="S8">,</span> <span class="S7">"hexadecimal (lower-case)"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 29ea6ad
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%X"</span><span class="S8">,</span> <span class="S7">"hexadecimal (upper-case)"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 29EA6AD
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Unsigned</span><span class="S8">,</span> <span class="S7">"%+d"</span><span class="S8">,</span> <span class="S7">"sign specifier on a positive integer"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; +43951789
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$iInt_Negative</span><span class="S8">,</span> <span class="S7">"%+d"</span><span class="S8">,</span> <span class="S7">"sign specifier on a negative integer"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; -43951789
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">"string"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sString_Long</span> <span class="S8">=</span> <span class="S7">"longstring"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"String Formats - [ ] used to show beginning/end of string"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$sString</span><span class="S8">,</span> <span class="S7">"[%s]"</span><span class="S8">,</span> <span class="S7">"standard string"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; [string]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$sString</span><span class="S8">,</span> <span class="S7">"[%10s]"</span><span class="S8">,</span> <span class="S7">"10 chars right justified with added spaces"</span><span class="S8">)</span>&nbsp;<span class="S1">; [    string]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$sString</span><span class="S8">,</span> <span class="S7">"[%-10s]"</span><span class="S8">,</span> <span class="S7">"10 chars left justified with added spaces"</span><span class="S8">)</span>&nbsp;<span class="S1">; [string    ]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$sString_Long</span><span class="S8">,</span> <span class="S7">"[%10.8s]"</span><span class="S8">,</span> <span class="S7">"right justified but precision 8 so truncated"</span><span class="S8">)</span>&nbsp;<span class="S1">; [  longer s]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$sString_Long</span><span class="S8">,</span> <span class="S7">"[%-10.8s]"</span><span class="S8">,</span> <span class="S7">"left justifed but precision 8 so truncated"</span><span class="S8">)</span>&nbsp;<span class="S1">; [longer s  ]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$sString</span><span class="S8">,</span> <span class="S7">"[%010s]"</span><span class="S8">,</span> <span class="S7">"10 chars with leading zero"</span><span class="S8">)</span>&nbsp;<span class="S1">; [0000string]</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Date Format - each % uses a new parameter"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'"%02i\%02i\%04i" 0n (1, 9, 2013) =&gt; '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"%02i\%02i\%04i"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">,</span> <span class="S3">2013</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Just string to format  without Vars"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'"Some \texample text\n" =&gt; '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">'Some \texample text\n'</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">PrintFormat</span><span class="S8">(</span><span class="S9">$vVar</span><span class="S8">,</span> <span class="S9">$sFormat</span><span class="S8">,</span> <span class="S9">$sExplan</span><span class="S8">,</span> <span class="S9">$iTab</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'"'</span> <span class="S8">&amp;</span> <span class="S9">$sFormat</span> <span class="S8">&amp;</span> <span class="S7">'" on '</span> <span class="S8">&amp;</span> <span class="S9">$vVar</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">' =&gt; '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S9">$sFormat</span><span class="S8">,</span> <span class="S9">$vVar</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iTab</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">" ; "</span> <span class="S8">&amp;</span> <span class="S9">$sExplan</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;PrintFormat
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\StringFormat.au3,"></object>
+</body>
+</html>

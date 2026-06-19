@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _DateAdd</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_DateAdd</h1>
+<p class="funcdesc">Вычисляет новую дату/время путём прибавления или вычитания заданного количества временных интервалов от исходной даты/времени.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Date.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_DateAdd.htm"><span class="S15">_DateAdd</span></a> <span class="S8">(</span> <span class="S9">$sType</span><span class="S8">,</span> <span class="S9">$vNumber</span><span class="S8">,</span> <span class="S9">$sDate</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sType</span></td>
+<td style="width:85%">Тип временного интервала:<br />
+D – прибавить/вычесть дни<br />
+M – прибавить/вычесть месяцы<br />
+Y – прибавить/вычесть годы<br />
+w – прибавить/вычесть недели<br />
+h – прибавить/вычесть часы<br />
+n – прибавить/вычесть минуты<br />
+s – прибавить/вычесть секунды<br />
+a – прибавить/вычесть [дни, часы, минуты, секунды]</td>
+</tr>
+<tr>
+<td><span class="S91">$vNumber</span></td>
+<td>Количество интервалов для прибавления/вычитания (для вычитания используйте унарный минус);<br />
+или массив <span class="S91">$vNumber</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> со значениями для [дней, часов, минут, секунд].</td>
+</tr>
+<tr>
+<td><span class="S91">$sDate</span></td>
+<td>Исходная дата в формате YYYY/MM/DD[ HH:MM:SS].</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает вычисленную дату.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>1 – недопустимый <span class="S91">$sType</span><br />
+2 – недопустимый <span class="S91">$iNumber</span><br />
+3 – недопустимая <span class="S91">$sDate</span></td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Допустимая исходная дата должна находиться в диапазоне от "2000/01/01 00:00:00" до "3000/12/31 23:59:59".<br />
+<br />
+Функция никогда не вернёт недопустимую дату. Например, прибавив 3 месяца к '2004/1/31', получим '2004/04/30'.<br />
+<br />
+Другие допустимые форматы входной даты см. в <a class="le" href="_DateTimeSplit.htm"><span class="S15">_DateTimeSplit</span></a><span class="S8">()</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_DateDiff.htm">_DateDiff</a>, <a href="_DateTimeSplit.htm">_DateTimeSplit</a>, <a href="_DateToDayOfWeek.htm">_DateToDayOfWeek</a>, <a href="_DateToDayOfWeekISO.htm">_DateToDayOfWeekISO</a>, <a href="_DateToDayValue.htm">_DateToDayValue</a>, <a href="_DayValueToDate.htm">_DayValueToDate</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Date.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Прибавляем 5 дней к сегодняшней дате.
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sNewDate</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_DateAdd.htm"><span class="S15">_DateAdd</span></a><span class="S8">(</span><span class="S7">'d'</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <a class="le" href="../libfunctions/_NowCalcDate.htm"><span class="S15">_NowCalcDate</span></a><span class="S8">(</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Today + 5 days: "</span> <span class="S8">&amp;</span> <span class="S9">$sNewDate</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Вычитаем 2 недели из сегодняшней даты.
+</span><br>
+<span class="S9">$sNewDate</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_DateAdd.htm"><span class="S15">_DateAdd</span></a><span class="S8">(</span><span class="S7">'w'</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">2</span><span class="S8">,</span> <a class="le" href="../libfunctions/_NowCalcDate.htm"><span class="S15">_NowCalcDate</span></a><span class="S8">(</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Today minus 2 weeks: "</span> <span class="S8">&amp;</span> <span class="S9">$sNewDate</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Прибавляем 15 минут к текущему времени.
+</span><br>
+<span class="S9">$sNewDate</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_DateAdd.htm"><span class="S15">_DateAdd</span></a><span class="S8">(</span><span class="S7">'n'</span><span class="S8">,</span> <span class="S3">15</span><span class="S8">,</span> <a class="le" href="../libfunctions/_NowCalc.htm"><span class="S15">_NowCalc</span></a><span class="S8">(</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Current time +15 minutes: "</span> <span class="S8">&amp;</span> <span class="S9">$sNewDate</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Вычисленное eventlogdate, возвращающее количество секунд с 1970/01/01 00:00:00.</span><br>
+<span class="S9">$sNewDate</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_DateAdd.htm"><span class="S15">_DateAdd</span></a><span class="S8">(</span><span class="S7">'s'</span><span class="S8">,</span> <span class="S3">1087497645</span><span class="S8">,</span> <span class="S7">"1970/01/01 00:00:00"</span><span class="S8">)</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Date: "</span> <span class="S8">&amp;</span> <span class="S9">$sNewDate</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_DateAdd.au3,"></object>
+
+<h3>Sample 2 script using $sType = "a"</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Sample 2 script using $sType = "a"
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Date.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sStartDate</span> <span class="S8">=</span> <span class="S7">"2024/08/19 18:25:59"</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sEndDate</span> <span class="S8">=</span> <span class="S7">"2024/08/20 16:25:00"</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aDiffDate</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_DateDiff.htm"><span class="S15">_DateDiff</span></a><span class="S8">(</span><span class="S7">"a"</span><span class="S8">,</span> <span class="S9">$sStartDate</span><span class="S8">,</span> <span class="S9">$sEndDate</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sAddDate</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_DateAdd.htm"><span class="S15">_DateAdd</span></a><span class="S8">(</span><span class="S7">"a"</span><span class="S8">,</span> <span class="S9">$aDiffDate</span><span class="S8">,</span> <span class="S9">$sStartDate</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <span class="S3">0</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$sAddDate</span> <span class="S8">&lt;&gt;</span> <span class="S9">$sEndDate</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <span class="S9">$MB_ICONERROR</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span> <span class="S8">+</span> <span class="S9">$iError</span><span class="S8">,</span> <span class="S7">"Results"</span><span class="S8">,</span> <span class="S7">"$sStartDate = "</span> <span class="S8">&amp;</span> <span class="S9">$sStartDate</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$sEndDate = "</span> <span class="S8">&amp;</span> <span class="S9">$sEndDate</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$Diff Days = "</span> <span class="S8">&amp;</span> <span class="S9">$aDiffDate</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$Diff Hours = "</span> <span class="S8">&amp;</span> <span class="S9">$aDiffDate</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$Diff Minutes = "</span> <span class="S8">&amp;</span> <span class="S9">$aDiffDate</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$Diff Seconds = "</span> <span class="S8">&amp;</span> <span class="S9">$aDiffDate</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Add Date = "</span> <span class="S8">&amp;</span> <span class="S9">$sAddDate</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S8">(</span><span class="S9">$iError</span> <span class="S8">?</span> <span class="S7">"&lt;&lt;&lt; KO &gt;&gt;&gt;"</span><span class="S8">:</span> <span class="S7">"OK"</span><span class="S8">)</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_DateAdd[2].au3,"></object>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUIToolTip_ToolExists</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUIToolTip_ToolExists</h1>
+<p class="funcdesc">Определяет, существует ли инструмент в элементе управления ToolTip.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiToolTip.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUIToolTip_ToolExists.htm"><span class="S15">_GUIToolTip_ToolExists</span></a> <span class="S8">(</span> <span class="S9">$hTool</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hTool</span></td>
+<td style="width:85%">Дескриптор элемента управления ToolTip (возвращается функцией <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create</a>).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top"><span class="S5">True</span>:</td>
+<td style="width:90%">Возвращает инструмент существует.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S5">False</span>:</td>
+<td>инструмент не существует.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта функция вернёт true только если элемент управления ToolTip в данный момент отображает один из добавленных инструментов.<br />
+</p>
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIToolTip.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_hToolTip</span><br>
+<br>
+<span class="S1">; Нажмите клавишу "G" для отображения информации
+</span><br>
+<a class="le" href="../functions/HotKeySet.htm"><span class="S4">HotKeySet</span></a><span class="S8">(</span><span class="S7">"g"</span><span class="S8">,</span> <span class="S7">"Get_Tool"</span><span class="S8">)</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"ToolTip ToolExists - v("</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">450</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Button ToolTip"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">130</span><span class="S8">,</span> <span class="S3">28</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idButton</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать элемент tooltip с настройками по умолчанию</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hToolTip</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIToolTip_Create.htm"><span class="S15">_GUIToolTip_Create</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
+<br>
+<span class="S1">;~ 	$hGUI = 0 ; is OK
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить tool в элемент tooltip</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_AddTool.htm"><span class="S15">_GUIToolTip_AddTool</span></a><span class="S8">(</span><span class="S9">$g_hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">"This is a ToolTip"</span><span class="S8">,</span> <span class="S9">$hButton</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать tooltip, связанный с кнопкой</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"MouseCoordMode"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MouseMove.htm"><span class="S4">MouseMove</span></a><span class="S8">(</span><span class="S3">50</span><span class="S8">,</span> <span class="S3">42</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">250</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Get_Tool</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Уничтожить элемент tooltip</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_Destroy.htm"><span class="S15">_GUIToolTip_Destroy</span></a><span class="S8">(</span><span class="S9">$g_hToolTip</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Get_Tool</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это отобразит "True" если инструмент отображается
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Tooltip Exists = "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUIToolTip_ToolExists.htm"><span class="S15">_GUIToolTip_ToolExists</span></a><span class="S8">(</span><span class="S9">$g_hToolTip</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Get_Tool
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUIToolTip_ToolExists.au3,"></object>
+</body>
+</html>

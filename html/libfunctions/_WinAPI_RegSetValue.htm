@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_RegSetValue</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_RegSetValue</h1>
+<p class="funcdesc">Задаёт данные и тип указанного значения под ключом реестра.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIReg.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_RegSetValue.htm"><span class="S15">_WinAPI_RegSetValue</span></a> <span class="S8">(</span> <span class="S9">$hKey</span><span class="S8">,</span> <span class="S9">$sValueName</span><span class="S8">,</span> <span class="S9">$iType</span><span class="S8">,</span> <span class="S9">$tValueData</span><span class="S8">,</span> <span class="S9">$iBytes</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hKey</span></td>
+<td style="width:85%">Дескриптор открытого ключа реестра. Ключ должен быть открыт с правом доступа <span class="S91">$KEY_SET_VALUE</span>.<br />
+Этот дескриптор возвращается функцией <a href="_WinAPI_RegCreateKey.htm"><span class="S15">_WinAPI_RegCreateKey</span><span class="S8">()</span></a> или <a href="_WinAPI_RegOpenKey.htm"><span class="S15">_WinAPI_RegOpenKey</span><span class="S8">()</span></a>.<br />
+Это также может быть один из следующих предопределённых ключей:<br />
+<span class="S91">$HKEY_CLASSES_ROOT</span><br />
+<span class="S91">$HKEY_CURRENT_CONFIG</span><br />
+<span class="S91">$HKEY_CURRENT_USER</span><br />
+<span class="S91">$HKEY_LOCAL_MACHINE</span><br />
+<span class="S91">$HKEY_PERFORMANCE_DATA</span><br />
+<span class="S91">$HKEY_USERS</span></td>
+</tr>
+<tr>
+<td><span class="S91">$sValueName</span></td>
+<td>Имя значения для установки.<br />
+Если значение с этим именем уже не присутствует в ключе, функция добавляет его в ключ.<br />
+Если <span class="S91">$sValueName</span> – пустая строка, функция задаёт тип и данные для безымянного или значения по умолчанию ключа.</td>
+</tr>
+<tr>
+<td><span class="S91">$iType</span></td>
+<td>Тип данных. Этот параметр может быть одним из следующих значений:<br />
+<span class="S91">$REG_BINARY</span><br />
+<span class="S91">$REG_DWORD</span><br />
+<span class="S91">$REG_DWORD_BIG_ENDIAN</span><br />
+<span class="S91">$REG_DWORD_LITTLE_ENDIAN</span><br />
+<span class="S91">$REG_EXPAND_SZ</span><br />
+<span class="S91">$REG_LINK</span><br />
+<span class="S91">$REG_MULTI_SZ</span><br />
+<span class="S91">$REG_NONE</span><br />
+<span class="S91">$REG_QWORD</span><br />
+<span class="S91">$REG_QWORD_LITTLE_ENDIAN</span><br />
+<span class="S91">$REG_SZ</span></td>
+</tr>
+<tr>
+<td><span class="S91">$tValueData</span></td>
+<td>Структура (буфер), содержащая данные для сохранения.<br />
+Для типов данных на основе строк, таких как REG_SZ, строка должна быть завершена нулевым символом.<br />
+Для типа данных REG_MULTI_SZ строка должна быть завершена двумя нулевыми символами.<br />
+Обратная косая черта должна предваряться другой обратной косой чертой как символ экранирования.<br />
+Например, укажите "C:\\mydir\\myfile" для сохранения строки "C:\mydir\myfile".</td>
+</tr>
+<tr>
+<td><span class="S91">$iBytes</span></td>
+<td>Размер данных в байтах.<br />
+Если данные имеют тип REG_SZ, REG_MULTI_SZ или REG_EXPAND_SZ, этот размер включает все завершающие нулевые символы, если данные были сохранены без них.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>Может содержать системный код ошибки.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey</a>, <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=RegSetValueEx">RegSetValueEx</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

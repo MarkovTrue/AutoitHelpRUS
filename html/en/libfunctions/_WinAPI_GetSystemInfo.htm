@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinAPI_GetSystemInfo</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetSystemInfo</h1>
+<p class="funcdesc">Retrieves information about the current system<br /></p>
+<p class="codeheader">
+#include &lt;WinAPISys.au3&gt;<br />
+_WinAPI_GetSystemInfo (  )<br />
+</p>
+
+<h2>Return Value</h2>
+Returns&nbsp;the array containing the following information:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[0]&nbsp;- The processor architecture of the installed operating system ($PROCESSOR_ARCHITECTURE_*).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[1]&nbsp;- The page size and the granularity of page protection and commitment.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[2]&nbsp;- A pointer to the lowest memory address accessible to applications and dynamic-link libraries (DLLs).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[3]&nbsp;- A pointer to the highest memory address accessible to applications and DLLs.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[4]&nbsp;- A mask representing the set of processors configured into the system. Bit 0 is processor 0; bit 31 is processor 31.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[5]&nbsp;- The number of physical processors in the system.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[6]&nbsp;- An obsolete member that is retained for compatibility ($PROCESSOR_*).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[7]&nbsp;- The granularity for the starting address at which virtual memory can be allocated.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[8]&nbsp;- The architecture-dependent processor level.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;[9]&nbsp;- The architecture-dependent processor revision (0x0000xxyy; xx - model; yy - stepping).<br />
+
+
+<h2>See Also</h2>
+<p>Search <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(GetSystemInfo);k(DevLang-C);k(TargetOS-WINDOWS)&rd=true">GetSystemInfo</a> in MSDN  Library.
+</p>
+
+</body>
+</html>

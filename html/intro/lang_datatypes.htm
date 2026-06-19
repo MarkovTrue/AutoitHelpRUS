@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Типы данных</title>
+    <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1>Типы данных</h1>
+    <p>AutoIt использует реализацию <strong>Variant</strong> для представления переменных и констант. Переменные и константы могут содержать числовые или строковые данные; AutoIt сам решает, как интерпретировать тип данных в зависимости от ситуации, хотя при необходимости конкретный тип можно задать принудительно.</p>
+    <p>Это значит, что при использовании арифметического оператора над двумя переменными они трактуются как числа; при конкатенации (соединении) – как строки. Тип данных результата операции может не совпадать с типом исходных переменных:</p>
+    <p>Например, использование <strong>*</strong> для умножения двух значений возвращает число:</p>
+    <p style="margin-left: 40px;">10 * 20 : результат – число 200<br>
+      10 * "20" : результат – число 200<br>
+      "10" * "20" : результат – число 200</p>
+    <div style="margin-left: 40px;"> </div>
+    <p>А использование <strong>&amp;</strong> для конкатенации двух значений возвращает строку:</p>
+    <p style="margin-left: 40px;">10 &amp; 20 : результат – строка "1020"</p>
+    <p>В каждом случае неявно вызывается функция <strong><a href="../functions/Number.htm"><span class="S4">Number</span><span class="S8">()</span></a></strong> или <strong><a href="../functions/String.htm"><span class="S4">String</span><span class="S8">()</span></a></strong> для преобразования значения к нужному типу. Это может приводить к неожиданным результатам. Например, если строковое значение не содержит корректного числа, оно считается равным 0:</p>
+    <p style="margin-left: 40px;">10 * "fgh" : результат – число 0.</p>
+    <p>Будьте внимательны с этим автоматическим преобразованием – оно может вызывать проблемы, если явно не задавать точный тип содержимого переменной. Например, значения, прочитанные из .ini-файла, ВСЕГДА строки, поэтому простое сравнение между ними может давать странные результаты – строки сравниваются лексикографически:</p>
+    <p style="margin-left: 40px;">"11" считается меньше "2"</p>
+    <p>а не численно</p>
+    <p style="margin-left: 40px;">11 считается больше 2</p>
+    <p>Рекомендуется использовать функции <strong><a href="../functions/Number.htm"><span class="S4">Number</span><span class="S8">()</span></a></strong> и <strong><a href="../functions/String.htm"><span class="S4">String</span><span class="S8">()</span></a></strong>, чтобы привести содержимое переменных и констант к одному формату перед сравнением.</p>
+    <p>Помните, что для определения фактического типа переменных, литералов и констант можно использовать <strong><a href="../functions/VarGetType.htm"><span class="S4">VarGetType</span><span class="S8">()</span></a></strong>.</p>
+    <h2>Числа</h2>
+    <p>Поддерживаются знаковые целые и числа с плавающей точкой: Int32, Int64 и Double. Битность целого зависит от его величины и подбирается автоматически.</p>
+    <p>Числа могут быть обычными десятичными: <strong>2</strong>, <strong>4.566</strong>, <strong>-7</strong>.</p>
+    <p>Также поддерживается научная нотация: например, <strong>1.5e3</strong> вместо <strong>1500</strong>.</p>
+    <p>Целые числа можно представлять в шестнадцатеричной нотации, поставив перед ними <strong>0x</strong>: например, <strong>0x409</strong> или <strong>0x4fff</strong>.</p>
+    <p><strong>Enum</strong> – ключевое слово языка, но не отдельный тип данных, поскольку перечисляемые значения напрямую отображаются на целые числа.</p>
+    <h2>Строки</h2>
+    <p>Нативная <strong><a href="../intro/unicode.htm#encoding">строка</a></strong> AutoIt использует набор символов UCS2 (первые 64K кодовых точек Unicode, также называемые BMP). Строки заключаются в двойные кавычки, например <strong>"this"</strong>.</p>
+    <p style="margin-left: 40px;"><span class="S91">$s</span> = "abc"<br>
+      <span class="S91">$s</span> = "déçu"<br>
+      <span class="S91">$s</span> = "" ; пустая строка</p>
+    <div style="margin-left: 40px;"> </div>
+    <p>Если в строке нужна сама двойная кавычка, удвойте её:</p>
+    <p><strong>"here is a ""double-quote"" - ok?"</strong></p>
+    <p>Также можно использовать одинарные кавычки, например <strong>'this'</strong> и <strong>'here is a ' 'single-quote' '</strong> – ok?'</p>
+    <p>Можно смешивать типы кавычек, чтобы упростить запись и не удваивать кавычки. Например, если в строках много двойных кавычек, объявляйте их в одинарных:</p>
+    <p><strong>'This "sentence" contains "lots" of "double-quotes" does it not?'</strong></p>
+    <p>гораздо проще, чем</p>
+    <p><strong>"This ""sentence"" contains ""lots"" of ""double-quotes"" does it not?"</strong></p>
+    <p>При вычислении в строках может выполняться подстановка переменных Env или Var в зависимости от настроек функции <a href="../functions/AutoItSetOption.htm#ExpandEnvStrings"><span class="S4">Opt</span><span class="S8">()</span></a>.</p>
+    <p>Для кодировки исходных файлов рекомендуется использовать UTF8. Подробности преобразования строк в/из UCS2, UTF8 и т. д., а также работы с кодовыми страницами см. <a href="../intro/lang_stringsencodings.htm">здесь</a>.</p>
+     <p><a href="../functions/Chr.htm">Chr(0)</a> внутри строк обрабатывается как любой другой символ. Только функции <a href="../functions/StringIsAlNum.htm">StringIs...()</a> прекращают проверку при встрече <a href="../functions/Chr.htm">Chr(0)</a>. Внутренне для ускорения используется функция C. <a href="../functions/StringIsSpace.htm"><span class="S4">StringIsSpace</span><span class="S8">()</span></a> не останавливается – для согласованности с <a href="../functions/StringStripWS.htm"><span class="S4">StringStripWS</span><span class="S8">()</span></a>.</p>
+    <h2>Логические значения (Booleans)</h2>
+    <p><strong>Логические</strong> значения, и существуют только два: <strong><span class="S5">True</span></strong> и <strong><span class="S5">False</span></strong>. Их можно присваивать переменным и константам и использовать с операторами <strong>And</strong>, <strong>Or</strong> и <strong>Not</strong>.</p>
+    <p>Примеры:</p>
+    <p style="margin-left: 40px;"> <span class="S91">$bBoolean1</span> = <span class="S5">True</span><br>
+      <span class="S91">$bBoolean2</span> = <span class="S5">False</span><br>
+      <span class="S91">$bBoolean3</span> = <span class="S91">$bBoolean1</span> And <span class="S91">$bBoolean2</span> : результат <span class="S91">$bBoolean3</span> = <span class="S5">False</span></p>
+    <p style="margin-left: 40px;">
+    </p>
+    <p style="margin-left: 40px;"><span class="S91">$bBoolean1</span> = <span class="S5">False</span><br>
+      <span class="S91">$bBoolean2</span> = Not <span class="S91">$bBoolean1</span> : результат <span class="S91">$bBoolean2</span> = <span class="S5">True</span></p>
+    <div style="margin-left: 40px;">
+    </div>
+    <p>Строки и числа можно использовать как логические значения. Пустая строка "" равна логическому <strong><span class="S5">False</span></strong>, как и число 0. Любое другое числовое значение равно логическому <strong><span class="S5">True</span></strong>.</p>
+    <p>Пример:</p>
+    <p style="margin-left: 40px;">
+      <span class="S91">$iNumber1</span> = 0<br>
+      <span class="S91">$bBoolean1</span> = <span class="S5">True</span><br>
+      <span class="S91">$bBoolean2</span> = <span class="S91">$iNumber1</span> And <span class="S91">$bBoolean1</span> : результат <span class="S91">$bBoolean2</span> = <span class="S5">False</span></p>
+    <div style="margin-left: 40px;"> </div>
+    <p><strong>Настоятельно</strong> не рекомендуется использовать Booleans в арифметических выражениях, но в этом случае действуют следующие правила:</p>
+    <p>Логическое <strong><span class="S5">True</span></strong> преобразуется в численное значение 1.<br>
+      Логическое <strong><span class="S5">False</span></strong> преобразуется в численное значение 0.</p>
+    <p>Пример:</p>
+    <p style="margin-left: 40px;"> <span class="S91">$bBoolean1</span> = <span class="S5">True</span><br>
+      <span class="S91">$iNumber1</span> = 100<br>
+      <span class="S91">$iNumber2</span> = <span class="S91">$bBoolean1</span> + <span class="S91">$iNumber1</span> : результат <span class="S91">$iNumber2</span> = 101</p>
+    <div style="margin-left: 40px;"> </div>
+    <p>Конкатенация Boolean со строкой преобразует логическое значение в соответствующую строку "<strong><span class="S5">True</span></strong>" или "<strong><span class="S5">False</span></strong>":</p>
+    <p>Пример:</p>
+    <p style="margin-left: 40px;"> <span class="S91">$bBoolean1</span> = <span class="S5">True</span><br>
+      <span class="S91">$sString1</span> = "Test is: "<br>
+      <span class="S91">$sString2</span> = <span class="S91">$sString1</span> &amp; <span class="S91">$bBoolean1</span> : результат <span class="S91">$sString2</span> = "Test is: <span class="S5">True</span>"</p>
+    <div style="margin-left: 40px;"> </div>
+    <p>Однако при сравнении строк с логическими значениями действуют такие правила:</p>
+    <p>Только пустая строка ("") считается логическим <strong><span class="S5">False</span></strong>.<br>
+      Любое другое строковое значение (включая строку "0") считается логическим <strong><span class="S5">True</span></strong>.</p>
+    <h2>Двоичные данные (Binary)</h2>
+    <p>Тип Binary может хранить любое значение байта. При сохранении в строковую переменную преобразуется в шестнадцатеричное представление. Пример:</p>
+    <p style="margin-left: 40px;"><span class="S91">$dBin</span> = <a class="le" href="../functions/Binary.htm"><span class="S4">Binary</span></a><span class="S8">(</span>"abc"<span class="S8">)</span><br>
+      <span class="S91">$sString</span> = <a class="le" href="../functions/String.htm"><span class="S4">String</span></a><span class="S8">(</span><span class="S91">$dBin</span><span class="S8">)</span> : результат <span class="S91">$sString</span> = "0x616263"</p>
+    <div style="margin-left: 40px;"> </div>
+    <h2>Указатель (Pointer)</h2>
+    <p>Типы Pointer хранят адрес памяти размером 32 или 64 бита в зависимости от версии AutoIt. При сохранении в строковую переменную преобразуются в шестнадцатеричное представление. Дескрипторы окон (HWnd), возвращаемые <strong><a href="../functions/WinGetHandle.htm"><span class="S4">WinGetHandle</span><span class="S8">()</span></a></strong>, относятся к типу указателя.</p>
+    <p>Переменные, созданные через <strong><a href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a></strong>, можно использовать как указатель, если в <a class="le" href="../functions/DllCall.htm"><span class="S4">DllCall</span><span class="S8">()</span></a> используется тип "struct*". Указатель, полученный из <strong><a href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span><span class="S8">()</span></a></strong>, может быть передан в такой параметр с типом "struct*".</p>
+    <h2>DllStruct</h2>
+    <p>Этот тип данных используется для сопоставления данных AutoIt со структурами C/C++ при вызове функций в DLL.</p>
+    <h2>Ключевые слова</h2>
+    <p>AutoIt использует 4 ключевых слова как типы данных:</p>
+    <p><strong><span class="S5">True</span></strong>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; логическое <span class="S5">True</span> – например, 7 = 7.<br>
+      <strong><span class="S5">False</span></strong>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; логическое <span class="S5">False</span> – например, 5 &gt;= 14.<br>
+      <strong>Default</strong>&nbsp;&nbsp; используется только для присвоения значения по умолчанию необязательным аргументам функции.<br>
+      <strong><span class="S5">Null</span></strong>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; неизвестное значение. (Обратите внимание: это ключевое слово НЕ является частью трёхзначной логики, как в других языках, например SQL.)</p>
+    <h2>Объект (Object)</h2>
+    <p><strong><a href="../intro/ComRef.htm">Object</a></strong> относится к "Component Object Model" (Microsoft). Создав объект, можно использовать AutoIt-код для взаимодействия с ним через различные свойства и/или методы объекта. Подробности использования COM в AutoIt см. <a href="../intro/ComRef.htm">здесь</a>.</p>
+    <h2>Function и User Function</h2>
+    <p>В AutoIt есть как нативные <strong><a href="../intro/lang_functions.htm">функции</a></strong>, так и пользовательские; первые – часть ядра AutoIt, вторые – AutoIt-скрипты в include-библиотеках или собственно в вашем скрипте. Оба типа являются объектами первого класса – их можно присваивать переменным, использовать как параметр и/или возвращаемое значение другой функции. Подробнее см. <a href="../intro/lang_functions.htm">здесь</a>.</p>
+    <h2>Массивы и Maps</h2>
+    <p>В AutoIt есть 2 типа коллекций: <strong><a href="../intro/lang_variables.htm#ArrayMaps">массивы и Maps</a></strong>.</p>
+    <p>Массивы намного быстрее для произвольного доступа и могут иметь несколько измерений – размер измерения фиксируется при объявлении (хотя его можно изменить через <strong><a href="../functions/ReDim.htm">ReDim()</a></strong>). Массивы индексируются целыми числами, отражающими порядок элементов, начиная с element[0]; элементы извлекаются по целочисленному индексу или перебираются простым циклом For...Next.</p>
+    <p>Maps лучше подходят для записей/словарей и имеют единственное измерение. Они индексируются целыми или строковыми ключами (целые не отражают порядок элементов) и динамически меняют размер при добавлении/удалении значений. К значению можно обращаться только по исходному ключу – ключи можно перебирать функцией <strong><a href="../functions/MapKeys.htm">MapKeys()</a></strong>.</p>
+    <p>Подробнее см. <a href="../intro/lang_variables.htm#ArrayMaps">здесь</a>.</p>
+    <h2>Типы данных и диапазоны</h2>
+    <p>В таблице ниже приведены внутренние подтипы variant и их диапазоны.</p>
+    <table>
+      <tbody>
+        <tr>
+          <th>Подтип данных</th>
+          <th>Диапазон и примечания</th>
+        </tr>
+        <tr>
+          <td>Int32</td>
+          <td>32-битное знаковое целое число.</td>
+        </tr>
+        <tr>
+          <td>Int64</td>
+          <td>64-битное знаковое целое число.</td>
+        </tr>
+        <tr>
+          <td>Double</td>
+          <td>Число с плавающей точкой двойной точности.</td>
+        </tr>
+        <tr>
+          <td>String</td>
+          <td>Может содержать строки длиной до 2 147 483 647 символов.</td>
+        </tr>
+        <tr>
+          <td>Binary</td>
+          <td>Двоичные данные, до 2 147 483 647 байтов.</td>
+        </tr>
+        <tr>
+          <td>Pointer</td>
+          <td>Указатель на адрес памяти. 32 или 64 бита в зависимости от используемой версии AutoIt.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Некоторые функции AutoIt работают только с 32-битными числами (например, <a href="../functions/BitAND.htm"><span class="S4">BitAND</span><span class="S8">()</span></a>) и автоматически преобразуют значения – такие функции отмечены в документации.</p>
+  </body>
+</html>

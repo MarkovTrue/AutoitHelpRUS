@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetParent</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetParent</h1>
+<p class="funcdesc">Изменяет родительское окно указанного дочернего окна.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetParent.htm"><span class="S15">_WinAPI_SetParent</span></a> <span class="S8">(</span> <span class="S9">$hWndChild</span><span class="S8">,</span> <span class="S9">$hWndParent</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWndChild</span></td>
+<td style="width:85%">Дескриптор окна дочернего окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$hWndParent</span></td>
+<td>Дескриптор нового родительского окна. Если 0, окно рабочего стола становится новым родительским окном.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор предыдущего родительского окна.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Приложение может использовать функцию SetParent для установки родительского окна всплывающего, перекрывающегося или дочернего<br />
+окна. Новое родительское окно и дочернее окно должны принадлежать одному приложению.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetParent">SetParent</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hParent</span> <span class="S8">=</span> <a class="le" href="../functions/WinGetHandle.htm"><span class="S4">WinGetHandle</span></a><span class="S8">(</span><span class="S7">'[CLASS:Progman;TITLE:Program Manager]'</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hForm</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$WS_EX_TOOLWINDOW</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Attach window to the desktop (always on bottom)
+</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetParent.htm"><span class="S15">_WinAPI_SetParent</span></a><span class="S8">(</span><span class="S9">$hForm</span><span class="S8">,</span> <span class="S9">$hParent</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOWNOACTIVATE"><span class="S6">@SW_SHOWNOACTIVATE</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_SetParent.au3,"></object>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Запуск в 64-битных версиях Windows</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Запуск в 64-битных версиях Windows</h1>
+  <p>Исторически AutoIt был 32-разрядным приложением. Начиная с релиза v3.2.10.0 добавлены нативные x64-версии некоторых компонентов:</p>
+  <ul>
+    <li>AutoIt (AutoIt3_x64.exe)</li>
+    <li>Aut2Exe (Aut2Exe_x64.exe)</li>
+    <li>Au3Info (Au3Info_x64.exe)</li>
+    <li>AutoItX (AutoItX3_x64.dll)</li>
+  </ul>
+  <p>Если при установке обнаруживается, что AutoIt запускается на x64-системе, вам предложат установить и сконфигурировать x64-версии. Эти версии полностью совместимы с x64, однако скрипты, использующие <a href="../functions/DllCall.htm">DllCall</a>/<a href="../functions/DllStructCreate.htm">DllStruct</a> с пользовательскими структурами, могут содержать значения, нарушающие 64-разрядную совместимость (например, 32-битные целые для указателей).<br /></p>
+  <p>Запустить x86-версию AutoIt можно щелчком правой кнопки по скрипту и выбором "Run Script (x86)".</p>
+  <p>Чтобы узнать, работаете ли вы в 64-разрядной редакции Windows, используйте макрос <span class="S61">@OSArch</span>; чтобы узнать, какая используется версия AutoIt – 32- или 64-разрядная – используйте <span class="S61">@AutoItX64</span>.</p>
+  <h2>Запуск 32-разрядной версии AutoIt на x64-системе</h2>
+  <p>Для файлов в Windows предусмотрен специальный механизм перенаправления для некоторых системных каталогов:</p>
+  <table>
+    <tbody>
+      <tr>
+        <th>Каталоги</th>
+        <th>32-разрядное значение</th>
+        <th>64-разрядное значение</th>
+      </tr>
+      <tr>
+        <td><span class="S61">@SystemDir</span></td>
+        <td><span class="S61">@WindowsDir</span> &amp; "\System32"</td>
+        <td><span class="S61">@WindowsDir</span> &amp; "\SYSWOW64"</td>
+      </tr>
+      <tr>
+        <td><span class="S61">@ProgramFilesDir</span></td>
+        <td>{SystemDrive} &amp; "\Program Files (x86)"</td>
+        <td>{SystemDrive} &amp; "\Program Files"</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Получить доступ к 64-разрядной версии этих каталогов можно, отключив механизм перенаправления:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;WinAPIFiles.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../libfunctions/_WinAPI_Wow64EnableWow64FsRedirection.htm"><span class="S15">_WinAPI_Wow64EnableWow64FsRedirection</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../keywords/Booleans.htm"><span class="S5">True</span></a><span class="S8">)</span></span>
+</p>
+  <p>Дополнительные сведения см. на <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winprog64/winprog64/file_system_redirector.asp">MSDN</a>.</p>
+  <p>Для работы с реестром используйте HKCR64 или HKLM64, чтобы обойти перенаправление – см. документацию по функциям реестра.</p>
+</body>
+</html>

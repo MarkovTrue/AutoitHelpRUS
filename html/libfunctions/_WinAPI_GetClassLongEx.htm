@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetClassLongEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetClassLongEx</h1>
+<p class="funcdesc">Получает указанное значение, связанное с указанным окном.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetClassLongEx.htm"><span class="S15">_WinAPI_GetClassLongEx</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iIndex</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$iIndex</span></td>
+<td>Значение для получения. Этот параметр может быть одним из следующих значений.<br />
+<span class="S91">$GCL_CBCLSEXTRA</span><br />
+<span class="S91">$GCL_CBWNDEXTRA</span><br />
+<span class="S91">$GCL_HBRBACKGROUND</span><br />
+<span class="S91">$GCL_HCURSOR</span><br />
+<span class="S91">$GCL_HICON</span><br />
+<span class="S91">$GCL_HICONSM</span><br />
+<span class="S91">$GCL_HMODULE</span><br />
+<span class="S91">$GCL_MENUNAME</span><br />
+<span class="S91">$GCL_STYLE</span><br />
+<span class="S91">$GCL_WNDPROC</span></td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает запрошенное значение.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetClassLong">GetClassLong</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+  <title>Language Reference - Operators</title>
+</head>
+<body>
+  <h1>Language Reference - Operators</h1>
+  <p>AutoIt has the following assignment, mathematical, comparison, conditional and logical operators.</p>
+
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+    </tr>
+<a id="Assignment"></a>
+    <tr class="yellow">
+      <td></td>
+      <td><strong>Assignment operators</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center">=</td>
+      <td>Assignment e.g. <strong class="S9">$vVar</strong> <strong class="S8">=</strong> <strong class="S3">5</strong> (<em>assigns the number 5 to</em> <em>$vVar</em>)</td>
+    </tr>
+    <tr>
+      <td class="S8 center">+=</td>
+      <td>Addition assignment e.g. <strong class="S9">$vVar</strong> <strong class="S8">+=</strong> <strong class="S3">1</strong> (<em>adds 1</em> <em>to</em> <em>$vVar</em>)</td>
+    </tr>
+    <tr>
+      <td class="S8 center">-=</td>
+      <td>Subtraction assignment</td>
+    </tr>
+    <tr>
+      <td class="S8 center">*=</td>
+      <td>Multiplication assignment</td>
+    </tr>
+    <tr>
+      <td class="S8 center">/=</td>
+      <td>Division assignment</td>
+    </tr>
+<a id="Concatenation"></a>
+    <tr class="yellow">
+      <td></td>
+      <td><strong>Concatenation operators</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center">&amp;</td>
+      <td>Concatenates/joins two strings e.g. <strong>"one"</strong> <strong class="S8">&amp;</strong> <strong class="S3">10</strong> (<em>results in "one10" and not 11</em>)</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&amp;=</td>
+      <td>Concatenation assignment e.g. <strong class="S9">$vVar</strong> <strong class="S8">=</strong> <strong>"one"</strong>, and then <strong class="S9">$vVar</strong> <strong class="S8">&amp;=</strong> <strong class=
+      "S3">10</strong>  (<em>$vVar is now "one10"</em>)</td>
+    </tr>
+<a id="Mathematical"></a>
+    <tr class="yellow">
+      <td></td>
+      <td><strong>Mathematical operators</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center">+</td>
+      <td>Adds two numbers e.g. <strong class="S3">10</strong> <strong class="S8">+</strong> <strong class="S3">20</strong> (<em>is the result of 30</em>)</td>
+    </tr>
+    <tr>
+      <td class="S8 center">-</td>
+      <td>Subtracts two numbers e.g. <strong class="S3">20</strong> <strong class="S8">-</strong> <strong class="S3">10</strong> (<em>is the result of 10</em>)<br/>
+      Also acts as a unary minus (sets the negative value of a variable)<br/>
+      See explanatory note below</td>
+    </tr>
+<a id="MD_Mathematical"></a>
+    <tr>
+      <td class="S8 center">*</td>
+      <td>Multiplies two numbers. e.g. <strong class="S3">20</strong> <strong class="S8">*</strong> <strong class="S3">10</strong> (<em>is the result of 200</em>)</td>
+    </tr>
+    <tr>
+      <td class="S8 center">/</td>
+      <td>Divides two numbers. e.g. <strong class="S3">20</strong> <strong class="S8">/</strong> <strong class="S3">10</strong> (<em>is the result of 2</em>)</td>
+    </tr>
+    <tr>
+      <td class="S8 center">^</td>
+      <td>Raises a number to the power. e.g. <strong class="S3">2</strong> <strong class="S8">^</strong> <strong class="S3">4</strong> (<em>is the result of 16</em>)</td>
+    </tr>
+<a id="Comparison"></a>
+    <tr class="yellow">
+      <td class="S8 center"></td>
+      <td><strong>Comparison operators</strong> (case-insensitive if used with strings except for <strong class="S8">==</strong>)</td>
+    </tr>
+    <tr>
+      <td class="S8 center">=</td>
+      <td>Tests if two values are equal. e.g. <a href="../keywords/IfElseEndIf.htm"><strong class="S5">If</strong></a> <strong class="S9">$vVar</strong> <strong class="S8">=</strong> <strong class="S3">5</strong> <a href="../keywords/IfElseEndIf.htm"><strong class="S5">Then</strong></a> (<em>true if $vVar equals 5</em>). <strong>Case-insensitive</strong> when used with strings. See below about comparing with mixed datatypes.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">==</td>
+      <td>Tests if two <strong>strings</strong> are equal. <strong>Case-sensitive.</strong> The left and right values are converted to strings if they are not strings already. This operator should only be used if string comparisons need to be case-sensitive.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&lt;&gt;</td>
+      <td>Tests if two values are not equal. <strong>Case-insensitive</strong> when used with strings. To do a case-sensitive not equal comparison use <strong class="S5">Not</strong> <strong class="S8">(</strong><strong class="S0">"string1"</strong>
+      <strong class="S8">==</strong> <strong class="S0">"string2"</strong><strong class="S8">)</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center">&gt;</td>
+      <td>Tests if the first value is greater than the second. Strings are compared lexicographically even if the contents of the string happen to be numeric.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&gt;=</td>
+      <td>Tests if the first value is greater than or equal to the second. Strings are compared lexicographically even if the contents of the string happen to be numeric.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&lt;</td>
+      <td>Tests if the first value is less than the second. Strings are compared lexicographically even if the contents of the string happen to be numeric.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&lt;=</td>
+      <td>Tests if the first value is less than or equal to the second. Strings are compared lexicographically even if the contents of the string happen to be numeric.</td>
+    </tr>
+<a id="Logical"></a>
+    <tr class="yellow">
+      <td></td>
+      <td><strong>Logical operators</strong></td>
+    </tr>
+    <tr>
+      <td class="S5 center">And</td>
+      <td>Logical And operation e.g. <strong class="S5">If</strong> <strong class="S9">$vVar</strong> <strong class="S8">=</strong> <strong class="S3">5</strong> <strong class="S5">And</strong> <strong class="S9">$vVar2</strong> <strong class=
+      "S8">&gt;</strong> <strong class="S3">6</strong> <strong class="S5">Then</strong> (<em>True if $vVar equals 5 <strong>and</strong> $vVar2 is greater than 6</em>)</td>
+    </tr>
+    <tr>
+      <td class="S5 center">Or</td>
+      <td>Logical Or operation e.g. <strong class="S5">If</strong> <strong class="S9">$vVar</strong> <strong class="S8">=</strong> <strong class="S3">5</strong> <strong class="S5">Or</strong> <strong class="S9">$vVar2</strong> <strong class=
+      "S8">&gt;</strong> <strong class="S3">6</strong> <strong class="S5">Then</strong> (<em>True if $vVar equals 5 <strong>or</strong> $vVar2 is greater than 6</em>)</td>
+    </tr>
+<a id="Not Logical"></a>
+    <tr>
+      <td class="S5 center">Not</td>
+      <td>Logical Not operation e.g. <strong class="S5">Not</strong> <strong class="S3">1</strong> (<em>False</em>)</td>
+    </tr>
+<a id="Conditional"></a>
+    <tr class="yellow">
+      <td></td>
+      <td><strong>Conditional operator</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center"><a href="../keywords/Ternary.htm">? :</a></td>
+      <td>Select conditionally an expression. e.g. <strong>$condition <a href="../keywords/Ternary.htm">?</a> $expression1 <a href="../keywords/Ternary.htm">:</a> $expression2</strong>  (<em>$expression1 if $condition is True or
+      $expression2 if False</em>) See the <a href="../keywords/Ternary.htm">Ternary</a> operator for an example.</td>
+    </tr>
+  </table>
+
+<a id="Precedence"></a>
+  <h2>Precedence</h2>
+  <p>When more than one operator is used in an expression the order in which things happen is controlled by <strong>operator precedence</strong>. The precedence used in AutoIt is given below. Where two operators have the same precedence the expression is evaluated <em>left to right</em>.</p>
+  <p>From highest precedence to lowest:</p>
+  <p><strong class="S5">Not</strong><br />
+    <strong class="S8">^<br />
+    * /<br />
+    + -<br />
+    &amp;<br />
+    &lt; &gt; &lt;= &gt;= = &lt;&gt; ==<br />
+    ?</strong><br />
+    <strong class="S5">And Or</strong></p>
+  <br />
+  <p>e.g. <strong class="S3">2</strong> <strong class="S8">+</strong> <strong class="S3">4</strong> <strong class="S8">*</strong> <strong class="S3">10</strong> is evaluated as <strong class="S3">42</strong>:</p>
+  <p>  <strong class="S3">4</strong> <strong class="S8">*</strong> <strong class="S3">10</strong>  (equals <strong class="S3">40</strong>)</p>
+  <p>  <strong class="S3">2</strong> <strong class="S8">+</strong> <strong class="S3">40</strong>  (equals <strong class="S3">42</strong>)</p>
+  <p>As the <strong class="S8">*</strong> has a higher precedence than <strong class="S8">+</strong> it occurs <strong>before</strong> the addition.</p>
+
+  <p>Although the operator precedence should suffice in most cases, is recommended to use brackets to force the order of evaluation if the result is critical or if the expression is complex.</p>
+  <p>e.g. <strong class="S8">(</strong><strong class="S3">2</strong> <strong class="S8">+</strong> <strong class="S3">4</strong><strong class="S8">) *</strong> <strong class="S3">10</strong> equals <strong class="S3">60</strong>.</p>
+  <p> This is particularly true for the <strong class="S8">-</strong> operator which can be used for both <strong>binary subtraction</strong> (subtraction of 2 numbers)and <strong>unary negation</strong> (setting the negative of a value). The use of brackets is highly recommended in this case to prevent confusion.</p>
+
+  <h2>Short-circuiting</h2>
+  <p>Note the following when using the logical operators And, Or:</p>
+  <p>e.g. <a class="le" href="../keywords/If.htm"><strong class="S5">If</strong></a> <strong class="S4">MyFunc1</strong><strong class="S8">()</strong> <strong class="S5">Or</strong> <strong class="S4">MyFunc2</strong><strong class="S8">()</strong>
+  <strong class="S5">Then</strong>   (<em><strong class="S4">MyFunc2</strong><strong class="S8">()</strong> is not called if <strong class="S4">MyFunc1</strong><strong class="S8">()</strong> returns true</em>)</p>
+  <p>e.g. <a class="le" href="../keywords/If.htm"><strong class="S5">If</strong></a> <strong class="S4">MyFunc1</strong><strong class="S8">()</strong> <strong class="S5">And</strong> <strong class="S4">MyFunc2</strong><strong class="S8">()</strong>
+  <strong class="S5">Then</strong> &nbsp;&nbsp; (<em><strong class="S4">MyFunc2</strong><strong class="S8">()</strong> is not called if <strong class="S4">MyFunc1</strong><strong class="S8">()</strong> returns false</em>)</p>
+
+  <h2>Comparing different datatypes</h2>
+  <p>Care is needed if comparing mixed datatypes, as unless the case-sensitive (<strong>==</strong>) string operator is used, mixed comparisons are usually made numerically. Most strings will be evaluated as <strong>0</strong> and so the result may well not be the one expected. It is recommended to force the items being compared into the same datatype using <em>Number()/String()</em> before the comparison.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S3">0</span><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">"Some string"</span><br /><br /><span class="S1">; This will evaluate to true, as the string is converted to a number i.e. zero</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br /><span class="S0">&nbsp;&nbsp;</span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" and '"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">"' are equal"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br /><br /><span class="S1">; This will evaluate to false, as the string and number are compared by value and datatype</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">==</span></a><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br /><span class="S0">&nbsp;&nbsp;</span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" and '"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">"' are equal"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a></span>
+</p>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetFileValidData</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetFileValidData</h1>
+<p class="funcdesc">Устанавливает допустимую длину данных указанного файла.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetFileValidData.htm"><span class="S15">_WinAPI_SetFileValidData</span></a> <span class="S8">(</span> <span class="S9">$hFile</span><span class="S8">,</span> <span class="S9">$iLength</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hFile</span></td>
+<td style="width:85%">Дескриптор файла. Этот файл должен был открыт с правом доступа <span class="S91">$GENERIC_WRITE</span> и<br />
+привилегией <span class="S91">$SE_MANAGE_VOLUME_NAME</span> включена. Файл не может быть сетевым файлом, сжатым,<br />
+разреженным или транзакционным.</td>
+</tr>
+<tr>
+<td><span class="S91">$iLength</span></td>
+<td>Новая допустимая длина данных. Этот параметр должен быть положительным значением, которое больше текущей<br />
+допустимой длины данных, но меньше текущего размера файла.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта функция устанавливает логический конец файла. Чтобы установить размер файла, используйте функцию<br />
+<a href="_WinAPI_SetEndOfFile.htm"><span class="S15">_WinAPI_SetEndOfFile</span><span class="S8">()</span></a>. Физический размер файла также называется концом файла.<br />
+<br />
+Обычно функция <a href="_WinAPI_SetFileValidData.htm"><span class="S15">_WinAPI_SetFileValidData</span><span class="S8">()</span></a> используется приложениями системного уровня на их собственных<br />
+частных данных. Не все файловые системы используют допустимую длину данных. Некоторые файловые системы могут отслеживать несколько допустимых диапазонов данных.<br />
+В целом, большинству приложений никогда не потребуется вызывать эту функцию.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_SetEndOfFile.htm">_WinAPI_SetEndOfFile</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetFileValidData">SetFileValidData</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

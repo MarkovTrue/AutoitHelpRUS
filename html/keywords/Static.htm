@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово Static</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>Static</h1>
+<p class="funcdesc">Объявить статическую переменную или создать статический массив.</p>
+<p class="codeheader"><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/Static.htm"><span class="S5">Static</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">[</span><span class="S0">Scope</span><span class="S8">]</span> <span class="S9">$variable</span> <span class="S8">[</span> <span class="S8">=</span> <span class="S0">initializer</span> <span class="S8">]</span><br>
+<span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/Static.htm"><span class="S5">Static</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">[</span><span class="S0">Scope</span><span class="S8">]</span> <span class="S9">$aArray</span><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S8">[</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S0">subscript</span> <span class="S3">1</span><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S8">]</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span>...<span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S8">[</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S0">subscript</span> <span class="S0">n</span><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><span class="S8">]</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">[</span> <span class="S8">=</span> <span class="S0">initializer</span> <span class="S8">]</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Scope</td>
+<td style="width:85%">Необязательный модификатор, <strong>Local</strong> или <strong>Global</strong>, указывающий, где переменная видна.</td>
+</tr>
+<tr>
+<td><span class="S91">$variable</span></td>
+<td>Имя объявляемой статической переменной.</td>
+</tr>
+<tr>
+<td>initializer</td>
+<td>Значение, которое будет изначально присвоено переменной. Инициализатор может быть вызовом функции или включать математические или строковые операции. Этот инициализатор вычисляется только при первой встречи этого объявления переменной.</td>
+</tr>
+<tr>
+<td>subscript</td>
+<td>Количество элементов измерения массива (нумерация с 0 до n-1).</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Ключевое слово Static может появляться на строке перед необязательным спецификатором области видимости или после. например <strong>Local Static</strong> или <strong>Static Local</strong> оба приемлемы.<br />
+<br />
+Если используется спецификатор области видимости <strong>Local</strong>, то статическая переменная видна и может использоваться только в функции, в которой она объявлена, и разрешается в среде выполнения (логическая область видимости). Это означает, что условно объявленная переменная видна только когда выполнено условие объявления. Если используется спецификатор области видимости <strong>Global</strong>, то статическая переменная видна и может использоваться во всех частях скрипта; в этом отношении Global Static имеет очень мало отличий от переменной Global. Если спецификатор области видимости не используется, то статическая переменная будет создана в локальной области видимости; таким образом Static похожа на <a href="Dim.htm">Dim</a>.<br />
+<br />
+Разница между Local и Static – время жизни переменной. Локальные переменные хранятся только во время вызова функции и видны только внутри функции, в которой они объявлены; когда функция возвращается, все её локальные переменные высвобождаются. Статические переменные также видны только в функции, в которой они объявлены, но они продолжают существовать, сохраняя своё последнее значение после завершения выполнения функции. При поиске переменных сначала проверяется локальная область видимости, затем глобальная.<br />
+<br />
+Ключевое слово Static выполняет функции, аналогичные ключевым словам <a href="Dim.htm">Global/Local/Dim</a>.<br />
+<ol><li>Они все объявляют переменную перед её использованием.</li><br />
+<li>Они все могут создавать массив.</li></ol><br />
+<br />
+<strong>Примечание</strong>: Статические переменные <em>должны</em> быть объявлены с помощью ключевого слова <strong>Static</strong> перед использованием, независимо от того, как устанавливается AutoItSetOption("<a href="../functions/AutoItSetOption.htm#MustDeclareVars">MustDeclareVars</a>"). Статические переменные не могут быть <strong><a href="Dim.htm">Const</a></strong>.<br />
+<br />
+Вы также можете объявить несколько статических переменных на одной строке:<br />
+<p class="code">Static <span class="S91">$a</span>, <span class="S91">$b</span>, <span class="S91">$c</span></p><br />
+И инициализировать переменные:<br />
+<p class="code">Static <span class="S91">$a</span> = 2, <span class="S91">$b</span> = 10, <span class="S91">$c</span> = 20</p><br />
+<br />
+При инициализации статической переменной значение инициализации вычисляется и присваивается только первый раз, когда создаётся переменная. При всех последующих проходах инициализатор игнорируется.<br />
+<br />
+См. <a href="Dim.htm">Local</a> для более подробной информации об использовании массивов, которые имеют всю одинаковую функциональность как в Local, за исключением:<br />
+<ol><li>Переинициализация статической переменной не имеет эффекта.</li><br />
+<li>Вы не можете изменить статическую переменную на локальную или глобальную переменную и наоборот.</li></ol><br />
+<br />
+Если вы хотите изменить размер массива, используйте <a href="ReDim.htm">ReDim</a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a>, <a href="Dim.htm">Local</a>, <a href="ReDim.htm">ReDim</a>, <a href="../functions/UBound.htm">UBound</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Вызвать функцию Example для инициализации статической переменной в локальной области видимости.
+</span><br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Вызвать функцию Example второй раз, чтобы показать, что переменная сохранила данные, которые мы ей последний раз присвоили.
+</span><br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Static.htm"><span class="S5">Static</span></a> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">"This is a line of text which is declared using a Static variable in Local scope."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"The variable $sString will now be visible to this function only and until the script closes."</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sString</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">"If using just Local scope this string wouldn't be visible if this function was called multiple times, but since we're using the Static keyword"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"the variable $sString will retain the data last assigned to it."</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\Static.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 1.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 2.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 3.
+</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это инициализирует статическую переменную в локальной области видимости. Когда переменная объявляется только в локальной области видимости (внутри функции,)
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; она уничтожается, когда функция завершается/возвращается. Это не имеет место для статической переменной. Переменная не может быть
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; доступна с любого другого места в скрипте, кроме функции, в которой она была объявлена.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Static.htm"><span class="S5">Static</span></a> <span class="S9">$vVariableThatIsStatic</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vVariableThatIsLocal</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vVariableThatIsLocal</span> <span class="S8">+=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Это всегда будет 1, так как она была уничтожена, когда возвращалась из SomeFunc.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vVariableThatIsStatic</span> <span class="S8">+=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Это будет увеличиваться на 1.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S9">$vVariableThatIsLocal</span><span class="S8">,</span> <span class="S9">$vVariableThatIsStatic</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;SomeFunc
+</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\Static[2].au3,"></object>
+</body>
+</html>

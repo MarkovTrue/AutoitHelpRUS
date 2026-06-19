@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_FormatMessage</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_FormatMessage</h1>
+<p class="funcdesc">Форматирует строку сообщения.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIError.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_FormatMessage.htm"><span class="S15">_WinAPI_FormatMessage</span></a> <span class="S8">(</span> <span class="S9">$iFlags</span><span class="S8">,</span> <span class="S9">$pSource</span><span class="S8">,</span> <span class="S9">$iMessageID</span><span class="S8">,</span> <span class="S9">$iLanguageID</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$pBuffer</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">,</span> <span class="S9">$vArguments</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iFlags</span></td>
+<td style="width:85%">Набор битовых флагов, задающих аспекты процесса форматирования и интерпретации параметра <span class="S91">$pSource</span>.<br />
+Младший байт <span class="S91">$iFlags</span> задаёт способ обработки переносов строк в выходном буфере.<br />
+Также младший байт может задавать максимальную ширину строки в выходе.<br />
+Полное описание – см. MSDN.</td>
+</tr>
+<tr>
+<td><span class="S91">$pSource</span></td>
+<td>Указатель на источник сообщения.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMessageID</span></td>
+<td>Requested сообщение identifier.</td>
+</tr>
+<tr>
+<td><span class="S91">$iLanguageID</span></td>
+<td>Идентификатор языка запрашиваемого сообщения.</td>
+</tr>
+<tr>
+<td><span class="S91">$pBuffer</span></td>
+<td>Указатель на буфер или строковую переменную для приёма сообщения.</td>
+</tr>
+<tr>
+<td><span class="S91">$iSize</span></td>
+<td>Максимальный размер буфера сообщения.</td>
+</tr>
+<tr>
+<td><span class="S91">$vArguments</span></td>
+<td>Адрес массива вставок сообщения.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает количество байт, записанных в буфер сообщения.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> в ненулевое значение.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>= <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a>.<br />
+Вызовите&nbsp;<a href="_WinAPI_GetErrorMessage.htm>_WinAPI_GetErrorMessage(@extended)</a> для расшифровки <span class="S61">@extended</span>.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError</a>, <a href="_WinAPI_GetErrorMessage.htm">_WinAPI_GetErrorMessage</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=FormatMessage">FormatMessage</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

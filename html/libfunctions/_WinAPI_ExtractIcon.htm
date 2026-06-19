@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_ExtractIcon</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_ExtractIcon</h1>
+<p class="funcdesc">Извлекает значок из указанного исполняемого файла, DLL или файла значков.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIIcons.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_ExtractIcon.htm"><span class="S15">_WinAPI_ExtractIcon</span></a> <span class="S8">(</span> <span class="S9">$sIcon</span><span class="S8">,</span> <span class="S9">$iIndex</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bSmall</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sIcon</span></td>
+<td style="width:85%">Имя исполняемого файла, DLL или файла значков, из которого извлекаются значки.</td>
+</tr>
+<tr>
+<td><span class="S91">$iIndex</span></td>
+<td>Индекс извлекаемого значка (нумерация с 0).<br />
+Если значение отрицательное, функция извлекает значок, идентификатор ресурса которого равен модулю <span class="S91">$iIndex</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$bSmall</span></td>
+<td><strong>[необязательный]</strong> Извлекать ли маленький значок:<br />
+<span class="S5">True</span> – маленький значок.<br />
+<span class="S5">False</span> – большой значок (по умолчанию).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор извлечённой иконки.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Когда значок больше не нужен, уничтожьте его функцией <a href="_WinAPI_DestroyIcon.htm"><span class="S15">_WinAPI_DestroyIcon</span><span class="S8">()</span></a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_DestroyIcon.htm">_WinAPI_DestroyIcon</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=ExtractIconEx">ExtractIconEx</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

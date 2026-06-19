@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Function Notes</title>
+  <meta charset="utf-8">
+  <link href="css/default.css" rel="stylesheet">
+<script src="css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>User Defined Function Notes</h1>
+  <p>We have included number of files that each contain standard AutoIt3 Functions, so called <strong>U</strong>ser <strong>D</strong>efined <strong>F</strong>unctions.<br />
+  UDF's are functions/Scriptlets, written in AutoIt3, you can #include in your own script and use them without the need to program it yourself or Copy&amp;Paste them every time you need them.</p>
+  <h2>Example</h2>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;Date.au3&gt;</span><br /><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"What is the date?"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Today's date is "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><a class="codeSnippetLink" href="../libfunctions/_Now.htm"><span class="S15">_Now</span></a><span class="S8">())</span></span>
+</p>
+  <p>This script will display today's date formatted in your pc's long format. e.g. "Sunday, December 18, 2004"</p>
+  <p>&nbsp;</p>
+  <p>Many UDF's contain optional parameters that can be omitted. If you wish to specify an optional parameter, however, all parameters that precede it must be specified!<br />
+  For example, consider <em><a href="libfunctions/_ArraySort.htm">_ArraySort</a></em> ( ByRef $a_Array [, $i_Descending [, $i_Base=0 [, $i_Ubound=0 [, $i_Dim=1 [, $i_SortIndex=0 ]]]]] )<br />
+  When a parameter is preceded with ByRef this means that the function will update this variable with a new value. These parameters must be a variable ($xyz) and cannot be a constant.<br /></p>
+  <p>Most UDF's indicate success/failure as a <strong>return value</strong>; others indicate it by setting the <strong>@error flag</strong>. Some do both....<br />
+  @error = 0 ;is always success<br />
+  Return = varies, but is typically non-zero for success to allow easy to read code...<br />
+  <br />
+  <strong>If a function can set the @error flag, you should always check it before using a return value - if @error indicates an error then the function return value is generally undefined...</strong><br /></p>
+</body>
+</html>

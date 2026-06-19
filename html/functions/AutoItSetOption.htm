@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция AutoItSetOption</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>AutoItSetOption</h1>
+<p class="funcdesc">Изменяет поведение различных функций и параметров AutoIt.</p>
+<p class="codeheader"><a class="le" href="../functions/AutoItSetOption.htm"><span class="S4">AutoItSetOption</span></a> <span class="S8">(</span> <span class="S7">"option"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">param</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">option</td>
+<td style="width:85%">Опция для изменения. См. раздел Примечания.</td>
+</tr>
+<tr>
+<td>param</td>
+<td><strong>[необязательный]</strong> Значение, присваиваемое опции. Тип и смысл зависят от самой опции. См. раздел Примечания. Если параметр не задан, функция просто возвращает текущее значение опции. Для сброса опции к значению по умолчанию можно использовать ключевое слово <a href="../keywords/Default.htm">Default</a>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает предыдущее значение указанной опции.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0. Ошибка возникает при недопустимых параметрах (например, если опции не существует).</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p><a href="AutoItSetOption.htm"><span class="S4">Opt</span><span class="S8">()</span></a> можно использовать как альтернативу <a href="AutoItSetOption.htm"><span class="S4">AutoItSetOption</span><span class="S8">()</span></a>.<br />
+<br />
+Доступные опции:<table>
+<tr class="header">
+<td style="width:15%"><strong>Опция</strong></td>
+<td style="width:85%"><strong>Параметр</strong></td>
+</tr>
+<tr>
+<td><span class="S7">CaretCoordMode</span></td>
+<td><a id="CaretCoordMode"></a>Задаёт способ использования координат в функциях работы с кареткой – абсолютные или относительно текущего активного окна:<br />
+<b class="S3">0</b> = относительно активного окна<br />
+<b class="S8">1</b> = (по умолчанию) абсолютные экранные координаты<br />
+<b class="S3">2</b> = относительно клиентской области активного окна</td>
+</tr>
+<tr>
+<td><span class="S7">ExpandEnvStrings</span></td>
+<td><a id="ExpandEnvStrings"></a>Изменяет интерпретацию литеральных строк и символов %. По умолчанию строки воспринимаются буквально. Эта опция позволяет использовать переменные <span class="S7">%environment%</span> внутри строк, например <span class="S7">"Временный каталог: %temp%"</span>.<br />
+<b class="S8">0</b> = (по умолчанию) не разворачивать переменные окружения<br />
+<b class="S3">1</b> = разворачивать переменные окружения<br />
+Без этой опции обычный способ: 	<span class="S7">"Временный каталог: "</span> & <a href="EnvGet.htm"><span class="S4">EnvGet</span></a><span class="S8">(</span><span class="S7">"temp"</span><span class="S8">)</span></td>
+</tr>
+<tr>
+<td><span class="S7">ExpandVarStrings</span></td>
+<td><a id="ExpandVarStrings"></a>Изменяет интерпретацию литеральных строк и символов переменных/макросов ($ и @). По умолчанию строки воспринимаются буквально. Эта опция позволяет использовать переменные и макросы внутри строк, например <span class="S7">"Значение var1: $var1$"</span>.<br />
+<b class="S8">0</b> = (по умолчанию) не разворачивать переменные<br />
+<b class="S3">1</b> = разворачивать переменные (в этом режиме для литерального $ или @ их нужно удваивать: <span class="S7">"Знак одного доллара $$"</span>).</td>
+</tr>
+<tr>
+<td><span class="S7">GUICloseOnESC</span></td>
+<td><a id="GUICloseOnESC"></a>При нажатии ESC в GUI отправляется сообщение <span class="S91">$GUI_EVENT_CLOSE</span>. Эта опция включает и отключает такое поведение.<br />
+<b class="S3">0</b> = Не отправлять <span class="S91">$GUI_EVENT_CLOSE</span> при нажатии ESC.<br />
+<b class="S8">1</b> = (по умолчанию) Отправлять <span class="S91">$GUI_EVENT_CLOSE</span> через <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> при нажатии ESC.</td>
+</tr>
+<tr>
+<td><span class="S7">GUICoordMode</span></td>
+<td><a id="GUICoordMode"></a>Изменяет правила позиционирования элемента управления, задаваемого <a href="GUICtrlSetPos.htm"><span class="S4">GUICtrlSetPos</span><span class="S8">()</span></a>.<br />
+<b class="S3">0</b> = относительно начала предыдущего элемента управления (верхний левый угол).<br />
+<b class="S8">1</b> = (по умолчанию) абсолютные координаты, всё равно относительно диалогового окна.<br />
+<b class="S3">2</b> = ячейка позиционируется относительно текущей ячейки. Значение -1 для левого или верхнего параметра означает использование координаты предыдущей ячейки.<br />
+Таким образом следующая ячейка вниз (-1, смещение); следующая ячейка вправо (смещение, -1); текущая ячейка (-1, -1).<br />
+Понятно, что "смещение" не может быть равным -1, так как обозначает отсутствие сдвига. Но если вы используете кратную ширину, то выбирайте пропуск или возврат назад.</td>
+</tr>
+<tr>
+<td><span class="S7">GUIDataSeparatorChar</span></td>
+<td><a id="GUIDataSeparatorChar"></a>Задаёт символ-разделитель подэлементов в <a href="GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span><span class="S8">()</span></a>.<br />
+Символ по умолчанию – '|'.</td>
+</tr>
+<tr>
+<td><span class="S7">GUIOnEventMode</span></td>
+<td><a id="GUIOnEventMode"></a>Включает/отключает уведомления функций OnEvent.<br />
+<b class="S8">0</b> = (по умолчанию) отключено.<br />
+<b class="S3">1</b> = включено.</td>
+</tr>
+<tr>
+<td><span class="S7">GUIResizeMode</span></td>
+<td><a id="GUIResizeMode"></a>Изменяет правило изменения размера по умолчанию для элемента управления.<br />
+<b class="S8">0</b> = (по умолчанию) сохранять стандартное поведение.<br />
+<b class="S3">&lt;1024</b> = любой тип изменения размера – см. <a href="GUICtrlSetResizing.htm"><span class="S4">GUICtrlSetResizing</span><span class="S8">()</span></a>.</td>
+</tr>
+<tr>
+<td><span class="S7">GUIEventOptions</span></td>
+<td><a id="GUIEventOptions"></a>Изменяет поведение специальных событий или возвращаемые значения GUI-функций.<br />
+<b class="S8">0</b> = (по умолчанию) стандартное поведение Windows при нажатии Minimize, Restore, Maximize или изменении размера.<br />
+<b class="S3">1</b> = подавить стандартное поведение Windows при нажатии Minimize, Restore, Maximize или изменении размера окна – только отправляется уведомление.</td>
+</tr>
+<tr>
+<td><span class="S7">MouseClickDelay</span></td>
+<td><a id="MouseClickDelay"></a>Изменяет длительность короткой паузы между кликами мыши.<br />
+Время паузы в миллисекундах (по умолчанию 10).</td>
+</tr>
+<tr>
+<td><span class="S7">MouseClickDownDelay</span></td>
+<td><a id="MouseClickDownDelay"></a>Изменяет длительность удержания клика перед отпусканием.<br />
+Время паузы в миллисекундах (по умолчанию 10).</td>
+</tr>
+<tr>
+<td><span class="S7">MouseClickDragDelay</span></td>
+<td><a id="MouseClickDragDelay"></a>Изменяет длительность короткой паузы в начале и в конце операции перетаскивания мышью.<br />
+Время паузы в миллисекундах (по умолчанию 250).</td>
+</tr>
+<tr>
+<td><span class="S7">MouseCoordMode</span></td>
+<td><a id="MouseCoordMode"></a>Задаёт способ использования координат в функциях мыши – абсолютные или относительно текущего активного окна:<br />
+<b class="S3">0</b> = относительно активного окна<br />
+<b class="S8">1</b> = (по умолчанию) абсолютные экранные координаты<br />
+<b class="S3">2</b> = относительно клиентской области активного окна</td>
+</tr>
+<tr>
+<td><span class="S7">MustDeclareVars</span></td>
+<td><a id="MustDeclareVars"></a>Если эта опция включена, все переменные перед использованием должны быть предварительно объявлены через Local, Global или (в некоторых случаях) Dim – это защищает от ошибок из-за опечаток.<br />
+<b class="S8">0</b> = (по умолчанию) Переменные можно не объявлять заранее<br />
+<b class="S3">1</b> = Переменные должны быть объявлены заранее. Подробности см. в <a href="../keywords/Dim.htm">Dim / Global / Local / Const</a>.</td>
+</tr>
+<tr>
+<td><span class="S7">PixelCoordMode</span></td>
+<td><a id="PixelCoordMode"></a>Задаёт способ использования координат в пиксельных функциях – абсолютные или относительно окна, заданного через hwnd (по умолчанию активное окно):<br />
+<b class="S3">0</b> = относительно указанного окна<br />
+<b class="S8">1</b> = (по умолчанию) абсолютные экранные координаты<br />
+<b class="S3">2</b> = относительно клиентской области указанного окна</td>
+</tr>
+<tr>
+<td><span class="S7">SendAttachMode</span></td>
+<td><a id="SendAttachMode"></a>Указывает, подключает ли AutoIt потоки ввода при использовании функции <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>. Без подключения (режим по умолчанию 0) определение состояния CapsLock/ScrollLock/NumLock может быть ненадёжным в NT4. При режиме 1 синтаксис <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{... down/up}"</span><span class="S8">)</span> работать не будет, и могут возникать проблемы при отправке клавиш "зависшим" окнам. <a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> всегда подключается и не зависит от этого режима.<br />
+<b class="S8">0</b> = (по умолчанию) не подключать<br />
+<b class="S3">1</b> = подключать</td>
+</tr>
+<tr>
+<td><span class="S7">SendCapslockMode</span></td>
+<td><a id="SendCapslockMode"></a>Указывает, должен ли AutoIt сохранять состояние CapsLock перед вызовом <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> и восстанавливать его после.<br />
+<b class="S3">0</b> = не сохранять/не восстанавливать<br />
+<b class="S8">1</b> = (по умолчанию) сохранять и восстанавливать</td>
+</tr>
+<tr>
+<td><span class="S7">SendKeyDelay</span></td>
+<td><a id="SendKeyDelay"></a>Изменяет длительность короткой паузы между отправляемыми нажатиями клавиш. Значение 0 полностью убирает задержку.<br />
+Время паузы в миллисекундах (по умолчанию 5).</td>
+</tr>
+<tr>
+<td><span class="S7">SendKeyDownDelay</span></td>
+<td><a id="SendKeyDownDelay"></a>Изменяет длительность удержания клавиши перед отпусканием при отправке нажатия. Для приложений, которым требуется время для обработки нажатий, значение может потребоваться увеличить. Значение 0 полностью убирает задержку.<br />
+Время паузы в миллисекундах (по умолчанию 5).</td>
+</tr>
+<tr>
+<td><span class="S7">SetExitCode</span></td>
+<td><a id="SetExitCode"></a>Коды выхода AutoIt при возникновении фатальной ошибки.<br />
+<b class="S8">0</b> = (по умолчанию) не устанавливать<br />
+<b class="S3">1</b> = Устанавливать <span class="S61">@exitCode</span> при фатальной ошибке – см. <a href="../appendix/Exitcodes.htm">Коды выхода при критических ошибках AutoIt3</a></td>
+</tr>
+<tr>
+<td><span class="S7">TCPTimeout</span></td>
+<td><a id="TCPTimeout"></a>Задаёт время, после которого TCP-функции останавливаются при отсутствии обмена.<br />
+Время в миллисекундах до таймаута (по умолчанию 100).</td>
+</tr>
+<tr>
+<td><span class="S7">TrayAutoPause</span></td>
+<td><a id="TrayAutoPause"></a>Скрипт приостанавливается при клике по иконке в трее.<br />
+<b class="S3">0</b> = без паузы<br />
+<b class="S8">1</b> = (по умолчанию) пауза. Если DefaultMenu отсутствует, паузы не будет.</td>
+</tr>
+<tr>
+<td><span class="S7">TrayIconDebug</span></td>
+<td><a id="TrayIconDebug"></a>Если включено, показывает текущую строку скрипта в подсказке иконки в трее – помогает при отладке.<br />
+<b class="S8">0</b> = (по умолчанию) без отладочной информации<br />
+<b class="S3">1</b> = показывать отладочную информацию</td>
+</tr>
+<tr>
+<td><span class="S7">TrayIconHide</span></td>
+<td><a id="TrayIconHide"></a>Скрывает иконку AutoIt в трее. Примечание: иконка всё равно появится примерно на 750 мс при старте.<br />
+<b class="S8">0</b> = (по умолчанию) показывать иконку<br />
+<b class="S3">1</b> = скрыть иконку</td>
+</tr>
+<tr>
+<td><span class="S7">TrayMenuMode</span></td>
+<td><a id="TrayMenuMode"></a>Расширяет поведение иконки/меню трея скрипта. Можно комбинировать (суммировать) следующие значения.<br />
+<b class="S8">0</b> = (по умолчанию) стандартные пункты меню (Script Paused/Exit) добавляются к пользовательскому меню; пункты автоматически отмечаются/снимаются при клике; двойной клик по иконке возвращает controlID пункта <span class="default-const"><span class="S91">$TRAY_DEFAULT</span></span>.<br />
+<b class="S3">1</b> = без стандартного меню<br />
+<b class="S3">2</b> = пункты не отмечаются/снимаются автоматически при клике<br />
+<b class="S3">4</b> = не возвращать controlID пункта <span class="default-const"><span class="S91">$TRAY_DEFAULT</span></span> при двойном клике по иконке<br />
+<b class="S3">8</b> = отключить автоматическую отметку групп radio-пунктов</td>
+</tr>
+<tr>
+<td><span class="S7">TrayOnEventMode</span></td>
+<td><a id="TrayOnEventMode"></a>Включает/отключает уведомления функций OnEvent для трея.<br />
+<b class="S8">0</b> = (по умолчанию) отключено<br />
+<b class="S3">1</b> = включено</td>
+</tr>
+<tr>
+<td><span class="S7">WinDetectHiddenText</span></td>
+<td><a id="WinDetectHiddenText"></a>Указывает, может ли скрытый текст окна "видеться" функциями поиска окна.<br />
+<b class="S8">0</b> = (по умолчанию) Не определять скрытый текст<br />
+<b class="S3">1</b> = Определять скрытый текст</td>
+</tr>
+<tr>
+<td><span class="S7">WinSearchChildren</span></td>
+<td><a id="WinSearchChildren"></a>Разрешает процедурам поиска окон искать и дочерние окна, а не только верхнего уровня.<br />
+<b class="S8">0</b> = (по умолчанию) Искать только окна верхнего уровня<br />
+<b class="S3">1</b> = Искать окна верхнего уровня и дочерние</td>
+</tr>
+<tr>
+<td><span class="S7">WinTextMatchMode</span></td>
+<td><a id="WinTextMatchMode"></a>Изменяет способ сопоставления текста окна при операциях поиска.<br />
+<b class="S8">1</b> = (по умолчанию) полный / медленный режим<br />
+<b class="S3">2</b> = быстрый режим<br />
+В быстром режиме AutoIt обычно "видит" только текст диалога, текст кнопок и заголовки некоторых элементов управления. В режиме по умолчанию видно гораздо больше текста (например, содержимое окна Блокнота).<br />
+Если возникают проблемы с производительностью при большом количестве поисков окон, переход в "быстрый" режим может помочь.</td>
+</tr>
+<tr>
+<td><span class="S7">WinTitleMatchMode</span></td>
+<td><a id="WinTitleMatchMode"></a>Изменяет способ сопоставления заголовков окон при операциях поиска.<br />
+<b class="S8">1</b> = (по умолчанию) Сопоставлять заголовок с начала<br />
+<b class="S3">2</b> = Сопоставлять любую подстроку в заголовке<br />
+<b class="S3">3</b> = Точное совпадение заголовка<br />
+<b class="S3">4</b> = Расширенный режим (сохранён только для обратной совместимости – см. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>)<br />
+<b class="S3">-1 … -4</b> = Сопоставление без учёта регистра по соответствующему типу сопоставления.</td>
+</tr>
+<tr>
+<td><span class="S7">WinWaitDelay</span></td>
+<td><a id="WinWaitDelay"></a>Изменяет длительность короткой паузы скрипта после успешной операции с окном.<br />
+Время паузы в миллисекундах (по умолчанию 250).</td>
+</tr>
+</table></p>
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; скопируйте те, которые хотите изменить   ;значение по умолчанию указано первым</span><br>
+<br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"CaretCoordMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1=абсолютные, 0=относительные, 2=клиентские</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"ExpandEnvStrings"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=не разворачивать, 1=разворачивать</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"ExpandVarStrings"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=не разворачивать, 1=разворачивать</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUICloseOnESC"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1=ESC закрывает, 0=ESC не закрывает</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1=абсолютные, 0=относительные, 2=ячейки</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUIDataSeparatorChar"</span><span class="S8">,</span> <span class="S7">"|"</span><span class="S8">)</span>&nbsp;<span class="S1">;"|" по умолчанию</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUIOnEventMode"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=отключено, 1=режим OnEvent включён</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUIResizeMode"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=без изменения размера, &lt;1024 особые режимы</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUIEventOptions"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=по умолчанию, 1=только уведомление, 2=индекс вкладки в GUICtrlRead</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"MouseClickDelay"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;10 миллисекунд</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"MouseClickDownDelay"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;<span class="S1">;10 миллисекунд</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"MouseClickDragDelay"</span><span class="S8">,</span> <span class="S3">250</span><span class="S8">)</span>&nbsp;&nbsp;<span class="S1">;250 миллисекунд</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"MouseCoordMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1=абсолютные, 0=относительные, 2=клиентские</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"MustDeclareVars"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=нет, 1=требуется предварительное объявление</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"PixelCoordMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1=абсолютные, 0=относительные, 2=клиентские</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"SendAttachMode"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=не подключать, 1=подключать</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"SendCapslockMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1=сохранять и восстанавливать, 0=нет</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"SendKeyDelay"</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;5 миллисекунд</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"SendKeyDownDelay"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1 миллисекунда</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"TCPTimeout"</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;100 миллисекунд</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"TrayAutoPause"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=без паузы, 1=пауза</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"TrayIconDebug"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=без информации, 1=показывать номер строки для отладки</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"TrayIconHide"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=показывать, 1=скрыть иконку в трее</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"TrayMenuMode"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=добавлять, 1=без стандартного меню, 2=без авто-отметки, 4=не возвращать menuitemID</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"TrayOnEventMode"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=отключить, 1=включить</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"WinDetectHiddenText"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=не определять, 1=определять</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"WinSearchChildren"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;0=нет, 1=искать также дочерние окна</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"WinTextMatchMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1=полный режим, 2=быстрый</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"WinTitleMatchMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1=с начала, 2=подстрока, 3=точное, 4=расширенный, -1 … -4 = без учёта регистра</span><br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"WinWaitDelay"</span><span class="S8">,</span> <span class="S3">250</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;250 миллисекунд</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\AutoItSetOption.au3,"></object>
+</body>
+</html>

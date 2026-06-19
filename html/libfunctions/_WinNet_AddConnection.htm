@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinNet_AddConnection</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinNet_AddConnection</h1>
+<p class="funcdesc">Подключает локальное устройство к сетевому ресурсу.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinNet.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinNet_AddConnection.htm"><span class="S15">_WinNet_AddConnection</span></a> <span class="S8">(</span> <span class="S9">$sLocalName</span><span class="S8">,</span> <span class="S9">$sRemoteName</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sPassword</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sLocalName</span></td>
+<td style="width:85%">Имя локального устройства для перенаправления, например "F:" или "LPT1".<br />
+Строка обрабатывается без учёта регистра.<br />
+Если указано ключевое слово <span class="S5">Null</span> или пусто, соединение с сетевым ресурсом устанавливается без перенаправления локального устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$sRemoteName</span></td>
+<td>Имя сетевого ресурса для подключения.</td>
+</tr>
+<tr>
+<td><span class="S91">$sPassword</span></td>
+<td><strong>[необязательный]</strong> Пароль для установления соединения.<br />
+Этот параметр обычно является паролем, связанным с текущим пользователем.<br />
+Если 0, используется пароль по умолчанию.<br />
+Если строка пуста, пароль не используется.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта функция предусмотрена только для совместимости с 16-разрядными версиями Windows.<br />
+Приложения должны вызывать функцию <a href="_WinNet_AddConnection2.htm"><span class="S15">_WinNet_AddConnection2</span><span class="S8">()</span></a> или <a href="_WinNet_AddConnection3.htm"><span class="S15">_WinNet_AddConnection3</span><span class="S8">()</span></a>.<br />
+Успешное соединение является постоянным, что означает, что система автоматически восстанавливает соединение при последующих операциях входа.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinNet_AddConnection2.htm">_WinNet_AddConnection2</a>, <a href="_WinNet_AddConnection3.htm">_WinNet_AddConnection3</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=WNetAddConnection">WNetAddConnection</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

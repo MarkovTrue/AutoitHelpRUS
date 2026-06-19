@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUICtrlToolbar_SetParent</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUICtrlToolbar_SetParent</h1>
+<p class="funcdesc">Задаёт окно, в которое элемент отправляет уведомления.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiToolbar.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUICtrlToolbar_SetParent.htm"><span class="S15">_GUICtrlToolbar_SetParent</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$hParent</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$hParent</span></td>
+<td>Дескриптор родительского окна.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор предыдущего окна-приёмника уведомлений.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Сообщение <span class="S91">$TB_SETPARENT</span> не меняет родительское окно, заданное при создании элемента.<br />
+Вызов <a href="_WinAPI_GetParent.htm"><span class="S15">_WinAPI_GetParent</span><span class="S8">()</span></a> вернёт реальное родительское окно, а не указанное в <span class="S91">$TB_SETPARENT</span>.<br />
+Чтобы сменить родителя элемента, используйте <a href="_WinAPI_SetParent.htm"><span class="S15">_WinAPI_SetParent</span><span class="S8">()</span></a>.<br />
+</p>
+</body>
+</html>

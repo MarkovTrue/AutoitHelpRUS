@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция Call</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>Call</h1>
+<p class="funcdesc">Вызывает пользовательскую или встроенную функцию, имя которой передано в первом параметре.</p>
+<p class="codeheader"><a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a> <span class="S8">(</span> <span class="S7">"function"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">param_1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">param_2</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">param_N</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">function</td>
+<td style="width:85%">Имя вызываемой функции в виде литеральной строки.</td>
+</tr>
+<tr>
+<td>param</td>
+<td>Аргументы, передаваемые вызываемой функции – см. раздел Примечания.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает значение вызванной функции. В <span class="S61">@error</span> и <span class="S61">@extended</span> могут оказаться значения, если вызванная функция их устанавливала.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает значение <span class="S61">@error</span> = 0xDEAD и <span class="S61">@extended</span> в 0xBEEF, если функция не существует или передано недопустимое число параметров.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Аргументы можно передавать по одному или в виде массива. Этот массив должен быть единственным параметром, его элемент [0] должен иметь значение "CallArgArray", а элементы [1 – <em>N</em>] содержать отдельные аргументы функции. Пример использования см. в примере.<br />
+<br />
+Обратите внимание: флаг <span class="S61">@error</span> может установить как <a href="Call.htm"><span class="S4">Call</span><span class="S8">()</span></a>, так и сама вызванная функция. Если <span class="S61">@error</span> устанавливает <a href="Call.htm"><span class="S4">Call</span><span class="S8">()</span></a>, его значение будет 0xDEAD, а <span class="S61">@extended</span> – 0xBEEF. Проверку отсутствия функции см. в примере.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="Execute.htm">Execute</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вызывает функцию без аргументов.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S7">"Test1"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вызывает функцию с одним параметром и передаёт ей аргумент.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S7">"Test2"</span><span class="S8">,</span> <span class="S7">"Message from Call()!"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Демонстрация использования специального массива-аргумента.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"CallArgArray"</span>&nbsp;<span class="S1">; Это обязательно, иначе Call() не распознает массив как содержащий аргументы
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"This is a string"</span>&nbsp;<span class="S1">; Первый параметр – строка
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">47</span>&nbsp;<span class="S1">; Второй параметр – число
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Array Element 0"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Array Element 1"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$aArray</span>&nbsp;<span class="S1">; Третий параметр – массив
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Специальный массив собран, теперь вызываем функцию
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S7">"Test3"</span><span class="S8">,</span> <span class="S9">$aArgs</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверка вызова несуществующей функции. Показан правильный способ проверки
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; путём сравнения @error и @extended с документированными значениями сбоя.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sFunction</span> <span class="S8">=</span> <span class="S7">"DoesNotExist"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S9">$sFunction</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">=</span> <span class="S3">0xDEAD</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">=</span> <span class="S3">0xBEEF</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Function does not exist."</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Test1</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Hello"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Test1
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Test2</span><span class="S8">(</span><span class="S9">$sMsg</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sMsg</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Test2
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Test3</span><span class="S8">(</span><span class="S9">$sString</span><span class="S8">,</span> <span class="S9">$nNumber</span><span class="S8">,</span> <span class="S9">$aArray</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The string is: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sString</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The number is: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$nNumber</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Array["</span> <span class="S8">&amp;</span> <span class="S9">$i</span> <span class="S8">&amp;</span> <span class="S7">"] contains:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Test3
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\Call.au3,"></object>
+</body>
+</html>

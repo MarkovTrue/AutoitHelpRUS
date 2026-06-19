@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetProcessWorkingDirectory</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetProcessWorkingDirectory</h1>
+<p class="funcdesc">Возвращает текущий рабочий каталог указанного процесса.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIProc.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetProcessWorkingDirectory.htm"><span class="S15">_WinAPI_GetProcessWorkingDirectory</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S9">$iPID</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iPID</span></td>
+<td style="width:85%"><strong>[необязательный]</strong> PID процесса. По умолчанию (0) – текущий процесс.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает путь к рабочему каталогу.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает пустую строку и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Функция использует недокументированные API и может перестать корректно работать в будущих версиях Windows.<br />
+<br />
+Для доступа к некоторым процессам могут потребоваться полные права доступа.<br />
+Используйте функцию <a href="_WinAPI_AdjustTokenPrivileges.htm"><span class="S15">_WinAPI_AdjustTokenPrivileges</span><span class="S8">()</span></a>, чтобы включить привилегию <span class="S91">$SE_DEBUG_NAME</span> перед вызовом этой функции.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_AdjustTokenPrivileges.htm">_WinAPI_AdjustTokenPrivileges</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/RequireAdmin.htm"><span class="S11">#RequireAdmin</span></a><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;SecurityConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIProc.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aAdjust</span><span class="S8">,</span> <span class="S9">$aList</span> <span class="S8">=</span> <span class="S3">0</span><br>
+<br>
+<span class="S1">; Включить привилегию SeDebugPrivilege для получения полного доступа к другим процессам</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToken</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_OpenProcessToken.htm"><span class="S15">_WinAPI_OpenProcessToken</span></a><span class="S8">(</span><a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$TOKEN_ADJUST_PRIVILEGES</span><span class="S8">,</span> <span class="S9">$TOKEN_QUERY</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_AdjustTokenPrivileges.htm"><span class="S15">_WinAPI_AdjustTokenPrivileges</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">,</span> <span class="S9">$SE_DEBUG_NAME</span><span class="S8">,</span> <span class="S9">$SE_PRIVILEGE_ENABLED</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Получить рабочие каталоги для всех процессов системы
+</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S8">(</span><a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aList</span> <span class="S8">=</span> <a class="le" href="../functions/ProcessList.htm"><span class="S4">ProcessList</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$aList</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aList</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetProcessWorkingDirectory.htm"><span class="S15">_WinAPI_GetProcessWorkingDirectory</span></a><span class="S8">(</span><span class="S9">$aList</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Восстановить значения по умолчанию для привилегии "SeDebugPrivilege"
+</span><br>
+<a class="le" href="../libfunctions/_WinAPI_AdjustTokenPrivileges.htm"><span class="S15">_WinAPI_AdjustTokenPrivileges</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aList</span><span class="S8">,</span> <span class="S7">'_WinAPI_GetProcessCommandLine'</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_GetProcessWorkingDirectory.au3,"></object>
+</body>
+</html>

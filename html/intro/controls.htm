@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Элементы управления</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Элементы управления</h1>
+  <p>Одна из лучших возможностей AutoIt v3 – способность работать напрямую с определёнными типами <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb773169(v=vs.85).aspx">контролов окна</a>. Почти всё, что вы видите в окне, является каким-либо контролом. Кнопки, списки, поля ввода и текстовые метки – примеры контролов. Фактически Notepad – это один большой контрол "Edit"! Поскольку AutoIt работает напрямую с контролом, такой способ автоматизации надёжнее, чем простая отправка нажатий клавиш.</p><br />
+  <p><strong>Примечание:</strong> AutoIt работает только со <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb773169(v=vs.85).aspx">стандартными контролами Microsoft</a>. Некоторые приложения создают собственные контролы, которые могут выглядеть как стандартные MS-контролы, но плохо поддаются автоматизации. Экспериментируйте!<br /></p>&nbsp;
+  <p>С помощью <a href="au3spy.htm">AutoIt Window Info Tool</a> можно перемещать мышь по интересующему окну и получать информацию о контроле, который сейчас находится под курсором.</p>
+  <p>В качестве параметра <strong>controlID</strong>, используемого в большинстве функций Control...(), можно применять специальное описание. Это описание позволяет идентифицировать контрол по следующим свойствам:</p>
+  <ul>
+    <li><strong>ID -</strong> внутренний идентификатор контрола. Control ID – это внутренний числовой идентификатор, который Windows присваивает каждому контролу. Обычно это лучший способ идентификации. Получить Control ID можно через AutoIt Window Info Tool, программы для слабовидящих, инструменты и API Microsoft.</li>
+    <li><strong>TEXT -</strong> текст на контроле, например "&amp;Next" на кнопке.</li>
+    <li><strong>CLASS -</strong> внутреннее имя класса контрола, например "Edit" или "Button".</li>
+    <li><strong>CLASSNN -</strong> значение ClassnameNN, как в предыдущих версиях AutoIt, например "Edit1".</li>
+    <li><strong>NAME</strong> – внутреннее имя WinForms .NET Framework (если доступно).</li>
+    <li><strong>REGEXPCLASS -</strong> имя класса контрола, заданное <a href="../functions/StringRegExp.htm">регулярным выражением</a>.</li>
+    <li><strong>X</strong> \ <strong>Y</strong> \ <strong>W</strong> \ <strong>H</strong> – позиция и размер контрола.</li>
+    <li><strong>INSTANCE -</strong> номер экземпляра (с 1) при совпадении всех заданных свойств.</li>
+  </ul>
+  <p>Одно или несколько свойств указываются в параметре <em>controlID</em> команды контрола в формате:</p>
+<p class="codebox">
+<span><span class="S8">[</span><span class="S0">PROPERTY1 </span><span class="S8">:</span><span class="S0"> Value1</span><span class="S1">; PROPERTY2:Value2]</span></span>
+</p>
+  <p><strong>Примечание:</strong> если этот специальный формат <strong>не</strong> используется, параметр интерпретируется как control ID (если число) или как ClassnameNN/текст контрола (если строка). Хотя специальный формат более многословен, он гораздо менее неоднозначен.</p>
+  <p>Если значение должно содержать ";", его нужно удвоить.</p>
+  <p>&nbsp;</p>
+  <p>Например, отправить текст в первый контрол Edit окна Notepad:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlSend.htm"><span class="S4">ControlSend</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[CLASS:Edit; INSTANCE:1]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This is some text"</span><span class="S8">)</span></span>
+</p>
+  <p>или</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlSend.htm"><span class="S4">ControlSend</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[CLASSNN:Edit1]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This is some text"</span><span class="S8">)</span></span>
+</p>
+  <p>или</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlSend.htm"><span class="S4">ControlSend</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Edit1"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This is some text"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Например, кликнуть по контролу с ID 254 в окне "My Window":</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlClick.htm"><span class="S4">ControlClick</span></a><span class="S8">(</span><span class="S7">"My Window"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[ID:254]"</span><span class="S8">)</span></span>
+</p>
+  <p>или</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlClick.htm"><span class="S4">ControlClick</span></a><span class="S8">(</span><span class="S7">"My Window"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S3">254</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Например, установить текст контрола .NET WinForms "textBoxFolder" в значение "C:\Some\Folder":</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlSetText.htm"><span class="S4">ControlSetText</span></a><span class="S8">(</span><span class="S7">"My Window"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[NAME:textBoxFolder]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"C:\Some\Folder"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Например, кликнуть по второму экземпляру контрола "Button" с текстом "Finish":</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlClick.htm"><span class="S4">ControlClick</span></a><span class="S8">(</span><span class="S7">"My Window"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[CLASS:Button; TEXT:Finish; INSTANCE:2]"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <h2>Дескриптор контрола (HWND)</h2>
+  <p>С помощью функции <a href="../functions/ControlGetHandle.htm">ControlGetHandle</a> можно определить <em>дескриптор</em> или <em>HWND</em> контрола. Дескриптор – это уникальный идентификатор, который Windows присваивает контролу. Дескриптор меняется <em>каждый раз при создании контрола</em>. Этот способ обращения к контролам обычно предназначен для пользователей, знакомых с работой с дескрипторами.</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>Список функций для работы с контролами см. в содержании в разделе <strong><a href="../functions/ControlCommand.htm">Справочник функций \ Управление окнами \ Элементы управления</a></strong>.</p>
+</body>
+</html>

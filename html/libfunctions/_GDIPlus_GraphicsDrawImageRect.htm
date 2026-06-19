@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GDIPlus_GraphicsDrawImageRect</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GDIPlus_GraphicsDrawImageRect</h1>
+<p class="funcdesc">Рисует изображение в указанном месте.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a> <span class="S8">(</span> <span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S9">$hImage</span><span class="S8">,</span> <span class="S9">$nX</span><span class="S8">,</span> <span class="S9">$nY</span><span class="S8">,</span> <span class="S9">$nW</span><span class="S8">,</span> <span class="S9">$nH</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hGraphics</span></td>
+<td style="width:85%">Дескриптор объекта Graphics.</td>
+</tr>
+<tr>
+<td><span class="S91">$hImage</span></td>
+<td>Дескриптор объекта Image.</td>
+</tr>
+<tr>
+<td><span class="S91">$nX</span></td>
+<td>Координата X верхнего левого угла отображаемого изображения.</td>
+</tr>
+<tr>
+<td><span class="S91">$nY</span></td>
+<td>Координата Y верхнего левого угла отображаемого изображения.</td>
+</tr>
+<tr>
+<td><span class="S91">$nW</span></td>
+<td>Ширина прямоугольника назначения, в котором рисуется изображение.</td>
+</tr>
+<tr>
+<td><span class="S91">$nH</span></td>
+<td>Высота прямоугольника назначения, в котором рисуется изображение.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span> и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>Может содержать код ошибки GPSTATUS (<span class="S91">$GDIP_ERR*</span> см. <span class="S7">GPIPlusConstants.au3</span>).</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GdipDrawImageRect">GdipDrawImageRect</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;ScreenCapture.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBitmap1</span><span class="S8">,</span> <span class="S9">$hBitmap2</span><span class="S8">,</span> <span class="S9">$hImage1</span><span class="S8">,</span> <span class="S9">$hImage2</span><span class="S8">,</span> <span class="S9">$hGraphic</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Инициализировать библиотеку GDI+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Захватить весь экран</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBitmap1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ScreenCapture_Capture.htm"><span class="S15">_ScreenCapture_Capture</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hImage1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromHBITMAP.htm"><span class="S15">_GDIPlus_BitmapCreateFromHBITMAP</span></a><span class="S8">(</span><span class="S9">$hBitmap1</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Захватить область экрана</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBitmap2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ScreenCapture_Capture.htm"><span class="S15">_ScreenCapture_Capture</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hImage2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromHBITMAP.htm"><span class="S15">_GDIPlus_BitmapCreateFromHBITMAP</span></a><span class="S8">(</span><span class="S9">$hBitmap2</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нарисовать одно изображение в другом</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGraphic</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetGraphicsContext.htm"><span class="S15">_GDIPlus_ImageGetGraphicsContext</span></a><span class="S8">(</span><span class="S9">$hImage1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hImage2</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нарисовать рамку вокруг вставленного изображения</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawRect.htm"><span class="S15">_GDIPlus_GraphicsDrawRect</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сохранить итоговое изображение</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageSaveToFile.htm"><span class="S15">_GDIPlus_ImageSaveToFile</span></a><span class="S8">(</span><span class="S9">$hImage1</span><span class="S8">,</span> <a class="le" href="../macros.htm#@MyDocumentsDir"><span class="S6">@MyDocumentsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\GDIPlus_Image.jpg"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Освободить ресурсы</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageDispose.htm"><span class="S15">_GDIPlus_ImageDispose</span></a><span class="S8">(</span><span class="S9">$hImage1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageDispose.htm"><span class="S15">_GDIPlus_ImageDispose</span></a><span class="S8">(</span><span class="S9">$hImage2</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hBitmap1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hBitmap2</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Завершить работу с библиотекой GDI+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@MyDocumentsDir"><span class="S6">@MyDocumentsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\GDIPlus_Image.jpg"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GDIPlus_GraphicsDrawImageRect.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;ScreenCapture.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_hGUI</span><span class="S8">,</span> <span class="S9">$g_hGfxCtxt</span><span class="S8">,</span> <span class="S9">$g_hBitmap</span><span class="S8">,</span> <span class="S9">$g_hBMP</span><span class="S8">,</span> <span class="S9">$g_hGraphics</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/AutoItSetOption.htm"><span class="S4">AutoItSetOption</span></a><span class="S8">(</span><span class="S7">"GUIOnEventMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">;инициализировать GDI+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$iWidth</span> <span class="S8">=</span> <span class="S3">600</span><span class="S8">,</span> <span class="S9">$iHeight</span> <span class="S8">=</span> <span class="S3">600</span><span class="S8">,</span> <span class="S9">$iBgColor</span> <span class="S8">=</span> <span class="S3">0x303030</span>&nbsp;<span class="S1">;$iBGColor в формате RRGGBB</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"GDI+ Example ("</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">)</span>&nbsp;<span class="S1">;создать тестовый GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetBkColor.htm"><span class="S4">GUISetBkColor</span></a><span class="S8">(</span><span class="S9">$iBgColor</span><span class="S8">,</span> <span class="S9">$g_hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;установить цвет фона GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;создать буферизованный набор кадров для плавного перемещения графики</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hGraphics</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$g_hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;создать графический объект из дескриптора окна</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromGraphics.htm"><span class="S15">_GDIPlus_BitmapCreateFromGraphics</span></a><span class="S8">(</span><span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">,</span> <span class="S9">$g_hGraphics</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hGfxCtxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetGraphicsContext.htm"><span class="S15">_GDIPlus_ImageGetGraphicsContext</span></a><span class="S8">(</span><span class="S9">$g_hBitmap</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$iW</span> <span class="S8">=</span> <span class="S3">300</span><span class="S8">,</span> <span class="S9">$iH</span> <span class="S8">=</span> <span class="S3">300</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hHBmp</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ScreenCapture_Capture.htm"><span class="S15">_ScreenCapture_Capture</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../macros.htm#@DesktopHeight"><span class="S6">@DesktopHeight</span></a> <span class="S8">-</span> <span class="S9">$iH</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <a class="le" href="../macros.htm#@DesktopHeight"><span class="S6">@DesktopHeight</span></a><span class="S8">)</span>&nbsp;<span class="S1">;создать GDI bitmap захватом области рабочего стола</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hBMP</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromHBITMAP.htm"><span class="S15">_GDIPlus_BitmapCreateFromHBITMAP</span></a><span class="S8">(</span><span class="S9">$hHBmp</span><span class="S8">)</span>&nbsp;<span class="S1">;преобразовать GDI bitmap в GDI+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hHBmp</span><span class="S8">)</span>&nbsp;<span class="S1">;освободить ресурс GDI bitmap – больше не нужен</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iVectorX</span> <span class="S8">=</span> <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">1.5</span><span class="S8">,</span> <span class="S3">2.5</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$iVectorY</span> <span class="S8">=</span> <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">1.5</span><span class="S8">,</span> <span class="S3">2.5</span><span class="S8">)</span>&nbsp;<span class="S1">;определить векторы x и y</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iX</span> <span class="S8">=</span> <span class="S3">0.0</span><span class="S8">,</span> <span class="S9">$iY</span> <span class="S8">=</span> <span class="S3">0.0</span>&nbsp;<span class="S1">;определить начальную координату</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetOnEvent.htm"><span class="S4">GUISetOnEvent</span></a><span class="S8">(</span><span class="S9">$GUI_EVENT_CLOSE</span><span class="S8">,</span> <span class="S7">"_Exit"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsClear.htm"><span class="S15">_GDIPlus_GraphicsClear</span></a><span class="S8">(</span><span class="S9">$g_hGfxCtxt</span><span class="S8">,</span> <span class="S3">0xFF000000</span> <span class="S8">+</span> <span class="S9">$iBgColor</span><span class="S8">)</span>&nbsp;<span class="S1">;очистить bitmap для перерисовки</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$g_hGfxCtxt</span><span class="S8">,</span> <span class="S9">$g_hBMP</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span>&nbsp;<span class="S1">;нарисовать растровое изображение в задний буфер
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$g_hGraphics</span><span class="S8">,</span> <span class="S9">$g_hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">)</span>&nbsp;<span class="S1">;скопировать нарисованный bitmap в дескриптор графики (GUI)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iX</span> <span class="S8">+=</span> <span class="S9">$iVectorX</span>&nbsp;<span class="S1">;прибавить x-вектор к текущей позиции x</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iY</span> <span class="S8">+=</span> <span class="S9">$iVectorY</span>&nbsp;<span class="S1">;прибавить y-вектор к текущей позиции y</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iX</span> <span class="S8">&lt;</span> <span class="S3">0</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S9">$iX</span> <span class="S8">&gt;</span> <span class="S8">(</span><span class="S9">$iWidth</span> <span class="S8">-</span> <span class="S9">$iW</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$iVectorX</span> <span class="S8">*=</span> <span class="S8">-</span><span class="S3">1</span>&nbsp;<span class="S1">;при достижении границы x развернуть x-вектор</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iY</span> <span class="S8">&lt;</span> <span class="S3">0</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S9">$iY</span> <span class="S8">&gt;</span> <span class="S8">(</span><span class="S9">$iHeight</span> <span class="S8">-</span> <span class="S9">$iH</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$iVectorY</span> <span class="S8">*=</span> <span class="S8">-</span><span class="S3">1</span>&nbsp;<span class="S1">;при достижении границы y развернуть y-вектор</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">20</span><span class="S8">)</span>&nbsp;<span class="S1">;пауза 20 мс, чтобы не загружать CPU</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_Exit</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;освободить ресурсы GDI+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDispose.htm"><span class="S15">_GDIPlus_GraphicsDispose</span></a><span class="S8">(</span><span class="S9">$g_hGfxCtxt</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDispose.htm"><span class="S15">_GDIPlus_GraphicsDispose</span></a><span class="S8">(</span><span class="S9">$g_hGraphics</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapDispose.htm"><span class="S15">_GDIPlus_BitmapDispose</span></a><span class="S8">(</span><span class="S9">$g_hBitmap</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapDispose.htm"><span class="S15">_GDIPlus_BitmapDispose</span></a><span class="S8">(</span><span class="S9">$g_hBMP</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S9">$g_hGUI</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_Exit
+</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GDIPlus_GraphicsDrawImageRect[2].au3,"></object>
+</body>
+</html>

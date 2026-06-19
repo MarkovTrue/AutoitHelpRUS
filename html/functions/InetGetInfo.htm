@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция InetGetInfo</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>InetGetInfo</h1>
+<p class="funcdesc">Возвращает подробные сведения для дескриптора, полученного от <a class="le" href="InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">()</span>.</p>
+<p class="codeheader"><a class="le" href="../functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S0">handle</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">index</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">handle</td>
+<td style="width:85%"><strong>[необязательный]</strong> Дескриптор, возвращённый функцией <a href="InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>.</td>
+</tr>
+<tr>
+<td>index</td>
+<td><strong>[необязательный]</strong> Индекс запрашиваемых данных. При значении -1 возвращается массив, содержащий все перечисленные ниже данные.<br />
+<span class="S91">$INET_DOWNLOADREAD</span> (0) – количество прочитанных байт на текущий момент (обновляется в процессе загрузки).<br />
+<span class="S91">$INET_DOWNLOADSIZE</span> (1) – размер загрузки в байтах (может отсутствовать).<br />
+<span class="S91">$INET_DOWNLOADCOMPLETE</span> (2) – <span class="S5">True</span>, если загрузка завершена; <span class="S5">False</span>, если загрузка ещё продолжается.<br />
+<span class="S91">$INET_DOWNLOADSUCCESS</span> (3) – <span class="S5">True</span>, если загрузка прошла успешно. Если <span class="S5">False</span>, следующий элемент будет ненулевым.<br />
+<span class="S91">$INET_DOWNLOADERROR</span> (4) – код ошибки загрузки. Значение произвольное; для определения ошибки достаточно проверить, что оно ненулевое.<br />
+<span class="S91">$INET_DOWNLOADEXTENDED</span> (5) – расширенное значение загрузки. Значение произвольное и предназначено главным образом для разработчиков AutoIt.<br />
+<br />
+Константы определены в <span class="S7">InetConstants.au3</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает запрошенные данные.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает пустую строку и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если функция вызвана без аргументов, возвращается общее количество активных загрузок.<br />
+<br />
+Функцию можно вызывать в цикле для получения количества загруженных байт или ожидания завершения загрузки.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="InetGet.htm">InetGet</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;InetConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сохранить загруженный файл во временную папку.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFilePath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetTempFileName.htm"><span class="S15">_WinAPI_GetTempFileName</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить файл в фоне с опцией 'принудительно перечитать с удалённого сайта.'</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDownload</span> <span class="S8">=</span> <a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span><span class="S7">"http://www.autoitscript.com/autoit3/files/beta/update.dat"</span><span class="S8">,</span> <span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$INET_FORCERELOAD</span><span class="S8">,</span> <span class="S9">$INET_DOWNLOADBACKGROUND</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать завершения загрузки, отслеживая возврат True вторым индексом InetGetInfo.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">250</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span></a><span class="S8">(</span><span class="S9">$hDownload</span><span class="S8">,</span> <span class="S9">$INET_DOWNLOADCOMPLETE</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить сведения о загружаемом файле.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aData</span> <span class="S8">=</span> <a class="le" href="../functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span></a><span class="S8">(</span><span class="S9">$hDownload</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span>&nbsp;<span class="S1">; Если произошла ошибка – выйти из функции и удалить файл.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть дескриптор, возвращённый InetGet.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/InetClose.htm"><span class="S4">InetClose</span></a><span class="S8">(</span><span class="S9">$hDownload</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить сведения о загруженном файле.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Bytes read: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADREAD</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Size: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADSIZE</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Complete: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADCOMPLETE</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"successful: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADSUCCESS</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"@error: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADERROR</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"@extended: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADEXTENDED</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить файл.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\InetGetInfo.au3,"></object>
+</body>
+</html>

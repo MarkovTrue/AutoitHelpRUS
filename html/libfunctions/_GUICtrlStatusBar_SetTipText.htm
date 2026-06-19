@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUICtrlStatusBar_SetTipText</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUICtrlStatusBar_SetTipText</h1>
+<p class="funcdesc">Устанавливает текст.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiStatusBar.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetTipText.htm"><span class="S15">_GUICtrlStatusBar_SetTipText</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iPart</span><span class="S8">,</span> <span class="S9">$sText</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$iPart</span></td>
+<td>Индекс части (нумерация с 0).</td>
+</tr>
+<tr>
+<td><span class="S91">$sText</span></td>
+<td>Текст подсказки.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Отсутствует.<br />
+
+
+<h2>Примечания</h2>
+<p>Строка состояния должна быть создана со стилем <span class="S91">$SBARS_TOOLTIPS</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_GUICtrlStatusBar_GetTipText.htm">_GUICtrlStatusBar_GetTipText</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Пример 1: использование с дескриптором значка</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiStatusBar.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIIcons.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"StatusBar Get/Set Tip Text (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">450</span><span class="S8">,</span> <span class="S3">320</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hStatus</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_Create.htm"><span class="S15">_GUICtrlStatusBar_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$SBARS_TOOLTIPS</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать элемент memo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">444</span><span class="S8">,</span> <span class="S3">259</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать части</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aParts</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">75</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetParts.htm"><span class="S15">_GUICtrlStatusBar_SetParts</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S9">$aParts</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S7">"Force tip to be shown when text is more than fits in the box"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить значок</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LoadShell32Icon.htm"><span class="S15">_WinAPI_LoadShell32Icon</span></a><span class="S8">(</span><span class="S3">23</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetIcon.htm"><span class="S15">_GUICtrlStatusBar_SetIcon</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$hIcon</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текстовые подсказки</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetTipText.htm"><span class="S15">_GUICtrlStatusBar_SetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"Tip works when only icon in part or text exceeds part"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetTipText.htm"><span class="S15">_GUICtrlStatusBar_SetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"Force tip to be shown when text is more than fits in the box"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Hold Mouse Cursor over part to see tip."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать текстовые подсказки</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Text tip 0 .: "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetTipText.htm"><span class="S15">_GUICtrlStatusBar_GetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Text tip 1 .: "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetTipText.htm"><span class="S15">_GUICtrlStatusBar_GetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBoxStatus</span><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">; больше действий нет, ждём закрытия GUI</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Освободить значки</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DestroyIcon.htm"><span class="S15">_WinAPI_DestroyIcon</span></a><span class="S8">(</span><span class="S9">$hIcon</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlStatusBar_GetTipText.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Пример 2 прямое использование с файлом значка</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiStatusBar.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"StatusBar Get/Set Tip Text (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">450</span><span class="S8">,</span> <span class="S3">320</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hStatus</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_Create.htm"><span class="S15">_GUICtrlStatusBar_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$SBARS_TOOLTIPS</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать элемент memo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">444</span><span class="S8">,</span> <span class="S3">259</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать части</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aParts</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">75</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetParts.htm"><span class="S15">_GUICtrlStatusBar_SetParts</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S9">$aParts</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S7">"Force tip to be shown when text is more than fits in the box"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить значок</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetIcon.htm"><span class="S15">_GUICtrlStatusBar_SetIcon</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">23</span><span class="S8">,</span> <span class="S7">"shell32.dll"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текстовые подсказки</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetTipText.htm"><span class="S15">_GUICtrlStatusBar_SetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"Tip works when only icon in part or text exceeds part"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetTipText.htm"><span class="S15">_GUICtrlStatusBar_SetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"Force tip to be shown when text is more than fits in the box"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Hold Mouse Cursor over part to see tip."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать текстовые подсказки</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Text tip 0 .: "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetTipText.htm"><span class="S15">_GUICtrlStatusBar_GetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Text tip 1 .: "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetTipText.htm"><span class="S15">_GUICtrlStatusBar_GetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBoxStatus</span><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">; больше действий нет, ждём закрытия GUI</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlStatusBar_GetTipText[2].au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Пример 2 : StatusBar получить/установить текст подсказки во внешнем процессе</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiStatusBar.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFromTo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWin</span> <span class="S8">=</span> <span class="S0">_MemoRunAU3OutProcess</span><span class="S8">(</span><span class="S9">$sFromTo</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hStatus</span> <span class="S8">=</span> <span class="S0">_MemoCreateOutProcess</span><span class="S8">(</span><span class="S9">$hWin</span><span class="S8">,</span> <span class="S7">"msctls_statusbar32"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$sFromTo</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPart</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetTipText.htm"><span class="S15">_GUICtrlStatusBar_SetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S9">$iPart</span><span class="S8">,</span> <span class="S7">"UPD 0"</span><span class="S8">)</span>&nbsp;<span class="S1">; обновить внешний Process StatusBar, часть 0</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"====================="</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"StatusBar info displayed"</span> <span class="S8">&amp;</span> <span class="S9">$sFromTo</span> <span class="S8">&amp;</span> <span class="S7">" External process"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"====================="</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать текст части</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Part "</span> <span class="S8">&amp;</span> <span class="S9">$iPart</span> <span class="S8">&amp;</span> <span class="S7">" TipText ........: "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetTipText.htm"><span class="S15">_GUICtrlStatusBar_GetTipText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S9">$iPart</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"====================="</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBoxStatus</span><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$hWin</span><span class="S8">)</span>&nbsp;<span class="S1">; больше действий нет, ждём закрытия GUI, закрываем и внешний GUI</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlStatusBar_GetTipText[3].au3,"></object>
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_CreateFontEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_CreateFontEx</h1>
+<p class="funcdesc">создаёт логический шрифт с указанными характеристиками.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_CreateFontEx.htm"><span class="S15">_WinAPI_CreateFontEx</span></a> <span class="S8">(</span> <span class="S9">$iHeight</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWidth</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEscapement</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iOrientation</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWeight</span> <span class="S8">=</span> <span class="S9">$FW_NORMAL</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bItalic</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bUnderline</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bStrikeOut</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iCharSet</span> <span class="S8">=</span> <span class="S9">$DEFAULT_CHARSET</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iOutPrecision</span> <span class="S8">=</span> <span class="S9">$OUT_DEFAULT_PRECIS</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iClipPrecision</span> <span class="S8">=</span> <span class="S9">$CLIP_DEFAULT_PRECIS</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iQuality</span> <span class="S8">=</span> <span class="S9">$DEFAULT_QUALITY</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iPitchAndFamily</span> <span class="S8">=</span> <span class="S9">$DEFAULT_PITCH</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sFaceName</span> <span class="S8">=</span> <span class="S7">''</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStyle</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iHeight</span></td>
+<td style="width:85%">Высота знакоместа или символа шрифта в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iWidth</span></td>
+<td>Необязательный параметр.</td>
+</tr>
+<tr>
+<td><span class="S91">$iEscapement</span></td>
+<td>Необязательный параметр.</td>
+</tr>
+<tr>
+<td><span class="S91">$iOrientation</span></td>
+<td>Необязательный параметр.</td>
+</tr>
+<tr>
+<td><span class="S91">$iWeight</span></td>
+<td>Координаты.</td>
+</tr>
+<tr>
+<td><span class="S91">$bItalic</span></td>
+<td>Значение.</td>
+</tr>
+<tr>
+<td><span class="S91">$bUnderline</span></td>
+<td>Значение.</td>
+</tr>
+<tr>
+<td><span class="S91">$bStrikeOut</span></td>
+<td>Значение.</td>
+</tr>
+<tr>
+<td><span class="S91">$iCharSet</span></td>
+<td>Имя.</td>
+</tr>
+<tr>
+<td><span class="S91">$iOutPrecision</span></td>
+<td>Строка.</td>
+</tr>
+<tr>
+<td><span class="S91">$iClipPrecision</span></td>
+<td>Значение.</td>
+</tr>
+<tr>
+<td><span class="S91">$iQuality</span></td>
+<td>Значение.</td>
+</tr>
+<tr>
+<td><span class="S91">$iPitchAndFamily</span></td>
+<td>Координаты.</td>
+</tr>
+<tr>
+<td><span class="S91">$sFaceName</span></td>
+<td>Координаты.</td>
+</tr>
+<tr>
+<td><span class="S91">$iStyle</span></td>
+<td>Значение.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор на созданный шрифт.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если запрошенный шрифт недоступен в системе, шрифтовый сопоставитель подставит шрифт со сходными атрибутами, но другим именем.<br />
+<br />
+Когда шрифт больше не нужен, удалите его вызовом <a href="_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span><span class="S8">()</span></a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=CreateFont">CreateFont</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

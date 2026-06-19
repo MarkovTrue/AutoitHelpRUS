@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinNet_CancelConnection2</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinNet_CancelConnection2</h1>
+<p class="funcdesc">Отменяет существующее сетевое подключение.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinNet.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinNet_CancelConnection2.htm"><span class="S15">_WinNet_CancelConnection2</span></a> <span class="S8">(</span> <span class="S9">$sName</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bUpdate</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bForce</span> <span class="S8">=</span> <span class="S5">True</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sName</span></td>
+<td style="width:85%">Имя переадресованного локального устройства или удалённого сетевого ресурса для отключения.<br />
+Когда этот параметр указывает переадресованное локальное устройство, функция отменяет только указанную переадресацию устройства.<br />
+Если параметр указывает удалённый сетевой ресурс, отменяются только подключения к удалённым сетям без устройств.</td>
+</tr>
+<tr>
+<td><span class="S91">$bUpdate</span></td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, профиль пользователя обновляется информацией о том, что подключение больше не является постоянным.</td>
+</tr>
+<tr>
+<td><span class="S91">$bForce</span></td>
+<td><strong>[необязательный]</strong> Указывает, должно ли отключение происходить, если в подключении есть открытые файлы или задачи.<br />
+Если этот параметр равен <span class="S5">False</span>, функция завершается ошибкой при наличии открытых файлов или задач.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_WinNet_CancelConnection.htm">_WinNet_CancelConnection</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=WNetCancelConnection2">WNetCancelConnection2</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinNet_DisconnectDialog1</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinNet_DisconnectDialog1</h1>
+<p class="funcdesc">Запускает диалоговое окно общего просмотра для отключения от сетевых ресурсов.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinNet.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinNet_DisconnectDialog1.htm"><span class="S15">_WinNet_DisconnectDialog1</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$sLocalName</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sRemoteName</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна-владельца диалогового окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$sLocalName</span></td>
+<td>Имя локального устройства, например "F:" или "LPT1".</td>
+</tr>
+<tr>
+<td><span class="S91">$sRemoteName</span></td>
+<td><strong>[необязательный]</strong> Имя сетевого ресурса для отключения. Этот параметр может быть 0, если указано <span class="S91">$sLocalName</span>.<br />
+Когда указано <span class="S91">$sLocalName</span>, отключается подключение к сетевому ресурсу, переадресованному из <span class="S91">$sLocalName</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> Флаги, описывающие подключение. Может быть комбинацией:<br />
+1 – Если это значение установлено, указанное подключение больше не является постоянным.<br />
+Этот флаг действует только если <span class="S91">$sLocalName</span> указывает локальное устройство.<br />
+2 – Если это значение НЕ установлено, система применяет принуждение при отключении.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">1. Если пользователь отменяет диалоговое окно, возвращаемое значение равно –1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_WinNet_DisconnectDialog.htm">_WinNet_DisconnectDialog</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=WNetDisconnectDialog1">WNetDisconnectDialog1</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

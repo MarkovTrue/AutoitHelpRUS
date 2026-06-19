@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><span class="S7">script.au3</span></title>
+  <meta charset="utf-8">
+  <link href="../../css/default.css" rel="stylesheet" type="text/css">
+<script src="../../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <span><span class="S1">; Запустить установщик WinZip</span><br />
+  <a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"winzip90.exe"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Начальный экран установки</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip® 9.0 SR-1 Setup"</span><span class="S8">,</span> <span class="S7">"&amp;Setup"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!s"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Выбор папки установки</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span> <span class="S7">"into the following folder"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{ENTER}</span><span class="S7">"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Обзор функций</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span> <span class="S7">"WinZip features include"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Лицензионное соглашение</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"License Agreement"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!y"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Быстрый старт</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span> <span class="S7">"Quick Start Guide"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Выбор интерфейса</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span> <span class="S7">"switch between the two interfaces"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!c"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Тип установки (стандартная или экспресс)</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span> <span class="S7">"&amp;Express setup (recommended)"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!e"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Выбор ассоциаций файлов</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span> <span class="S7">"WinZip needs to associate itself with your archives"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Экран завершения установки</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span> <span class="S7">"Thank you for installing this evaluation version"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{ENTER}</span><span class="S7">"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S1">; Дождитесь загрузки WinZip, затем закройте его</span><br />
+  <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip (Evaluation Version)"</span><span class="S8">)</span><br />
+  <a class="le" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S7">"WinZip (Evaluation Version)"</span><span class="S8">)</span><br /></span>
+</body>
+</html>

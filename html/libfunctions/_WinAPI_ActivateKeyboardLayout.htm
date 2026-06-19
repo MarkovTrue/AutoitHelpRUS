@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_ActivateKeyboardLayout</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_ActivateKeyboardLayout</h1>
+<p class="funcdesc">Устанавливает идентификатор локали ввода для вызывающего потока или текущего процесса.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_ActivateKeyboardLayout.htm"><span class="S15">_WinAPI_ActivateKeyboardLayout</span></a> <span class="S8">(</span> <span class="S9">$hLocale</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlag</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hLocale</span></td>
+<td style="width:85%">Идентификатор локали ввода, который будет активирован.<br />
+Этот параметр должен быть либо дескриптором раскладки клавиатуры, либо одним из следующих значений:<br />
+<span class="S91">$HKL_NEXT</span><br />
+<span class="S91">$HKL_PREV</span></td>
+</tr>
+<tr>
+<td><span class="S91">$iFlag</span></td>
+<td><strong>[необязательный]</strong> Флаг, который определяет способ активации идентификатора локали ввода.<br />
+Этот параметр может быть одним из следующих значений:<br />
+<span class="S91">$KLF_REORDER</span><br />
+<span class="S91">$KLF_RESET</span><br />
+<span class="S91">$KLF_SETFORPROCESS</span><br />
+<span class="S91">$KLF_SHIFTLOCK</span></td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает предыдущий идентификатор локали ввода.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=ActivateKeyboardLayout">ActivateKeyboardLayout</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StaticConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPILocale.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<br>
+<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLabel</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">66</span><span class="S8">,</span> <span class="S3">280</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S9">$SS_CENTER</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUICtrlSetFont.htm"><span class="S4">GUICtrlSetFont</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">12</span><span class="S8">,</span> <span class="S3">800</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">'Tahoma'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idBtn_Prev</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">'&lt;'</span><span class="S8">,</span> <span class="S3">82</span><span class="S8">,</span> <span class="S3">164</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">,</span> <span class="S3">24</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idBtn_Next</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">'&gt;'</span><span class="S8">,</span> <span class="S3">158</span><span class="S8">,</span> <span class="S3">164</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">,</span> <span class="S3">24</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iUpdate</span> <span class="S8">=</span> <span class="S3">1</span><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iUpdate</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idLabel</span><span class="S8">,</span> <span class="S7">'0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringRight.htm"><span class="S4">StringRight</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@KBLayout"><span class="S6">@KBLayout</span></a><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_WinAPI_GetLocaleInfo.htm"><span class="S15">_WinAPI_GetLocaleInfo</span></a><span class="S8">(</span><a class="le" href="../functions/Number.htm"><span class="S4">Number</span></a><span class="S8">(</span><span class="S7">'0x'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@KBLayout"><span class="S6">@KBLayout</span></a><span class="S8">)</span><span class="S8">,</span> <span class="S9">$LOCALE_SLANGUAGE</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iUpdate</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S8">-</span><span class="S3">3</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idBtn_Next</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ActivateKeyboardLayout.htm"><span class="S15">_WinAPI_ActivateKeyboardLayout</span></a><span class="S8">(</span><span class="S9">$HKL_NEXT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iUpdate</span> <span class="S8">=</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idBtn_Prev</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ActivateKeyboardLayout.htm"><span class="S15">_WinAPI_ActivateKeyboardLayout</span></a><span class="S8">(</span><span class="S9">$HKL_PREV</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iUpdate</span> <span class="S8">=</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_ActivateKeyboardLayout.au3,"></object>
+</body>
+</html>

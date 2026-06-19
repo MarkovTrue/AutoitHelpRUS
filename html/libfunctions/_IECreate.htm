@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _IECreate</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_IECreate</h1>
+<p class="funcdesc">Создаёт окно браузера Internet Explorer.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_IECreate.htm"><span class="S15">_IECreate</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S9">$sUrl</span> <span class="S8">=</span> <span class="S7">"about:blank"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iTryAttach</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iVisible</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWait</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iTakeFocus</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sUrl</span></td>
+<td style="width:85%"><strong>[необязательный]</strong> указывает URL, на который переходить при создании</td>
+</tr>
+<tr>
+<td><span class="S91">$iTryAttach</span></td>
+<td><strong>[необязательный]</strong> указывает, пытаться ли подключиться к существующему окну<br />
+0 = (по умолчанию) не пытаться подключиться<br />
+1 = пытаться подключиться к существующему окну</td>
+</tr>
+<tr>
+<td><span class="S91">$iVisible</span></td>
+<td><strong>[необязательный]</strong> указывает, будет ли окно браузера видимым<br />
+0 = окно браузера скрыто<br />
+1 = (по умолчанию) окно браузера видимо</td>
+</tr>
+<tr>
+<td><span class="S91">$iWait</span></td>
+<td><strong>[необязательный]</strong> Ждать ли загрузку страницы перед возвратом:<br />
+0 – вернуться сразу, не ожидая загрузки<br />
+1 – (по умолчанию) дождаться полной загрузки и вернуться</td>
+</tr>
+<tr>
+<td><span class="S91">$iTakeFocus</span></td>
+<td><strong>[необязательный]</strong> указывает, нужно ли привести окно в фокус<br />
+0 = не приводить окно в фокус<br />
+1 = (по умолчанию) привести окно в фокус</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает объектную переменную, указывающую на объект InternetExplorer.Application.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>1 (<span class="S91">$_IEStatus_GeneralError</span>) - общая ошибка<br />
+3&nbsp;(<span class="S91">$_IEStatus_InvalidDataType</span>) - неверный тип данных<br />
+4&nbsp;(<span class="S91">$_IEStatus_InvalidObjectType</span>) - неверный тип объекта<br />
+6&nbsp;(<span class="S91">$_IEStatus_LoadWaitTimeout</span>) - тайм-аут ожидания загрузки<br />
+8&nbsp;(<span class="S91">$_IEStatus_AccessIsDenied</span>) - доступ запрещён<br />
+9&nbsp;(<span class="S91">$_IEStatus_ClientDisconnected</span>) - клиент отключился</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>установлено в true (1) или false (0) в зависимости от успеха <span class="S91">$iTryAttach</span></td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>При использовании tryAttach сообщение об ошибке No Match будет отображено в консоли из <a href="_IEAttach.htm"><span class="S15">_IEAttach</span><span class="S8">()</span></a>.<br />
+Это можно контролировать с помощью <a href="_IEErrorNotify.htm"><span class="S15">_IEErrorNotify</span><span class="S8">()</span></a>.<br />
+<br />
+При открытии локального файла HyperTextApplication (.hta) Internet Explorer откроет новый процесс браузера для него, который не будет доступен через переменную объекта, возвращаемую <a href="_IECreate.htm"><span class="S15">_IECreate</span><span class="S8">()</span></a>.<br />
+Для управления этим новым браузером необходимо использовать <a href="_IEAttach.htm"><span class="S15">_IEAttach</span><span class="S8">()</span></a> с опцией "embedded".<br />
+<br />
+Новая безопасность в Windows Vista приводит к созданию нового окна браузера, когда браузеру даётся указание перейти на URL в другую зону безопасности.<br />
+Это происходит и при начальном создании и навигации, инициированной <a href="_IECreate.htm"><span class="S15">_IECreate</span><span class="S8">()</span></a>.<br />
+Новое окно – это новый экземпляр браузера, и предыдущая переменная объекта браузера больше на него не указывает.<br />
+Есть несколько решений:<br />
+&nbsp;&nbsp;&nbsp; 1) добавить <span class="S111">#RequireAdmin</span> в свой код (это требуется даже если учётная запись входит в группу администраторов и будет запрашивать учётные данные при необходимости),<br />
+&nbsp;&nbsp;&nbsp; 2) использовать <a href="_IEAttach.htm"><span class="S15">_IEAttach</span><span class="S8">()</span></a> для подключения к новому окну браузера<br />
+&nbsp;&nbsp;&nbsp; 3) добавить целевой веб-сайт в зону доверенных сайтов в IE,<br />
+&nbsp;&nbsp;&nbsp; 4) отключить "защищённый режим" в IE,<br />
+&nbsp;&nbsp;&nbsp; или 5) отключить UAC. Необходимо проявлять осторожность при отключении функций безопасности IE при доступе к ненадёжным сайтам.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_IEAttach.htm">_IEAttach</a>, <a href="_IECreateEmbedded.htm">_IECreateEmbedded</a>, <a href="_IELoadWait.htm">_IELoadWait</a>, <a href="_IENavigate.htm">_IENavigate</a>, <a href="_IEQuit.htm">_IEQuit</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Создать окно браузера и перейти на веб-сайт
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IECreate.htm"><span class="S15">_IECreate</span></a><span class="S8">(</span><span class="S7">"www.autoitscript.com"</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IECreate.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Создать новые окна браузера, указывающие на каждый из 3 разных URL
+</span><br>
+<span class="S1">; если он ещё не существует ($f_tryAttach = 1)
+</span><br>
+<span class="S1">; не ожидать завершения загрузки страниц ($f_wait = 0)
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<br>
+<a class="le" href="../libfunctions/_IECreate.htm"><span class="S15">_IECreate</span></a><span class="S8">(</span><span class="S7">"www.autoitscript.com"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_IECreate.htm"><span class="S15">_IECreate</span></a><span class="S8">(</span><span class="S7">"my.yahoo.com"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_IECreate.htm"><span class="S15">_IECreate</span></a><span class="S8">(</span><span class="S7">"www.google.com"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IECreate[2].au3,"></object>
+
+<h3>Пример 3</h3>
+<p id="copytext3" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl3');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext3');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Попытаться подключиться к существующему браузеру, отображающему конкретный URL сайта
+</span><br>
+<span class="S1">; Создать новый браузер и перейти на этот сайт, если его ещё нет
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IECreate.htm"><span class="S15">_IECreate</span></a><span class="S8">(</span><span class="S7">"www.autoitscript.com"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<span class="S1">; Проверить значение возврата @extended, чтобы увидеть, была ли подключение успешным
+</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Attached to Existing Browser"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Created New Browser"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+</p>
+<object id="hhctrl3" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IECreate[3].au3,"></object>
+
+<h3>Пример 4</h3>
+<p id="copytext4" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl4');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext4');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Создать пустое окно браузера и заполнить его пользовательским HTML
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IECreate.htm"><span class="S15">_IECreate</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sHTML</span> <span class="S8">=</span> <span class="S7">"&lt;h1&gt;Hello World!&lt;/h1&gt;"</span><br>
+<a class="le" href="../libfunctions/_IEBodyWriteHTML.htm"><span class="S15">_IEBodyWriteHTML</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S9">$sHTML</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl4" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IECreate[4].au3,"></object>
+
+<h3>Пример 5</h3>
+<p id="copytext5" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl5');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext5');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Создать окно браузера, подключённое к новому экземпляру iexplore.exe
+</span><br>
+<span class="S1">; Это часто необходимо для получения контекста нового файла cookie сеанса
+</span><br>
+<span class="S1">; (cookie сеанса общие для всех экземпляров браузера, использующих одинаковый iexplore.exe)</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"WinTitleMatchMode"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S7">"iexplore.exe"</span><span class="S8">,</span> <span class="S7">"about:blank"</span><span class="S8">)</span><br>
+<a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"Windows Internet Explorer"</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IEAttach.htm"><span class="S15">_IEAttach</span></a><span class="S8">(</span><span class="S7">"about:blank"</span><span class="S8">,</span> <span class="S7">"url"</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_IELoadWait.htm"><span class="S15">_IELoadWait</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_IENavigate.htm"><span class="S15">_IENavigate</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S7">"www.autoitscript.com"</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl5" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IECreate[5].au3,"></object>
+</body>
+</html>

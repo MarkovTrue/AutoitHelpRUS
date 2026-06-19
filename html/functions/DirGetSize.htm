@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция DirGetSize</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>DirGetSize</h1>
+<p class="funcdesc">Возвращает размер указанного каталога в байтах.</p>
+<p class="codeheader"><a class="le" href="../functions/DirGetSize.htm"><span class="S4">DirGetSize</span></a> <span class="S8">(</span> <span class="S7">"path"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">flag</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">path</td>
+<td style="width:85%">Путь к каталогу, размер которого нужно получить, например "C:\Windows".</td>
+</tr>
+<tr>
+<td>flag</td>
+<td><strong>[необязательный]</strong> Флаг, определяющий поведение и результат функции; может быть комбинацией следующих значений:<br />
+   <span class="default-const"><span class="S91">$DIR_DEFAULT</span></span> (0) = (по умолчанию)<br />
+   <span class="S91">$DIR_EXTENDED</span> (1) = расширенный режим включён – возвращает массив с дополнительной информацией (см. раздел Примечания).<br />
+   <span class="S91">$DIR_NORECURSE</span> (2) = не учитывать файлы в подкаталогах (рекурсивный режим выключен)<br />
+<br />
+Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает размеры, большие или равные нулю.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает -1 и устанавливает <span class="S61">@error</span> ≠ 0, если путь не существует.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если скрипт приостановлен, эта функция тоже приостанавливается и продолжит работу только после возобновления скрипта!<br />
+<br />
+При использовании расширенного режима функция возвращает одномерный массив со следующими элементами:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = размер<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = количество файлов<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> = количество каталогов<br />
+</p>
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;AutoItConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSize</span> <span class="S8">=</span> <a class="le" href="../functions/DirGetSize.htm"><span class="S4">DirGetSize</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@HomeDrive"><span class="S6">@HomeDrive</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Size(MegaBytes): "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S9">$iSize</span> <span class="S8">/</span> <span class="S3">1024</span> <span class="S8">/</span> <span class="S3">1024</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iSize</span> <span class="S8">=</span> <a class="le" href="../functions/DirGetSize.htm"><span class="S4">DirGetSize</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@WindowsDir"><span class="S6">@WindowsDir</span></a><span class="S8">,</span> <span class="S9">$DIR_NORECURSE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Size(MegaBytes): "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S9">$iSize</span> <span class="S8">/</span> <span class="S3">1024</span> <span class="S8">/</span> <span class="S3">1024</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hTimer</span> <span class="S8">=</span> <a class="le" href="../functions/TimerInit.htm"><span class="S4">TimerInit</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aSize</span> <span class="S8">=</span> <a class="le" href="../functions/DirGetSize.htm"><span class="S4">DirGetSize</span></a><span class="S8">(</span><span class="S7">"\\10.0.0.1\h$"</span><span class="S8">,</span> <span class="S9">$DIR_EXTENDED</span><span class="S8">)</span>&nbsp;<span class="S1">; расширенный режим
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iDiff</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><a class="le" href="../functions/TimerDiff.htm"><span class="S4">TimerDiff</span></a><span class="S8">(</span><span class="S9">$hTimer</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">1000</span><span class="S8">)</span>&nbsp;<span class="S1">; время в секундах
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Size(Bytes): "</span> <span class="S8">&amp;</span> <span class="S9">$aSize</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">&amp;</span> <span class="S7">"Files: "</span> <span class="S8">&amp;</span> <span class="S9">$aSize</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Dirs: "</span> <span class="S8">&amp;</span> <span class="S9">$aSize</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">&amp;</span> <span class="S7">"TimeDiff(Sec): "</span> <span class="S8">&amp;</span> <span class="S9">$iDiff</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\DirGetSize.au3,"></object>
+</body>
+</html>

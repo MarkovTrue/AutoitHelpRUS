@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUICtrlComboBox_SelectString</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUICtrlComboBox_SelectString</h1>
+<p class="funcdesc">Ищет в списке выпадающего списка элемент, который начинается с символов в указанной строке.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiComboBox.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUICtrlComboBox_SelectString.htm"><span class="S15">_GUICtrlComboBox_SelectString</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$sText</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iIndex</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Идентификатор или дескриптор элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$sText</span></td>
+<td>Строка для поиска.</td>
+</tr>
+<tr>
+<td><span class="S91">$iIndex</span></td>
+<td>Индекс элемента (нумерация с 0).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает индекс выбранного элемента.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает -1.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Выбирает первую строку, начинающуюся с символов, указанных в параметре <span class="S91">$sText</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_GUICtrlComboBox_FindString.htm">_GUICtrlComboBox_FindString</a>, <a href="_GUICtrlComboBox_FindStringExact.htm">_GUICtrlComboBox_FindStringExact</a>, <a href="_GUICtrlComboBoxEx_FindStringExact.htm">_GUICtrlComboBoxEx_FindStringExact</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;DirConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiComboBox.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idCombo</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"ComboBox Select String"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">296</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idCombo</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateCombo.htm"><span class="S4">GUICtrlCreateCombo</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">396</span><span class="S8">,</span> <span class="S3">296</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$CBS_SIMPLE</span><span class="S8">,</span> <span class="S9">$CBS_DISABLENOSCROLL</span><span class="S8">,</span> <span class="S9">$WS_VSCROLL</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавить файлы</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBox_BeginUpdate.htm"><span class="S15">_GUICtrlComboBox_BeginUpdate</span></a><span class="S8">(</span><span class="S9">$idCombo</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBox_AddDir.htm"><span class="S15">_GUICtrlComboBox_AddDir</span></a><span class="S8">(</span><span class="S9">$idCombo</span><span class="S8">,</span> <a class="le" href="../macros.htm#@WindowsDir"><span class="S6">@WindowsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\*.exe"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавить строку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBox_AddString.htm"><span class="S15">_GUICtrlComboBox_AddString</span></a><span class="S8">(</span><span class="S9">$idCombo</span><span class="S8">,</span> <span class="S7">"This string has been added"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавить файлы</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBox_AddDir.htm"><span class="S15">_GUICtrlComboBox_AddDir</span></a><span class="S8">(</span><span class="S9">$idCombo</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$DDL_DRIVES</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBox_EndUpdate.htm"><span class="S15">_GUICtrlComboBox_EndUpdate</span></a><span class="S8">(</span><span class="S9">$idCombo</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; выбрать строку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBox_SelectString.htm"><span class="S15">_GUICtrlComboBox_SelectString</span></a><span class="S8">(</span><span class="S9">$idCombo</span><span class="S8">,</span> <span class="S7">"This"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlComboBox_SelectString.au3,"></object>
+</body>
+</html>

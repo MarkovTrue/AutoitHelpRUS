@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_OpenSemaphore</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_OpenSemaphore</h1>
+<p class="funcdesc">Открывает существующий именованный объект семафора.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIProc.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_OpenSemaphore.htm"><span class="S15">_WinAPI_OpenSemaphore</span></a> <span class="S8">(</span> <span class="S9">$sSemaphore</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iAccess</span> <span class="S8">=</span> <span class="S9">$SEMAPHORE_ALL_ACCESS</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bInherit</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sSemaphore</span></td>
+<td style="width:85%">Имя семафора для открытия. Сравнение имён чувствительно к регистру.</td>
+</tr>
+<tr>
+<td><span class="S91">$iAccess</span></td>
+<td><strong>[необязательный]</strong> Доступ к объекту семафора. Функция завершается с ошибкой, если дескриптор безопасности указанного<br />
+объекта не позволяет требуемый доступ для вызывающего процесса.<br />
+Этот параметр может быть одним из следующих значений:<br />
+<span class="S91">$SEMAPHORE_ALL_ACCESS</span> (по умолчанию)<br />
+<span class="S91">$SEMAPHORE_MODIFY_STATE</span></td>
+</tr>
+<tr>
+<td><span class="S91">$bInherit</span></td>
+<td><strong>[необязательный]</strong> Указывает, может ли дескриптор быть унаследован процессами; допустимые значения:<br />
+<span class="S5">True</span>	 - Процессы, созданные этим процессом, унаследуют дескриптор.<br />
+<span class="S5">False</span>	 - Процессы не наследуют этот дескриптор (по умолчанию).</td>
+</tr>
+</table><br />
+
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор объекта семафора.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Функция успешно выполняется только если какой-либо процесс уже создал семафор с использованием функции <a href="_WinAPI_CreateSemaphore.htm"><span class="S15">_WinAPI_CreateSemaphore</span><span class="S8">()</span></a>.<br />
+Вызывающий процесс может использовать возвращённый дескриптор в любой функции, которая требует дескриптор<br />
+объекта семафора.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_CreateSemaphore.htm">_WinAPI_CreateSemaphore</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=OpenSemaphore">OpenSemaphore</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

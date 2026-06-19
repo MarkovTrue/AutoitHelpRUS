@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово If...Then</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>If...Then</h1>
+<p class="funcdesc">Условно выполнить одну инструкцию.</p>
+<p class="codeheader"><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">&lt;</span><span class="S0">expression</span><span class="S8">&gt;</span> <span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">&lt;</span><span class="S0">em</span><span class="S8">&gt;</span><span class="S0">statement</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">em</span><span class="S8">&gt;</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">expression</td>
+<td style="width:85%">Если выражение истинно, инструкция выполняется.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта версия инструкции If используется для выполнения одной инструкции без затрат на EndIf.<br />
+<em>expression</em> может содержать булевы операторы And, Or и Not, а также логические операторы &lt;, &lt;=, &gt;, &gt;=, =, ==, и &lt;&gt;, сгруппированные скобками по мере необходимости.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="IfElseEndIf.htm">If...Else...EndIf</a>, <a href="Select.htm">Select...Case...EndSelect</a>, <a href="Switch.htm">Switch...EndSwitch</a>, <a href="Ternary.htm">Ternary</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Завершает скрипт, если нет аргументов командной строки
+</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<br>
+<span class="S1">; Альтернатива:
+</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Script has command-line arguments."</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\If.au3,"></object>
+</body>
+</html>

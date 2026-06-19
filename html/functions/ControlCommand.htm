@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция ControlCommand</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>ControlCommand</h1>
+<p class="funcdesc">Отправляет команду элементу управления.</p>
+<p class="codeheader"><a class="le" href="../functions/ControlCommand.htm"><span class="S4">ControlCommand</span></a> <span class="S8">(</span> <span class="S7">"title"</span><span class="S8">,</span> <span class="S7">"text"</span><span class="S8">,</span> <span class="S0">controlID</span><span class="S8">,</span> <span class="S7">"command"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"option"</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">title</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, с которым нужно работать. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>Текст окна, с которым нужно работать. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
+</tr>
+<tr>
+<td>controlID</td>
+<td>Элемент управления, с которым нужно работать. См. <a href="../intro/controls.htm">Элементы управления</a>.</td>
+</tr>
+<tr>
+<td>command</td>
+<td>Команда, отправляемая элементу управления.</td>
+</tr>
+<tr>
+<td>option</td>
+<td><strong>[необязательный]</strong> Дополнительный параметр, необходимый для некоторых команд.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращаемое значение зависит от команды (см. таблицу ниже). В случае ошибки (например, задана недопустимая команда или окно/элемент управления) устанавливается <span class="S61">@error</span>=1.<br />
+<br />
+<table>
+<tr class="header">
+<td style="width:40%"><strong>Команда, параметр</strong></td>
+<td style="width:60%"><strong>Возвращаемое значение</strong></td>
+</tr>
+<tr>
+<td>"IsVisible", ""</td>
+<td>Возвращает 1, если элемент управления видим; иначе 0.</td>
+</tr>
+<tr>
+<td>"IsEnabled", ""</td>
+<td>Возвращает 1, если элемент управления активен; иначе 0.</td>
+</tr>
+<tr>
+<td>"ShowDropDown", ""</td>
+<td>Открывает выпадающий список ComboBox.</td>
+</tr>
+<tr>
+<td>"HideDropDown", ""</td>
+<td>Скрывает выпадающий список ComboBox.</td>
+</tr>
+<tr>
+<td>"AddString", 'string'</td>
+<td>Добавляет строку в конец списка ListBox или ComboBox.</td>
+</tr>
+<tr>
+<td>"DelString", occurrence</td>
+<td>Удаляет строку по её порядковому номеру в ListBox или ComboBox.</td>
+</tr>
+<tr>
+<td>"FindString", 'string'</td>
+<td>Возвращает порядковый номер строки, точно совпадающей со string, в ListBox или ComboBox.</td>
+</tr>
+<tr>
+<td>"GetCount", ""</td>
+<td>Возвращает количество элементов в ListBox или ComboBox.</td>
+</tr>
+<tr>
+<td>"SetCurrentSelection", <em>occurrence</em></td>
+<td>Выделяет элемент с указанным порядковым номером в ListBox или ComboBox.</td>
+</tr>
+<tr>
+<td>"SelectString", 'string'</td>
+<td>Выделяет элемент, совпадающий со string, в ListBox или ComboBox.</td>
+</tr>
+<tr>
+<td>"IsChecked", ""</td>
+<td>Возвращает 1, если кнопка (Button) отмечена; иначе 0.</td>
+</tr>
+<tr>
+<td>"Check", ""</td>
+<td>Отмечает радиокнопку или флажок (Button).</td>
+</tr>
+<tr>
+<td>"UnCheck", ""</td>
+<td>Снимает отметку с радиокнопки или флажка (Button).</td>
+</tr>
+<tr>
+<td>"GetCurrentLine", ""</td>
+<td>Возвращает номер строки, в которой находится каретка, для Edit.</td>
+</tr>
+<tr>
+<td>"GetCurrentCol", ""</td>
+<td>Возвращает номер колонки, в которой находится каретка, для Edit.</td>
+</tr>
+<tr>
+<td>"GetCurrentSelection", ""</td>
+<td>Возвращает имя выделенного элемента в ListBox или ComboBox.</td>
+</tr>
+<tr>
+<td>"GetLineCount", ""</td>
+<td>Возвращает количество строк в Edit.</td>
+</tr>
+<tr>
+<td>"GetLine", <em>line</em>#</td>
+<td>Возвращает текст строки с указанным номером в Edit.</td>
+</tr>
+<tr>
+<td>"GetSelected", ""</td>
+<td>Возвращает выделенный текст Edit.</td>
+</tr>
+<tr>
+<td>"EditPaste", 'string'</td>
+<td>Вставляет строку string в позицию каретки Edit.</td>
+</tr>
+<tr>
+<td>"CurrentTab", ""</td>
+<td>Возвращает номер текущей активной вкладки SysTabControl32.</td>
+</tr>
+<tr>
+<td>"TabRight", ""</td>
+<td>Переходит к следующей вкладке справа в SysTabControl32.</td>
+</tr>
+<tr>
+<td>"TabLeft", ""</td>
+<td>Переходит к следующей вкладке слева в SysTabControl32.</td>
+</tr>
+<tr>
+<td>"SendCommandID", <em>Command ID</em></td>
+<td>Имитирует сообщение WM_COMMAND. Обычно используется для элементов управления ToolbarWindow32 – идентификатор команды (Command ID) можно получить на вкладке ToolBar утилиты Au3Info.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Некоторые элементы управления не поддаются автоматизации, пока их окно не активно. Используйте <a href="WinActivate.htm"><span class="S4">WinActivate</span><span class="S8">()</span></a>, чтобы вывести окно элемента на передний план перед вызовом <a href="ControlCommand.htm"><span class="S4">ControlCommand</span><span class="S8">()</span></a>.<br />
+<br />
+Некоторые команды, работающие в обычных Combo и ListBox, не работают с элементами "ComboLBox".<br />
+</p>
+<h2>См. также</h2>
+<p><a href="ControlClick.htm">ControlClick</a>, <a href="ControlDisable.htm">ControlDisable</a>, <a href="ControlEnable.htm">ControlEnable</a>, <a href="ControlFocus.htm">ControlFocus</a>, <a href="ControlGetFocus.htm">ControlGetFocus</a>, <a href="ControlGetPos.htm">ControlGetPos</a>, <a href="ControlGetText.htm">ControlGetText</a>, <a href="ControlHide.htm">ControlHide</a>, <a href="ControlListView.htm">ControlListView</a>, <a href="ControlMove.htm">ControlMove</a>, <a href="ControlSend.htm">ControlSend</a>, <a href="ControlSetText.htm">ControlSetText</a>, <a href="ControlShow.htm">ControlShow</a>, <a href="ControlTreeView.htm">ControlTreeView</a>, <a href="StatusbarGetText.htm">StatusbarGetText</a>, <a href="WinActivate.htm">WinActivate</a>, <a href="WinGetClassList.htm">WinGetClassList</a>, <a href="WinMenuSelectItem.htm">WinMenuSelectItem</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить Блокнот</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправить edit-элементу Блокнота команду для получения количества строк. Дескриптор, возвращённый WinWait, используется в параметре "title" функции ControlCommand.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iCount</span> <span class="S8">=</span> <a class="le" href="../functions/ControlCommand.htm"><span class="S4">ControlCommand</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <a class="le" href="../functions/ControlGetFocus.htm"><span class="S4">ControlGetFocus</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">"GetLineCount"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать количество строк.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The number of lines in Notepad are: "</span> <span class="S8">&amp;</span> <span class="S9">$iCount</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть окно Блокнота по дескриптору, возвращённому WinWait.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ControlCommand.au3,"></object>
+</body>
+</html>

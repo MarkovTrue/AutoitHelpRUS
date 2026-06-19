@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_BrowseForFolderDlg</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_BrowseForFolderDlg</h1>
+<p class="funcdesc">Отображает диалоговое окно, которое позволяет пользователю выбрать папку оболочки.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIDlg.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_BrowseForFolderDlg.htm"><span class="S15">_WinAPI_BrowseForFolderDlg</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S9">$sRoot</span> <span class="S8">=</span> <span class="S7">''</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sText</span> <span class="S8">=</span> <span class="S7">''</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$pBrowseProc</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$lParam</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$hParent</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sRoot</span></td>
+<td style="width:85%"><strong>[необязательный]</strong> Корневая папка, с которой нужно начать просмотр.<br />
+В диалоговом окне отображаются только указанная папка и её подпапки в иерархии пространства имён.<br />
+Если этот параметр равен 0, используется корень пространства имён (папка Рабочий стол).</td>
+</tr>
+<tr>
+<td><span class="S91">$sText</span></td>
+<td><strong>[необязательный]</strong> Строка, которая отображается над элементом управления представлением дерева в диалоговом окне.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> Флаги, определяющие параметры для диалогового окна. Этот параметр может быть комбинацией следующих значений:<br />
+<span class="S91">$BIF_BROWSEFORCOMPUTER</span><br />
+<span class="S91">$BIF_BROWSEFORPRINTER</span><br />
+<span class="S91">$BIF_BROWSEINCLUDEFILES</span><br />
+<span class="S91">$BIF_BROWSEINCLUDEURLS</span><br />
+<span class="S91">$BIF_DONTGOBELOWDOMAIN</span><br />
+<span class="S91">$BIF_EDITBOX</span><br />
+<span class="S91">$BIF_NEWDIALOGSTYLE</span><br />
+<span class="S91">$BIF_NONEWFOLDERBUTTON</span><br />
+<span class="S91">$BIF_NOTRANSLATETARGETS</span><br />
+<span class="S91">$BIF_RETURNFSANCESTORS</span><br />
+<span class="S91">$BIF_RETURNONLYFSDIRS</span><br />
+<span class="S91">$BIF_SHAREABLE</span><br />
+<span class="S91">$BIF_STATUSTEXT</span><br />
+<span class="S91">$BIF_USENEWUI</span><br />
+<span class="S91">$BIF_UAHINT</span><br />
+<span class="S91">$BIF_VALIDATE</span><br />
+<br />
+<strong>Windows 7 или более поздняя версия</strong><br />
+<span class="S91">$BIF_BROWSEFILEJUNCTIONS</span></td>
+</tr>
+<tr>
+<td><span class="S91">$pBrowseProc</span></td>
+<td><strong>[необязательный]</strong> Указатель на функцию обратного вызова, которую диалоговое окно вызывает при возникновении события.<br />
+Эта функция будет получать одно из следующих сообщений события:<br />
+<span class="S91">$BFFM_INITIALIZED</span><br />
+<span class="S91">$BFFM_IUNKNOWN</span><br />
+<span class="S91">$BFFM_SELCHANGED</span><br />
+<span class="S91">$BFFM_VALIDATEFAILED</span><br />
+(см. MSDN для дополнительной информации)</td>
+</tr>
+<tr>
+<td><span class="S91">$lParam</span></td>
+<td><strong>[необязательный]</strong> Значение, которое диалоговое окно передаёт функции обратного вызова.</td>
+</tr>
+<tr>
+<td><span class="S91">$hParent</span></td>
+<td><strong>[необязательный]</strong> Дескриптор родительского окна для диалогового окна.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает полный путь к выбранной папке или пустая строка, если пользователь отменяет/закрывает диалоговое окно.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает пустую строку.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SHBrowseForFolder">SHBrowseForFolder</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;SendMessage.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIDlg.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIMem.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIMisc.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShellEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShPath.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sInitDir</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@ProgramFilesDir"><span class="S6">@ProgramFilesDir</span></a><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBrowseProc</span> <span class="S8">=</span> <a class="le" href="../functions/DllCallbackRegister.htm"><span class="S4">DllCallbackRegister</span></a><span class="S8">(</span><span class="S7">'_BrowseProc'</span><span class="S8">,</span> <span class="S7">'int'</span><span class="S8">,</span> <span class="S7">'hwnd;uint;lparam;ptr'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$pBrowseProc</span> <span class="S8">=</span> <a class="le" href="../functions/DllCallbackGetPtr.htm"><span class="S4">DllCallbackGetPtr</span></a><span class="S8">(</span><span class="S9">$hBrowseProc</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$pText</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateString.htm"><span class="S15">_WinAPI_CreateString</span></a><span class="S8">(</span><span class="S9">$sInitDir</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_BrowseForFolderDlg.htm"><span class="S15">_WinAPI_BrowseForFolderDlg</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_PathStripToRoot.htm"><span class="S15">_WinAPI_PathStripToRoot</span></a><span class="S8">(</span><span class="S9">$sInitDir</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Select a folder from the list below.'</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$BIF_RETURNONLYFSDIRS</span><span class="S8">,</span> <span class="S9">$BIF_EDITBOX</span><span class="S8">,</span> <span class="S9">$BIF_VALIDATE</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$pBrowseProc</span><span class="S8">,</span> <span class="S9">$pText</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_FreeMemory.htm"><span class="S15">_WinAPI_FreeMemory</span></a><span class="S8">(</span><span class="S9">$pText</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$sPath</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'--------------------------------------------------'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S9">$sPath</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../functions/DllCallbackFree.htm"><span class="S4">DllCallbackFree</span></a><span class="S8">(</span><span class="S9">$hBrowseProc</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_BrowseProc</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPath</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iMsg</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$BFFM_INITIALIZED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowText.htm"><span class="S15">_WinAPI_SetWindowText</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">'MyTitle'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SendMessage.htm"><span class="S15">_SendMessage</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$BFFM_SETSELECTIONW</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$BFFM_SELCHANGED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sPath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_ShellGetPathFromIDList.htm"><span class="S15">_WinAPI_ShellGetPathFromIDList</span></a><span class="S8">(</span><span class="S9">$wParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S9">$sPath</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$BFFM_VALIDATEFAILED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Error'</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_GetString.htm"><span class="S15">_WinAPI_GetString</span></a><span class="S8">(</span><span class="S9">$wParam</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">' is invalid.'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_BrowseProc
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_BrowseForFolderDlg.au3,"></object>
+</body>
+</html>

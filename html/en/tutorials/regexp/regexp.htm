@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutorial - Regular Expression</title>
+  <meta charset="utf-8">
+  <link href="../../css/default.css" rel="stylesheet">
+<script src="../../css/helppage.js" type="text/javascript"></script>
+  <style type="text/css">
+span.c3 {color: #009900}
+  span.c2 {color: #ff0000}
+  span.c1 {color: #3333ff}
+  </style>
+</head>
+<body>
+  <h1>Tutorial - Regular Expression</h1>
+  <p>Here's a smallish guide on unraveling the seeming mysteries of StringRegExp().<br />
+  <br />
+  StringRegExp( <!--coloro:#3333FF--> <span class="c1"><!--/coloro-->"test" <!--colorc--></span><!--/colorc-->, <!--coloro:#FF0000--> <span class="c2"><!--/coloro-->"pattern"<!--colorc--></span><!--/colorc--> [, <!--coloro:#009900-->
+   <span class="c3"><!--/coloro-->flag<!--colorc--></span><!--/colorc--> ] )<br />
+  <br />
+  <!--coloro:#3333FF--> <span class="c1"><!--/coloro-->"test" <!--colorc--></span> <!--/colorc--> = The string to search through for matches.<br />
+  <!--coloro:#FF0000--> <span class="c2"><!--/coloro-->"pattern" <!--colorc--></span> <!--/colorc--> = A string consisting of certain key characters that let the function know <strong>PRECISELY</strong> what you want to match. No ifs, ands, or buts..
+  it's a match or it isn't.<br />
+  <!--coloro:#009900--> <span class="c3"><!--/coloro-->flag <!--colorc--></span> <!--/colorc-->[optional] = Tells the function if you just want to know if the "pattern" is found, or if you want it to return the first match, or if you want it to return
+  all the matches in the "test" string.<br />
+  <br /></p>
+  <h2>The Very Basics</h2>
+  <p>As you may have figured out, the "pattern" string is the only difficult part of calling a StringRegExp() (forthwith: SRE). I find it best to think of patterns as telling the function to match a string character by character. There are different ways
+  to find a certain character: If you want to match the string "test", that should be simple enough. You want to tell SRE to first search the string for a "t". If it finds one, then it assumes it has a match, and the rest of the pattern is used to try to
+  prove that what it's found is not a match. So, if the next character is an "e", it could still be a match. Let's say the next letter is an "x". SRE knows immediately that it hasn't found a match because the third character you tell it to look for is an
+  "s".</p><br />
+  <p><strong>Example 1</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 1 Result"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"text"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'test'</span><span class="S8">))</span></span>
+</p>
+  <p>In this example, the message box should read "0", which means the pattern "test" was not found in the test string "text". I know this seems pretty simple, but now you know why it wasn't found.<br />
+  <br />
+  The next way of specifying a pattern is by using a set ("[ ... ]"). You can equate a set to the logic function "OR". Let's use the previous Example. We want to find either the string "test" or the string "text". So, the way I start looking for a
+  pattern is to think like SRE would think: The first character I want to match is "t", then the letter "e", this is the same for both strings we want to match. Now we want to match "s" OR "x", so we can use a set as a substitute: "[sx]" means match an
+  "s" or an "x". Then the last letter is a "t" again.<br /></p><br />
+  <p><strong>Example 2</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 2 Result"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"text"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'te[sx]t'</span><span class="S8">))</span><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 2 Result"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"test"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'te[sx]t'</span><span class="S8">))</span></span>
+</p>
+  <p>These should both provide the result "1", because the pattern should match both "test" and "text".<br />
+  <br />
+  You can also specify how many times to match each character by using "{number of matches}" or you can specify a range by using "{min, max}". The first example below is redundant, but shows what I mean:<br /></p><br />
+  <p><strong>Example 3</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 3 Result"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"text"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'t</span><span class="S10">{1}</span><span class="S7">e</span><span class="S10">{1}</span><span class="S7">[sx]</span><span class="S10">{1}</span><span class="S7">t</span><span class="S10">{1}</span><span class="S7">'</span><span class="S8">))</span><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 3 Result"</span><span class="S8">,</span><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"aaaabbbbcccc"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'b</span><span class="S10">{4}</span><span class="S7">'</span><span class="S8">))</span></span>
+</p>
+  <h2>The Not-So Basics</h2>
+  <p>Right now you're probably thinking "Isn't this just a glorified StringInStr() function?". Well, using a "flag" value of 0, most of the time you're right. But SRE is much more powerful than that. As you use SRE's more and more, you'll find you might
+  know less and less about the type of pattern you are looking for. There are ways to be less and less specific about each character you wish to specify in the pattern. Take, for example, a line from an inventory log file: "There were 18 sheets left in
+  the ream of paper." You want to find the number of remaining sheets. Well, you can't use StringInStr() because you aren't looking for "18", you're looking for "????", where ? could be any digit.</p><br />
+  <br />
+  <p>Here's how I would assemble this pattern. Look at what you do and do not know about what you want to find:<br />
+  1) You know that it will ALWAYS contain nothing but digits.<br />
+  2) You know that it will SOMETIMES be 2 characters long.<br />
+  2a) You know that a full ream of paper is 500 sheets.<br />
+  2b) You know that the minimum number of sheets is 0.<br />
+  3) You know that it will ALWAYS be between 1 and 3 characters long.<br />
+  4) You know that there are no other digits in the test string.<br />
+  <br />
+  At this point, I'd like to introduce the FLAG value of "1" and the grouping characters "()". The flag value of "1" means that SRE will not only match your pattern, but also return an array, with each element of the array consisting of a captured
+  "group" of characters. So without veering off course too much, take this example:</p><br />
+  <br />
+  <p><strong>Example 4</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;StringConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$aResult</span><span class="S0"> </span><a class="codeSnippetLink" href="../../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"This is a test example"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'(test)'</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$STR_REGEXPARRAYMATCH</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../macros.htm#@error"><span class="S6">@error</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 4 Result"</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$aResult</span><span class="S8">[</span><span class="S3">0</span><span class="S8">])</span><br /><a class="codeSnippetLink" href="../../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br /><span class="S9">$aResult</span><span class="S0"> </span><a class="codeSnippetLink" href="../../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"This is a test example"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'(te)(st)'</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$STR_REGEXPARRAYMATCH</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../macros.htm#@error"><span class="S6">@error</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 4 Result"</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$aResult</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">","</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$aResult</span><span class="S8">[</span><span class="S3">1</span><span class="S8">])</span><br /><a class="codeSnippetLink" href="../../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a></span>
+</p>
+  <p>So, first the pattern must match somewhere in the test string. If it does, then SRE is told to "capture" any groups ("()") and store them in the return array. You can use multiple captures, as demonstrated by the second piece of code in Example
+  4.<br />
+  <br />
+  Ok, back to the log file. Now that we know how to "capture" text, let's construct our pattern: Since you know what you're looking for is digits, there are 3 ways to specify "match any digit": "[:digit:]", "[0-9]", and "\d". The first is probably the
+  easiest to understand. There are a few classes (digit, alnum, space, etc. Check the help file for a full list) you can use to specify sets of characters, one of them being digit. "[0-9]" just specifies a range of all the digits 0 through 9. "\d" is
+  just a special character that means the same as the first two. There is no difference between the three, and with all SRE's there are usually at least a couple ways to construct any pattern.<br />
+  <br />
+  So, first we know we want to capture the digits, so indicate that with the opening parentheses "(". Next, we know we want to capture between 1 and 3 characters, all consisting of digits, so our pattern now looks like "([0-9]{1,3}". And finally close it
+  off with the closing parentheses to indicate the end of our group: "([0-9]{1,3})". Let's try it:<br /></p><br />
+  <p><strong>Example 5</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;StringConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$aResult</span><span class="S0"> </span><a class="codeSnippetLink" href="../../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"There were 18 sheets left in the ream of paper."</span><span class="S8">,</span><span class="S0"> </span><span class="S8">_</span><br /><span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S7">'([0-9]{1,3})'</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$STR_REGEXPARRAYMATCH</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../macros.htm#@error"><span class="S6">@error</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 5 Result"</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$aResult</span><span class="S8">[</span><span class="S3">0</span><span class="S8">])</span><br /><a class="codeSnippetLink" href="../../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a></span>
+</p>
+  <p>There you go, the message box correctly displays "18".<br />
+  <br />
+  Next we need to cover non-capturing groups. The way you indicate these groups is by opening the group with "(?:" instead of just "(". Let's say your log file says "You used 36 of 279 pages." Now if you run Example 5's SRE on this, you'll come up with
+  "36" instead of "279". Now what I like to do here is just determine what's different between the numbers. One that jumps out at me is that the second number is always followed by a space and then the word "pages". We could just modify our previous
+  pattern to be "([0-9]{1,3} pages)", but what if our script is just looking for the starting amount of pages, without " pages" tacked onto the end of the number? Here's where you can use a non-capturing group to accomplish this.<br />
+  <br /></p>
+  <p><strong>Example 6</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;StringConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$aResult</span><span class="S0"> </span><a class="codeSnippetLink" href="../../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">"You used 36 of 279 pages."</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'([0-9]{1,3})(?: pages)'</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$STR_REGEXPARRAYMATCH</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../macros.htm#@error"><span class="S6">@error</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"SRE Example 6 Result"</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$aResult</span><span class="S8">[</span><span class="S3">0</span><span class="S8">])</span><br /><a class="codeSnippetLink" href="../../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a></span>
+</p>
+  <p>This could get lengthy, but mostly I just wanted to lay out the foundation for how regular expressions work, and mainly how SRE "thinks". A few things to keep in mind:<br />
+  - Remember to think about the pattern one character at a time<br />
+  - The StringRegExp() function finds the first character in the pattern, then it's your job to provide enough<br />
+  evidence to "prove" whether or not it truly is a match. Example 6 is a good display of this.<br />
+  - Remember [ ... ] means OR ([xyz] match an "x", a "y", OR a "z")<br />
+  If you have any other questions, consult the help file first! It explains in detail all of the nitty gritty syntax that comes along with SRE's. One thing to look at in particular is the section on "Repeating Characters". It can make your pattern more
+  readable by substituting certain characters for ranges. For example: "*" is equivalent to {0,} or the range from 0 to any number of characters.<br />
+  <br />
+  Good luck, Regular Expressions can greatly decrease the length of your code, and make it easier to modify later. Corrections and feedback are welcome!</p>
+  <h2>Resources</h2>
+  <p><a class="ext" href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank">Wikipedia Article - Regular Expressions</a> - Thanks blindwig.</p>
+  <p><a class="ext" href="https://www.codeproject.com/Articles/9099/The-Minute-Regex-Tutorial" target="_blank">The 30 Minute Regex Tutorial</a> - by Jim Hollenhorst.</p>
+  <p><br />
+  GUI for testing various StringRegExp() patterns - Thanks steve8tch. Credit: w0uter<br />
+ <br />&nbsp;  &nbsp;  &nbsp;  &nbsp;  <object id="hhctrl" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" width="58" height="57">
+    <param name="Command" value="ShortCut">
+    <param name="Button" value="Text:Open StringRegExpGUI.au3">
+    <param name="Item1" value=",Examples\Helpfile\StringRegExpGUI.au3,">
+  </object></p>
+  <p>&nbsp;</p>
+  <p>Thanks to neogia for this tutorial.</p>
+</body>
+</html>

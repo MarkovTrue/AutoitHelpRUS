@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово #include</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>#include</h1>
+<p class="funcdesc">Включает файл в текущий скрипт.</p>
+<p class="codeheader"><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S7">&lt;/strong&gt;</span> <span class="S8">&lt;</span><span class="S0">filename</span><span class="S8">&gt;</span><br>
+<span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S7">&lt;/strong&gt;</span> <span class="S7">"[path\]filename"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">filename</td>
+<td style="width:85%">Имя файла текущего скрипта для включения. Путь необязателен. <strong>Это должна быть строка – это не может быть переменной.</strong><br />
+Если используется <strong>&lt;...&gt;</strong>, имя файла принимается как относительное к каталогу библиотеки включения (обычно C:\Program Files\AutoIt3\Include). Библиотека включения содержит много предварительно написанных пользовательских функций для использования!<br />
+Если используется <strong>"..."</strong>, имя файла принимается как относительное к текущему скрипту.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Другие скрипты могут быть включены в скрипт Autoit с помощью команды <span class="S111">#include</span> – они могут быть в формате .au3 или .a3x. Содержимое включённого файла вставляется в скрипт в точке команды <span class="S111">#include</span> – в большинстве случаев это начало скрипта, так что объявления переменных или констант в включённом тексте доступны для остальной части скрипта.<br />
+<br />
+Если вы включите один и тот же файл, содержащий пользовательскую функцию, более одного раза, вы получите ошибку "Duplicate function". При написании файла включения, который может использоваться таким образом, убедитесь, что первая строка содержит <strong><span class="S111">#include-once</span></strong>, чтобы предотвратить включение этого файла более одного раза.<br />
+<br />
+Есть специальное значение реестра, которое можно создать в "HKEY_CURRENT_USER\Software\AutoIt v3\AutoIt", называемое "Include". Это должно быть значение REG_SZ (строка). Содержимое этого значения – это список каталогов, разделённых точками с запятой, которые должны быть перепроверены для файлов при разрешении <span class="S111">#include</span> в дополнение к стандартным местоположениям.<br />
+<br />
+Порядок поиска, используемый AutoIt, зависит от того, какую форму <span class="S111">#include</span> вы используете. Таблицы ниже показывают порядок поиска каталогов, используя обе формы.<br />
+<br />
+Использование <span class="S111">#include</span> &lt;&gt;<table>
+<tr>
+<td style="width:15%">Стандартная библиотека</td>
+<td style="width:85%">Путь текущего работающего интерпретатора с добавленным "\Include" ищется.</td>
+</tr>
+<tr>
+<td>Пользовательские библиотеки</td>
+<td>Значение реестра, упомянутое выше, читается и каждый каталог ищется в порядке их появления.</td>
+</tr>
+<tr>
+<td>Каталог скрипта</td>
+<td>Каталог текущего выполняемого скрипта.</td>
+</tr>
+</table><br />
+Использование <span class="S111">#include</span> "" (Это противоположность <span class="S111">#include</span> &lt;&gt;).<table>
+<tr>
+<td style="width:15%">Каталог скрипта</td>
+<td style="width:85%">Каталог текущего выполняемого скрипта.</td>
+</tr>
+<tr>
+<td>Пользовательские библиотеки</td>
+<td>Значение реестра, упомянутое выше, читается и каждый каталог ищется в обратном порядке их появления.</td>
+</tr>
+<tr>
+<td>Стандартная библиотека</td>
+<td>Путь текущего работающего интерпретатора с добавленным "\Include" ищется.</td>
+</tr>
+</table><br />
+Примечание об использовании опции /AutoIt3ExecuteScript. Так как стандартная библиотека ищется в каталоге текущего интерпретатора, функции стандартной библиотеки не будут найдены; эта библиотека будет найдена только при запуске через AutoIt3.exe. Рекомендуется скомпилировать скрипт в формате .a3x перед попыткой запуска его с /AutoIt3ExecuteScript.<br />
+<br />
+Aut2Exe использует тот же алгоритм, что и AutoIt3.exe, с единственной разницей в том, что он ищет подкаталог Include как находящийся в соседнем каталоге самого себя (..\Include).<br />
+<br />
+Если <a href="../functions/AutoItSetOption.htm#TrayIconDebug"><span class="S4">Opt</span></a><span class="S8">(</span>"TrayIconDebug",1<span class="S8">)</span>, только 64 имена файлов включения могут отображаться в traytooltip. для остальных имя файла не будет отображаться.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="include-once.htm">#include-once</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"include-TIME.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Запуск "include.au3" выведет два окна сообщения:
+</span><br>
+<span class="S1">; одно со временем, затем одно с "Example"
+</span><br>
+<br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"MsgBox #2"</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\include.au3,"></object>
+</body>
+</html>

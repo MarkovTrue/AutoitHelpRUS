@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Running Scripts</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Running Scripts</h1>
+  <p>When you start AutoIt you will be asked to open a <strong>script file</strong>. A script file is a simple text file containing AutoIt keywords and functions that tell AutoIt what you want it to do. Script files are created in a simple text
+  editor such as <strong>notepad.exe</strong> but there is a much better <a href="editors.htm">alternative</a> in a specially modified version of the SciTE editor.<br /></p>
+  <p>Although AutoIt v3 scripts are just plain-text files they are usually given the file extension <strong>.au3</strong> to differentiate between a script and a plain text file. If you used the full installer to install AutoIt you can execute an
+  AutoIt script simply by double-clicking it. There are also various options to open, edit, or compile a script if you right-click on the <strong>.au3</strong> file.</p>
+  <p>&nbsp;</p>
+  <p>Here is an example script. Notice that <strong>;</strong> is used for commenting sections of code:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><span class="S1">; This is my first script</span><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My First Script!"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello World!"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>More complicated scripts can introduce functions. These are usually placed towards the end of a script or below the Global variable declaration section.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My second script!"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello from the main script!"</span><span class="S8">)</span><br /><br /><span class="S0">Example_Func</span><span class="S8">()</span><br /><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> Example_Func</span><span class="S8">()</span><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Return</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My Second Script!"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello from the functions!"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;Example_Func</span></span>
+</p>
+  <h2><a id="CommandLine"></a>Command Line Parameters</h2>
+  <p>Passing command line parameters to your own executable is achievable in AutoIt. Passed commandline parameters can be viewed by using the constant variables $CmdLine and $CmdLineRaw. Assigning these variables with new data will cause AutoIt to
+  return an error, as these cannot be changed during the script's execution. Note that both variables exist whether commandline parameters are passed or not.<br /></p>
+  <p>The special array $CmdLine is initialized at the start of the script with the command line parameters passed to your AutoIt script. If running your script instead of the executable, then the ScriptName.au3 willl be ignored as a parameter.<br />
+  <br />
+  If you're passing strings with spaces, then you will need to escape these using "double quotes" in your commandline string.<br /></p>
+<p class="codebox">
+<span><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Contains the total number of items in the array.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; The first parameter.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; The second parameter.</span><br /><span class="S8">...</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S0">nth</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; The nth parameter e.g. 10 if the array contains 10 items.</span></span>
+</p>
+<br />
+  So if you were to run your script directly using AutoIt3.exe:<br />
+<p class="codebox">
+<span><span class="S0">AutoIt3</span><span class="S3">.e</span><span class="S0">xe myScript</span><span class="S8">.</span><span class="S14">au3</span><span class="S0"> param1 </span><span class="S7">"This is a string parameter"</span><span class="S0"> </span><span class="S3">99</span></span>
+</p>
+<p class="codebox">
+<span><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; This contains 3 parameters.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; This contains param1 and not myScript.au3 as this is ignored when running non-compiled.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; This contains This is a string parameter.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; This contains 99.</span><br /><span class="S9">$CmdLineRaw</span><span class="S0"> </span><span class="S1">; This contains myScript.au3 param1 "This is a string parameter" 99.</span></span>
+</p>
+<br />
+  So if you were to use the compiled executable by passing commandline parameters:<br />
+<p class="codebox">
+<span><span class="S0">myProg</span><span class="S8">.</span><span class="S14">exe</span><span class="S0"> param1 </span><span class="S7">"This is a string parameter"</span><span class="S0"> </span><span class="S3">99</span></span>
+</p>
+<p class="codebox">
+<span><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; This contains 3 parameters.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; This contains param1.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; This contains This is a string parameter.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; This contains 99.</span></span>
+</p>
+<br />
+
+  <h2>AutoIt specific command Line Switches</h2>
+  <p>The AutoIt3.exe&nbsp;interpreter, or the interpreter stub of any compiled Autoit script, can normally be used to run AutoIt scripts directly from the command line. &nbsp;In all cases the&nbsp;/ErrorStdOut switch allows the redirection of a
+  fatal error to StdOut which can then be captured by an application such as the SciTE editor. This switch can be used with both the interpreter and a compiled script.</p>
+  <p><strong>Run a script using the interpreter</strong>:&nbsp;</p>
+  <p><em>AutoIt3.exe [/ErrorStdOut] [/AutoIt3ExecuteScript] filename [params ...]</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Execute the AutoIt3 script 'filename' with optional parameters</p>
+  <p>At its simplest: <em>AutoIt3.exe myScript.au3</em> will run a&nbsp;standard AutoIt script&nbsp;'myScript.au3' with no parameters.</p>
+  <p><strong>Run a compiled script</strong>:</p>
+  <p><em>Compiled.exe [/ErrorStdOut] [params ...]</em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Execute a compiled AutoIt3 Script File produced with Aut2Exe.</p>
+  <p><strong>Run a single line of code</strong>:</p>
+  <p><em>AutoIt3.exe [/ErrorStdOut] /AutoIt3ExecuteLine "command line"</em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Execute one line of code.<br />
+  <br />
+  The command below will execute that single line of code and display the MsgBox with "Hello World!". The tray icon will not be displayed.&nbsp;<br /></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@AutoItExe"><span class="S6">@AutoItExe</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">' /AutoIt3ExecuteLine "MsgBox(4096, ''Hello World!'', ''Hi!'')"'</span><span class="S8">)</span></span>
+</p>
+  <p><strong>Run a script using another compiled script</strong>:</p>
+  <p><em>Compiled.exe [/ErrorStdOut]&nbsp;/AutoIt3ExecuteScript file [params ...]</em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Execute another AutoIt script file from a compiled AutoIt3 executable.&nbsp;</p>
+  <p><em>Compiled.exe [/ErrorStdOut]&nbsp;/AutoIt3Execute</em><em>Line "command line"</em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Execute one line of code as with AutoIt3.exe above.&nbsp;</p>
+  <p>This means that there is&nbsp;no need to have a&nbsp;copy of AutoIt3.exe in addition to the compiled file - the interpreter stub of the compiled file will replace it. &nbsp;So as long as there is at least one compiled script
+  available,&nbsp;other AutoIt scripts can be run without the&nbsp;need to have AutoIt3.exe on the machine., either pre-installed or added via FileInstall.</p>
+  <h2>Important Notes</h2>
+  <p>However, the executable must have been compiled with the <em>#pragma compile(AutoItExecuteAllowed, True)</em> directive as the default setting does not permit use of the <em>/AutoItExecuteScript</em> or <em>/AutoItExecuteLine</em> parameters. Moreover, since the interpreter stub searches for any required standard <em>#include</em>
+  files in its current folder, UDF functions and various constants may not be available as those files are normally only found in the full AutoIt install. It is therefore recommended that any scripts intended to be run in this manner are compiled to
+  the <strong>.a3x</strong> format rather then being left as plain .au3 text files</p>
+  <p>Correct usage of single and double quotation marks is important when using the command line - even for double single quotation marks.</p>
+</body>
+</html>

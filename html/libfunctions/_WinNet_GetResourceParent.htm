@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinNet_GetResourceParent</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinNet_GetResourceParent</h1>
+<p class="funcdesc">Возвращает родителя сетевого ресурса в иерархии просмотра сети.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinNet.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinNet_GetResourceParent.htm"><span class="S15">_WinNet_GetResourceParent</span></a> <span class="S8">(</span> <span class="S9">$sRemoteName</span><span class="S8">,</span> <span class="S9">$sProvider</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iType</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sRemoteName</span></td>
+<td style="width:85%">Имя удалённого пути ресурса.</td>
+</tr>
+<tr>
+<td><span class="S91">$sProvider</span></td>
+<td>Имя поставщика, который владеет ресурсом.</td>
+</tr>
+<tr>
+<td><span class="S91">$iType</span></td>
+<td><strong>[необязательный]</strong> Тип ресурса.<br />
+Этот параметр может быть 0, если он неизвестен.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает массив со следующим форматом:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– Область перечисления:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– Подключено
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Все ресурсы
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Запомнено
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Тип ресурса:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– Диск
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Принтер
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Неизвестный
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– Параметр отображения:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– Универсальный
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Домен
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Сервер
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;– Сетевая папка
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;– Файл
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;– Группа
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;– Сеть
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;– Корень
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;– Административная папка
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;– Каталог
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;– Дерево
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;– Контейнер NDS
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– Использование ресурса. Может быть одним или несколькими из следующих:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Ресурс является подключаемым
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Ресурс является контейнером
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;– Ресурс подключён
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;– Ресурс зарезервирован
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span>&nbsp;– Локальное имя
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span>&nbsp;– Удалённое имя
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span>&nbsp;– Комментарий поставщика сети
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span>&nbsp;– Имя поставщика, который владеет ресурсом.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=WNetGetResourceParent">WNetGetResourceParent</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

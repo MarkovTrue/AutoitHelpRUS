@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Примечания к пользовательским функциям</title>
+  <meta charset="utf-8">
+  <link href="css/default.css" rel="stylesheet">
+<script src="css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Примечания к пользовательским функциям</h1>
+  <p>В AutoIt включён ряд файлов, каждый из которых содержит стандартные функции AutoIt3 – так называемые <strong>п</strong>ользовательские <strong>ф</strong>ункции (<strong>UDF</strong>).<br />
+  UDF – это функции и скриптлеты, написанные на AutoIt3. Их можно подключить через <span class="S111">#include</span> в собственном скрипте и использовать без необходимости писать код с нуля или копировать его при каждом использовании.</p>
+  <h2>Пример</h2>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;Date.au3&gt;</span><br /><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"What is the date?"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Today's date is "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><a class="codeSnippetLink" href="../libfunctions/_Now.htm"><span class="S15">_Now</span></a><span class="S8">())</span></span>
+</p>
+  <p>Скрипт выведет сегодняшнюю дату в полном формате ПК, например "Sunday, December 18, 2004".</p>
+  <p>&nbsp;</p>
+  <p>Многие UDF содержат необязательные параметры, которые можно пропустить. Однако если вы хотите указать необязательный параметр, все предшествующие ему параметры должны быть заданы!<br />
+  Например, рассмотрим <em><a href="libfunctions/_ArraySort.htm">_ArraySort</a></em> ( ByRef <span class="S91">$a_Array</span> [, <span class="S91">$i_Descending</span> [, <span class="S91">$i_Base</span>=0 [, <span class="S91">$i_Ubound</span>=0 [, <span class="S91">$i_Dim</span>=1 [, <span class="S91">$i_SortIndex</span>=0 ]]]]] )<br />
+  Параметр, помеченный ByRef, будет обновлён функцией новым значением. Такие параметры должны быть переменными (<span class="S91">$xyz</span>) и не могут быть константами.<br /></p>
+  <p>Большинство UDF сигнализируют об успехе или ошибке через возвращаемое значение; другие – через флаг <span class="S61">@error</span>. Некоторые используют оба механизма.<br />
+  <span class="S61">@error</span> = 0 ;всегда означает успех<br />
+  Return = различается, но обычно ненулевое при успехе – для удобства чтения кода...<br />
+  <br />
+  <strong>Если функция может устанавливать флаг <span class="S61">@error</span>, проверяйте его перед использованием возвращаемого значения: при ошибке оно обычно не определено.</strong><br /></p>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GUI Reference</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+  <style type="text/css">
+span.c1 {text-decoration: underline}
+  </style>
+</head>
+<body>
+  <h1>GUI Reference</h1>
+  <p>AutoIt has the ability to create simple Graphical User Interfaces (GUIs) that consist of windows and controls.</p>
+  <h2>GUI Concepts</h2>
+  <p>A GUI consists of one or more <em>window</em>s and each window contains one or more <em>controls</em>. GUIs are "event driven" which means you react to events - like a button that is clicked. You spend most of your time idling and waiting for an
+  event to happen - this is a little different to a normal script where you are in control of what happens and when! Think of it as waiting by the door for the postman - you sit there until a letter pops through the postbox and then you look at the
+  letters and decide what to do with them - this is exactly how GUIs work - you wait for the postman to come to you.</p>
+  <p>Of course, you may choose to do other tasks while the GUI is active - for example you might use the GUI functions to create an elaborate progress box that you update while your script performs complex actions.</p>
+  <h2>GUI Controls</h2>
+  <p>All users will be familiar with controls - anything you click on or interact with in a window is a type of control. The types of controls that can be created with AutoIt are listed below - you will have used most of them in other Windows
+  programs.</p>
+  <table class="noborder">
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Label</li>
+        </ul>
+      </td>
+      <td>A plain piece of text.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Button</li>
+        </ul>
+      </td>
+      <td>A simple button.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Input</li>
+        </ul>
+      </td>
+      <td>A single line control that you can enter text into.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Edit</li>
+        </ul>
+      </td>
+      <td>A multi-line control that you can enter text into.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Checkbox</li>
+        </ul>
+      </td>
+      <td>A box that can be "checked" or "unchecked".</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Radio</li>
+        </ul>
+      </td>
+      <td>A set of circular buttons - only one can be active at once.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Combo</li>
+        </ul>
+      </td>
+      <td>A list with a dropdown box.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>List</li>
+        </ul>
+      </td>
+      <td>A list.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Date</li>
+        </ul>
+      </td>
+      <td>A date picker.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Pic</li>
+        </ul>
+      </td>
+      <td>A picture.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Icon</li>
+        </ul>
+      </td>
+      <td>An icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Progress</li>
+        </ul>
+      </td>
+      <td>A progress bar.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Tab</li>
+        </ul>
+      </td>
+      <td>A group of controls that are contained in tabs.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>UpDown</li>
+        </ul>
+      </td>
+      <td>A control that can be added to input controls.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Avi</li>
+        </ul>
+      </td>
+      <td>Display an AVI format clip.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Menu</li>
+        </ul>
+      </td>
+      <td>A menu across the top of the window.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>ContextMenu</li>
+        </ul>
+      </td>
+      <td>A menu that appears when you right click inside the window.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>TreeView</li>
+        </ul>
+      </td>
+      <td>A control similar to the windows file-explorer.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Slider</li>
+        </ul>
+      </td>
+      <td>A control similar to the windows sound volume control.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>ListView</li>
+        </ul>
+      </td>
+      <td>A control displaying columns information.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>ListViewItem</li>
+        </ul>
+      </td>
+      <td>A control displaying item in a listview control.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Graphic</li>
+        </ul>
+      </td>
+      <td>A control displaying graphics drawn with GUICtrlSetGraphic.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Dummy</li>
+        </ul>
+      </td>
+      <td>A dummy user control.</td>
+    </tr>
+  </table><br />
+  <p>Here is an example of a single window GUI that contains many of the controls available. As you can see it is possible to create very detailed GUIs!</p>
+  <p><img src="../images/SampleGuiScreenshot.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Controls are created with the <a href="../functions/GUICtrlCreate%20Management.htm">GUICtrlCreate...</a> set of functions. When a control is created a <strong>Control ID</strong> is returned. The most important things to note about a control ID is
+  that:</p>
+  <ul class="cell">
+    <li>The control ID is a positive number (that is, a number greater than 0)</li>
+    <li>Each control ID is unique - even when there are multiple windows</li>
+    <li>The control ID is actually the same value as the Control ID that the <a href="../intro/au3spy.htm">AutoIt Window Info Tool</a> shows.</li>
+  </ul>
+  <h2>GUI Basic Functions</h2>
+  <p>These are the main functions that you will need to create a GUI. They are just the basics though, there are many more when you are ready to create some really advanced GUIs.</p>
+  <table>
+    <tr>
+      <th>Function</th>
+      <th>Explanation</th>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICreate.htm">GUICreate</a></td>
+      <td>Create a window.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICtrlCreate%20Management.htm">GUICtrlCreate...</a></td>
+      <td>Create various controls in a window.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUISetState.htm">GUISetState</a></td>
+      <td>Display or hide the window.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUIGetMsg.htm">GUIGetMsg</a></td>
+      <td>Poll the GUI to see if an event has happened (MessageLoop mode only)</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICtrlRead.htm">GUICtrlRead</a></td>
+      <td>Read the data in a control.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICtrlSetData.htm">GUICtrlSetData</a></td>
+      <td>Set/change the data in a control.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICtrlUpdate%20Management.htm">GUICtrlUpdate...</a></td>
+      <td>Change various options for a control (color, style, etc.)</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>You will need to #include &lt;GUIConstantsEx.au3&gt; for basic GUI related constants. There are <a href="GUIConstants.htm">other files</a> containing constants related to the various controls you can create on the GUI.</p>
+  <p>&nbsp;</p>
+  <p>First let's create a window, call it "Hello World" and make it 200 by 100 pixels in size. When a new window is created it is hidden - so we must "show" it.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">200</span><span class="S8">,</span><span class="S0"> </span><span class="S3">100</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>If your run the above script you will see a window open and close after 2 seconds. Not very interesting...let's add some text and an OK button. The text will be added at position 30, 10 and the button at 70, 50 and the button will be 60 pixels
+  wide.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">200</span><span class="S8">,</span><span class="S0"> </span><span class="S3">100</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">30</span><span class="S8">,</span><span class="S0"> </span><span class="S3">10</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">70</span><span class="S8">,</span><span class="S0"> </span><span class="S3">50</span><span class="S8">,</span><span class="S0"> </span><span class="S3">60</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>That's pretty good, but how do we make the GUI react to us clicking the button? Well, this is where we must make a decision as to how we will process events - via a <strong>MessageLoop</strong> <span class="c1">or</span> via <strong>OnEvent</strong>
+  functions.</p>
+  <h2>GUI Event Modes</h2>
+  <p>As mentioned above there are two basic GUI modes: <strong>MessageLoop</strong> mode and <strong>OnEvent</strong> mode. The modes are simply two different ways of reacting to GUI events. The mode you choose will depend on <em>personal
+  preference</em>, and to some extent the type of GUI you wish to create. Both modes are equally capable of creating any GUI you wish but sometimes one mode is more suited to a task than the other.</p>
+  <p>The default mode is the MessageLoop mode. To switch to OnEvent mode use <a href="../functions/AutoItSetOption.htm#GUIOnEventMode">Opt("GUIOnEventMode", 1)</a>.</p>
+  <p>&nbsp;</p>
+  <p><strong>Message-loop Mode (default)</strong></p>
+  <p>In the Message-loop mode your script will spend the majority of its time in a tight loop. This loop will simply poll the GUI using the <a href="../functions/GUIGetMsg.htm">GUIGetMsg</a> function. When an event has occurred the return value of the
+  GUIGetMsg function will show the details (a button is clicked, the GUI has been closed, etc.).</p>
+  <p>In this mode you will only receive events while you are actively polling the GUIGetMsg function so you must ensure that you call it many times a second otherwise your GUI will be unresponsive.</p>
+  <p><em>This mode is best for GUIs where the GUI is "king" and all you care about is waiting for user events.</em></p>
+  <p>See <a href="GUIRef_MessageLoopMode.htm">this page</a> for a more detailed explanation of the <a href="GUIRef_MessageLoopMode.htm">MessageLoop mode</a>.</p>
+  <p>&nbsp;</p>
+  <p><strong>OnEvent Mode</strong></p>
+  <p>In the OnEvent mode instead of constantly polling the GUI to find out if anything has happened you make the GUI temporarily pause your script and call a pre-defined function to handle the event. For example, if the user clicks Button1 the GUI halts
+  your main script and calls a previously defined user function that deals with Button1. When the function call is completed the main script is resumed. This mode is similar to the Visual Basic forms method.</p>
+  <p><em>This mode is best for GUIs where the GUI is of secondary importance and your script has other tasks to perform in addition to looking after the GUI.</em></p>
+  <p>See <a href="GUIRef_OnEventMode.htm">this page</a> for a more detailed explanation of the <a href="GUIRef_OnEventMode.htm">OnEvent</a> mode.</p>
+</body>
+</html>

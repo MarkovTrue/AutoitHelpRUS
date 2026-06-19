@@ -1,0 +1,982 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция StringRegExp</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>StringRegExp</h1>
+<p class="funcdesc">Проверяет, соответствует ли строка заданному шаблону регулярного выражения.</p>
+<p class="codeheader"><a class="le" href="../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a> <span class="S8">(</span> <span class="S7">"test"</span><span class="S8">,</span> <span class="S7">"pattern"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">flag</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">offset</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">test</td>
+<td style="width:85%">Проверяемая строка.</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>Регулярное выражение для сопоставления.</td>
+</tr>
+<tr>
+<td>flag</td>
+<td><strong>[необязательный]</strong> Число, задающее поведение функции. Подробнее см. ниже. По умолчанию равно 0.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td><strong>[необязательный]</strong> Позиция в строке, с которой начинается поиск (отсчёт с 1). По умолчанию равно 1.</td>
+</tr>
+</table><br /><br />
+<table>
+<tr class="header">
+<td style="width:15%"><strong>Флаг</strong></td>
+<td style="width:85%"><strong>Значения</strong></td>
+</tr>
+<tr>
+<td><span class="S91">$STR_REGEXPMATCH</span> (0)</td>
+<td>Возвращает 1 (совпадение) или 0 (нет совпадения) (по умолчанию).</td>
+</tr>
+<tr>
+<td><span class="S91">$STR_REGEXPARRAYMATCH</span> (1)</td>
+<td>Возвращает массив совпадений.</td>
+</tr>
+<tr>
+<td><span class="S91">$STR_REGEXPARRAYFULLMATCH</span> (2)</td>
+<td>Возвращает массив совпадений, включая полное совпадение (стиль Perl/PHP).</td>
+</tr>
+<tr>
+<td><span class="S91">$STR_REGEXPARRAYGLOBALMATCH</span> (3)</td>
+<td>Возвращает массив всех совпадений.</td>
+</tr>
+<tr>
+<td><span class="S91">$STR_REGEXPARRAYGLOBALFULLMATCH</span> (4)</td>
+<td>Возвращает массив массивов со всеми совпадениями, включая полное совпадение (стиль Perl/PHP).</td>
+</tr>
+</table>Константы определены в <span class="S7">StringConstants.au3</span>.<br />
+<br />
+
+
+<h2>Возвращаемое значение</h2>
+<em>Flag&nbsp;= <span class="S91">$STR_REGEXPMATCH</span> (0) :</em><br />
+<br />
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top"><span class="S61">@error</span>:</td>
+<td style="width:90%">Meaning.</td>
+</tr>
+<tr>
+<td class="valign-top">2:</td>
+<td>Bad pattern. <span class="S61">@extended</span> = offset of error in pattern.</td>
+</tr>
+</table><br />
+<br&nbsp;/><br />
+<em>Flag&nbsp;= <span class="S91">$STR_REGEXPARRAYMATCH</span> (1) or <span class="S91">$STR_REGEXPARRAYFULLMATCH</span> (2) :</em><br />
+<br />
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top"><span class="S61">@error</span>:</td>
+<td style="width:90%">Meaning.</td>
+</tr>
+<tr>
+<td class="valign-top">0:</td>
+<td>Array is valid. Check <span class="S61">@extended</span> for next offset.</td>
+</tr>
+<tr>
+<td class="valign-top">1:</td>
+<td>Array is invalid. No matches.</td>
+</tr>
+<tr>
+<td class="valign-top">2:</td>
+<td>Bad pattern, array is invalid. <span class="S61">@extended</span> = offset of error in pattern.</td>
+</tr>
+</table><br />
+<br&nbsp;/><br />
+<em>Flag&nbsp;= <span class="S91">$STR_REGEXPARRAYGLOBALMATCH</span> (3) or <span class="S91">$STR_REGEXPARRAYGLOBALFULLMATCH</span> (4) :</em><br />
+<br />
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top"><span class="S61">@error</span>:</td>
+<td style="width:90%">Meaning.</td>
+</tr>
+<tr>
+<td class="valign-top">0:</td>
+<td>Array is valid.</td>
+</tr>
+<tr>
+<td class="valign-top">1:</td>
+<td>Array is invalid. No matches.</td>
+</tr>
+<tr>
+<td class="valign-top">2:</td>
+<td>Bad pattern, array is invalid. <span class="S61">@extended</span> = offset of error in pattern.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p> &nbsp; для тестирования различных шаблонов <a class="le" href="StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">()</span> – Спасибо steve8tch. Автор: w0uter<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <object id="hhctrl" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" width="58" height="57"><br />
+&nbsp;&nbsp;&nbsp; <param name="Command" value="ShortCut"><br />
+&nbsp;&nbsp;&nbsp; <param name="Button" value="Text:Open StringRegExpGUI.au3"><br />
+&nbsp;&nbsp;&nbsp; <param name="Item1" value=",Examples\Helpfile\StringRegExpGUI.au3,"><br />
+ &nbsp;</object><br />
+<br />
+Параметр flag может принимать одно из 5 значений (от <span class="S91">$STR_REGEXPMATCH</span> (0) до <span class="S91">$STR_REGEXPARRAYGLOBALFULLMATCH</span> (4)).<br />
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$STR_REGEXPMATCH</span> (0)</td>
+<td style="width:85%">возвращает 1 (истина) или 0 (ложь) в зависимости от того, найден шаблон или нет.</td>
+</tr>
+<tr>
+<td><span class="S91">$STR_REGEXPARRAYMATCH</span> (1)<br \><span class="S91">$STR_REGEXPARRAYFULLMATCH</span> (2)</td>
+<td>находит первое совпадение и возвращает захваченные группы в массиве; если в шаблоне нет захватывающих групп, в массив помещается первое совпадение целиком.</td>
+</tr>
+<tr>
+<td><span class="S91">$STR_REGEXPARRAYGLOBALMATCH</span> (3)<br \><span class="S91">$STR_REGEXPARRAYGLOBALFULLMATCH</span> (4)</td>
+<td>заполняет массив всеми найденными совпадениями.</td>
+</tr>
+</table><br />
+<span class="S91">$STR_REGEXPARRAYFULLMATCH</span> (2) и <span class="S91">$STR_REGEXPARRAYGLOBALFULLMATCH</span> (4) включают полный совпавший текст как первый элемент возвращаемого массива, в отличие от флагов <span class="S91">$STR_REGEXPARRAYMATCH</span> (1) и <span class="S91">$STR_REGEXPARRAYGLOBALMATCH</span> (3), которые возвращают только захваченные группы.<br />
+<br />
+Запись регулярного выражения – это компактный способ задать шаблон для исходных строк, по которому можно выполнять поиск и извлекать отдельные части с помощью <a href="StringRegExp.htm"><span class="S4">StringRegExp</span><span class="S8">()</span></a> или заменять их с помощью <a href="StringRegExpReplace.htm"><span class="S4">StringRegExpReplace</span><span class="S8">()</span></a>.<br />
+<br />
+Точнее, движок регулярных выражений пытается сопоставить шаблон (особый программный формат) с исходной строкой – оба слева направо. При несовпадении движок выполняет откат (возврат к последовательно предыдущим состояниям) настолько, насколько необходимо, рассчитывая, что остальная часть шаблона тоже совпадёт.<br />
+<br />
+Откат – фундаментальная особенность движков регулярных выражений, которую каждый начинающий программист уже понимает и использует ежедневно. Это как оставлять отметку на каждой развилке дороги и возвращаться к последнему неопробованному пути, когда выбранный путь оказывается тупиком: выполняйте откат до тех пор, пока не найдёте нужную точку (совпадение) или не исчерпаете все пути (несовпадение). Поиск заданного имени файла с необязательными символами подстановки в дереве каталогов – ничем не отличается.<br />
+<br />
+AutoIt использует движок PCRE. PCRE означает "Perl-Compatible Regular Expressions" и является наиболее полным доступным движком с открытым исходным кодом. Реализация включает поддержку свойств категорий Unicode (UCP), что позволяет тонко обрабатывать большинство языков мира.<br />
+Однако для сохранения совместимости с предыдущими версиями и максимальной скорости сопоставления <strong>поддержка UCP по умолчанию отключена</strong>. Включить её можно, добавив строку <strong>(*UCP)</strong> в самое начало шаблона. При включении UCP расширяется область действия ряда элементов регулярных выражений, что отмечается ниже в соответствующих местах.<br />
+<br />
+Эта страница является лишь кратким справочником по наиболее используемым элементам шаблонов. Для подробного изучения регулярных выражений в реализации AutoIt обратитесь к <strong><a href="../pcrepattern.html">полному описанию шаблонов PCRE</a></strong>.<br />
+Если вы не знакомы с регулярными выражениями, вероятно, потребуется прочитать несколько разделов этого справочника более одного раза, чтобы понять, как они работают и взаимодействуют.<br />
+<br />
+<strong>Внимание</strong>: некорректные регулярные выражения могут породить квазибесконечный цикл, загружающий процессор, и даже привести к сбою.<br />
+<br />
+<h3><u>Глобальные настройки</u></h3><br />
+Эти настройки распознаются только в начале шаблона и действуют глобально.<br />
+<br />
+<strong>Соглашения о символах новой строки</strong><br />
+<br />
+Последовательности новой строки влияют на то, где совпадают якоря <strong>^</strong> и <strong>$</strong>, и что не соответствует <strong>\N</strong> и <strong>.</strong>. По умолчанию последовательность новой строки – <span class="S61">@CRLF</span> как неразрывная последовательность или отдельный <span class="S61">@CR</span> или <span class="S61">@LF</span>.<br />
+Значение по умолчанию можно изменить, добавив одну из следующих последовательностей в начало шаблона.<table>
+<tr>
+<td style="width:15%"><strong>(*CR)</strong></td>
+<td style="width:85%">Возврат каретки (<span class="S61">@CR</span>).</td>
+</tr>
+<tr>
+<td><strong>(*LF)</strong></td>
+<td>Перевод строки (<span class="S61">@LF</span>).</td>
+</tr>
+<tr>
+<td><strong>(*CRLF)</strong></td>
+<td>Возврат каретки, за которым непосредственно следует перевод строки (<span class="S61">@CRLF</span>).</td>
+</tr>
+<tr>
+<td><strong>(*ANYCRLF)</strong></td>
+<td>Любой из <span class="S61">@CRLF</span>, <span class="S61">@CR</span> или <span class="S61">@LF</span>. Это соглашение используется по умолчанию.</td>
+</tr>
+<tr>
+<td><strong>(*ANY)</strong></td>
+<td>Любая последовательность новой строки Unicode: <span class="S61">@CRLF</span>, <span class="S61">@LF</span>, VT, FF, <span class="S61">@CR</span> или \x85 (Nextline).</td>
+</tr>
+</table><br />
+<strong>Что соответствует \R</strong><br />
+<table>
+<tr>
+<td style="width:15%"><strong>(*BSR_ANYCRLF)</strong></td>
+<td style="width:85%">По умолчанию <strong>\R</strong> соответствует только <span class="S61">@CRLF</span>, <span class="S61">@CR</span> или <span class="S61">@LF</span>.</td>
+</tr>
+<tr>
+<td><strong>(*BSR_UNICODE)</strong></td>
+<td>Изменяет <strong>\R</strong> так, чтобы соответствовать любой последовательности новой строки Unicode: <span class="S61">@CRLF</span>, <span class="S61">@LF</span>, VT, FF, <span class="S61">@CR</span> или \x85 (Next line).</td>
+</tr>
+</table><br />
+Шаблоны PCRE могут содержать опции, заключённые в последовательности <strong>(? )</strong>. Опции можно группировать: "(?imx)". Опции после дефиса отрицаются: "(?im-sx)".<br />
+Опции вне группы действуют на остаток шаблона с этого места. Опции внутри группы действуют только на данную группу. Внутри класса символов опции теряют специальное значение и обрабатываются буквально.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>(?i)</strong></td>
+<td style="width:85%">Без учёта регистра: сопоставление становится нечувствительным к регистру с этой точки. По умолчанию сопоставление чувствительно к регистру. При включённом UCP учёт регистра распространяется на весь Unicode plane 0; иначе – только на буквы A–Z и a–z ASCII.</td>
+</tr>
+<tr>
+<td><strong>(?m)</strong></td>
+<td>Многострочный режим: <strong>^</strong> и <strong>$</strong> совпадают с последовательностями новой строки внутри данных. По умолчанию многострочный режим отключён.</td>
+</tr>
+<tr>
+<td><strong>(?s)</strong></td>
+<td>Однострочный режим (<em>DotAll</em>): <strong>.</strong> соответствует чему угодно, включая последовательности новой строки. По умолчанию DotAll отключён, и <strong>.</strong> не соответствует последовательности новой строки.</td>
+</tr>
+<tr>
+<td><strong>(?U)</strong></td>
+<td>Нежадный режим: квантификаторы становятся ленивыми (нежадными) с этой точки. По умолчанию сопоставление жадное – см. ниже.</td>
+</tr>
+<tr>
+<td><strong>(?x)</strong></td>
+<td>Расширенный режим: пробельные символы вне классов символов игнорируются, а <strong>#</strong> начинает комментарий до следующего реального символа новой строки в шаблоне. Незначащие пробелы между компонентами делают регулярные выражения значительно читабельнее. По умолчанию пробелы соответствуют самим себе, а <strong>#</strong> является литеральным символом.</td>
+</tr>
+</table><br />
+<strong>Символы</strong><br />
+<br />
+Шаблоны регулярных выражений состоят из буквальных частей текста Unicode, которые соответствуют сами себе, перемежающихся со спецификаторами или опциями регулярных выражений. Спецификаторы и опции используют несколько <u>метасимволов</u>, имеющих специальное значение сами по себе или вводящих специальные элементы шаблона, описанные в таблицах ниже.<br />
+В буквальных частях буквенно-цифровые символы всегда обозначают сами себя: шаблон "literal part with ????" соответствует именно строке "literal part with ????" ("????" означает "китайский текст").<br />
+Некоторые небуквенно-цифровые символы, называемые <u>метасимволами</u>, имеют специальное поведение, описанное далее.<br />
+<br />
+<strong>Буквальное представление символов</strong><br />
+<br />
+Следующие специальные последовательности используются для буквального представления определённых символов.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>\a</strong></td>
+<td style="width:85%">Представляет "сигнал тревоги" (BEL, <a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>7<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>\c</strong><em>X</em></td>
+<td>Представляет "управляющий символ <em>X</em>", где <em>X</em> – любой 7-битный символ ASCII. Например, "\cM" соответствует Ctrl+M, то же что \x0D или \r (<a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>13<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>\e</strong></td>
+<td>Представляет управляющий символ "Escape" (<a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>27<span class="S8">)</span>). <em>Не путать с экранированием символов!</em></td>
+</tr>
+<tr>
+<td><strong>\f</strong></td>
+<td>Представляет символ "прокрутки страницы" (<a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>12<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>\n</strong></td>
+<td>Представляет символ перевода строки (<span class="S61">@LF</span>, <a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>10<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>\r</strong></td>
+<td>Представляет символ возврата каретки (<span class="S61">@CR</span>, <a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>13<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>\t</strong></td>
+<td>Представляет символ табуляции (<span class="S61">@TAB</span>, <a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>9<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>\</strong><em>ddd</em></td>
+<td>Представляет символ с восьмеричным кодом <em>ddd</em> ИЛИ обратную ссылку на захватывающую группу с номером <em>ddd</em> в десятичном виде. Например, <strong>([a-z])\1</strong> совпадёт с удвоенной буквой.<br />
+<strong>Лучше избегать</strong> из-за неоднозначности! Предпочитайте шестнадцатеричные формы ниже.</td>
+</tr>
+<tr>
+<td><strong>\x</strong><em>hh</em></td>
+<td>Представляет символ Unicode с шестнадцатеричным кодом <em>hh</em>: "\x7E" соответствует тильде "~".</td>
+</tr>
+<tr>
+<td><strong>\x{</strong><em>hhhh</em><strong>}</strong></td>
+<td>Представляет символ Unicode с шестнадцатеричным кодом <em>hhhh</em>: "\x{20AC}" соответствует символу евро "&#x20ac;" (<a class="le" href="ChrW.htm"><span class="S4">ChrW</span></a><span class="S8">(</span>0x20AC<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>\</strong><em>x</em></td>
+<td>где <em>x</em> – небуквенно-цифровой символ; обозначает буквальный <em>x</em>. Используется для буквального представления метасимволов: "\.\[" представляет точку, за которой следует открывающая квадратная скобка, ".[".</td>
+</tr>
+<tr>
+<td><strong>\Q</strong> ... <strong>\E</strong></td>
+<td>Буквальная последовательность: метасимволы теряют специальное значение между <strong>\Q</strong> и <strong>\E</strong>: "\Q(.)\E" соответствует "(.)" и эквивалентно, но более читаемо, чем "\(\.\)".</td>
+</tr>
+</table><br />
+<strong>Метасимволы</strong><br />
+<br />
+Метасимволы PCRE: <strong>\ . ^ $ | [ ( { * + ? #</strong> – каждый имеет одно или несколько специальных значений в зависимости от контекста.<br />
+Для вставки буквального метасимвола предшествуйте ему обратной косой чертой (это называется <strong>экранированием символа</strong>): "\$" означает символ доллара.<br />
+Метасимволы рассматриваются в отдельных разделах согласно их поведению и значению.<br />
+<br />
+<h3><u>Типы символов</u></h3><table>
+<tr>
+<td style="width:15%"><strong>.</strong></td>
+<td style="width:85%">Соответствует любому одному символу, кроме последовательности новой строки (по умолчанию). При активной опции <strong>(?s)</strong> также соответствует символам новой строки.</td>
+</tr>
+<tr>
+<td><strong>\d</strong></td>
+<td>Соответствует любой десятичной цифре (при включённом UCP – любой десятичной цифре Unicode на любом языке).</td>
+</tr>
+<tr>
+<td><strong>\D</strong></td>
+<td>Соответствует любому нецифровому символу.</td>
+</tr>
+<tr>
+<td><strong>\h</strong></td>
+<td>Соответствует любому горизонтальному пробельному символу (см. таблицу ниже).</td>
+</tr>
+<tr>
+<td><strong>\H</strong></td>
+<td>Соответствует любому символу, не являющемуся горизонтальным пробельным.</td>
+</tr>
+<tr>
+<td><strong>\N</strong></td>
+<td>Соответствует любому символу, кроме последовательности новой строки, независимо от опции <strong>(?s)</strong>.</td>
+</tr>
+<tr>
+<td><strong>\p{</strong><em>ppp</em><strong>}</strong></td>
+<td>Только при включённом UCP: соответствует любому символу Unicode со свойством <em>ppp</em>. Например, "\b\p{Cyrillic}+" соответствует любому кириллическому слову; "\p{Sc}" – любому символу валюты. Подробнее см. справочную документацию.</td>
+</tr>
+<tr>
+<td><strong>\P{</strong><em>ppp</em><strong>}</strong></td>
+<td>Только при включённом UCP: соответствует любому символу Unicode, не имеющему свойства <em>ppp</em>.</td>
+</tr>
+<tr>
+<td><strong>\R</strong></td>
+<td>По умолчанию соответствует любой последовательности новой строки Unicode или текущей настройке (*BSR_...). По умолчанию <strong>\R</strong> соответствует "(?>\r\n|\n|\r)", где "(?>...)" – атомарная группа, делающая последовательность "\r\n" (<span class="S61">@CRLF</span>) неделимой.</td>
+</tr>
+<tr>
+<td><strong>\s</strong></td>
+<td>Соответствует любому пробельному символу (см. таблицу ниже).</td>
+</tr>
+<tr>
+<td><strong>\S</strong></td>
+<td>Соответствует любому непробельному символу.</td>
+</tr>
+<tr>
+<td><strong>\v</strong></td>
+<td>Соответствует любому вертикальному пробельному символу (см. таблицу ниже).</td>
+</tr>
+<tr>
+<td><strong>\V</strong></td>
+<td>Соответствует любому символу, не являющемуся вертикальным пробельным.</td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td>Соответствует любому "словесному" символу: цифре, букве или символу подчёркивания "_" (при включённом UCP – любой цифре Unicode, любой букве Unicode на любом языке или "_").</td>
+</tr>
+<tr>
+<td><strong>\W</strong></td>
+<td>Соответствует любому несловесному символу.</td>
+</tr>
+<tr>
+<td><strong>\X</strong></td>
+<td>Только при включённом UCP: соответствует расширенному кластеру графем Unicode – неразрывной последовательности кодовых точек, представляющих один символ для пользователя. Следовательно, <strong>\X</strong> может соответствовать более чем одному символу в исходной строке, в отличие от всех остальных последовательностей в этой таблице.</td>
+</tr>
+</table><br />
+<strong>"Пробельные символы" и зависимость от *UCP</strong><br />
+<br />
+<table>
+    <pre><p class="code-box" style="border-style: solid; border-color:silver; border-width: 1px; width:1008px";>
+&nbsp;&nbsp;&nbsp; Unicode@DOUBLE_WSCharacterName&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WS\h@DOUBLE_WS\v@DOUBLE_WS\s@DOUBLE_WS[[:space:]]@DOUBLE_WS[[:blank:]]
+&nbsp;&nbsp;&nbsp; -------------------------------------------------------------------------
+&nbsp;&nbsp;&nbsp; 0x0009@DOUBLE_WSHorizontal tab (HT)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  xX&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX
+&nbsp;&nbsp;&nbsp; 0x000A@DOUBLE_WSLinefeed (LF)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX@DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX
+&nbsp;&nbsp;&nbsp; 0x000B@DOUBLE_WSVertical tab (VT)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX@DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX
+&nbsp;&nbsp;&nbsp; 0x000C@DOUBLE_WSForm feed (FF)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX@DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX
+&nbsp;&nbsp;&nbsp; 0x000D@DOUBLE_WSCarriage return (CR)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; xX@DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX
+&nbsp;&nbsp;&nbsp; 0x0020@DOUBLE_WSSpace&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX
+&nbsp;
+&nbsp;&nbsp;&nbsp; 0x0085@DOUBLE_WSNext line (NEL)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  xX@DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX
+&nbsp;&nbsp;&nbsp; 0x00A0@DOUBLE_WSNo-break space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;
+&nbsp;&nbsp;&nbsp; 0x1680@DOUBLE_WSOgham space mark&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; xX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x180E@DOUBLE_WSMongolian vowel separator@DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2000@DOUBLE_WSEn quad&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  xX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2001@DOUBLE_WSEm quad&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  xX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2002@DOUBLE_WSEn space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; xX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2003@DOUBLE_WSEm space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; xX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2004@DOUBLE_WSThree-per-em space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2005@DOUBLE_WSFour-per-em space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2006@DOUBLE_WSSix-per-em space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; xX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2007@DOUBLE_WSFigure space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; xX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2008@DOUBLE_WSPunctuation space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2009@DOUBLE_WSThin space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x200A@DOUBLE_WSHair space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x2028@DOUBLE_WSLine separator&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX@DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX
+&nbsp;&nbsp;&nbsp; 0x2029@DOUBLE_WSParagraph separator&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  xX@DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX
+&nbsp;&nbsp;&nbsp; 0x202F@DOUBLE_WSNarrow no-break space&nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x205F@DOUBLE_WSMedium mathematical space@DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; 0x3000@DOUBLE_WSIdeographic space&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @DOUBLE_WSxX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; @DOUBLE_WSX&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; X
+&nbsp;&nbsp;&nbsp; -------------------------------------------------------------------------
+&nbsp;
+@DOUBLE_WSx&nbsp;&nbsp;&nbsp; only without *UCP
+@DOUBLE_WSX&nbsp;&nbsp;&nbsp; only with *UCP
+@DOUBLE_WSxX&nbsp;&nbsp;&nbsp; with or without *UCP
+&nbsp;
+@DOUBLE_WSConclusion
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; \s equal [[:space:]] and are *UCP sensitive
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; \h \v independant of *UCP
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [[:blank:]] *UCP sensitive as opposed to \h
+&nbsp;
+    </p></pre>
+</table>
+<br />
+<br />
+<h3><u>Классы символов и классы POSIX</u></h3><br />
+<strong>Классы символов</strong><br />
+<br />
+Класс символов задаёт набор допустимых (или недопустимых) символов, которому должен (или не должен) соответствовать следующий символ исходной строки.<br />
+Внутри класса символов большинство метасимволов теряют своё значение (например $ . или *) или означают нечто другое (например ^).<br />
+<table>
+<tr>
+<td style="width:15%"><strong>[</strong> ... <strong>]</strong></td>
+<td style="width:85%">Соответствует любому символу из явного набора: "[aeiou]" соответствует любой строчной гласной. Непрерывный (в порядке возрастания кодовых точек Unicode) набор задаётся дефисом между начальным и конечным символами: "[a-z]" соответствует любой строчной букве ASCII. Чтобы включить дефис (-) в набор, поместите его в начало или конец набора либо экранируйте (\-).<br />
+Обратите внимание: шаблон "[A-z]" не то же самое, что "[A-Za-z]": первый эквивалентен "[A-Z\[\\\]^_`a-z]".<br />
+Чтобы включить закрывающую квадратную скобку в набор, используйте её как первый символ набора или экранируйте: "[][]" и "[\[\]]" оба соответствуют "[" или "]".<br />
+Обратите внимание: внутри класса символов только последовательности <strong>\d</strong>, <strong>\D</strong>, <strong>\h</strong>, <strong>\H</strong>, <strong>\p{}</strong>, <strong>\P{}</strong>, <strong>\s</strong>, <strong>\Q</strong>...<strong>\E</strong>, <strong>\S</strong>, <strong>\v</strong>, <strong>\V</strong>, <strong>\w</strong>, <strong>\W</strong> и <strong>\x</strong> сохраняют специальное значение, тогда как <strong>\b</strong> означает символ забоя (<a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>8<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>[^</strong> ... <strong>]</strong></td>
+<td>Соответствует любому символу, <strong>не</strong> входящему в набор: "[^0-9]" соответствует любому нецифровому символу. Чтобы включить символ "крышка" (^) в набор, поместите его после первого символа набора или экранируйте (\^).</td>
+</tr>
+</table><br />
+<strong>Классы POSIX</strong><br />
+<br />
+Это именованные спецификации наборов, используемые внутри класса символов: "[z[:digit:]w-y]" то же самое, что "[w-z0-9]". Для отрицания класса POSIX поместите знак "крышка" (^) после первого двоеточия: "[[:^digit:]]".<br />
+При включённом UCP некоторые классы POSIX расширяются до подмножеств символов Unicode; в противном случае по умолчанию они ограничены 7-битным ASCII. Подробнее см. <strong><a href="https://www.pcre.org/original/doc/html/pcrepattern.html#SEC10">POSIX CHARACTER CLASSES</a></strong>.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>[:alnum:]</strong></td>
+<td style="width:85%">Буквы и цифры ASCII (то же что [^\W_] или [A-Za-z0-9]).<br />
+При включённом UCP: буквы и цифры Unicode (то же что [^\W_] или \p{Xan}).</td>
+</tr>
+<tr>
+<td><strong>[:alpha:]</strong></td>
+<td>Буквы ASCII (то же что [^\W\d_] или [A-Za-z]).<br />
+При включённом UCP: буквы Unicode (то же что [^\W\d_] или \p{L}).</td>
+</tr>
+<tr>
+<td><strong>[:ascii:]</strong></td>
+<td>Коды ASCII символов (то же что [\x00-\x7F]).</td>
+</tr>
+<tr>
+<td><strong>[:blank:]</strong></td>
+<td>Пробел или табуляция (<span class="S61">@TAB</span>) (то же что \h или [\x20\x09]).<br />
+При включённом UCP: горизонтальные пробельные символы Unicode (то же что \h).</td>
+</tr>
+<tr>
+<td><strong>[:cntrl:]</strong></td>
+<td>Управляющие символы ASCII (то же что <a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>0<span class="S8">)</span>...<a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>31<span class="S8">)</span> и <a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>127<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>[:digit:]</strong></td>
+<td>Десятичные цифры ASCII (то же что \d или [0-9]).<br />
+При включённом UCP: десятичные цифры Unicode (то же что \d или \p{Nd}).</td>
+</tr>
+<tr>
+<td><strong>[:graph:]</strong></td>
+<td>Печатаемые символы ASCII, кроме пробела (то же что <a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>33<span class="S8">)</span>...<a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>126<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>[:lower:]</strong></td>
+<td>Строчные буквы ASCII (то же что [a-z]).<br />
+При включённом UCP: строчные буквы Unicode (то же что \p{Ll}).</td>
+</tr>
+<tr>
+<td><strong>[:print:]</strong></td>
+<td>Печатаемые символы ASCII, включая пробел (то же что <a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>32<span class="S8">)</span>...<a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>126<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>[:punct:]</strong></td>
+<td>Символы пунктуации ASCII: [:print:] без [:alnum:] и пробела (33–47, 58–64, 91–96, 123–126).</td>
+</tr>
+<tr>
+<td><strong>[:space:]</strong></td>
+<td>Пробельные символы ASCII (то же что [\h\x0A-\x0D]). <strong>[:space:]</strong> то же самое, что <strong>\s</strong>.</td>
+</tr>
+<tr>
+<td><strong>[:upper:]</strong></td>
+<td>Прописные буквы ASCII (то же что [A-Z]).<br />
+При включённом UCP: прописные буквы Unicode (то же что \p{Lu}).</td>
+</tr>
+<tr>
+<td><strong>[:word:]</strong></td>
+<td>"Словесные" символы ASCII (то же что \w или [[:alnum:]_]).<br />
+При включённом UCP: "словесные" символы Unicode (то же что \w или [[:alnum:]_] или \p{Xwd}).</td>
+</tr>
+<tr>
+<td><strong>[:xdigit:]</strong></td>
+<td>Шестнадцатеричные цифры (то же что [0-9A-Fa-f]).</td>
+</tr>
+</table><br />
+Группы используются для выделения подшаблонов и являются строительными блоками мощных выражений. Группы могут быть захватывающими или нет и могут быть вложенными независимо от их типа, за исключением групп-комментариев. Регулярное выражение может содержать до 65535 захватывающих групп.<br />
+Буквы опций (описанные выше) можно удобно вставить между "?" и ":" незахватывающей группы: "(?-i:[aeiou]{5})" соответствует 5 строчным гласным. В этом случае опции локальны для группы.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>(</strong> ... <strong>)</strong></td>
+<td style="width:85%">Захватывающая группа. Элементы группы обрабатываются по порядку и могут повторяться как блок. Например, "(ab)+c" соответствует "abc" или "ababc", но не "abac".<br />
+Захватывающие группы запоминают совпавший текст для использования в обратных ссылках и заполняют опционально возвращаемый массив. Нумерация начинается с 1 в порядке появления открывающей скобки.<br />
+Захватывающие группы также могут использоваться как подпрограммы в других местах шаблона, возможно рекурсивно.</td>
+</tr>
+<tr>
+<td><strong>(?&lt;</strong><em>name</em><strong>&gt;</strong> ... <strong>)</strong></td>
+<td>Именованная захватывающая группа. На неё можно ссылаться как по имени, так и по номеру. Избегайте имени "DEFINE" (см. "условные шаблоны").</td>
+</tr>
+<tr>
+<td><strong>(?:</strong> ... <strong>)</strong></td>
+<td>Незахватывающая группа. Не записывает совпавшие символы в массив и не может использоваться как обратная ссылка.</td>
+</tr>
+<tr>
+<td><strong>(?|</strong> ... <strong>)</strong></td>
+<td>Незахватывающая группа со сбросом. Сбрасывает номера захватывающих групп в каждой альтернативе верхнего уровня: "(?|(Mon)|(Tue)s|(Wed)nes|(Thu)rs|(Fri)|(Sat)ur|(Sun))day" соответствует названию дня недели и захватывает его аббревиатуру в группу с номером 1.</td>
+</tr>
+<tr>
+<td><strong>(?&gt;</strong> ... <strong>)</strong></td>
+<td>Атомарная незахватывающая группа: фиксирует и никогда не выполняет откат в то, что уже совпало (см. также "Квантификаторы и жадность" ниже). Атомарные группы, как и поглощающие квантификаторы, всегда жадные.</td>
+</tr>
+<tr>
+<td><strong>(?#</strong> ... <strong>)</strong></td>
+<td>Группа-комментарий: всегда игнорируется (но не может содержать закрывающую скобку, поэтому группы-комментарии не могут быть вложенными).</td>
+</tr>
+</table><br />
+Квантификаторы (или спецификаторы повторения) задают, сколько раз должен совпасть предшествующий символ, класс, ссылка или группа. Дополнительные модификаторы жадности определяют, насколько агрессивно будет вести себя повторение. Например, "\d{3,5}" соответствует минимум 3 и максимум 5 десятичным цифрам.<br />
+По умолчанию шаблоны "<u>жадные</u>": квантификаторы <strong>* + ? {</strong>...<strong>}</strong> соответствуют наибольшей строке, не препятствующей совпадению остальной части шаблона. Жадность можно инвертировать для всего шаблона с помощью опции (?U) в начале или локально, добавив знак вопроса после квантификатора.<br />
+Нежадные (<u>ленивые</u>) повторения соответствуют наименьшей строке, при которой остальная часть шаблона ещё совпадает. Например, для строки "aaab" шаблон "(a*)([ab]+)" захватит "aaa", затем "b", а "(?U)(a*)([ab]+)" захватит "" затем "a": действительно, захват пустой строки достаточен для ленивого "(a*)", а захват "a" соответствует ленивому подшаблону "([ab]+)".<br />
+Поглощающие квантификаторы атомарны и жадны. Фактически они являются краткой записью простых атомарных групп. "\d++" – это сокращение для "(?>\d+)", и его поведение: "сопоставить полную последовательность одной или более цифр, но никогда не отдавать ни одну назад". Следовательно, "\d++(\d)" никогда не совпадёт, поскольку последняя цифра уже сопоставлена и заблокирована "\d++". Это контрастирует с простой жадностью, где "\d+(\d)" сначала соответствует полной последовательности цифр с "\d+", а затем отступает на одну, чтобы "(\d)" могло её захватить.<br />
+Есть две причины использовать атомарную группу или поглощающий квантификатор: для сопоставления последовательности символов, которые также могут встречаться по отдельности (например, "\r\n" в определении <strong>\R</strong>), или для быстрого завершения с неудачей в ситуациях с неограниченными повторениями, когда движок иначе потратил бы очень много времени на перебор комбинаций группировок.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>?</strong></td>
+<td style="width:85%">0 или 1, жадный.</td>
+</tr>
+<tr>
+<td><strong>?+</strong></td>
+<td>0 или 1, поглощающий.</td>
+</tr>
+<tr>
+<td><strong>??</strong></td>
+<td>0 или 1, ленивый.</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>0 или более, жадный.</td>
+</tr>
+<tr>
+<td><strong>*+</strong></td>
+<td>0 или более, поглощающий.</td>
+</tr>
+<tr>
+<td><strong>*?</strong></td>
+<td>0 или более, ленивый.</td>
+</tr>
+<tr>
+<td><strong>+</strong></td>
+<td>1 или более, жадный.</td>
+</tr>
+<tr>
+<td><strong>++</strong></td>
+<td>1 или более, поглощающий.</td>
+</tr>
+<tr>
+<td><strong>+?</strong></td>
+<td>1 или более, ленивый.</td>
+</tr>
+<tr>
+<td><strong>{</strong><em>x</em><strong>}</strong></td>
+<td>ровно <em>x</em>.</td>
+</tr>
+<tr>
+<td><strong>{</strong><em>x</em><strong>,</strong><em>y</em><strong>}</strong></td>
+<td>не менее <em>x</em> и не более <em>y</em>, жадный.</td>
+</tr>
+<tr>
+<td><strong>{</strong><em>x</em><strong>,</strong><em>y</em><strong>}+</strong></td>
+<td>не менее <em>x</em> и не более <em>y</em>, поглощающий.</td>
+</tr>
+<tr>
+<td><strong>{</strong><em>x</em><strong>,</strong><em>y</em><strong>}?</strong></td>
+<td>не менее <em>x</em> и не более <em>y</em>, ленивый.</td>
+</tr>
+<tr>
+<td><strong>{</strong><em>x</em><strong>,}</strong></td>
+<td><em>x</em> или более, жадный.</td>
+</tr>
+<tr>
+<td><strong>{</strong><em>x</em><strong>,}+</strong></td>
+<td><em>x</em> или более, поглощающий.</td>
+</tr>
+<tr>
+<td><strong>{</strong><em>x</em><strong>,}?</strong></td>
+<td><em>x</em> или более, ленивый.</td>
+</tr>
+</table><table>
+<tr>
+<td style="width:15%"><em>X</em><strong>|</strong><em>Y</em></td>
+<td style="width:85%">Соответствует подшаблону <em>X</em> или <em>Y</em>: "ac|dc|ground" соответствует "ac", "dc" или "ground".</td>
+</tr>
+</table><br />
+<strong>Обратные ссылки</strong> позволяют повторно использовать содержимое ранее захваченной группы.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>\</strong><em>n</em></td>
+<td style="width:85%">Ссылка на предыдущую захватывающую группу по абсолютному номеру. ВНИМАНИЕ: если группа с номером <em>n</em> не существует, вычисляется как символ со значением <em>n</em> (при условии, что <em>n</em> является допустимым восьмеричным значением), иначе возникает ошибка.<br />
+В силу этой неоднозначности данная форма не рекомендуется. Предпочитайте следующие формы для однозначной семантики.</td>
+</tr>
+<tr>
+<td><strong>\g</strong><em>n</em></td>
+<td>Ссылка на предыдущую захватывающую группу по абсолютному номеру.</td>
+</tr>
+<tr>
+<td><strong>\g{</strong><em>n</em><strong>}</strong></td>
+<td>Ссылка на предыдущую захватывающую группу по абсолютному номеру. Аналогично предыдущему, но явно обозначает конец <em>n</em>: полезно, когда следующий символ (символы) является цифрой.</td>
+</tr>
+<tr>
+<td><strong>\g-</strong><em>n</em></td>
+<td>Ссылка на предыдущую захватывающую группу по относительному номеру.</td>
+</tr>
+<tr>
+<td><strong>\k&lt;</strong><em>name</em><strong>&gt;</strong></td>
+<td>Ссылка на предыдущую захватывающую группу по имени.</td>
+</tr>
+</table><br />
+<strong>Ссылки на подпрограммы</strong><br />
+<br />
+Захватывающие группы – это подшаблоны, которые можно вызывать (возможно, рекурсивно) точно так же, как подпрограммы в языке программирования. Подшаблон просто перезапускается в текущей точке сопоставления. Подробнее с примерами – в справочной документации.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>(?R)</strong> or <strong>(?0)</strong></td>
+<td style="width:85%">Рекурсивный вызов всего регулярного выражения.</td>
+</tr>
+<tr>
+<td><strong>(?</strong><em>n</em><strong>)</strong></td>
+<td>Вызов подшаблона по абсолютному номеру.</td>
+</tr>
+<tr>
+<td><strong>(?+</strong><em>n</em><strong>)</strong></td>
+<td>Вызов подшаблона по относительному номеру.</td>
+</tr>
+<tr>
+<td><strong>(?-</strong><em>n</em><strong>)</strong></td>
+<td>Вызов подшаблона по относительному номеру.</td>
+</tr>
+<tr>
+<td><strong>(?&amp;</strong><em>name</em><strong>)</strong></td>
+<td>Вызов подшаблона по имени.</td>
+</tr>
+</table><br />
+Якоря и утверждения – это проверки, которые не изменяют позицию сопоставления и потому не потребляют и не захватывают ничего.<br />
+<br />
+<strong>Якоря</strong> проверяют позицию текущей точки сопоставления.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>^</strong></td>
+<td style="width:85%">Вне класса символов знак "крышка" соответствует началу исходного текста, а также позиции сразу после не последней последовательности новой строки, если активна опция <strong>(?m)</strong>. По умолчанию последовательность новой строки – <span class="S61">@CRLF</span>.<br />
+Внутри класса символов начальный <strong>^</strong> инвертирует класс (исключает перечисленные символы).</td>
+</tr>
+<tr>
+<td><strong>$</strong></td>
+<td>Вне класса символов знак доллара соответствует концу исходного текста, а также позиции непосредственно перед последовательностью новой строки, если активна опция <strong>(?m)</strong>.<br />
+Внутри класса символов <strong>$</strong> означает сам себя – знак доллара.</td>
+</tr>
+<tr>
+<td><strong>\A</strong></td>
+<td>Соответствует только абсолютному началу исходной строки, независимо от многострочной опции <strong>(?m)</strong>. Никогда не совпадёт, если offset не равен 1.</td>
+</tr>
+<tr>
+<td><strong>\G</strong></td>
+<td>Соответствует, когда текущая позиция является первой позицией совпадения в исходной строке.</td>
+</tr>
+<tr>
+<td><strong>\z</strong></td>
+<td>Соответствует только концу исходной строки, независимо от многострочной опции <strong>(?m)</strong>.</td>
+</tr>
+<tr>
+<td><strong>\Z</strong></td>
+<td>Соответствует только концу исходной строки или позиции перед последовательностью новой строки в конце, независимо от многострочной опции <strong>(?m)</strong>.</td>
+</tr>
+</table><br />
+<strong>Утверждения</strong> проверяют символы перед (просмотр назад), в позиции (граница слова) или после (просмотр вперёд) текущей точки сопоставления.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>\b</strong></td>
+<td style="width:85%">Соответствует "границе слова" – позиции между символами, где один является <strong>\w</strong>, а другой – <strong>\W</strong>. Значение "слова" см. в описании <strong>\w</strong>. Внутри класса символов <strong>\b</strong> означает символ забоя (<a class="le" href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>8<span class="S8">)</span>).</td>
+</tr>
+<tr>
+<td><strong>\B</strong></td>
+<td>Соответствует позиции, не являющейся границей слова.</td>
+</tr>
+<tr>
+<td><strong>(?=</strong><em>X</em><strong>)</strong></td>
+<td>Положительный просмотр вперёд: соответствует, когда подшаблон <em>X</em> совпадает, начиная с текущей позиции.</td>
+</tr>
+<tr>
+<td><strong>(?!</strong><em>X</em><strong>)</strong></td>
+<td>Отрицательный просмотр вперёд: соответствует, когда подшаблон <em>X</em> не совпадает, начиная с текущей позиции.</td>
+</tr>
+<tr>
+<td><strong>(?&lt;=</strong><em>X</em><strong>)</strong></td>
+<td>Положительный просмотр назад: соответствует, когда подшаблон <em>X</em> совпадает с символами, предшествующими текущей позиции. Шаблон <em>X</em> должен соответствовать строке фиксированной длины, то есть не может использовать неопределённые квантификаторы <strong>* + или ?</strong>.</td>
+</tr>
+<tr>
+<td><strong>(?&lt;!</strong><em>X</em><strong>)</strong></td>
+<td>Отрицательный просмотр назад: соответствует, когда подшаблон <em>X</em> не совпадает с символами, предшествующими текущей позиции. Шаблон <em>X</em> должен соответствовать строке фиксированной длины, то есть не может использовать неопределённые квантификаторы <strong>* + или ?</strong>.</td>
+</tr>
+</table><br />
+Существуют ситуации, когда необходимо "забыть" о том, что уже было сопоставлено, чтобы далее совпасть с более значимыми данными в исходной строке.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>\K</strong></td>
+<td style="width:85%">Сбрасывает начало совпадения на текущую позицию в исходной строке. Обратите внимание: уже захваченные группы остаются нетронутыми и по-прежнему заполняют возвращаемый массив; на них всегда можно сослаться позже. Действие <strong>\K</strong> похоже, но не идентично просмотру назад: <strong>\K</strong> может работать с альтернативами переменной длины.</td>
+</tr>
+</table><br />
+Эти конструкции аналогичны блокам <strong><em>If...EndIf</em></strong> и <strong><em>If...Else...EndIf</em></strong>.<br />
+<table>
+<tr>
+<td style="width:15%"><strong>(?</strong><em>(condition)yes-pattern</em><strong>)</strong></td>
+<td style="width:85%">Допускает условное выполнение шаблона.</td>
+</tr>
+<tr>
+<td><strong>(?</strong><em>(condition)yes-pattern</em><strong>|</strong><em>no-pattern</em><strong>)</strong></td>
+<td>Выбирает один из двух шаблонов в зависимости от результата <em>(condition)</em>.</td>
+</tr>
+</table><table>
+<tr>
+<td style="width:15%"><strong>(</strong><em>n</em><strong>)</strong></td>
+<td style="width:85%">Проверяет, совпала ли захватывающая группа с абсолютным номером <em>n</em>.</td>
+</tr>
+<tr>
+<td><strong>(+</strong><em>n</em><strong>)</strong></td>
+<td>Проверяет, совпала ли захватывающая группа с относительным номером <em>+n</em>.</td>
+</tr>
+<tr>
+<td><strong>(-</strong><em>n</em><strong>)</strong></td>
+<td>Проверяет, совпала ли захватывающая группа с относительным номером <em>-n</em>.</td>
+</tr>
+<tr>
+<td><strong>(&lt;</strong><em>name</em><strong>&gt;)</strong></td>
+<td>Проверяет, совпала ли захватывающая группа с именем <em>name</em>.</td>
+</tr>
+<tr>
+<td><strong>(R)</strong></td>
+<td>Проверяет, произошла ли рекурсия любого вида.</td>
+</tr>
+<tr>
+<td><strong>(R</strong><em>n</em><strong>)</strong></td>
+<td>Проверяет, была ли последняя рекурсия для захватывающей группы с абсолютным номером <em>n</em>.</td>
+</tr>
+<tr>
+<td><strong>(R&amp;</strong><em>name</em><strong>)</strong></td>
+<td>Проверяет, была ли последняя рекурсия для захватывающей группы с именем <em>name</em>.</td>
+</tr>
+<tr>
+<td><strong>(DEFINE)</strong></td>
+<td>Используется без <em>no-pattern</em>: позволяет определить подпрограмму, вызываемую из других мест. "(?x) (?(DEFINE) (?&lt;byte&gt; 2[0-4]\d | 25[0-5] | 1\d\d | [1-9]?\d) )" определяет подпрограмму "byte", соответствующую любому компоненту IPv4-адреса. Фактический адрес затем можно сопоставить с помощью "\b (?&amp;byte) (\.(?&amp;byte)){3} \b".</td>
+</tr>
+<tr>
+<td><strong>(</strong><em>assertion</em><strong>)</strong></td>
+<td>Здесь <em>assertion</em> – одно из положительных или отрицательных, прямых или обратных утверждений.</td>
+</tr>
+</table><br />
+Эти опции, escape-последовательности и конструкции лишь упомянуты здесь; подробнее о том, почему, когда и как их использовать – в справочной документации.<br />
+<br />
+<strong>Нестандартные настройки и опции</strong><br />
+<table>
+<tr>
+<td style="width:15%"><strong>(?J)</strong></td>
+<td style="width:85%">Разрешает дублирование имён групп или подпрограмм (подробнее здесь не рассматривается).</td>
+</tr>
+<tr>
+<td><strong>(?X)</strong></td>
+<td>Заставляет некоторые последовательности вне контекста вызывать ошибку вместо того, чтобы быть безвредными.</td>
+</tr>
+<tr>
+<td><strong>(*J)</strong></td>
+<td>Включает совместимость с Javascript (подробнее здесь не рассматривается).</td>
+</tr>
+<tr>
+<td><strong>(*LIMIT_MATCH=</strong><em>n</em><strong>)</strong></td>
+<td>Ограничивает количество совпадений значением <em>n</em>.</td>
+</tr>
+<tr>
+<td><strong>(*LIMIT_RECURSION=</strong><em>n</em><strong>)</strong></td>
+<td>Ограничивает рекурсию до <em>n</em> уровней.</td>
+</tr>
+<tr>
+<td><strong>(*NO_START_OPT)</strong></td>
+<td>Отключает ряд оптимизаций (подробнее здесь не рассматривается).</td>
+</tr>
+</table><br />
+<strong>Управление откатом</strong><br />
+<table>
+<tr>
+<td style="width:15%"><strong>(*ACCEPT)</strong></td>
+<td style="width:85%">Принудительно завершает сопоставление успехом в текущей подпрограмме или шаблоне верхнего уровня.</td>
+</tr>
+<tr>
+<td><strong>(*FAIL)</strong> or <strong>(*F)</strong></td>
+<td>Принудительно завершает сопоставление неудачей.</td>
+</tr>
+<tr>
+<td><strong>(*MARK:</strong><em>name</em><strong>)</strong> or <strong>(*:</strong><em>name</em><strong>)</strong></td>
+<td><em>(См. справочную документацию.)</em></td>
+</tr>
+<tr>
+<td><strong>(*COMMIT)</strong></td>
+<td><em>(См. справочную документацию.)</em></td>
+</tr>
+<tr>
+<td><strong>(*PRUNE)</strong></td>
+<td><em>(См. справочную документацию.)</em></td>
+</tr>
+<tr>
+<td><strong>(*PRUNE:</strong><em>name</em><strong>)</strong></td>
+<td><em>(См. справочную документацию.)</em></td>
+</tr>
+<tr>
+<td><strong>(*SKIP)</strong></td>
+<td><em>(См. справочную документацию.)</em></td>
+</tr>
+<tr>
+<td><strong>(*SKIP:</strong><em>name</em><strong>)</strong></td>
+<td><em>(См. справочную документацию.)</em></td>
+</tr>
+<tr>
+<td><strong>(*THEN)</strong></td>
+<td><em>(См. справочную документацию.)</em></td>
+</tr>
+<tr>
+<td><strong>(*THEN:</strong><em>name</em><strong>)</strong></td>
+<td><em>(См. справочную документацию.)</em></td>
+</tr>
+</table><br />
+&nbsp;&nbsp;&nbsp; 1. При активном UCP учёт регистра при сопоставлении применяется ко всему Unicode plane 0. Существует также небольшое количество отображений "многие-к-одному" в Unicode, например строчная буква греческого сигма; они поддерживаются PCRE при включённом UCP.<br />
+<br />
+&nbsp;&nbsp;&nbsp; 2. Для совместимости с Perl, Ruby, Python, JavaScript, .NET и другими движками существуют альтернативные формы ряда escape-последовательностей. Не используйте конструкции, не указанные здесь: некоторые просто не будут работать, некоторые дадут неверные результаты, некоторые могут вызвать серьёзные проблемы или привести к сбою.<br />
+<br />
+&nbsp;&nbsp;&nbsp; 3. Соглашение о символах новой строки по умолчанию – неразрывная последовательность <span class="S61">@CRLF</span> или отдельный <span class="S61">@CR</span> или <span class="S61">@LF</span>. Аналогично \R соответствует тому же набору. Знайте свои данные! Если вы знаете, что в ваших исходных строках <span class="S61">@LF</span> или <span class="S61">@CR</span> используются не для обозначения новой строки, возможно, потребуется изменить соглашение о символах новой строки и/или поведение \R (см. "Настройки").<br />
+<br />
+См. также руководство по <a href="../tutorials/regexp/regexp.htm">регулярным выражениям</a>, в котором можно запустить скрипт для тестирования шаблонов.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="StringInStr.htm">StringInStr</a>, <a href="StringRegExpReplace.htm">StringRegExpReplace</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Option 1, using offset parameter</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Вариант 1, использование параметра смещения</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StringConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOffset</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iOffsetStart</span><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOffsetStart</span> <span class="S8">=</span> <span class="S9">$iOffset</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">'&lt;test&gt;a&lt;/test&gt; &lt;test&gt;b&lt;/test&gt; &lt;test&gt;c&lt;/Test&gt;'</span><span class="S8">,</span> <span class="S7">'(?i)&lt;test&gt;(.*?)&lt;/test&gt;'</span><span class="S8">,</span> <span class="S9">$STR_REGEXPARRAYMATCH</span><span class="S8">,</span> <span class="S9">$iOffset</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOffset</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Opt 1 at "</span> <span class="S8">&amp;</span> <span class="S9">$iOffsetStart</span><span class="S8">,</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\StringRegExp.au3,"></object>
+
+<h3>Option 2, single return, php/preg_match() style</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Option 2, single return, php/preg_match() style
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StringConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOffset</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iOffsetStart</span><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOffsetStart</span> <span class="S8">=</span> <span class="S9">$iOffset</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">'&lt;test&gt;a&lt;/test&gt; &lt;test&gt;b&lt;/test&gt; &lt;test&gt;c&lt;/Test&gt;'</span><span class="S8">,</span> <span class="S7">'(?i)&lt;test&gt;(.*?)&lt;/test&gt;'</span><span class="S8">,</span> <span class="S9">$STR_REGEXPARRAYFULLMATCH</span><span class="S8">,</span> <span class="S9">$iOffset</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOffset</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">Step</span></a> <span class="S3">2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Option 2 at "</span> <span class="S8">&amp;</span> <span class="S9">$iOffsetStart</span><span class="S8">,</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"captured = "</span> <span class="S8">&amp;</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S9">$i</span> <span class="S8">+</span> <span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\StringRegExp[2].au3,"></object>
+
+<h3>Option 3, global return, old AutoIt style</h3>
+<p id="copytext3" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl3');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext3');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Вариант 3, глобальный возврат, старый стиль AutoIt</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StringConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">'&lt;test&gt;a&lt;/test&gt; &lt;test&gt;b&lt;/test&gt; &lt;test&gt;c&lt;/Test&gt;'</span><span class="S8">,</span> <span class="S7">'(?i)&lt;test&gt;(.*?)&lt;/test&gt;'</span><span class="S8">,</span> <span class="S9">$STR_REGEXPARRAYGLOBALMATCH</span><span class="S8">)</span><br>
+<span class="S2">#cs
+</span><span class="S2"></span><br>
+<span class="S2">	1st Capturing Group (.*?)
+</span><br>
+<span class="S2">	. matches any character (except for line terminators)
+</span><br>
+<span class="S2">	*? matches the previous token between zero and unlimited times, as few times as possible,
+</span><br>
+<span class="S2">	expanding as needed (lazy)
+</span><br>
+<span class="S2">#ce
+</span><br>
+<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Option 3 Results"</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl3" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\StringRegExp[3].au3,"></object>
+
+<h3>Option 4, global return, php/preg_match_all() style</h3>
+<p id="copytext4" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl4');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext4');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Option 4, global return, php/preg_match_all() style
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StringConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S7">'F1oF2oF3o'</span><span class="S8">,</span> <span class="S7">'(F.o)*?'</span><span class="S8">,</span> <span class="S9">$STR_REGEXPARRAYGLOBALFULLMATCH</span><span class="S8">)</span><br>
+<span class="S2">#cs
+</span><span class="S2"></span><br>
+<span class="S2">	1st Capturing Group (F.o)*?
+</span><br>
+<span class="S2">	*? matches the previous token between zero and unlimited times, as few times as possible, expanding as needed (lazy)
+</span><br>
+<span class="S2">#ce
+</span><br>
+<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Opt - 4 Results"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aMatch</span> <span class="S8">=</span> <span class="S3">0</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aMatch</span> <span class="S8">=</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aMatch</span><span class="S8">)</span> <span class="S8">&gt;</span> <span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aMatch</span><span class="S8">,</span> <span class="S7">"Array #"</span> <span class="S8">&amp;</span> <span class="S9">$i</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Array #"</span> <span class="S8">&amp;</span> <span class="S9">$i</span><span class="S8">,</span> <span class="S7">"'"</span> <span class="S8">&amp;</span> <span class="S9">$aMatch</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">"' StringLen = "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringLen.htm"><span class="S4">StringLen</span></a><span class="S8">(</span><a class="le" href="../functions/StringLen.htm"><span class="S4">StringLen</span></a><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+</p>
+<object id="hhctrl4" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\StringRegExp[4].au3,"></object>
+
+<h3>Option 4, global return, php/preg_match_all() style</h3>
+<p id="copytext5" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl5');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext5');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Option 4, global return, php/preg_match_all() style
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StringConstants.au3&gt;</span><br>
+<br>
+<span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sHTML</span> <span class="S8">=</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'&lt;select id="OptionToChoose"&gt;'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'	&lt;option value="" selected="selected"&gt;Choose option&lt;/option&gt;'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'	&lt;option value="1"&gt;Sun&lt;/option&gt;'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'	&lt;option value="2"&gt;Earth&lt;/option&gt;'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'	&lt;option value="3"&gt;Moon&lt;/option&gt;'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'&lt;/select&gt;'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">''</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aOuter</span> <span class="S8">=</span> <a class="le" href="../functions/StringRegExp.htm"><span class="S4">StringRegExp</span></a><span class="S8">(</span><span class="S9">$sHTML</span><span class="S8">,</span> <span class="S7">'(?is)(&lt;option value="(.*?)"( selected="selected"|.*?)&gt;(.*?)&lt;/option&gt;)'</span><span class="S8">,</span> <span class="S9">$STR_REGEXPARRAYGLOBALFULLMATCH</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aOuter</span><span class="S8">,</span> <span class="S7">'$aOuter'</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aInner</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$IDX_Out</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aOuter</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aInner</span> <span class="S8">=</span> <span class="S9">$aOuter</span><span class="S8">[</span><span class="S9">$IDX_Out</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aInner</span><span class="S8">,</span> <span class="S7">'$aInner = $aOuter[$IDX_Out] ... $IDX_Out = '</span> <span class="S8">&amp;</span> <span class="S9">$IDX_Out</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_Example
+</span><br>
+</p>
+<object id="hhctrl5" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\StringRegExp[5].au3,"></object>
+</body>
+</html>

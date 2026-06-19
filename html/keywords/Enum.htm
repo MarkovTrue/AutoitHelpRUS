@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово Enum</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>Enum</h1>
+<p class="funcdesc">Перечисляет константы.</p>
+<p class="codeheader"><span class="S8">[</span><span class="S8">&lt;</span><span class="S0">em</span><span class="S8">&gt;</span><span class="S0">scope</span><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">em</span><span class="S8">&gt;</span><span class="S8">]</span> <span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/Enum.htm"><span class="S5">Enum</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">[</span><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/For.htm"><span class="S5">Step</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S8">&lt;</span><span class="S0">stepval</span><span class="S8">&gt;</span><span class="S8">]</span> <span class="S8">&lt;</span><span class="S0">constantlist</span><span class="S8">&gt;</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">scope</td>
+<td style="width:85%"><strong>[необязательный]</strong> Область видимости, в которую должна быть помещена Enum: Local, Global, Dim или нет. Если нет, используется поведение Dim.</td>
+</tr>
+<tr>
+<td>stepval</td>
+<td><strong>[необязательный]</strong> По умолчанию шаг – добавить 1. Другие возможные методы шага: *n, +n, -n где n – целое число.</td>
+</tr>
+<tr>
+<td>constantlist</td>
+<td>Список констант для перечисления.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>По умолчанию первая константа будет 0 и остальные будут увеличены на 1 с того места.<br />
+При использовании оператора умножения для шага первой константе будет присвоено 1 и остальные будут умножены на основе предыдущего значения константы.<br />
+Константы могут быть явно присвоены любой действительной инструкцией.<br />
+<br />
+Enums можно использовать как "легко читаемые" значения индекса для массива – см. пример 2 ниже.<br />
+</p>
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эти переменные будут перечислены от 0 до 2.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Enum.htm"><span class="S5">Enum</span></a> <span class="S9">$eVar1</span><span class="S8">,</span> <span class="S9">$eVar2</span><span class="S8">,</span> <span class="S9">$eVar3</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"$eVar1 is equal to (0): "</span> <span class="S8">&amp;</span> <span class="S9">$eVar1</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$eVar2 is equal to (1): "</span> <span class="S8">&amp;</span> <span class="S9">$eVar2</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$eVar3 is equal to (2): "</span> <span class="S8">&amp;</span> <span class="S9">$eVar3</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эти переменные будут перечислены от 1 до 2, а затем $eVariant3 устанавливается на 5, что продолжит
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; увеличение на 1.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Enum.htm"><span class="S5">Enum</span></a> <span class="S9">$eVariant1</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$eVariant2</span><span class="S8">,</span> <span class="S9">$eVariant3</span> <span class="S8">=</span> <span class="S3">5</span><span class="S8">,</span> <span class="S9">$eVariant4</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"$eVariant1 is equal to (1): "</span> <span class="S8">&amp;</span> <span class="S9">$eVariant1</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$eVariant2 is equal to (2): "</span> <span class="S8">&amp;</span> <span class="S9">$eVariant2</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$eVariant3 is equal to (5): "</span> <span class="S8">&amp;</span> <span class="S9">$eVariant3</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$eVariant3 is equal to (6): "</span> <span class="S8">&amp;</span> <span class="S9">$eVariant4</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Умножить каждое перечисление на 2.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Enum.htm"><span class="S5">Enum</span></a> <a class="le" href="../keywords/For.htm"><span class="S5">Step</span></a> <span class="S8">*</span><span class="S3">2</span> <span class="S9">$eFoo1</span><span class="S8">,</span> <span class="S9">$eFoo2</span><span class="S8">,</span> <span class="S9">$eFoo3</span><span class="S8">,</span> <span class="S9">$eFoo4</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"$eFoo1 is equal to (1): "</span> <span class="S8">&amp;</span> <span class="S9">$eFoo1</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$eFoo2 is equal to (2): "</span> <span class="S8">&amp;</span> <span class="S9">$eFoo2</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$eFoo3 is equal to (4): "</span> <span class="S8">&amp;</span> <span class="S9">$eFoo3</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$eFoo3 is equal to (8): "</span> <span class="S8">&amp;</span> <span class="S9">$eFoo4</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\Enum.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать переменные в локальной области видимости и перечислить через переменные. По умолчанию начинать с 0.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Enum.htm"><span class="S5">Enum</span></a> <span class="S9">$eCat</span><span class="S8">,</span> <span class="S9">$eDog</span><span class="S8">,</span> <span class="S9">$eMouse</span><span class="S8">,</span> <span class="S9">$eHamster</span>&nbsp;<span class="S1">; $eHamster равна значению 3, а не 4.
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать массив в локальной области видимости с 4 элементами.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить каждому элементу массива имя соответствующего животного. Например, кота зовут Jasper.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S9">$eCat</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'Jasper'</span>&nbsp;<span class="S1">; $eCat равна 0, как при использовании $aAnimalNames[0]
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S9">$eDog</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'Beethoven'</span>&nbsp;<span class="S1">; $eDog равна 1, как при использовании $aAnimalNames[1]
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S9">$eMouse</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'Pinky'</span>&nbsp;<span class="S1">; $eMouse равна 2, как при использовании $aAnimalNames[2]
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S9">$eHamster</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'Fidget'</span>&nbsp;<span class="S1">; $eHamster равна 3, как при использовании $aAnimalNames[3]
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вывести значения массива.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">''</span><span class="S8">,</span> <span class="S7">'$aAnimalNames[$eCat] = '</span> <span class="S8">&amp;</span> <span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S9">$eCat</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'$aAnimalNames[$eDog] = '</span> <span class="S8">&amp;</span> <span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S9">$eDog</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'$aAnimalNames[$eMouse] = '</span> <span class="S8">&amp;</span> <span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S9">$eMouse</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'$aAnimalNames[$eHamster] = '</span> <span class="S8">&amp;</span> <span class="S9">$aAnimalNames</span><span class="S8">[</span><span class="S9">$eHamster</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Иногда использование такого подхода для доступа к элементу более практично, чем использование численного значения, из-за того, что изменение значения индекса
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; константы enum не влияет на её положение в массиве. Поэтому изменение расположения $eCat в массиве так же просто, как изменение порядка
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; её появления в начальном объявлении, например:
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Local Enum $eDog, $eMouse, $eCat, $eHamster
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Теперь $eCat является вторым элементом массива. Если бы вы использовали числовые значения, пришлось бы вручную изменить все ссылки $aAnimalNames[0] на
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $aAnimalNames[2], а также для других элементов, которые теперь сместились.
+</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\Enum[2].au3,"></object>
+</body>
+</html>

@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GDIPlus_ParamAdd</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GDIPlus_ParamAdd</h1>
+<p class="funcdesc">Добавляет значение в список параметров кодировщика.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GDIPlus_ParamAdd.htm"><span class="S15">_GDIPlus_ParamAdd</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$tParams</span><span class="S8">,</span> <span class="S9">$sGUID</span><span class="S8">,</span> <span class="S9">$iNbOfValues</span><span class="S8">,</span> <span class="S9">$iType</span><span class="S8">,</span> <span class="S9">$pValues</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$tParams</span></td>
+<td style="width:85%">Структура <span class="S91">$tagGDIPENCODERPARAMS</span>, возвращённая функцией <a href="_GDIPlus_ParamInit.htm"><span class="S15">_GDIPlus_ParamInit</span><span class="S8">()</span></a>.</td>
+</tr>
+<tr>
+<td><span class="S91">$sGUID</span></td>
+<td>GUID параметра кодировщика. Допустимые значения:<br />
+<span class="S91">$GDIP_EPGCHROMINANCETABLE</span> – таблица цветности<br />
+<span class="S91">$GDIP_EPGCOLORDEPTH</span> – глубина цвета<br />
+<span class="S91">$GDIP_EPGCOMPRESSION</span> – сжатие<br />
+<span class="S91">$GDIP_EPGLUMINANCETABLE</span> – таблица яркости<br />
+<span class="S91">$GDIP_EPGQUALITY</span> – качество<br />
+<span class="S91">$GDIP_EPGRENDERMETHOD</span> – метод отрисовки<br />
+<span class="S91">$GDIP_EPGSAVEFLAG</span> – флаг сохранения<br />
+<span class="S91">$GDIP_EPGSCANMETHOD</span> – режим сканирования<br />
+<span class="S91">$GDIP_EPGTRANSFORMATION</span> – преобразование<br />
+<span class="S91">$GDIP_EPGVERSION</span> – версия программы.</td>
+</tr>
+<tr>
+<td><span class="S91">$iNbOfValues</span></td>
+<td>Количество элементов в массиве <span class="S91">$pValues</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iType</span></td>
+<td>Тип значения параметра кодировщика. Допустимые значения:<br />
+<span class="S91">$GDIP_EPTBYTE</span> – 8-битное целое без знака<br />
+<span class="S91">$GDIP_EPTASCII</span> – строка с нулевым завершением<br />
+<span class="S91">$GDIP_EPTSHORT</span> – 16-битное целое без знака<br />
+<span class="S91">$GDIP_EPTLONG</span> – 32-битное целое без знака<br />
+<span class="S91">$GDIP_EPTRATIONAL</span> – два long (числитель, знаменатель)<br />
+<span class="S91">$GDIP_EPTLONGRANGE</span> – два long (минимум, максимум)<br />
+<span class="S91">$GDIP_EPTUNDEFINED</span> – массив байт произвольного типа<br />
+<span class="S91">$GDIP_EPTRATIONALRANGE</span> – два long (минимум, максимум).</td>
+</tr>
+<tr>
+<td><span class="S91">$pValues</span></td>
+<td>Указатель на массив значений. Тип каждого значения определяется параметром <span class="S91">$iType</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Отсутствует.<br />
+
+
+<h2>См. также</h2>
+<p><a href="$tagGDIPENCODERPARAMS.htm">$tagGDIPENCODERPARAMS</a>, <a href="_GDIPlus_ParamInit.htm">_GDIPlus_ParamInit</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;ScreenCapture.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hImage</span><span class="S8">,</span> <span class="S9">$sCLSID</span><span class="S8">,</span> <span class="S9">$tData</span><span class="S8">,</span> <span class="S9">$tParams</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Захватить экран</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ScreenCapture_Capture.htm"><span class="S15">_ScreenCapture_Capture</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@MyDocumentsDir"><span class="S6">@MyDocumentsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\GDIPlus_Image.jpg"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Инициализировать библиотеку GDI+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить изображение</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hImage</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageLoadFromFile.htm"><span class="S15">_GDIPlus_ImageLoadFromFile</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@MyDocumentsDir"><span class="S6">@MyDocumentsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\GDIPlus_Image.jpg"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить CLSID JPEG-кодера</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sCLSID</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_EncodersGetCLSID.htm"><span class="S15">_GDIPlus_EncodersGetCLSID</span></a><span class="S8">(</span><span class="S7">"JPG"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить параметры поворота на 90 градусов</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tData</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"int Data"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">"Data"</span><span class="S8">,</span> <span class="S9">$GDIP_EVTTRANSFORMROTATE90</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tParams</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ParamInit.htm"><span class="S15">_GDIPlus_ParamInit</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ParamAdd.htm"><span class="S15">_GDIPlus_ParamAdd</span></a><span class="S8">(</span><span class="S9">$tParams</span><span class="S8">,</span> <span class="S9">$GDIP_EPGTRANSFORMATION</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$GDIP_EPTLONG</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">"Data"</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сохранить изображение с поворотом</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageSaveToFileEx.htm"><span class="S15">_GDIPlus_ImageSaveToFileEx</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">,</span> <a class="le" href="../macros.htm#@MyDocumentsDir"><span class="S6">@MyDocumentsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\GDIPlus_Image2.jpg"</span><span class="S8">,</span> <span class="S9">$sCLSID</span><span class="S8">,</span> <span class="S9">$tParams</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Завершить работу с библиотекой GDI+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@MyDocumentsDir"><span class="S6">@MyDocumentsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\GDIPlus_Image2.jpg"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GDIPlus_ImageSaveToFileEx.au3,"></object>
+</body>
+</html>

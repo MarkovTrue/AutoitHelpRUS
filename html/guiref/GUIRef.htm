@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Концепция GUI</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+  <style type="text/css">
+span.c1 {text-decoration: underline}
+  </style>
+</head>
+<body>
+  <h1>Концепция GUI</h1>
+  <p>AutoIt позволяет создавать простые графические интерфейсы пользователя (GUI), состоящие из окон и контролов.</p>
+  <h2>Основные понятия GUI</h2>
+  <p>GUI состоит из одного или нескольких <em>окон</em>, и каждое окно содержит один или несколько <em>контролов</em>. GUI работают по принципу "событий" – вы реагируете на события, например на щелчок по кнопке. Большую часть времени скрипт простаивает в ожидании события – это немного отличается от обычного скрипта, где вы сами управляете тем, что и когда происходит! Представьте, что вы ждёте у двери почтальона: сидите, пока в почтовый ящик не упадёт письмо, после чего смотрите, что пришло, и решаете, что с ним делать. Именно так работают GUI – вы ждёте, пока к вам придёт "почтальон".</p>
+  <p>Конечно, во время работы GUI можно выполнять и другие задачи – например, использовать функции GUI для создания подробного окна прогресса, которое обновляется во время сложных действий скрипта.</p>
+  <h2>Контролы GUI</h2>
+  <p>Все пользователи знакомы с контролами – всё, на что вы щёлкаете или с чем взаимодействуете в окне, является каким-либо контролом. Ниже перечислены типы контролов, которые можно создать в AutoIt – большинство из них вам встречалось в других программах для Windows.</p>
+  <table class="noborder">
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Label</li>
+        </ul>
+      </td>
+      <td>Простой текст.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Button</li>
+        </ul>
+      </td>
+      <td>Простая кнопка.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Input</li>
+        </ul>
+      </td>
+      <td>Однострочное поле для ввода текста.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Edit</li>
+        </ul>
+      </td>
+      <td>Многострочное поле для ввода текста.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Checkbox</li>
+        </ul>
+      </td>
+      <td>Флажок, который можно "установить" или "снять".</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Radio</li>
+        </ul>
+      </td>
+      <td>Набор круглых переключателей – активным может быть только один.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Combo</li>
+        </ul>
+      </td>
+      <td>Список с выпадающим окном.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>List</li>
+        </ul>
+      </td>
+      <td>Список.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Date</li>
+        </ul>
+      </td>
+      <td>Выбор даты.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Pic</li>
+        </ul>
+      </td>
+      <td>Изображение.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Icon</li>
+        </ul>
+      </td>
+      <td>Значок.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Progress</li>
+        </ul>
+      </td>
+      <td>Полоса прогресса.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Tab</li>
+        </ul>
+      </td>
+      <td>Группа контролов, размещённых на вкладках.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>UpDown</li>
+        </ul>
+      </td>
+      <td>Контрол, который можно добавить к контролам ввода.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Avi</li>
+        </ul>
+      </td>
+      <td>Отображение клипа в формате AVI.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Menu</li>
+        </ul>
+      </td>
+      <td>Меню в верхней части окна.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>ContextMenu</li>
+        </ul>
+      </td>
+      <td>Меню, появляющееся при щелчке правой кнопкой мыши внутри окна.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>TreeView</li>
+        </ul>
+      </td>
+      <td>Контрол, похожий на проводник Windows.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Slider</li>
+        </ul>
+      </td>
+      <td>Контрол, похожий на регулятор громкости Windows.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>ListView</li>
+        </ul>
+      </td>
+      <td>Контрол, отображающий информацию по столбцам.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>ListViewItem</li>
+        </ul>
+      </td>
+      <td>Контрол, отображающий элемент в контроле listview.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Graphic</li>
+        </ul>
+      </td>
+      <td>Контрол, отображающий графику, нарисованную через GUICtrlSetGraphic.</td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="cell">
+          <li>Dummy</li>
+        </ul>
+      </td>
+      <td>Фиктивный пользовательский контрол.</td>
+    </tr>
+  </table><br />
+  <p>Ниже приведён пример GUI с одним окном, в котором есть многие из доступных контролов. Как видите, можно создавать весьма детальные интерфейсы!</p>
+  <p><img src="../images/SampleGuiScreenshot.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Контролы создаются набором функций <a href="../functions/GUICtrlCreate%20Management.htm">GUICtrlCreate...</a>. При создании контрола возвращается <strong>идентификатор контрола</strong> (Control ID). Самое важное, что нужно знать про идентификатор контрола:</p>
+  <ul class="cell">
+    <li>Идентификатор контрола – положительное число (то есть число больше 0).</li>
+    <li>Каждый идентификатор контрола уникален – даже при наличии нескольких окон.</li>
+    <li>Идентификатор контрола фактически совпадает со значением Control ID, которое показывает <a href="../intro/au3spy.htm">AutoIt Window Info Tool</a>.</li>
+  </ul>
+  <h2>Основные функции GUI</h2>
+  <p>Это основные функции, которые понадобятся для создания GUI. Это лишь азы – их гораздо больше, когда вы будете готовы создавать действительно сложные интерфейсы.</p>
+  <table>
+    <tr>
+      <th>Функция</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICreate.htm">GUICreate</a></td>
+      <td>Создать окно.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICtrlCreate%20Management.htm">GUICtrlCreate...</a></td>
+      <td>Создать различные контролы в окне.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUISetState.htm">GUISetState</a></td>
+      <td>Показать или скрыть окно.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUIGetMsg.htm">GUIGetMsg</a></td>
+      <td>Опросить GUI на предмет произошедшего события (только в режиме MessageLoop).</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICtrlRead.htm">GUICtrlRead</a></td>
+      <td>Прочитать данные контрола.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICtrlSetData.htm">GUICtrlSetData</a></td>
+      <td>Установить или изменить данные контрола.</td>
+    </tr>
+    <tr>
+      <td><a href="../functions/GUICtrlUpdate%20Management.htm">GUICtrlUpdate...</a></td>
+      <td>Изменить различные параметры контрола (цвет, стиль и т. п.).</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>Понадобится <span class="S111">#include</span> &lt;<span class="S7">GUIConstantsEx.au3</span>&gt; для базовых констант, связанных с GUI. Существуют <a href="GUIConstants.htm">другие файлы</a> с константами, относящимися к различным контролам, которые можно создавать в GUI.</p>
+  <p>&nbsp;</p>
+  <p>Сначала создадим окно, назовём его "Hello World" и зададим размер 200 на 100 пикселей. Новое окно создаётся скрытым – поэтому его нужно "показать".</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">200</span><span class="S8">,</span><span class="S0"> </span><span class="S3">100</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Если запустить указанный скрипт, появится окно, которое закроется через 2 секунды. Не очень интересно... добавим текст и кнопку OK. Текст будет добавлен в позицию 30, 10, кнопка в позицию 70, 50, ширина кнопки – 60 пикселей.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">200</span><span class="S8">,</span><span class="S0"> </span><span class="S3">100</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">30</span><span class="S8">,</span><span class="S0"> </span><span class="S3">10</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">70</span><span class="S8">,</span><span class="S0"> </span><span class="S3">50</span><span class="S8">,</span><span class="S0"> </span><span class="S3">60</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Это уже неплохо, но как заставить GUI реагировать на нажатие кнопки? Здесь нужно решить, как обрабатывать события – через <strong>MessageLoop</strong> <span class="c1">или</span> через функции <strong>OnEvent</strong>.</p>
+  <h2>Режимы событий GUI</h2>
+  <p>Как упомянуто выше, есть два основных режима GUI: режим <strong>MessageLoop</strong> и режим <strong>OnEvent</strong>. Эти режимы – просто два разных способа реагировать на события GUI. Выбор режима зависит от <em>личных предпочтений</em> и отчасти от типа создаваемого GUI. Оба режима в равной мере подходят для создания любых GUI, но иногда один из них более удобен для конкретной задачи.</p>
+  <p>Режим по умолчанию – MessageLoop. Чтобы переключиться в режим OnEvent, используйте <a href="../functions/AutoItSetOption.htm#GUIOnEventMode">Opt("GUIOnEventMode", 1)</a>.</p>
+  <p>&nbsp;</p>
+  <p><strong>Режим Message-loop (по умолчанию)</strong></p>
+  <p>В режиме Message-loop скрипт большую часть времени проводит в плотном цикле. Этот цикл просто опрашивает GUI с помощью функции <a href="../functions/GUIGetMsg.htm">GUIGetMsg</a>. Когда происходит событие, возвращаемое значение функции GUIGetMsg покажет его подробности (нажата кнопка, GUI закрыт и т. д.).</p>
+  <p>В этом режиме события приходят, только пока вы активно опрашиваете GUIGetMsg, поэтому вызывать её нужно много раз в секунду, иначе GUI станет невосприимчивым.</p>
+  <p><em>Этот режим лучше всего подходит для GUI, где интерфейс "главный", и всё, что вас интересует – это ожидание пользовательских событий.</em></p>
+  <p>См. <a href="GUIRef_MessageLoopMode.htm">эту страницу</a> для более подробного описания <a href="GUIRef_MessageLoopMode.htm">режима MessageLoop</a>.</p>
+  <p>&nbsp;</p>
+  <p><strong>Режим OnEvent</strong></p>
+  <p>В режиме OnEvent вместо постоянного опроса GUI на предмет произошедших событий GUI временно приостанавливает скрипт и вызывает заранее определённую функцию для обработки события. Например, если пользователь нажимает Button1, GUI останавливает основной скрипт и вызывает заранее определённую пользовательскую функцию, обрабатывающую Button1. По завершении вызова функции основной скрипт возобновляется. Этот режим похож на работу форм в Visual Basic.</p>
+  <p><em>Этот режим лучше всего подходит для GUI, где интерфейс имеет второстепенное значение, а скрипту нужно выполнять и другие задачи помимо обслуживания GUI.</em></p>
+  <p>См. <a href="GUIRef_OnEventMode.htm">эту страницу</a> для более подробного описания <a href="GUIRef_OnEventMode.htm">режима OnEvent</a>.</p>
+</body>
+</html>

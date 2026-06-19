@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_PostMessage</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_PostMessage</h1>
+<p class="funcdesc">Помещает сообщение в очередь сообщений и затем возвращает управление.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_PostMessage.htm"><span class="S15">_WinAPI_PostMessage</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Идентифицирует окно, процедура окна которого получит сообщение.<br />
+Если этот параметр равен 0xFFFF (HWND_BROADCAST), сообщение отправляется всем окнам верхнего уровня в системе, включая отключённые или невидимые окна, перекрывающиеся окна и всплывающие окна; но сообщение не отправляется дочерним окнам.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMsg</span></td>
+<td>Задаёт сообщение для отправки.</td>
+</tr>
+<tr>
+<td><span class="S91">$wParam</span></td>
+<td>Первый параметр сообщения.</td>
+</tr>
+<tr>
+<td><span class="S91">$lParam</span></td>
+<td>Второй параметр сообщения.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=PostMessage">PostMessage</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

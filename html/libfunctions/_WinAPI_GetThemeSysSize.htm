@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetThemeSysSize</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetThemeSysSize</h1>
+<p class="funcdesc">Получает значение системной метрики размера из данных темы.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPITheme.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetThemeSysSize.htm"><span class="S15">_WinAPI_GetThemeSysSize</span></a> <span class="S8">(</span> <span class="S9">$hTheme</span><span class="S8">,</span> <span class="S9">$iSizeID</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hTheme</span></td>
+<td style="width:85%">Дескриптор данных темы.</td>
+</tr>
+<tr>
+<td><span class="S91">$iSizeID</span></td>
+<td>Значение, которое задаёт желаемую системную метрику размера. Действительны следующие значения.<br />
+<span class="S91">$SM_CXBORDER</span><br />
+<span class="S91">$SM_CXVSCROLL</span><br />
+<span class="S91">$SM_CXHSCROLL</span><br />
+<span class="S91">$SM_CXSIZE</span><br />
+<span class="S91">$SM_CYSIZE</span><br />
+<span class="S91">$SM_CXSMSIZE</span><br />
+<span class="S91">$SM_CYSMSIZE</span><br />
+<span class="S91">$SM_CXMENUSIZE</span><br />
+<span class="S91">$SM_CYMENUSIZE</span><br />
+<span class="S91">$SM_CXPADDEDBORDER</span></td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращает размер в пиксельях.<br />
+
+<h2>Примечания</h2>
+<p>Если <span class="S91">$hTheme</span> не равен 0, функция возвращает размер, сохранённый в текущем визуальном стиле (раздел SysMetrics<br />
+визуального стиля), масштабированный по текущему экрану dpi. Если <span class="S91">$hTheme</span> равен 0, функция возвращает глобальную системную<br />
+метрику в пиксельях, которая масштабируется по текущему dpi только если приложение помечено как чувствительное к dpi; в противном случае<br />
+возвращаемые пиксели не масштабируются.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetThemeSysSize">GetThemeSysSize</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

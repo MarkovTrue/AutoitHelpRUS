@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_InvertANDBitMap</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_InvertANDBitmap</h1>
+<p class="funcdesc">Инвертирует указанное AND-растровое изображение маски путём выполнения логической операции НЕ.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_InvertANDBitMap.htm"><span class="S15">_WinAPI_InvertANDBitmap</span></a> <span class="S8">(</span> <span class="S9">$hBitmap</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bDelete</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hBitmap</span></td>
+<td style="width:85%">Дескриптор исходного растрового изображения, которое должно быть инвертировано.</td>
+</tr>
+<tr>
+<td><span class="S91">$bDelete</span></td>
+<td><strong>[необязательный]</strong> Определяет, следует ли удалять исходное растровое изображение после успешного завершения функции, допустимые значения:<br />
+<span class="S5">True</span> – растровое изображение будет удалено при успешном завершении функции.<br />
+<span class="S5">False</span> – не удалять, вы должны удалить растровое изображение, когда оно больше не требуется (по умолчанию).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор инвертированного растрового изображения.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p><a href="_WinAPI_InvertANDBitmap.htm"><span class="S15">_WinAPI_InvertANDBitmap</span><span class="S8">()</span></a> создаёт инвертированное независимое от устройства изображение с 1 битом на пиксель из растрового изображения AND-маски с 1 битом на пиксель.<br />
+Если исходное растровое изображение не является растровым изображением с 1 битом на пиксель, функция не выполняется.<br />
+<br />
+Когда вы закончите использование растрового изображения, удалите его с помощью функции <a href="_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span><span class="S8">()</span></a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;SendMessage.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StaticConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIIcons.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShellEx.au3&gt;</span><br>
+<br>
+<span class="S1">; Извлекает значок и создаёт растровое изображение AND-маски
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sIco</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">'Script.ico'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_ShellExtractIcon.htm"><span class="S15">_WinAPI_ShellExtractIcon</span></a><span class="S8">(</span><span class="S9">$sIco</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aInfo</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetIconInfo.htm"><span class="S15">_WinAPI_GetIconInfo</span></a><span class="S8">(</span><span class="S9">$hIcon</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_DestroyIcon.htm"><span class="S15">_WinAPI_DestroyIcon</span></a><span class="S8">(</span><span class="S9">$hIcon</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Создать инвертированный bitmask bitmap</span><br>
+<span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_InvertANDBitMap.htm"><span class="S15">_WinAPI_InvertANDBitmap</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Создать GUI</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hForm</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">256</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aidPic</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$ahPic</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
+<span class="S9">$aidPic</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreatePic.htm"><span class="S4">GUICtrlCreatePic</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">)</span><br>
+<span class="S9">$aidPic</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreatePic.htm"><span class="S4">GUICtrlCreatePic</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$ahPic</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$aidPic</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+<span class="S1">; Задать оба bitmap для элементов управления</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SendMessage.htm"><span class="S15">_SendMessage</span></a><span class="S8">(</span><span class="S9">$ahPic</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$STM_SETIMAGE</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S9">$i</span> <span class="S8">+</span> <span class="S3">4</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hObj</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SendMessage.htm"><span class="S15">_SendMessage</span></a><span class="S8">(</span><span class="S9">$ahPic</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$STM_GETIMAGE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$hObj</span> <span class="S8">&lt;&gt;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S9">$i</span> <span class="S8">+</span> <span class="S3">4</span><span class="S8">]</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">[</span><span class="S9">$i</span> <span class="S8">+</span> <span class="S3">4</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_InvertANDBitmap.au3,"></object>
+</body>
+</html>

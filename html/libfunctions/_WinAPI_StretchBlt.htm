@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_StretchBlt</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_StretchBlt</h1>
+<p class="funcdesc">Копирует растровое изображение из исходного прямоугольника в целевой прямоугольник, растягивая или сжимая растровое изображение, чтобы оно соответствовало размерам целевого прямоугольника.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_StretchBlt.htm"><span class="S15">_WinAPI_StretchBlt</span></a> <span class="S8">(</span> <span class="S9">$hDestDC</span><span class="S8">,</span> <span class="S9">$iXDest</span><span class="S8">,</span> <span class="S9">$iYDest</span><span class="S8">,</span> <span class="S9">$iWidthDest</span><span class="S8">,</span> <span class="S9">$iHeightDest</span><span class="S8">,</span> <span class="S9">$hSrcDC</span><span class="S8">,</span> <span class="S9">$iXSrc</span><span class="S8">,</span> <span class="S9">$iYSrc</span><span class="S8">,</span> <span class="S9">$iWidthSrc</span><span class="S8">,</span> <span class="S9">$iHeightSrc</span><span class="S8">,</span> <span class="S9">$iRop</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDestDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства назначения.</td>
+</tr>
+<tr>
+<td><span class="S91">$iXDest</span></td>
+<td>Координата X верхнего левого угла целевого прямоугольника в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iYDest</span></td>
+<td>Координата Y верхнего левого угла целевого прямоугольника в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iWidthDest</span></td>
+<td>Ширина целевого прямоугольника в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iHeightDest</span></td>
+<td>Высота целевого прямоугольника в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$hSrcDC</span></td>
+<td>Дескриптор исходного контекста устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$iXSrc</span></td>
+<td>Координата X верхнего левого угла исходного прямоугольника в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iYSrc</span></td>
+<td>Координата Y верхнего левого угла исходного прямоугольника в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iWidthSrc</span></td>
+<td>Ширина исходного прямоугольника в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iHeightSrc</span></td>
+<td>Высота исходного прямоугольника в логических единицах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iRop</span></td>
+<td>Код растровой операции. Эти коды определяют, как данные цвета для исходного прямоугольника должны
+комбинироваться с данными цвета для целевого прямоугольника для достижения итогового цвета.
+Этот параметр должен быть 0 или одним из следующих значений.
+<span class="S91">$BLACKNESS</span>
+<span class="S91">$CAPTUREBLT</span>
+<span class="S91">$DSTINVERT</span>
+<span class="S91">$MERGECOPY</span>
+<span class="S91">$MERGEPAINT</span>
+<span class="S91">$NOMIRRORBITMAP</span>
+<span class="S91">$NOTSRCCOPY</span>
+<span class="S91">$NOTSRCERASE</span>
+<span class="S91">$PATCOPY</span>
+<span class="S91">$PATINVERT</span>
+<span class="S91">$PATPAINT</span>
+<span class="S91">$SRCAND</span>
+<span class="S91">$SRCCOPY</span>
+<span class="S91">$SRCERASE</span>
+<span class="S91">$SRCINVERT</span>
+<span class="S91">$SRCPAINT</span>
+<span class="S91">$WHITENESS</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Система растягивает или сжимает растровое изображение в соответствии с режимом растяжения, в настоящее время установленным в
+контексте целевого устройства.
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=StretchBlt">StretchBlt</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

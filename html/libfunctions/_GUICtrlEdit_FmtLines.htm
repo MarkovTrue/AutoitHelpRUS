@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUICtrlEdit_FmtLines</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUICtrlEdit_FmtLines</h1>
+<p class="funcdesc">Включает или выключает добавление символов мягкого переноса в текст, возвращаемый из многострочного Edit.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiEdit.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUICtrlEdit_FmtLines.htm"><span class="S15">_GUICtrlEdit_FmtLines</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bSoftBreak</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Идентификатор или дескриптор элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$bSoftBreak</span></td>
+<td><strong>[необязательный]</strong> Определяет, нужно ли вставлять символы мягкого переноса строк:<br />
+<span class="S5">True</span> – вставляет символы<br />
+<span class="S5">False</span> – удаляет их.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращает&nbsp;значение, идентичное параметру <span class="S91">$bSoftBreak</span>.<br />
+
+<h2>Примечания</h2>
+<p>Мягкий перенос строки состоит из двух возвратов каретки и перевода строки и вставляется в конце строки, разбитой из-за переноса по словам.<br />
+<br />
+Функция влияет только на текст, возвращаемый <a href="_GUICtrlEdit_GetText.htm"><span class="S15">_GUICtrlEdit_GetText</span><span class="S8">()</span></a>.<br />
+<br />
+Отображение текста в самом поле редактирования не меняется.<br />
+<br />
+Функция <a href="_GUICtrlEdit_FmtLines.htm"><span class="S15">_GUICtrlEdit_FmtLines</span><span class="S8">()</span></a> не затрагивает строки, оканчивающиеся жёстким переносом.<br />
+Жёсткий перенос состоит из одного возврата каретки и перевода строки.<br />
+</p>
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiEdit.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idEdit</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sWow64</span> <span class="S8">=</span> <span class="S7">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@AutoItX64"><span class="S6">@AutoItX64</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sWow64</span> <span class="S8">=</span> <span class="S7">"\Wow6432Node"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFile</span> <span class="S8">=</span> <a class="le" href="../functions/RegRead.htm"><span class="S4">RegRead</span></a><span class="S8">(</span><span class="S7">"HKEY_LOCAL_MACHINE\SOFTWARE"</span> <span class="S8">&amp;</span> <span class="S9">$sWow64</span> <span class="S8">&amp;</span> <span class="S7">"\AutoIt v3\AutoIt"</span><span class="S8">,</span> <span class="S7">"InstallDir"</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"\include\_ReadMe_.txt"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sBefore</span><span class="S8">,</span> <span class="S9">$sAfter</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Edit FmtLines"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idEdit</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateEdit.htm"><span class="S4">GUICtrlCreateEdit</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">394</span><span class="S8">,</span> <span class="S3">268</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$ES_WANTRETURN</span><span class="S8">,</span> <span class="S9">$WS_VSCROLL</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_SetText.htm"><span class="S15">_GUICtrlEdit_SetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">,</span> <span class="S3">500</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; текст, полученный в формате по умолчанию
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sBefore</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlEdit_GetText.htm"><span class="S15">_GUICtrlEdit_GetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; вставить мягкие разрывы строк
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_FmtLines.htm"><span class="S15">_GUICtrlEdit_FmtLines</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; текст с мягкими разрывами строк
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sAfter</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlEdit_GetText.htm"><span class="S15">_GUICtrlEdit_GetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <span class="S7">"Before:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sBefore</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'--------------------------------------------------------------'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"After:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sAfter</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlEdit_FmtLines.au3,"></object>
+</body>
+</html>

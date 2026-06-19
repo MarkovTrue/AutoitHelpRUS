@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinAPI_CreateEvent</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinAPI_CreateEvent</h1>
+<p class="funcdesc">Creates or opens a named or unnamed event object<br /></p>
+<p class="codeheader">
+#include &lt;WinAPIProc.au3&gt;<br />
+_WinAPI_CreateEvent ( [$tAttributes = 0 [, $bManualReset = True [, $bInitialState = True [, $sName = ""]]]] )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$tAttributes</td>
+<td style="width:85%"><strong>[optional]</strong> a $tagSECURITY_ATTRIBUTES structure or a pointer to it. If 0, the handle cannot be inherited by child processes.<br />
+The Descriptor member of the structure specifies a security descriptor for the new event.<br />
+If $tAttributes is 0, the event gets a default security descriptor.<br />
+The ACLs in the default security descriptor for an event come from the primary or impersonation token of the creator.</td>
+</tr>
+<tr>
+<td>$bManualReset</td>
+<td><strong>[optional]</strong> If True, the function creates a manual-reset event object, which requires the use of the ResetEvent function to set the event state to nonsignaled.<br />
+If False, the function creates an auto-reset event object and system automatically resets the event state to nonsignaled after a single waiting thread has been released.</td>
+</tr>
+<tr>
+<td>$bInitialState</td>
+<td><strong>[optional]</strong> If True, the initial state of the event object is signaled; otherwise, it is nonsignaled</td>
+</tr>
+<tr>
+<td>$sName</td>
+<td><strong>[optional]</strong> The name of the event object. Name comparison is case sensitive.<br />
+If $sName matches the name of an existing named event object, this function requests the EVENT_ALL_ACCESS access right.<br />
+In this case the $bManualReset and $bInitialState parameters are ignored because they have already been set by the creating process.<br />
+If the $tAttributes parameter is not 0, it determines whether the handle can be inherited, but its security-descriptor member is ignored.<br />
+If Name is blank, the event object is created without a name.</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">The handle to the event object.</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>0, @extended is set to the <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a></td>
+</tr>
+</table>
+
+<h2>Remarks</h2>
+<p>&nbsp;&nbsp;&nbsp; If the named event object existed before the function call the function returns 0 and @extended = ERROR_ALREADY_EXISTS.<br />
+</p>
+
+<h2>Related</h2>
+<p><a href="$tagSECURITY_ATTRIBUTES.htm">$tagSECURITY_ATTRIBUTES</a>, <a href="_WinAPI_OpenEvent.htm">_WinAPI_OpenEvent</a></p>
+
+<h2>See Also</h2>
+<p>Search <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(CreateEvent);k(DevLang-C);k(TargetOS-WINDOWS)&rd=true">CreateEvent</a> in MSDN  Library.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _Net_Share_StatisticsGetWrk</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_Net_Share_StatisticsGetWrk</h1>
+<p class="funcdesc">Получает статистику операций для рабочей станции.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;NetShare.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_Net_Share_StatisticsGetWrk.htm"><span class="S15">_Net_Share_StatisticsGetWrk</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S9">$sWorkStation</span> <span class="S8">=</span> <span class="S7">""</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sWorkStation</span></td>
+<td style="width:85%"><strong>[необязательный]</strong> Указывает имя DNS или NetBIOS удалённого сервера, на котором должна выполниться функция.<br />
+Если этот параметр пуст – используется локальный компьютер.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает массив со следующим форматом:<br />
+[&nbsp;0] – время начала сбора статистики. Значение хранится как количество прошедших секунд с 00:00:00, 1 января 1970 г.<br />
+[&nbsp;1] – байты, полученные рабочей станцией<br />
+[&nbsp;2] – блоки сообщений сервера (SMB), полученные рабочей станцией<br />
+[&nbsp;3] – байты, прочитанные запросами подкачки ввода-вывода<br />
+[&nbsp;4] – байты, прочитанные запросами без подкачки ввода-вывода<br />
+[&nbsp;5] – байты, прочитанные запросами кэша ввода-вывода<br />
+[&nbsp;6] – байты, прочитанные запросами диска ввода-вывода<br />
+[&nbsp;7] – байты, переданные рабочей станцией<br />
+[&nbsp;8] – SMB, переданные рабочей станцией<br />
+[&nbsp;9] – байты, записанные запросами подкачки ввода-вывода<br />
+[10]&nbsp;– байты, записанные запросами без подкачки ввода-вывода<br />
+[11]&nbsp;– байты, записанные запросами кэша ввода-вывода<br />
+[12]&nbsp;– байты, записанные запросами диска ввода-вывода<br />
+[13]&nbsp;– операции в сети, которые не удалось начать<br />
+[14]&nbsp;– операции в сети, которые не удалось завершить<br />
+[15]&nbsp;– операции чтения, инициированные рабочей станцией<br />
+[16]&nbsp;– операции прямого доступа к чтению, инициированные рабочей станцией<br />
+[17]&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы<br />
+[18]&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы, превышающие в два раза размер согласованного буфера сервера.<br />
+[19]&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы, которые меньше 1/4 размера согласованного буфера сервера.<br />
+[20]&nbsp;– операции записи, инициированные рабочей станцией<br />
+[21]&nbsp;– операции прямого доступа к записи, инициированные рабочей станцией<br />
+[22]&nbsp;– запросы на запись, которые рабочая станция отправила на серверы<br />
+[23]&nbsp;– запросы на запись, которые рабочая станция отправила на серверы, превышающие в два раза размер согласованного буфера сервера.<br />
+[24]&nbsp;– запросы на запись, которые рабочая станция отправила на серверы, которые меньше 1/4 размера согласованного буфера сервера.<br />
+[25]&nbsp;– запросы на прямое чтение, сделанные рабочей станцией, которые были отклонены<br />
+[26]&nbsp;– запросы на прямую запись, сделанные рабочей станцией, которые были отклонены<br />
+[27]&nbsp;– ошибки сети, полученные рабочей станцией<br />
+[28]&nbsp;– сессии рабочей станции, которые были установлены<br />
+[29]&nbsp;– случаи, когда рабочая станция попыталась создать сессию, но не удалась<br />
+[30]&nbsp;– подключения, которые не удалось выполнить<br />
+[31]&nbsp;– подключения PCNET, которые удалось выполнить<br />
+[32]&nbsp;– подключения LanManager 20, которые удалось выполнить<br />
+[33]&nbsp;– подключения LanManager 21, которые удалось выполнить<br />
+[34]&nbsp;– подключения Windows NT, которые удалось выполнить<br />
+[35]&nbsp;– случаи, когда рабочая станция была отключена сервером сети<br />
+[36]&nbsp;– сессии, которые истекли на рабочей станции<br />
+[37]&nbsp;– сетевые подключения, установленные рабочей станцией<br />
+[38]&nbsp;– ошибочные сетевые подключения для рабочей станции<br />
+[39]&nbsp;– текущие запросы, которые не были завершены</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Специального членства в группе не требуется для получения статистики рабочей станции.<br />
+Только члены локальной группы администраторов или операторов серверов могут успешно выполнить эту функцию на удалённом сервере.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_Net_Share_StatisticsGetSvr.htm">_Net_Share_StatisticsGetSvr</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=NetStatisticsGet">NetStatisticsGet</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;NetShare.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aInfo</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"NetShare"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать элемент memo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">396</span><span class="S8">,</span> <span class="S3">296</span><span class="S8">,</span> <span class="S9">$WS_VSCROLL</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить статистику рабочей станции
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aInfo</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Net_Share_StatisticsGetWrk.htm"><span class="S15">_Net_Share_StatisticsGetWrk</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ComputerName"><span class="S6">@ComputerName</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"NetStatisticsGetWrk"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Statistics started ......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Bytes received ..........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"SMBs received ...........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Paging I/O bytes ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Non-paging I/O bytes ....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Cache I/O bytes ..... ...: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Disk I/O bytes ..........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Bytes transmitted .......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"SMBs transmitted ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Paging I/O bytes ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">9</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Non-paging I/O bytes ....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Cache I/O bytes .........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">11</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Disk I/O bytes ..........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">12</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Failed ops begin ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">13</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Failed ops completed ....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">14</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Read operations .........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">15</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Random access reads .....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">16</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Read requests sent ......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">17</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Read requests big .......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">18</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Read requests small .....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">19</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Write operations ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">20</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Random access writes ....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">21</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Write requests sent .....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">22</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Write requests big ......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">23</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Write requests small ....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">24</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Denied raw reads ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">25</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Denied raw writes .......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">26</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Network errors ..........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">27</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Sessions established ....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">28</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Failed sessions .........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">29</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Failed connections ......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">30</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"PCNET connections .......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">31</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"NetShare 20 connections .: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">32</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"NetShare 21 connections .: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">33</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"WinNT connections .......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">34</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Disconnects .............: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">35</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Sessions expired ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">36</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Connections made ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">37</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Connections failed ......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">38</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Incomplete requests .....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">39</span><span class="S8">]</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_Net_Share_StatisticsGetWrk.au3,"></object>
+</body>
+</html>

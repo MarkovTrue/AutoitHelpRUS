@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _Crypt_DeriveKey</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_Crypt_DeriveKey</h1>
+<p class="funcdesc">Создаёт криптографический ключ на основе алгоритма и пароля.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Crypt.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_Crypt_DeriveKey.htm"><span class="S15">_Crypt_DeriveKey</span></a> <span class="S8">(</span> <span class="S9">$vPassword</span><span class="S8">,</span> <span class="S9">$iAlgID</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iHashPasswordID</span> <span class="S8">=</span> <span class="S9">$CALG_MD5</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$vPassword</span></td>
+<td style="width:85%">Используемый пароль.</td>
+</tr>
+<tr>
+<td><span class="S91">$iAlgID</span></td>
+<td>Идентификатор алгоритма шифрования для ключа. См. раздел Примечания.<br /></td>
+</tr>
+<tr>
+<td><span class="S91">$iHashPasswordID</span></td>
+<td><strong>[необязательный]</strong> Идентификатор алгоритма хеширования пароля. См. раздел Примечания.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор криптографического ключа.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>10+ – не удалось создать объект хеша<br />
+20+ – ошибка хеширования пароля<br />
+30+ – ошибка генерации ключа<br />
+1000+ – ошибка <a class="le" href="_Crypt_Startup.htm"><span class="S15">_Crypt_Startup</span></a><span class="S8">()</span></td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Созданный ключ необходимо уничтожить вызовом <a class="le" href="_Crypt_DestroyKey.htm"><span class="S15">_Crypt_DestroyKey</span></a><span class="S8">()</span>.<br />
+<br />
+&nbsp;&nbsp;&nbsp; <a id="CipheringAlgoID"></a><strong>Идентификатор алгоритма шифрования</strong><br />
+<br />
+<table>
+<tr>
+<th><span class="S91">$iAlgID</span></th>
+<th>Значение</th>
+<th>Тип</th>
+<th>Длина ключа</th>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_AES_128</span></td>
+<td>0x0000660e</td>
+<td>Шифрование с CBC</td>
+<td>128 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_AES_192</span></td>
+<td>0x0000660f</td>
+<td>Шифрование с CBC</td>
+<td>192 бита</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_AES_256</span></td>
+<td>0x00006610</td>
+<td>Шифрование с CBC</td>
+<td>256 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_DES</span></td>
+<td>0x00006601</td>
+<td>Шифрование с CBC</td>
+<td>56 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_3DES</span></td>
+<td>0x00006603</td>
+<td>Шифрование с CBC</td>
+<td>168 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_RC2</span></td>
+<td>0x00006602</td>
+<td>Блочный алгоритм шифрования</td>
+<td>128 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_RC4</span></td>
+<td>0x00006801</td>
+<td>Потоковый алгоритм шифрования</td>
+<td>128 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_USERKEY</span></td>
+<td>0</td>
+</tr>
+</table><br />
+&nbsp;&nbsp;&nbsp; <a id="HashingAlgoID"></a><strong>Идентификатор алгоритма хеширования</strong><br />
+<br />
+<table>
+<tr>
+<th><span class="S91">$iHashPasswordID</span></th>
+<th>Значение</th>
+<th>Тип</th>
+<th>Длина хеша</th>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_MD2</span></td>
+<td>0x00008001</td>
+<td>Алгоритм хеширования</td>
+<td>128 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_MD4</span></td>
+<td>0x00008002</td>
+<td>Алгоритм хеширования</td>
+<td>128 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_MD5</span></td>
+<td>0x00008003</td>
+<td>Алгоритм хеширования</td>
+<td>128 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_SHA1</span></td>
+<td>0x00008004</td>
+<td>Алгоритм хеширования</td>
+<td>160 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_SHA_256</span></td>
+<td>0x0000800c</td>
+<td>Алгоритм хеширования</td>
+<td>256 бит</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_SHA_384</span></td>
+<td>0x0000800d</td>
+<td>Алгоритм хеширования</td>
+<td>384 бита</td>
+</tr>
+
+<tr>
+<td><span class="S91">$CALG_SHA_512</span></td>
+<td>0x0000800e</td>
+<td>Алгоритм хеширования</td>
+<td>512 бит</td>
+</tr>
+</table></p>
+<h2>См. также</h2>
+<p><a href="_Crypt_DecryptData.htm">_Crypt_DecryptData</a>, <a href="_Crypt_DecryptFile.htm">_Crypt_DecryptFile</a>, <a href="_Crypt_DestroyKey.htm">_Crypt_DestroyKey</a>, <a href="_Crypt_EncryptData.htm">_Crypt_EncryptData</a>, <a href="_Crypt_EncryptFile.htm">_Crypt_EncryptFile</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=CryptDeriveKey">CryptDeriveKey</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Crypt.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aStringsToEncrypt</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"AutoIt"</span><span class="S8">,</span> <span class="S7">"SciTE"</span><span class="S8">,</span> <span class="S7">"Crypt"</span><span class="S8">,</span> <span class="S7">".au3"</span><span class="S8">,</span> <span class="S3">42</span><span class="S8">,</span> <span class="S7">"42"</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sOutput</span> <span class="S8">=</span> <span class="S7">""</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hKey</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Crypt_DeriveKey.htm"><span class="S15">_Crypt_DeriveKey</span></a><span class="S8">(</span><span class="S7">"CryptPassword"</span><span class="S8">,</span> <span class="S9">$CALG_RC4</span><span class="S8">)</span>&nbsp;<span class="S1">; Объявить парольную строку и алгоритм для создания криптографического ключа.</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$vText</span> <a class="le" href="../keywords/ForInNext.htm"><span class="S5">In</span></a> <span class="S9">$aStringsToEncrypt</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sOutput</span> <span class="S8">&amp;=</span> <span class="S9">$vText</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">" = "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Crypt_EncryptData.htm"><span class="S15">_Crypt_EncryptData</span></a><span class="S8">(</span><span class="S9">$vText</span><span class="S8">,</span> <span class="S9">$hKey</span><span class="S8">,</span> <span class="S9">$CALG_USERKEY</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a>&nbsp;<span class="S1">; Зашифровать текст криптографическим ключом.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Encrypted data"</span><span class="S8">,</span> <span class="S9">$sOutput</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_Crypt_DestroyKey.htm"><span class="S15">_Crypt_DestroyKey</span></a><span class="S8">(</span><span class="S9">$hKey</span><span class="S8">)</span>&nbsp;<span class="S1">; Уничтожить криптографический ключ.</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_Crypt_DeriveKey.au3,"></object>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Macros</title>
+	<meta charset="utf-8">
+	<link href="css/default.css" rel="stylesheet">
+<script src="css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>Macro Reference</h1>
+	<p>Below is an alphabetized list of all the macros available in AutoIt.<br /></p>
+	<p>&nbsp;</p>
+	<table>
+	<tr>
+		<th>Macro</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><a id="@AppDataCommonDir"></a><strong>@AppDataCommonDir</strong></td>
+		<td>Path to Application Data</td>
+	</tr>
+	<tr>
+		<td><a id="@AppDataDir"></a><strong>@AppDataDir</strong></td>
+		<td>Path to current user's Roaming Application Data</td>
+	</tr>
+	<tr>
+		<td><a id="@AutoItExe"></a><strong>@AutoItExe</strong></td>
+		<td>The full path and filename of the AutoIt executable currently running. For compiled scripts it is the path of the compiled script; for .a3x and .au3 files it is the path of the interpreter running the file.</td>
+	</tr>
+	<tr>
+		<td><a id="@AutoItPID"></a><strong>@AutoItPID</strong></td>
+		<td>Process identifier (PID) of the current script.</td>
+	</tr>
+	<tr>
+		<td><a id="@AutoItVersion"></a><strong>@AutoItVersion</strong></td>
+		<td>Version number of AutoIt such as 3.3.10.2</td>
+	</tr>
+	<tr>
+		<td><a id="@AutoItX64"></a><strong>@AutoItX64</strong></td>
+		<td>Returns 1 if the script is running under the native x64 version of AutoIt.</td>
+	</tr>
+	<tr>
+		<td><a id="@COM_EventObj"></a><strong>@COM_EventObj</strong></td>
+		<td>Object the COM event is being fired on. Only valid in a COM event function.</td>
+	</tr>
+	<tr>
+		<td><a id="@CommonFilesDir"></a><strong>@CommonFilesDir</strong></td>
+		<td>Path to Common Files folder</td>
+	</tr>
+	<tr>
+		<td><a id="@Compiled"></a><strong>@Compiled</strong></td>
+		<td>Returns 1 if script is a compiled executable or an .a3x file; returns 0 if an .au3 file.</td>
+	</tr>
+	<tr>
+		<td><a id="@ComputerName"></a><strong>@ComputerName</strong></td>
+		<td>Computer's network name.</td>
+	</tr>
+	<tr>
+		<td><a id="@ComSpec"></a><strong>@ComSpec</strong></td>
+		<td>Value of %COMSPEC%, the SPECified secondary COMmand interpreter;<br />
+      primary for command line uses, e.g. <a href="functions/Run.htm">Run</a>(@ComSpec &amp; " /k help | more")</td>
+	</tr>
+	<tr>
+		<td><a id="@CPUArch"></a><strong>@CPUArch</strong></td>
+		<td>Returns "X86" when the CPU is a 32-bit CPU and "X64" when the CPU is 64-bit.</td>
+	</tr>
+	<tr>
+		<td><a id="@CR"></a><strong>@CR</strong></td>
+		<td>Carriage return, <a href="functions/Chr.htm">Chr</a>(13); occasionally used for line breaks.</td>
+	</tr>
+	<tr>
+		<td><a id="@CRLF"></a><strong>@CRLF</strong></td>
+		<td>@CR &amp; @LF; typically used for line breaks.</td>
+	</tr>
+	<tr>
+		<td><a id="@DesktopCommonDir"></a><strong>@DesktopCommonDir</strong></td>
+		<td>Path to Desktop</td>
+	</tr>
+	<tr>
+		<td><a id="@DesktopDepth"></a><strong>@DesktopDepth</strong></td>
+		<td>Depth of the primary display in bits per pixel.</td>
+	</tr>
+	<tr>
+		<td><a id="@DesktopDir"></a><strong>@DesktopDir</strong></td>
+		<td>Path to current user's Desktop</td>
+	</tr>
+	<tr>
+		<td><a id="@DesktopHeight"></a><strong>@DesktopHeight</strong></td>
+		<td>Height of the primary display in pixels. (Vertical resolution)</td>
+	</tr>
+	<tr>
+		<td><a id="@DesktopRefresh"></a><strong>@DesktopRefresh</strong></td>
+		<td>Refresh rate of the primary display in hertz.</td>
+	</tr>
+	<tr>
+		<td><a id="@DesktopWidth"></a><strong>@DesktopWidth</strong></td>
+		<td>Width of the primary display in pixels. (Horizontal resolution)</td>
+	</tr>
+	<tr>
+		<td><a id="@DocumentsCommonDir"></a><strong>@DocumentsCommonDir</strong></td>
+		<td>Path to Documents</td>
+	</tr>
+	<tr>
+		<td><a id="@error"></a><strong>@error</strong></td>
+		<td>Status of the error flag. See the function <a href="functions/SetError.htm">SetError()</a>.</td>
+	</tr>
+	<tr>
+		<td><a id="@exitCode"></a><strong>@exitCode</strong></td>
+		<td>Exit code as set by <a href="keywords/Exit.htm">Exit</a> statement.</td>
+	</tr>
+	<tr>
+		<td><a id="@exitMethod"></a><strong>@exitMethod</strong></td>
+		<td>Exit method. See the function <a href="functions/OnAutoItExitRegister.htm">OnAutoItExitRegister()</a>.</td>
+	</tr>
+	<tr>
+		<td><a id="@extended"></a><strong>@extended</strong></td>
+		<td>Extended function return - used in certain functions such as <a href="functions/StringReplace.htm">StringReplace()</a>.</td>
+	</tr>
+	<tr>
+		<td><a id="@FavoritesCommonDir"></a><strong>@FavoritesCommonDir</strong></td>
+		<td>Path to Favorites</td>
+	</tr>
+	<tr>
+		<td><a id="@FavoritesDir"></a><strong>@FavoritesDir</strong></td>
+		<td>Path to current user's Favorites</td>
+	</tr>
+	<tr>
+		<td><a id="@GUI_CtrlHandle"></a><strong>@GUI_CtrlHandle</strong></td>
+		<td>Last click GUI Control handle. Only valid in an event Function. See the <a href="functions/GUICtrlSetOnEvent.htm">GUICtrlSetOnEvent()</a> function.</td>
+	</tr>
+	<tr>
+		<td><a id="@GUI_CtrlId"></a><strong>@GUI_CtrlId</strong></td>
+		<td>Last click GUI Control identifier. Only valid in an event Function. See the <a href="functions/GUICtrlSetOnEvent.htm">GUICtrlSetOnEvent()</a> function.</td>
+	</tr>
+	<tr>
+		<td><a id="@GUI_DragFile"></a><strong>@GUI_DragFile</strong></td>
+		<td>Filename of the file being dropped. Only valid on Drop Event. See the <a href="functions/GUISetOnEvent.htm">GUISetOnEvent()</a> function.</td>
+	</tr>
+	<tr>
+		<td><a id="@GUI_DragId"></a><strong>@GUI_DragId</strong></td>
+		<td>Drag GUI Control identifier. Only valid on Drop Event. See the <a href="functions/GUISetOnEvent.htm">GUISetOnEvent()</a> function.</td>
+	</tr>
+	<tr>
+		<td><a id="@GUI_DropId"></a><strong>@GUI_DropId</strong></td>
+		<td>Drop GUI Control identifier. Only valid on Drop Event. See the <a href="functions/GUISetOnEvent.htm">GUISetOnEvent()</a> function.</td>
+	</tr>
+	<tr>
+		<td><a id="@GUI_WinHandle"></a><strong>@GUI_WinHandle</strong></td>
+		<td>Last click GUI window handle. Only valid in an event Function. See the <a href="functions/GUICtrlSetOnEvent.htm">GUICtrlSetOnEvent()</a> function.</td>
+	</tr>
+	<tr>
+		<td><a id="@HomeDrive"></a><strong>@HomeDrive</strong></td>
+		<td>Drive letter of drive containing current user's home directory.</td>
+	</tr>
+	<tr>
+		<td><a id="@HomePath"></a><strong>@HomePath</strong></td>
+		<td>Directory part of current user's home directory. To get the full path, use in conjunction with @HomeDrive.</td>
+	</tr>
+	<tr>
+		<td><a id="@HomeShare"></a><strong>@HomeShare</strong></td>
+		<td>Server and share name containing current user's home directory.</td>
+	</tr>
+	<tr>
+		<td><a id="@HotKeyPressed"></a><strong>@HotKeyPressed</strong></td>
+		<td>Last hotkey pressed. See the <a href="functions/HotKeySet.htm">HotKeySet()</a> function.</td>
+	</tr>
+	<tr>
+		<td><a id="@HOUR"></a><strong>@HOUR</strong></td>
+		<td>Hours value of clock in 24-hour format. Range is 00 to 23</td>
+	</tr>
+	<tr>
+		<td><a id="@IPAddress1"></a><strong>@IPAddress1</strong></td>
+		<td>IP address of first network adapter. Tends to return 127.0.0.1 on some computers.</td>
+	</tr>
+	<tr>
+		<td><a id="@IPAddress2"></a><strong>@IPAddress2</strong></td>
+		<td>IP address of second network adapter. Returns 0.0.0.0 if not applicable.</td>
+	</tr>
+	<tr>
+		<td><a id="@IPAddress3"></a><strong>@IPAddress3</strong></td>
+		<td>IP address of third network adapter. Returns 0.0.0.0 if not applicable.</td>
+	</tr>
+	<tr>
+		<td><a id="@IPAddress4"></a><strong>@IPAddress4</strong></td>
+		<td>IP address of fourth network adapter. Returns 0.0.0.0 if not applicable.</td>
+	</tr>
+	<tr>
+		<td><a id="@KBLayout"></a><strong>@KBLayout</strong></td>
+		<td>Returns code denoting Keyboard Layout.  See <a href="appendix/OSLangCodes.htm">Appendix</a> for possible values.</td>
+	</tr>
+	<tr>
+		<td><a id="@LF"></a><strong>@LF</strong></td>
+		<td>Line feed, <a href="functions/Chr.htm">Chr</a>(10); occasionally used for line breaks.</td>
+	</tr>
+	<tr>
+		<td><a id="@LocalAppDataDir"></a><strong>@LocalAppDataDir</strong></td>
+		<td>Path to current user's Local Application Data</td>
+	</tr>
+	<tr>
+		<td><a id="@LogonDNSDomain"></a><strong>@LogonDNSDomain</strong></td>
+		<td>Logon DNS Domain.</td>
+	</tr>
+	<tr>
+		<td><a id="@LogonDomain"></a><strong>@LogonDomain</strong></td>
+		<td>Logon Domain.</td>
+	</tr>
+	<tr>
+		<td><a id="@LogonServer"></a><strong>@LogonServer</strong></td>
+		<td>Logon server.</td>
+	</tr>
+	<tr>
+		<td><a id="@MDAY"></a><strong>@MDAY</strong></td>
+		<td>Current day of month. Range is 01 to 31</td>
+	</tr>
+	<tr>
+		<td><a id="@MIN"></a><strong>@MIN</strong></td>
+		<td>Minutes value of clock. Range is 00 to 59</td>
+	</tr>
+	<tr>
+		<td><a id="@MON"></a><strong>@MON</strong></td>
+		<td>Current month. Range is 01 to 12</td>
+	</tr>
+	<tr>
+		<td><a id="@MSEC"></a><strong>@MSEC</strong></td>
+		<td>Milliseconds value of clock. Range is 000 to 999. The update frequency of this value depends on the timer resolution of the hardware and may not update every millisecond.</td>
+	</tr>
+	<tr>
+		<td><a id="@MUILang"></a><strong>@MUILang</strong></td>
+		<td>Returns code denoting Multi Language if available (Vista is OK by default).  See <a href="appendix/OSLangCodes.htm">Appendix</a> for possible values.</td>
+	</tr>
+	<tr>
+		<td><a id="@MyDocumentsDir"></a><strong>@MyDocumentsDir</strong></td>
+		<td>Path to My Documents target</td>
+	</tr>
+	<tr>
+		<td><a id="@NumParams"></a><strong>@NumParams</strong></td>
+		<td>Number of parameters used in calling the user function.</td>
+	</tr>
+	<tr>
+		<td><a id="@OSArch"></a><strong>@OSArch</strong></td>
+		<td>Returns one of the following: "X86", "IA64", "X64" - this is the architecture type of the currently running operating system.</td>
+	</tr>
+	<tr>
+		<td><a id="@OSBuild"></a><strong>@OSBuild</strong></td>
+		<td>Returns the OS build number. For example, Windows 2003 Server returns 3790</td>
+	</tr>
+	<tr>
+		<td><a id="@OSLang"></a><strong>@OSLang</strong></td>
+		<td>Returns code denoting OS Language.  See <a href="appendix/OSLangCodes.htm">Appendix</a> for possible values.</td>
+	</tr>
+	<tr>
+		<td><a id="@OSServicePack"></a><strong>@OSServicePack</strong></td>
+		<td>Service pack info in the form of "Service Pack 3".</td>
+	</tr>
+	<tr>
+		<td><a id="@OSType"></a><strong>@OSType</strong></td>
+		<td>Returns "WIN32_NT" for XP/2003/Vista/2008/Win7/2008R2/Win8/2012/Win8.1/2012R2.</td>
+	</tr>
+	<tr>
+		<td><a id="@OSVersion"></a><strong>@OSVersion</strong></td>
+		<td>Returns one of the following: "WIN_11", "WIN_10", "WIN_81", "WIN_8", "WIN_7", "WIN_VISTA", "WIN_XP", "WIN_XPe",<br />
+      &nbsp; &nbsp; for Windows servers: "WIN_2019", "WIN_2022", "WIN_2016", "WIN_2012R2", "WIN_2012", "WIN_2008R2", "WIN_2008", "WIN_2003"".</td>
+	</tr>
+	<tr>
+		<td><a id="@ProgramFilesDir"></a><strong>@ProgramFilesDir</strong></td>
+		<td>Path to Program Files folder</td>
+	</tr>
+	<tr>
+		<td><a id="@ProgramsCommonDir"></a><strong>@ProgramsCommonDir</strong></td>
+		<td>Path to Start Menu's Programs folder</td>
+	</tr>
+	<tr>
+		<td><a id="@ProgramsDir"></a><strong>@ProgramsDir</strong></td>
+		<td>Path to current user's Programs (folder on Start Menu)</td>
+	</tr>
+	<tr>
+		<td><a id="@ScriptDir"></a><strong>@ScriptDir</strong></td>
+		<td>Directory containing the running script. Only includes a trailing backslash when the script is located in the root of a drive.</td>
+	</tr>
+	<tr>
+		<td><a id="@ScriptFullPath"></a><strong>@ScriptFullPath</strong></td>
+		<td>Equivalent to @ScriptDir &amp; "\" &amp; @ScriptName</td>
+	</tr>
+	<tr>
+		<td><a id="@ScriptLineNumber"></a><strong>@ScriptLineNumber</strong></td>
+		<td>Line number being executed - useful for debug statements (e.g. location of function call). Only significant in uncompiled scripts - note that #include files return their internal line numbering</td>
+	</tr>
+	<tr>
+		<td><a id="@ScriptName"></a><strong>@ScriptName</strong></td>
+		<td>Filename of the running script.</td>
+	</tr>
+	<tr>
+		<td><a id="@SEC"></a><strong>@SEC</strong></td>
+		<td>Seconds value of clock. Range is 00 to 59</td>
+	</tr>
+	<tr>
+		<td><a id="@StartMenuCommonDir"></a><strong>@StartMenuCommonDir</strong></td>
+		<td>Path to Start Menu folder</td>
+	</tr>
+	<tr>
+		<td><a id="@StartMenuDir"></a><strong>@StartMenuDir</strong></td>
+		<td>Path to current user's Start Menu</td>
+	</tr>
+	<tr>
+		<td><a id="@StartupCommonDir"></a><strong>@StartupCommonDir</strong></td>
+		<td>Path to Startup folder</td>
+	</tr>
+	<tr>
+		<td><a id="@StartupDir"></a><strong>@StartupDir</strong></td>
+		<td>current user's Startup folder</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_DISABLE"></a><strong>@SW_DISABLE</strong></td>
+		<td>Disables the window.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_ENABLE"></a><strong>@SW_ENABLE</strong></td>
+		<td>Enables the window.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_HIDE"></a><strong>@SW_HIDE</strong></td>
+		<td>Hides the window and activates another window.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_LOCK"></a><strong>@SW_LOCK</strong></td>
+		<td>Lock the window to avoid repainting.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_MAXIMIZE"></a><strong>@SW_MAXIMIZE</strong></td>
+		<td>Activates the window and displays it as a maximized window.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_MINIMIZE"></a><strong>@SW_MINIMIZE</strong></td>
+		<td>Minimizes the specified window and activates the next top-level window in the Z order.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_RESTORE"></a><strong>@SW_RESTORE</strong></td>
+		<td>Activates and displays the window. If the window is minimized or maximized, the system restores it to its original size and position. An application should specify this flag when restoring a minimized window.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_SHOW"></a><strong>@SW_SHOW</strong></td>
+		<td>Activates the window and displays it in its current size and position.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_SHOWDEFAULT"></a><strong>@SW_SHOWDEFAULT</strong></td>
+		<td>Sets the show state based on the SW_ value specified by the program that started the application.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_SHOWMAXIMIZED"></a><strong>@SW_SHOWMAXIMIZED</strong></td>
+		<td>Activates the window and displays it as a maximized window.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_SHOWMINIMIZED"></a><strong>@SW_SHOWMINIMIZED</strong></td>
+		<td>Activates the window and displays it as a minimized window.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_SHOWMINNOACTIVE"></a><strong>@SW_SHOWMINNOACTIVE</strong></td>
+		<td>Displays the window as a minimized window. This value is similar to @SW_SHOWMINIMIZED, except the window is not activated.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_SHOWNA"></a><strong>@SW_SHOWNA</strong></td>
+		<td>Displays the window in its current size and position. This value is similar to @SW_SHOW, except the window is not activated.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_SHOWNOACTIVATE"></a><strong>@SW_SHOWNOACTIVATE</strong></td>
+		<td>Displays a window in its most recent size and position. This value is similar to @SW_SHOWNORMAL, except the window is not activated.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_SHOWNORMAL"></a><strong>@SW_SHOWNORMAL</strong></td>
+		<td>Activates and displays a window. If the window is minimized or maximized, the system restores it to its original size and position. An application should specify this flag when displaying the window for the first time.</td>
+	</tr>
+	<tr>
+		<td><a id="@SW_UNLOCK"></a><strong>@SW_UNLOCK</strong></td>
+		<td>Unlock window to allow painting.</td>
+	</tr>
+	<tr>
+		<td><a id="@SystemDir"></a><strong>@SystemDir</strong></td>
+		<td>Path to the Windows' System (or System32) folder.</td>
+	</tr>
+	<tr>
+		<td><a id="@TAB"></a><strong>@TAB</strong></td>
+		<td>Tab character, <a href="functions/Chr.htm">Chr</a>(9)</td>
+	</tr>
+	<tr>
+		<td><a id="@TempDir"></a><strong>@TempDir</strong></td>
+		<td>Path to the temporary files folder.</td>
+	</tr>
+	<tr>
+		<td><a id="@TRAY_ID"></a><strong>@TRAY_ID</strong></td>
+		<td>Last clicked item identifier during a <a href="functions/TraySetOnEvent.htm">TraySetOnEvent()</a> or <a href="functions/TrayItemSetOnEvent.htm">TrayItemSetOnEvent()</a> action.</td>
+	</tr>
+	<tr>
+		<td><a id="@TrayIconFlashing"></a><strong>@TrayIconFlashing</strong></td>
+		<td>Returns 1 if tray icon is flashing; otherwise, returns 0.</td>
+	</tr>
+	<tr>
+		<td><a id="@TrayIconVisible"></a><strong>@TrayIconVisible</strong></td>
+		<td>Returns 1 if tray icon is visible; otherwise, returns 0.</td>
+	</tr>
+	<tr>
+		<td><a id="@UserName"></a><strong>@UserName</strong></td>
+		<td>ID of the currently logged on user.</td>
+	</tr>
+	<tr>
+		<td><a id="@UserProfileDir"></a><strong>@UserProfileDir</strong></td>
+		<td>Path to current user's Profile folder.</td>
+	</tr>
+	<tr>
+		<td><a id="@WDAY"></a><strong>@WDAY</strong></td>
+		<td>Numeric day of week. Range is 1 to 7 which corresponds to Sunday through Saturday.</td>
+	</tr>
+	<tr>
+		<td><a id="@WindowsDir"></a><strong>@WindowsDir</strong></td>
+		<td>Path to Windows folder</td>
+	</tr>
+	<tr>
+		<td><a id="@WorkingDir"></a><strong>@WorkingDir</strong></td>
+		<td>Current/active working directory. Only includes a trailing backslash when the script is located in the root of a drive.</td>
+	</tr>
+	<tr>
+		<td><a id="@YDAY"></a><strong>@YDAY</strong></td>
+		<td>Current day of year. Range is 001 to 366 (or 001 to 365 if not a leap year)</td>
+	</tr>
+	<tr>
+		<td><a id="@YEAR"></a><strong>@YEAR</strong></td>
+		<td>Current four-digit year</td>
+	</tr>
+	</table>
+</body>
+</html>

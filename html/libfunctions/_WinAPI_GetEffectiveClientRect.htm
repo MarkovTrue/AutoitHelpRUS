@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetEffectiveClientRect</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetEffectiveClientRect</h1>
+<p class="funcdesc">Вычисляет размеры прямоугольника в клиентской области, содержащего все указанные элементы управления.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetEffectiveClientRect.htm"><span class="S15">_WinAPI_GetEffectiveClientRect</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$aCtrl</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна, клиентскую область которого требуется проверить.</td>
+</tr>
+<tr>
+<td><span class="S91">$aCtrl</span></td>
+<td>Массив, содержащий дескрипторы или идентификаторы элементов управления, которые должны быть включены в расчёт клиентской области. Также может быть единственный дескриптор или идентификатор элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$iStart</span></td>
+<td><strong>[необязательный]</strong> Индекс элемента массива, содержащего первый элемент управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$iEnd</span></td>
+<td><strong>[необязательный]</strong> Индекс элемента массива, содержащего последний элемент управления.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает структура <span class="S91">$tagRECT</span>, содержащая прямоугольник эффективной клиентской области.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если элемент управления в массиве видим или будет видим при появлении его родителя, его прямоугольник вычитается из эффективного прямоугольника клиентской области.<br />
+<br />
+Если все указанные элементы управления отсутствуют, функция возвращает клиентскую область родительского окна.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetEffectiveClientRect">GetEffectiveClientRect</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIStatusBar.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StaticConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<br>
+<span class="S1">; Создать GUI</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hForm</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">600</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMenu</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenu.htm"><span class="S4">GUICtrlCreateMenu</span></a><span class="S8">(</span><span class="S7">"&amp;File"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMni_Exit</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">"E&amp;xit"</span><span class="S8">,</span> <span class="S9">$idMenu</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aCtrl</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
+<span class="S9">$aCtrl</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_Create.htm"><span class="S15">_GUICtrlStatusBar_Create</span></a><span class="S8">(</span><span class="S9">$hForm</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLV</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">600</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+<span class="S9">$aCtrl</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$idLV</span><br>
+<br>
+<span class="S1">; Вычисляет эффективную клиентскую область (исключая элементы управления Menu, ListView и StatusBar)
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetEffectiveClientRect.htm"><span class="S15">_WinAPI_GetEffectiveClientRect</span></a><span class="S8">(</span><span class="S9">$hForm</span><span class="S8">,</span> <span class="S9">$aCtrl</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aPos</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetPosFromRect.htm"><span class="S15">_WinAPI_GetPosFromRect</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S9">$aPos</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">'x'</span> <span class="S8">&amp;</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$SS_CENTER</span><span class="S8">,</span> <span class="S9">$SS_CENTERIMAGE</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUICtrlSetFont.htm"><span class="S4">GUICtrlSetFont</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">'Tahoma'</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0xFFD0D0</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Показать GUI</span><br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><span class="S8">,</span> <span class="S9">$idMni_Exit</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_GetEffectiveClientRect.au3,"></object>
+</body>
+</html>

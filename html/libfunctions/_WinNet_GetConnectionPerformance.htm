@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinNet_GetConnectionPerformance</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinNet_GetConnectionPerformance</h1>
+<p class="funcdesc">Возвращает информацию о производительности ресурса сетевого подключения.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinNet.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinNet_GetConnectionPerformance.htm"><span class="S15">_WinNet_GetConnectionPerformance</span></a> <span class="S8">(</span> <span class="S9">$sLocalName</span><span class="S8">,</span> <span class="S9">$sRemoteName</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sLocalName</span></td>
+<td style="width:85%">Имя локального устройства, например "F:" или "LPT1", переадресованного на сетевой ресурс для запроса.
+Если пусто, сетевой ресурс указан в <span class="S91">$sRemoteName</span>.
+Если этот параметр указывает локальное устройство, <span class="S91">$sRemoteName</span> игнорируется.</td>
+</tr>
+<tr>
+<td><span class="S91">$sRemoteName</span></td>
+<td>Имя сетевого ресурса для запроса.
+Ресурс должен иметь установленное подключение.
+Например, если ресурс является файлом на файловом сервере, то открытие файла обеспечит подключение.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает массив со следующим форматом:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– Описание подключения. Может быть одним или несколькими из следующих:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Возвращённая информация относится к производительности сетевой карты
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Подключение не маршрутизируется
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;– Подключение над средой, которая обычно является медленной
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;– Некоторая из возвращённой информации вычисляется динамически
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Скорость носителя к сетевому ресурсу в 100 бит/с
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– Время задержки в одну сторону при отправке информации
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– Размер данных, которые приложение должно использовать при выполнении одного запроса к ресурсу.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=MultinetGetConnectionPerformance">MultinetGetConnectionPerformance</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

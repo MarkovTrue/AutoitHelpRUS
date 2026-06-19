@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_MulDiv</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_MulDiv</h1>
+<p class="funcdesc">Умножает два 32-битных значения, а затем делит результат 64-битный на третье 32-битное значение.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIMisc.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_MulDiv.htm"><span class="S15">_WinAPI_MulDiv</span></a> <span class="S8">(</span> <span class="S9">$iNumber</span><span class="S8">,</span> <span class="S9">$iNumerator</span><span class="S8">,</span> <span class="S9">$iDenominator</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iNumber</span></td>
+<td style="width:85%">Задаёт множимое.</td>
+</tr>
+<tr>
+<td><span class="S91">$iNumerator</span></td>
+<td>Задаёт множитель.</td>
+</tr>
+<tr>
+<td><span class="S91">$iDenominator</span></td>
+<td>Задаёт число, на которое должен быть разделён результат умножения.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает результат умножения и деления.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>(-1), если произошло переполнение или <span class="S91">$iDenominator</span> был 0</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если результат – положительное полуцелое число (заканчивается на .5), оно округляется вверх.<br />
+Если результат – отрицательное полуцелое число, оно округляется вниз.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=MulDiv">MulDiv</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

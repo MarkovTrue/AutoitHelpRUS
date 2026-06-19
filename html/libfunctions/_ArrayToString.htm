@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _ArrayToString</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_ArrayToString</h1>
+<p class="funcdesc">Объединяет элементы одномерного или двумерного массива в одну строку, разделяя их заданными разделителями.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_ArrayToString.htm"><span class="S15">_ArrayToString</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sDelim_Col</span> <span class="S8">=</span> <span class="S7">"|"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart_Row</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd_Row</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sDelim_Row</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart_Col</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd_Col</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$aArray</span></td>
+<td style="width:85%">Массив для преобразования в строку.</td>
+</tr>
+<tr>
+<td><span class="S91">$sDelim_Col</span></td>
+<td><strong>[необязательный]</strong> Разделитель элементов 1D-массива или столбцов 2D-массива.</td>
+</tr>
+<tr>
+<td><span class="S91">$iStart_Row</span></td>
+<td><strong>[необязательный]</strong> Индекс строки массива, с которой начинается копирование (по умолчанию – 0).</td>
+</tr>
+<tr>
+<td><span class="S91">$iEnd_Row</span></td>
+<td><strong>[необязательный]</strong> Индекс строки массива, на которой заканчивается копирование (по умолчанию – количество строк).</td>
+</tr>
+<tr>
+<td><span class="S91">$sDelim_Row</span></td>
+<td><strong>[необязательный]</strong> Разделитель строк 2D-массива (только для 2D).</td>
+</tr>
+<tr>
+<td><span class="S91">$iStart_Col</span></td>
+<td><strong>[необязательный]</strong> Индекс столбца массива, с которого начинается копирование (только для 2D; по умолчанию – 0).</td>
+</tr>
+<tr>
+<td><span class="S91">$iEnd_Col</span></td>
+<td><strong>[необязательный]</strong> Индекс столбца массива, на котором заканчивается копирование (только для 2D; по умолчанию – количество столбцов).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает строку из выбранных элементов, разделённых заданными разделителями.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+3 – <span class="S91">$iStart_Row</span> или <span class="S91">$iEnd_Row</span> выходят за границы массива<br />
+4 – <span class="S91">$iStart_Row</span> больше <span class="S91">$iEnd_Row</span><br />
+5 – <span class="S91">$iStart_Col</span> или <span class="S91">$iEnd_Col</span> выходят за границы массива<br />
+6 – <span class="S91">$iStart_Col</span> больше <span class="S91">$iEnd_Col</span></td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если переданный массив имеет один из следующих форматов и не содержит данных – [0], [1], [0][0], [1][0], [0][1], [1][1] – функция возвращает пустую строку. При последующей передаче этой строки в _ArrayFromString() та не сможет различить эти случаи и вернёт по умолчанию одноэлементный пустой массив: [1] или [1][1] в зависимости от флага <span class="S91">$bForce2D</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_ArrayFromString.htm">_ArrayFromString</a>, <a href="_ArrayToClip.htm">_ArrayToClip</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">20</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">19</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$i</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"1D Array"</span><span class="S8">)</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Items 1-7"</span><span class="S8">,</span> <a class="le" href="../libfunctions/_ArrayToString.htm"><span class="S15">_ArrayToString</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">9</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$j</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">9</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S9">$j</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$i</span> <span class="S8">&amp;</span> <span class="S7">"-"</span> <span class="S8">&amp;</span> <span class="S9">$j</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D Array"</span><span class="S8">)</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Rows 4-7,  cols 2-5"</span><span class="S8">,</span> <a class="le" href="../libfunctions/_ArrayToString.htm"><span class="S15">_ArrayToString</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">" :: "</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">,</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_ArrayToString.au3,"></object>
+</body>
+</html>

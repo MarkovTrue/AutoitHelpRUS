@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Поддержка Unicode</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Поддержка Unicode</h1>
+  <p>Поддерживаемые форматы текстовых файлов и скриптов и их обозначения в популярных редакторах:</p>
+  <table>
+    <tr>
+      <th>Обозначение в AutoIt</th>
+      <th>Notepad</th>
+      <th>Notepad++</th>
+      <th>SciTE (стандартный редактор AutoIt)</th>
+    </tr>
+    <tr>
+      <td>UTF8 без <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">BOM</a></td>
+      <td>ANSI или UTF-8 в зависимости от содержимого (при сохранении BOM добавится принудительно)</td>
+      <td>UTF-8 без BOM</td>
+      <td>UTF-8</td>
+    </tr>
+    <tr>
+      <td>UTF8 с BOM</td>
+      <td>UTF-8</td>
+      <td>UTF-8</td>
+      <td>UTF-8 с BOM</td>
+    </tr>
+    <tr>
+      <td>ANSI</td>
+      <td>ANSI</td>
+      <td>ANSI</td>
+      <td>8 bit / Code Page Property</td>
+    </tr>
+    <tr>
+      <td>UTF16 Little Endian</td>
+      <td>Unicode</td>
+      <td>UCS-2 Little Endian</td>
+      <td>UCS-2 Little Endian</td>
+    </tr>
+    <tr>
+      <td>UTF16 Little Endian без BOM</td>
+      <td>Unicode (при сохранении BOM добавится принудительно)</td>
+      <td>UCS-2 Little Endian без BOM (нельзя выбрать)</td>
+      <td>Не поддерживается</td>
+    </tr>
+    <tr>
+      <td>UTF16 Big Endian</td>
+      <td>Unicode big endian</td>
+      <td>UCS-2 Big Endian</td>
+      <td>UCS-2 Big Endian</td>
+    </tr>
+    <tr>
+      <td>UTF16 Big Endian без BOM</td>
+      <td>Не поддерживается</td>
+      <td>UCS-2 Big Endian без BOM (нельзя выбрать)</td>
+      <td>Не поддерживается</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>Рекомендуемый формат скрипта – <strong>UTF-8 с <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">BOM</a></strong>: он лучше всего работает с notepad.exe и редактором SciTE для AutoIt и защищает от случайного сохранения скриптов в неподходящей кодовой странице.</p>
+  <p>Форматы ANSI <strong>не рекомендуются</strong> – они могут вызывать проблемы при запуске на машинах с другой локалью.</p>
+  <p>UTF16 BE или LE без BOM <strong>не рекомендуются</strong>. Они слабо поддерживаются. Даже с BOM они не очень распространены и занимают намного больше места на диске, чем UTF8.</p>
+  <p>
+  <li>Файловые операции с текстовыми файлами, которые открыты не через <a href="../functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a> с <strong>явными флагами Unicode</strong>, автоматически определяют кодировку, как и большинство современных редакторов. Это касается всех файловых функций, принимающих имя файла, например <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span>"filename.txt"<span class="S8">)</span>. Подробнее:</li>
+  <ul>
+    <li>Файлы с BOM открываются в соответствующем BOM режиме. Проверяются BOM для UTF-8 и UTF-16.</li>
+    <li>Файлы UTF-8 и UTF-16 без BOM автоматически определяются и открываются в соответствующем режиме.</li>
+    <li>Файлы с нулевыми байтами по умолчанию открываются в режиме Binary (<span class="S91">$FO_BINARY</span>) (если только не определены как корректный UTF-16). Раньше они открывались в ANSI. Чтобы переопределить, используйте флаг <span class="S91">$FO_ANSI</span>.</li>
+    <li>Файлы, содержащие только символы 1–127, по умолчанию открываются в UTF-8 без BOM (<span class="S91">$FO_UTF8_NOBOM</span>). Раньше они открывались в ANSI. Чтобы переопределить, используйте флаг <span class="S91">$FO_ANSI</span>.</li>
+    <li>Файлы, содержащие только символы 1–255, по умолчанию открываются в режиме ANSI (<span class="S91">$FO_ANSI</span>).</li>
+    <li>Из-за вышесказанного <a href="../functions/FileGetEncoding.htm"><span class="S4">FileGetEncoding</span><span class="S8">()</span></a> теперь возвращает 512 (<span class="S91">$FO_ANSI</span>) или 256 (<span class="S91">$FO_UTF8_NOBOM</span>) вместо 0, которое не было задокументировано, но обозначало ANSI.</li>
+  </ul>
+
+  </p>
+  <h2>Текущие ограничения</h2>
+  <p>Есть несколько частей AutoIt, которые ещё не имеют полной поддержки Unicode:</p>
+  <ul>
+    <li><a href="../functions/Send.htm">Send</a> и <a href="../functions/ControlSend.htm">ControlSend</a> – вместо них используйте <a href="../functions/ControlSetText.htm">ControlSetText</a> или функции <a href="../functions/ClipPut.htm">буфера обмена</a>.</li>
+    <li>Операции с <a href="../functions/ConsoleWrite.htm">консолью</a> преобразуются в ANSI.</li>
+  </ul>
+  <p>Эти ограничения будут устранены в будущих версиях, если получится.</p>
+</body>
+</html>

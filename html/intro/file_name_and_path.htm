@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Имя и путь файла</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Имя и путь файла</h1>
+  <p>Если параметр функции назван "filename", подразумевается имя файла с полным путём. Хотя функции AutoIt часто принимают и относительный путь, корректная работа не гарантирована, поскольку некоторые файловые функции Windows API требуют полностью определённого пути. Если путь не указан и используется только простое имя файла, AutoIt создаст или будет искать его в текущей рабочей директории – её путь содержится в макросе <span class="S61">@WorkingDir</span>.</p>
+  <p>Рабочая директория при старте скрипта устанавливается в <span class="S61">@ScriptDir</span> и может быть изменена в ходе выполнения вызовом FileChangeDir. Также рабочая директория может изменяться автоматически некоторыми функциями – например, FileOpen/SaveDialog при успешном возврате или Run при указании параметра "workingdir".</p>
+<p>На странице MSDN <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx#fully_qualified_vs._relative_paths">Naming Files, Paths, and Namespaces</a> описаны подробности правильного написания имён файлов и путей.</p>
+</body>
+</html>

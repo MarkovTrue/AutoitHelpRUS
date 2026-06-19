@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_CallWindowProc</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_CallWindowProc</h1>
+<p class="funcdesc">Передаёт информацию о хуке следующей процедуре хука в текущей цепочке.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span></a> <span class="S8">(</span> <span class="S9">$pPrevWndFunc</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$pPrevWndFunc</span></td>
+<td style="width:85%">Указатель на предыдущую процедуру окна.<br />
+Если это значение получено путём вызова функции <a href="_WinAPI_GetWindowLong.htm"><span class="S15">_WinAPI_GetWindowLong</span><span class="S8">()</span></a> с параметром <span class="S91">$iIndex</span>, установленным в <span class="S91">$GWL_WNDPROC</span> или <span class="S91">$DWL_DLGPROC</span>, то оно фактически является адресом процедуры окна или диалогового окна либо специальным внутренним значением, имеющим смысл только для <a href="_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span><span class="S8">()</span></a>.</td>
+</tr>
+<tr>
+<td><span class="S91">$hWnd</span></td>
+<td>Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMsg</span></td>
+<td>Задаёт сообщение.</td>
+</tr>
+<tr>
+<td><span class="S91">$wParam</span></td>
+<td>Задаёт дополнительную информацию, зависящую от сообщения. Содержимое этого параметра зависит от значения параметра <span class="S91">$iMsg</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$lParam</span></td>
+<td>Задаёт дополнительную информацию, зависящую от сообщения. Содержимое этого параметра зависит от значения параметра <span class="S91">$iMsg</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращаемое значение задаёт результат обработки сообщения и зависит от отправленного сообщения<br />
+
+<h2>Примечания</h2>
+<p>Используйте функцию <a href="_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span><span class="S8">()</span></a> для подклассирования окна. Обычно все окна одного класса используют одну процедуру окна.<br />
+Подкласс – это окно или набор окон одного класса, сообщения которых перехватываются и обрабатываются другой процедурой окна (или несколькими) перед передачей в процедуру окна класса.<br />
+<br />
+Функция <a href="_WinAPI_SetWindowLong.htm"><span class="S15">_WinAPI_SetWindowLong</span><span class="S8">()</span></a> создаёт подкласс, изменяя процедуру окна, связанную с конкретным окном, в результате чего система вызывает новую процедуру окна вместо предыдущей.<br />
+Приложение должно передавать любые сообщения, не обработанные новой процедурой окна, предыдущей процедуре окна путём вызова <a href="_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span><span class="S8">()</span></a>.<br />
+Это позволяет приложению создавать цепочку процедур окна.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_SetWindowLong.htm">_WinAPI_SetWindowLong</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=CallWindowProc">CallWindowProc</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiMenu.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIDlg.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsNotifsConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_idContextMenu</span><span class="S8">,</span> <span class="S9">$g_idMni_Common</span><span class="S8">,</span> <span class="S9">$g_idMni_File</span><span class="S8">,</span> <span class="S9">$g_idMni_Exit</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_hGui</span><span class="S8">,</span> <span class="S9">$g_idInput</span><span class="S8">,</span> <span class="S9">$g_hProcOld</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idInput2</span><span class="S8">,</span> <span class="S9">$hProcNew</span><span class="S8">,</span> <span class="S9">$idDummy_Menu</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hGui</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Type or paste some stuff"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$WS_THICKFRAME</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_idInput</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S3">360</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idInput2</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">360</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">"abcd"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">18</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetCursor.htm"><span class="S4">GUICtrlSetCursor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hProcNew</span> <span class="S8">=</span> <a class="le" href="../functions/DllCallbackRegister.htm"><span class="S4">DllCallbackRegister</span></a><span class="S8">(</span><span class="S7">"_MyWindowProc"</span><span class="S8">,</span> <span class="S7">"ptr"</span><span class="S8">,</span> <span class="S7">"hwnd;uint;long;ptr"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hProcOld</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SetWindowLong.htm"><span class="S15">_WinAPI_SetWindowLong</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$g_idInput</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$GWL_WNDPROC</span><span class="S8">,</span> <a class="le" href="../functions/DllCallbackGetPtr.htm"><span class="S4">DllCallbackGetPtr</span></a><span class="S8">(</span><span class="S9">$hProcNew</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowLong.htm"><span class="S15">_WinAPI_SetWindowLong</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idInput2</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$GWL_WNDPROC</span><span class="S8">,</span> <a class="le" href="../functions/DllCallbackGetPtr.htm"><span class="S4">DllCallbackGetPtr</span></a><span class="S8">(</span><span class="S9">$hProcNew</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;_WinAPI_SetWindowLong(GUICtrlGetHandle($g_idInput3), $GWL_WNDPROC, DllCallbackGetPtr($hProcNew)) and so on
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idDummy_Menu</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateDummy.htm"><span class="S4">GUICtrlCreateDummy</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_idContextMenu</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateContextMenu.htm"><span class="S4">GUICtrlCreateContextMenu</span></a><span class="S8">(</span><span class="S9">$idDummy_Menu</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_idMni_Common</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">"Common"</span><span class="S8">,</span> <span class="S9">$g_idContextMenu</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_idMni_File</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">"File"</span><span class="S8">,</span> <span class="S9">$g_idContextMenu</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S9">$g_idContextMenu</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_idMni_Exit</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">"Exit"</span><span class="S8">,</span> <span class="S9">$g_idContextMenu</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">do_clever_stuff_with_clipboard</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sData</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sData</span> <span class="S8">=</span> <a class="le" href="../functions/ClipGet.htm"><span class="S4">ClipGet</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">;данные буфера обмена не являются текстом или буфер пуст
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;делай что угодно
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sData</span> <span class="S8">=</span> <a class="le" href="../functions/StringUpper.htm"><span class="S4">StringUpper</span></a><span class="S8">(</span><span class="S9">$sData</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;задать текст</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetDlgCtrlID.htm"><span class="S15">_WinAPI_GetDlgCtrlID</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$sData</span><span class="S8">)</span>&nbsp;<span class="S1">;или _GUICtrlEdit_SetText($hWnd, $sData)
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;do_clever_stuff_with_clipboard
+</span><br>
+<br>
+<span class="S1">; Показать меню в указанном GUI-окне, принадлежащее указанному GUI-элементу</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">ShowMenu</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$idContext</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSelected</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMenu_TrackPopupMenu.htm"><span class="S15">_GUICtrlMenu_TrackPopupMenu</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idContext</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iSelected</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$g_idMni_Common</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"Common"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$g_idMni_File</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"File"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$g_idMni_Exit</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"Exit"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;ShowMenu
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_MyWindowProc</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iMsg</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$WM_PASTE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S0">do_clever_stuff_with_clipboard</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$WM_CONTEXTMENU</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$g_idInput</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">ShowMenu</span><span class="S8">(</span><span class="S9">$g_hGui</span><span class="S8">,</span> <span class="S9">$g_idContextMenu</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$WM_SETCURSOR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetCursor.htm"><span class="S4">GUICtrlSetCursor</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetDlgCtrlID.htm"><span class="S15">_WinAPI_GetDlgCtrlID</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span>&nbsp;<span class="S1">;;установи курсор I-beam
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">;;и не позволяй процедуре окна по умолчанию испортить ситуацию
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;передай необработанные сообщения процедуре окна по умолчанию
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../libfunctions/_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span></a><span class="S8">(</span><span class="S9">$g_hProcOld</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_MyWindowProc
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_CallWindowProc.au3,"></object>
+</body>
+</html>

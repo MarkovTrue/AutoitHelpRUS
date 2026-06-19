@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция GUICtrlSetData</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>GUICtrlSetData</h1>
+<p class="funcdesc">Изменяет данные элемента управления.</p>
+<p class="codeheader"><a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a> <span class="S8">(</span> <span class="S0">controlID</span><span class="S8">,</span> <span class="S0">data</span> <span class="S8">[</span><span class="S8">,</span> <span class="S5">default</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">controlID</td>
+<td style="width:85%">Идентификатор элемента управления (controlID), возвращённый функцией <a href="GUICtrlCreate%20Management.htm">GUICtrlCreate...()</a>, или -1 для последнего созданного элемента.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Combo, List, ListView, ListViewItem: список элементов, разделённых символом <a class="le" href="Opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span>"GUIDataSeparatorChar",...<span class="S8">)</span>.<br />
+Progress: значение в процентах.<br />
+Slider: числовое значение.<br />
+Button, Checkbox, Combo, Edit, Group, Input, Label, Menu, MenuItem, Radio, TabItem, TreeViewItem: заменяет текст.<br />
+Date: дата или время в зависимости от стиля элемента управления и региональных настроек.<br />
+Dummy: числовое значение.</td>
+</tr>
+<tr>
+<td>default</td>
+<td><strong>[необязательный]</strong><br />
+Combo, List: значение по умолчанию.<br />
+Edit, Input: если не пустая строка (""), вставляется в текущую позицию курсора.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.<br />
+-1 при недопустимых данных.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Для Combo и List:<br />
+Если значение <em>data</em> совпадает с уже существующим элементом, он устанавливается по умолчанию.<br />
+Если <em>data</em> начинается с GUIDataSeparatorChar или является пустой строкой "", предыдущий список уничтожается. Завершающий GUIDataSeparatorChar игнорируется.<br />
+<br />
+Для ListView и ListViewItem:<br />
+Для обновления конкретного столбца другие столбцы опускаются, например "||update" обновляет 3-й столбец.<br />
+Если "update" пустое, столбец/подэлемент будет удалён. Например, "|" удалит второй столбец/подэлемент, "" – первый.<br />
+<br />
+Для Monthcal:<br />
+Формат даты в <em>data</em>: "yyyy/mm/dd".<br />
+<br />
+Для Date:<br />
+Дата и время задаются в формате региональных настроек. <a class="le" href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span></a><span class="S8">()</span> использует тот же формат по умолчанию.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="GUICtrlCreate%20Management.htm">GUICtrlCreate...</a>, <a href="GUICtrlRead.htm">GUICtrlRead</a>, <a href="GUICtrlUpdate%20Management.htm">GUICtrlUpdate...</a>, <a href="AutoItSetOption.htm#GUIDataSeparatorChar ">GUIDataSeparatorChar (Option)</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"My GUI"</span><span class="S8">)</span>&nbsp;<span class="S1">; создаст диалоговое окно, отображаемое по центру</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCombo.htm"><span class="S4">GUICtrlCreateCombo</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"item1|item2|item3"</span><span class="S8">,</span> <span class="S7">"item3"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span>&nbsp;<span class="S1">; отобразит пустое диалоговое окно с элементом управления Combo в фокусе
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\GUICtrlSetData.au3,"></object>
+</body>
+</html>

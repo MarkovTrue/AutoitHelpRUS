@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово #OnAutoItStartRegister</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>#OnAutoItStartRegister</h1>
+<p class="funcdesc">Регистрирует функцию, которая будет вызвана при запуске AutoIt.</p>
+<p class="codeheader"><span class="S8">&lt;</span><span class="S0">strong</span><span class="S8">&gt;</span><a class="le" href="../keywords/OnAutoItStartRegister.htm"><span class="S11">#OnAutoItStartRegister</span></a><span class="S8">&lt;</span><span class="S8">/</span><span class="S0">strong</span><span class="S8">&gt;</span> <span class="S7">"function"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">function</td>
+<td style="width:85%">Имя вызываемой пользовательской функции.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Так как функция запускается <strong>перед</strong> выполнением любого кода основного скрипта, функция не может ссылаться на переменные, определённые в <a href="include.htm">#include</a>, и не может ссылаться на переменные, определённые как <a href="include.htm">Global</a> внутри скрипта. Все переменные внутри функции рассматриваются как <a href="include.htm">Local</a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="../functions/OnAutoItExitRegister.htm">OnAutoItExitRegister</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Зарегистрировать Example() и SomeFunc() для вызова при запуске AutoIt.
+</span><br>
+<br>
+<a class="le" href="../keywords/OnAutoItStartRegister.htm"><span class="S11">#OnAutoItStartRegister</span></a> <span class="S7">"Example"</span><br>
+<a class="le" href="../keywords/OnAutoItStartRegister.htm"><span class="S11">#OnAutoItStartRegister</span></a> <span class="S7">"SomeFunc"</span><br>
+<br>
+<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Function 'Example' is called first."</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Function 'SomeFunc' is called second."</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;SomeFunc
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\OnAutoItStartRegister.au3,"></object>
+</body>
+</html>

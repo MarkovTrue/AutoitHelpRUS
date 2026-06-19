@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_UpdateResource</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_UpdateResource</h1>
+<p class="funcdesc">Добавляет, удаляет или заменяет ресурс в переносимом исполняемом файле (PE).</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_UpdateResource.htm"><span class="S15">_WinAPI_UpdateResource</span></a> <span class="S8">(</span> <span class="S9">$hUpdate</span><span class="S8">,</span> <span class="S9">$sType</span><span class="S8">,</span> <span class="S9">$sName</span><span class="S8">,</span> <span class="S9">$iLanguage</span><span class="S8">,</span> <span class="S9">$pData</span><span class="S8">,</span> <span class="S9">$iSize</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hUpdate</span></td>
+<td style="width:85%">Дескриптор модуля, возвращённый функцией <a href="_WinAPI_BeginUpdateResource.htm"><span class="S15">_WinAPI_BeginUpdateResource</span><span class="S8">()</span></a>, ссылающейся на файл для обновления.</td>
+</tr>
+<tr>
+<td><span class="S91">$sType</span></td>
+<td>Тип ресурса для обновления. Кроме того, вместо указателя этот параметр может быть<br />
+значением целого числа, представляющим предопределённый тип ресурса. Если первый символ строки<br />
+является знаком фунта (#), то оставшиеся символы представляют десятичное число, которое указывает идентификатор целого числа<br />
+типа ресурса. Например, строка "#258" представляет идентификатор 258.<br />
+Также вы можете использовать предопределённые типы ресурсов (<span class="S91">$RT_*</span>).</td>
+</tr>
+<tr>
+<td><span class="S91">$sName</span></td>
+<td>Имя ресурса для обновления. Этот параметр может быть строком или целочисленным значением.</td>
+</tr>
+<tr>
+<td><span class="S91">$iLanguage</span></td>
+<td>Идентификатор языка ресурса.</td>
+</tr>
+<tr>
+<td><span class="S91">$pData</span></td>
+<td>Данные ресурса для вставки в файл, указанный параметром <span class="S91">$hUpdate</span>. Если ресурс –<br />
+one из предопределённых типов, данные должны быть действительными и правильно выровнены. Обратите внимание, что это сырой<br />
+dвоичные данные, а не данные, предоставляемые <a href="_WinAPI_LoadIcon.htm"><span class="S15">_WinAPI_LoadIcon</span><span class="S8">()</span></a>, <a href="_WinAPI_LoadString.htm"><span class="S15">_WinAPI_LoadString</span><span class="S8">()</span></a> или другими функциями загрузки, связанными с ресурсами.<br />
+Все данные, содержащие строки или текст, должны быть в формате Unicode. Если <span class="S91">$pData</span><br />
+равен 0 и <span class="S91">$iSize</span> равен 0, указанный ресурс удаляется из файла, обозначенного <span class="S91">$hUpdate</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iSize</span></td>
+<td>Размер в байтах данных ресурса в <span class="S91">$pData</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Рекомендуется, чтобы файл ресурса не загружался перед вызовом этой функции. Однако, если этот файл<br />
+уже загружен, это не вызовет ошибку.
+<br />
+Приложение может использовать <a href="_WinAPI_UpdateResource.htm"><span class="S15">_WinAPI_UpdateResource</span><span class="S8">()</span></a> многократно для внесения изменений в данные ресурса. Каждый вызов<br />
+<a href="_WinAPI_UpdateResource.htm"><span class="S15">_WinAPI_UpdateResource</span><span class="S8">()</span></a> вносит в список внутренних добавлений, удалений и замен, но<br />
+не записывает данные в файл. Приложение должно использовать функцию <a href="_WinAPI_EndUpdateResource.htm"><span class="S15">_WinAPI_EndUpdateResource</span><span class="S8">()</span></a> для<br />
+записи накопленных изменений.<br />
+<br />
+Если <span class="S91">$pData</span> равен 0 и <span class="S91">$iSize</span> равен 0, указанный ресурс удаляется из файла, обозначенного <span class="S91">$hUpdate</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_BeginUpdateResource.htm">_WinAPI_BeginUpdateResource</a>, <a href="_WinAPI_EndUpdateResource.htm">_WinAPI_EndUpdateResource</a>, <a href="_WinAPI_LoadIcon.htm">_WinAPI_LoadIcon</a>, <a href="_WinAPI_LoadString.htm">_WinAPI_LoadString</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=UpdateResource">UpdateResource</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FileConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$g_sExe</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\MyProg.exe'</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagICONRESDIR</span> <span class="S8">=</span> <span class="S7">'byte Width;byte Height;byte ColorCount;byte Reserved;ushort Planes;ushort BitCount;dword BytesInRes;ushort IconId;'</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNEWHEADER</span> <span class="S8">=</span> <span class="S7">'ushort Reserved;ushort ResType;ushort ResCount;'</span>&nbsp;<span class="S1">; &amp; $tagICONRESDIR[ResCount]
+</span><br>
+<br>
+<span class="S1">; Выберите значок для обновления ресурса
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sIcon</span> <span class="S8">=</span> <a class="le" href="../functions/FileOpenDialog.htm"><span class="S4">FileOpenDialog</span></a><span class="S8">(</span><span class="S7">'Select File'</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\Extras'</span><span class="S8">,</span> <span class="S7">'Icon Files (*.ico)'</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$FD_FILEMUSTEXIST</span><span class="S8">,</span> <span class="S9">$FD_PATHMUSTEXIST</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Script.ico'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$sIcon</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Создать простой исполняемый файл (MyProg.exe), в который будет добавлена иконка</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sExe</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">'MyProg.exe'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/FileCopy.htm"><span class="S4">FileCopy</span></a><span class="S8">(</span><span class="S9">$sExe</span><span class="S8">,</span> <span class="S9">$g_sExe</span><span class="S8">,</span> <span class="S9">$FC_OVERWRITE</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_OKCANCEL</span> <span class="S8">+</span> <span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Error'</span><span class="S8">,</span> <span class="S7">'Unable to copy MyProg.exe or file already exist in the current directory.'</span><span class="S8">)</span> <span class="S8">&lt;&gt;</span> <span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileCopy.htm"><span class="S4">FileCopy</span></a><span class="S8">(</span><span class="S9">$sExe</span><span class="S8">,</span> <span class="S9">$g_sExe</span><span class="S8">,</span> <span class="S9">$FC_OVERWRITE</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <span class="S3">1</span><br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Начать обновление ресурсов</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hUpdate</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_BeginUpdateResource.htm"><span class="S15">_WinAPI_BeginUpdateResource</span></a><span class="S8">(</span><span class="S9">$g_sExe</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать .ico файл как сырые бинарные данные в структуру</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tIcon</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">'ushort Reserved;ushort Type;ushort Count;byte['</span> <span class="S8">&amp;</span> <span class="S8">(</span><a class="le" href="../functions/FileGetSize.htm"><span class="S4">FileGetSize</span></a><span class="S8">(</span><span class="S9">$sIcon</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">6</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">']'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hFile</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateFile.htm"><span class="S15">_WinAPI_CreateFile</span></a><span class="S8">(</span><span class="S9">$sIcon</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$hFile</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBytes</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ReadFile.htm"><span class="S15">_WinAPI_ReadFile</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">,</span> <span class="S9">$tIcon</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tIcon</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$iBytes</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$iBytes</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавить все иконки из .ico в ресурсы RT_ICON с номерами 400, 401, ... и заполнить структуру group icons</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iCount</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tIcon</span><span class="S8">,</span> <span class="S7">'Count'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tDir</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagNEWHEADER</span> <span class="S8">&amp;</span> <span class="S7">'byte['</span> <span class="S8">&amp;</span> <span class="S8">(</span><span class="S3">14</span> <span class="S8">*</span> <span class="S9">$iCount</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">']'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$pDir</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tDir</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tDir</span><span class="S8">,</span> <span class="S7">'Reserved'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tDir</span><span class="S8">,</span> <span class="S7">'ResType'</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tDir</span><span class="S8">,</span> <span class="S7">'ResCount'</span><span class="S8">,</span> <span class="S9">$iCount</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tInfo</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">,</span> <span class="S9">$tData</span><span class="S8">,</span> <span class="S9">$iID</span> <span class="S8">=</span> <span class="S3">400</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$pIcon</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tIcon</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iCount</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tInfo</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">'byte Width;byte Heigth;byte Colors;byte Reserved;ushort Planes;ushort BPP;dword Size;dword Offset'</span><span class="S8">,</span> <span class="S9">$pIcon</span> <span class="S8">+</span> <span class="S3">6</span> <span class="S8">+</span> <span class="S3">16</span> <span class="S8">*</span> <span class="S8">(</span><span class="S9">$i</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iSize</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tInfo</span><span class="S8">,</span> <span class="S7">'Size'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_UpdateResource.htm"><span class="S15">_WinAPI_UpdateResource</span></a><span class="S8">(</span><span class="S9">$hUpdate</span><span class="S8">,</span> <span class="S9">$RT_ICON</span><span class="S8">,</span> <span class="S9">$iID</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$pIcon</span> <span class="S8">+</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tInfo</span><span class="S8">,</span> <span class="S7">'Offset'</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a> <span class="S3">2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tData</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagICONRESDIR</span><span class="S8">,</span> <span class="S9">$pDir</span> <span class="S8">+</span> <span class="S3">6</span> <span class="S8">+</span> <span class="S3">14</span> <span class="S8">*</span> <span class="S8">(</span><span class="S9">$i</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">'Width'</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tInfo</span><span class="S8">,</span> <span class="S7">'Width'</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">'Height'</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tInfo</span><span class="S8">,</span> <span class="S7">'Heigth'</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">'ColorCount'</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tInfo</span><span class="S8">,</span> <span class="S7">'Colors'</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">'Reserved'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">'Planes'</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tInfo</span><span class="S8">,</span> <span class="S7">'Planes'</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">'BitCount'</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tInfo</span><span class="S8">,</span> <span class="S7">'BPP'</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">'BytesInRes'</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tData</span><span class="S8">,</span> <span class="S7">'IconId'</span><span class="S8">,</span> <span class="S9">$iID</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iID</span> <span class="S8">+=</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавить ресурс RT_GROUP_ICON с именем "MAINICON"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_UpdateResource.htm"><span class="S15">_WinAPI_UpdateResource</span></a><span class="S8">(</span><span class="S9">$hUpdate</span><span class="S8">,</span> <span class="S9">$RT_GROUP_ICON</span><span class="S8">,</span> <span class="S7">'MAINICON'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$pDir</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tDir</span><span class="S8">)</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <span class="S3">0</span><br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <span class="S3">1</span><br>
+<br>
+<span class="S1">; Сохранить или отменить изменения ресурсов исполняемого файла</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_EndUpdateResource.htm"><span class="S15">_WinAPI_EndUpdateResource</span></a><span class="S8">(</span><span class="S9">$hUpdate</span><span class="S8">,</span> <span class="S9">$iError</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <span class="S3">1</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Показать сообщение при возникновении ошибки</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iError</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Error'</span><span class="S8">,</span> <span class="S7">'Unable to change resources.'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_BeginUpdateResource.au3,"></object>
+</body>
+</html>

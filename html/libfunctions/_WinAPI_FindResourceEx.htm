@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_FindResourceEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_FindResourceEx</h1>
+<p class="funcdesc">Определяет расположение ресурса указанного типа, имени и языка в указанном модуле.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_FindResourceEx.htm"><span class="S15">_WinAPI_FindResourceEx</span></a> <span class="S8">(</span> <span class="S9">$hInstance</span><span class="S8">,</span> <span class="S9">$sType</span><span class="S8">,</span> <span class="S9">$sName</span><span class="S8">,</span> <span class="S9">$iLanguage</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hInstance</span></td>
+<td style="width:85%">Дескриптор модуля, исполняемый файл которого содержит ресурс.<br />
+Значение 0 указывает дескриптор модуля, связанного с образом, использованным операционной системой для создания текущего процесса.</td>
+</tr>
+<tr>
+<td><span class="S91">$sType</span></td>
+<td>Тип ресурса. Может быть строкой или целым значением.</td>
+</tr>
+<tr>
+<td><span class="S91">$sName</span></td>
+<td>Имя ресурса. Может быть строкой или целым значением.</td>
+</tr>
+<tr>
+<td><span class="S91">$iLanguage</span></td>
+<td>Язык ресурса.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор на блок сведений ресурса.<br />
+Чтобы получить дескриптор самого ресурса, передайте этот дескриптор в <a href="_WinAPI_LoadResource.htm"><span class="S15">_WinAPI_LoadResource</span><span class="S8">()</span></a>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если первый символ строки <span class="S91">$sName</span> или <span class="S91">$sType</span> – решётка (#), остальные символы представляют десятичное число, задающее целочисленный идентификатор имени или типа ресурса.<br />
+Например, строка "#258" представляет идентификатор 258.<br />
+<br />
+Чтобы уменьшить объём памяти, требуемый для ресурса, ссылайтесь на него по целочисленному идентификатору, а не по имени.<br />
+<br />
+Приложение может использовать <a href="_WinAPI_FindResource.htm"><span class="S15">_WinAPI_FindResource</span><span class="S8">()</span></a> для поиска ресурса любого типа, но эта функция нужна только если приложению потребуется доступ к двоичным данным ресурса в последующих вызовах <a href="_WinAPI_LockResource.htm"><span class="S15">_WinAPI_LockResource</span><span class="S8">()</span></a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_FindResource.htm">_WinAPI_FindResource</a>, <a href="_WinAPI_LoadResource.htm">_WinAPI_LoadResource</a>, <a href="_WinAPI_LockResource.htm">_WinAPI_LockResource</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=FindResourceEx">FindResourceEx</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

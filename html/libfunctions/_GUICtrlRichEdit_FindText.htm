@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUICtrlRichEdit_FindText</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUICtrlRichEdit_FindText</h1>
+<p class="funcdesc">Ищет текст, начиная с точки вставки или опорной точки выделения.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiRichEdit.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUICtrlRichEdit_FindText.htm"><span class="S15">_GUICtrlRichEdit_FindText</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$sText</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bForward</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bMatchCase</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bWholeWord</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iBehavior</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$sText</span></td>
+<td>Текст для поиска.</td>
+</tr>
+<tr>
+<td><span class="S91">$bForward</span></td>
+<td><strong>[необязательный]</strong> Направление поиска<br />
+(в Windows 95 поиск всегда вперёд)</td>
+</tr>
+<tr>
+<td><span class="S91">$bMatchCase</span></td>
+<td><strong>[необязательный]</strong> Поиск с учётом регистра.<br />
+По умолчанию – без учёта регистра.</td>
+</tr>
+<tr>
+<td><span class="S91">$bWholeWord</span></td>
+<td><strong>[необязательный]</strong> Искать только как целое слово.<br />
+По умолчанию – допускается частичное совпадение.</td>
+</tr>
+<tr>
+<td><span class="S91">$iBehavior</span></td>
+<td><strong>[необязательный]</strong> Любое сочетание (BitOR) <span class="S91">$FR_MATCHALEFHAMZA</span>, <span class="S91">$FR_MATCHDIAC</span> и <span class="S91">$FR_MATCHKASHIDA</span>.<br />
+По умолчанию: 0.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает позиция между символами перед началом найденного текста, если он найден, иначе -1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>101 – <span class="S91">$hWnd</span> не является дескриптором<br />
+102&nbsp;– <span class="S91">$sText</span> = ""<br />
+103&nbsp;– <span class="S91">$bForward</span> не равен <span class="S5">True</span> или <span class="S5">False</span><br />
+104&nbsp;– <span class="S91">$bMatchCase</span> не равен <span class="S5">True</span> или <span class="S5">False</span><br />
+105&nbsp;– <span class="S91">$bWholeWord</span> не равен <span class="S5">True</span> или <span class="S5">False</span><br />
+1061&nbsp;– <span class="S91">$iBehavior</span> не является числом<br />
+1062&nbsp;– значение <span class="S91">$iBehavior</span> недопустимо</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_GUICtrlRichEdit_FindTextInRange.htm">_GUICtrlRichEdit_FindTextInRange</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=EM_FINDTEXT">EM_FINDTEXT</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiRichEdit.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_idLbl_Msg</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGui</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$idBtn_Next</span><span class="S8">,</span> <span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S9">$iStep</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGui</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Example ("</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringTrimRight.htm"><span class="S4">StringTrimRight</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <a class="le" href="../functions/StringLen.htm"><span class="S4">StringLen</span></a><span class="S8">(</span><span class="S7">".exe"</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">320</span><span class="S8">,</span> <span class="S3">350</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hRichEdit</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlRichEdit_Create.htm"><span class="S15">_GUICtrlRichEdit_Create</span></a><span class="S8">(</span><span class="S9">$hGui</span><span class="S8">,</span> <span class="S7">"This is a test."</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">220</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$ES_MULTILINE</span><span class="S8">,</span> <span class="S9">$WS_VSCROLL</span><span class="S8">,</span> <span class="S9">$ES_AUTOVSCROLL</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_idLbl_Msg</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">235</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idBtn_Next</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Next"</span><span class="S8">,</span> <span class="S3">270</span><span class="S8">,</span> <span class="S3">310</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_AppendText.htm"><span class="S15">_GUICtrlRichEdit_AppendText</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"This is appended text."</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S5">True</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iMsg</span> <span class="S8">=</span> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Select</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_Destroy.htm"><span class="S15">_GUICtrlRichEdit_Destroy</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">)</span>&nbsp;<span class="S1">; нужно, если только скрипт не упадёт</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; GUIDelete() 	; так тоже работает</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S9">$idBtn_Next</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iStep</span> <span class="S8">+=</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iStep</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_SetSel.htm"><span class="S15">_GUICtrlRichEdit_SetSel</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Report</span><span class="S8">(</span><span class="S7">"1.set starting position "</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Report</span><span class="S8">(</span><span class="S7">'2."appended" found just after inter-character position '</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_FindText.htm"><span class="S15">_GUICtrlRichEdit_FindText</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S7">"appended"</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idBtn_Next</span><span class="S8">,</span> <span class="S9">$GUI_DISABLE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">EndSelect</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Report</span><span class="S8">(</span><span class="S9">$sMsg</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$g_idLbl_Msg</span><span class="S8">,</span> <span class="S9">$sMsg</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Report
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlRichEdit_FindText.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiRichEdit.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sText</span> <span class="S8">=</span> <span class="S7">"First line"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CR"><span class="S6">@CR</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CR"><span class="S6">@CR</span></a> <span class="S8">&amp;</span> <span class="S7">"Last line"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CR"><span class="S6">@CR</span></a><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iStart</span><span class="S8">,</span> <span class="S9">$iEnd</span><span class="S8">,</span> <span class="S9">$sLine</span><span class="S8">,</span> <span class="S9">$i</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iTextLen</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iFindTextError</span><span class="S8">,</span> <span class="S9">$iGetTextError</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sMsgBuff</span> <span class="S8">=</span> <span class="S7">""</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Find Text Test"</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hRichEdit</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlRichEdit_Create.htm"><span class="S15">_GUICtrlRichEdit_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">280</span><span class="S8">,</span> <span class="S3">280</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../libfunctions/_GUICtrlRichEdit_SetText.htm"><span class="S15">_GUICtrlRichEdit_SetText</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">)</span><br>
+<span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span><br>
+<span class="S9">$iTextLen</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlRichEdit_GetTextLength.htm"><span class="S15">_GUICtrlRichEdit_GetTextLength</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
+<span class="S9">$sMsgBuff</span> <span class="S8">=</span> <span class="S9">$iTextLen</span> <span class="S8">&amp;</span> <span class="S7">" characters in Rich Edit box"</span><br>
+<br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">6</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_GUICtrlRichEdit_GotoCharPos.htm"><span class="S15">_GUICtrlRichEdit_GotoCharPos</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S9">$iStart</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+<span class="S1">;~ 		MsgBox(0, "", "False from GotoCharPos")
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iEnd</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlRichEdit_FindText.htm"><span class="S15">_GUICtrlRichEdit_FindText</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@CR"><span class="S6">@CR</span></a><span class="S8">)</span>&nbsp;<span class="S1">; Найти следующий CR
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iEnd</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iFindTextError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iEnd</span> <span class="S8">=</span> <span class="S9">$iStart</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sLine</span> <span class="S8">=</span> <span class="S7">""</span>&nbsp;<span class="S1">; end = start означает просто пустую строку
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iGetTextError</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sLine</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlRichEdit_GetTextInRange.htm"><span class="S15">_GUICtrlRichEdit_GetTextInRange</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S9">$iStart</span><span class="S8">,</span> <span class="S9">$iEnd</span><span class="S8">)</span>&nbsp;<span class="S1">; строка – это все символы между start и end
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iGetTextError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sMsgBuff</span> <span class="S8">&amp;=</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$i</span> <span class="S8">&amp;</span> <span class="S7">": Start = "</span> <span class="S8">&amp;</span> <span class="S9">$iStart</span> <span class="S8">&amp;</span> <span class="S7">", End = "</span> <span class="S8">&amp;</span> <span class="S9">$iEnd</span> <span class="S8">&amp;</span> <span class="S7">": &lt;"</span> <span class="S8">&amp;</span> <span class="S9">$sLine</span> <span class="S8">&amp;</span> <span class="S7">"&gt;  (@errors = "</span> <span class="S8">&amp;</span> <span class="S9">$iFindTextError</span> <span class="S8">&amp;</span> <span class="S7">", "</span> <span class="S8">&amp;</span> <span class="S9">$iGetTextError</span> <span class="S8">&amp;</span> <span class="S7">")"</span>&nbsp;<span class="S1">; накопить результаты
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iStart</span> <span class="S8">=</span> <span class="S9">$iEnd</span> <span class="S8">+</span> <span class="S3">1</span>&nbsp;<span class="S1">; Следующий поиск начинается на один символ позже последнего найденного CR
+</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"Test results"</span><span class="S8">,</span> <span class="S9">$sMsgBuff</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_GUICtrlRichEdit_Destroy.htm"><span class="S15">_GUICtrlRichEdit_Destroy</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlRichEdit_FindText[2].au3,"></object>
+</body>
+</html>

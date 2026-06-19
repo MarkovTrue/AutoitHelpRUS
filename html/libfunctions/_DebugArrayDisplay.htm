@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _DebugArrayDisplay</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_DebugArrayDisplay</h1>
+<p class="funcdesc">Отображает одномерный или двумерный массив в элементе ListView для помощи при отладке.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Debug.au3&gt;</span><br>
+<span class="S0">_DebugArrayDisplay</span> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sTitle</span> <span class="S8">=</span> <span class="S7">"DebugArray"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sArrayRange</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vUser_Separator</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sHeader</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iDesired_Colwidth</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$hUser_Function</span> <span class="S8">=</span> <span class="S7">""</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$aArray</span></td>
+<td style="width:85%">Массив для отображения.</td>
+</tr>
+<tr>
+<td><span class="S91">$sTitle</span></td>
+<td><strong>[необязательный]</strong> Заголовок диалогового окна. По умолчанию – "DebugArray".</td>
+</tr>
+<tr>
+<td><span class="S91">$sArrayRange</span></td>
+<td><strong>[необязательный]</strong> Диапазон строк/столбцов для отображения. По умолчанию ("") – весь массив. (см. раздел Примечания.)</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> Параметры UDF. Суммируйте нужные значения.<br />
+<span class="default-const"><span class="S91">$ARRAYDISPLAY_COLALIGNLEFT</span></span> (0) = (по умолчанию) выравнивание текста в столбцах – по левому краю<br />
+<span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> (1) = транспонировать массив (только для 2D)<br />
+<span class="S91">$ARRAYDISPLAY_COLALIGNRIGHT</span> (2) = выравнивание текста в столбцах – по правому краю<br />
+<span class="S91">$ARRAYDISPLAY_COLALIGNCENTER</span> (4) = выравнивание текста в столбцах – по центру<br />
+<span class="S91">$ARRAYDISPLAY_VERBOSE</span> (8) = подробный режим – отображать MsgBox при ошибке и заставки при обработке больших массивов<br />
+<span class="S91">$ARRAYDISPLAY_NOROW</span> (64) = не показывать столбец "Row"<br />
+<span class="S91">$ARRAYDISPLAY_CHECKERROR</span> (128) = CheckError – не отображать, если при вызове установлен <span class="S61">@error</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$vUser_Separator</span></td>
+<td><strong>[необязательный]</strong> Параметр отображения столбцов при копировании данных в буфер обмена.<br />
+Символ = разделитель между столбцами.<br />
+Число = фиксированная ширина столбца; более длинные значения обрезаются.<br />
+По умолчанию – текущий символ-разделитель (обычно "|").</td>
+</tr>
+<tr>
+<td><span class="S91">$sHeader</span></td>
+<td><strong>[необязательный]</strong> Имена столбцов в заголовке (строка имён, разделённых текущим символом-разделителем – обычно "|"). Значение по умолчанию – см. раздел Примечания.</td>
+</tr>
+<tr>
+<td><span class="S91">$iDesired_Colwidth</span></td>
+<td><strong>[необязательный]</strong> Если положительное – максимальная ширина, до которой столбец ListView расширяется для отображения содержимого. По умолчанию – 350 пикселей.<br />
+Если отрицательное – все столбцы, кроме первого (55 пикселей), устанавливаются равными <a class="le" href="../functions/Abs.htm"><span class="S4">Abs</span></a><span class="S8">(</span><span class="S91">$iDesired_Colwidth</span><span class="S8">)</span>.<br />
+Ширина столбца всегда подстраивается под длину отображаемого элемента.</td>
+</tr>
+<tr>
+<td><span class="S91">$hUser_Function</span></td>
+<td><strong>[необязательный]</strong> Переменная, содержащая пользовательскую функцию для вызова. По умолчанию – не задана. См. раздел Примечания.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>0; флаг <span class="S61">@error</span> устанавливается следующим образом:</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> имеет слишком много измерений (поддерживаются только 1D и 2D)<br />
+3 – при вызове функции установлен <span class="S61">@error</span>; вызывается <a class="le" href="_DebugReport.htm"><span class="S15">_DebugReport</span></a><span class="S8">()</span></td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если функции передана не-массивная переменная или массив с более чем двумя измерениями, функция возвращает ошибку и скрипт продолжает выполнение. Если в <span class="S91">$iFlags</span> задан флаг "verbose", отображается MsgBox с предложением немедленно завершить скрипт или продолжить с обычным возвратом ошибки.<br />
+<br />
+Размер отображаемого массива не ограничен, однако из-за ограничений Windows-элемента управления заголовки и столбцы ListView перестают выравниваться при количестве столбцов более ~600.<br />
+<br />
+Синтаксис параметра <span class="S91">$sArrayRange</span>:<table>
+<tr>
+<td>"7"</td>
+<td>Строки 0–7, все столбцы</td>
+</tr>
+
+<tr>
+<td>"7:"</td>
+<td>Строки 7–конец, все столбцы</td>
+</tr>
+
+<tr>
+<td>"|7"</td>
+<td>Все строки, столбцы 0–7</td>
+</tr>
+
+<tr>
+<td>"|7:"</td>
+<td>Все строки, столбцы 7–конец</td>
+</tr>
+
+<tr>
+<td>"7|7"</td>
+<td>Строки 0–7, столбцы 0–7</td>
+</tr>
+
+<tr>
+<td>"5:7"</td>
+<td>Строки 5–7, все столбцы</td>
+</tr>
+
+<tr>
+<td>"|5:7"</td>
+<td>Все строки, столбцы 5–7</td>
+</tr>
+
+<tr>
+<td>"7|5:7"</td>
+<td>Строки 0–7, столбцы 5–7</td>
+</tr>
+
+<tr>
+<td>"5:7|7"</td>
+<td>Строки 5–7, столбцы 0–7</td>
+</tr>
+
+<tr>
+<td>"5:7|5:7"</td>
+<td>Строки 5–7, столбцы 5–7</td>
+</tr>
+</table><br />
+Для одномерных массивов значения столбцов игнорируются.<br />
+<br />
+Имена из <span class="S91">$sHeader</span> (разделённые текущим символом-разделителем) используются для соответствующего числа столбцов. Если пользовательских имён нет или их недостаточно, применяется заголовок по умолчанию: "Row|Col0" для 1D или "Row|Col0|Col1|...|Col n" для 2D. При транспонировании массива заголовок игнорируется.<br />
+Переменная <span class="S91">$ARRAYDISPLAY_ROWPREFIX</span> задаёт префикс нумерации строк (по умолчанию: #).<br />
+Чтобы принудительно задать числовое сравнение по конкретному столбцу, добавьте <span class="S91">$ARRAYDISPLAY_NUMERICSORT</span> (по умолчанию: *) в конец имени этого столбца.<br />
+<br />
+Четыре кнопки в нижней части диалога:<table>
+<tr>
+<td>Copy Data &amp; Hdr/Row</td>
+<td>Копировать весь массив или выделенные строки в буфер обмена с заголовком и идентификатором строки.</td>
+</tr>
+
+<tr>
+<td>Copy Data Only</td>
+<td>Копировать весь массив или выделенные строки без заголовка и идентификатора строки.</td>
+</tr>
+
+<tr>
+<td>Run User Func</td>
+<td>Запустить пользовательскую функцию, переданную в <span class="S91">$hUser_Function</span>. Функция полностью независима от UDF и должна быть создана пользователем (см. пример). Кнопка не отображается, если функция не задана.</td>
+</tr>
+
+<tr>
+<td>Exit script</td>
+<td>Немедленно завершить скрипт.</td>
+</tr>
+</table><br />
+Размерность массива отображается в левом нижнем углу. Красным цветом – если массив транспонирован или отображается только диапазон элементов; подсказка показывает конкретное условие.<br />
+<br />
+Если в <span class="S91">$iFlags</span> задан флаг "verbose" и массив содержит более 10000 элементов, при начальной обработке отображается заставка. Аналогичная заставка появляется при нажатии кнопок "Copy Data" для отображения с более чем 10000 элементами – в этом случае рекомендуется использовать пользовательскую функцию для сохранения массива.<br />
+<br />
+Элемент массива, содержащий другой массив или Map, отображается как {Array} или {Map}.<br />
+<br />
+При использовании <span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> или <span class="S91">$sArrayRange</span> создаётся копия <span class="S91">$aArray</span>, что увеличивает потребление памяти.<br />
+<br />
+Щёлчок по заголовку столбца выполняет сортировку; при большом числе строк это может занять несколько секунд – всплывающая подсказка предупредит об этом.<br />
+<br />
+<span class="S91">$hUser_Function</span> должна принимать ровно 2 параметра (см. пример):<br />
+&nbsp;&nbsp;&nbsp; Param1 – отображаемый массив <span class="S91">$aArray</span><br />
+&nbsp;&nbsp;&nbsp; Param2 – одномерный массив индексов выделенных строк; [0] содержит их количество<br />
+Эти параметры используются внутри пользовательской функции по необходимости.<br />
+</p>
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Debug.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать одномерный массив для отображения</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray_1D</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"Item 0"</span><span class="S8">,</span> <span class="S7">"Item 1"</span><span class="S8">,</span> <span class="S7">"A longer Item 2 to show column expansion"</span><span class="S8">,</span> <span class="S7">"Item 3"</span><span class="S8">,</span> <span class="S7">"Item 4"</span><span class="S8">]</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aArray_1D</span><span class="S8">,</span> <span class="S7">"1D display"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать двумерный массив для отображения</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray_2D</span><span class="S8">[</span><span class="S3">25</span><span class="S8">]</span><span class="S8">[</span><span class="S3">15</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$j</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray_2D</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S9">$j</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Item "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"%02i"</span><span class="S8">,</span> <span class="S9">$i</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"%02i"</span><span class="S8">,</span> <span class="S9">$j</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S7">"2D display"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray_2D</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"A longer item to show column expansion"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S7">"Expanded column - custom titles - no 'Row' column"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$ARRAYDISPLAY_NOROW</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"AA|BB|CC|DD|EE|FF|GG|HH|II|JJ"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присваиваем пользовательскую функцию переменной для передачи в качестве параметра.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hUserFunction</span> <span class="S8">=</span> <span class="S0">_UserFunc</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray_2D</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Column alignment set to right"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S7">"Range set - right align - copy column width - user function"</span><span class="S8">,</span> <span class="S7">"3:7|4:9"</span><span class="S8">,</span> <span class="S9">$ARRAYDISPLAY_COLALIGNRIGHT</span><span class="S8">,</span> <span class="S3">15</span><span class="S8">,</span> <span class="S7">"AA|BB|CC|DD|EE|FF"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$hUserFunction</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S7">"Range set - transposed"</span><span class="S8">,</span> <span class="S7">"3:7|4:9"</span><span class="S8">,</span> <span class="S9">$ARRAYDISPLAY_TRANSPOSE</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"AA|BB|CC|DD|EE|FF"</span><span class="S8">)</span>&nbsp;<span class="S1">; Имена столбцов не указываются, так как массив транспонирован.
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray_2D</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Column alignment set to left"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUIDataSeparatorChar"</span><span class="S8">,</span> <span class="S7">"!"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S7">"Header separator = !"</span><span class="S8">,</span> <span class="S7">"3:7|4:9"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"AA!BB!CC!DD!EE!FF"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRet</span><span class="S8">,</span> <span class="S9">$iError</span> <span class="S8">=</span> <span class="S3">2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S9">$iError</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRet</span> <span class="S8">=</span> <span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S7">"Check error no display"</span><span class="S8">,</span> <span class="S7">"3:7|4:9"</span><span class="S8">,</span> <span class="S9">$ARRAYDISPLAY_CHECKERROR</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"_DebugArrayDisplay() Error"</span><span class="S8">,</span> <span class="S7">"return without internal Msgbox $iret ="</span> <span class="S8">&amp;</span> <span class="S9">$iRet</span> <span class="S8">&amp;</span> <span class="S7">" @error="</span> <span class="S8">&amp;</span> <span class="S9">$iError</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать не-массивную переменную, чтобы вызвать ошибку – MsgBox показывается, так как $iFlags задан</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vVar</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRet</span> <span class="S8">=</span> <span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$vVar</span><span class="S8">,</span> <span class="S7">"No MsgBox on Error"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"_DebugArrayDisplay() Error"</span><span class="S8">,</span> <span class="S7">"return without internal Msgbox $iret ="</span> <span class="S8">&amp;</span> <span class="S9">$iRet</span> <span class="S8">&amp;</span> <span class="S7">" @error="</span> <span class="S8">&amp;</span> <span class="S9">$iError</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRet</span> <span class="S8">=</span> <span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$vVar</span><span class="S8">,</span> <span class="S7">"MsgBox on Error"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$ARRAYDISPLAY_VERBOSE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"_DebugArrayDisplay() Error"</span><span class="S8">,</span> <span class="S7">"return internal Msgbox with no force Exit $iret ="</span> <span class="S8">&amp;</span> <span class="S9">$iRet</span> <span class="S8">&amp;</span> <span class="S7">" @error="</span> <span class="S8">&amp;</span> <span class="S9">$iError</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<span class="S1">; Пользовательская функция ДОЛЖНА иметь ДВА параметра, даже если оба не используются.
+</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_UserFunc</span><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S9">$aSelected</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если параметр не используется – добавьте заглушку, чтобы избежать предупреждения Au3Check.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$aArray_2D</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aSelected</span><span class="S8">,</span> <span class="S7">"Selected cols"</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_UserFunc
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_DebugArrayDisplay.au3,"></object>
+</body>
+</html>

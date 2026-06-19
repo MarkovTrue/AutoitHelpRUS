@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinNet_UseConnection</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinNet_UseConnection</h1>
+<p class="funcdesc">Подключает локальное устройство к сетевому ресурсу.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinNet.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinNet_UseConnection.htm"><span class="S15">_WinNet_UseConnection</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$sLocalName</span><span class="S8">,</span> <span class="S9">$sRemoteName</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sUserName</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sPassword</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iType</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iOptions</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$sLocalName</span></td>
+<td>Имя локального устройства для переадресации, например "F:" или "LPT1".
+Строка обрабатывается независимо от регистра.
+Если 0, подключение к сетевому ресурсу происходит без переадресации локального устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$sRemoteName</span></td>
+<td>Имя сетевого ресурса для подключения.</td>
+</tr>
+<tr>
+<td><span class="S91">$sUsername</span></td>
+<td><strong>[необязательный]</strong> Имя пользователя для подключения.
+Если 0, функция использует имя пользователя по умолчанию.</td>
+</tr>
+<tr>
+<td><span class="S91">$sPassword</span></td>
+<td><strong>[необязательный]</strong> Пароль для подключения.
+Если 0, используется пароль по умолчанию. Если строка пуста, пароль не используется.</td>
+</tr>
+<tr>
+<td><span class="S91">$iType</span></td>
+<td><strong>[необязательный]</strong> Указывает тип сетевого ресурса для подключения:
+&nbsp;&nbsp;&nbsp; 0 – Любой (только если <span class="S91">$sLocalName</span> пуст)
+&nbsp;&nbsp;&nbsp; 1 – Диск
+&nbsp;&nbsp;&nbsp; 2 – Принтер</td>
+</tr>
+<tr>
+<td><span class="S91">$iOptions</span></td>
+<td><strong>[необязательный]</strong> Параметры подключения. Может быть одним или несколькими из следующих:
+&nbsp;&nbsp;&nbsp; 1 – Подключение к сетевому ресурсу следует запомнить
+&nbsp;&nbsp;&nbsp; 2 – Операционная система может взаимодействовать с пользователем в целях аутентификации
+&nbsp;&nbsp;&nbsp; 4 – Система не использует параметры по умолчанию для имён пользователей или паролей без предоставления пользователю
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; возможности указать альтернативу.
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Этот флаг игнорируется, если также не установлен бит 2 (интерактивный).
+&nbsp;&nbsp;&nbsp; 8 – Принудительная переадресация локального устройства при подключении
+&nbsp;&nbsp;&nbsp; 16 – Операционная система приглашает пользователя на аутентификацию через командную строку вместо графического интерфейса.
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Этот флаг игнорируется, если также не установлен бит 2 (интерактивный).
+&nbsp;&nbsp;&nbsp; 32 – Если этот бит установлен и операционная система запрашивает учётные данные, они сохраняются диспетчером учётных данных.
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Если диспетчер учётных данных отключен для сеанса входа вызывающей стороны, или если сетевой поставщик не поддерживает сохранение учётных данных, этот флаг игнорируется.
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Этот флаг также игнорируется, если не установлен бит 5 (командная строка вместо графического интерфейса).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает массив со следующим форматом:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– Если <span class="S5">True</span>, подключение было выполнено с использованием переадресации локального устройства
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Если <span class="S91">$sLocalName</span> указывает локальное устройство, это имя локального устройства.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Если&nbsp;<span class="S91">$sLocalName</span> не указывает устройство и сеть требует переадресации локального устройства,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;или&nbsp;если установлен бит 4 (принудительная переадресация), буфер получает имя переадресованного локального устройства.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В противном случае&nbsp;имя, скопированное в буфер, является имя удалённого ресурса.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=WNetUseConnection">WNetUseConnection</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

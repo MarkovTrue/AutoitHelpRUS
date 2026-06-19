@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Функции</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Функции</h1>
+  <p>Функция – это участок кода, который можно вызвать из скрипта для выполнения определённой задачи. В AutoIt существует два вида функций: <strong>встроенные</strong> и <strong>пользовательские</strong>.</p>
+  <p>Имена функций нечувствительны к регистру: <a class="le" href="../functions/msgbox.htm"><span class="S4">msgbox</span><span class="S8">()</span></a> читается как <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span><span class="S8">()</span></a>, а MyFunc() и MyfunC() – одно и то же.</p>
+  <h2>Встроенные функции</h2>
+  <p>Полный список встроенных функций см. <a href="../functions.htm">здесь</a>, заметки по их использованию – <a href="../function_notes.htm">здесь</a>.</p>
+  <h2>Пользовательские функции</h2>
+  <p>Пользовательские функции объявляются с помощью операторов <a href="../keywords/Func.htm">Func...EndFunc</a>.</p>
+  <p>Функции могут принимать параметры и возвращать значения по необходимости.</p>
+  <p>Имя функции должно начинаться с буквы или подчёркивания, остальная часть имени может содержать любую комбинацию букв, цифр и подчёркиваний. Примеры допустимых имён:</p>
+  <p>&nbsp;&nbsp;&nbsp; MyFunc</p>
+  <p>&nbsp;&nbsp;&nbsp; Func1</p>
+  <p>&nbsp;&nbsp;&nbsp; _My_Func1</p>
+  <p>Пример использования функции для удвоения числа 10 раз:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S3">10</span><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$iDoubled</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S3">0</span><br /><br /><a class="codeSnippetLink" href="../keywords/For.htm"><span class="S5">For</span></a><span class="S0"> </span><span class="S9">$i</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/For.htm"><span class="S5">To</span></a><span class="S0"> </span><span class="S3">10</span><br /><span class="S0">&nbsp; &nbsp; </span><span class="S9">$iDoubled</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> MyDouble</span><span class="S8">(</span><span class="S9">$iNumber</span><span class="S8">)</span><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" doubled is "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$iDoubled</span><span class="S8">)</span><br /><span class="S0">&nbsp; &nbsp; </span><span class="S9">$iNumber</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S9">$iDoubled</span><br /><a class="codeSnippetLink" href="../keywords/For.htm"><span class="S5">Next</span></a><br /><a class="codeSnippetLink" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br /><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> MyDouble</span><span class="S8">(</span><span class="S9">$iValue</span><span class="S8">)</span><br /><span class="S0">&nbsp; &nbsp; </span><span class="S9">$iValue</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S9">$iValue</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">*</span></a><span class="S0"> </span><span class="S3">2</span><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Return</span></a><span class="S0"> </span><span class="S9">$iValue</span><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;MyDouble</span></span>
+</p>
+</body>
+</html>

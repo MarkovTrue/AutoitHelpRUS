@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Window Titles and Text (Advanced)</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Window Titles and Text (Advanced)</h1>
+  <p>AutoIt operates in one of three "Window matching" modes. The modes are set with the <a href="../functions/AutoItSetOption.htm#WinTitleMatchMode">AutoItSetOption</a> function using the <a href=
+  "../functions/AutoItSetOption.htm#WinTitleMatchMode">WinTitleMatchMode</a> option.</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode 1 (default)</strong></p>
+  <p>Matches partial titles from the start.</p>
+  <p>In this mode, a window titled <strong>Untitled - Notepad</strong> would be matched by "Untitled - Notepad", "Untitled", "Un", etc.</p>
+  <p>e.g.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"Untitled"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode 2</strong></p>
+  <p>Matches any substring in the title.</p>
+  <p>In this mode, a window titled <strong>Untitled - Notepad</strong> would be matched by "Untitled - Notepad", "Untitled", "Notepad", "pad", etc.</p>
+  <p>e.g.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode 3</strong></p>
+  <p>Exact title match.</p>
+  <p>In this mode, a window titled <strong>Untitled - Notepad</strong> would only be matched by "Untitled - Notepad".</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode 4</strong> (Kept for backward compatibility)</p>
+  <p>Advanced mode</p>
+  <p> Replaced by Advanced Window Descriptions which work in any mode.</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode -1 to -4</strong></p>
+  <p>Case insensitive match according to the other type of match.</p>
+  <h2>Advanced Window Descriptions</h2>
+  <p>A special description can be used as the window <strong>title</strong> parameter. This description can be used to identify a window by the following <em>properties</em>:</p>
+  <ul>
+    <li><strong>TITLE -</strong> Window title</li>
+    <li><strong>CLASS -</strong> The internal window classname</li>
+    <li><strong>REGEXPTITLE -</strong> Window title using a <a href="../functions/StringRegExp.htm">regular expression</a> (if the regular expression is wrong @error will be set to 2)</li>
+    <li><strong>REGEXPCLASS -</strong> Window classname using a <a href="../functions/StringRegExp.htm">regular expression</a> (if the regular expression is wrong @error will be set to 2)</li>
+    <li><strong>LAST -</strong> Last window used in a previous Windows AutoIt Function (see Windows Management Functions)</li>
+    <li><strong>ACTIVE -</strong> Currently active window</li>
+    <li><strong>X</strong> \ <strong>Y</strong> \ <strong>W</strong> \ <strong>H</strong> - The position and size of a window</li>
+    <li><strong>INSTANCE -</strong> The 1-based instance when all given properties match</li>
+  </ul>
+  <p>One or more properties are used in the <em>title</em> parameter of a window command in the format:</p>
+<p class="codebox">
+<span><span class="S8">[</span><span class="S0">PROPERTY1 </span><span class="S8">:</span><span class="S0"> Value1</span><span class="S1">; PROPERTY2:Value2]</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><strong>Note</strong> : if a Value must contain a ";" it must be doubled.</p>
+  <p>e.g. Wait for a window with the classname "Notepad".</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>e.g. Close the currently active window</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S7">"[ACTIVE]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>e.g. Wait for the 2nd instance of a window with title "My Window" <strong>and</strong> classname "My Class"</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"[TITLE:My Window; CLASS:My Class; INSTANCE:2]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>e.g. List windows matching Title defined by a regular expression</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinList.htm"><span class="S4">WinList</span></a><span class="S8">(</span><span class="S7">"[REGEXPTITLE:(?i)(.*SciTE.*|.*Internet Explorer.*)]"</span><span class="S8">)</span></span>
+</p>
+  <h2>Window Handles / HWNDs</h2>
+  <p>The variant datatype in AutoIt natively supports window handles (HWNDs).&nbsp; A window handle is a special value that Windows assigns to windows each time they are created.&nbsp; When you have a handle you may use it in place of the title parameter
+  in any of the function calls that use the title/text convention.&nbsp; The advantage of using window handles is that if you have multiple copies of an application open which have the same title/text then you can uniquely identify them using handles.
+  <strong>When you use a window handle for the title parameter then the text parameter is completely ignored.</strong></p>
+  <p>Various functions such as <a href="../functions/WinGetHandle.htm">WinGetHandle</a>, <a href="../functions/WinList.htm">WinList</a> and <a href="../functions/GUICreate.htm">GUICreate</a> return these handles. It is important to note that a window
+  handle is <strong>not</strong> classed as a number or string - it is its own special type.</p>
+  <p><strong>Note: Window handles will work no matter what WinTitleMatchMode is currently in use.</strong></p>
+  <p><strong>Example</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$hWnd</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/WinGetHandle.htm"><span class="S4">WinGetHandle</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span></span>
+</p>
+</body>
+</html>

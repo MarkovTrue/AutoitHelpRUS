@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция GUICtrlSetState</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>GUICtrlSetState</h1>
+<p class="funcdesc">Изменяет состояние элемента управления.</p>
+<p class="codeheader"><a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a> <span class="S8">(</span> <span class="S0">controlID</span><span class="S8">,</span> <span class="S0">state</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">controlID</td>
+<td style="width:85%">Идентификатор элемента управления (controlID), возвращённый функцией <a href="GUICtrlCreate%20Management.htm">GUICtrlCreate...()</a>, или -1 для последнего созданного элемента.</td>
+</tr>
+<tr>
+<td>state</td>
+<td>См. <a href="#StateTable">таблицу состояний</a> ниже.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>&nbsp;&nbsp;&nbsp; <a id="StateTable"></a><strong>Таблица состояний</strong><br />
+<br />
+<table>
+<tr class="header">
+<th><strong>Состояние</strong></th>
+<th><strong>Описание</strong></th>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_CHECKED</span> (1)</td>
+<td>Radio, Checkbox, MenuItem или ListViewItem будет отмечен.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_INDETERMINATE</span> (2)</td>
+<td>Checkbox с атрибутом tristate будет затенён.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_UNCHECKED</span> (4)</td>
+<td>Radio, Checkbox, MenuItem или ListViewItem будет снят.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_DROPACCEPTED</span> (8)</td>
+<td>Элемент управления будет принимать операцию перетаскивания: из файла или из другого элемента управления. См. раздел Примечания.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_SHOW</span> (16)</td>
+<td>Элемент управления будет видим. Для TabItem выбирает первую вкладку для отображения.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_HIDE</span> (32)</td>
+<td>Элемент управления будет скрыт.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_ENABLE</span> (64)</td>
+<td>Элемент управления будет активен.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_DISABLE</span> (128)</td>
+<td>Элемент управления будет затенён (недоступен).</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_FOCUS</span> (256)</td>
+<td>Элемент управления получит фокус ввода/выделения.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_DEFBUTTON</span> (512)</td>
+<td>Элемент управления будет назначен кнопкой по умолчанию в окне. См. раздел Примечания о TreeViewItem.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_EXPAND</span> (1024)</td>
+<td>TreeViewItem раскроет дочерние элементы.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_ONTOP</span> (2048)</td>
+<td>Элемент управления получит атрибут "поверх" для окна (z-порядок).</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_NODROPACCEPTED</span> (4096)</td>
+<td>Элемент управления не будет принимать операцию перетаскивания.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_NOFOCUS</span> (8192)</td>
+<td>Элемент управления ListView потеряет фокус.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_AVISTART</span> (0)</td>
+<td>Элемент управления AVI начнёт воспроизведение.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_AVISTOP</span> (1)</td>
+<td>Элемент управления AVI остановит воспроизведение.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$GUI_AVICLOSE</span> (2)</td>
+<td>Элемент управления AVI остановит воспроизведение и освободит ресурсы.</td>
+</tr>
+</table><br />
+Значения состояний можно суммировать: например, <span class="S91">$GUI_DISABLE</span> (128) + <span class="S91">$GUI_HIDE</span> (32) делает элемент недоступным и скрытым.<br />
+<br />
+Если элемент управления AVI нужно скрыть через <span class="S91">$GUI_HIDE</span> (32), предварительно его следует закрыть через <span class="S91">$GUI_AVICLOSE</span> (1).<br />
+<br />
+Состояние элемента управления "contextmenu" <strong>изменить невозможно.</strong><br />
+Состояние "listviewitem" можно изменить, если связанный "listview" создан с расширенным стилем <span class="S91">$LVS_EX_CHECKBOXES</span>. <span class="S91">$GUI_FOCUS</span> (256) и <span class="S91">$GUI_NOFOCUS</span> (8192) применимы к конкретному listviewitem при условии, что стиль listview позволяет его отображение: <span class="S91">$LVS_SHOWSELALWAYS</span>.<br />
+Состояние элементов "menu" и "menuitem" <strong>скрыть невозможно.</strong><br />
+<br />
+! Важно для <span class="S91">$GUI_EXPAND</span>: это состояние применяется только к TreeViewItem. Чтобы использовать это действие, у элемента должен существовать хотя бы один дочерний Sub-TreeViewItem !<br />
+Для выбора другого элемента в TreeView используйте <span class="S91">$GUI_FOCUS</span> (256) – родительский TreeView получает фокус окна, а указанный элемент помечается как выбранный.<br />
+Для назначения элемента TreeView элементом по умолчанию (жирное начертание) используйте <span class="S91">$GUI_DEFBUTTON</span> (512) – для отмены передайте любое другое значение, например 0. Это состояние не возвращается функцией <a class="le" href="GUICtrlGetState.htm"><span class="S4">GUICtrlGetState</span></a><span class="S8">()</span>.<br />
+<br />
+Если для видимого элемента управления установлено <span class="S91">$GUI_DROPACCEPTED</span> (8), перетаскивание будет учтено. Для Edit/Input будет задано имя файла.<br />
+Для других элементов при получении события <span class="S91">$GUI_EVENT_DROPPED</span> <span class="S61">@GUI_DragId</span> вернёт controlID, с которого началось перетаскивание (-1 при перетаскивании файла; <span class="S61">@GUI_DragFile</span> содержит имя файла), а <span class="S61">@GUI_DropId</span> – controlID элемента назначения.<br />
+Процесс перетаскивания запускается только при перетаскивании ListViewItem. <span class="S61">@GUI_DragId</span> будет содержать controlID ListView.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="GUICtrlCreate%20Management.htm">GUICtrlCreate...</a>, <a href="GUICtrlGetState.htm">GUICtrlGetState</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI с различными элементами управления.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Example"</span><span class="S8">,</span> <span class="S3">420</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$WS_EX_ACCEPTFILES</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать метку и разрешить для неё приём перетаскивания.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLabel</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">"Drop a file on this label."</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S9">$WS_BORDER</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idLabel</span><span class="S8">,</span> <span class="S9">$GUI_DROPACCEPTED</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать поле ввода и разрешить для него приём перетаскивания.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idInput</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">22</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idInput</span><span class="S8">,</span> <span class="S9">$GUI_DROPACCEPTED</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton_OK</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span> <span class="S3">310</span><span class="S8">,</span> <span class="S3">170</span><span class="S8">,</span> <span class="S3">85</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить GUI.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><span class="S8">,</span> <span class="S9">$idButton_OK</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_DROPPED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если @GUI_DropId равен $idLabel, установить текст метки из имени перетащенного файла.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@GUI_DropId"><span class="S6">@GUI_DropId</span></a> <span class="S8">=</span> <span class="S9">$idLabel</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idLabel</span><span class="S8">,</span> <a class="le" href="../macros.htm#@GUI_DragFile"><span class="S6">@GUI_DragFile</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить предыдущий GUI и все элементы управления.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\GUICtrlSetState.au3,"></object>
+</body>
+</html>

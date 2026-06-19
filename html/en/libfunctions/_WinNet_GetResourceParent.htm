@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinNet_GetResourceParent</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinNet_GetResourceParent</h1>
+<p class="funcdesc">Returns the parent of a network resource in the network browse hierarchy<br /></p>
+<p class="codeheader">
+#include &lt;WinNet.au3&gt;<br />
+_WinNet_GetResourceParent ( $sRemoteName, $sProvider [, $iType = 0] )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$sRemoteName</td>
+<td style="width:85%">The remote path name of the resource</td>
+</tr>
+<tr>
+<td>$sProvider</td>
+<td>The name of the provider that owns the resource</td>
+</tr>
+<tr>
+<td>$iType</td>
+<td><strong>[optional]</strong> Type of resource.<br />
+This member can be 0 if it is not known.</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">an array with the following format:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aResource[0]&nbsp;- Scope of enumeration:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;- Connected<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;- All resources<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;- Remembered<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aResource[1]&nbsp;- Type of resource:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;- Disk<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;- Print<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;- Unknown<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aResource[2]&nbsp;- Display option:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;- Generic<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;- Domain<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;- Server<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;- Share<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;- File<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;- Group<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;- Network<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;- Root<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;- Admin Share<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;- Directory<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;- Tree<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;- NDS Container<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aResource[3]&nbsp;- Resource usage. Can be one or more of the following:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;- The resource is a connectable resource<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;- The resource is a container resource<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;- The resource is attached<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;- Thre resource is reserved<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aResource[4]&nbsp;- Local name<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aResource[5]&nbsp;- Remote name<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aResource[6]&nbsp;- Comment supplied by the network provider<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aResource[7]&nbsp;- The name of the provider that owns the resource</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>sets the @error flag to non-zero.</td>
+</tr>
+</table>
+
+<h2>See Also</h2>
+<p>Search <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(WNetGetResourceParent);k(DevLang-C);k(TargetOS-WINDOWS)&rd=true">WNetGetResourceParent</a> in MSDN  Library.
+</p>
+
+</body>
+</html>

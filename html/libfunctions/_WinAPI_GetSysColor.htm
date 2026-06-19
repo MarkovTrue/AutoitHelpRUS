@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetSysColor</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetSysColor</h1>
+<p class="funcdesc">Получает текущий цвет указанного элемента отображения.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a> <span class="S8">(</span> <span class="S9">$iIndex</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iIndex</span></td>
+<td style="width:85%">Элемент отображения, цвет которого должен быть получен. Может быть одним из следующих:<br />
+<span class="S91">$COLOR_3DDKSHADOW</span> – тёмная тень для трёхмерных элементов отображения.<br />
+<span class="S91">$COLOR_3DFACE</span> – цвет поверхности для трёхмерных элементов отображения и фонов диалоговых окон.<br />
+<span class="S91">$COLOR_3DHIGHLIGHT</span> – цвет подсветки для трёхмерных элементов отображения (для краёв, обращённых к источнику света).<br />
+<span class="S91">$COLOR_3DHILIGHT</span> – цвет подсветки для трёхмерных элементов отображения (для краёв, обращённых к источнику света).<br />
+<span class="S91">$COLOR_3DLIGHT</span> – светлый цвет для трёхмерных элементов отображения (для краёв, обращённых к источнику света).<br />
+<span class="S91">$COLOR_3DSHADOW</span> – цвет тени для трёхмерных элементов отображения (для краёв, обращённых в сторону от источника света).<br />
+<span class="S91">$COLOR_ACTIVEBORDER</span> – рамка активного окна.<br />
+<span class="S91">$COLOR_ACTIVECAPTION</span> – заголовок активного окна.<br />
+Задаёт цвет левой части градиента цвета в заголовке активного окна, если эффект градиента включен.<br />
+<span class="S91">$COLOR_APPWORKSPACE</span> – цвет фона приложений интерфейса множественных документов (MDI).<br />
+<span class="S91">$COLOR_BACKGROUND</span> – рабочий стол.<br />
+<span class="S91">$COLOR_BTNFACE</span> – цвет поверхности для трёхмерных элементов отображения и фонов диалоговых окон.<br />
+<span class="S91">$COLOR_BTNHIGHLIGHT</span> – цвет подсветки для трёхмерных элементов отображения (для краёв, обращённых к источнику света).<br />
+<span class="S91">$COLOR_BTNHILIGHT</span> – цвет подсветки для трёхмерных элементов отображения (для краёв, обращённых к источнику света).<br />
+<span class="S91">$COLOR_BTNSHADOW</span> – цвет тени для трёхмерных элементов отображения (для краёв, обращённых в сторону от источника света).<br />
+<span class="S91">$COLOR_BTNTEXT</span> – текст на кнопках.<br />
+<span class="S91">$COLOR_CAPTIONTEXT</span> – текст в заголовке, поле размера и поле стрелок полосы прокрутки.<br />
+<span class="S91">$COLOR_DESKTOP</span> – рабочий стол.<br />
+<span class="S91">$COLOR_GRADIENTACTIVECAPTION</span> – цвет правой части градиента цвета в заголовке активного окна.<br />
+<span class="S91">$COLOR_ACTIVECAPTION</span> задаёт цвет левой части.<br />
+Используйте SPI_GETGRADIENTCAPTIONS с функцией SystemParametersInfo, чтобы определить, включен ли эффект градиента.<br />
+<span class="S91">$COLOR_GRADIENTINACTIVECAPTION</span> – цвет правой части градиента цвета в заголовке неактивного окна.<br />
+<span class="S91">$COLOR_INACTIVECAPTION</span> задаёт цвет левой части.<br />
+<span class="S91">$COLOR_GRAYTEXT</span> – серый (отключённый) текст. Этот цвет устанавливается на 0, если текущий драйвер отображения не поддерживает сплошной серый цвет.<br />
+<span class="S91">$COLOR_HIGHLIGHT</span> – элемент(ы) выбранные в элементе управления.<br />
+<span class="S91">$COLOR_HIGHLIGHTTEXT</span> – текст выбранного элемента(ов) в элементе управления.<br />
+<span class="S91">$COLOR_HOTLIGHT</span> – цвет для гиперссылки или элемента с отслеживанием.<br />
+<span class="S91">$COLOR_INACTIVEBORDER</span> – рамка неактивного окна.<br />
+<span class="S91">$COLOR_INACTIVECAPTION</span> – заголовок неактивного окна.<br />
+Задаёт цвет левой части градиента цвета в заголовке неактивного окна, если эффект градиента включен.<br />
+<span class="S91">$COLOR_INACTIVECAPTIONTEXT</span> – цвет текста в неактивном заголовке.<br />
+<span class="S91">$COLOR_INFOBK</span> – цвет фона для элементов управления подсказки.<br />
+<span class="S91">$COLOR_INFOTEXT</span> – цвет текста для элементов управления подсказки.<br />
+<span class="S91">$COLOR_MENU</span> – фон меню.<br />
+<span class="S91">$COLOR_MENUHILIGHT</span> – цвет, используемый для выделения пунктов меню, когда меню выглядит как плоское меню.<br />
+Выделенный пункт меню обводится <span class="S91">$COLOR_HIGHLIGHT</span>.<br />
+<span class="S91">$COLOR_MENUBAR</span> – цвет фона для панели меню, когда меню выглядит как плоские меню.<br />
+Однако <span class="S91">$COLOR_MENU</span> продолжает задавать цвет фона всплывающего меню.<br />
+<span class="S91">$COLOR_MENUTEXT</span> – текст в меню.<br />
+<span class="S91">$COLOR_SCROLLBAR</span> – серая область полосы прокрутки.<br />
+<span class="S91">$COLOR_WINDOW</span> – фон окна.<br />
+<span class="S91">$COLOR_WINDOWFRAME</span> – рамка окна.<br />
+<span class="S91">$COLOR_WINDOWTEXT</span> – текст в окнах.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращает значение цвета RGB (красный, зелёный, синий) указанного элемента<br />
+
+<h2>Примечания</h2>
+<p>Вышеуказанные константы требуют <span class="S111">#include</span> &lt;<span class="S7">WindowsSysColorConstants.au3</span>&gt;<br />
+<br />
+Если параметр <span class="S91">$iIndex</span> выходит за пределы диапазона, возвращаемое значение равно нулю. Поскольку ноль также является допустимым значением RGB, вы не можете использовать GetSysColor для определения, поддерживается ли системный цвет текущей платформой. Вместо этого используйте функцию GetSysColorBrush, которая возвращает NULL, если цвет не поддерживается.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_SetSysColors.htm">_WinAPI_SetSysColors</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetSysColor">GetSysColor</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsSysColorConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aElements</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S9">$COLOR_ACTIVECAPTION</span><span class="S8">,</span> <span class="S9">$COLOR_GRADIENTACTIVECAPTION</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Красный и жёлтый</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aColors</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">255</span><span class="S8">,</span> <span class="S3">65535</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aSaveColors</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"My GUI"</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aSaveColors</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_ACTIVECAPTION</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aSaveColors</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_GRADIENTACTIVECAPTION</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetSysColors.htm"><span class="S15">_WinAPI_SetSysColors</span></a><span class="S8">(</span><span class="S9">$aElements</span><span class="S8">,</span> <span class="S9">$aColors</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetSysColors.htm"><span class="S15">_WinAPI_SetSysColors</span></a><span class="S8">(</span><span class="S9">$aElements</span><span class="S8">,</span> <span class="S9">$aSaveColors</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_GetSysColor.au3,"></object>
+</body>
+</html>

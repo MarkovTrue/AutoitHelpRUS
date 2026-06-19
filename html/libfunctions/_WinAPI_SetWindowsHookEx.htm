@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetWindowsHookEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetWindowsHookEx</h1>
+<p class="funcdesc">Устанавливает определённую приложением процедуру перехватчика в цепь перехватчиков.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetWindowsHookEx.htm"><span class="S15">_WinAPI_SetWindowsHookEx</span></a> <span class="S8">(</span> <span class="S9">$iHook</span><span class="S8">,</span> <span class="S9">$pProc</span><span class="S8">,</span> <span class="S9">$hDll</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iThreadId</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iHook</span></td>
+<td style="width:85%">Задаёт тип устанавливаемой процедуры-хука. Параметр может принимать одно из следующих значений:<br />
+<span class="S91">$WH_CALLWNDPROC</span> - Устанавливает процедуру-хук, отслеживающую сообщения до их отправки системой целевой оконной процедуре<br />
+<span class="S91">$WH_CALLWNDPROCRET</span> - Устанавливает процедуру-хук, отслеживающую сообщения после их обработки целевой оконной процедурой<br />
+<span class="S91">$WH_CBT</span> - Устанавливает процедуру-хук, получающую уведомления, полезные приложениям типа CBT (computer-based training)<br />
+<span class="S91">$WH_DEBUG</span> - Устанавливает процедуру-хук, полезную для отладки других хуков<br />
+<span class="S91">$WH_FOREGROUNDIDLE</span> - Устанавливает процедуру-хук, вызываемую, когда основной поток приложения собирается перейти в состояние ожидания<br />
+<span class="S91">$WH_GETMESSAGE</span> - Устанавливает процедуру-хук, отслеживающую сообщения, помещаемые в очередь сообщений<br />
+<span class="S91">$WH_JOURNALPLAYBACK</span> - Устанавливает процедуру-хук, отправляющую сообщения, ранее записанные хуком <span class="S91">$WH_JOURNALRECORD</span><br />
+<span class="S91">$WH_JOURNALRECORD</span> - Устанавливает процедуру-хук, записывающую входящие сообщения системной очереди сообщений<br />
+<span class="S91">$WH_KEYBOARD</span> - Устанавливает процедуру-хук, отслеживающую сообщения нажатий клавиш<br />
+<span class="S91">$WH_KEYBOARD_LL</span> - Устанавливает процедуру-хук, отслеживающую низкоуровневые события ввода с клавиатуры<br />
+<span class="S91">$WH_MOUSE</span> - Устанавливает процедуру-хук, отслеживающую сообщения мыши<br />
+<span class="S91">$WH_MOUSE_LL</span> - Устанавливает процедуру-хук, отслеживающую низкоуровневые события ввода мыши<br />
+<span class="S91">$WH_MSGFILTER</span> - Устанавливает процедуру-хук, отслеживающую сообщения, возникающие в результате ввода в диалоговом окне, окне сообщения, меню или полосе прокрутки<br />
+<span class="S91">$WH_SHELL</span> - Устанавливает процедуру-хук, получающую уведомления, полезные оболочечным приложениям<br />
+<span class="S91">$WH_SYSMSGFILTER</span> - Устанавливает процедуру-хук, отслеживающую сообщения, возникающие в результате ввода в диалоговом окне, окне сообщения, меню или полосе прокрутки.</td>
+</tr>
+<tr>
+<td><span class="S91">$pProc</span></td>
+<td>Указатель на процедуру-хук. Если параметр <span class="S91">$iThreadId</span> равен нулю или задаёт идентификатор потока, созданного другим процессом,<br />
+параметр <span class="S91">$pProc</span> должен указывать на процедуру-хук, находящуюся в DLL.<br />
+Иначе <span class="S91">$pProc</span> может указывать на процедуру-хук в коде, связанном с текущим процессом.</td>
+</tr>
+<tr>
+<td><span class="S91">$hDll</span></td>
+<td>Дескриптор DLL, содержащей процедуру-хук, на которую указывает параметр <span class="S91">$pProc</span>.<br />
+Параметр <span class="S91">$hMod</span> должен быть равен NULL, если параметр <span class="S91">$iThreadId</span> задаёт поток, созданный текущим процессом, и если процедура-хук находится в коде, связанном с текущим процессом.</td>
+</tr>
+<tr>
+<td><span class="S91">$iThreadId</span></td>
+<td><strong>[необязательный]</strong> Идентификатор потока, с которым должна быть связана процедура перехватчика. Если этот параметр равен нулю, процедура перехватчика связывается со всеми существующими потоками, работающими на том же рабочем столе, что и вызывающий поток.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор процедуры-хука.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_WinAPI_CallNextHookEx.htm">_WinAPI_CallNextHookEx</a>, <a href="_WinAPI_UnhookWindowsHookEx.htm">_WinAPI_UnhookWindowsHookEx</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetWindowsHookEx">SetWindowsHookEx</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StructureConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsNotifsConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_hHook</span><span class="S8">,</span> <span class="S9">$g_hStub_KeyProc</span><span class="S8">,</span> <span class="S9">$g_sBuffer</span> <span class="S8">=</span> <span class="S7">""</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span></a><span class="S8">(</span><span class="S7">"Cleanup"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMod</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hStub_KeyProc</span> <span class="S8">=</span> <a class="le" href="../functions/DllCallbackRegister.htm"><span class="S4">DllCallbackRegister</span></a><span class="S8">(</span><span class="S7">"_KeyProc"</span><span class="S8">,</span> <span class="S7">"long"</span><span class="S8">,</span> <span class="S7">"int;wparam;lparam"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hMod</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetModuleHandle.htm"><span class="S15">_WinAPI_GetModuleHandle</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hHook</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SetWindowsHookEx.htm"><span class="S15">_WinAPI_SetWindowsHookEx</span></a><span class="S8">(</span><span class="S9">$WH_KEYBOARD_LL</span><span class="S8">,</span> <a class="le" href="../functions/DllCallbackGetPtr.htm"><span class="S4">DllCallbackGetPtr</span></a><span class="S8">(</span><span class="S9">$g_hStub_KeyProc</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$hMod</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Click OK, then in notepad type..."</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Jon"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"AutoIt"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Press Esc to exit script"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinActivate.htm"><span class="S4">WinActivate</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">10</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">EvaluateKey</span><span class="S8">(</span><span class="S9">$iKeycode</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S8">(</span><span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">&gt;</span> <span class="S3">64</span><span class="S8">)</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">&lt;</span> <span class="S3">91</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">_</span>&nbsp;<span class="S1">; a – z</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S8">(</span><span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">&gt;</span> <span class="S3">96</span><span class="S8">)</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">&lt;</span> <span class="S3">123</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">_</span>&nbsp;<span class="S1">; A – Z</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S8">(</span><span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">&gt;</span> <span class="S3">47</span><span class="S8">)</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">&lt;</span> <span class="S3">58</span><span class="S8">)</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; 0 - 9
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_sBuffer</span> <span class="S8">&amp;=</span> <a class="le" href="../functions/Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span><span class="S9">$iKeycode</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$g_sBuffer</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S7">"Jon"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ToolTip.htm"><span class="S4">ToolTip</span></a><span class="S8">(</span><span class="S7">"What can you say?"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S7">"AutoIt"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ToolTip.htm"><span class="S4">ToolTip</span></a><span class="S8">(</span><span class="S7">"AutoIt Rocks"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">ElseIf</span></a> <span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">&gt;</span> <span class="S3">159</span><span class="S8">)</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">&lt;</span> <span class="S3">164</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">ElseIf</span></a> <span class="S8">(</span><span class="S9">$iKeycode</span> <span class="S8">=</span> <span class="S3">27</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; клавиша Esc</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_sBuffer</span> <span class="S8">=</span> <span class="S7">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;EvaluateKey
+</span><br>
+<br>
+<span class="S1">; ===========================================================
+</span><br>
+<span class="S1">; функция обратного вызова</span><br>
+<span class="S1">; ===========================================================
+</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_KeyProc</span><span class="S8">(</span><span class="S9">$nCode</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tKEYHOOKS</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKEYHOOKS</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagKBDLLHOOKSTRUCT</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$nCode</span> <span class="S8">&lt;</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../libfunctions/_WinAPI_CallNextHookEx.htm"><span class="S15">_WinAPI_CallNextHookEx</span></a><span class="S8">(</span><span class="S9">$g_hHook</span><span class="S8">,</span> <span class="S9">$nCode</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$wParam</span> <span class="S8">=</span> <span class="S9">$WM_KEYDOWN</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">EvaluateKey</span><span class="S8">(</span><a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tKEYHOOKS</span><span class="S8">,</span> <span class="S7">"vkCode"</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iFlags</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tKEYHOOKS</span><span class="S8">,</span> <span class="S7">"flags"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iFlags</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LLKHF_ALTDOWN</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"$LLKHF_ALTDOWN"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LLKHF_EXTENDED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"$LLKHF_EXTENDED"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LLKHF_INJECTED</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"$LLKHF_INJECTED"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LLKHF_UP</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"$LLKHF_UP: scanCode - "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tKEYHOOKS</span><span class="S8">,</span> <span class="S7">"scanCode"</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"vkCode - "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tKEYHOOKS</span><span class="S8">,</span> <span class="S7">"vkCode"</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../libfunctions/_WinAPI_CallNextHookEx.htm"><span class="S15">_WinAPI_CallNextHookEx</span></a><span class="S8">(</span><span class="S9">$g_hHook</span><span class="S8">,</span> <span class="S9">$nCode</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_KeyProc
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Cleanup</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_UnhookWindowsHookEx.htm"><span class="S15">_WinAPI_UnhookWindowsHookEx</span></a><span class="S8">(</span><span class="S9">$g_hHook</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllCallbackFree.htm"><span class="S4">DllCallbackFree</span></a><span class="S8">(</span><span class="S9">$g_hStub_KeyProc</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Cleanup
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_GetModuleHandle.au3,"></object>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetRgnBox</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetRgnBox</h1>
+<p class="funcdesc">Получает описывающий прямоугольник указанной области.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetRgnBox.htm"><span class="S15">_WinAPI_GetRgnBox</span></a> <span class="S8">(</span> <span class="S9">$hRgn</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$tRECT</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hRgn</span></td>
+<td style="width:85%">Дескриптор региона.</td>
+</tr>
+<tr>
+<td><span class="S91">$tRECT</span></td>
+<td>Возвращает структуру <span class="S91">$tagRECT</span>, которая создана этой функцией и содержит описывающий прямоугольник в логических единицах.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Сложность области. Может принимать одно из значений:<br />
+<span class="S91">$COMPLEXREGION</span><br />
+<span class="S91">$NULLREGION</span><br />
+<span class="S91">$SIMPLEREGION</span></td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetRgnBox">GetRgnBox</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

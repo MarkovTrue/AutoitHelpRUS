@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _IsPressed</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_IsPressed</h1>
+<p class="funcdesc">Проверяет, была ли нажата клавиша.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Misc.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S9">$vKey</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vDLL</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bCheckModifierKey</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$vKey</span></td>
+<td style="width:85%"><strong>[необязательный]</strong> Клавиша для проверки (строка), <span class="S91">$VK_*</span> как определено в "<span class="S7">WinAPIvkeysConstants.au3</span>" или массив клавиш для проверки. Если Default, то внутренний дескриптор DLL будет закрыт. Не забудьте закрыть его с помощью <a class="le" href="_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">()</span> когда он больше не нужен.</td>
+</tr>
+<tr>
+<td><span class="S91">$vDLL</span></td>
+<td><strong>[необязательный]</strong> Дескриптор DLL или по умолчанию user32.dll</td>
+</tr>
+<tr>
+<td><span class="S91">$bCheckModifierKey</span></td>
+<td><strong>[необязательный]</strong> Клавиши модификатора SHIFT, CTRL, ALT или WIN будут проверены, чтобы избежать возврата "клавиша модификатора" + <span class="S91">$vKey</span> при нажатии только <span class="S91">$vKey</span> (см. раздел Примечания) (По умолчанию)</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">>0:</td>
+<td style="width:90%">Возвращает 1, если клавиша нажата, или порядковый номер нажатой клавиши в массиве (см. раздел Примечания).</td>
+</tr>
+<tr>
+<td class="valign-top">0:</td>
+<td>Возвращает 0, если клавиша не нажата или нет активного <a class="le" href="_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span>...<span class="S8">)</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>При повторяющихся вызовах функции следует открыть "user32.dll" и передать дескриптор.<br />
+Обязательно закройте дескриптор в конце скрипта с помощью <a class="le" href="../functions/DllClose.htm"><span class="S4">DllClose</span></a><span class="S8">()</span>.<br />
+Если вы используете <span class="S91">$vDLL</span> = Default и не завершаете скрипт AutoIt, а затем перестаёте использовать <a class="le" href="_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span>...<span class="S8">)</span>,<br />
+тогда вызовите <a class="le" href="_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">()</span> для закрытия внутреннего дескриптора.<br />
+<br />
+Если <span class="S91">$vKey</span> – строка или <span class="S91">$VK_*</span>, как определено в "<span class="S7">WinAPIvkeysConstants.au3</span>", то<br />
+&nbsp;&nbsp;&nbsp; <a href="_IsPressed.htm"><span class="S15">_IsPressed</span><span class="S8">()</span></a> будет возвращать 1, пока клавиша нажата.<br />
+&nbsp;&nbsp;&nbsp; Даже кратковременное нажатие может привести к нескольким возвращаемым значениям в цикле.<br />
+&nbsp;&nbsp;&nbsp; Если вызванный код не содержит блокирующую функцию (такую как MsgBox) и пользователю не требуются несколько возвращений,<br />
+&nbsp;&nbsp;&nbsp; скрипт должен дождаться, пока <a href="_IsPressed.htm"><span class="S15">_IsPressed</span><span class="S8">()</span></a> вернёт 0, прежде чем продолжить (см. пример 1).<br />
+<br />
+Если <span class="S91">$vKey</span> – массив, функция возвращает значение при нажатии клавиши,<br />
+&nbsp;&nbsp;&nbsp; возвращаемое значение – 1, если нажата <span class="S91">$vKey</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>, 2, если нажата <span class="S91">$vKey</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>, ... (см. пример 2).<br />
+<br />
+Если <span class="S91">$bCheckModifierKey</span> не равна <span class="S5">True</span>, то комбинация "клавиши модификатора" + клавиша вернёт 0,<br />
+&nbsp;&nbsp;&nbsp; и <span class="S61">@extended</span> устанавливается при нажатии клавиши модификатора: 1 = SHIFT, 2 = CTRL, 3 = ALT, 4 = WIN, 5 = правая WIN (см. пример 2).<br />
+<br />
+Если <span class="S91">$bCheckModifierKey</span> = <span class="S5">True</span>, возврат происходит при отпускании "клавиши модификатора".<br />
+Если <span class="S91">$bCheckModifierKey</span> = -1, возврат происходит при нажатии "клавиши модификатора".<br />
+<br />
+<table>
+<tr class="header">
+<th><strong>VirtualKey</strong></th>
+<th><strong>String</strong></th>
+<th><strong>Key</strong></th>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_LBUTTON</span></td>
+<td>01</td>
+<td>Левая кнопка мыши</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_RBUTTON</span></td>
+<td>02</td>
+<td>Правая кнопка мыши</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_CANCEL</span></td>
+<td>03</td>
+<td>Обработка Ctrl-Break</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_MBUTTON</span></td>
+<td>04</td>
+<td>Средняя кнопка мыши (трёхкнопочная мышь)</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_XBUTTON1</span></td>
+<td>05</td>
+<td>Дополнительная кнопка мыши X1</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_XBUTTON2</span></td>
+<td>06</td>
+<td>Дополнительная кнопка мыши X2</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_BACK</span></td>
+<td>08</td>
+<td>Клавиша BACKSPACE</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_TAB</span></td>
+<td>09</td>
+<td>Клавиша TAB</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_CLEAR</span></td>
+<td>0C</td>
+<td>Клавиша CLEAR</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_RETURN</span></td>
+<td>0D</td>
+<td>Клавиша ENTER</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_SHIFT</span></td>
+<td>10</td>
+<td>Клавиша SHIFT</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_CONTROL</span></td>
+<td>11</td>
+<td>Клавиша CTRL</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_MENU</span></td>
+<td>12</td>
+<td>Клавиша ALT</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_PAUSE</span></td>
+<td>13</td>
+<td>Клавиша PAUSE</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_CAPITAL</span></td>
+<td>14</td>
+<td>Клавиша CAPS LOCK</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_ESCAPE</span></td>
+<td>1B</td>
+<td>Клавиша ESC</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_SPACE</span></td>
+<td>20</td>
+<td>Пробельная клавиша</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_PRIOR</span></td>
+<td>21</td>
+<td>Клавиша PAGE UP</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_NEXT</span></td>
+<td>22</td>
+<td>Клавиша PAGE DOWN</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_END</span></td>
+<td>23</td>
+<td>Клавиша END</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_HOME</span></td>
+<td>24</td>
+<td>Клавиша HOME</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_LEFT</span></td>
+<td>25</td>
+<td>Клавиша со стрелкой влево</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_UP</span></td>
+<td>26</td>
+<td>Клавиша со стрелкой вверх</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_RIGHT</span></td>
+<td>27</td>
+<td>Клавиша со стрелкой вправо</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_DOWN</span></td>
+<td>28</td>
+<td>Клавиша со стрелкой вниз</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_SELECT</span></td>
+<td>29</td>
+<td>Клавиша SELECT</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_PRINT</span></td>
+<td>2A</td>
+<td>Клавиша PRINT</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_EXECUTE</span></td>
+<td>2B</td>
+<td>Клавиша EXECUTE</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_SNAPSHOT</span></td>
+<td>2C</td>
+<td>Клавиша PRINT SCREEN</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_INSERT</span></td>
+<td>2D</td>
+<td>Клавиша INS</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_DELETE</span></td>
+<td>2E</td>
+<td>Клавиша DEL</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_HELP</span></td>
+<td>2F</td>
+<td>Клавиша HELP</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_0</span> - 9</td>
+<td>30-39</td>
+<td>Цифровые клавиши 0-9</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_A</span> - Z</td>
+<td>41-5A</td>
+<td>Буквенные клавиши A-Z</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_LWIN</span></td>
+<td>5B</td>
+<td>Левая клавиша Windows</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_RWIN</span></td>
+<td>5C</td>
+<td>Правая клавиша Windows</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_APPS</span></td>
+<td>5D</td>
+<td>Клавиша PopUp Menu – клавиша приложений на клавиатуре Microsoft Natural</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_NUMPAD0</span> - 9</td>
+<td>60-69</td>
+<td>Цифровая клавиша 0 дополнительной панели</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_MULTIPLY</span></td>
+<td>6A</td>
+<td>Клавиша умножения</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_ADD</span></td>
+<td>6B</td>
+<td>Клавиша сложения</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_SEPARATOR</span></td>
+<td>6C</td>
+<td>Клавиша разделителя</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_SUBTRACT</span></td>
+<td>6D</td>
+<td>Клавиша вычитания</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_DECIMAL</span></td>
+<td>6E</td>
+<td>Клавиша десятичной точки</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_DIVIDE</span></td>
+<td>6F</td>
+<td>Клавиша деления</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_F1</span> - 12</td>
+<td>70</td>
+<td>Функциональная клавиша F1-F12</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_F13</span> - 16</td>
+<td>7C-7F</td>
+<td>Функциональная клавиша F13 – F16</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_F17</span> - 24</td>
+<td>80H-87H</td>
+<td>Функциональная клавиша F17 – F24</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_NUMLOCK</span></td>
+<td>90</td>
+<td>Клавиша NUM LOCK</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_SCROLL</span></td>
+<td>91</td>
+<td>Клавиша SCROLL LOCK</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_LSHIFT</span></td>
+<td>A0</td>
+<td>Левая клавиша SHIFT</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_RSHIFT</span></td>
+<td>A1</td>
+<td>Правая клавиша SHIFT</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_LCONTROL</span></td>
+<td>A2</td>
+<td>Левая клавиша CONTROL</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_RCONTROL</span></td>
+<td>A3</td>
+<td>Правая клавиша CONTROL</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_LMENU</span></td>
+<td>A4</td>
+<td>Левая клавиша ALT</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_RMENU</span></td>
+<td>A5</td>
+<td>Правая клавиша ALT</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_1</span></td>
+<td>BA</td>
+<td>;</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_PLUS</span></td>
+<td>BB</td>
+<td>=</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_COMMA</span></td>
+<td>BC</td>
+<td>,</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_MINUS</span></td>
+<td>BD</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_PERIOD</span></td>
+<td>BE</td>
+<td>.</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_2</span></td>
+<td>BF</td>
+<td>/</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_3</span></td>
+<td>C0</td>
+<td>`</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_4</span></td>
+<td>DB</td>
+<td>[</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_5</span></td>
+<td>DC</td>
+<td>\</td>
+</tr>
+
+<tr>
+<td><span class="S91">$VK_OEM_6</span></td>
+<td>DD</td>
+<td>]</td>
+</tr>
+</table></p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetAsyncKeyState">GetAsyncKeyState</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Пример 1 : _IsPressed с использованием $vkey в качестве строки</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Misc.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIvkeysConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDLL</span> <span class="S8">=</span> <a class="le" href="../functions/DllOpen.htm"><span class="S4">DllOpen</span></a><span class="S8">(</span><span class="S7">"user32.dll"</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S7">"10"</span><span class="S8">,</span> <span class="S9">$hDLL</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_IsPressed - Shift Key was pressed. @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать отпускания клавиши.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S7">"10"</span><span class="S8">,</span> <span class="S9">$hDLL</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">100</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_IsPressed - Shift Key was released. @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">ElseIf</span></a> <a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S7">"1B"</span><span class="S8">,</span> <span class="S9">$hDLL</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_IsPressed - Esc Key was pressed. @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"_IsPressed"</span><span class="S8">,</span> <span class="S7">"The Esc Key was pressed, therefore we will close the application."</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">100</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+<a class="le" href="../functions/DllClose.htm"><span class="S4">DllClose</span></a><span class="S8">(</span><span class="S9">$hDLL</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IsPressed.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Пример 2 : _IsPressed с использованием $vkey как массива с проверкой клавиш-модификаторов</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Misc.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIvkeysConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$asModifierKeys</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"VK_SHIFT"</span><span class="S8">,</span> <span class="S7">"VK_CONTROL"</span><span class="S8">,</span> <span class="S7">"VK_MENU"</span><span class="S8">,</span> <span class="S7">"VK_LWIN"</span><span class="S8">,</span> <span class="S7">"VK_RWIN"</span><span class="S8">]</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aKeys</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S9">$VK_ESCAPE</span><span class="S8">,</span> <span class="S9">$VK_LBUTTON</span><span class="S8">,</span> <span class="S9">$VK_TAB</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRet</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S9">$aKeys</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; Проверить модификатор</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$iRet</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"The modifier key "</span> <span class="S8">&amp;</span> <span class="S9">$asModifierKeys</span><span class="S8">[</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">" has been pressed. @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sKey</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iRet</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">1</span>&nbsp;<span class="S1">; Клавиатура ESC</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sKey</span> <span class="S8">=</span> <span class="S7">"{ESCAPE}"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">2</span>&nbsp;<span class="S1">; MouseClick Left</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sKey</span> <span class="S8">=</span> <span class="S7">"{LBUTTON}"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">3</span>&nbsp;<span class="S1">; Клавиатура Tab</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sKey</span> <span class="S8">=</span> <span class="S7">"{TAB}"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">100</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+<a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; вызвать DLLClose для Dll по умолчанию, созданной предыдущим _IsPressed_(...)</span><br>
+<br>
+<a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"^z"</span><span class="S8">)</span>&nbsp;<span class="S1">; чтобы избежать изменения в окне Scite</span><br>
+<br>
+<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"The key "</span> <span class="S8">&amp;</span> <span class="S9">$sKey</span> <span class="S8">&amp;</span> <span class="S7">" has been pressed."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Result"</span><span class="S8">,</span> <span class="S7">"The key "</span> <span class="S8">&amp;</span> <span class="S9">$sKey</span> <span class="S8">&amp;</span> <span class="S7">" has been pressed."</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IsPressed[2].au3,"></object>
+
+<h3>Пример 3</h3>
+<p id="copytext3" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl3');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext3');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Пример 3 : _IsPressed с использованием $vkey как целого числа с проверкой клавиш-модификаторов</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Misc.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIvkeysConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S9">$VK_F2</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_IsPressed - F2 (without any modifier keys pressed) was pressed."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать отпускания клавиши.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S9">$VK_F2</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">100</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_IsPressed - F2 (without any modifier keys pressed) was released."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">ElseIf</span></a> <a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S9">$VK_ESCAPE</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"_IsPressed"</span><span class="S8">,</span> <span class="S7">"The Esc Key was pressed, therefore we will close the application."</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">100</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; чтобы освободить внутренний дескриптор, созданный предыдущим вызовом _IsPressed(...)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl3" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IsPressed[3].au3,"></object>
+</body>
+</html>

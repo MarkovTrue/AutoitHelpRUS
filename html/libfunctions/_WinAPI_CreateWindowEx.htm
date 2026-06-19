@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_CreateWindowEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_CreateWindowEx</h1>
+<p class="funcdesc">создаёт наложенное, всплывающее или дочернее окно.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_CreateWindowEx.htm"><span class="S15">_WinAPI_CreateWindowEx</span></a> <span class="S8">(</span> <span class="S9">$iExStyle</span><span class="S8">,</span> <span class="S9">$sClass</span><span class="S8">,</span> <span class="S9">$sName</span><span class="S8">,</span> <span class="S9">$iStyle</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">,</span> <span class="S9">$hParent</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$hMenu</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$hInstance</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$pParam</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iExStyle</span></td>
+<td style="width:85%">Координаты.</td>
+</tr>
+<tr>
+<td><span class="S91">$sClass</span></td>
+<td>Имя.</td>
+</tr>
+<tr>
+<td><span class="S91">$sName</span></td>
+<td>Имя.</td>
+</tr>
+<tr>
+<td><span class="S91">$iStyle</span></td>
+<td>окно style</td>
+</tr>
+<tr>
+<td><span class="S91">$iX</span></td>
+<td>Горизонтальная позиция окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$iY</span></td>
+<td>Вертикальная позиция окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$iWidth</span></td>
+<td>окно width</td>
+</tr>
+<tr>
+<td><span class="S91">$iHeight</span></td>
+<td>окно height</td>
+</tr>
+<tr>
+<td><span class="S91">$hParent</span></td>
+<td>Дескриптор родительского или владеющего окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$hMenu</span></td>
+<td>Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$hInstance</span></td>
+<td>Дескриптор.</td>
+</tr>
+<tr>
+<td><span class="S91">$pParam</span></td>
+<td>Указатель на структуру.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор на созданный объект.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_WinAPI_DestroyWindow.htm">_WinAPI_DestroyWindow</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=CreateWindowEx">CreateWindowEx</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

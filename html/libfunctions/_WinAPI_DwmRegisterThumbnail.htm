@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_DwmRegisterThumbnail</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_DwmRegisterThumbnail</h1>
+<p class="funcdesc">Создаёт DWM-связь миниатюры между целевым и исходным окнами.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_DwmRegisterThumbnail.htm"><span class="S15">_WinAPI_DwmRegisterThumbnail</span></a> <span class="S8">(</span> <span class="S9">$hDestination</span><span class="S8">,</span> <span class="S9">$hSource</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDestination</span></td>
+<td style="width:85%">Дескриптор окна, которое будет использовать DWM-миниатюру.</td>
+</tr>
+<tr>
+<td><span class="S91">$hSource</span></td>
+<td>Дескриптор окна, используемого как источник миниатюры.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор, представляющий регистрацию DWM-миниатюры.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>Может содержать код ошибки HRESULT.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Окно, заданное в <span class="S91">$hDestination</span>, должно быть либо самим окном рабочего стола, либо принадлежать процессу, вызывающему <a href="_WinAPI_DwmRegisterThumbnail.htm"><span class="S15">_WinAPI_DwmRegisterThumbnail</span><span class="S8">()</span></a>.<br />
+<br />
+Функция требует <strong>Windows Vista или новее</strong>.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=DwmRegisterThumbnail">DwmRegisterThumbnail</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIMisc.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_DwmIsCompositionEnabled.htm"><span class="S15">_WinAPI_DwmIsCompositionEnabled</span></a><span class="S8">(</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Error'</span><span class="S8">,</span> <span class="S7">'Require Windows Vista or later with enabled Aero theme.'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SystemDir"><span class="S6">@SystemDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\calc.exe'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"[CLASS:ApplicationFrameWindow]"</span><span class="S8">,</span> <span class="S7">''</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$hWnd</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Создать GUI</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hForm</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/GUISetBkColor.htm"><span class="S4">GUISetBkColor</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Создать эффект "стеклянного листа" для всего окна. Вызывайте эту функцию при каждом переключении DWM composition.</span><br>
+<a class="le" href="../libfunctions/_WinAPI_DwmExtendFrameIntoClientArea.htm"><span class="S15">_WinAPI_DwmExtendFrameIntoClientArea</span></a><span class="S8">(</span><span class="S9">$hForm</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Создать DWM-связь миниатюр (2:1)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hThumbnail</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_DwmRegisterThumbnail.htm"><span class="S15">_WinAPI_DwmRegisterThumbnail</span></a><span class="S8">(</span><span class="S9">$hForm</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tSIZE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_DwmQueryThumbnailSourceSize.htm"><span class="S15">_WinAPI_DwmQueryThumbnailSourceSize</span></a><span class="S8">(</span><span class="S9">$hThumbnail</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iWidth</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tSIZE</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iHeight</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tSIZE</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tDestRect</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateRectEx.htm"><span class="S15">_WinAPI_CreateRectEx</span></a><span class="S8">(</span><span class="S8">(</span><span class="S3">400</span> <span class="S8">-</span> <span class="S9">$iWidth</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">,</span> <span class="S8">(</span><span class="S3">400</span> <span class="S8">-</span> <span class="S9">$iHeight</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$iWidth</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$iHeight</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tSrcRect</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateRectEx.htm"><span class="S15">_WinAPI_CreateRectEx</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">20</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">20</span><span class="S8">,</span> <span class="S9">$iWidth</span> <span class="S8">+</span> <span class="S3">40</span><span class="S8">,</span> <span class="S9">$iHeight</span> <span class="S8">+</span> <span class="S3">40</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_DwmUpdateThumbnailProperties.htm"><span class="S15">_WinAPI_DwmUpdateThumbnailProperties</span></a><span class="S8">(</span><span class="S9">$hThumbnail</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">255</span><span class="S8">,</span> <span class="S9">$tDestRect</span><span class="S8">,</span> <span class="S9">$tSrcRect</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+<br>
+<a class="le" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S7">"[CLASS:ApplicationFrameWindow]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_DwmRegisterThumbnail.au3,"></object>
+</body>
+</html>

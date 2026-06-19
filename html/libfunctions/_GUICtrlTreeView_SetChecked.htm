@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUICtrlTreeView_SetChecked</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUICtrlTreeView_SetChecked</h1>
+<p class="funcdesc">Устанавливает статус флажка элемента.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiTreeView.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUICtrlTreeView_SetChecked.htm"><span class="S15">_GUICtrlTreeView_SetChecked</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$hItem</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bCheck</span> <span class="S8">=</span> <span class="S5">True</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Идентификатор или дескриптор элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$hItem</span></td>
+<td>Дескриптор элемента.</td>
+</tr>
+<tr>
+<td><span class="S91">$bCheck</span></td>
+<td><strong>[необязательный]</strong> Значение для установки статуса флажка:<br />
+Истина – флажок отмечен<br />
+Ложь – флажок не отмечен.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_GUICtrlTreeView_GetChecked.htm">_GUICtrlTreeView_GetChecked</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiTreeView.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"TreeView Get/Set Checked (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iStyle</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$TVS_EDITLABELS</span><span class="S8">,</span> <span class="S9">$TVS_HASBUTTONS</span><span class="S8">,</span> <span class="S9">$TVS_HASLINES</span><span class="S8">,</span> <span class="S9">$TVS_LINESATROOT</span><span class="S8">,</span> <span class="S9">$TVS_DISABLEDRAGDROP</span><span class="S8">,</span> <span class="S9">$TVS_SHOWSELALWAYS</span><span class="S8">,</span> <span class="S9">$TVS_CHECKBOXES</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idTreeView</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateTreeView.htm"><span class="S4">GUICtrlCreateTreeView</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">396</span><span class="S8">,</span> <span class="S3">268</span><span class="S8">,</span> <span class="S9">$iStyle</span><span class="S8">,</span> <span class="S9">$WS_EX_CLIENTEDGE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить формат ANSI</span><br>
+<span class="S1">;~     _GUICtrlListView_SetUnicodeFormat($idListview, False)
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlTreeView_BeginUpdate.htm"><span class="S15">_GUICtrlTreeView_BeginUpdate</span></a><span class="S8">(</span><span class="S9">$idTreeView</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aidTVi_Item</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$x</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aidTVi_Item</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aidTVi_Item</span><span class="S8">[</span><span class="S9">$x</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"[%02d] New Item"</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$idTreeView</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlTreeView_EndUpdate.htm"><span class="S15">_GUICtrlTreeView_EndUpdate</span></a><span class="S8">(</span><span class="S9">$idTreeView</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hRandomItem</span> <span class="S8">=</span> <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aidTVi_Item</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"Item %d Checked? %s"</span><span class="S8">,</span> <span class="S9">$hRandomItem</span><span class="S8">,</span> <a class="le" href="../libfunctions/_GUICtrlTreeView_GetChecked.htm"><span class="S15">_GUICtrlTreeView_GetChecked</span></a><span class="S8">(</span><span class="S9">$idTreeView</span><span class="S8">,</span> <span class="S9">$aidTVi_Item</span><span class="S8">[</span><span class="S9">$hRandomItem</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlTreeView_SetChecked.htm"><span class="S15">_GUICtrlTreeView_SetChecked</span></a><span class="S8">(</span><span class="S9">$idTreeView</span><span class="S8">,</span> <span class="S9">$aidTVi_Item</span><span class="S8">[</span><span class="S9">$hRandomItem</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"Item %d Checked? %s"</span><span class="S8">,</span> <span class="S9">$hRandomItem</span><span class="S8">,</span> <a class="le" href="../libfunctions/_GUICtrlTreeView_GetChecked.htm"><span class="S15">_GUICtrlTreeView_GetChecked</span></a><span class="S8">(</span><span class="S9">$idTreeView</span><span class="S8">,</span> <span class="S9">$aidTVi_Item</span><span class="S8">[</span><span class="S9">$hRandomItem</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlTreeView_GetChecked.au3,"></object>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _FTP_DirPutContents</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_FTP_DirPutContents</h1>
+<p class="funcdesc">Загружает папку на FTP-сервер, при необходимости – рекурсивно.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FTPEx.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_FTP_DirPutContents.htm"><span class="S15">_FTP_DirPutContents</span></a> <span class="S8">(</span> <span class="S9">$hFTPSession</span><span class="S8">,</span> <span class="S9">$sLocalFolder</span><span class="S8">,</span> <span class="S9">$sRemoteFolder</span><span class="S8">,</span> <span class="S9">$bRecursivePut</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iContext</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hFTPSession</span></td>
+<td style="width:85%">возвращается функцией <a href="_FTP_Connect.htm"><span class="S15">_FTP_Connect</span><span class="S8">()</span></a>.</td>
+</tr>
+<tr>
+<td><span class="S91">$sLocalFolder</span></td>
+<td>Локальная папка, например "c:\temp".</td>
+</tr>
+<tr>
+<td><span class="S91">$sRemoteFolder</span></td>
+<td>Удалённая папка, например '/website/home'.</td>
+</tr>
+<tr>
+<td><span class="S91">$bRecursivePut</span></td>
+<td>Рекурсивный обход подпапок. 0 – без рекурсии, 1 – с рекурсией.</td>
+</tr>
+<tr>
+<td><span class="S91">$iContext</span></td>
+<td><strong>[необязательный]</strong> Переменная, содержащая определённое приложением значение, которое связывает этот поиск с данными приложения.<br />
+Используется только если приложение уже вызывало <a href="_FTP_SetStatusCallback.htm"><span class="S15">_FTP_SetStatusCallback</span><span class="S8">()</span></a> для установки функции обратного вызова статуса.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_FTP_Connect.htm">_FTP_Connect</a>, <a href="_FTP_SetStatusCallback.htm">_FTP_SetStatusCallback</a></p>
+
+</body>
+</html>

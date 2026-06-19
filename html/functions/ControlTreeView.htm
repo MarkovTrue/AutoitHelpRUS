@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция ControlTreeView</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>ControlTreeView</h1>
+<p class="funcdesc">Отправляет команду элементу управления TreeView32.</p>
+<p class="codeheader"><a class="le" href="../functions/ControlTreeView.htm"><span class="S4">ControlTreeView</span></a> <span class="S8">(</span> <span class="S7">"title"</span><span class="S8">,</span> <span class="S7">"text"</span><span class="S8">,</span> <span class="S0">controlID</span><span class="S8">,</span> <span class="S7">"command"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">option1</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">title</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, с которым нужно работать. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>Текст окна, с которым нужно работать. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
+</tr>
+<tr>
+<td>controlID</td>
+<td>Элемент управления, с которым нужно работать. См. <a href="../intro/controls.htm">Элементы управления</a>.</td>
+</tr>
+<tr>
+<td>command</td>
+<td>Команда, передаваемая элементу управления (см. ниже).</td>
+</tr>
+<tr>
+<td>option1</td>
+<td><strong>[необязательный]</strong> Дополнительный параметр, необходимый для некоторых команд.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращаемое значение зависит от команды, как показано в таблице ниже. В случае ошибки (например, неверная команда или окно/элемент управления не найдены) <span class="S61">@error</span> устанавливается в 1.<br />
+<br />
+<table>
+<tr class="header">
+<td style="width:40%"><strong>Команда, Параметр1</strong></td>
+<td style="width:60%"><strong>Операция</strong></td>
+</tr>
+<tr>
+<td>"Check", "элемент"</td>
+<td>Устанавливает флажок элемента (если поддерживается).</td>
+</tr>
+<tr>
+<td>"Collapse", "элемент"</td>
+<td>Сворачивает элемент, скрывая его дочерние элементы.</td>
+</tr>
+<tr>
+<td>"Exists", "элемент"</td>
+<td>Возвращает 1, если элемент существует, иначе 0.</td>
+</tr>
+<tr>
+<td>"Expand", "элемент"</td>
+<td>Разворачивает элемент, отображая его дочерние элементы.</td>
+</tr>
+<tr>
+<td>"GetItemCount", "элемент"</td>
+<td>Возвращает количество дочерних элементов выбранного узла.</td>
+</tr>
+<tr>
+<td>"GetSelected" [, UseIndex]</td>
+<td>Возвращает ссылку на текущий выбранный элемент по его тексту (или по индексу, если UseIndex равен 1).</td>
+</tr>
+<tr>
+<td>"GetText", "элемент"</td>
+<td>Возвращает текст элемента.</td>
+</tr>
+<tr>
+<td>"IsChecked"</td>
+<td>Возвращает состояние флажка элемента: 1 – установлен, 0 – снят, -1 – не флажок.</td>
+</tr>
+<tr>
+<td>"Select", "элемент"</td>
+<td>Выбирает элемент.</td>
+</tr>
+<tr>
+<td>"Uncheck", "элемент"</td>
+<td>Снимает флажок элемента (если поддерживается).</td>
+</tr>
+</table><br />
+Параметр "item" – строковый параметр для ссылки на конкретный узел дерева, использующий комбинацию текста и индексов. Индексы начинаются с 0. Например:<br />
+<br />
+<br />Heading1<br />
+----> H1SubItem1<br />
+----> H1SubItem2<br />
+----> H1SubItem3<br />
+----> ----> H1S1SubItem1<br />
+Heading2<br />
+Heading3<br />
+<br />
+<br />Каждый "уровень" разделяется символом |. Индекс предваряется символом #. Примеры:<br />
+<br />
+<table>
+<tr class="header">
+<th><strong>Элемент</strong></th>
+<th><strong>Ссылка на элемент</strong></th>
+</tr>
+
+<tr>
+<td>Heading2</td>
+<td>"Heading2" или "#1".</td>
+</tr>
+
+<tr>
+<td>H1SubItem2</td>
+<td>"Heading1|H1SubItem2" или "#0|#1".</td>
+</tr>
+
+<tr>
+<td>H1S1SubItem1</td>
+<td>"Heading1|H1SubItem3|H1S1SubItem1" или "#0|#2|#0".</td>
+</tr>
+</table><br />
+
+<h2>Примечания</h2>
+<p>Поскольку AutoIt является 32-разрядным приложением, некоторые команды недоступны при работе с 64-разрядными приложениями, например с Проводником в 64-разрядной Windows.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="ControlCommand.htm">ControlCommand</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;TreeViewConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"ControlTreeView Example"</span><span class="S8">,</span> <span class="S3">212</span><span class="S8">,</span> <span class="S3">212</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idTreeView_1</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateTreeView.htm"><span class="S4">GUICtrlCreateTreeView</span></a><span class="S8">(</span><span class="S3">6</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">160</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$TVS_HASBUTTONS</span><span class="S8">,</span> <span class="S9">$TVS_HASLINES</span><span class="S8">,</span> <span class="S9">$TVS_LINESATROOT</span><span class="S8">,</span> <span class="S9">$TVS_CHECKBOXES</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$WS_EX_CLIENTEDGE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hTreeView_1</span> <span class="S8">=</span> <a class="le" href="../functions/ControlGetHandle.htm"><span class="S4">ControlGetHandle</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$idTreeView_1</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idTVi_Root</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><span class="S7">"Root"</span><span class="S8">,</span> <span class="S9">$idTreeView_1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><span class="S7">"Item 1"</span><span class="S8">,</span> <span class="S9">$idTVi_Root</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><span class="S7">"Item 2"</span><span class="S8">,</span> <span class="S9">$idTVi_Root</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><span class="S7">"Item 3"</span><span class="S8">,</span> <span class="S9">$idTVi_Root</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idTVi_Item_4</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><span class="S7">"Item 4"</span><span class="S8">,</span> <span class="S9">$idTVi_Root</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><span class="S7">"Item 4.1"</span><span class="S8">,</span> <span class="S9">$idTVi_Item_4</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><span class="S7">"Item 4.2"</span><span class="S8">,</span> <span class="S9">$idTVi_Item_4</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateTreeViewItem.htm"><span class="S4">GUICtrlCreateTreeViewItem</span></a><span class="S8">(</span><span class="S7">"Item 5"</span><span class="S8">,</span> <span class="S9">$idTVi_Root</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ControlTreeView.htm"><span class="S4">ControlTreeView</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$hTreeView_1</span><span class="S8">,</span> <span class="S7">"Expand"</span><span class="S8">,</span> <span class="S7">"Root"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ControlTreeView.htm"><span class="S4">ControlTreeView</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$hTreeView_1</span><span class="S8">,</span> <span class="S7">"Exists"</span><span class="S8">,</span> <span class="S7">"Root|Item 4"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ControlTreeView.htm"><span class="S4">ControlTreeView</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$hTreeView_1</span><span class="S8">,</span> <span class="S7">"Check"</span><span class="S8">,</span> <span class="S7">"Root|Item 4"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ControlTreeView.htm"><span class="S4">ControlTreeView</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$hTreeView_1</span><span class="S8">,</span> <span class="S7">"Select"</span><span class="S8">,</span> <span class="S7">"Root|Item 4"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ControlTreeView.htm"><span class="S4">ControlTreeView</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$hTreeView_1</span><span class="S8">,</span> <span class="S7">"Expand"</span><span class="S8">,</span> <span class="S7">"Root|Item 4"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ControlTreeView.au3,"></object>
+</body>
+</html>

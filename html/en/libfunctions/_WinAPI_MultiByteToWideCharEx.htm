@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinAPI_MultiByteToWideCharEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinAPI_MultiByteToWideCharEx</h1>
+<p class="funcdesc">Maps a character string to a wide-character (Unicode) string<br /></p>
+<p class="codeheader">
+#include &lt;WinAPIConv.au3&gt;<br />
+_WinAPI_MultiByteToWideCharEx ( $sText, $pText [, $iCodePage = $CP_ACP [, $iFlags = 0]] )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$sText</td>
+<td style="width:85%">Text to be converted</td>
+</tr>
+<tr>
+<td>$pText</td>
+<td>Pointer to a byte structure where the converted string will be stored</td>
+</tr>
+<tr>
+<td>$iCodePage</td>
+<td><strong>[optional]</strong> Specifies the code page to be used to perform the conversion:<br />
+&nbsp;&nbsp;&nbsp; $CP_ACP (0) - The current system Windows ANSI code page<br />
+&nbsp;&nbsp;&nbsp; $CP_OEM (1) - The current system OEM code page<br />
+&nbsp;&nbsp;&nbsp; $CP_MACCP (2) - The current system Macintosh code page</td>
+</tr>
+<tr>
+<td>$iFlags</td>
+<td><strong>[optional]</strong> Flags that indicate whether to translate to precomposed or composite wide characters:<br />
+&nbsp;&nbsp;&nbsp; $MB_PRECOMPOSED - Always use precomposed characters<br />
+&nbsp;&nbsp;&nbsp; $MB_COMPOSITE - Always use composite characters<br />
+&nbsp;&nbsp;&nbsp; $MB_USEGLYPHCHARS - Use glyph characters instead of control characters<br />
+&nbsp;&nbsp;&nbsp; $MB_ERR_INVALID_CHARS - Fail if an invalid input character is encountered</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">True</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information</td>
+</tr>
+</table>
+
+<h2>Remarks</h2>
+<p>The byte structure must be at least twice the length of $sText.<br />
+</p>
+
+<h2>Related</h2>
+<p><a href="_WinAPI_MultiByteToWideChar.htm">_WinAPI_MultiByteToWideChar</a></p>
+
+</body>
+</html>

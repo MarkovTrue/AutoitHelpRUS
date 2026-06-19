@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinAPI_DestroyWindow</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinAPI_DestroyWindow</h1>
+<p class="funcdesc">Destroys the specified window<br /></p>
+<p class="codeheader">
+#include &lt;WinAPISysWin.au3&gt;<br />
+_WinAPI_DestroyWindow ( $hWnd )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$hWnd</td>
+<td style="width:85%">Handle to the window to be destroyed</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">True</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information</td>
+</tr>
+</table>
+
+<h2>Remarks</h2>
+<p>You cannot use <a href="_WinAPI_DestroyWindow.htm">_WinAPI_DestroyWindow()</a> to destroy a window created by a different thread<br />
+</p>
+
+<h2>Related</h2>
+<p><a href="_WinAPI_CreateWindowEx.htm">_WinAPI_CreateWindowEx</a></p>
+
+<h2>See Also</h2>
+<p>Search <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(DestroyWindow);k(DevLang-C);k(TargetOS-WINDOWS)&rd=true">DestroyWindow</a> in MSDN  Library.
+</p>
+
+</body>
+</html>

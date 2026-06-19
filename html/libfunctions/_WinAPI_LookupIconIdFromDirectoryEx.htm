@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_LookupIconIdFromDirectoryEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_LookupIconIdFromDirectoryEx</h1>
+<p class="funcdesc">Ищет в данных значков или курсоров значок или курсор, который лучше всего подходит для текущего устройства отображения.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIIcons.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_LookupIconIdFromDirectoryEx.htm"><span class="S15">_WinAPI_LookupIconIdFromDirectoryEx</span></a> <span class="S8">(</span> <span class="S9">$pData</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bIcon</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iXDesiredPixels</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iYDesiredPixels</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$pData</span></td>
+<td style="width:85%">Данные каталога значков или курсоров. Так как эта функция не проверяет данные ресурса,<br />
+она вызывает ошибку защиты (GP) или возвращает неопределённое значение, если presbits не указывает на корректные данные ресурса.</td>
+</tr>
+<tr>
+<td><span class="S91">$bIcon</span></td>
+<td><strong>[необязательный]</strong> Указывает, ищется ли значок или курсор, допустимые значения:<br />
+<span class="S5">True</span>	 – функция ищет значок (по умолчанию).<br />
+<span class="S5">False</span>	 – функция ищет курсор.</td>
+</tr>
+<tr>
+<td><span class="S91">$iXDesiredPixels</span></td>
+<td><strong>[необязательный]</strong> Требуемая ширина значка или курсора в пиксельях.<br />
+Если этот параметр равен нулю (по умолчанию), функция использует значение системной метрики.</td>
+</tr>
+<tr>
+<td><span class="S91">$iYDesiredPixels</span></td>
+<td><strong>[необязательный]</strong> Требуемая высота значка или курсора в пиксельях.<br />
+Если этот параметр равен нулю (по умолчанию), функция использует значение системной метрики.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> Этот параметр может быть одним или несколькими из следующих значений.<br />
+<span class="S91">$LR_DEFAULTCOLOR</span> (по умолчанию)<br />
+<span class="S91">$LR_MONOCHROME</span></td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает целочисленный идентификатор ресурса для значка или курсора, который лучше всего подходит для текущего устройства отображения.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Каталог значков загружается из файла ресурса с типом ресурса <span class="S91">$RT_GROUP_ICON</span> (или <span class="S91">$RT_GROUP_CURSOR</span>),<br />
+и целочисленное имя ресурса для конкретного загружаемого значка.<br />
+<a href="_WinAPI_LookupIconIdFromDirectoryEx.htm"><span class="S15">_WinAPI_LookupIconIdFromDirectoryEx</span><span class="S8">()</span></a> возвращает целочисленный идентификатор, являющийся именем ресурса значка, который лучше всего подходит для текущего устройства отображения.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=LookupIconIdFromDirectoryEx">LookupIconIdFromDirectoryEx</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StaticConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIIcons.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<br>
+<span class="S1">; Загрузить Resources.dll в память</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sDll</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">'Resources.dll'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hInstance</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LoadLibraryEx.htm"><span class="S15">_WinAPI_LoadLibraryEx</span></a><span class="S8">(</span><span class="S9">$sDll</span><span class="S8">,</span> <span class="S9">$LOAD_LIBRARY_AS_DATAFILE</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Загрузить ресурс RT_GROUP_ICON из библиотеки Resources.dll</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hResource</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_FindResource.htm"><span class="S15">_WinAPI_FindResource</span></a><span class="S8">(</span><span class="S9">$hInstance</span><span class="S8">,</span> <span class="S9">$RT_GROUP_ICON</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LoadResource.htm"><span class="S15">_WinAPI_LoadResource</span></a><span class="S8">(</span><span class="S9">$hInstance</span><span class="S8">,</span> <span class="S9">$hResource</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$pData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LockResource.htm"><span class="S15">_WinAPI_LockResource</span></a><span class="S8">(</span><span class="S9">$hData</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Найти целочисленное имя ресурса для иконки, лучше всего подходящей под размер (48x48)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LookupIconIdFromDirectoryEx.htm"><span class="S15">_WinAPI_LookupIconIdFromDirectoryEx</span></a><span class="S8">(</span><span class="S9">$pData</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">48</span><span class="S8">,</span> <span class="S3">48</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Загрузить ресурс RT_ICON из библиотеки Resources.dll</span><br>
+<span class="S9">$hResource</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_FindResource.htm"><span class="S15">_WinAPI_FindResource</span></a><span class="S8">(</span><span class="S9">$hInstance</span><span class="S8">,</span> <span class="S9">$RT_ICON</span><span class="S8">,</span> <span class="S9">$iIcon</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSize</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SizeOfResource.htm"><span class="S15">_WinAPI_SizeOfResource</span></a><span class="S8">(</span><span class="S9">$hInstance</span><span class="S8">,</span> <span class="S9">$hResource</span><span class="S8">)</span><br>
+<span class="S9">$hData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LoadResource.htm"><span class="S15">_WinAPI_LoadResource</span></a><span class="S8">(</span><span class="S9">$hInstance</span><span class="S8">,</span> <span class="S9">$hResource</span><span class="S8">)</span><br>
+<span class="S9">$pData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LockResource.htm"><span class="S15">_WinAPI_LockResource</span></a><span class="S8">(</span><span class="S9">$hData</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Создать иконку из ресурса</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateIconFromResourceEx.htm"><span class="S15">_WinAPI_CreateIconFromResourceEx</span></a><span class="S8">(</span><span class="S9">$pData</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Выгрузить Resources.dll из памяти</span><br>
+<a class="le" href="../libfunctions/_WinAPI_FreeLibrary.htm"><span class="S15">_WinAPI_FreeLibrary</span></a><span class="S8">(</span><span class="S9">$hInstance</span><span class="S8">)</span><br>
+<br>
+<span class="S1">; Создать GUI</span><br>
+<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUICtrlCreateIcon.htm"><span class="S4">GUICtrlCreateIcon</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S3">48</span><span class="S8">,</span> <span class="S3">48</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$STM_SETIMAGE</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$hIcon</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_CreateIconFromResourceEx.au3,"></object>
+</body>
+</html>

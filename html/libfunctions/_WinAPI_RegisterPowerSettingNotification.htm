@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_RegisterPowerSettingNotification</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_RegisterPowerSettingNotification</h1>
+<p class="funcdesc">Регистрирует приложение для получения уведомлений о параметрах питания для конкретного события параметра питания.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_RegisterPowerSettingNotification.htm"><span class="S15">_WinAPI_RegisterPowerSettingNotification</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$sGUID</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$sGUID</span></td>
+<td>Строка, которая представляет GUID параметра питания, для которого должны отправляться уведомления.<br />
+Оно может быть одним из следующих значений.<br />
+<span class="S91">$GUID_ACDC_POWER_SOURCE</span><br />
+<span class="S91">$GUID_BATTERY_PERCENTAGE_REMAINING</span><br />
+<span class="S91">$GUID_IDLE_BACKGROUND_TASK</span><br />
+<span class="S91">$GUID_MONITOR_POWER_ON</span><br />
+<span class="S91">$GUID_POWERSCHEME_PERSONALITY</span><br />
+<span class="S91">$GUID_SYSTEM_AWAYMODE</span></td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор уведомления для отмены регистрации уведомлений о питании.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>После вызова этой функции уведомления отправляются в указанное окно с использованием сообщений WM_POWERBROADCAST<br />
+с параметром wParam из PBT_POWERSETTINGCHANGE.<br />
+&nbsp;&nbsp;&nbsp; (см. MSDN для получения дополнительной информации)<br />
+<br />
+Эта функция требует <strong>Windows Vista или более позднюю версию</strong>.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=RegisterPowerSettingNotification">RegisterPowerSettingNotification</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

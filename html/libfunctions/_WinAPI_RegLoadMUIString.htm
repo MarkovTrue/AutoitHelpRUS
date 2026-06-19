@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_RegLoadMUIString</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_RegLoadMUIString</h1>
+<p class="funcdesc">Загружает указанную строку из указанного ключа и подключа.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIReg.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_RegLoadMUIString.htm"><span class="S15">_WinAPI_RegLoadMUIString</span></a> <span class="S8">(</span> <span class="S9">$hKey</span><span class="S8">,</span> <span class="S9">$sValueName</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sDirectory</span> <span class="S8">=</span> <span class="S7">''</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hKey</span></td>
+<td style="width:85%">Дескриптор открытого ключа реестра. Ключ должен быть открыт с правом доступа <span class="S91">$KEY_QUERY_VALUE</span>.<br />
+Этот дескриптор возвращается функцией <a href="_WinAPI_RegCreateKey.htm"><span class="S15">_WinAPI_RegCreateKey</span><span class="S8">()</span></a> или <a href="_WinAPI_RegOpenKey.htm"><span class="S15">_WinAPI_RegOpenKey</span><span class="S8">()</span></a>. Это также может быть<br />
+один из следующих предопределённых ключей:<br />
+<span class="S91">$HKEY_CLASSES_ROOT</span><br />
+<span class="S91">$HKEY_CURRENT_CONFIG</span><br />
+<span class="S91">$HKEY_CURRENT_USER</span><br />
+<span class="S91">$HKEY_LOCAL_MACHINE</span><br />
+<span class="S91">$HKEY_USERS</span></td>
+</tr>
+<tr>
+<td><span class="S91">$sValueName</span></td>
+<td>Имя значения реестра.</td>
+</tr>
+<tr>
+<td><span class="S91">$sDirectory</span></td>
+<td><strong>[необязательный]</strong> Путь каталога.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает загруженная строка.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>Может содержать системный код ошибки.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Строки следующей формы получают специальную обработку:<br />
+<br />
+@[path]\dllname,-strID<br />
+<br />
+Строка с идентификатором strID загружается из dllname; путь необязателен.<br />
+Если параметр <span class="S91">$sDirectory</span> – пустая строка, каталог добавляется в начало пути, указанного в данных реестра.<br />
+Отметим, что dllname может содержать переменные окружения, которые должны быть развёрнуты.<br />
+<br />
+Эта функция требует <strong>Windows Vista или позднее</strong>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey</a>, <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=RegLoadMUIString">RegLoadMUIString</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_WidenPath</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_WidenPath</h1>
+<p class="funcdesc">Переопределяет текущий путь как область, которая была бы нарисована, если бы путь был обведен.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_WidenPath.htm"><span class="S15">_WinAPI_WidenPath</span></a> <span class="S8">(</span> <span class="S9">$hDC</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства, который содержит закрытый путь.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Контекст устройства, определяемый параметром <span class="S91">$hDC</span>, должен содержать закрытый путь.<br />
+<br />
+Функция <a href="_WinAPI_WidenPath.htm"><span class="S15">_WinAPI_WidenPath</span><span class="S8">()</span></a> успешна только в том случае, если текущее перо имеет ширину в единицах устройства больше одного.<br />
+<br />
+Все кривые Бézier в пути преобразуются в последовательности прямых линий, приближающихся к расширенным кривым.<br />
+Как таковые, после вызова <a href="_WinAPI_WidenPath.htm"><span class="S15">_WinAPI_WidenPath</span><span class="S8">()</span></a> в пути не остаются кривые Бézier.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=WidenPath">WidenPath</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

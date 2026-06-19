@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Установка WinZip</title>
+  <meta charset="utf-8">
+  <link href="../../css/default.css" rel="stylesheet">
+<script src="../../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Установка WinZip</h1>
+  <p>Этот урок показывает, как автоматизировать установку <a href="http://www.winzip.com/" class="ext">WinZip 9 SR-1</a>. Предполагается, что вы уже знаете, как создавать и запускать скрипты AutoIt и использовать <a href=
+  "../../intro/au3spy.htm">AutoIt v3 Window Info</a> для чтения заголовков и текста окон, как показано в уроках <a href="../helloworld/helloworld.htm">HelloWorld</a> и <a href="../notepad/notepad.htm">Notepad</a>.</p>
+  <p>&nbsp;</p>
+  <p>Установка WinZip состоит примерно из 10 диалоговых окон, в которых нужно нажимать кнопки (обычно <strong>Next</strong>) для продолжения. Мы напишем скрипт, который просто ждёт появления этих диалогов и затем нажимает нужные кнопки. Как и в обычных установках, заголовок окна каждого диалога один и тот же (WinZip Setup), поэтому мы должны использовать текст окна, чтобы различить диалоги. Будут предоставлены скриншоты каждого диалога, и вы можете нажать на изображение, чтобы увидеть результат <a href="../../intro/au3spy.htm">AutoIt v3 Window Info</a> для этого диалога.</p>
+  <p>&nbsp;</p>
+  <p>Сначала создайте папку, которую мы будем использовать для установщика WinZip и файла нашего скрипта. Скопируйте установщик WinZip в эту папку и создайте пустой скрипт с именем <strong><span class="S7">winzipinstall.au3</span></strong>.</p>
+  <p><img src="folder.png" alt="" border="0"></p>
+  <p>&nbsp;</p>
+  <p>Теперь мы пройдём установку вручную и напишем скрипт по ходу. Строки скрипта для автоматизации каждого диалога будут показаны после каждого изображения (помните, нужно нажать на изображение, чтобы увидеть результат AutoIt v3 Window Info). Вы также можете посмотреть <a href="script.htm">готовый скрипт</a> для справки.</p>
+  <p>&nbsp;</p>
+  <p>Первая строка скрипта простая – мы хотим запустить установщик <strong>winzip90.exe</strong>. Итак, первая строка:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"winzip90.exe"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Появится первый диалог:</p>
+  <p><a href="dialog1.txt"><img src="dialog1.png" alt="" border="0"></a></p>
+  <p>Нам нужно дождаться появления этого окна и его активации, затем отправить комбинацию клавиш <strong>ALT-s</strong>, чтобы нажать кнопку <strong>Setup</strong>. Полученные строки скрипта:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip® 9.0 SR-1 Setup"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"&amp;Setup"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!s"</span><span class="S8">)</span></span>
+</p>
+  <p>(Помните, нужно нажать на изображение, чтобы увидеть результат AutoIt v3 Window Info; это особенно важно, так как заголовок содержит специальный символ (R), который было бы сложно набирать).</p>
+  <p>&nbsp;</p>
+  <p>Далее появится диалог выбора места установки:</p>
+  <p><a href="dialog2.txt"><img src="dialog2.png" alt="" border="0"></a></p>
+  <p>Нам нужно дождаться, пока это окно станет активным, затем нажать ENTER, чтобы принять место установки. Строки скрипта:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"into the following folder"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{ENTER}</span><span class="S7">"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Далее появится диалог выбора компонентов WinZip:</p>
+  <p><a href="dialog3.txt"><img src="dialog3.png" alt="" border="0"></a></p>
+  <p>Обратите внимание, что это окно имеет в точности такой же заголовок, как и первое окно – <strong>WinZip Setup</strong> – и на самом деле все диалоги установки имеют этот заголовок! Чтобы различить эти окна, мы должны также использовать текст окна – на каждом экране попытайтесь выбрать наиболее уникальный текст. В этом случае я выбрал <strong>WinZip features include</strong>. После появления окна мы захотим нажать <strong>ALT-n</strong>:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"WinZip features include"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Далее появится диалог лицензии:</p>
+  <p><a href="dialog4.txt"><img src="dialog4.png" alt="" border="0"></a></p>
+  <p>Дождитесь появления окна, затем нажмите <strong>ALT-y</strong>, чтобы принять соглашение:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"License Agreement"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!y"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Установка продолжается аналогичным образом для нескольких диалогов. Изображение каждого диалога показано вместе со строками скрипта, необходимыми для его автоматизации.</p>
+  <p>&nbsp;</p>
+  <p><a href="dialog5.txt"><img src="dialog5.png" alt="" border="0"></a></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Quick Start Guide"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="dialog6.txt"><img src="dialog6.png" alt="" border="0"></a></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"switch between the two interfaces"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!c"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="dialog7.txt"><img src="dialog7.png" alt="" border="0"></a></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"&amp;Express setup (recommended)"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!e"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="dialog8.txt"><img src="dialog8.png" alt="" border="0"></a></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"WinZip needs to associate itself with your archives"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><a href="dialog9.txt"><img src="dialog9.png" alt="" border="0"></a></p>
+  <p>Это последний диалог установки. Обратите внимание, что кнопка <strong>Finish</strong> не имеет комбинации клавиш – к счастью, она является кнопкой по умолчанию в этом диалоге, поэтому мы можем просто нажать ENTER, чтобы выбрать её. Если бы это было не так, то нам пришлось бы нажимать TAB между элементами управления или, лучше всего, использовать функцию <a href="../../functions/ControlClick.htm">ControlClick</a>.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip Setup"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Thank you for installing this evaluation version"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{ENTER}</span><span class="S7">"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>После установки WinZip автоматически запустится:</p>
+  <p><a href="dialog10.txt"><img src="dialog10.png" alt="" border="0"></a></p>
+  <p>Мы просто ждём, пока появится основное окно WinZip, а затем закрываем его функцией <a href="../../functions/WinClose.htm">WinClose</a>.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"WinZip (Evaluation Version)"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S7">"WinZip (Evaluation Version)"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Вот <a href="script.htm">готовый скрипт</a> – заметьте, я добавил комментарии к каждому диалогу отдельно, что облегчает понимание и изменение в будущем (следующая версия WinZip может быть немного другой).</p>
+  <p>&nbsp;</p>
+  <p>И всё! Запустите скрипт <strong><span class="S7">winzipinstaller.au3</span></strong> и смотрите, как WinZip устанавливается всего за несколько секунд! Методы, использованные в этом уроке, можно применить для автоматизации установки большинства программ.</p>
+  <p>&nbsp;</p>
+  <p>В качестве упражнения попробуйте переписать скрипт, но вместо использования функции Send (которая отправляет клавиши активному окну) для нажатия кнопок используйте <a href="../../functions/ControlClick.htm">ControlClick</a>, что может быть намного надёжнее. Вам нужно будет прочитать о <a href="../../intro/controls.htm">элементах управления</a>, чтобы это сделать.</p>
+</body>
+</html>

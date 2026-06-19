@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unicode Support</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Unicode Support</h1>
+  <p>The supported file formats for text files and scripts and their notation in popular editors are shown in this table:</p>
+  <table>
+    <tr>
+      <th>AutoIt Notation</th>
+      <th>Notepad</th>
+      <th>Notepad++</th>
+      <th>SciTE (AutoIt Default Editor)</th>
+    </tr>
+    <tr>
+      <td>UTF8 without <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">BOM</a></td>
+      <td>ANSI or UTF-8 depending on content (will force a BOM if saved)</td>
+      <td>UTF-8 without BOM</td>
+      <td>UTF-8</td>
+    </tr>
+    <tr>
+      <td>UTF8 with BOM</td>
+      <td>UTF-8</td>
+      <td>UTF-8</td>
+      <td>UTF-8 with BOM</td>
+    </tr>
+    <tr>
+      <td>ANSI</td>
+      <td>ANSI</td>
+      <td>ANSI</td>
+      <td>8 bit / Code Page Property</td>
+    </tr>
+    <tr>
+      <td>UTF16 Little Endian</td>
+      <td>Unicode</td>
+      <td>UCS-2 Little Endian</td>
+      <td>UCS-2 Little Endian</td>
+    </tr>
+    <tr>
+      <td>UTF16 Little Endian without BOM</td>
+      <td>Unicode (will force a BOM if saved)</td>
+      <td>UCS-2 Little Endian without BOM (can't be selected)</td>
+      <td>Unsupported</td>
+    </tr>
+    <tr>
+      <td>UTF16 Big Endian</td>
+      <td>Unicode big endian</td>
+      <td>UCS-2 Big Endian</td>
+      <td>UCS-2 Big Endian</td>
+    </tr>
+    <tr>
+      <td>UTF16 Big Endian without BOM</td>
+      <td>Unsupported</td>
+      <td>UCS-2 Big Endian without BOM (can't be selected)</td>
+      <td>Unsupported</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>The recommended script format is <strong>UTF-8 with <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">BOM</a></strong> as that works best with notepad.exe and the AutoIt editor SciTe and guards against scripts unintentionally getting saved in a particular code page.</p>
+  <p>ANSI formats are <strong>not recommended</strong> as they can cause problems when run on machines with different locales.</p>
+  <p>UTF16 BE or LE without a BOM are <strong>not recommended</strong>. They are widely unsupported. Even with a BOM they are not particularly common and they take up much more disk space than UTF8.</p>
+  <p>
+  <li>File operations on text files not opened with <a href="../functions/FileOpen.htm">FileOpen()</a> and <strong>explicit unicode flags</strong> auto-detect encoding similar to most modern editors. This includes all file functions that are used with a filename, for example FileRead("filename.txt"). Specifically:</li>
+  <ul>
+    <li>Files containing a BOM will be opened in the relevant mode as per that BOM. UTF-8 and UTF-16 BOMs are checked.</li>
+    <li>UTF-8 and UTF-16 files without a BOM will be automatically detected and opened in the relevant mode.</li>
+    <li>Files containing nulls are opened in Binary ($FO_BINARY) mode by default (unless they are detected as valid UTF-16). Previously they would be opened in ANSI mode. Use the $FO_ANSI flag to override.</li>
+    <li>Files containing only characters 1-127 are opened in UTF-8 with no BOM ($FO_UTF8_NOBOM) mode by default. Previously they would be opened in ANSI mode. Use the $FO_ANSI flag to override.</li>
+    <li>Files containing only characters 1-255 are opened in ANSI ($FO_ANSI) mode by default.</li>
+    <li>Due to the above  <a href="../functions/FileGetEncoding.htm">FileGetEncoding()</a> now returns 512 ($FO_ANSI) or 256 ($FO_UTF8_NOBOM) instead of 0 which was undocumented but indicated ANSI.</li>
+  </ul>
+
+  </p>
+  <h2>Current Limitations</h2>
+  <p>There are a few parts of AutoIt that don't yet have full Unicode support. These are:</p>
+  <ul>
+    <li><a href="../functions/Send.htm">Send</a> and <a href="../functions/ControlSend.htm">ControlSend</a> - Instead, Use <a href="../functions/ControlSetText.htm">ControlSetText</a> or the <a href="../functions/ClipPut.htm">Clipboard</a>
+    functions.</li>
+    <li><a href="../functions/ConsoleWrite.htm">Console</a> operations are converted to ANSI.</li>
+  </ul>
+  <p>These limits will be addressed in future versions if possible.</p>
+</body>
+</html>

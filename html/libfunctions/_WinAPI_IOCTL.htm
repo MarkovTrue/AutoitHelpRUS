@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_IOCTL</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_IOCTL</h1>
+<p class="funcdesc">Создаёт уникальный системный код управления вводом-выводом (IOCTL).</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_IOCTL.htm"><span class="S15">_WinAPI_IOCTL</span></a> <span class="S8">(</span> <span class="S9">$iDeviceType</span><span class="S8">,</span> <span class="S9">$iFunction</span><span class="S8">,</span> <span class="S9">$iMethod</span><span class="S8">,</span> <span class="S9">$iAccess</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iDeviceType</span></td>
+<td style="width:85%">Тип устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFunction</span></td>
+<td>Действие в категории устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMethod</span></td>
+<td>Коды метода для способа передачи буферов для элементов управления вводом-выводом и файловой системой.</td>
+</tr>
+<tr>
+<td><span class="S91">$iAccess</span></td>
+<td>Значение проверки доступа для любого доступа.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращает значение IOCTL (DWORD).<br />
+
+<h2>Дополнительно</h2>
+<p>See <a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff543023.aspx">Defining I/O Control Codes</a>.
+</p>
+
+</body>
+</html>

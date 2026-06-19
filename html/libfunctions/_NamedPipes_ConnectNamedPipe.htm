@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _NamedPipes_ConnectNamedPipe</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_NamedPipes_ConnectNamedPipe</h1>
+<p class="funcdesc">Позволяет процессу сервера именованного канала ожидать подключения клиентского процесса.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;NamedPipes.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_NamedPipes_ConnectNamedPipe.htm"><span class="S15">_NamedPipes_ConnectNamedPipe</span></a> <span class="S8">(</span> <span class="S9">$hNamedPipe</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$tOverlapped</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hNamedPipe</span></td>
+<td style="width:85%">Дескриптор конца сервера экземпляра именованного канала.</td>
+</tr>
+<tr>
+<td><span class="S91">$tOverlapped</span></td>
+<td><strong>[необязательный]</strong> структура <span class="S91">$tagOVERLAPPED</span>.<br />
+Если <span class="S91">$hNamedPipe</span> был открыт с <span class="S91">$PIPE_FLAG_OVERLAPPED</span>, <span class="S91">$pOverlapped</span> не должен быть 0.<br />
+Если <span class="S91">$hNamedPipe</span> был создан с <span class="S91">$PIPE_FLAG_OVERLAPPED</span> и <span class="S91">$pOverlapped</span> не равен 0, структура <span class="S91">$tagOVERLAPPED</span> должна содержать дескриптор объекта события ручного сброса.<br />
+Если <span class="S91">$hNamedPipe</span> не был открыт с <span class="S91">$PIPE_FLAG_OVERLAPPED</span>, функция не возвращает значение до подключения клиента или возникновения ошибки.<br />
+Успешные синхронные операции приводят к тому, что функция возвращает ненулевое значение, если клиент подключается после вызова функции.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если клиент подключается до вызова функции, функция возвращает нуль, а <em><a class="le" href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span></a><span class="S8">()</span></em> вернёт <span class="S91">$ERROR_PIPE_CONNECTED</span> (определён в <span class="S7">APIErrorsConstants.au3</span>).<br />
+Это может произойти, если клиент подключается в интервале между вызовом <em><a class="le" href="_NamedPipes_CreateNamedPipe.htm"><span class="S15">_NamedPipes_CreateNamedPipe</span></a><span class="S8">()</span></em> и вызовом <em><a class="le" href="_NamedPipes_ConnectNamedPipe.htm"><span class="S15">_NamedPipes_ConnectNamedPipe</span></a><span class="S8">()</span></em>.<br />
+В этой ситуации между клиентом и сервером существует хорошее соединение, несмотря на то, что функция возвращает нуль.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="$tagOVERLAPPED.htm">$tagOVERLAPPED</a>, <a href="_NamedPipes_CreateNamedPipe.htm">_NamedPipes_CreateNamedPipe</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=ConnectNamedPipe">ConnectNamedPipe</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

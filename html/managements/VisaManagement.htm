@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>User Defined Functions</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1>Справочник пользовательских функций: VISA</h1>
+<p>Ниже приведён полный список пользовательских функций, доступных в AutoIt.
+Нажмите на имя функции для просмотра подробного описания.</p>
+<p>Для использования добавьте <strong><span class="S111">#include</span> &lt;<span class="S7">Visa.au3</span>&gt;</strong>.</p>
+<p>&nbsp;</p>
+
+<table>
+<tr>
+  <th style="width:25%">Функция</th>
+  <th style="width:75%">Описание</th>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viClose.htm">_viClose</a></td>
+<td>Закрывает VISA-соединение с прибором или устройством<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viExecCommand.htm">_viExecCommand</a></td>
+<td>Отправляет команду или запрос на прибор или устройство через интерфейс VISA (GPIB / TCP)<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viFindGpib.htm">_viFindGpib</a></td>
+<td>Отправляет команду или запрос на прибор или устройство через интерфейс VISA (GPIB / TCP)<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viGpibBusReset.htm">_viGpibBusReset</a></td>
+<td>Перезагрузка шины GPIB: используйте эту функцию, когда шина GPIB зависает по какой-либо причине. Возможно, вам повезёт и проблема разрешится после вызова этой функции<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viGTL.htm">_viGTL</a></td>
+<td>Перейти в локальный режим: приборы, принимающие эту команду, выходят из режима "удалённого управления" и переходят в режим "локального управления". Если прибор уже находится в режиме "локального управления", эта команда просто игнорируется. Обычно, если прибор не поддерживает эту команду, он просто остаётся в режиме "удалённого управления"<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viInteractiveControl.htm">_viInteractiveControl</a></td>
+<td>Интерактивное управление VISA для тестирования команд SCPI<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viOpen.htm">_viOpen</a></td>
+<td>Открывает VISA-соединение с прибором или устройством<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viSetAttribute.htm">_viSetAttribute</a></td>
+<td>Устанавливает любой атрибут VISA. Эта функция, которая вызывается <a class="le" href="../libfunctions/_viSetTimeout.htm"><span class="S15">_viSetTimeout</span></a><span class="S8">()</span>, также может использоваться для установки других специфических атрибутов VISA. Прочитайте документацию VISA для получения дополнительной информации и списка атрибутов VISA и их соответствующих значений<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_viSetTimeout.htm">_viSetTimeout</a></td>
+<td>Устанавливает тайм-аут VISA в МИЛЛИСЕКУНДАХ<br /></td>
+</tr>
+</table>
+
+</body>

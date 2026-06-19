@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_RectVisible</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_RectVisible</h1>
+<p class="funcdesc">Определяет, находится ли какая-либо часть указанного прямоугольника в области отсечения.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_RectVisible.htm"><span class="S15">_WinAPI_RectVisible</span></a> <span class="S8">(</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$tRECT</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$tRECT</span></td>
+<td>Структура <span class="S91">$tagRECT</span>, содержащая логические координаты указанного прямоугольника.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">1, 2 – любая часть заданного прямоугольника находится в области отсечения.<br />
+0&nbsp;– в противном случае.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает флаг <span class="S61">@error</span> в ненулевое значение, флаг <span class="S61">@extended</span> может содержать код ошибки.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=RectVisible">RectVisible</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _viSetAttribute</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_viSetAttribute</h1>
+<p class="funcdesc">Устанавливает любой атрибут VISA. Эта функция, которая вызывается <a class="le" href="_viSetTimeout.htm"><span class="S15">_viSetTimeout</span></a><span class="S8">()</span>, также может использоваться для установки других специфических атрибутов VISA. Прочитайте документацию VISA для получения дополнительной информации и списка атрибутов VISA и их соответствующих значений.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Visa.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_viSetAttribute.htm"><span class="S15">_viSetAttribute</span></a> <span class="S8">(</span> <span class="S9">$hSession</span><span class="S8">,</span> <span class="S9">$iAttribute</span><span class="S8">,</span> <span class="S9">$iValue</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hSession</span></td>
+<td style="width:85%">Дескриптор VISA (строка) или дескриптор сессии VISA (целое число).<br />
+Подробности – в разделе "Примечания" <a href="_viExecCommand.htm"><span class="S15">_viExecCommand</span><span class="S8">()</span></a>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iAttribute</span></td>
+<td>Индекс атрибута, который должен быть изменён.<br />
+Атрибуты определены в библиотеке VISA.<br />
+Эта библиотека AutoIt определяет только КОНСТАНТУ для атрибута TIMEOUT (<span class="S91">$VI_ATTR_TMO_VALUE</span>) и для атрибутов и значений серийного интерфейса (см. раздел Примечания), но вы можете передать любой другой действительный индекс (как целое число), если хотите.</td>
+</tr>
+<tr>
+<td><span class="S91">$iValue</span></td>
+<td>Значение атрибута. Это должно быть целое число, и возможные значения зависят от типа атрибута и определены в документации VISA.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 0.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>-1 и устанавливает флаг <span class="S61">@error</span> в ненулевое значение, если DLL-библиотеку VISA не удаётся открыть<br />
+или ненулевое значение, представляющее код ошибки VISA (см. руководство программиста VISA).</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Это список предопределённых атрибутов и значений. Помните, что вы можете использовать любой другой действительный атрибут/значение, передав соответствующий целочисленный индекс (как определено в руководстве программиста VISA) этой функции.<br />
+<br />
+* Атрибут: <span class="S91">$VI_ATTR_TMO_VALUE</span> – установить тайм-аут<br />
+* Значения:<br />
+&nbsp;&nbsp;&nbsp; Тайм-аут в МИЛЛИСЕКУНДАХ или<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_TMO_IMMEDIATE</span> (или 0) для "немедленного возврата"<br />
+&nbsp;&nbsp;&nbsp; <em>VI_TMO_INFINITE</em> (или "INF") для "нет тайм-аута"<br />
+<br />
+* Атрибут: <span class="S91">$VI_ATTR_ASRL_BAUD</span><br />
+* Значения:<br />
+&nbsp;&nbsp;&nbsp; Любая действительная скорость передачи (9600, 115200 и т. д.)<br />
+<br />
+* Атрибут: <span class="S91">$VI_ATTR_ASRL_DATA_BITS</span><br />
+* Значения:<br />
+&nbsp;&nbsp;&nbsp; От 5 до 8<br />
+<br />
+* Атрибут: <span class="S91">$VI_ATTR_ASRL_PARITY</span><br />
+* Значения:<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_PAR_NONE</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_PAR_ODD</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_PAR_EVEN</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_PAR_MARK</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_PAR_SPACE</span><br />
+<br />
+* Атрибут: <span class="S91">$VI_ATTR_ASRL_STOP_BITS</span><br />
+* Значения:<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_STOP_ONE</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_STOP_ONE5</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_STOP_TWO</span><br />
+<br />
+* Атрибут: <span class="S91">$VI_ATTR_ASRL_FLOW_CNTRL</span><br />
+* Значения:<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_FLOW_NONE</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_FLOW_XON_XOFF</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_FLOW_RTS_CTS</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$VI_ASRL_FLOW_DTR_DSR</span><br />
+<br />
+Как и для всех функций VISA, библиотеки VISA должны быть установлены (вы можете проверить, находится ли visa32.dll в {WINDOWS}\system32).<br />
+Карта GPIB (такая как NI PCI-GPIB от National Instruments или Agilent 82350B PCI High-Performance GPIB) требуется только если вы используете функции, связанные с GPIB.<br />
+<br />
+* Подробное описание наиболее распространённых ДЕСКРИПТОРОВ VISA см. в примечаниях функции <a href="_viExecCommand.htm"><span class="S15">_viExecCommand</span><span class="S8">()</span></a><br />
+</p>
+<h2>См. также</h2>
+<p><a href="_viClose.htm">_viClose</a>, <a href="_viExecCommand.htm">_viExecCommand</a>, <a href="_viOpen.htm">_viOpen</a>, <a href="_viSetTimeout.htm">_viSetTimeout</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; - Предполагает, что прибор установлен на адрес GPIB 3.
+</span><br>
+<span class="S1">; Если прибор находится по другому адресу, измените "GPIB::3::0" на</span><br>
+<span class="S1">; соответствующий дескриптор. То же самое для вызова _viOpen</span><br>
+<span class="S1">; Показывает, как использовать _viSetAttribute. В этом примере мы используем _viSetAttribute
+</span><br>
+<span class="S1">; вместо _viSetTimeout для установки тайм-аута GPIB операции _viExecCommand.
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Visa.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$h_Session</span> <span class="S8">=</span> <span class="S3">0</span><br>
+<br>
+<span class="S1">; Запросить ID прибора по адресу GPIB 3</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Step 1"</span><span class="S8">,</span> <span class="S7">"Simple GPIB query with explicit TIMEOUT set"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$s_Answer</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_viExecCommand.htm"><span class="S15">_viExecCommand</span></a><span class="S8">(</span><span class="S7">"GPIB::3::0"</span><span class="S8">,</span> <span class="S7">"*IDN?"</span><span class="S8">,</span> <span class="S3">10000</span><span class="S8">)</span>&nbsp;<span class="S1">; таймаут 10 секунд</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"GPIB QUERY result"</span><span class="S8">,</span> <span class="S9">$s_Answer</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать ответ</span><br>
+<br>
+<span class="S1">; Это то же самое, что сначала использовать функцию _viSetAttribute:
+</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Step 2"</span><span class="S8">,</span> <span class="S7">"_vOpen + timeout using _viSetAttribute + GPIB query"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$h_Instr</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_viOpen.htm"><span class="S15">_viOpen</span></a><span class="S8">(</span><span class="S3">3</span><span class="S8">)</span><br>
+<span class="S1">; ПРИМЕЧАНИЕ – это то же самое, что: _viSetTimeout($h_Instr, 10000)
+</span><br>
+<a class="le" href="../libfunctions/_viSetAttribute.htm"><span class="S15">_viSetAttribute</span></a><span class="S8">(</span><span class="S9">$h_Instr</span><span class="S8">,</span> <span class="S9">$VI_ATTR_TMO_VALUE</span><span class="S8">,</span> <span class="S3">10000</span><span class="S8">)</span>&nbsp;<span class="S1">; 10000 мс = 10 секунд</span><br>
+<br>
+<span class="S9">$s_Answer</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_viExecCommand.htm"><span class="S15">_viExecCommand</span></a><span class="S8">(</span><span class="S9">$h_Instr</span><span class="S8">,</span> <span class="S7">"*IDN?"</span><span class="S8">)</span>&nbsp;<span class="S1">; Сейчас не нужно задавать таймаут</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"GPIB QUERY result"</span><span class="S8">,</span> <span class="S9">$s_Answer</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать ответ</span><br>
+<br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Step 3"</span><span class="S8">,</span> <span class="S7">"Close the Instrument connection using _viClose"</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_viClose.htm"><span class="S15">_viClose</span></a><span class="S8">(</span><span class="S9">$h_Instr</span><span class="S8">)</span>&nbsp;<span class="S1">; Закрыть соединение с прибором</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_viSetAttribute.au3,"></object>
+</body>
+</html>

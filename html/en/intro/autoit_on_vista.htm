@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AutoIt on Windows Vista and beyond</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>AutoIt on Windows Vista</h1>
+  <p>Beginning with Windows Vista, new security features have been introduced in Windows to restrict the running of files that require administrative rights. Even users with Administrative access will be prompted every time they launch an executable which will perform some administrative operation (such as writing
+  to the registry key HKEY_LOCAL_MACHINE or writing to the C:\Windows directory). This is called <strong>User Account Control (UAC)</strong>.</p>
+  <p>By default AutoIt scripts run with standard user permissions but AutoIt has been coded to allow the script writer the option to "tag" a script in order to tell AutoIt if it needs to run with full admin rights or not.</p>
+  <p>To force a script to attempt to run itself with administrative rights add the <strong>#RequireAdmin</strong> directive at the top of your script as follows:</p>
+<p class="codebox">
+<span><span class="S1">; This script requires full Administrative rights</span><br /><a class="codeSnippetLink" href="../keywords/RequireAdmin.htm"><span class="S11">#RequireAdmin</span></a><br /><br /><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Info"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This script has admin rights! "</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>When the script runs AutoIt will check if it already has full admin rights and if not it will cause the operating system to prompt the user for permission as shown in "UAC Prompts". If permission is not given by the user the script will
+  terminate.</p>
+  <h2>UAC Prompts</h2>
+  <p>The prompts shown when launching a program that requires administrative rights are similar to those shown below. The type of prompt displayed will depend on whether the user is a "standard user" or an "administrator user". Keep in mind that even administrators will need
+  elevated permissions to perform admin operations.</p>
+  <p> Note: The prompts shown are for the digitally signed version of AutoIt - all release versions are signed but beta versions may not be and will give a warning as shown in "Compiled Scripts" below.</p>
+  <p>&nbsp;</p>
+  <p><strong>Standard User Prompt</strong></p>
+  <p><img src="../images/autoit_standarduser_uac_signed.png" alt=""></p>
+  <p>A standard user must select a user name and enter a password in order to continue and run the script with elevated rights.</p>
+  <p>&nbsp;</p>
+  <p><strong>Administrator User Prompt</strong></p>
+  <p><img src="../images/autoit_uac_signed.png" alt=""></p>
+  <p>As the user is already an administrator and just requires elevation the user needs only to click on continue - no password is needed.</p>
+  <h2>Compiled Scripts</h2>
+  <p>Compiled scripts (and possibly beta versions of AutoIt) are <strong>not</strong> digitally signed and will give a more serious looking warning as shown:</p>
+  <p><img src="../images/compiled_uac_unsigned.png" alt=""></p>
+  <p>The user must click on <strong>Allow</strong> to continue (or enter a password if they are a standard user).</p>
+  <p>If you have your own Authenticode signature you may sign your compiled scripts yourself.</p>
+  <p>&nbsp;</p>
+  <p><strong>Important: Whether AutoIt or a compiled script is signed or not, you should only run scripts from sources you trust!</strong></p>
+  <p><strong>Even signed code can be malicious!</strong></p>
+</body>
+</html>

@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>User Defined Functions</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1>Справочник пользовательских функций: SQLite</h1>
+<p>Ниже приведён полный список пользовательских функций, доступных в AutoIt.
+Нажмите на имя функции для просмотра подробного описания.</p>
+<p>Для использования добавьте <strong><span class="S111">#include</span> &lt;<span class="S7">SQLite.au3</span>&gt;</strong>.</p>
+<p>&nbsp;</p>
+
+<table>
+<tr>
+  <th style="width:25%">Функция</th>
+  <th style="width:75%">Описание</th>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Changes.htm">_SQLite_Changes</a></td>
+<td>Возвращает количество строк базы данных, которые были изменены последней завершённой инструкцией с этим соединением<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Close.htm">_SQLite_Close</a></td>
+<td>Закрывает открытую базу данных<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Display2DResult.htm">_SQLite_Display2DResult</a></td>
+<td>Возвращает или выводит в консоль отформатированный вывод двумерного массива<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Encode.htm">_SQLite_Encode</a></td>
+<td>Кодирует строку, число или бинарные данные для использования как BLOB в инструкциях SQLite<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_ErrCode.htm">_SQLite_ErrCode</a></td>
+<td>Возвращает последний код ошибки (число)<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_ErrMsg.htm">_SQLite_ErrMsg</a></td>
+<td>Возвращает строку, описывающую условие ошибки для последнего вызова SQLite API sqlite3_*<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Escape.htm">_SQLite_Escape</a></td>
+<td>Экранирует строку или число для использования как TEXT в инструкциях SQLite<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Exec.htm">_SQLite_Exec</a></td>
+<td>Выполняет запрос SQLite, не обрабатывает результаты<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_FastEncode.htm">_SQLite_FastEncode</a></td>
+<td>Быстрое кодирование бинарных данных (исключительно) для использования в инструкциях SQLite<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_FastEscape.htm">_SQLite_FastEscape</a></td>
+<td>Быстрое экранирование строки или числа для использования как TEXT в инструкциях SQLite<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_FetchData.htm">_SQLite_FetchData</a></td>
+<td>Получает 1 строку данных из запроса, основанного на <a class="le" href="../libfunctions/_SQLite_Query.htm"><span class="S15">_SQLite_Query</span></a><span class="S8">()</span><br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_FetchNames.htm">_SQLite_FetchNames</a></td>
+<td>Читает имена столбцов из запроса, основанного на <a class="le" href="../libfunctions/_SQLite_Query.htm"><span class="S15">_SQLite_Query</span></a><span class="S8">()</span><br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_ForeignKeys.htm">_SQLite_ForeignKeys</a></td>
+<td>Изменяет ограничение внешних ключей<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_GetTable.htm">_SQLite_GetTable</a></td>
+<td>Возвращает одномерный массив, содержащий имена столбцов и данные выполненного запроса<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_GetTable2D.htm">_SQLite_GetTable2D</a></td>
+<td>Возвращает двумерный массив, содержащий имена столбцов и данные выполненного запроса<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_GetTableData2D.htm">_SQLite_GetTableData2D</a></td>
+<td>Возвращает двумерный массив, содержащий данные выполненного запроса<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_LastInsertRowID.htm">_SQLite_LastInsertRowID</a></td>
+<td>Возвращает ROWID последней вставки в базу данных этим соединением<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_LibVersion.htm">_SQLite_LibVersion</a></td>
+<td>Возвращает номер версии библиотеки<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Open.htm">_SQLite_Open</a></td>
+<td>Открывает или создаёт базу данных SQLite<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Query.htm">_SQLite_Query</a></td>
+<td>Подготавливает запрос SQLite<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_QueryFinalize.htm">_SQLite_QueryFinalize</a></td>
+<td>Завершает запрос, основанный на <a class="le" href="../libfunctions/_SQLite_Query.htm"><span class="S15">_SQLite_Query</span></a><span class="S8">()</span>. Запрос прерывается<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_QueryReset.htm">_SQLite_QueryReset</a></td>
+<td>Сбрасывает запрос, основанный на <a class="le" href="../libfunctions/_SQLite_Query.htm"><span class="S15">_SQLite_Query</span></a><span class="S8">()</span><br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_QuerySingleRow.htm">_SQLite_QuerySingleRow</a></td>
+<td>Читает первую строку результата из указанного запроса<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_SafeMode.htm">_SQLite_SafeMode</a></td>
+<td>Отключает или включает безопасный режим<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_SetTimeout.htm">_SQLite_SetTimeout</a></td>
+<td>Устанавливает тайм-аут для обработчика занятости<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Shutdown.htm">_SQLite_Shutdown</a></td>
+<td>Выгружает SQLite.dll<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_SQLiteExe.htm">_SQLite_SQLiteExe</a></td>
+<td>Выполняет команды в sqlite3.exe<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_Startup.htm">_SQLite_Startup</a></td>
+<td>Загружает SQLite3.dll<br /></td>
+</tr>
+<tr>
+<td><a href="../../html/libfunctions/_SQLite_TotalChanges.htm">_SQLite_TotalChanges</a></td>
+<td>Возвращает количество всех изменений (включая триггеры и внешние ключи) с начала соединения<br /></td>
+</tr>
+</table>
+
+</body>

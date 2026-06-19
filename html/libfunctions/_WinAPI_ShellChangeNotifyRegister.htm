@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_ShellChangeNotifyRegister</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_ShellChangeNotifyRegister</h1>
+<p class="funcdesc">Регистрирует окно для получения уведомлений из файловой системы или оболочки.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShellEx.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_ShellChangeNotifyRegister.htm"><span class="S15">_WinAPI_ShellChangeNotifyRegister</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$iEvents</span><span class="S8">,</span> <span class="S9">$iSources</span><span class="S8">,</span> <span class="S9">$aPaths</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bRecursive</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMsg</span></td>
+<td>Сообщение, которое должно быть отправлено в процедуру окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$iEvents</span></td>
+<td>События уведомления об изменении, для которых необходимо получать уведомления. Этот параметр может быть одним или несколькими<br />
+значениями <span class="S91">$SHCNE_*</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iSources</span></td>
+<td>Одно или несколько из следующих значений, указывающих тип событий, для которых получать<br />
+уведомления.<br />
+<span class="S91">$SHCNRF_INTERRUPTLEVEL</span><br />
+<span class="S91">$SHCNRF_SHELLLEVEL</span><br />
+<span class="S91">$SHCNRF_RECURSIVEINTERRUPT</span><br />
+<span class="S91">$SHCNRF_NEWDELIVERY</span></td>
+</tr>
+<tr>
+<td><span class="S91">$aPaths</span></td>
+<td>Один путь или массив путей, для которых получать уведомления. Эти имена должны быть<br />
+полностью определёнными путями для предотвращения неожиданных результатов.</td>
+</tr>
+<tr>
+<td><span class="S91">$bRecursive</span></td>
+<td><strong>[необязательный]</strong> Определяет, отправлять ли уведомления для дочерних путей в параметре <span class="S91">$aPaths</span>, допустимые значения:<br />
+<span class="S5">True</span>	 – уведомления будут приходить от дочерних элементов папки.<br />
+<span class="S5">False</span>	 – уведомления будут приходить только от указанной папки (по умолчанию).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает ID регистрации.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Когда возникает событие уведомления об изменении, сообщение, указанное параметром <span class="S91">$iMsg</span>, доставляется окну<br />
+указанному параметром <span class="S91">$hWnd</span>.<br />
+<br />
+В целях производительности несколько уведомлений можно объединить в одно уведомление. Например<br />
+если для файлов в одной папке генерируется большое количество уведомлений <span class="S91">$SHCNE_UPDATEITEM</span>, их можно<br />
+объединить в одно уведомление <span class="S91">$SHCNE_UPDATEDIR</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_ShellChangeNotifyDeregister.htm">_WinAPI_ShellChangeNotifyDeregister</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SHChangeNotifyRegister">SHChangeNotifyRegister</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShellEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">'TrayAutoPause'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$g_sPath</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\~TEST~'</span><br>
+<br>
+<a class="le" href="../functions/DirCreate.htm"><span class="S4">DirCreate</span></a><span class="S8">(</span><span class="S9">$g_sPath</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/FileExists.htm"><span class="S4">FileExists</span></a><span class="S8">(</span><span class="S9">$g_sPath</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Error'</span><span class="S8">,</span> <span class="S7">'Unable to create folder.'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span></a><span class="S8">(</span><span class="S7">'OnAutoItExit'</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iMsg</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_RegisterWindowMessage.htm"><span class="S15">_WinAPI_RegisterWindowMessage</span></a><span class="S8">(</span><span class="S7">'SHELLCHANGENOTIFY'</span><span class="S8">)</span><br>
+<a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><span class="S9">$iMsg</span><span class="S8">,</span> <span class="S7">'WM_SHELLCHANGENOTIFY'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_iID</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_ShellChangeNotifyRegister.htm"><span class="S15">_WinAPI_ShellChangeNotifyRegister</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$SHCNE_ALLEVENTS</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$SHCNRF_INTERRUPTLEVEL</span><span class="S8">,</span> <span class="S9">$SHCNRF_SHELLLEVEL</span><span class="S8">,</span> <span class="S9">$SHCNRF_RECURSIVEINTERRUPT</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$g_sPath</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Error'</span><span class="S8">,</span> <span class="S7">'Window does not registered.'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">WM_SHELLCHANGENOTIFY</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_ShellGetPathFromIDList.htm"><span class="S15">_WinAPI_ShellGetPathFromIDList</span></a><span class="S8">(</span><a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">'dword Item1; dword Item2'</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Item1'</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$sPath</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'Event: 0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><span class="S9">$lParam</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">' | Path: '</span> <span class="S8">&amp;</span> <span class="S9">$sPath</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'Event: 0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><span class="S9">$lParam</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;WM_SHELLCHANGENOTIFY
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">OnAutoItExit</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$g_iID</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ShellChangeNotifyDeregister.htm"><span class="S15">_WinAPI_ShellChangeNotifyDeregister</span></a><span class="S8">(</span><span class="S9">$g_iID</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DirRemove.htm"><span class="S4">DirRemove</span></a><span class="S8">(</span><span class="S9">$g_sPath</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;OnAutoItExit
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_ShellChangeNotifyRegister.au3,"></object>
+</body>
+</html>

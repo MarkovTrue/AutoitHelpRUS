@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutorial - HelloWorld</title>
+  <meta charset="utf-8">
+  <link href="../../css/default.css" rel="stylesheet">
+<script src="../../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Tutorial - HelloWorld</h1>
+  <p>This tutorial explains the basics of creating an AutoIt script and running it. The tutorial assumes that you have already fully installed AutoIt v3 using the supplied installer.</p>
+  <p>&nbsp;</p>
+  <p>First open a folder where you wish to create the script. Right-click in the folder and select <strong>New / AutoIt v3 Script</strong>.</p>
+  <p><img src="filenew.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>A new file will be created, immediately allowing you to rename it to something more appropriate. Change 'New AutoIt v3 Script' to <strong>'helloworld'</strong>, leaving the '.au3' in the name intact if it is visible.</p>
+  <p><img src="folderview.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Now we have created the script file we want to edit it to make it do something useful. Right-click on <em>helloworld.au3</em> and select <strong>Edit Script</strong>.</p>
+  <p><img src="fileedit.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>The SciTE editor will open and you will see something like this:</p>
+  <p><img src="template.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>The code you see is simply some comments that you can use to organize your scripts. The lines that start with a semi-colon <strong>;</strong> are treated as comments (ignored). ; is similar to the <strong>REM</strong> statement in a DOS batch file.  The template is stored at "C:\Windows\ShellNew\Template.au3" - you can customise it to meet your own requirements.</p>
+  <p>&nbsp;</p>
+  <p>Now we want to tell AutoIt to display a message box - this is done with the <a href="../../functions/MsgBox.htm">MsgBox</a> function.</p>
+  <p>At the bottom of the file type the following:</p>
+  <p>&nbsp;</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Tutorial"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello World!"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>All functions take parameters, MsgBox takes three - a flag, a title and a message. The flag is a number that changes the way MsgBox displays - we will use <strong>$MB_OK</strong> for now. The title and message are both <strong>string</strong> parameters
+  - when using strings in AutoIt surround the text in double or single quotes. "This is some text" or 'This is some text' - both will work fine.</p>
+  <p>Now save the script and close the editor. You've just written your very first AutoIt script! To run the script simply double-click the <em>helloworld.au3</em> file (you may also right-click the file and select <strong>Run Script</strong>) .</p>
+  <p>You should see this:</p>
+  <p><img src="msgbox.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Now, let's look at the <em>flag</em> parameter for the <a href="../../functions/MsgBox.htm">MsgBox</a> function again. From the documentation page we can see various values listed which change the way MsgBox displays. The value of <strong>$MB_OK</strong> simply
+  shows a simple message box with an <strong>OK</strong> button. A value of <strong>$MB_ICONINFORMATION</strong> displays the message box with an <em>information icon</em>.</p>
+  <p>Edit the script again and change $MB_OK to $MB_ICONINFORMATION so you have:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_ICONINFORMATION</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Tutorial"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello World!"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Run the script and you will see:</p>
+  <p><img src="msgbox2.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Experiment with the various flag values to see what kind of results you can get. Remember, if you want to use more than one flag value then simply add the required values together.</p>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Список клавиш для Send</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+  <style type="text/css">
+th.c2 {width:20%}
+  td.c1 {width:20%}
+  </style>
+</head>
+<body>
+  <h1>Список клавиш для Send</h1>
+  <p><br />
+  Краткий справочник по команде <strong><a href="../functions/Send.htm">Send( "keys" [, flag] )</a></strong>.&nbsp;&nbsp;&nbsp; <strong>^</strong> Ctrl &nbsp;&nbsp; <strong>!</strong> Alt &nbsp;&nbsp; <strong>+</strong> Shift &nbsp;&nbsp;
+  <strong>#</strong> Win<br /></p>
+  <p>AutoIt может отправлять все символы ASCII и расширенного ASCII (0–255). Чтобы отправить UNICODE-символы, нужно использовать опцию "ASC" и код нужного символа (см. {ASC} ниже).</p>
+  <p><br />
+  <br />
+  Чтобы отправить ASCII-значение A (то же, что нажатие ALT+065 на цифровой клавиатуре):</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{ASC 065}</span><span class="S7">"</span><span class="S8">)</span></span>
+</p>
+  <p>(При использовании двузначных ASCII-кодов нужно ставить ведущий 0, иначе используется устаревшая кодовая страница 437).</p>
+  <p>&nbsp;</p>
+  <p>Чтобы отправить UNICODE-символы, укажите код символа. Например, так отправляется китайский иероглиф:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{ASC 2709}</span><span class="S7">"</span><span class="S8">)</span></span>
+</p>
+  <p>Одиночные клавиши также можно повторять, например:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{DEL 4}</span><span class="S7">"</span><span class="S8">)</span><span class="S0"> </span><span class="S1">; Нажимает клавишу DEL 4 раза</span><br /><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{S 30}</span><span class="S7">"</span><span class="S8">)</span><span class="S0"> </span><span class="S1">; Отправляет 30 символов 'S'</span><br /><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">+{TAB 4}</span><span class="S7">"</span><span class="S8">)</span><span class="S0"> </span><span class="S1">; Нажимает Shift+Tab 4 раза</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Чтобы удерживать клавишу нажатой:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{a down}</span><span class="S7">"</span><span class="S8">)</span><span class="S0"> </span><span class="S1">; Удерживает клавишу A</span><br /><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"</span><span class="S10">{a up}</span><span class="S7">"</span><span class="S8">)</span><span class="S0"> </span><span class="S1">; Отпускает клавишу A</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Если для счётчика нужно использовать переменную:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$iCount</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S3">4</span><br /><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"+{TAB "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$iCount</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">"}"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Если нужно отправить ASCII-значение A четыре раза:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$iChr</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span><span class="S3">65</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$iChr</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" 4}"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>На большинстве клавиатур ноутбуков есть специальная клавиша Fn. Эту клавишу симулировать нельзя.<br />
+  <br />
+  Обратите внимание: при значении параметра flag = 1 параметр "keys" отправляется в режиме RAW. Это полезно, когда нужно отправить текст, скопированный из переменной, и хотите отправить его ровно так, как он записан.<br />
+  <br />
+  <br />
+  <strong>Send очень удобна тем, что позволяет управлять окнами без мыши.</strong><br />
+  <br />
+  Например, откройте "Свойства папки" (в панели управления) и попробуйте следующее:<br />
+  <br /></p>
+  <table>
+    <tr>
+      <td class="c1"><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{TAB}"<span class="S8">)</span></td>
+      <td>Перейти к следующему контролу (кнопка, флажок и т. д.).</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"+{TAB}"<span class="S8">)</span></td>
+      <td>Перейти к предыдущему контролу.</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"^{TAB}"<span class="S8">)</span></td>
+      <td>Перейти к следующей вкладке (в окне с вкладками).</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"^+{TAB}"<span class="S8">)</span></td>
+      <td>Перейти к предыдущей вкладке.</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{SPACE}"<span class="S8">)</span></td>
+      <td>Можно использовать для переключения флажка или нажатия кнопки.</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{+}"<span class="S8">)</span></td>
+      <td>Обычно устанавливает флажок (если это "настоящий" флажок).</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{-}"<span class="S8">)</span></td>
+      <td>Обычно снимает флажок.</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{NumPadMult}"<span class="S8">)</span></td>
+      <td>Рекурсивно раскрывает папки в SysTreeView32.</td>
+    </tr>
+  </table><br />
+  <br />
+  Используйте сочетания с Alt для доступа к пунктам меню. Также откройте Notepad и попробуйте следующее:<br />
+  <br />
+  <table>
+    <tr>
+      <td class="c1"><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"!f"<span class="S8">)</span></td>
+      <td>Отправляет Alt+f – клавиша доступа к меню "Файл" в Notepad. <em>Попробуйте другие буквы!</em><br /></td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{DOWN}"<span class="S8">)</span></td>
+      <td>Перемещение вниз по меню.</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{UP}"<span class="S8">)</span></td>
+      <td>Перемещение вверх по меню.</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{LEFT}"<span class="S8">)</span></td>
+      <td>Перемещение влево к новому меню или раскрытие подменю.</td>
+    </tr>
+    <tr>
+      <td><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{RIGHT}"<span class="S8">)</span></td>
+      <td>Перемещение вправо к новому меню или сворачивание подменю.</td>
+    </tr>
+  </table><br />
+  <br />
+  Полный список горячих клавиш см. в справке Windows (нажмите <em>Win+F1</em>), если вы не знаете, для чего нужны Alt+F4, PrintScreen, Ctrl+C и т. д.<br />
+  <br />
+  <br />
+  <a id="KeysList"></a>
+  <table>
+    <tr>
+      <th class="c2">Команда Send (при flag = 0)</th>
+      <th>Получаемое нажатие</th>
+    </tr>
+    <tr>
+      <td class="center">{!}</td>
+      <td>!</td>
+    </tr>
+    <tr>
+      <td class="center">{#}</td>
+      <td>#</td>
+    </tr>
+    <tr>
+      <td class="center">{+}</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td class="center">{^}</td>
+      <td>^</td>
+    </tr>
+    <tr>
+      <td class="center">{{}</td>
+      <td>{</td>
+    </tr>
+    <tr>
+      <td class="center">{}}</td>
+      <td>}</td>
+    </tr>
+    <tr>
+      <td class="center">{SPACE}</td>
+      <td>SPACE (пробел)</td>
+    </tr>
+    <tr>
+      <td class="center">{ENTER}</td>
+      <td>Клавиша ENTER на основной клавиатуре</td>
+    </tr>
+    <tr>
+      <td class="center">{ALT}</td>
+      <td>ALT</td>
+    </tr>
+    <tr>
+      <td class="center">{BACKSPACE} или {BS}</td>
+      <td>BACKSPACE</td>
+    </tr>
+    <tr>
+      <td class="center">{DELETE} или {DEL}</td>
+      <td>DELETE</td>
+    </tr>
+    <tr>
+      <td class="center">{UP}</td>
+      <td>Стрелка вверх</td>
+    </tr>
+    <tr>
+      <td class="center">{DOWN}</td>
+      <td>Стрелка вниз</td>
+    </tr>
+    <tr>
+      <td class="center">{LEFT}</td>
+      <td>Стрелка влево</td>
+    </tr>
+    <tr>
+      <td class="center">{RIGHT}</td>
+      <td>Стрелка вправо</td>
+    </tr>
+    <tr>
+      <td class="center">{HOME}</td>
+      <td>HOME</td>
+    </tr>
+    <tr>
+      <td class="center">{END}</td>
+      <td>END</td>
+    </tr>
+    <tr>
+      <td class="center">{ESCAPE} или {ESC}</td>
+      <td>ESCAPE</td>
+    </tr>
+    <tr>
+      <td class="center">{INSERT} или {INS}</td>
+      <td>INS</td>
+    </tr>
+    <tr>
+      <td class="center">{PGUP}</td>
+      <td>PGUP</td>
+    </tr>
+    <tr>
+      <td class="center">{PGDN}</td>
+      <td>PGDN</td>
+    </tr>
+    <tr>
+      <td class="center">{F1} – {F12}</td>
+      <td>Функциональные клавиши</td>
+    </tr>
+    <tr>
+      <td class="center">{TAB}</td>
+      <td>TAB</td>
+    </tr>
+    <tr>
+      <td class="center">{PRINTSCREEN}</td>
+      <td>PRINTSCR</td>
+    </tr>
+    <tr>
+      <td class="center">{LWIN}</td>
+      <td>Левая клавиша Windows</td>
+    </tr>
+    <tr>
+      <td class="center">{RWIN}</td>
+      <td>Правая клавиша Windows</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMLOCK}</td>
+      <td>NUMLOCK</td>
+    </tr>
+    <tr>
+      <td class="center">{CAPSLOCK}</td>
+      <td>CAPSLOCK</td>
+    </tr>
+    <tr>
+      <td class="center">{SCROLLLOCK}</td>
+      <td>SCROLLLOCK</td>
+    </tr>
+    <tr>
+      <td class="center">{BREAK}</td>
+      <td>Для обработки Ctrl+Break</td>
+    </tr>
+    <tr>
+      <td class="center">{PAUSE}</td>
+      <td>PAUSE</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPAD0} – {NUMPAD9}</td>
+      <td>Цифры цифровой клавиатуры</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADMULT}</td>
+      <td>Умножение на цифровой клавиатуре</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADADD}</td>
+      <td>Сложение на цифровой клавиатуре</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADSUB}</td>
+      <td>Вычитание на цифровой клавиатуре</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADDIV}</td>
+      <td>Деление на цифровой клавиатуре</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADDOT}</td>
+      <td>Точка на цифровой клавиатуре</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADENTER}</td>
+      <td>Клавиша Enter на цифровой клавиатуре</td>
+    </tr>
+    <tr>
+      <td class="center">{APPSKEY}</td>
+      <td>Клавиша приложения Windows</td>
+    </tr>
+    <tr>
+      <td class="center">{LALT}</td>
+      <td>Левая клавиша ALT</td>
+    </tr>
+    <tr>
+      <td class="center">{RALT}</td>
+      <td>Правая клавиша ALT</td>
+    </tr>
+    <tr>
+      <td class="center">{LCTRL}</td>
+      <td>Левая клавиша CTRL</td>
+    </tr>
+    <tr>
+      <td class="center">{RCTRL}</td>
+      <td>Правая клавиша CTRL</td>
+    </tr>
+    <tr>
+      <td class="center">{LSHIFT}</td>
+      <td>Левая клавиша Shift</td>
+    </tr>
+    <tr>
+      <td class="center">{RSHIFT}</td>
+      <td>Правая клавиша Shift</td>
+    </tr>
+    <tr>
+      <td class="center">{SLEEP}</td>
+      <td>Клавиша SLEEP компьютера</td>
+    </tr>
+    <tr>
+      <td class="center">{ALTDOWN}</td>
+      <td>Удерживает ALT нажатой до отправки {ALTUP}</td>
+    </tr>
+    <tr>
+      <td class="center">{SHIFTDOWN}</td>
+      <td>Удерживает SHIFT нажатой до отправки {SHIFTUP}</td>
+    </tr>
+    <tr>
+      <td class="center">{CTRLDOWN}</td>
+      <td>Удерживает CTRL нажатой до отправки {CTRLUP}</td>
+    </tr>
+    <tr>
+      <td class="center">{LWINDOWN}</td>
+      <td>Удерживает левую клавишу Windows нажатой до отправки {LWINUP}</td>
+    </tr>
+    <tr>
+      <td class="center">{RWINDOWN}</td>
+      <td>Удерживает правую клавишу Windows нажатой до отправки {RWINUP}</td>
+    </tr>
+    <tr>
+      <td class="center">{ASC nnnn}</td>
+      <td>Отправляет сочетание ALT+nnnn</td>
+    </tr>
+    <tr>
+      <td class="center">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_BACK}</td>
+      <td>Кнопка "Назад" браузера</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_FORWARD}</td>
+      <td>Кнопка "Вперёд" браузера</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_REFRESH}</td>
+      <td>Кнопка "Обновить" браузера</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_STOP}</td>
+      <td>Кнопка "Стоп" браузера</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_SEARCH}</td>
+      <td>Кнопка "Поиск" браузера</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_FAVORITES}</td>
+      <td>Кнопка "Избранное" браузера</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_HOME}</td>
+      <td>Запуск браузера и переход на домашнюю страницу</td>
+    </tr>
+    <tr>
+      <td class="center">{VOLUME_MUTE}</td>
+      <td>Отключить звук</td>
+    </tr>
+    <tr>
+      <td class="center">{VOLUME_DOWN}</td>
+      <td>Уменьшить громкость</td>
+    </tr>
+    <tr>
+      <td class="center">{VOLUME_UP}</td>
+      <td>Увеличить громкость</td>
+    </tr>
+    <tr>
+      <td class="center">{MEDIA_NEXT}</td>
+      <td>Следующий трек в медиапроигрывателе</td>
+    </tr>
+    <tr>
+      <td class="center">{MEDIA_PREV}</td>
+      <td>Предыдущий трек в медиапроигрывателе</td>
+    </tr>
+    <tr>
+      <td class="center">{MEDIA_STOP}</td>
+      <td>Остановить медиапроигрыватель</td>
+    </tr>
+    <tr>
+      <td class="center">{MEDIA_PLAY_PAUSE}</td>
+      <td>Воспроизведение/пауза в медиапроигрывателе</td>
+    </tr>
+    <tr>
+      <td class="center">{LAUNCH_MAIL}</td>
+      <td>Запуск почтового приложения</td>
+    </tr>
+    <tr>
+      <td class="center">{LAUNCH_MEDIA}</td>
+      <td>Запуск медиапроигрывателя</td>
+    </tr>
+    <tr>
+      <td class="center">{LAUNCH_APP1}</td>
+      <td>Запуск пользовательского приложения 1</td>
+    </tr>
+    <tr>
+      <td class="center">{LAUNCH_APP2}</td>
+      <td>Запуск пользовательского приложения 2</td>
+    </tr>
+    <tr>
+      <td class="center">{OEM_102}</td>
+      <td>Клавиша угловых скобок либо обратного слэша на 102-клавишной RT-клавиатуре.<br>
+      Используется как минимум на венгерской раскладке.</td>
+    </tr>
+  </table>
+</body>
+</html>

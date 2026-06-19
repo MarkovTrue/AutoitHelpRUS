@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_LoadCursor</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_LoadCursor</h1>
+<p class="funcdesc">Загружает указанный ресурс курсора из исполняемого файла (.exe).</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_LoadCursor.htm"><span class="S15">_WinAPI_LoadCursor</span></a> <span class="S8">(</span> <span class="S9">$hInstance</span><span class="S8">,</span> <span class="S9">$sName</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hInstance</span></td>
+<td style="width:85%">Дескриптор экземпляра модуля, исполняемый файл которого содержит загружаемый курсор.</td>
+</tr>
+<tr>
+<td><span class="S91">$sName</span></td>
+<td>Имя ресурса курсора или идентификатор ресурса для загрузки. Для использования одного из предопределённых<br />
+курсоров приложение должно установить параметр <span class="S91">$hInstance</span> в 0<br />
+и параметр <span class="S91">$sName</span> в одно из следующих значений.<br />
+<span class="S91">$OCR_NORMAL</span>	; IDC_ARROW в MSDN<br />
+<span class="S91">$OCR_IBEAM</span><br />
+<span class="S91">$OCR_WAIT</span><br />
+<span class="S91">$OCR_CROSS</span><br />
+<span class="S91">$OCR_UP</span>&nbsp;&nbsp;&nbsp; ; IDC_UPARROW в MSDN<br />
+<span class="S91">$OCR_SIZE</span><br />
+<span class="S91">$OCR_ICON</span><br />
+<span class="S91">$OCR_SIZENWSE</span><br />
+<span class="S91">$OCR_SIZENESW</span><br />
+<span class="S91">$OCR_SIZEWE</span><br />
+<span class="S91">$OCR_SIZENS</span><br />
+<span class="S91">$OCR_SIZEALL</span><br />
+<span class="S91">$OCR_NO</span><br />
+<span class="S91">$OCR_HAND</span><br />
+<span class="S91">$OCR_APPSTARTING</span><br />
+<span class="S91">$OCR_HELP</span><br />
+<br />
+Поскольку <span class="S91">$IDC_*</span> уже определены для <a class="le" href="../functions/MouseGetCursor.htm"><span class="S4">MouseGetCursor</span></a><span class="S8">()</span>, следует использовать <span class="S91">$OCR_*</span>, несмотря на именование в документации MSDN.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор загруженного курсора.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта функция загружает ресурс курсора только если он ещё не был загружен; в противном случае возвращает дескриптор<br />
+существующего ресурса.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=LoadCursor">LoadCursor</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

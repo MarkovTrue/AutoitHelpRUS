@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция ObjCreate</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>ObjCreate</h1>
+<p class="funcdesc">Создаёт ссылку на COM-объект по указанному имени класса.</p>
+<p class="codeheader"><a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a> <span class="S8">(</span> <span class="S7">"classname"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"servername"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"username"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"password"</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">classname</td>
+<td style="width:85%">Класс объекта в формате "appname.objecttype".<br />
+Может также быть строковым представлением CLSID.</td>
+</tr>
+<tr>
+<td>servername</td>
+<td><strong>[необязательный]</strong> Имя удалённого компьютера, на котором создаётся объект.</td>
+</tr>
+<tr>
+<td>username</td>
+<td><strong>[необязательный]</strong> Имя пользователя на удалённом компьютере.<br />
+Вводится в формате "компьютер\пользователь" или "домен\пользователь".</td>
+</tr>
+<tr>
+<td>password</td>
+<td><strong>[необязательный]</strong> Пароль пользователя на удалённом компьютере.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает объект.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Используйте <a href="ObjCreate.htm"><span class="S4">ObjCreate</span><span class="S8">()</span></a>, чтобы создать новый экземпляр объекта.<br />
+Для подключения к существующему процессу используйте <a href="ObjGet.htm"><span class="S4">ObjGet</span><span class="S8">()</span></a>.<br />
+<br />
+Не у всех компьютеров одинаковый набор объектов, поэтому <strong>всегда</strong> проверяйте ошибки после вызова <a href="ObjCreate.htm"><span class="S4">ObjCreate</span><span class="S8">()</span></a>. Для этого используйте <a href="ObjEvent.htm"><span class="S4">ObjEvent</span><span class="S8">()</span></a>.<br />
+<br />
+Требования для доступа к объектам на <em>удалённых</em> компьютерах:<br />
+<ul><br />
+<li>Пользователь, запустивший скрипт, должен иметь соответствующие права.</li><br />
+<li>Объект на удалённом компьютере должен поддерживать DCOM (Distributed COM).</li><br />
+<li>На удалённом компьютере должны работать службы "Remote Registry Service" и "File and Printer sharing".</li><br />
+</ul><br />
+<br />
+Подробнее об объектах – в <a href="../intro/ComRef.htm">справочнике Obj/COM</a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="GUICtrlCreateObj.htm">GUICtrlCreateObj</a>, <a href="IsObj.htm">IsObj</a>, <a href="ObjEvent.htm">ObjEvent</a>, <a href="ObjGet.htm">ObjGet</a>, <a href="ObjName.htm">ObjName</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Подсчёт количества открытых окон оболочки.
+</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oShell</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a><span class="S8">(</span><span class="S7">"shell.application"</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить объект Windows Shell.
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oShellWindows</span> <span class="S8">=</span> <span class="S9">$oShell</span>.<span class="Scom">Windows</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить коллекцию открытых окон оболочки.
+</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/IsObj.htm"><span class="S4">IsObj</span></a><span class="S8">(</span><span class="S9">$oShellWindows</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">""</span>&nbsp;<span class="S1">; Строка для вывода.
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$oWnd</span> <a class="le" href="../keywords/ForInNext.htm"><span class="S5">In</span></a> <span class="S9">$oShellWindows</span>&nbsp;<span class="S1">; Подсчитать все открытые окна оболочки.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sString</span> <span class="S8">&amp;=</span> <span class="S9">$oWnd</span>.<span class="Scom">LocationName</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Shell Windows:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"You have the following shell windows:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sString</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ObjCreate.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Открыть MediaPlayer на УДАЛЁННОМ компьютере.
+</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oRemoteMedia</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a><span class="S8">(</span><span class="S7">"MediaPlayer.MediaPlayer.1"</span><span class="S8">,</span> <span class="S7">"name-of-remote-computer"</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Remote ObjCreate Test"</span><span class="S8">,</span> <span class="S7">"ObjCreate() of a remote Mediaplayer Object successful !"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oRemoteMedia</span>.<span class="Scom">Open</span><span class="S8">(</span><a class="le" href="../macros.htm#@WindowsDir"><span class="S6">@WindowsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\media\tada.wav"</span><span class="S8">)</span>&nbsp;<span class="S1">; Воспроизвести звук, если файл найден.
+</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Remote ObjCreate Test"</span><span class="S8">,</span> <span class="S7">"Failed to open remote Object. Error code: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ObjCreate[2].au3,"></object>
+</body>
+</html>

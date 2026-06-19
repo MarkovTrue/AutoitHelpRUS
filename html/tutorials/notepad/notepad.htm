@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Простая автоматизация блокнота</title>
+  <meta charset="utf-8">
+  <link href="../../css/default.css" rel="stylesheet">
+<script src="../../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Простая автоматизация блокнота</h1>
+  <p>Этот урок объясняет, как автоматизировать открытие блокнота, автоматически ввести текст и закрыть блокнот. Предполагается, что вы уже знакомы с созданием и запуском скриптов AutoIt как показано в уроке <a href=
+  "../helloworld/helloworld.htm">Hello World</a>.</p>
+  <p>&nbsp;</p>
+  <p>Сначала создайте пустой скрипт с именем <strong><span class="S7">npad.au3</span></strong>, затем отредактируйте файл (используя блокнот или <a href="../../intro/editors.htm">SciTE</a>, как вам угодно).</p>
+  <p>&nbsp;</p>
+  <p>В первую очередь нужно узнать имя исполняемого файла блокнота. Это <strong>notepad.exe</strong> – вы можете получить эту информацию, посмотрев свойства значка ярлыка блокнота в меню "Пуск". Для запуска блокнота используем функцию AutoIt <a href="../../functions/Run.htm">Run</a>. Эта функция просто запускает заданный исполняемый файл и затем продолжает выполнение скрипта.</p>
+  <p>Введите первую строку скрипта:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Запустите скрипт – если всё пройдёт хорошо, откроется новый экземпляр блокнота.</p>
+  <p>При автоматизации приложений AutoIt может проверить заголовок окна, чтобы узнать, с каким окном работать. У блокнота заголовок окна – это <strong>Untitled - Notepad</strong> (Без названия - блокнот). AutoIt чувствителен к регистру при использовании заголовков окна, поэтому вы должны получить заголовок точно – лучший способ сделать это – использовать AutoIt v3 Window Info. Запустите AutoIt v3 Window Info из <strong>Start Menu \ AutoIt v3 \ AutoIt Window Info</strong> (Меню Пуск \ AutoIt v3 \ AutoIt Window Info).</p>
+  <p>С открытым инструментом Info нажмите на только что открытое окно блокнота, чтобы активировать его; инструмент Info выдаст информацию о нём. Информация, которая нас интересует – это заголовок окна <strong>title</strong>.</p>
+  <p><img src="au3spy_notepad.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Выделите заголовок в окне AutoIt Info Tool и нажмите <strong>CTRL-C</strong>, чтобы скопировать его в буфер обмена – затем мы можем вставить заголовок в наш скрипт без опасения ошибиться в написании.</p>
+  <p>После запуска блокнота нужно дождаться, пока он появится и станет активным, прежде чем отправлять какие-либо нажатия клавиш. Можно дождаться окна, используя функцию <a href="../../functions/WinWaitActive.htm">WinWaitActive</a>. Большинство функций, связанных с окнами в AutoIt, принимают заголовок окна <strong>title</strong> в качестве параметра.</p>
+  <p>Введите следующее как вторую строку в скрипте (используйте <strong>CTRL-V</strong> или <strong>Edit\Paste</strong>, чтобы вставить заголовок окна из буфера обмена).</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>После того как окно блокнота видимо, мы хотим ввести текст. Это делается с помощью функции <a href="../../functions/Send.htm">Send</a>.</p>
+  <p>Добавьте эту строку в наш скрипт.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Весь скрипт будет выглядеть так:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Закройте экземпляр блокнота, который мы ранее открыли (вам нужно будет делать это каждый раз, когда вы запускаете скрипт, иначе у вас будет много копий, запущенных одновременно!). Запустите скрипт.</p>
+  <p>Вы должны увидеть, как откроется блокнот, а затем текст волшебным образом появится!</p>
+  <p><img src="notepad1.png" alt=""></p>
+  <p><br />
+  Затем мы хотим закрыть блокнот, мы можем сделать это с помощью функции <a href="../../functions/WinClose.htm">WinClose</a>.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Когда блокнот попытается закрыться, вы получите сообщение с просьбой сохранить изменения. Используйте Window Info Tool, чтобы получить сведения о всплывшем диалоговом окне, чтобы мы могли ответить на него :)</p>
+  <p><img src="savechanges.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Итак, мы добавляем строку для ожидания появления этого диалогового окна (мы также будем использовать текст окна, чтобы сделать функцию более надёжной и отличить это новое окно от оригинального окна блокнота):</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Save"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Затем мы хотим автоматически нажать <strong>Alt-N</strong>, чтобы нажать кнопку <strong>No/Don't save</strong> (Нет/Не сохранять) (подчёркнутые буквы в окнах обычно указывают, что вы можете использовать клавишу ALT и эту букву как сочетание клавиш). В функции <a href=
+  "../../functions/Send.htm">Send</a> для отправки клавиши ALT мы используем <strong>!</strong> <strong>.</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Наш полный скрипт теперь выглядит так:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Save"</span><span class="S8">)</span><br /><span class="S1">;WinWaitActive("Notepad", "Do you want to save") ; When running under Windows XP</span><br /><a class="codeSnippetLink" href="../../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Запустите скрипт и вы увидите, как откроется блокнот, появится текст и затем закроется! Вы должны быть в состоянии использовать методы, изученные в этом уроке, для автоматизации многих других приложений.</p>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetBitMapDimensionEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetBitmapDimensionEx</h1>
+<p class="funcdesc">Назначает предпочтительные размеры совместимому растру.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetBitMapDimensionEx.htm"><span class="S15">_WinAPI_SetBitmapDimensionEx</span></a> <span class="S8">(</span> <span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hBitmap</span></td>
+<td style="width:85%">Дескриптор растра. Этот растр не может быть DIB-section растром.</td>
+</tr>
+<tr>
+<td><span class="S91">$iWidth</span></td>
+<td>Ширина растра в единицах 0,1 миллиметра.</td>
+</tr>
+<tr>
+<td><span class="S91">$iHeight</span></td>
+<td>Высота растра в единицах 0,1 миллиметра.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Растр не может быть DIB-section, что является растром, созданным функциями <a href="_WinAPI_CreateDIB.htm"><span class="S15">_WinAPI_CreateDIB</span><span class="S8">()</span></a> или <a href="_WinAPI_CreateDIBSection.htm"><span class="S15">_WinAPI_CreateDIBSection</span><span class="S8">()</span></a>.<br />
+Если растр является DIB-section, функция <a href="_WinAPI_SetBitmapDimensionEx.htm"><span class="S15">_WinAPI_SetBitmapDimensionEx</span><span class="S8">()</span></a> завершится неудачей.<br />
+<br />
+Вызовите <a href="_WinAPI_GetExtended.htm"><span class="S15">_WinAPI_GetExtended</span><span class="S8">()</span></a> для получения структуры <span class="S91">$tagSIZE</span>, содержащей предыдущие размеры растра.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_CreateDIB.htm">_WinAPI_CreateDIB</a>, <a href="_WinAPI_CreateDIBSection.htm">_WinAPI_CreateDIBSection</a>, <a href="_WinAPI_GetExtended.htm">_WinAPI_GetExtended</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetBitmapDimensionEx">SetBitmapDimensionEx</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

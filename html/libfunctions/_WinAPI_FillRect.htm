@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_FillRect</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_FillRect</h1>
+<p class="funcdesc">Заливает прямоугольник указанной кистью.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdiDC.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_FillRect.htm"><span class="S15">_WinAPI_FillRect</span></a> <span class="S8">(</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$tRECT</span><span class="S8">,</span> <span class="S9">$hBrush</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$tRECT</span></td>
+<td>Структура <span class="S91">$tagRECT</span> или указатель на неё с логическими координатами заливаемого прямоугольника.</td>
+</tr>
+<tr>
+<td><span class="S91">$hBrush</span></td>
+<td>Дескриптор кисти, используемой для заливки прямоугольника.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Параметр <span class="S91">$hBrush</span> может быть дескриптором логической кисти или значением цвета.<br />
+Для логической кисти используйте <a href="_WinAPI_CreateSolidBrush.htm"><span class="S15">_WinAPI_CreateSolidBrush</span><span class="S8">()</span></a>.<br />
+Также дескриптор стандартной кисти можно получить через <a href="_WinAPI_GetStockObject.htm"><span class="S15">_WinAPI_GetStockObject</span><span class="S8">()</span></a>.<br />
+Если <span class="S91">$hBrush</span> задаётся как значение цвета, оно должно быть одним из стандартных системных цветов (к выбранному цвету нужно прибавить 1).<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=FillRect">FillRect</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

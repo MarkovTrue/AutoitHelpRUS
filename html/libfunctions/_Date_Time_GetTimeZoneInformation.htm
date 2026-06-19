@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _Date_Time_GetTimeZoneInformation</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_Date_Time_GetTimeZoneInformation</h1>
+<p class="funcdesc">Получает текущие настройки часового пояса.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Date.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_Date_Time_GetTimeZoneInformation.htm"><span class="S15">_Date_Time_GetTimeZoneInformation</span></a> <span class="S8">(</span>  <span class="S8">)</span></p>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает массив следующего вида:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – состояние летнего времени:<br />
+-1 – ошибка<br />
+0 – летнее время в текущем часовом поясе не используется<br />
+1 – действует стандартное время<br />
+2 – действует летнее время<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – текущее смещение для перевода местного времени;<br />
+смещение – разница в минутах между UTC и местным временем;<br />
+формула: UTC = местное время + смещение<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – описание стандартного времени<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – структура <span class="S91">$tagSYSTEMTIME</span> с датой и местным временем перехода с летнего на стандартное<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> – смещение, используемое для перевода местного времени в период стандартного времени;<br />
+прибавляется к Bias; в большинстве часовых поясов равно нулю<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> – описание летнего времени<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – структура <span class="S91">$tagSYSTEMTIME</span> с датой и местным временем перехода со стандартного на летнее<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> – смещение для перевода местного времени в период летнего времени;<br />
+прибавляется к Bias; в большинстве часовых поясов равно –60.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>В структуре <span class="S91">$tagSYSTEMTIME</span> поля wHour и wMinute задают время перехода, wDayOfWeek – день недели, wDay – номер вхождения этого дня недели в месяц (от 1 до 5, где 5 означает последнее вхождение, если данный день встречается менее 5 раз).<br />
+<br />
+Пример: 02:00 первого воскресенья апреля: wHour = 2, wMonth = 4, wDayOfWeek = 0, wDay = 1. 02:00 последнего четверга октября: wHour = 2, wMonth = 10, wDayOfWeek = 4, wDay = 5.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="$tagSYSTEMTIME.htm">$tagSYSTEMTIME</a>, <a href="_Date_Time_SetTimeZoneInformation.htm">_Date_Time_SetTimeZoneInformation</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">;~ #RequireAdmin
+</span><br>
+<span class="S1">; Windows API "SetTimeZonePrivilege" требует привилегии "SeTimeZonePrivilege", поэтому необходимо указать #RequireAdmin.
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Date.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIError.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Date_Time Get/Set Time ZoneInformation (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">460</span><span class="S8">,</span> <span class="S3">460</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">456</span><span class="S8">,</span> <span class="S3">456</span><span class="S8">,</span> <span class="S9">$WS_VSCROLL</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать сведения о текущем часовом поясе</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aOld</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Date_Time_GetTimeZoneInformation.htm"><span class="S15">_Date_Time_GetTimeZoneInformation</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">ShowTimeZoneInformation</span><span class="S8">(</span><span class="S9">$aOld</span><span class="S8">,</span> <span class="S7">"Current"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обновить сведения о часовом поясе (только имена)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_Date_Time_SetTimeZoneInformation.htm"><span class="S15">_Date_Time_SetTimeZoneInformation</span></a><span class="S8">(</span><span class="S9">$aOld</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S7">"A3L CST"</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">,</span> <span class="S7">"A3L CDT"</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Error"</span><span class="S8">,</span> <span class="S7">"System timezone cannot be SET @error="</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_WinAPI_GetErrorMessage.htm"><span class="S15">_WinAPI_GetErrorMessage</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображаем новые данные часового пояса.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aNew</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Date_Time_GetTimeZoneInformation.htm"><span class="S15">_Date_Time_GetTimeZoneInformation</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">ShowTimeZoneInformation</span><span class="S8">(</span><span class="S9">$aNew</span><span class="S8">,</span> <span class="S7">"New"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сбросить исходные сведения о часовом поясе</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_Date_Time_SetTimeZoneInformation.htm"><span class="S15">_Date_Time_SetTimeZoneInformation</span></a><span class="S8">(</span><span class="S9">$aOld</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aOld</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать сведения о текущем часовом поясе</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aOld</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Date_Time_GetTimeZoneInformation.htm"><span class="S15">_Date_Time_GetTimeZoneInformation</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">ShowTimeZoneInformation</span><span class="S8">(</span><span class="S9">$aOld</span><span class="S8">,</span> <span class="S7">"Reset"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<span class="S1">; Показать сведения о часовом поясе</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">ShowTimeZoneInformation</span><span class="S8">(</span><a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aInfo</span><span class="S8">,</span> <span class="S9">$sComment</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"******************* "</span> <span class="S8">&amp;</span> <span class="S9">$sComment</span> <span class="S8">&amp;</span> <span class="S7">" *******************"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sResult</span> <span class="S8">=</span> <span class="S7">"TIME_ZONE_ID_INVALID"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sResult</span> <span class="S8">=</span> <span class="S7">"TIME_ZONE_ID_UNKNOWN"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sResult</span> <span class="S8">=</span> <span class="S7">"TIME_ZONE_ID_STANDARD"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sResult</span> <span class="S8">=</span> <span class="S7">"TIME_ZONE_ID_DAYLIGHT"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Result ............: "</span> <span class="S8">&amp;</span> <span class="S9">$sResult</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Current bias ......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Standard name .....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Standard date/time : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Standard bias......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Daylight name .....: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Daylight date/time : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Daylight bias......: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;ShowTimeZoneInformation
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_Date_Time_GetTimeZoneInformation.au3,"></object>
+</body>
+</html>

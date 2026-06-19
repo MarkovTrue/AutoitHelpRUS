@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_WaitForInputIdle</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_WaitForInputIdle</h1>
+<p class="funcdesc">Ожидает, пока процесс ждёт пользовательского ввода без ожидающего ввода или времени ожидания.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIProc.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_WaitForInputIdle.htm"><span class="S15">_WinAPI_WaitForInputIdle</span></a> <span class="S8">(</span> <span class="S9">$hProcess</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iTimeout</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hProcess</span></td>
+<td style="width:85%">Дескриптор процесса. Если этот процесс является консольным приложением или не имеет очереди сообщений,<br />
+эта функция немедленно возвращается.</td>
+</tr>
+<tr>
+<td><span class="S91">$iTimeOut</span></td>
+<td><strong>[необязательный]</strong> Интервал времени ожидания в миллисекундах. Если установлено значение -1, функция не возвращается, пока<br />
+процесс не будет неактивным.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта функция заставляет поток приостановить выполнение, пока указанный процесс завершит инициализацию<br />
+и ждёт пользовательского ввода без ожидающего ввода. Это может быть полезно для синхронизации родительского процесса и<br />
+новосозданного дочернего процесса. Когда родительский процесс создаёт дочерний процесс, функция CreateProcess<br />
+возвращается без ожидания завершения инициализации дочернего процесса. Перед попыткой связи с<br />
+дочерним процессом родительский процесс может использовать эту функцию для определения того, когда завершится инициализация дочернего процесса. Эта функция может быть использована в любое время, не только во время запуска приложения.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=WaitForInputIdle">WaitForInputIdle</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinNet_OpenEnum</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinNet_OpenEnum</h1>
+<p class="funcdesc">Начинает перечисление сетевых ресурсов или существующих подключений.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinNet.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinNet_OpenEnum.htm"><span class="S15">_WinNet_OpenEnum</span></a> <span class="S8">(</span> <span class="S9">$iScope</span><span class="S8">,</span> <span class="S9">$iType</span><span class="S8">,</span> <span class="S9">$iUsage</span><span class="S8">,</span> <span class="S9">$tResource</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$hEnum</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$iScope</span></td>
+<td style="width:85%">Область перечисления:
+&nbsp;&nbsp;&nbsp; 0 – Перечислить все текущие подключённые ресурсы
+&nbsp;&nbsp;&nbsp; 1 – Перечислить все ресурсы в сети
+&nbsp;&nbsp;&nbsp; 2 – Перечислить все запомненные (постоянные) подключения
+&nbsp;&nbsp;&nbsp; 3 – Перечислить только ресурсы в контексте сети вызывающей стороны.</td>
+</tr>
+<tr>
+<td><span class="S91">$iType</span></td>
+<td>Типы ресурсов:
+&nbsp;&nbsp;&nbsp; 0 – Все ресурсы
+&nbsp;&nbsp;&nbsp; 1 – Дисковые ресурсы
+&nbsp;&nbsp;&nbsp; 2 – Принтерные ресурсы.</td>
+</tr>
+<tr>
+<td><span class="S91">$iUsage</span></td>
+<td>Типы использования ресурсов:
+&nbsp;&nbsp;&nbsp; 0 – Все ресурсы
+&nbsp;&nbsp;&nbsp; 1 – Все подключаемые ресурсы
+&nbsp;&nbsp;&nbsp; 2 – Все контейнерные ресурсы
+&nbsp;&nbsp;&nbsp; 4 – Принудительно отказывает функции, если пользователь не аутентифицирован.</td>
+</tr>
+<tr>
+<td><span class="S91">$tResource</span></td>
+<td>структура <span class="S91">$tagNETRESOURCE</span>, которая указывает контейнер для перечисления или указатель на неё.
+Если <span class="S91">$iScope</span> не равен 1, это должно быть 0.
+Если 0, предполагается корень сети.</td>
+</tr>
+<tr>
+<td><span class="S91">$hEnum</span></td>
+<td>При возврате дескриптор, который можно использовать при вызовах <a href="_WinNet_EnumResource.htm"><span class="S15">_WinNet_EnumResource</span><span class="S8">()</span></a>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="$tagNETRESOURCE.htm">$tagNETRESOURCE</a>, <a href="_WinNet_CloseEnum.htm">_WinNet_CloseEnum</a>, <a href="_WinNet_EnumResource.htm">_WinNet_EnumResource</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=WNetOpenEnum">WNetOpenEnum</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

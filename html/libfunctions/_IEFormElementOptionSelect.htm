@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _IEFormElementOptionSelect</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_IEFormElementOptionSelect</h1>
+<p class="funcdesc">Задаёт значение указанного элемента формы.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$oObject</span><span class="S8">,</span> <span class="S9">$sString</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iSelect</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sMode</span> <span class="S8">=</span> <span class="S7">"byValue"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFireEvent</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$oObject</span></td>
+<td style="width:85%">Объект элемента формы типа "Select Option".</td>
+</tr>
+<tr>
+<td><span class="S91">$sString</span></td>
+<td>Значение для сравнения с элементом – обработка зависит от <span class="S91">$sMode</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iSelect</span></td>
+<td><strong>[необязательный]</strong> задаёт, должен ли элемент быть выделен или снят выделение<br />
+-1 = Вернуть состояние выделения<br />
+0 = Снять выделение с элемента<br />
+1 = (по умолчанию) Выделить элемент</td>
+</tr>
+<tr>
+<td><span class="S91">$sMode</span></td>
+<td><strong>[необязательный]</strong> задаёт режим поиска<br />
+"byValue" = (по умолчанию) значение опции, которую требуется выбрать<br />
+"byText" = текст опции, которую требуется выбрать<br />
+"byIndex" = индекс опции (с нуля), которую требуется выбрать</td>
+</tr>
+<tr>
+<td><span class="S91">$iFireEvent</span></td>
+<td><strong>[необязательный]</strong> Запускать ли события OnChange и OnClick после изменения значения:<br />
+0 – не запускать события OnChange/OnClick после установки значения<br />
+1 – (по умолчанию) запускать события OnChange и OnClick после установки значения</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">текущее состояние выбора, если <span class="S91">$iSelect</span> = -1; иначе возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@error</span>:</td>
+<td>3 (<span class="S91">$_IEStatus_InvalidDataType</span>) – неверный тип данных<br />
+4&nbsp;(<span class="S91">$_IEStatus_InvalidObjectType</span>) – неверный тип объекта<br />
+5&nbsp;(<span class="S91">$_IEStatus_InvalidValue</span>) – недопустимое значение<br />
+7&nbsp;(<span class="S91">$_IEStatus_NoMatch</span>) – совпадений не найдено</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>Содержит номер недопустимого параметра.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Параметр <span class="S91">$iFireEvent</span> имеет значение только если с элементом формы связано событие onChange.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_IEFormElementCheckBoxSelect.htm">_IEFormElementCheckBoxSelect</a>, <a href="_IEFormElementGetValue.htm">_IEFormElementGetValue</a>, <a href="_IEFormElementRadioSelect.htm">_IEFormElementRadioSelect</a>, <a href="_IEFormElementSetValue.htm">_IEFormElementSetValue</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Открыть браузер с примером формы, получить ссылку на форму, получить ссылку</span><br>
+<span class="S1">; для выбора элемента, цикл из 10 итераций с выбором опций byValue, byText и byIndex
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IE_Example.htm"><span class="S15">_IE_Example</span></a><span class="S8">(</span><span class="S7">"form"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oForm</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IEFormGetObjByName.htm"><span class="S15">_IEFormGetObjByName</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S7">"ExampleForm"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oSelect</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IEFormElementGetObjByName.htm"><span class="S15">_IEFormElementGetObjByName</span></a><span class="S8">(</span><span class="S9">$oForm</span><span class="S8">,</span> <span class="S7">"selectExample"</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_IEAction.htm"><span class="S15">_IEAction</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"focus"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">10</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"Freepage"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"byText"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"midipage.html"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"byValue"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"byIndex"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+<a class="le" href="../libfunctions/_IEQuit.htm"><span class="S15">_IEQuit</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IEFormElementOptionSelect.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Открыть браузер с примером формы, получить ссылку на форму, получить ссылку</span><br>
+<span class="S1">; для выбора нескольких элементов, цикл из 5 итераций с выбором и снятием выделения
+</span><br>
+<span class="S1">; варианты по значению, по тексту и по индексу.
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IE_Example.htm"><span class="S15">_IE_Example</span></a><span class="S8">(</span><span class="S7">"form"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oForm</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IEFormGetObjByName.htm"><span class="S15">_IEFormGetObjByName</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S7">"ExampleForm"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oSelect</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IEFormElementGetObjByName.htm"><span class="S15">_IEFormElementGetObjByName</span></a><span class="S8">(</span><span class="S9">$oForm</span><span class="S8">,</span> <span class="S7">"multipleSelectExample"</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_IEAction.htm"><span class="S15">_IEAction</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"focus"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">3</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"Carlos"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"byText"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"Name2"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"byValue"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"byIndex"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"Carlos"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"byText"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"Name2"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"byValue"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"byIndex"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+<a class="le" href="../libfunctions/_IEQuit.htm"><span class="S15">_IEQuit</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IEFormElementOptionSelect[2].au3,"></object>
+
+<h3>Пример 3</h3>
+<p id="copytext3" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl3');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext3');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Открыть браузер с примером формы, получить ссылку на форму, получить ссылку</span><br>
+<span class="S1">; для выбора элемента, проверка, выбрана ли опция "Freepage", и
+</span><br>
+<span class="S1">; вывести результат. Повторить для варианта с индексом 0 и для варианта
+</span><br>
+<span class="S1">; со значением "midipage.html"
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IE_Example.htm"><span class="S15">_IE_Example</span></a><span class="S8">(</span><span class="S7">"form"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oForm</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IEFormGetObjByName.htm"><span class="S15">_IEFormGetObjByName</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S7">"ExampleForm"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oSelect</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_IEFormElementGetObjByName.htm"><span class="S15">_IEFormElementGetObjByName</span></a><span class="S8">(</span><span class="S9">$oForm</span><span class="S8">,</span> <span class="S7">"selectExample"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"Freepage"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"byText"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Option Selected"</span><span class="S8">,</span> <span class="S7">"Option Freepage is selected"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Option Selected"</span><span class="S8">,</span> <span class="S7">"Option Freepage is Not selected"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"byIndex"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Option Selected"</span><span class="S8">,</span> <span class="S7">"The First (index 0) option is selected"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Option Selected"</span><span class="S8">,</span> <span class="S7">"The First (index 0) option is Not selected"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../libfunctions/_IEFormElementOptionSelect.htm"><span class="S15">_IEFormElementOptionSelect</span></a><span class="S8">(</span><span class="S9">$oSelect</span><span class="S8">,</span> <span class="S7">"midipage.html"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"byValue"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Option Selected"</span><span class="S8">,</span> <span class="S7">"The option with value 'midipage.html' is selected"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Option Selected"</span><span class="S8">,</span> <span class="S7">"The option with value 'midipage.html' is NOT selected"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../libfunctions/_IEQuit.htm"><span class="S15">_IEQuit</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl3" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_IEFormElementOptionSelect[3].au3,"></object>
+</body>
+</html>

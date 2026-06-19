@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUIToolTip_SetToolInfo</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUIToolTip_SetToolInfo</h1>
+<p class="funcdesc">Устанавливает информацию об инструменте в элементе управления ToolTip.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiToolTip.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUIToolTip_SetToolInfo.htm"><span class="S15">_GUIToolTip_SetToolInfo</span></a> <span class="S8">(</span> <span class="S9">$hTool</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iID</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sText</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iLeft</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iTop</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iRight</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iBottom</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$hInst</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iParam</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hTool</span></td>
+<td style="width:85%">Дескриптор окна, содержащего инструмент, или 0.</td>
+</tr>
+<tr>
+<td><span class="S91">$hWnd</span></td>
+<td>Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$iID</span></td>
+<td>Идентификатор инструмента или дескриптор окна элемента, к которому он привязан.</td>
+</tr>
+<tr>
+<td><span class="S91">$sText</span></td>
+<td><strong>[необязательный]</strong> текст для элемента управления ToolTip</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> флаги управления отображением подсказки:<br />
+<span class="S91">$TTF_IDISHWND</span> – <span class="S91">$iID</span> содержит дескриптор окна или элемента управления вместо ID инструмента [по умолчанию]<br />
+<span class="S91">$TTF_CENTERTIP</span> – центрирует подсказку под элементом управления<br />
+<span class="S91">$TTF_RTLREADING</span> – текст отображается в противоположном направлении (справа налево)<br />
+<span class="S91">$TTF_SUBCLASS</span> – элемент управления выполняет подклассирование окна инструмента [по умолчанию]<br />
+<span class="S91">$TTF_TRACK</span> – позиционирует окно подсказки рядом с инструментом<br />
+<span class="S91">$TTF_ABSOLUTE</span> – позиционирует окно с координатами из TTM_TRACKPOSITION (см. раздел Примечания)<br />
+<span class="S91">$TTF_TRANSPARENT</span> – передаёт сообщения мыши окну-родителю<br />
+<span class="S91">$TTF_PARSELINKS</span> – обрабатывает ссылки в тексте подсказки как ссылки<br />
+По умолчанию: <a class="le" href="../functions/BitOr.htm"><span class="S4">BitOr</span></a><span class="S8">(</span><span class="S91">$TTF_SUBCLASS</span>, <span class="S91">$TTF_IDISHWND</span><span class="S8">)</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iLeft</span></td>
+<td><strong>[необязательный]</strong> Координата X левого верхнего угла прямоугольника</td>
+</tr>
+<tr>
+<td><span class="S91">$iTop</span></td>
+<td><strong>[необязательный]</strong> Координата Y левого верхнего угла прямоугольника</td>
+</tr>
+<tr>
+<td><span class="S91">$iRight</span></td>
+<td><strong>[необязательный]</strong> координата X нижнего правого угла прямоугольника</td>
+</tr>
+<tr>
+<td><span class="S91">$iBottom</span></td>
+<td><strong>[необязательный]</strong> Координата Y правого нижнего угла прямоугольника</td>
+</tr>
+<tr>
+<td><span class="S91">$hInst</span></td>
+<td><strong>[необязательный]</strong> дескриптор экземпляра, связанного с инструментом</td>
+</tr>
+<tr>
+<td><span class="S91">$iParam</span></td>
+<td><strong>[необязательный]</strong> Определяемое приложением значение</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращает см. раздел Примечания.<br />
+
+<h2>Примечания</h2>
+<p>Если элемент управления находится в другом процессе и оба процесса работают в разных режимах AutoIt (<span class="S61">@AutoItVersion</span>), <span class="S61">@error</span> будет установлена на 6.<br />
+<br />
+Некоторые внутренние свойства инструмента устанавливаются при создании инструмента и не пересчитываются при отправке сообщения <span class="S91">$TTM_SETTOOLINFO</span>.<br />
+Если вы просто присваиваете значения структуре TOOLINFO и передаёте её элементу управления ToolTip с сообщением <span class="S91">$TTM_SETTOOLINFO</span>, эти свойства могут быть потеряны.<br />
+Вместо этого ваше приложение должно сначала запросить текущую структуру TOOLINFO инструмента, отправив сообщение <span class="S91">$TTM_GETTOOLINFO</span>.<br />
+Затем измените члены этой структуры по необходимости и передайте её обратно элементу управления ToolTip с <span class="S91">$TTM_SETTOOLINFO</span>.<br />
+При вызове <span class="S91">$TTM_SETTOOLINFO</span> строка, на которую указывает член Text структуры TOOLINFO, не должна превышать 80 символов.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_GUIToolTip_GetToolInfo.htm">_GUIToolTip_GetToolInfo</a></p>
+
+</body>
+</html>

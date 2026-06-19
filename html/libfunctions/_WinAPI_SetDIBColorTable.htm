@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetDIBColorTable</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetDIBColorTable</h1>
+<p class="funcdesc">Устанавливает таблицу цветов RGB в DIB-section растр.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetDIBColorTable.htm"><span class="S15">_WinAPI_SetDIBColorTable</span></a> <span class="S8">(</span> <span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$tColorTable</span><span class="S8">,</span> <span class="S9">$iColorCount</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hBitmap</span></td>
+<td style="width:85%">DIB-section растр, в котором требуется установить таблицу цветов.</td>
+</tr>
+<tr>
+<td><span class="S91">$tColorTable</span></td>
+<td>Структура "dword[n]", представляющая таблицу цветов DIB для установки.</td>
+</tr>
+<tr>
+<td><span class="S91">$iColorCount</span></td>
+<td>Количество записей таблицы цветов для установки.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает количество записей таблицы цветов, которые устанавливает функция.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Функция <a href="_WinAPI_GetDIBColorTable.htm"><span class="S15">_WinAPI_GetDIBColorTable</span><span class="S8">()</span></a> устанавливает таблицу цветов для DIB-section растров, использующих 1, 4 или 8 бит/пикс.<br />
+DIB-section растры, использующие значение бит/пикс больше восьми, не имеют таблицы цветов.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetDIBColorTable">SetDIBColorTable</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

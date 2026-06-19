@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_ReplaceFile</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_ReplaceFile</h1>
+<p class="funcdesc">Заменяет один файл другим файлом и создаёт резервную копию исходного файла.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_ReplaceFile.htm"><span class="S15">_WinAPI_ReplaceFile</span></a> <span class="S8">(</span> <span class="S9">$sReplacedFile</span><span class="S8">,</span> <span class="S9">$sReplacementFile</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sBackupFile</span> <span class="S8">=</span> <span class="S7">''</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sReplacedFile</span></td>
+<td style="width:85%">Имя файла, который должен быть заменён.</td>
+</tr>
+<tr>
+<td><span class="S91">$sReplacementFile</span></td>
+<td>Имя файла, который заменит файл <span class="S91">$sReplacedFile</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$sBackupFile</span></td>
+<td><strong>[необязательный]</strong> Имя файла, который будет служить резервной копией файла <span class="S91">$sReplacedFile</span>. Если этот<br />
+параметр – пустая строка, резервный файл не создаётся.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> Параметры замены. Этот параметр может быть одним или несколькими из следующих значений.<br />
+<span class="S91">$REPLACEFILE_WRITE_THROUGH</span><br />
+<span class="S91">$REPLACEFILE_IGNORE_MERGE_ERRORS</span><br />
+<span class="S91">$REPLACEFILE_IGNORE_ACL_ERRORS</span></td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td><span class="S5">False</span> (см. раздел Примечания).</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если эта функция завершается с ошибкой, вызовите функцию <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a>, чтобы получить расширенную информацию об ошибке. Ниже приведены<br />
+возможные коды ошибок для этой функции.<br />
+<br />
+ERROR_UNABLE_TO_MOVE_REPLACEMENT (1176)<br />
+Вспомогательный файл не удалось переименовать. Если был указан <span class="S91">$sBackupFile</span>, замененный и замещающий файлы<br />
+сохраняют свои исходные имена файлов. В противном случае замены файл больше не существует, и замещающий файл существует<br />
+под своим исходным именем.<br />
+<br />
+ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 (1177)<br />
+Вспомогательный файл не удалось переместить. Вспомогательный файл всё ещё существует под своим исходным именем; однако<br />
+он унаследовал потоки файлов и атрибуты из файла, который он заменяет. Файл, который должен быть заменён, всё ещё<br />
+существует с именем, указанным в параметре <span class="S91">$sReplacedFile</span>.<br />
+<br />
+ERROR_UNABLE_TO_REMOVE_REPLACED (1175)<br />
+Замененный файл не удалось удалить. Замененный и замещающий файлы сохраняют свои исходные имена файлов.<br />
+<br />
+Если возвращается какая-либо другая ошибка, например ERROR_INVALID_PARAMETER (87), замененный и замещающий файлы<br />
+сохранят свои исходные имена файлов. В этом случае резервный файл не существует, и не гарантируется,<br />
+что замещающий файл унаследует все атрибуты и потоки замененного файла.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=ReplaceFile">ReplaceFile</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIError.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
+<br>
+<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">'TrayAutoPause'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\Test*.tmp'</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFile</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\Test.tmp'</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hFile</span> <span class="S8">=</span> <a class="le" href="../functions/FileOpen.htm"><span class="S4">FileOpen</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">10000</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileWriteLine.htm"><span class="S4">FileWriteLine</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">,</span> <span class="S7">"                                                     "</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../functions/FileClose.htm"><span class="S4">FileClose</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sNewFile</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\TestNew.tmp'</span><br>
+<a class="le" href="../functions/FileCopy.htm"><span class="S4">FileCopy</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">,</span> <span class="S9">$sNewFile</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_ReplaceFile.htm"><span class="S15">_WinAPI_ReplaceFile</span></a><span class="S8">(</span><span class="S9">$sNewFile</span><span class="S8">,</span> <span class="S9">$sFile</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ShowLastError.htm"><span class="S15">_WinAPI_ShowLastError</span></a><span class="S8">(</span><span class="S7">'Error replacing no backup : '</span> <span class="S8">&amp;</span> <span class="S9">$sFile</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../functions/FileCopy.htm"><span class="S4">FileCopy</span></a><span class="S8">(</span><span class="S9">$sNewFile</span><span class="S8">,</span> <span class="S9">$sFile</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_ReplaceFile.htm"><span class="S15">_WinAPI_ReplaceFile</span></a><span class="S8">(</span><span class="S9">$sNewFile</span><span class="S8">,</span> <span class="S9">$sFile</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\TestBackup.tmp'</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ShowLastError.htm"><span class="S15">_WinAPI_ShowLastError</span></a><span class="S8">(</span><span class="S7">'Error replacing : '</span> <span class="S8">&amp;</span> <span class="S9">$sFile</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\Test*.tmp'</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_ReplaceFile.au3,"></object>
+</body>
+</html>

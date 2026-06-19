@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Критические изменения в последних версиях</title>
+  <meta charset="utf-8">
+  <link href="css/default.css" rel="stylesheet">
+<script src="css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Критические изменения в последних версиях</h1>
+  <p>На этой странице список всех изменений в последних версиях, которые почти наверняка <strong>сломают существующие скрипты</strong>. Внимательно прочитайте этот список при обновлении, если вы не следили за изменениями в бета-версиях. Если вас затрагивает хотя бы один из этих пунктов, <strong>вам придётся изменить скрипты</strong>.</p>
+  <h2>v3.3.16.0</h2>
+  <p><strong>UDF:</strong></p>
+  <ul>
+   <li><span class="S7">ColorConstants.au3</span> приведён в соответствие со стандартом W3C Colors. MAROON и SKYBLUE получили новые значения; CREAM, MEDBLUE, MDGRAY, MONEYGREEN удалены.</li>
+   <li><span class="S7">SecurityConstants.au3</span> изменён во избежание конфликтов имён. <span class="S91">$RIGHTS_DELETE</span> и <span class="S91">$SYNCHRONIZE</span> переименованы в <span class="S91">$STANDARD_*</span>.</li>
+ </ul>
+
+  <h2>v3.3.14.3</h2>
+  <p><strong>UDF:</strong></p>
+  <ul>
+   <li>Документация <a class="le" href="../libfunctions/_MathCheckDiv.htm"><span class="S15">_MathCheckDiv</span><span class="S8">()</span></a> удалена. Функция по-прежнему есть в <span class="S7">Math.au3</span>, но может быть удалена позднее. Обновите скрипты: используйте <a class="le" href="../functions/Mod.htm"><span class="S4">Mod</span><span class="S8">()</span></a> вместо неё.</li>
+   <li>Значение при ошибке для <a href="libfunctions/_Degree.htm"><span class="S15">_Degree</span><span class="S8">()</span></a> и <a href="libfunctions/_Radian.htm"><span class="S15">_Radian</span><span class="S8">()</span></a> изменено с пустой строки на 0.</li>
+   <li><a href="libfunctions/_WinAPI_DefSubclassProc.htm"><span class="S15">_WinAPI_DefSubclassProc</span><span class="S8">()</span></a>, <a href="libfunctions/_WinAPI_GetWindowSubclass.htm"><span class="S15">_WinAPI_GetWindowSubclass</span><span class="S8">()</span></a>, <a href="libfunctions/_WinAPI_RemoveWindowSubclass.htm"><span class="S15">_WinAPI_RemoveWindowSubclass</span><span class="S8">()</span></a> и <a href="libfunctions/_WinAPI_SetWindowSubclass.htm"><span class="S15">_WinAPI_SetWindowSubclass</span><span class="S8">()</span></a> перенесены из <span class="S7">WinAPIShellEx.au3</span> в <strong><span class="S7">WinAPISys.au3</span></strong>.
+   <li>Исправлена опечатка в <span class="S7">AutoItConstants.au3</span>: <span class="S91">$EXITCLOSE_BYSUTDOWN</span> → <span class="S91">$EXITCLOSE_BYS</span><strong>H</strong>UTDOWN (использовалась с <a href="functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a>).
+   <li><a href="libfunctions/WinAPI_GetOpenFileName.htm">WinAPI_GetOPenFileName()</a> и <a href="libfunctions/_WinAPI_GetSaveFileName.htm"><span class="S15">_WinAPI_GetSaveFileName</span><span class="S8">()</span></a> теперь возвращают расширение файла только если оно было введено вручную.</li>
+ </ul>
+
+  <h2>v3.3.14.2</h2>
+  <p><strong>UDF:</strong></p>
+  <ul>
+    <li><a class="le" href="../libfunctions/_SQLite_Startup.htm"><span class="S15">_SQLite_Startup</span><span class="S8">()</span></a> больше не скачивает файлы SQLite DLL с autoitscript.com автоматически. Большинство пользователей не подозревали, что это происходило при каждом запуске скрипта и создавало значительную нагрузку на сервер. Теперь DLL SQLite нужно скачивать вручную. Подробнее см. документацию <a href="libfunctions/_SQLite_Startup.htm"><span class="S15">_SQLite_Startup</span><span class="S8">()</span></a>.</li>
+  </ul>
+
+  <h2>v3.3.14.0</h2>
+  <p><strong>AutoIt:</strong></p>
+  <ul>
+    <li>Если Min и Max равны, <a href="functions/Random.htm"><span class="S4">Random</span><span class="S8">()</span></a> теперь возвращает это значение, и флаг <span class="S61">@error</span> не устанавливается.</li>
+    <li>Под Vista или Server 2008 для поддержки GDI+ v1.1 функция <a href="libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span><span class="S8">()</span></a> требует явно указать DLL.</li>
+    <li>Файловые операции с текстовыми файлами, открытыми без <a href="functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a> и <strong>явных флагов Unicode</strong>, теперь автоопределяют кодировку немного иначе, приближая поведение к современным редакторам. Это касается всех файловых функций, принимающих имя файла, например <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span>"filename.txt"<span class="S8">)</span>. В частности:</li>
+    <ul>
+      <li>Файлы с BOM открываются в режиме, соответствующем BOM. Проверяются BOM UTF-8 и UTF-16.</li>
+      <li>Файлы UTF-8 и UTF-16 без BOM определяются автоматически и открываются в нужном режиме.</li>
+      <li>Файлы, содержащие нулевые байты, по умолчанию открываются в двоичном режиме (<span class="S91">$FO_BINARY</span>), если не определены как корректный UTF-16. Ранее они открывались в режиме ANSI. Для отмены используйте флаг <span class="S91">$FO_ANSI</span>.</li>
+      <li>Файлы, содержащие только символы 1–127, по умолчанию открываются в режиме UTF-8 без BOM (<span class="S91">$FO_UTF8_NOBOM</span>). Ранее они открывались в режиме ANSI. Для отмены используйте флаг <span class="S91">$FO_ANSI</span>.</li>
+      <li>Файлы, содержащие только символы 1–255, по умолчанию открываются в режиме ANSI (<span class="S91">$FO_ANSI</span>).</li>
+      <li>В результате <a href="functions/FileGetEncoding.htm"><span class="S4">FileGetEncoding</span><span class="S8">()</span></a> теперь возвращает 512 (<span class="S91">$FO_ANSI</span>) или 256 (<span class="S91">$FO_UTF8_NOBOM</span>) вместо 0 (0 было недокументированным значением для ANSI).</li>
+    </ul>
+    <li>Новые файлы по умолчанию создаются в режиме UTF-8 без BOM (<span class="S91">$FO_UTF8_NOBOM</span>). Для изменения используйте <a href="functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a>.</li>
+    <li>Файлы UTF-16 без BOM теперь определяются автоматически в большинстве случаев.</li>
+  </ul>
+  <p><strong>UDF:</strong></p>
+  <ul>
+    <li>Excel UDF, функция <a class="le" href="../libfunctions/_Excel_BookOpen.htm"><span class="S15">_Excel_BookOpen</span><span class="S8">()</span></a>: если параметр <span class="S91">$bReadOnly</span> = <span class="S5">False</span> и доступ на запись не удалось получить, раньше устанавливался <span class="S61">@error</span> = 4 и книга открывалась только для чтения. Теперь <span class="S61">@error</span> = 0, <span class="S61">@extended</span> = 1, книга открывается только для чтения.</li>
+    <li>Word UDF, функция <a class="le" href="../libfunctions/_Word_DocOpen.htm"><span class="S15">_Word_DocOpen</span><span class="S8">()</span></a>: если параметр <span class="S91">$bReadOnly</span> = <span class="S5">False</span> и доступ на запись не удалось получить, раньше устанавливался <span class="S61">@error</span> = 4 и документ открывался только для чтения. Теперь <span class="S61">@error</span> = 0, <span class="S61">@extended</span> = 1, документ открывается только для чтения.</li>
+  </ul>
+  <h2>v3.3.12.0</h2>
+  <p><strong>UDF:</strong></p>
+  <ul>
+    <li>Параметр <span class="S91">$hPrintCallback</span> (ранее <span class="S91">$sPrintCallback</span>) в <a href="libfunctions/_SQLite_Startup.htm"><span class="S15">_SQLite_Startup</span><span class="S8">()</span></a> теперь принимает объект функции, а не строку с именем функции. Причина: из UDF удалён вызов <a href="functions/Call.htm"><span class="S4">Call</span><span class="S8">()</span></a>.</li>
+    <li>Параметр <span class="S91">$hFunctionCall</span> (ранее <span class="S91">$sFunctionCall</span>) в <a href="libfunctions/_FTP_ProgressDownload.htm"><span class="S15">_FTP_ProgressDownload</span><span class="S8">()</span></a> и <a href="libfunctions/_FTP_ProgressUpload.htm"><span class="S15">_FTP_ProgressUpload</span><span class="S8">()</span></a> теперь принимает объект функции, а не строку с именем функции. Причина: из UDF удалён вызов <a href="functions/Call.htm"><span class="S4">Call</span><span class="S8">()</span></a>.</li>
+    <li><a href="libfunctions/_ArrayDelete.htm"><span class="S15">_ArrayDelete</span><span class="S8">()</span></a> устанавливает <span class="S61">@error</span> в ненулевое значение, если <span class="S91">$iElement</span> выходит за пределы диапазона. Подробнее см. документацию.</li>
+    <li><a href="libfunctions/_StringBetween.htm"><span class="S15">_StringBetween</span><span class="S8">()</span></a> изменила поведение и порядок параметров. Подробнее см. документацию.</li>
+    <li><a href="libfunctions/_GUICtrlListView_GetView.htm"><span class="S15">_GUICtrlListView_GetView</span><span class="S8">()</span></a> и <a href="libfunctions/_GUICtrlListView_SetView.htm"><span class="S15">_GUICtrlListView_SetView</span><span class="S8">()</span></a> ошибочно использовали 0 для подробного режима и 1 для крупных значков; правильно: 0 для крупных значков, 1 для подробного режима.</li>
+    <li>Array UDF переписан. Функции и/или параметры изменены, удалены или добавлены. <strong>Подробный список см. <a href="script_breaking_changes_array_udf.htm">здесь</a>.</strong></li>
+    <li>Excel UDF переписан. Функции и/или параметры переименованы, удалены или добавлены. <strong>Подробный список см. <a href="script_breaking_changes_excel_udf.htm">здесь</a>.</strong></li>
+  </ul>
+  <p>Дополнение к примечаниям для v3.3.10.0:</p>
+  <ul>
+    <li><a href="libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span><span class="S8">()</span></a> переписана с новыми параметрами. Подробнее см. документацию.</li>
+  </ul>
+  <h2>v3.3.10.1</h2>
+  <p><strong>UDF:</strong></p>
+  <p>Дополнение к примечаниям для v3.3.10.0:</p>
+  <ul>
+    <li>Поля <a href="libfunctions/$tagBITMAPINFO.htm">$tagBITMAPINFO</a> получили префикс "bi".</li>
+  </ul>
+  <h2>v3.3.10.0</h2>
+  <p><strong>AutoIt:</strong></p>
+  <ul>
+    <li>Возвращаемое значение <a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span><span class="S8">()</span></a> изменено: вместо 1 теперь возвращается PID запущенного процесса или -1, если PID недоступен.</li>
+  </ul>
+  <p><strong>UDF:</strong></p>
+  <ul>
+    <li>Документация _Iif() удалена. Функция по-прежнему есть в <span class="S7">Misc.au3</span>, но может быть удалена позднее. Обновите скрипты: используйте тернарные операторы вместо неё.</li>
+    <li>_IEErrorHandlerRegister() удалена. Она больше не нужна, так как ошибки COM перестали быть фатальными.</li>
+    <li>Документация _StringEncrypt() удалена. Функция по-прежнему есть в <span class="S7">String.au3</span>, но может быть удалена позднее. Обновите скрипты: используйте функции Crypt вместо неё.<br />
+    Пример альтернативы см. в <a href="libfunctions/_Crypt_EncryptData.htm"><span class="S15">_Crypt_EncryptData</span><span class="S8">()</span></a>.</li>
+    <li>Документация _StringReverse() удалена. Функция по-прежнему есть в <span class="S7">String.au3</span>, но может быть удалена позднее. Обновите скрипты: используйте встроенную <a href="functions/StringReverse.htm"><span class="S4">StringReverse</span><span class="S8">()</span></a> вместо неё.</li>
+    <li>С добавлением функций WinAPIEx часть констант из <span class="S7">Constants.au3</span> перенесена в <span class="S7">WinAPIConstants.au3</span>.</li>
+    <li>Word UDF переписан. Функции и/или параметры переименованы, удалены или добавлены. <strong>Подробный список см. <a href="script_breaking_changes_word_udf.htm">здесь</a>.</strong></li>
+    <li><span class="S91">$tagGDIPPENCODERPARAMS</span> удалён, используйте <a href="libfunctions/$tagGDIPENCODERPARAMS.htm">$tagGDIPENCODERPARAMS</a>.</li>
+    <li><a href="libfunctions/$tagGDIPENCODERPARAMS.htm">$tagGDIPENCODERPARAMS</a>: используйте <span class="S91">$tagGDIPENCODERPARAM</span> в качестве первой структуры массива.</li>
+    <li>В <span class="S91">$tagGDIPENCODERPARAM</span> поле "count" переименовано в "nbOfValues".</li>
+    <li>Поля <a href="libfunctions/$tagBITMAPINFO.htm">$tagBITMAPINFO</a> получили префикс "bi".</li>
+    <li><a href="libfunctions/_ArrayUnique.htm"><span class="S15">_ArrayUnique</span><span class="S8">()</span></a> переписана с улучшенной производительностью. Последний параметр определяет, возвращать ли количество строк в <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>.</li>
+    <li>ToolTip UDF переписан. Функции и/или параметры переименованы, удалены или добавлены. <strong>Подробный список см. <a href="script_breaking_changes_tooltip_udf.htm">здесь</a>.</strong></li>
+	<li><a href="libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span><span class="S8">()</span></a> переписана с новыми параметрами. Подробнее см. документацию.</li>
+  </ul>
+  <h2>v3.3.8.0</h2>
+  <p><strong>AutoIt:</strong></p>
+  <ul>
+    <li><a href="functions/ObjName.htm"><span class="S4">ObjName</span><span class="S8">()</span></a> получила ряд исправлений и изменений, которые могут повлиять на возвращаемые данные. Встроенные UDF обновлены соответственно, но пользовательские скрипты, возможно, потребуют изменений.</li>
+    <li><a href="functions/ObjEvent.htm"><span class="S4">ObjEvent</span><span class="S8">()</span></a>: объекты AutoIt.Error больше не имеют методов Raise() и Clear(), а свойства доступны только для чтения.</li>
+    <li><a href="functions/Int.htm"><span class="S4">Int</span><span class="S8">()</span></a> и <a href="functions/Hex.htm"><span class="S4">Hex</span><span class="S8">()</span></a> больше не устанавливают <span class="S61">@error</span>.</li>
+    <li>Методы COM теперь требуют скобок, чтобы интерпретатор мог отличать свойства от методов.</li>
+  </ul>
+  <h2>v3.3.6.0</h2>
+  <p><strong>UDF:</strong></p>
+  <ul>
+    <li><a class="le" href="../libfunctions/_DateToDayOfWeekISO.htm"><span class="S15">_DateToDayOfWeekISO</span><span class="S8">()</span></a> раньше возвращала 0–6; теперь возвращает 1–7, где понедельник = 1.</li>
+  </ul>
+  <h2>v3.3.4.0</h2>
+  <p><em><strong>Часть следующих функций устарела. Устаревшие функции больше не документируются, но продолжают работать. Они будут удалены после версии 3.3.4.0. Настоятельно рекомендуется обновить скрипты, использующие устаревшие функции, для работы с новым поведением. Некоторые функции уже удалены и отмечены соответственно.</strong></em></p>
+  <p><strong>AutoIt:</strong></p>
+  <ul>
+    <li>Режим raw-чтения для <a class="le" href="../functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a> удалён.</li>
+    <li><a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span>, @InetGetActive и @InetGetBytesRead удалены. Список новых функций для замены:</li>
+    <li>
+      <ul>
+        <li><strong><a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span></strong> – вызовите новую <a href="functions/InetClose.htm"><span class="S4">InetClose</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы прервать загрузку.</li>
+        <li><strong>@InetGetActive</strong> – вызовите новую <a href="functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span><span class="S8">()</span></a> без параметров, чтобы узнать число активных загрузок.</li>
+        <li><strong>@InetGetBytesRead</strong> – вызовите новую <a href="functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы узнать количество прочитанных байт.</li>
+      </ul>
+    </li>
+    <li>AdlibEnable() и AdlibDisable() удалены. Используйте новые функции <a href="functions/AdlibRegister.htm"><span class="S4">AdlibRegister</span><span class="S8">()</span></a> и <a href="functions/AdlibUnRegister.htm"><span class="S4">AdlibUnRegister</span><span class="S8">()</span></a>.</li>
+    <li>OnAutoItStart() удалена. Используйте новую директиву препроцессора <a href="keywords/OnAutoItStartRegister.htm">#OnAutoItStartRegister</a>.</li>
+    <li>OnAutoItExit() удалена. Используйте новые функции <a href="functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a> и <a href="functions/OnAutoItExitUnRegister.htm"><span class="S4">OnAutoItExitUnRegister</span><span class="S8">()</span></a>.</li>
+  </ul>
+  <h2>v3.3.2.0</h2>
+  <p><em><strong>Часть следующих функций устарела. Устаревшие функции больше не документируются, но продолжают работать. Они будут удалены после версии 3.3.2.0. Настоятельно рекомендуется обновить скрипты, использующие устаревшие функции, для работы с новым поведением. Некоторые функции уже удалены и отмечены соответственно.</strong></em></p>
+  <p><strong>AutoIt:</strong></p>
+  <ul>
+    <li><a href="functions/ShellExecute.htm"><span class="S4">ShellExecute</span><span class="S8">()</span></a> и <a href="functions/ShellExecuteWait.htm"><span class="S4">ShellExecuteWait</span><span class="S8">()</span></a> больше не используют глагол "open" по умолчанию. См. раздел Примечания у этих функций.</li>
+    <li>Возвращаемое значение <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> изменено. <strong>Важно</strong> прочитать и понять эти изменения: некорректное использование <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> может привести к утечке ресурсов.</li>
+    <li><a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span>, @InetGetActive и @InetGetBytesRead устарели. Список новых функций для замены:</li>
+    <li>
+      <ul>
+        <li><strong><a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span></strong> – вызовите новую <a href="functions/InetClose.htm"><span class="S4">InetClose</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы прервать загрузку.</li>
+        <li><strong>@InetGetActive</strong> – вызовите новую <a href="functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span><span class="S8">()</span></a> без параметров, чтобы узнать число активных загрузок.</li>
+        <li><strong>@InetGetBytesRead</strong> – вызовите новую <a href="functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы узнать количество прочитанных байт.</li>
+      </ul>
+    </li>
+    <li>Опция FtpBinaryMode в <a class="le" href="../functions/AutoItSetOption.htm"><span class="S4">AutoItSetOption</span><span class="S8">()</span></a> удалена. Теперь <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> принимает флаг для указания режима передачи.</li>
+    <li>Псевдоним URLDownloadToFile() для <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> удалён.</li>
+    <li>AdlibEnable() и AdlibDisable() устарели. Используйте новые функции <a href="functions/AdlibRegister.htm"><span class="S4">AdlibRegister</span><span class="S8">()</span></a> и <a href="functions/AdlibUnRegister.htm"><span class="S4">AdlibUnRegister</span><span class="S8">()</span></a>.</li>
+    <li>OnAutoItStart() устарела. Используйте новую директиву препроцессора <a href="keywords/OnAutoItStartRegister.htm">#OnAutoItStartRegister</a>.</li>
+    <li>OnAutoItExit() устарела. Используйте новые функции <a href="functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a> и <a href="functions/OnAutoItExitUnRegister.htm"><span class="S4">OnAutoItExitUnRegister</span><span class="S8">()</span></a>.</li>
+    <li>Опция OnExitFunc в <a class="le" href="../functions/AutoItSetOption.htm"><span class="S4">AutoItSetOption</span><span class="S8">()</span></a> удалена. Используйте новые функции <a href="functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a> и <a href="functions/OnAutoItExitUnRegister.htm"><span class="S4">OnAutoItExitUnRegister</span><span class="S8">()</span></a>.</li>
+    <li><a href="functions/GUICreate.htm"><span class="S4">GUICreate</span><span class="S8">()</span></a> с <span class="S91">$WS_EX_MDICHILD</span> исправлена: позиционирование теперь относительно клиентской области, как задокументировано.</li>
+    <li><a href="functions/ProcessWait.htm"><span class="S4">ProcessWait</span><span class="S8">()</span></a> теперь возвращает PID, а не 1 при успешном завершении.</li>
+    <li><a href="functions/WinWait.htm"><span class="S4">WinWait</span><span class="S8">()</span></a>, <a href="functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span><span class="S8">()</span></a>, <a href="functions/WinActivate.htm"><span class="S4">WinActivate</span><span class="S8">()</span></a>, <a href="functions/WinActive.htm"><span class="S4">WinActive</span><span class="S8">()</span></a> и <a href=
+    "functions/WinMove.htm">WinMove()</a> теперь возвращают HWND вместо 1 при успехе.</li>
+    <li>Макрос <a href="macros/TimeAndDate.htm">@YDAY</a> теперь возвращает значения в диапазоне 001–366 вместо 1–366, приводя его в соответствие с другими языками (C/C++) и остальными макросами даты, которые возвращают строки с ведущими нулями.</li>
+    <li><a href="functions/RegEnumKey.htm"><span class="S4">RegEnumKey</span><span class="S8">()</span></a> и <a href="functions/RegEnumVal.htm"><span class="S4">RegEnumVal</span><span class="S8">()</span></a> теперь возвращают пустую строку вместо сообщения об ошибке.</li>
+  </ul>
+  <p><strong>UDF:</strong></p>
+  <ul>
+    <li>Последний необязательный параметр <a class="le" href="../libfunctions/_StringBetween.htm"><span class="S15">_StringBetween</span><span class="S8">()</span></a> удалён.</li>
+    <li>_StringAddThousandsSep() удалена: функция слишком многократно пересматривалась из-за разногласий о её поведении.</li>
+    <li>_SQLite_SaveMode() переименована в <a class="le" href="../libfunctions/_SQLite_SafeMode.htm"><span class="S15">_SQLite_SafeMode</span><span class="S8">()</span></a>.</li>
+  </ul>
+  <h2>v3.3.0.0</h2>
+  <p><strong>AutoIt:</strong></p>
+  <ul>
+    <li>Удалена поддержка Windows 9x и Windows NT 4.0. Используйте AutoIt v3.2.12.1, если она по-прежнему нужна.</li>
+    <li>@ProcessorArch переименован в <a href="macros/SystemInfo.htm#@OSArch">@OSArch</a>, так как прежнее название вводило в заблуждение.</li>
+    <li><a href="functions/RegRead.htm"><span class="S4">RegRead</span><span class="S8">()</span></a> и <a href="functions/RegWrite.htm"><span class="S4">RegWrite</span><span class="S8">()</span></a> больше не используют hex-строки для типа REG_BINARY – теперь применяются встроенные двоичные типы данных.</li>
+  </ul>
+  <p><strong>AutoItX:</strong></p>
+  <ul>
+    <li>Родная версия DLL теперь использует исключительно строки Unicode (LPWSTR и LPCWTSR). Если по-прежнему нужны строки ANSI, используйте v3.2.12.1. Самый простой обходной путь – функция-обёртка для конвертации Unicode ↔ ANSI. Ограниченный набор функций (WinWait... и Send) имеет ANSI-версии, но расширение этого набора не планируется без значительного спроса.</li>
+  </ul>
+  <h2>v3.2.12.0</h2>
+  <p><strong>AutoIt:</strong></p>
+  <ul>
+    <li>RunAsSet() удалена. Используйте новые функции <a href="functions/RunAs.htm"><span class="S4">RunAs</span><span class="S8">()</span></a> и <a href="functions/RunAsWait.htm"><span class="S4">RunAsWait</span><span class="S8">()</span></a>: они обеспечивают несколько лучшую безопасность (хранить важные пароли в скриптах по-прежнему не рекомендуется) и расширенную функциональность.</li>
+    <li>Опция <a href="functions/AutoItSetOption.htm">RunErrorsFatal</a> удалена. <a href="functions/Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>, <a href="functions/RunWait.htm"><span class="S4">RunWait</span><span class="S8">()</span></a>, <a href="functions/ShellExecute.htm"><span class="S4">ShellExecute</span><span class="S8">()</span></a> и <a href=
+    "functions/ShellExecuteWait.htm">ShellExecuteWait()</a> теперь устанавливают <span class="S61">@error</span> при неудаче запуска. AutoIt больше не генерирует фатальную ошибку в этом случае.</li>
+    <li><a href="functions/StdoutRead.htm"><span class="S4">StdoutRead</span><span class="S8">()</span></a>, <a href="functions/StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a> и <a href="functions/ConsoleRead.htm"><span class="S4">ConsoleRead</span><span class="S8">()</span></a> существенно изменены. Они больше не блокируют выполнение и возвращают управление немедленно. Параметры изменились: чтение по количеству символов больше недоступно; параметр peek перемещён на вторую позицию; третий параметр указывает возврат данных в двоичном формате (по умолчанию – текст). Макрос <span class="S61">@extended</span> теперь содержит количество прочитанных байт/символов.</li>
+    <li><a href="functions/StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a>, <a href="functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span><span class="S8">()</span></a> и <a href="functions/ConsoleWriteError.htm"><span class="S4">ConsoleWriteError</span><span class="S8">()</span></a> теперь по-другому работают с двоичными данными: данные записываются как есть, без конвертации в строку. Возвращаемое значение – количество записанных байт вместо 1.</li>
+    <li>Удалена опция ColorMode ( <a href="functions/AutoItSetOption.htm"><span class="S4">Opt</span><span class="S8">()</span></a> ).</li>
+    <li>Исправлено: <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span>Min,Max,1<span class="S8">)</span>. Ранее Max никогда не возвращалось, поэтому скрипты, искусственно увеличивавшие Max на 1, теперь нужно изменить.</li>
+  </ul>
+  <p><strong>UDF:</strong></p>
+  <ul>
+    <li>(Подробности и помощь с этими изменениями – в <a href="http://www.autoitscript.com/forum/index.php?showtopic=70902" target="_blank">этой теме форума</a>.)</li>
+    <li><span class="S7">GUIConstants.au3</span> теперь идентична <span class="S7">GUIConstantsEx.au3</span>. Это означает, что многие скрипты с расширенными функциями GUI потребуют дополнительных директив <span class="S111">#include</span> для подключения файлов с константами, которые ранее включались ошибочно.</li>
+    <li><span class="S7">GUIDefaultConstants.au3</span> упразднена. Теперь нужно подключать отдельный файл констант для каждого типа элемента управления, например: <span class="S7">ListBoxConstants.au3</span>, <span class="S7">ComboConstants.au3</span>, <span class="S7">EditConstants.au3</span> и т.д.</li>
+    <li>Документация _ArrayCreate() удалена. Функция по-прежнему присутствует, но может быть удалена позднее. Обновите скрипты: используйте синтаксис инициализации массивов, встроенный в AutoIt.</li>
+  </ul>
+  <h2>v3.2.10.0</h2>
+  <p><strong>AutoIt</strong></p>
+  <ul>
+    <li><a href="functions/DllCall.htm"><span class="S4">DllCall</span><span class="S8">()</span></a>: типы short_ptr, long_ptr, int_ptr устарели. Используйте short*, long* и int* соответственно.</li>
+  </ul>
+  <p><strong>UDF</strong></p>
+  <ul>
+    <li>_GUICtrlXXXYYY() переименованы в _GUICtrlXXX_YYY() без функциональных изменений.</li>
+  </ul>
+</body>
+</html>

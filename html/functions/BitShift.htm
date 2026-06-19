@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция BitShift</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>BitShift</h1>
+<p class="funcdesc">Выполняет операцию побитового сдвига.</p>
+<p class="codeheader"><a class="le" href="../functions/BitShift.htm"><span class="S4">BitShift</span></a> <span class="S8">(</span> <span class="S0">value</span><span class="S8">,</span> <span class="S0">shift</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">value</td>
+<td style="width:85%">Число, которое требуется сдвинуть.</td>
+</tr>
+<tr>
+<td>shift</td>
+<td>Число бит для сдвига вправо (отрицательные значения – сдвиг влево).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Возвращает значение, сдвинутое на указанное количество битов.<br />
+Битовые операции выполняются над 32-битными целыми числами.<br />
+
+<h2>Примечания</h2>
+<p>Напомним: для чисел можно использовать шестнадцатеричную запись.<br />
+Сдвиг вправо эквивалентен делению на 2, сдвиг влево – умножению на 2.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="BitAND.htm">BitAND</a>, <a href="BitNOT.htm">BitNOT</a>, <a href="BitOR.htm">BitOR</a>, <a href="BitRotate.htm">BitRotate</a>, <a href="BitXOR.htm">BitXOR</a>, <a href="Hex.htm">Hex</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Примечание: "b" – это символ байта.</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового сдвига влево для 2.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitShift1</span> <span class="S8">=</span> <a class="le" href="../functions/BitShift.htm"><span class="S4">BitShift</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 2 = 0010b сдвиг влево на 1 -&gt; 4 = 0100b
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Примечание: эквивалентно BitRotate(2, 1)
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результат.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iBitShift1</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового сдвига вправо для 1.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitShift2</span> <span class="S8">=</span> <a class="le" href="../functions/BitShift.htm"><span class="S4">BitShift</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 1 = 0001b сдвиг вправо на 1 -&gt; 0 = 0000b
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результат.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iBitShift2</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового сдвига влево для 14.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitShift3</span> <span class="S8">=</span> <a class="le" href="../functions/BitShift.htm"><span class="S4">BitShift</span></a><span class="S8">(</span><span class="S3">14</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; 14 = 1110b сдвиг влево на 2 -&gt; 56 = 0011 1000b
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результат.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iBitShift3</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитовой операции
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitShift4</span> <span class="S8">=</span> <a class="le" href="../functions/BitShift.htm"><span class="S4">BitShift</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">31</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;1 = 0001b сдвиг вправо на 31 -&gt; -2147483648 (32 бита) = 1000 0000 0000 0000 0000 0000 0000 0000b
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Примечание: в записи "дополнение до двух" 32-й разряд справа является знаковым.
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результат.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iBitShift4</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\BitShift.au3,"></object>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_PolyBezierTo</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_PolyBezierTo</h1>
+<p class="funcdesc">Рисует одну или несколько кривых Безье.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_PolyBezierTo.htm"><span class="S15">_WinAPI_PolyBezierTo</span></a> <span class="S8">(</span> <span class="S9">$hDC</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aPoint</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$aPoint</span></td>
+<td>Двумерный массив ([x1, y1], [x2, y2], ... [xN, yN]), который содержит конечные точки и контрольные точки<br />
+кривой(ых), в логических единицах. Количество точек должно быть в три раза больше количества кривых для рисования,<br />
+потому что каждая кривая Безье требует две контрольные точки и конечную точку.</td>
+</tr>
+<tr>
+<td><span class="S91">$iStart</span></td>
+<td><strong>[необязательный]</strong> Индекс массива для начала рисования.</td>
+</tr>
+<tr>
+<td><span class="S91">$iEnd</span></td>
+<td><strong>[необязательный]</strong> Индекс массива для остановки рисования.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта функция рисует кубические кривые Безье, используя контрольные точки, указанные параметром <span class="S91">$aPoint</span>.<br />
+Первая кривая рисуется от текущей позиции к третьей точке, используя первые две точки как контрольные точки.<br />
+Для каждой последующей кривой функция нуждается ровно в трёх дополнительных точках и использует конечную точку предыдущей<br />
+кривой как начальную точку для следующей.<br />
+<br />
+Текущая позиция перемещается на конечную точку последней кривой Безье. Фигура не заполняется.<br />
+<br />
+Эта функция рисует линии, используя текущее перо.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=PolyBezierTo">PolyBezierTo</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

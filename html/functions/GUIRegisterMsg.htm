@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция GUIRegisterMsg</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>GUIRegisterMsg</h1>
+<p class="funcdesc">Регистрирует пользовательскую функцию для обработки известного идентификатора сообщения Windows (WM_MSG).</p>
+<p class="codeheader"><a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a> <span class="S8">(</span> <span class="S0">msgID</span><span class="S8">,</span> <span class="S7">"function"</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">msgID</td>
+<td style="width:85%">Идентификатор сообщения Windows (см. приложение: <a href="../appendix/WinMsgCodes.htm">Коды сообщений Windows</a>).</td>
+</tr>
+<tr>
+<td>function</td>
+<td>Имя пользовательской функции, вызываемой при поступлении сообщения. Пустая строка "" отменяет регистрацию сообщения.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>!!! Чтобы пользовательская функция вызывалась, её необходимо объявить с <strong>не более чем 4 параметрами</strong>, иначе функция вызвана не будет !!!<br />
+Пример:<br />
+<p class="codebox">
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">MyUserFunction</span><span class="S8">(</span><span class="S9">$hWndGUI</span><span class="S8">,</span> <span class="S9">$iMsgID</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+...<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>
+</p><br />
+Или<br />
+<br />
+<p class="codebox">
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">MyUserFunction</span><span class="S8">(</span><span class="S9">$hWndGUI</span><span class="S8">,</span> <span class="S9">$iMsgID</span><span class="S8">)</span><br>
+...<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>
+</p><br />
+При вызове пользовательской функции 4 параметра принимают следующие значения:<br />
+<br />
+<table>
+<tr class="header">
+<th><strong>Позиция</strong></th>
+<th><strong>Параметр</strong></th>
+<th><strong>Значение</strong></th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>hWnd</td>
+<td>Дескриптор окна GUI, в котором появилось сообщение.</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>iMsg</td>
+<td>Идентификатор сообщения Windows.</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>wParam</td>
+<td>Первый параметр сообщения в виде шестнадцатеричного значения.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>lParam</td>
+<td>Второй параметр сообщения в виде шестнадцатеричного значения.</td>
+</tr>
+</table><br />
+Можно зарегистрировать до 256 пользовательских функций для различных идентификаторов сообщений.<br />
+<br />
+По умолчанию внутренний обработчик сообщений AutoIt (при его наличии) будет выполнен после завершения пользовательской функции. Он также будет выполнен, если функция завершится с ключевым словом <strong>Return</strong> и константой <strong><span class="S91">$GUI_RUNDEFMSG</span></strong> (определена в <span class="S7">GUIConstantsEx.au3</span>).<br />
+<br />
+Однако если <strong>Return</strong> используется с любым другим значением (или вовсе без значения), внутренний обработчик AutoIt выполнен <strong>НЕ</strong> будет (см. WM_COMMAND в примере).<br />
+<br />
+Таким образом, для досрочного выхода из пользовательской функции с последующим запуском внутреннего обработчика AutoIt необходимо использовать <strong>Return <span class="S91">$GUI_RUNDEFMSG</span></strong> (см. другие примеры).<br />
+<br />
+<strong>Предупреждение:</strong> блокировка работающих пользовательских функций, вызывающих сообщения окна такими командами, как <a class="le" href="MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">()</span>, может привести к непредсказуемому поведению – возврат в систему должен происходить как можно быстрее !!!<br />
+<br />
+Некоторые элементы управления внутренне перехватывают определённые идентификаторы сообщений Windows, поэтому их регистрация не даст результата. Например: WM_CHAR, WM_KEYDOWN, WM_KEYUP перехватываются элементом Edit.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="GUICtrlGetHandle.htm">GUICtrlGetHandle</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; Создать кнопку с пользовательской отрисовкой/цветом
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;ButtonConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FrameConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StructureConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIConv.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIDlg.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdiDC.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISysWin.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsNotifsConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsSysColorConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Ownerdrawn Created Button"</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">90</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetStyle.htm"><span class="S4">GUICtrlSetStyle</span></a><span class="S8">(</span><span class="S9">$idButton</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_TABSTOP</span><span class="S8">,</span> <span class="S9">$BS_NOTIFY</span><span class="S8">,</span> <span class="S9">$BS_OWNERDRAW</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить флаг пользовательской отрисовки
+</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton2</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Normal Button"</span><span class="S8">,</span> <span class="S3">90</span><span class="S8">,</span> <span class="S3">110</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><span class="S9">$WM_COMMAND</span><span class="S8">,</span> <span class="S7">"WM_COMMAND"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; WM_DRAWITEM необходимо зарегистрировать до отображения GUI, иначе начальная отрисовка не выполнится
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><span class="S9">$WM_DRAWITEM</span><span class="S8">,</span> <span class="S7">"WM_DRAWITEM"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iMsg</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iMsg</span> <span class="S8">=</span> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iMsg</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idButton</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обычно не срабатывает из-за нашей WM_COMMAND функции</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Info"</span><span class="S8">,</span> <span class="S7">"Button pressed"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idButton2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обычно не срабатывает из-за нашей WM_COMMAND функции</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Info"</span><span class="S8">,</span> <span class="S7">"Button2 pressed"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<span class="S1">; Реакция на клик по кнопке</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">WM_COMMAND</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nNotifyCode</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_HiWord.htm"><span class="S15">_WinAPI_HiWord</span></a><span class="S8">(</span><span class="S9">$wParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iId</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LoWord.htm"><span class="S15">_WinAPI_LoWord</span></a><span class="S8">(</span><span class="S9">$wParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hCtrl</span> <span class="S8">=</span> <span class="S9">$lParam</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iId</span> <span class="S8">&lt;&gt;</span> <span class="S3">2</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S9">$nNotifyCode</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Проверить IDCANCEL - 2
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Кнопки с пользовательской отрисовкой не отправляют сообщение при нажатии ENTER
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Поэтому при IDOK - 1 проверяем, какой элемент управления имеет фокус
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iId</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hFocus</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetFocus.htm"><span class="S15">_WinAPI_GetFocus</span></a><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idControl</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDlgCtrlID.htm"><span class="S15">_WinAPI_GetDlgCtrlID</span></a><span class="S8">(</span><span class="S9">$hFocus</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">PostButtonClick</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$idControl</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"WM_COMMAND"</span><span class="S8">,</span> <span class="S7">"GUIHWnd"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">":"</span> <span class="S8">&amp;</span> <span class="S9">$hWnd</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"MsgId"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">":"</span> <span class="S8">&amp;</span> <span class="S9">$iMsg</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"wParam"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">":"</span> <span class="S8">&amp;</span> <span class="S9">$wParam</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"lParam"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">":"</span> <span class="S8">&amp;</span> <span class="S9">$lParam</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"WM_COMMAND - Infos:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"-----------------------------"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Code"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">":"</span> <span class="S8">&amp;</span> <span class="S9">$nNotifyCode</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"CtrlId"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">":"</span> <span class="S8">&amp;</span> <span class="S9">$iId</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"CtrlHWnd"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">":"</span> <span class="S8">&amp;</span> <span class="S9">$hCtrl</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; Работает только при клике по кнопке</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При выходе будет запущен стандартный внутренний обработчик AutoIt3
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Он также запускается, если "Return" возвращает $GUI_RUNDEFMSG, как ниже
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Использование "Return" с любым другим значением (или без значения) означает, что обработчик AutoIt
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; не будет запущен
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;WM_COMMAND
+</span><br>
+<br>
+<span class="S1">; Повторно отправить сообщение WM_COMMAND элементу управления в окне GUI
+</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">PostButtonClick</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$idControl</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">(</span><span class="S7">"user32.dll"</span><span class="S8">,</span> <span class="S7">"int"</span><span class="S8">,</span> <span class="S7">"PostMessage"</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"hwnd"</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"int"</span><span class="S8">,</span> <span class="S9">$WM_COMMAND</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"int"</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_LoWord.htm"><span class="S15">_WinAPI_LoWord</span></a><span class="S8">(</span><span class="S9">$idControl</span><span class="S8">)</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"hwnd"</span><span class="S8">,</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idControl</span><span class="S8">)</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;PostButtonClick
+</span><br>
+<br>
+<span class="S1">; Нарисовать кнопку
+</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">WM_DRAWITEM</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagDRAWITEMSTRUCT</span> <span class="S8">=</span> <span class="S7">"uint;uint;uint;uint;uint;hwnd;handle;long[4];ulong_ptr"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tDrawItem</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagDRAWITEMSTRUCT</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$ODT_BUTTON</span> <span class="S8">=</span> <span class="S3">4</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nCtlType</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tDrawItem</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$nCtlType</span> <span class="S8">=</span> <span class="S9">$ODT_BUTTON</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Local $idControl = DllStructGetData($tDrawItem, 2)
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nItemState</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tDrawItem</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hCtrl</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tDrawItem</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tDrawItem</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iLeft</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tDrawItem</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iTop</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tDrawItem</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRight</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tDrawItem</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBottom</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tDrawItem</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sText</span> <span class="S8">=</span> <span class="S7">"Ownerdrawn Button"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nTextColor</span> <span class="S8">=</span> <span class="S3">0x5555DD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nBackColor</span> <span class="S8">=</span> <span class="S3">0xFFEEDD</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">DrawButton</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$hCtrl</span><span class="S8">,</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">,</span> <span class="S9">$nItemState</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$nTextColor</span><span class="S8">,</span> <span class="S9">$nBackColor</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tDrawItem</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">; Внутренний обработчик сообщений AutoIt не будет работать</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tDrawItem</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span>&nbsp;<span class="S1">; Запустить стандартный внутренний обработчик сообщений AutoIt
+</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;WM_DRAWITEM
+</span><br>
+<br>
+<span class="S1">; Основная процедура отрисовки
+</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">DrawButton</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$hCtrl</span><span class="S8">,</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">,</span> <span class="S9">$nItemState</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$nTextColor</span><span class="S8">,</span> <span class="S9">$nBackColor</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$hWnd</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$ODS_SELECTED</span> <span class="S8">=</span> <span class="S3">0x0001</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$ODS_GRAYED</span> <span class="S8">=</span> <span class="S3">0x0002</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$ODS_DISABLED</span> <span class="S8">=</span> <span class="S3">0x0004</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$ODS_FOCUS</span> <span class="S8">=</span> <span class="S3">0x0010</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$bFocused</span> <span class="S8">=</span> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$nItemState</span><span class="S8">,</span> <span class="S9">$ODS_FOCUS</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$bGrayed</span> <span class="S8">=</span> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$nItemState</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$ODS_GRAYED</span><span class="S8">,</span> <span class="S9">$ODS_DISABLED</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$bSelected</span> <span class="S8">=</span> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$nItemState</span><span class="S8">,</span> <span class="S9">$ODS_SELECTED</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRECT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Left'</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Top'</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Right'</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Bottom'</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nClrTxt</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bGrayed</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nClrTxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SetTextColor.htm"><span class="S15">_WinAPI_SetTextColor</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_HIGHLIGHTTEXT</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">ElseIf</span></a> <span class="S9">$nTextColor</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nClrTxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SetTextColor.htm"><span class="S15">_WinAPI_SetTextColor</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_BTNTEXT</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nClrTxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SetTextColor.htm"><span class="S15">_WinAPI_SetTextColor</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nTextColor</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBrush</span><span class="S8">,</span> <span class="S9">$nClrSel</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$nBackColor</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBrush</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetSysColorBrush.htm"><span class="S15">_WinAPI_GetSysColorBrush</span></a><span class="S8">(</span><span class="S9">$COLOR_BTNFACE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nClrSel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_BTNFACE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBrush</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateSolidBrush.htm"><span class="S15">_WinAPI_CreateSolidBrush</span></a><span class="S8">(</span><span class="S9">$nBackColor</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nClrSel</span> <span class="S8">=</span> <span class="S9">$nBackColor</span>&nbsp;<span class="S1">;
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nClrBk</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SetBkColor.htm"><span class="S15">_WinAPI_SetBkColor</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nClrSel</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hOldBrush</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nTmpLeft</span> <span class="S8">=</span> <span class="S9">$iLeft</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nTmpTop</span> <span class="S8">=</span> <span class="S9">$iTop</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nTmpRight</span> <span class="S8">=</span> <span class="S9">$iRight</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nTmpBottom</span> <span class="S8">=</span> <span class="S9">$iBottom</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bSelected</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">InflateRect</span><span class="S8">(</span><span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBrushSel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateSolidBrush.htm"><span class="S15">_WinAPI_CreateSolidBrush</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_BTNSHADOW</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">FrameRect</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S9">$hBrushSel</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hBrushSel</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bFocused</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$bSelected</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S0">InflateRect</span><span class="S8">(</span><span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">DrawFrameControl</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S9">$DFC_BUTTON</span><span class="S8">,</span> <span class="S9">$DFCS_BUTTONPUSH</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpLeft</span> <span class="S8">=</span> <span class="S9">$iLeft</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpTop</span> <span class="S8">=</span> <span class="S9">$iTop</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpRight</span> <span class="S8">=</span> <span class="S9">$iRight</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpBottom</span> <span class="S8">=</span> <span class="S9">$iBottom</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bSelected</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">InflateRect</span><span class="S8">(</span><span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">2</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">2</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bFocused</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$bSelected</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">InflateRect</span><span class="S8">(</span><span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">3</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">3</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpLeft</span> <span class="S8">-=</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpTop</span> <span class="S8">-=</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">InflateRect</span><span class="S8">(</span><span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">2</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">2</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpLeft</span> <span class="S8">-=</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpTop</span> <span class="S8">-=</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">FillRect</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bSelected</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S9">$bGrayed</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpLeft</span> <span class="S8">=</span> <span class="S9">$nTmpLeft</span> <span class="S8">+</span> <span class="S3">2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpTop</span> <span class="S8">=</span> <span class="S9">$nTmpTop</span> <span class="S8">+</span> <span class="S3">2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iFlags</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$DT_NOCLIP</span><span class="S8">,</span> <span class="S9">$DT_CENTER</span><span class="S8">,</span> <span class="S9">$DT_VCENTER</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetWindowLong.htm"><span class="S15">_WinAPI_GetWindowLong</span></a><span class="S8">(</span><span class="S9">$hCtrl</span><span class="S8">,</span> <span class="S9">$GWL_STYLE</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$BS_MULTILINE</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$iFlags</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$iFlags</span><span class="S8">,</span> <span class="S9">$DT_SINGLELINE</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">DrawText</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S9">$iFlags</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bGrayed</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpLeft</span> <span class="S8">=</span> <span class="S9">$iLeft</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpTop</span> <span class="S8">=</span> <span class="S9">$iTop</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpRight</span> <span class="S8">=</span> <span class="S9">$iRight</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpBottom</span> <span class="S8">=</span> <span class="S9">$iBottom</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpLeft</span> <span class="S8">-=</span> <span class="S3">1</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nClrTxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SetTextColor.htm"><span class="S15">_WinAPI_SetTextColor</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_GRAYTEXT</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">DrawText</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$DT_NOCLIP</span><span class="S8">,</span> <span class="S9">$DT_CENTER</span><span class="S8">,</span> <span class="S9">$DT_VCENTER</span><span class="S8">,</span> <span class="S9">$DT_SINGLELINE</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpLeft</span> <span class="S8">=</span> <span class="S9">$iLeft</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpTop</span> <span class="S8">=</span> <span class="S9">$iTop</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpRight</span> <span class="S8">=</span> <span class="S9">$iRight</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpBottom</span> <span class="S8">=</span> <span class="S9">$iBottom</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bFocused</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBrush</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateSolidBrush.htm"><span class="S15">_WinAPI_CreateSolidBrush</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">FrameRect</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpLeft</span> <span class="S8">=</span> <span class="S9">$iLeft</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpTop</span> <span class="S8">=</span> <span class="S9">$iTop</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpRight</span> <span class="S8">=</span> <span class="S9">$iRight</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nTmpBottom</span> <span class="S8">=</span> <span class="S9">$iBottom</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">InflateRect</span><span class="S8">(</span><span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">4</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">4</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">DrawFocusRect</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nTmpLeft</span><span class="S8">,</span> <span class="S9">$nTmpTop</span><span class="S8">,</span> <span class="S9">$nTmpRight</span><span class="S8">,</span> <span class="S9">$nTmpBottom</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hOldBrush</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetTextColor.htm"><span class="S15">_WinAPI_SetTextColor</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nClrTxt</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetBkColor.htm"><span class="S15">_WinAPI_SetBkColor</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$nClrBk</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">; Внутренний обработчик сообщений AutoIt не будет работать</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;DrawButton
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">DrawFrameControl</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">,</span> <span class="S9">$iType</span><span class="S8">,</span> <span class="S9">$iState</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRECT</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Left'</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Top'</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Right'</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Bottom'</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DrawFrameControl.htm"><span class="S15">_WinAPI_DrawFrameControl</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$tRECT</span><span class="S8">,</span> <span class="S9">$iType</span><span class="S8">,</span> <span class="S9">$iState</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;DrawFrameControl
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">DrawFocusRect</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRECT</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Left'</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Top'</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Right'</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Bottom'</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DrawFocusRect.htm"><span class="S15">_WinAPI_DrawFocusRect</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$tRECT</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;DrawFocusRect
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">DrawText</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">,</span> <span class="S9">$iFlags</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRECT</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Left'</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Top'</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Right'</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Bottom'</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DrawText.htm"><span class="S15">_WinAPI_DrawText</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$tRECT</span><span class="S8">,</span> <span class="S9">$iFlags</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;DrawText
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">FillRect</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRECT</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Left'</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Top'</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Right'</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Bottom'</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_FillRect.htm"><span class="S15">_WinAPI_FillRect</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$tRECT</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;FillRect
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">FrameRect</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRECT</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Left'</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Top'</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Right'</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Bottom'</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_FrameRect.htm"><span class="S15">_WinAPI_FrameRect</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$tRECT</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;FrameRect
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">InflateRect</span><span class="S8">(</span><a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$iLeft</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$iTop</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$iRight</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$iBottom</span><span class="S8">,</span> <span class="S9">$iDX</span><span class="S8">,</span> <span class="S9">$iDY</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRECT</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Left'</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Top'</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Right'</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Bottom'</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_InflateRect.htm"><span class="S15">_WinAPI_InflateRect</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S9">$iDX</span><span class="S8">,</span> <span class="S9">$iDY</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iLeft</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Left'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iTop</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Top'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRight</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Right'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iBottom</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S7">'Bottom'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;InflateRect
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\GUIRegisterMsg.au3,"></object>
+</body>
+</html>

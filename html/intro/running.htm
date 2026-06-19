@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Запуск скриптов</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Запуск скриптов</h1>
+  <p>При запуске AutoIt вам будет предложено открыть <strong>файл скрипта</strong>. Файл скрипта – это обычный текстовый файл, содержащий ключевые слова и функции AutoIt, которые сообщают AutoIt, что нужно сделать. Файлы скриптов создаются в простом текстовом редакторе вроде <strong>notepad.exe</strong>, но есть и гораздо лучшая <a href="editors.htm">альтернатива</a> – специально модифицированная версия редактора SciTE.<br /></p>
+  <p>Хотя скрипты AutoIt v3 – обычные текстовые файлы, обычно им присваивают расширение <strong>.au3</strong>, чтобы отличать скрипт от обычного текстового файла. Если вы установили AutoIt полным установщиком, скрипт можно запустить простым двойным щелчком. Также по правому щелчку на файле <strong>.au3</strong> доступны команды открытия, редактирования и компиляции скрипта.</p>
+  <p>&nbsp;</p>
+  <p>Пример скрипта. Обратите внимание: символ <strong>;</strong> используется для комментирования участков кода:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><span class="S1">; Это мой первый скрипт</span><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My First Script!"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello World!"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Более сложные скрипты могут включать функции. Их обычно размещают ближе к концу скрипта или ниже секции объявления глобальных переменных.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My second script!"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello from the main script!"</span><span class="S8">)</span><br /><br /><span class="S0">Example_Func</span><span class="S8">()</span><br /><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> Example_Func</span><span class="S8">()</span><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Return</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My Second Script!"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hello from the functions!"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;Example_Func</span></span>
+</p>
+  <h2><a id="CommandLine"></a>Параметры командной строки</h2>
+  <p>В AutoIt можно передавать параметры командной строки в собственный исполняемый файл. Переданные параметры доступны через константные переменные <span class="S91">$CmdLine</span> и <span class="S91">$CmdLineRaw</span>. Попытка присвоить им новые данные приведёт к ошибке AutoIt – их нельзя менять во время выполнения скрипта. Обратите внимание: эти переменные существуют независимо от того, переданы параметры командной строки или нет.<br /></p>
+  <p>Специальный массив <span class="S91">$CmdLine</span> инициализируется в начале работы скрипта параметрами командной строки. Если запускать скрипт, а не исполняемый файл, то имя <span class="S7">ScriptName.au3</span> будет проигнорировано как параметр.<br />
+  <br />
+  Если передаются строки с пробелами, их нужно экранировать "двойными кавычками" в строке команды.<br /></p>
+<p class="codebox">
+<span><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Содержит общее количество элементов в массиве.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Первый параметр.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Второй параметр.</span><br /><span class="S8">...</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S0">nth</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; n-ный параметр, например 10, если массив содержит 10 элементов.</span></span>
+</p>
+<br />
+  Если запускать скрипт напрямую через AutoIt3.exe:<br />
+<p class="codebox">
+<span><span class="S0">AutoIt3</span><span class="S3">.e</span><span class="S0">xe myScript</span><span class="S8">.</span><span class="S14">au3</span><span class="S0"> param1 </span><span class="S7">"This is a string parameter"</span><span class="S0"> </span><span class="S3">99</span></span>
+</p>
+<p class="codebox">
+<span><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Здесь 3 параметра.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Содержит param1, а не myScript.au3 – он игнорируется при запуске нескомпилированного скрипта.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Содержит "This is a string parameter".</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Содержит 99.</span><br /><span class="S9">$CmdLineRaw</span><span class="S0"> </span><span class="S1">; Содержит myScript.au3 param1 "This is a string parameter" 99.</span></span>
+</p>
+<br />
+  Если запускать скомпилированный исполняемый файл с параметрами командной строки:<br />
+<p class="codebox">
+<span><span class="S0">myProg</span><span class="S8">.</span><span class="S14">exe</span><span class="S0"> param1 </span><span class="S7">"This is a string parameter"</span><span class="S0"> </span><span class="S3">99</span></span>
+</p>
+<p class="codebox">
+<span><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Здесь 3 параметра.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Содержит param1.</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Содержит "This is a string parameter".</span><br /><span class="S9">$CmdLine</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S0"> </span><span class="S1">; Содержит 99.</span></span>
+</p>
+<br />
+
+  <h2>Специальные ключи командной строки AutoIt</h2>
+  <p>Интерпретатор AutoIt3.exe (или интерпретаторная заглушка любого скомпилированного скрипта AutoIt) обычно может запускать скрипты AutoIt прямо из командной строки. Во всех случаях ключ /ErrorStdOut позволяет перенаправить фатальную ошибку в StdOut, чтобы её мог перехватить, например, редактор SciTE. Этот ключ работает как с интерпретатором, так и со скомпилированным скриптом.</p>
+  <p><strong>Запуск скрипта через интерпретатор</strong>:</p>
+  <p><em>AutoIt3.exe [/ErrorStdOut] [/AutoIt3ExecuteScript] filename [params ...]</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выполнить AutoIt3-скрипт "filename" с необязательными параметрами.</p>
+  <p>В простейшем виде: <em>AutoIt3.exe <span class="S7">myScript.au3</span></em> запустит обычный AutoIt-скрипт "<span class="S7">myScript.au3</span>" без параметров.</p>
+  <p><strong>Запуск скомпилированного скрипта</strong>:</p>
+  <p><em>Compiled.exe [/ErrorStdOut] [params ...]</em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выполнить скомпилированный AutoIt3-скрипт, созданный с помощью Aut2Exe.</p>
+  <p><strong>Запуск одной строки кода</strong>:</p>
+  <p><em>AutoIt3.exe [/ErrorStdOut] /AutoIt3ExecuteLine "command line"</em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выполнить одну строку кода.<br />
+  <br />
+  Команда ниже выполнит одну строку кода и покажет MsgBox с "Hello World!". Значок в трее не будет отображаться.<br /></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@AutoItExe"><span class="S6">@AutoItExe</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">' /AutoIt3ExecuteLine "MsgBox(4096, ''Hello World!'', ''Hi!'')"'</span><span class="S8">)</span></span>
+</p>
+  <p><strong>Запуск скрипта другим скомпилированным скриптом</strong>:</p>
+  <p><em>Compiled.exe [/ErrorStdOut]&nbsp;/AutoIt3ExecuteScript file [params ...]</em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выполнить другой AutoIt-скрипт из скомпилированного AutoIt3-исполняемого файла.</p>
+  <p><em>Compiled.exe [/ErrorStdOut]&nbsp;/AutoIt3Execute</em><em>Line "command line"</em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выполнить одну строку кода (как у AutoIt3.exe выше).</p>
+  <p>Это значит, что нет необходимости держать копию AutoIt3.exe рядом со скомпилированным файлом – интерпретаторная заглушка скомпилированного файла его заменит. Поэтому, если есть хотя бы один скомпилированный скрипт, другие AutoIt-скрипты можно запускать без AutoIt3.exe на машине – без предустановки и без добавления через FileInstall.</p>
+  <h2>Важные примечания</h2>
+  <p>Однако исполняемый файл должен быть скомпилирован с директивой <span class="S111">#pragma</span> compile(AutoItExecuteAllowed, <span class="S5">True</span>), так как настройка по умолчанию не позволяет использовать параметры <em>/AutoItExecuteScript</em> или <em>/AutoItExecuteLine</em>. Кроме того, поскольку интерпретаторная заглушка ищет нужные стандартные файлы <span class="S111">#include</span> в текущем каталоге, UDF-функции и различные константы могут быть недоступны – эти файлы обычно лежат только в полной установке AutoIt. Поэтому скрипты, которые планируется запускать таким образом, рекомендуется компилировать в формат <strong>.a3x</strong>, а не оставлять обычными .au3-файлами.</p>
+  <p>При работе с командной строкой важно правильно использовать одинарные и двойные кавычки – даже для удвоенных одинарных кавычек.</p>
+</body>
+</html>

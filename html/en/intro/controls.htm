@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Controls</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Controls</h1>
+  <p>One of the best features with AutoIt v3 is the ability to work directly with certain types of <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb773169(v=vs.85).aspx">Window Controls</a>. Almost everything you see on a window is a control of some kind.&nbsp; Buttons, listboxes, edit fields and static text are all examples of
+  controls. In fact, Notepad is just one big "Edit" control! Because AutoIt works directly with a control, they provide a more reliable way to automate than just sending keystrokes.</p><br />
+  <p><strong>Note:</strong> AutoIt only works with <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb773169(v=vs.85).aspx">standard Microsoft controls</a>. Some applications write their own custom controls which may look like a standard MS control but may resist automation.&nbsp; Experiment!<br /></p>&nbsp;
+  <p>Using the <a href="au3spy.htm">AutoIt Window Info Tool</a> you can move your mouse around the window you are interested in and you will be given information of the control that is currently under your mouse.</p>
+  <p>A special description can be used as the <strong>controlID</strong> parameter used in most of the Control...() functions. This description can be used to identify a control by the following properties:</p>
+  <ul>
+    <li><strong>ID -</strong> The internal control ID. The Control ID is the internal numeric identifier that windows gives to each control. It is generally the best method of identifying controls. In addition to the AutoIt Window Info Tool, other
+    applications such as screen readers for the blind and Microsoft tools/APIs may allow you to get this Control ID</li>
+    <li><strong>TEXT -</strong> The text on a control, for example "&amp;Next" on a button</li>
+    <li><strong>CLASS -</strong> The internal control classname such as "Edit" or "Button"</li>
+    <li><strong>CLASSNN -</strong> The ClassnameNN value as used in previous versions of AutoIt, such as "Edit1"</li>
+    <li><strong>NAME</strong> - The internal .NET Framework WinForms name (if available)</li>
+    <li><strong>REGEXPCLASS -</strong> Control classname using a <a href="../functions/StringRegExp.htm">regular expression</a></li>
+    <li><strong>X</strong> \ <strong>Y</strong> \ <strong>W</strong> \ <strong>H</strong> - The position and size of a control.</li>
+    <li><strong>INSTANCE -</strong> The 1-based instance when all given properties match.</li>
+  </ul>
+  <p>One or more properties are used in the <em>controlID</em> parameter of a control command in the format:</p>
+<p class="codebox">
+<span><span class="S8">[</span><span class="S0">PROPERTY1 </span><span class="S8">:</span><span class="S0"> Value1</span><span class="S1">; PROPERTY2:Value2]</span></span>
+</p>
+  <p><strong>Note:</strong> If this special format is <strong>not</strong> used then the parameter is taken to be a control ID (if numeric) or the ClassnameNN/text of the control (if a string). Although the special format is more long-winded than these
+  methods it is much less ambiguous.</p>
+  <p>If a Value must contain a ";" it must be doubled.</p>
+  <p>&nbsp;</p>
+  <p>e.g. Send text to the 1st Edit control in the Notepad window</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlSend.htm"><span class="S4">ControlSend</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[CLASS:Edit; INSTANCE:1]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This is some text"</span><span class="S8">)</span></span>
+</p>
+  <p>or</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlSend.htm"><span class="S4">ControlSend</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[CLASSNN:Edit1]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This is some text"</span><span class="S8">)</span></span>
+</p>
+  <p>or</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlSend.htm"><span class="S4">ControlSend</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Edit1"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This is some text"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>e.g. Click on control ID 254 in "My Window"</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlClick.htm"><span class="S4">ControlClick</span></a><span class="S8">(</span><span class="S7">"My Window"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[ID:254]"</span><span class="S8">)</span></span>
+</p>
+  <p>or</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlClick.htm"><span class="S4">ControlClick</span></a><span class="S8">(</span><span class="S7">"My Window"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S3">254</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>e.g. Set the text of the .NET Winforms "textBoxFolder" control to "C:\Some\Folder"</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlSetText.htm"><span class="S4">ControlSetText</span></a><span class="S8">(</span><span class="S7">"My Window"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[NAME:textBoxFolder]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"C:\Some\Folder"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>e.g. Click the 2nd instance of a "Button" control containing the text "Finish"</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/ControlClick.htm"><span class="S4">ControlClick</span></a><span class="S8">(</span><span class="S7">"My Window"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"[CLASS:Button; TEXT:Finish; INSTANCE:2]"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <h2>Control Handle (HWND)</h2>
+  <p>Using the <a href="../functions/ControlGetHandle.htm">ControlGetHandle</a> function you can determine the <em>Handle</em> or <em>HWND</em> of a control. A handle is the unique identifier that Windows gives controls. The handle changes <em>each time
+  the control is created</em>. This method of accessing controls is generally only designed for users who are familiar with working with handles.</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>Look under the contents for <strong><a href="../functions/ControlCommand.htm">Function Reference \ Window Management \ Controls</a></strong> for a list of the functions that work with controls.</p>
+</body>
+</html>

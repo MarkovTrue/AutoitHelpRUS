@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _NamedPipes_CreateNamedPipe</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_NamedPipes_CreateNamedPipe</h1>
+<p class="funcdesc">Создаёт экземпляр именованного канала.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;NamedPipes.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_NamedPipes_CreateNamedPipe.htm"><span class="S15">_NamedPipes_CreateNamedPipe</span></a> <span class="S8">(</span> <span class="S9">$sName</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iAccess</span> <span class="S8">=</span> <span class="S3">2</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">2</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iACL</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iType</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iRead</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWait</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iMaxInst</span> <span class="S8">=</span> <span class="S3">25</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iOutBufSize</span> <span class="S8">=</span> <span class="S3">4096</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iInpBufSize</span> <span class="S8">=</span> <span class="S3">4096</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iDefaultTimeout</span> <span class="S8">=</span> <span class="S3">5000</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$tSecurity</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sName</span></td>
+<td style="width:85%">Имя канала со следующим форматом: \\.\pipe\pipename.<br />
+Часть имени канала может включать любой символ, кроме обратной косой черты, включая цифры и специальные символы.<br />
+Строка имени канала может быть длиной до 256 символов.<br />
+Имена каналов не чувствительны к регистру.</td>
+</tr>
+<tr>
+<td><span class="S91">$iAccess</span></td>
+<td><strong>[необязательный]</strong> Режим доступа канала. Должен быть одним из следующих:<br />
+0 – поток данных в канале идёт только от клиента к серверу (входящий)<br />
+1 – поток данных в канале идёт только от сервера к клиенту (исходящий)<br />
+2 – канал является двусторонним (дуплексным)</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> Флаги канала. Может быть любой комбинацией следующих:<br />
+1 – если вы попытаетесь создать несколько экземпляров канала с этим флагом, создание первого экземпляра будет успешным, но создание следующего экземпляра не удастся.<br />
+2 – режим перекрытия включен. Если этот режим включён, функции, выполняющие операции чтения, записи и подключения, которые могут занимать значительное время для завершения, могут вернуться немедленно.<br />
+4 – режим сквозной записи включен. Этот режим влияет только на операции записи на каналах байтового типа и только когда клиент и сервер находятся на разных компьютерах.</td>
+</tr>
+<tr>
+<td><span class="S91">$iACL</span></td>
+<td><strong>[необязательный]</strong> Флаги безопасности ACL. Может быть любой комбинацией следующих:<br />
+1 – вызывающему будет предоставлен доступ на запись к дискреционному ACL именованного канала<br />
+2 – вызывающему будет предоставлен доступ на запись к владельцу именованного канала<br />
+4 – вызывающему будет предоставлен доступ на запись к ACL безопасности именованного канала</td>
+</tr>
+<tr>
+<td><span class="S91">$iType</span></td>
+<td><strong>[необязательный]</strong> Режим типа канала. Должен быть одним из следующих:<br />
+0 – данные записываются в канал как поток байтов<br />
+1 – данные записываются в канал как поток сообщений</td>
+</tr>
+<tr>
+<td><span class="S91">$iRead</span></td>
+<td><strong>[необязательный]</strong> Режим чтения канала. Должен быть одним из следующих:<br />
+0 – данные читаются из канала как поток байтов<br />
+1 – данные читаются из канала как поток сообщений</td>
+</tr>
+<tr>
+<td><span class="S91">$iWait</span></td>
+<td><strong>[необязательный]</strong> Режим ожидания канала. Должен быть одним из следующих:<br />
+0 – режим блокировки включен. Когда дескриптор канала указан в <em><a class="le" href="_WinAPI_ReadFile.htm"><span class="S15">_WinAPI_ReadFile</span></a><span class="S8">()</span></em>, <em><a class="le" href="_WinAPI_WriteFile.htm"><span class="S15">_WinAPI_WriteFile</span></a><span class="S8">()</span></em> или <em><a class="le" href="_NamedPipes_ConnectNamedPipe.htm"><span class="S15">_NamedPipes_ConnectNamedPipe</span></a><span class="S8">()</span></em>, операция не завершается до тех пор, пока нет данных для чтения, все данные записаны или подключен клиент.<br />
+1 – режим без блокировки включен. <em><a class="le" href="_WinAPI_ReadFile.htm"><span class="S15">_WinAPI_ReadFile</span></a><span class="S8">()</span></em>, <em><a class="le" href="_WinAPI_WriteFile.htm"><span class="S15">_WinAPI_WriteFile</span></a><span class="S8">()</span></em> и <em><a class="le" href="_NamedPipes_ConnectNamedPipe.htm"><span class="S15">_NamedPipes_ConnectNamedPipe</span></a><span class="S8">()</span></em> всегда возвращают значение немедленно.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMaxInst</span></td>
+<td><strong>[необязательный]</strong> Максимальное количество экземпляров, которые можно создать для этого канала</td>
+</tr>
+<tr>
+<td><span class="S91">$iOutBufSize</span></td>
+<td><strong>[необязательный]</strong> Количество байтов для резервирования для буфера вывода</td>
+</tr>
+<tr>
+<td><span class="S91">$iInpBufSize</span></td>
+<td><strong>[необязательный]</strong> Количество байтов для резервирования для буфера ввода</td>
+</tr>
+<tr>
+<td><span class="S91">$iDefaultTimeOut</span></td>
+<td><strong>[необязательный]</strong> Значение тайм-аута по умолчанию в миллисекундах</td>
+</tr>
+<tr>
+<td><span class="S91">$tSecurity</span></td>
+<td><strong>[необязательный]</strong> структура <span class="S91">$tagSECURITY_ATTRIBUTES</span>, которая задаёт дескриптор безопасности для нового именованного канала и определяет, могут ли дочерние процессы наследовать возвращённый дескриптор.<br />
+Если <span class="S91">$tSecurity</span> равен 0, именованный канал получает дескриптор безопасности по умолчанию, и дескриптор не может быть унаследован.<br />
+ACL в дескрипторе безопасности по умолчанию для именованного канала предоставляют полный контроль учётной записи LocalSystem, администраторам и создателю-владельцу.<br />
+Они также предоставляют доступ на чтение членам группы Everyone и анонимной учётной записи.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает дескриптор конца сервера экземпляра именованного канала.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает -1.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="$tagSECURITY_ATTRIBUTES.htm">$tagSECURITY_ATTRIBUTES</a>, <a href="_NamedPipes_ConnectNamedPipe.htm">_NamedPipes_ConnectNamedPipe</a>, <a href="_NamedPipes_CreatePipe.htm">_NamedPipes_CreatePipe</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=CreateNamedPipe">CreateNamedPipe</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

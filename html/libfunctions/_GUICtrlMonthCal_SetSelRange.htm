@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _GUICtrlMonthCal_SetSelRange</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_GUICtrlMonthCal_SetSelRange</h1>
+<p class="funcdesc">Устанавливает выделение в месячном календаре по заданному диапазону дат.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiMonthCal.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_GUICtrlMonthCal_SetSelRange.htm"><span class="S15">_GUICtrlMonthCal_SetSelRange</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMinYear</span><span class="S8">,</span> <span class="S9">$iMinMonth</span><span class="S8">,</span> <span class="S9">$iMinDay</span><span class="S8">,</span> <span class="S9">$iMaxYear</span><span class="S8">,</span> <span class="S9">$iMaxMonth</span><span class="S8">,</span> <span class="S9">$iMaxDay</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Идентификатор или дескриптор элемента управления.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMinYear</span></td>
+<td>Минимальный год.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMinMonth</span></td>
+<td>Минимальный месяц.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMinDay</span></td>
+<td>Минимальный день.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMaxYear</span></td>
+<td>Максимальный год.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMaxMonth</span></td>
+<td>Максимальный месяц.</td>
+</tr>
+<tr>
+<td><span class="S91">$iMaxDay</span></td>
+<td>Максимальный день.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+элемент управления
+<h2>См. также</h2>
+<p><a href="_GUICtrlMonthCal_GetSelRange.htm">_GUICtrlMonthCal_GetSelRange</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiMonthCal.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Month Calendar Get/Set Sel Range (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMonthCal</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMonthCal.htm"><span class="S4">GUICtrlCreateMonthCal</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_BORDER</span><span class="S8">,</span> <span class="S9">$MCS_MULTISELECT</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">0x00000000</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать элемент memo</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">4</span><span class="S8">,</span> <span class="S3">168</span><span class="S8">,</span> <span class="S3">392</span><span class="S8">,</span> <span class="S3">128</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить/установить выделение</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlMonthCal_SetSelRange.htm"><span class="S15">_GUICtrlMonthCal_SetSelRange</span></a><span class="S8">(</span><span class="S9">$idMonthCal</span><span class="S8">,</span> <a class="le" href="../macros.htm#@YEAR"><span class="S6">@YEAR</span></a><span class="S8">,</span> <a class="le" href="../macros.htm#@MON"><span class="S6">@MON</span></a><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <a class="le" href="../macros.htm#@YEAR"><span class="S6">@YEAR</span></a><span class="S8">,</span> <a class="le" href="../macros.htm#@MON"><span class="S6">@MON</span></a><span class="S8">,</span> <span class="S3">7</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRange</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMonthCal_GetSelRange.htm"><span class="S15">_GUICtrlMonthCal_GetSelRange</span></a><span class="S8">(</span><span class="S9">$idMonthCal</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Start date: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"%02d/%02d/%04d"</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRange</span><span class="S8">,</span> <span class="S7">"MinMonth"</span><span class="S8">)</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRange</span><span class="S8">,</span> <span class="S7">"MinDay"</span><span class="S8">)</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRange</span><span class="S8">,</span> <span class="S7">"MinYear"</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"End date .: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"%02d/%02d/%04d"</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRange</span><span class="S8">,</span> <span class="S7">"MaxMonth"</span><span class="S8">)</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRange</span><span class="S8">,</span> <span class="S7">"MaxDay"</span><span class="S8">)</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRange</span><span class="S8">,</span> <span class="S7">"MaxYear"</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_GUICtrlMonthCal_GetSelRange.au3,"></object>
+</body>
+</html>

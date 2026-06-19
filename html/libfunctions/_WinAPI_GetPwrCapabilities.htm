@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetPwrCapabilities</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetPwrCapabilities</h1>
+<p class="funcdesc">Возвращает сведения о возможностях управления питанием системы.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetPwrCapabilities.htm"><span class="S15">_WinAPI_GetPwrCapabilities</span></a> <span class="S8">(</span>  <span class="S8">)</span></p>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает массив со следующими сведениями:<br />
+[0]&nbsp;– <span class="S5">True</span>, если в системе есть кнопка питания.<br />
+[1]&nbsp;– <span class="S5">True</span>, если есть кнопка перехода в спящий режим.<br />
+[2]&nbsp;– <span class="S5">True</span>, если есть датчик закрытия крышки.<br />
+[3]&nbsp;– <span class="S5">True</span>, если ОС поддерживает спящее состояние S1.<br />
+[4]&nbsp;– <span class="S5">True</span>, если ОС поддерживает спящее состояние S2.<br />
+[5]&nbsp;– <span class="S5">True</span>, если ОС поддерживает спящее состояние S3.<br />
+[6]&nbsp;– <span class="S5">True</span>, если ОС поддерживает состояние S4 (гибернация).<br />
+[7]&nbsp;– <span class="S5">True</span>, если ОС поддерживает состояние выключения S5 (программное выключение).<br />
+[8]&nbsp;– <span class="S5">True</span>, если в системе присутствует файл гибернации.<br />
+[9]&nbsp;– <span class="S5">True</span>, если система поддерживает пробуждение.<br />
+[10]&nbsp;– <span class="S5">True</span>, если система поддерживает затемнение дисплея.<br />
+[11]&nbsp;– <span class="S5">True</span>, если система поддерживает функции управления питанием APM BIOS.<br />
+[12]&nbsp;– <span class="S5">True</span>, если присутствует источник бесперебойного питания (ИБП).<br />
+[13]&nbsp;– <span class="S5">True</span>, если система поддерживает тепловые зоны.<br />
+[14]&nbsp;– <span class="S5">True</span>, если система поддерживает регулировку частоты процессора.<br />
+[15]&nbsp;– Минимальный уровень регулировки процессора, в процентах.<br />
+[16]&nbsp;– Максимальный уровень регулировки процессора, в процентах.<br />
+[17]&nbsp;– <span class="S5">True</span>, если система поддерживает гибридный спящий режим.<br />
+[18]&nbsp;– <span class="S5">True</span>, если система поддерживает отключение питания фиксированных дисков.<br />
+[19]&nbsp;– <span class="S5">True</span>, если в системе присутствует одна или несколько батарей.<br />
+[20]&nbsp;– <span class="S5">True</span>, если батареи короткоресурсные. Такие батареи используются в ИБП.<br />
+[21]&nbsp;– Минимальное состояние сна (Sx), которое генерирует событие пробуждения при питании от сети.<br />
+[22]&nbsp;– Минимальное состояние сна (Sx), которое генерирует событие пробуждения через датчик крышки.<br />
+[23]&nbsp;– Минимальное состояние сна (Sx), поддерживаемое оборудованием для пробуждения по RTC.<br />
+[24]&nbsp;– Минимальное допустимое состояние питания, поддерживающее события пробуждения.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetPwrCapabilities">GetPwrCapabilities</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">25</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S8">[</span><span class="S7">'Power button'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Sleep button'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Lid switch'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'S1'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'S2'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'S3'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'S4'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'S5'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'HIBERFIL.SYS'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Wake'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Video display dimming'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'APM BIOS'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'UPS'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Thermal zones'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Throttling'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Throttling min level'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Throttling max level'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Hibernation'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'HDD power down'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Batteries'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Batteries short-term'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'AC lowest wake state'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Lid lowest wake state'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'RTC lowest wake state'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">'Minimum device wake state'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetPwrCapabilities.htm"><span class="S15">_WinAPI_GetPwrCapabilities</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aInfo</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">,</span> <span class="S7">'_WinAPI_GetPwrCapabilities'</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_GetPwrCapabilities.au3,"></object>
+</body>
+</html>

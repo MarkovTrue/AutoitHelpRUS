@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetIconInfoEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetIconInfoEx</h1>
+<p class="funcdesc">Получает информацию об указанном значке или курсоре.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIIcons.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetIconInfoEx.htm"><span class="S15">_WinAPI_GetIconInfoEx</span></a> <span class="S8">(</span> <span class="S9">$hIcon</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hIcon</span></td>
+<td style="width:85%">Дескриптор значка или курсора. Для получения информации о стандартном значке или курсоре используйте константы <span class="S91">$OCR_*</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает массив, содержащий следующую информацию:<br />
+[0]&nbsp;- Значение 1 указывает значок; 0 указывает курсор.<br />
+[1]&nbsp;- Координата x точки привязки курсора.<br />
+[2]&nbsp;- Координата y точки привязки курсора.<br />
+[3]&nbsp;- Дескриптор точечного рисунка маски значка.<br />
+[4]&nbsp;- Дескриптор цветного точечного рисунка значка.<br />
+[5]&nbsp;- Биты ресурсов значка или курсора.<br />
+[6]&nbsp;- Полный путь модуля.<br />
+[7]&nbsp;- Полный путь ресурса.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Функция <a href="_WinAPI_GetIconInfoEx.htm"><span class="S15">_WinAPI_GetIconInfoEx</span><span class="S8">()</span></a> создаёт точечные рисунки [3] и [4].<br />
+Вызывающее приложение должно управлять этими точечными рисунками и удалять их, когда они больше не нужны.<br />
+<br />
+Эта функция требует <strong>Windows Vista или более поздней версии</strong>.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetIconInfoEx">GetIconInfoEx</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIIcons.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/Number.htm"><span class="S4">Number</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetVersion.htm"><span class="S15">_WinAPI_GetVersion</span></a><span class="S8">(</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">&lt;</span> <span class="S3">6.0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Error'</span><span class="S8">,</span> <span class="S7">'Require Windows Vista or later.'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hInstance</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LoadLibraryEx.htm"><span class="S15">_WinAPI_LoadLibraryEx</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@AutoItExe"><span class="S6">@AutoItExe</span></a><span class="S8">,</span> <span class="S9">$LOAD_LIBRARY_AS_DATAFILE</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LoadImage.htm"><span class="S15">_WinAPI_LoadImage</span></a><span class="S8">(</span><span class="S9">$hInstance</span><span class="S8">,</span> <span class="S3">99</span><span class="S8">,</span> <span class="S9">$IMAGE_ICON</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$LR_DEFAULTSIZE</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aInfo</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetIconInfoEx.htm"><span class="S15">_WinAPI_GetIconInfoEx</span></a><span class="S8">(</span><span class="S9">$hIcon</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/IsArray.htm"><span class="S4">IsArray</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'Handle: '</span> <span class="S8">&amp;</span> <span class="S9">$hIcon</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'Path:   '</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'ID:     '</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">3</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">4</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DestroyIcon.htm"><span class="S15">_WinAPI_DestroyIcon</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<a class="le" href="../libfunctions/_WinAPI_FreeLibrary.htm"><span class="S15">_WinAPI_FreeLibrary</span></a><span class="S8">(</span><span class="S9">$hInstance</span><span class="S8">)</span><br>
+<a class="le" href="../libfunctions/_WinAPI_DestroyIcon.htm"><span class="S15">_WinAPI_DestroyIcon</span></a><span class="S8">(</span><span class="S9">$hIcon</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_GetIconInfoEx.au3,"></object>
+</body>
+</html>

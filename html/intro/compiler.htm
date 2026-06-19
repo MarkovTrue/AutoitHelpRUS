@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Компиляция скриптов</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Компиляция скриптов</h1>
+  <p>Скрипт <em>.au3</em> можно скомпилировать в <strong>самостоятельный</strong> исполняемый файл; такой исполняемый файл можно запускать без установки AutoIt и без наличия <em>AutoIt3.exe</em> на машине. В процессе компиляции скрипт и его файлы <a href="../keywords/include.htm">#include</a>, а также любые файлы, добавленные через <a href="../functions/FileInstall.htm">FileInstall</a>, преобразуются в токенизированную форму, которая затем сжимается и шифруется. Так что эти дополнительные файлы во время выполнения не нужны. В зависимости от выбранной опции компиляции "<em>скомпилированный</em>" скрипт либо встраивается в ресурсы самостоятельного интерпретатора-исполняемого файла, который будет его выполнять, либо сохраняется в формате <em>.a3x</em>. Файл <em>.a3x</em> можно подключить к другому скрипту или запустить интерпретатором AutoIt – как самим <em>Autoit3.exe</em>, так и другим скомпилированным скриптом с установленным флагом <em>AutoItExecuteAllowed</em>.</p>
+  <p><strong>Внимание:</strong> компилируемый скрипт должен быть свободен от синтаксических ошибок – процесс компиляции синтаксис не проверяет.</p>
+  <p>&nbsp;</p>
+  <p>Aut2Exe можно использовать тремя способами:</p>
+  <h2>Способ 1 – меню "Пуск"</h2>
+  <p><em>Доступен только при полной установке.</em></p>
+  <p>1.&nbsp; Откройте меню "Пуск" и перейдите в группу <em>AutoIt v3</em>.</p>
+  <p>2.&nbsp; Нажмите <em>Compile Script to .exe</em>.</p>
+  <p>3.&nbsp; Появится главное окно Aut2Exe.</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../images/aut2exe.png" alt=""></p>
+  <p>4.&nbsp; С помощью кнопок <em>Browse</em> выберите входной (.au3) и выходной (.exe) файлы.</p>
+  <p>5.&nbsp; При желании можно изменить значок результирующего .exe – просто укажите нужный файл значка (несколько примеров значков лежит в <em>Program Files\AutoIt3\Aut2Exe\Icons</em>).</p>
+  <p>6.&nbsp; Единственная другая опция, которую может потребоваться изменить, – уровень сжатия (особенно если используется FileInstall для добавления файлов). Установите её через меню <em>Compression</em>. Как и во всех алгоритмах сжатия, чем выше уровень, тем медленнее работа. Однако скорость распаковки (при запуске .exe) одинакова при любом уровне сжатия.</p>
+  <p>7.&nbsp; Нажмите <em>Convert</em>, чтобы скомпилировать скрипт.</p>
+  <p><strong>Примечание:</strong> скрипты можно компилировать с расширением .a3x. Их следует запускать командой AutoIt.exe filename.a3x. Файл .a3x содержит сам скрипт со всеми <span class="S111">#include</span> и файлами FileInstall. Этот формат позволяет распространять файлы меньшего размера, поскольку в каждом скомпилированном скрипте не содержится AutoIt3.exe. Однако AutoIt3.exe должен быть доступен на целевой машине – но достаточно одного только AutoIt3.exe.</p>
+  <p>&nbsp;</p>
+  <h2>Способ 2 – контекстное меню</h2>
+  <p><em>Доступен только при полной установке.</em></p>
+  <p>1.&nbsp; В Проводнике найдите .au3-файл, который нужно скомпилировать.</p>
+  <p>2.&nbsp; Щёлкните файл правой кнопкой – откроется контекстное меню.</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../images/compile-rightclick.png" alt=""></p>
+  <p>3.&nbsp; Файл будет тихо скомпилирован с тем же именем, но расширением .exe.</p>
+  <p>В этом режиме Aut2Exe использует текущие настройки значка/сжатия (от последнего ручного запуска Aut2Exe способом 1).</p>
+  <p>&nbsp;</p>
+  <h2>Способ 3 – командная строка</h2>
+  <p>Программу <em>Aut2Exe.exe</em> можно запускать из командной строки так:</p>
+<p class="codebox">
+<span><span class="S0">Aut2exe</span><span class="S8">.</span><span class="S14">exe</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">/</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/ForInNext.htm"><span class="S5">In</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">&lt;</span></a><span class="S0"> infile</span><span class="S8">.</span><span class="S14">au3</span><span class="S0"> </span><span class="S8">&gt;[/</span><span class="S0">out </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">&lt;</span></a><span class="S0"> outfile</span><span class="S8">.</span><span class="S14">exe</span><span class="S0"> </span><span class="S8">&gt;][/</span><span class="S0">icon </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">&lt;</span></a><span class="S0"> iconfile</span><span class="S8">.</span><span class="S14">ico</span><span class="S0"> </span><span class="S8">&gt;][/</span><span class="S0">comp </span><span class="S3">0</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">-</span></a><span class="S0"> </span><span class="S3">4</span><span class="S8">][/</span><span class="S0">nopack</span><span class="S8">][/</span><span class="S0">x64</span><span class="S8">][/</span><span class="S0">bin </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">&lt;</span></a><span class="S0"> binfile</span><span class="S8">.</span><span class="S14">bin</span><span class="S0"> </span><span class="S8">&gt;]</span></span>
+</p>
+  <p>где:</p>
+  <table>
+    <tbody>
+      <tr>
+        <th>Ключ</th>
+        <th>Назначение</th>
+        <th>Значение по умолчанию</th>
+      </tr>
+      <tr>
+        <td>/in</td>
+        <td>&lt;<span class="S7">infile.au3</span>&gt; задаёт путь и имя bin-файла, используемого для компиляции файла.</td>
+        <td class="center">Нет. Файл <strong>обязателен</strong></td>
+      </tr>
+      <tr>
+        <td>/out</td>
+        <td>&lt;outfile.exe&gt; задаёт путь и имя скомпилированного файла.<br />
+        &lt;outfile.a3x&gt; задаёт путь и имя при создании файла *.a3x.</td>
+        <td class="center">Имя входного файла с расширением .exe</td>
+      </tr>
+      <tr>
+        <td>/icon</td>
+        <td>&lt;iconfile.ico&gt; задаёт путь и имя файла значка для скомпилированного файла.</td>
+        <td class="center">Значок по умолчанию</td>
+      </tr>
+      <tr>
+        <td>/comp</td>
+        <td>Задаёт уровень сжатия при кодировании скрипта (НЕ связано с UPX).<br />
+        Должно быть число от 0 (без сжатия) до 4 (максимум).</td>
+        <td class="center">2</td>
+      </tr>
+      <tr>
+        <td>/nopack</td>
+        <td>Указывает, что файл не нужно сжимать UPX после компиляции.</td>
+        <td class="center">pack</td>
+      </tr>
+      <tr>
+        <td>/pack</td>
+        <td>Указывает, что файл нужно сжать UPX после компиляции.</td>
+        <td class="center">pack</td>
+      </tr>
+      <tr>
+        <td>/x64</td>
+        <td>Указывает, что скрипт нужно компилировать для систем с архитектурой x64 (64 бита).</td>
+        <td class="center">См. примечания</td>
+      </tr>
+      <tr>
+        <td>/x86</td>
+        <td>Указывает, что скрипт нужно компилировать для систем с архитектурой x86 (32 бита).</td>
+        <td class="center">См. примечания</td>
+      </tr>
+      <tr>
+        <td>/console</td>
+        <td>Указывает, что скрипт нужно компилировать как консольное приложение.</td>
+        <td class="center">Windows-приложение (/gui)</td>
+      </tr>
+      <tr>
+        <td>/gui</td>
+        <td>Указывает, что скрипт нужно компилировать как Windows-приложение.</td>
+        <td class="center">Windows-приложение (/gui)</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Примеры командной строки</h2>
+  <p>/in c:\<span class="S7">myscript.au3</span> /out c:\myapp.exe /icon c:\myicon.ico /x64</p>
+  <p>Создаст c:\myapp.exe с обычным сжатием, заданным значком, скомпилированный для систем архитектуры x64.</p>
+  <p>/in c:\<span class="S7">myscript.au3</span></p>
+  <p>Создаст unicode-файл c:\myscript.exe с обычным сжатием, со стандартным значком AutoIt, для запуска на 32-битных системах.</p>
+  <h2>Примечания к командной строке</h2>
+  <p>Длинные имена файлов следует заключать в двойные кавычки, например "C:\Program Files\Test\<span class="S7">test.au3</span>".</p>
+  <p>За исключением /in все ключи необязательны.</p>
+  <p>По умолчанию 32-разрядный компилятор создаёт 32-разрядный исполняемый файл, а 64-разрядный – 64-разрядный. Используйте параметры /x86 и /x64 для явного указания.</p>
+  <p>Ключи /pass и /nodecompile устарели начиная с версии 3.2.8.1. Они игнорируются и удалены из этого списка.</p>
+  <p>Ключи /ansi и /unicode устарели начиная с версии 3.3.0.0.</p>
+  <p>Ключ /bin устарел начиная с версии 3.3.10.0 и удалён из этого списка.</p>
+  <h2>Технические детали</h2>
+  <p>Скомпилированный скрипт и дополнительные файлы, добавленные через FileInstall, сжимаются собственной схемой Jon.</p>
+</body>
+</html>

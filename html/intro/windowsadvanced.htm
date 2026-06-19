@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Заголовки и текст окон (расширенно)</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Заголовки и текст окон (расширенно)</h1>
+  <p>AutoIt работает в одном из трёх режимов "сопоставления окон". Режимы задаются через <a href="../functions/AutoItSetOption.htm#WinTitleMatchMode">AutoItSetOption</a> с опцией <a href="../functions/AutoItSetOption.htm#WinTitleMatchMode">WinTitleMatchMode</a>.</p>
+  <p>&nbsp;</p>
+  <p><strong>Режим 1 (по умолчанию)</strong></p>
+  <p>Совпадение по началу заголовка.</p>
+  <p>В этом режиме окно с заголовком <strong>Untitled - Notepad</strong> будет соответствовать "Untitled - Notepad", "Untitled", "Un" и т. д.</p>
+  <p>Пример:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"Untitled"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><strong>Режим 2</strong></p>
+  <p>Совпадение по любой подстроке заголовка.</p>
+  <p>В этом режиме окно с заголовком <strong>Untitled - Notepad</strong> будет соответствовать "Untitled - Notepad", "Untitled", "Notepad", "pad" и т. д.</p>
+  <p>Пример:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><strong>Режим 3</strong></p>
+  <p>Точное совпадение заголовка.</p>
+  <p>В этом режиме окно с заголовком <strong>Untitled - Notepad</strong> будет соответствовать только "Untitled - Notepad".</p>
+  <p>&nbsp;</p>
+  <p><strong>Режим 4</strong> (оставлен для обратной совместимости)</p>
+  <p>Расширенный режим.</p>
+  <p>Заменён расширенными описаниями окон, работающими в любом режиме.</p>
+  <p>&nbsp;</p>
+  <p><strong>Режимы от -1 до -4</strong></p>
+  <p>То же сопоставление, но без учёта регистра.</p>
+  <h2>Расширенные описания окон</h2>
+  <p>В качестве параметра <strong>title</strong> можно использовать специальное описание. Оно идентифицирует окно по следующим <em>свойствам</em>:</p>
+  <ul>
+    <li><strong>TITLE -</strong> заголовок окна.</li>
+    <li><strong>CLASS -</strong> внутреннее имя класса окна.</li>
+    <li><strong>REGEXPTITLE -</strong> заголовок окна, заданный <a href="../functions/StringRegExp.htm">регулярным выражением</a> (если регулярное выражение неверное, <span class="S61">@error</span> устанавливается в 2).</li>
+    <li><strong>REGEXPCLASS -</strong> имя класса окна, заданное <a href="../functions/StringRegExp.htm">регулярным выражением</a> (если регулярное выражение неверное, <span class="S61">@error</span> устанавливается в 2).</li>
+    <li><strong>LAST -</strong> последнее окно, использованное в предыдущей оконной функции AutoIt (см. функции управления окнами).</li>
+    <li><strong>ACTIVE -</strong> текущее активное окно.</li>
+    <li><strong>X</strong> \ <strong>Y</strong> \ <strong>W</strong> \ <strong>H</strong> – позиция и размер окна.</li>
+    <li><strong>INSTANCE -</strong> номер экземпляра (с 1) при совпадении всех заданных свойств.</li>
+  </ul>
+  <p>Одно или несколько свойств указываются в параметре <em>title</em> в формате:</p>
+<p class="codebox">
+<span><span class="S8">[</span><span class="S0">PROPERTY1 </span><span class="S8">:</span><span class="S0"> Value1</span><span class="S1">; PROPERTY2:Value2]</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><strong>Примечание:</strong> если значение должно содержать ";", его нужно удвоить.</p>
+  <p>Например, дождаться окна с именем класса "Notepad":</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Например, закрыть текущее активное окно:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S7">"[ACTIVE]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Например, дождаться второго экземпляра окна с заголовком "My Window" <strong>и</strong> именем класса "My Class":</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"[TITLE:My Window; CLASS:My Class; INSTANCE:2]"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Например, перечислить окна, у которых заголовок соответствует регулярному выражению:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinList.htm"><span class="S4">WinList</span></a><span class="S8">(</span><span class="S7">"[REGEXPTITLE:(?i)(.*SciTE.*|.*Internet Explorer.*)]"</span><span class="S8">)</span></span>
+</p>
+  <h2>Дескрипторы окон / HWND</h2>
+  <p>Тип variant в AutoIt нативно поддерживает дескрипторы окон (HWND). Дескриптор окна – это специальное значение, которое Windows назначает каждому окну при его создании. При наличии дескриптора его можно использовать вместо параметра title в любых функциях, использующих соглашение title/text. Преимущество в том, что если открыто несколько копий приложения с одинаковым title/text, их можно однозначно различать через дескрипторы. <strong>Когда вы передаёте дескриптор окна в качестве title, параметр text полностью игнорируется.</strong></p>
+  <p>Различные функции, например <a href="../functions/WinGetHandle.htm">WinGetHandle</a>, <a href="../functions/WinList.htm">WinList</a> и <a href="../functions/GUICreate.htm">GUICreate</a>, возвращают такие дескрипторы. Важно: дескриптор окна <strong>не</strong> классифицируется ни как число, ни как строка – у него собственный специальный тип.</p>
+  <p><strong>Примечание: дескрипторы окон работают независимо от текущего значения WinTitleMatchMode.</strong></p>
+  <p><strong>Пример</strong></p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$hWnd</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/WinGetHandle.htm"><span class="S4">WinGetHandle</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span></span>
+</p>
+</body>
+</html>

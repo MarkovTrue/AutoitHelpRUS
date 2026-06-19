@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Window Titles and Text (Basic)</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Window Titles and Text (Basic)</h1>
+  <p>When automating, most windows can be uniquely identified by their <strong>title</strong> or a combination of their <strong>title &amp; text</strong>. And by using <a href="au3spy.htm">AutoIt Window Info Tool</a> (or even by sight) this information
+  is easy to obtain. The titles of most windows are fairly obvious, for example <strong>Untitled - Notepad</strong> is the title of the notepad.exe editor and in many cases this is enough to automate.</p>
+  <p>&nbsp;</p>
+  <p><strong>Note: If a blank string "" is given for both <em>title</em> and <em>text</em> then the currently <em>Active</em> window will be used (this is not true in some of the more advanced <a href=
+  "../functions/AutoItSetOption.htm#WinTitleMatchMode">WinTitleMatchModes</a>)!</strong></p>
+  <p>&nbsp;</p>
+  <p>Window titles and text are <strong>case sensitive</strong>. You must match the case and punctuation exactly. To avoid problems select the title/text in the Window Info Tool and use <strong>ctrl-c</strong> to copy it and then paste it directly into
+  your script.<br />
+  You can force match in lower case using <strong><a href="windowsadvanced.htm">advanced modes</a></strong>.</p>
+  <p>&nbsp;</p>
+  <p>Most of AutoIt's window functions have space for a title and text entry, here is the WinWaitActive function. This function pauses execution of the script <em><strong>until</strong></em> the specified window appears and is active.</p>
+  <p class="codeheader">WinWaitActive ( "title" [, "text" [, timeout]] )<br /></p>
+  <p>&nbsp;</p>
+  <a id="specialtext"></a>
+  <p>The only required parameter for this function is <em><strong>title</strong></em>. However, the <em><strong>text</strong></em> and <em><strong>timeout</strong></em> parameters are optional. In some functions, the <em><strong>text</strong></em>
+  parameter is not optional. If you do not wish to specify any text then just use <strong>""</strong> (a blank string). A blank string, or nothing at all, in the <em><strong>text</strong></em> tells AutoIt that any text is valid.</p>
+  <p>&nbsp;</p>
+  <p>To use the above function with any notepad window both these methods will work:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span></span>
+</p>
+  <p>and</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>If the same notepad window had, "This is some text!" typed into the window, the <a href="au3spy.htm">Window Info Tool</a> would show:</p>
+  <p>&nbsp;</p>
+  <p><img src="../images/au3spy_notepad.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Note that the Window Info Tool has <em><strong>seen</strong></em> the title and text of the notepad window. Whatever the Window Info Tool can see is what AutoIt can see. Now we have enough information to identify this exact window even if there are
+  lots of other notepad windows open. In this case we use:</p>
+  <p>&nbsp;</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This is some text!"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <h2>Window Text</h2>
+  <p>The window text consists of all the text that AutoIt can "see". This will usually be things like the contents of edit controls (as above with "This is some text!") but will also include other text like:</p>
+  <ul>
+    <li>Button text like &amp;Yes, &amp;No, &amp;Next (the &amp; indicates an underlined letter)</li>
+    <li>Dialog text like "Are you sure you wish to continue?"</li>
+    <li>Control text</li>
+    <li>Misc text - sometimes you don't know what it is :)</li>
+  </ul>
+  <p>The important thing is that you can use the text along with the title to uniquely identify a window to work with.</p>
+  <p>When you specify the <em><strong>text</strong></em> parameter in a window function it is treated as a substring. So for the example above if you used the text "is some " you would get a match.</p>
+  <p>&nbsp;</p>
+  <p>What has been described is the <em>default</em> mode in which AutoIt operates. There are a number of more <a href="windowsadvanced.htm">advanced modes</a> to use when things are not as simple as this.</p>
+  <p>&nbsp;</p><strong>Note:</strong> Hidden windows can be matched by "title" only if "text" is empty ("").
+</body>
+</html>

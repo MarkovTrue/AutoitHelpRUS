@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Заголовки и текст окон (основы)</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Заголовки и текст окон (основы)</h1>
+  <p>При автоматизации большинство окон можно однозначно идентифицировать по <strong>заголовку</strong> или сочетанию <strong>заголовка и текста</strong>. С помощью <a href="au3spy.htm">AutoIt Window Info Tool</a> (или просто на глаз) эту информацию легко получить. Заголовки большинства окон вполне очевидны: например, <strong>Безымянный – Блокнот</strong> – это заголовок редактора notepad.exe, и часто этого достаточно для автоматизации.</p>
+  <p>&nbsp;</p>
+  <p><strong>Примечание: если для параметров <em>title</em> и <em>text</em> передать пустую строку "", будет использоваться текущее <em>активное</em> окно (в некоторых более продвинутых режимах <a href="../functions/AutoItSetOption.htm#WinTitleMatchMode">WinTitleMatchModes</a> это правило не работает)!</strong></p>
+  <p>&nbsp;</p>
+  <p>Заголовки окон и текст <strong>чувствительны к регистру</strong>. Регистр и пунктуация должны совпадать в точности. Чтобы избежать ошибок, выделите заголовок/текст в Window Info Tool и скопируйте через <strong>ctrl-c</strong>, затем вставьте прямо в скрипт.<br />
+  Можно принудительно проверять совпадение в нижнем регистре через <strong><a href="windowsadvanced.htm">расширенные режимы</a></strong>.</p>
+  <p>&nbsp;</p>
+  <p>В большинстве оконных функций AutoIt есть параметры для заголовка и текста, например функция WinWaitActive. Эта функция приостанавливает выполнение скрипта, <em><strong>пока</strong></em> не появится и не станет активным указанное окно.</p>
+  <p class="codeheader">WinWaitActive ( "title" [, "text" [, timeout]] )<br /></p>
+  <p>&nbsp;</p>
+  <a id="specialtext"></a>
+  <p>Единственный обязательный параметр – <em><strong>title</strong></em>. Параметры <em><strong>text</strong></em> и <em><strong>timeout</strong></em> необязательны. В некоторых функциях параметр <em><strong>text</strong></em> не является необязательным. Если не нужно указывать текст, передайте просто <strong>""</strong> (пустую строку). Пустая строка или вообще отсутствие текста в параметре <em><strong>text</strong></em> означает, что любой текст подходит.</p>
+  <p>&nbsp;</p>
+  <p>Использовать функцию выше для любого окна Notepad можно обоими способами:</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span></span>
+</p>
+  <p>и</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>Если в это окно Notepad набран текст "This is some text!", <a href="au3spy.htm">Window Info Tool</a> покажет:</p>
+  <p>&nbsp;</p>
+  <p><img src="../images/au3spy_notepad.png" alt=""></p>
+  <p>&nbsp;</p>
+  <p>Обратите внимание, что Window Info Tool "<em><strong>видит</strong></em>" заголовок и текст окна Notepad. Всё, что видит Window Info Tool, видит и AutoIt. Теперь у нас достаточно информации, чтобы однозначно идентифицировать именно это окно, даже если открыто много других окон Notepad. В этом случае используем:</p>
+  <p>&nbsp;</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This is some text!"</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+  <h2>Текст окна</h2>
+  <p>Текст окна – это весь текст, который "видит" AutoIt. Обычно это содержимое контролов edit (как выше с "This is some text!"), но также включает другой текст:</p>
+  <ul>
+    <li>Текст кнопок: &amp;Да, &amp;Нет, &amp;Далее (символ &amp; обозначает подчёркнутую букву).</li>
+    <li>Текст диалогов: "Вы уверены, что хотите продолжить?".</li>
+    <li>Текст контролов.</li>
+    <li>Прочий текст – иногда непонятно, откуда он :)</li>
+  </ul>
+  <p>Главное – вы можете использовать текст вместе с заголовком, чтобы однозначно идентифицировать окно.</p>
+  <p>Параметр <em><strong>text</strong></em> в оконных функциях рассматривается как подстрока. Поэтому в примере выше если передать "is some ", совпадение будет найдено.</p>
+  <p>&nbsp;</p>
+  <p>Описанное – это <em>режим по умолчанию</em>, в котором работает AutoIt. Существует ряд более <a href="windowsadvanced.htm">расширенных режимов</a> для случаев, когда всё не так просто.</p>
+  <p>&nbsp;</p><strong>Примечание:</strong> скрытые окна можно сопоставлять только по "title", если "text" пуст ("").
+</body>
+</html>

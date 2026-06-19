@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinNet_GetUniversalName</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinNet_GetUniversalName</h1>
+<p class="funcdesc">Converts drived based path to universal form<br /></p>
+<p class="codeheader">
+#include &lt;WinNet.au3&gt;<br />
+_WinNet_GetUniversalName ( $sLocalPath )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$sLocalPath</td>
+<td style="width:85%">Drive based path for a network resource</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">an array with the following format:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aPath[0]&nbsp;- UNC name string that identifies a network resource<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aPath[1]&nbsp;- Name of the network connection<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$aPath[2]&nbsp;- Remaining path string</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>sets the @error flag to non-zero.</td>
+</tr>
+</table>
+
+<h2>See Also</h2>
+<p>Search <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(WNetGetUniversalName);k(DevLang-C);k(TargetOS-WINDOWS)&rd=true">WNetGetUniversalName</a> in MSDN  Library.
+</p>
+
+</body>
+</html>

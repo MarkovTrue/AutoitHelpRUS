@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_SetWindowTheme</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_SetWindowTheme</h1>
+<p class="funcdesc">Указывает окну использовать визуальный стиль, отличный от штатного для его класса.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPITheme.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sName</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sList</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hWnd</span></td>
+<td style="width:85%">Дескриптор окна.</td>
+</tr>
+<tr>
+<td><span class="S91">$sName</span></td>
+<td><strong>[необязательный]</strong> Строка с именем приложения. Если параметр равен 0 (по умолчанию), используется имя вызывающего приложения.</td>
+</tr>
+<tr>
+<td><span class="S91">$sList</span></td>
+<td><strong>[необязательный]</strong> Строка, содержащая список имён CLSID, разделённых точкой с запятой, для использования вместо фактического списка,<br />
+передаваемого классом окна. Если параметр равен 0 (по умолчанию), используется список ID из вызывающего класса.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>Может содержать код ошибки HRESULT.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Менеджер тем сохраняет связки <span class="S91">$sName</span> и <span class="S91">$sList</span> в течение всего времени жизни окна, даже<br />
+если визуальные стили затем поменяются.<br />
+<br />
+Если <span class="S91">$sName</span> и <span class="S91">$sList</span> равны Default, менеджер тем удаляет ранее заданные связки.<br />
+Чтобы запретить применение визуальных стилей к конкретному окну, добавьте <a class="le" href="_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><span class="S91">$hWnd</span>, "", ""<span class="S8">)</span> – такие имена не совпадут ни с одной секцией.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetWindowTheme">SetWindowTheme</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPITheme.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/Number.htm"><span class="S4">Number</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetVersion.htm"><span class="S15">_WinAPI_GetVersion</span></a><span class="S8">(</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">&lt;</span> <span class="S3">6.0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Error'</span><span class="S8">,</span> <span class="S7">'Require Windows Vista or later.'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">332</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idListview</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">(</span><span class="S7">'Column 1|Column 2|Column 3|Column 4'</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">312</span><span class="S8">,</span> <span class="S3">380</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">9</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">'Item '</span> <span class="S8">&amp;</span> <span class="S9">$i</span> <span class="S8">&amp;</span> <span class="S7">'|'</span> <span class="S8">&amp;</span> <span class="S7">'Sub '</span> <span class="S8">&amp;</span> <span class="S9">$i</span> <span class="S8">&amp;</span> <span class="S7">'|'</span> <span class="S8">&amp;</span> <span class="S7">'Sub '</span> <span class="S8">&amp;</span> <span class="S9">$i</span> <span class="S8">&amp;</span> <span class="S7">'|'</span> <span class="S8">&amp;</span> <span class="S7">'Sub '</span> <span class="S8">&amp;</span> <span class="S9">$i</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<br>
+<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idListview</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Explorer'</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
+<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_SetWindowTheme.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="S1">; == Example 2 - use of  "", "" or _WinAPI_SetThemeAppProperties(0) to color Checkbox or Radio
+</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;APIThemeConstants.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPITheme.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"_WinAPI_SetWindowTheme (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">430</span><span class="S8">,</span> <span class="S3">240</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">' ThemeAppProperties = "'</span> <span class="S8">&amp;</span> <span class="S0">GetThemeAppPropertiesToString</span><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">'"'</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">420</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">" No Color"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S3">30</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">" Set color by AutoIt"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetColor.htm"><span class="S4">GUICtrlSetColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0xFF0000</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">" Set Window Theme no param"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetColor.htm"><span class="S4">GUICtrlSetColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0xFF0000</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">" Set Window Theme with Default, Default"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetColor.htm"><span class="S4">GUICtrlSetColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0xFF0000</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">' Set Window Theme "", "" MSDN'</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetColor.htm"><span class="S4">GUICtrlSetColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0xFF0000</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">" Set Window Theme with  Null, Null"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><span class="S8">,</span> <span class="S5">Null</span><span class="S8">,</span> <span class="S5">Null</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetColor.htm"><span class="S4">GUICtrlSetColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0xFF00FF</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">" Set Window Theme with  0, 0 &gt;&gt;&gt; 0 = Null &gt;&gt;&gt; "</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetColor.htm"><span class="S4">GUICtrlSetColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0xFF00FF</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetThemeAppProperties.htm"><span class="S15">_WinAPI_SetThemeAppProperties</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">' ThemeAppProperties after SetThemeAppProperties(0) = "'</span> <span class="S8">&amp;</span> <span class="S0">GetThemeAppPropertiesToString</span><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">'"'</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">420</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">" Set color by AutoIt with _WinAPI_SetThemeAppProperties(0)"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetColor.htm"><span class="S4">GUICtrlSetColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0xFF0000</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">&lt;&gt;</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">50</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIDelete.htm"><span class="S4">GUIDelete</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">GetThemeAppPropertiesToString</span><span class="S8">(</span><span class="S9">$iProperties</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iProperties</span> <span class="S8">=</span> <span class="S5">Default</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$iProperties</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetThemeAppProperties.htm"><span class="S15">_WinAPI_GetThemeAppProperties</span></a><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sProperties</span> <span class="S8">=</span> <span class="S7">""</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAnd</span></a><span class="S8">(</span><span class="S9">$iProperties</span><span class="S8">,</span> <span class="S9">$STAP_ALLOW_CONTROLS</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sProperties</span> <span class="S8">&amp;=</span> <span class="S7">"STAP_ALLOW_CONTROLS,"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAnd</span></a><span class="S8">(</span><span class="S9">$iProperties</span><span class="S8">,</span> <span class="S9">$STAP_ALLOW_NONCLIENT</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sProperties</span> <span class="S8">&amp;=</span> <span class="S7">"STAP_ALLOW_NONCLIENT,"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAnd</span></a><span class="S8">(</span><span class="S9">$iProperties</span><span class="S8">,</span> <span class="S9">$STAP_ALLOW_WEBCONTENT</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sProperties</span> <span class="S8">&amp;=</span> <span class="S7">"$STAP_ALLOW_WEBCONTENT,"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../functions/StringTrimRight.htm"><span class="S4">StringTrimRight</span></a><span class="S8">(</span><span class="S9">$sProperties</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;GetThemeAppPropertiesToString
+</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">NextHeight</span><span class="S8">(</span><span class="S9">$iInit</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Static.htm"><span class="S5">Static</span></a> <span class="S9">$iNext</span> <span class="S8">=</span> <span class="S3">0</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iInit</span> <span class="S8">=</span> <span class="S5">Default</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iNext</span> <span class="S8">+=</span> <span class="S3">20</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iNext</span> <span class="S8">=</span> <span class="S9">$iInit</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$iNext</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_SetWindowTheme[2].au3,"></object>
+</body>
+</html>

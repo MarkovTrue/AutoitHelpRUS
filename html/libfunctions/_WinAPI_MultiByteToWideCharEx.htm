@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_MultiByteToWideCharEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_MultiByteToWideCharEx</h1>
+<p class="funcdesc">Отображает строку символов на строку расширенных символов (Unicode).</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIConv.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_MultiByteToWideCharEx.htm"><span class="S15">_WinAPI_MultiByteToWideCharEx</span></a> <span class="S8">(</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$pText</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iCodePage</span> <span class="S8">=</span> <span class="S9">$CP_ACP</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sText</span></td>
+<td style="width:85%">Текст для преобразования.</td>
+</tr>
+<tr>
+<td><span class="S91">$pText</span></td>
+<td>Указатель на байтовую структуру, в которой будет сохранена преобразованная строка.</td>
+</tr>
+<tr>
+<td><span class="S91">$iCodePage</span></td>
+<td><strong>[необязательный]</strong> Задаёт кодовую страницу, используемую для выполнения преобразования:<br />
+<span class="S91">$CP_ACP</span> (0) – текущая кодовая страница Windows ANSI системы<br />
+<span class="S91">$CP_OEM</span> (1) – текущая кодовая страница OEM системы<br />
+<span class="S91">$CP_MACCP</span> (2) – текущая кодовая страница Macintosh системы.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> Флаги, указывающие на перевод в предварительно составленные или составные широкие символы:<br />
+<span class="S91">$MB_PRECOMPOSED</span> – всегда использовать предварительно составленные символы<br />
+<span class="S91">$MB_COMPOSITE</span> – всегда использовать составные символы<br />
+<span class="S91">$MB_USEGLYPHCHARS</span> – использовать глифовые символы вместо управляющих символов<br />
+<span class="S91">$MB_ERR_INVALID_CHARS</span> – завершить работу, если встречен недопустимый входной символ.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Байтовая структура должна быть по крайней мере в два раза больше длины <span class="S91">$sText</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_MultiByteToWideChar.htm">_WinAPI_MultiByteToWideChar</a></p>
+
+</body>
+</html>

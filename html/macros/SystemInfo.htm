@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Макросы системной информации</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Макросы системной информации</h1>
+  <p>Ниже приведён список макросов системной информации.</p>
+  <p>Полный список макросов – <a href="../macros.htm">здесь</a>.</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th>Макрос</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a id="@CPUArch"></a><strong><span class="S61">@CPUArch</span></strong></td>
+      <td>Возвращает "X86" для 32-битного и "X64" для 64-битного процессора.</td>
+    </tr>
+    <tr>
+      <td><a id="@KBLayout"></a><strong><span class="S61">@KBLayout</span></strong></td>
+      <td>Возвращает код раскладки клавиатуры. Возможные значения – в <a href="../appendix/OSLangCodes.htm">Приложении</a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@MUILang"></a><strong><span class="S61">@MUILang</span></strong></td>
+      <td>Возвращает код многоязычного интерфейса, если доступен (Vista поддерживает по умолчанию). Возможные значения – в <a href="../appendix/OSLangCodes.htm">Приложении</a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@OSArch"></a><strong><span class="S61">@OSArch</span></strong></td>
+      <td>Возвращает одно из значений: "X86", "IA64", "X64" – архитектура работающей операционной системы.</td>
+    </tr>
+    <tr>
+      <td><a id="@OSLang"></a><strong><span class="S61">@OSLang</span></strong></td>
+      <td>Возвращает код языка операционной системы. Возможные значения – в <a href="../appendix/OSLangCodes.htm">Приложении</a>.</td>
+    </tr>
+    <tr>
+      <td><a id="@OSType"></a><strong><span class="S61">@OSType</span></strong></td>
+      <td>Возвращает "WIN32_NT" для XP/2003/Vista/2008/Win7/2008R2/Win8/2012/Win8.1/2012R2.</td>
+    </tr>
+    <tr>
+      <td><a id="@OSVersion"></a><strong><span class="S61">@OSVersion</span></strong></td>
+      <td>Возвращает одно из значений: "WIN_11", "WIN_10", "WIN_81", "WIN_8", "WIN_7", "WIN_VISTA", "WIN_XP", "WIN_XPe",<br />
+      &nbsp; &nbsp; для серверных ОС: "WIN_2019", "WIN_2022", "WIN_2016", "WIN_2012R2", "WIN_2012", "WIN_2008R2", "WIN_2008", "WIN_2003".</td>
+    </tr>
+    <tr>
+      <td><a id="@OSBuild"></a><strong><span class="S61">@OSBuild</span></strong></td>
+      <td>Возвращает номер сборки ОС. Например, для Windows 2003 Server возвращает 3790.</td>
+    </tr>
+    <tr>
+      <td><a id="@OSServicePack"></a><strong><span class="S61">@OSServicePack</span></strong></td>
+      <td>Информация о пакете обновлений в виде "Service Pack 3".</td>
+    </tr>
+    <tr>
+      <td><a id="@ComputerName"></a><strong><span class="S61">@ComputerName</span></strong></td>
+      <td>Сетевое имя компьютера.</td>
+    </tr>
+    <tr>
+      <td><a id="@UserName"></a><strong><span class="S61">@UserName</span></strong></td>
+      <td>ID текущего вошедшего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@IPAddress1"></a><strong><span class="S61">@IPAddress1</span></strong></td>
+      <td>IP-адрес первого сетевого адаптера. На некоторых компьютерах часто возвращает 127.0.0.1.</td>
+    </tr>
+    <tr>
+      <td><a id="@IPAddress2"></a><strong><span class="S61">@IPAddress2</span></strong></td>
+      <td>IP-адрес второго сетевого адаптера. Возвращает 0.0.0.0, если адаптер отсутствует.</td>
+    </tr>
+    <tr>
+      <td><a id="@IPAddress3"></a><strong><span class="S61">@IPAddress3</span></strong></td>
+      <td>IP-адрес третьего сетевого адаптера. Возвращает 0.0.0.0, если адаптер отсутствует.</td>
+    </tr>
+    <tr>
+      <td><a id="@IPAddress4"></a><strong><span class="S61">@IPAddress4</span></strong></td>
+      <td>IP-адрес четвёртого сетевого адаптера. Возвращает 0.0.0.0, если адаптер отсутствует.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td><a id="@DesktopHeight"></a><strong><span class="S61">@DesktopHeight</span></strong></td>
+      <td>Высота основного дисплея в пикселях (вертикальное разрешение).</td>
+    </tr>
+    <tr>
+      <td><a id="@DesktopWidth"></a><strong><span class="S61">@DesktopWidth</span></strong></td>
+      <td>Ширина основного дисплея в пикселях (горизонтальное разрешение).</td>
+    </tr>
+    <tr>
+      <td><a id="@DesktopDepth"></a><strong><span class="S61">@DesktopDepth</span></strong></td>
+      <td>Глубина цвета основного дисплея в бит/пикс.</td>
+    </tr>
+    <tr>
+      <td><a id="@DesktopRefresh"></a><strong><span class="S61">@DesktopRefresh</span></strong></td>
+      <td>Частота обновления основного дисплея в герцах.</td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Running under Windows 64-bit Edition</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Running under Windows 64-bit Edition</h1>
+  <p>AutoIt has traditionally been a 32-bit application. With the v3.2.10.0 release, native x64 versions of some components have been added, including:</p>
+  <ul>
+    <li>AutoIt (AutoIt3_x64.exe)</li>
+    <li>Aut2Exe (Aut2Exe_x64.exe)</li>
+    <li>Au3Info (Au3Info_x64.exe)</li>
+    <li>AutoItX (AutoItX3_x64.dll)</li>
+  </ul>
+  <p>During installation, if AutoIt is found to be running on an x64 system then you will be given the choice to install and configure the x64 versions. These versions are fully x64 compatible, however, some scripts that use <a href=
+  "../functions/DllCall.htm">DllCall</a>/<a href="../functions/DllStructCreate.htm">DllStruct</a> with custom structures may use values that break 64-bit compatibility (such as using 32-bit integers for pointers).<br /></p>
+  <p>You can run the x86 version of AutoIt by right-clicking a script and selecting "Run Script (x86)".</p>
+  <p>To see if you are running under a x64 edition of Windows use @OSArch macro, like-wise to see if you are using the 32-bit or 64-bit version of AutoIt use @AutoItX64.</p>
+  <h2>Running the 32-bit version of AutoIt on a x64 System</h2>
+  <p>For Files, Windows has a special redirection mechanism for some system directories :</p>
+  <table>
+    <tbody>
+      <tr>
+        <th>Directories</th>
+        <th>32-bit Value</th>
+        <th>64-bit Value</th>
+      </tr>
+      <tr>
+        <td>@SystemDir</td>
+        <td>@WindowsDir &amp; "\System32"</td>
+        <td>@WindowsDir &amp; "\SYSWOW64"</td>
+      </tr>
+      <tr>
+        <td>@ProgramFilesDir</td>
+        <td>{SystemDrive} &amp; "\Program Files (x86)"</td>
+        <td>{SystemDrive} &amp; "\Program Files"</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>It's possible to access the 64-bit version of those directories by disabling the redirection mechanism.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;WinAPIFiles.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../libfunctions/_WinAPI_Wow64EnableWow64FsRedirection.htm"><span class="S15">_WinAPI_Wow64EnableWow64FsRedirection</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../keywords/Booleans.htm"><span class="S5">True</span></a><span class="S8">)</span></span>
+</p>
+  <p>Additional information can be found at <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winprog64/winprog64/file_system_redirector.asp">MSDN</a>.</p>
+  <p>For registry interaction, use HKCR64 or HKLM64 to bypass the redirection mechanism see Registry Functions documentation.</p>
+</body>
+</html>

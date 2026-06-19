@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _FileListToArrayRec</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_FileListToArrayRec</h1>
+<p class="funcdesc">Возвращает список файлов и/или папок по заданному пути с опциональным рекурсивным обходом до указанной глубины, сортировкой результата и поддержкой масок.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;File.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a> <span class="S8">(</span> <span class="S9">$sFilePath</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sMask</span> <span class="S8">=</span> <span class="S7">"*"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iReturn</span> <span class="S8">=</span> <span class="S9">$FLTAR_FILESFOLDERS</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iRecur</span> <span class="S8">=</span> <span class="S9">$FLTAR_NORECUR</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iSort</span> <span class="S8">=</span> <span class="S9">$FLTAR_NOSORT</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iReturnPath</span> <span class="S8">=</span> <span class="S9">$FLTAR_RELPATH</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$sFilePath</span></td>
+<td style="width:85%">Начальный путь для построения списка файлов.<br />
+Если путь заканчивается на \, папки в результате тоже будут с завершающим \.<br />
+Если длина пути &gt; 260 символов, добавьте перед ним префикс "\\?\" – возвращаемые пути при этом не меняются.</td>
+</tr>
+<tr>
+<td><span class="S91">$sMask</span></td>
+<td><strong>[необязательный]</strong> Фильтр результата. Несколько фильтров разделяются символом ";".<br />
+Символ "|" разделяет три возможных набора фильтров: "Include|Exclude|Exclude_Folders"<br />
+Include – включаемые файлы/папки (по умолчанию "*" [все])<br />
+Exclude – исключаемые файлы/папки (по умолчанию "" [нет])<br />
+Exclude_Folders – применяется только при <span class="S91">$iRecur</span> = 1 И <span class="S91">$iReturn</span> &lt;&gt; 2 для исключения указанных папок (по умолчанию "" [нет]).</td>
+</tr>
+<tr>
+<td><span class="S91">$iReturn</span></td>
+<td><strong>[необязательный]</strong> Определяет, что включить в результат: файлы, папки или и то и другое; позволяет исключить объекты с определёнными атрибутами<br />
+<span class="S91">$FLTAR_FILESFOLDERS</span> (0) – (по умолчанию) файлы и папки<br />
+<span class="S91">$FLTAR_FILES</span> (1) – только файлы<br />
+<span class="S91">$FLTAR_FOLDERS</span> (2) – только папки<br />
+Добавьте к <span class="S91">$iReturn</span> одно или несколько значений для исключения объектов с соответствующими атрибутами:<br />
++ <span class="S91">$FLTAR_NOHIDDEN</span> (4) – скрытые файлы и папки<br />
++ <span class="S91">$FLTAR_NOSYSTEM</span> (8) – системные файлы и папки<br />
++ <span class="S91">$FLTAR_NOLINK</span> (16) – папки-ссылки/точки соединения.</td>
+</tr>
+<tr>
+<td><span class="S91">$iRecur</span></td>
+<td><strong>[необязательный]</strong> Определяет, выполнять ли рекурсивный поиск в подпапках и до какого уровня<br />
+<span class="S91">$FLTAR_NORECUR</span> (0) – не искать в подпапках (по умолчанию)<br />
+<span class="S91">$FLTAR_RECUR</span> (1) – искать во всех подпапках (без ограничения глубины)<br />
+Отрицательное целое – поиск в подпапках до указанной глубины.</td>
+</tr>
+<tr>
+<td><span class="S91">$iSort</span></td>
+<td><strong>[необязательный]</strong> Сортировка результата по алфавиту и глубине вложения<br />
+<span class="S91">$FLTAR_NOSORT</span> (0) – без сортировки (по умолчанию)<br />
+<span class="S91">$FLTAR_SORT</span> (1) – с сортировкой<br />
+<span class="S91">$FLTAR_FASTSORT</span> (2) – быстрый алгоритм сортировки (предполагает, что файлы в папке уже отсортированы; требует NTFS, результат не гарантирован).</td>
+</tr>
+<tr>
+<td><span class="S91">$iReturnPath</span></td>
+<td><strong>[необязательный]</strong> Формат пути в результате<br />
+<span class="S91">$FLTAR_NOPATH</span> (0) – только имя файла/папки<br />
+<span class="S91">$FLTAR_RELPATH</span> (1) – относительный путь от начального (по умолчанию)<br />
+<span class="S91">$FLTAR_FULLPATH</span> (2) – полный путь.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает одномерный массив следующего вида:<br />
+[0]&nbsp;= количество найденных файлов/папок<br />
+[1]&nbsp;= 1-й файл/папка<br />
+[2]&nbsp;= 2-й файл/папка<br />
+...<br />
+[n]&nbsp;= n-й файл/папка</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Пустую строку; <span class="S61">@error</span> = 1, <span class="S61">@extended</span> содержит код ошибки:<br />
+1&nbsp;– путь не найден или недопустим<br />
+2&nbsp;– недопустимый параметр Include<br />
+3&nbsp;– недопустимый параметр Exclude<br />
+4&nbsp;– недопустимый параметр Exclude_Folders<br />
+5&nbsp;– недопустимый параметр <span class="S91">$iReturn</span><br />
+6&nbsp;– недопустимый параметр <span class="S91">$iRecur</span><br />
+7&nbsp;– недопустимый параметр <span class="S91">$iSort</span><br />
+8&nbsp;– недопустимый параметр <span class="S91">$iReturnPath</span><br />
+9&nbsp;– файлы/папки не найдены</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Если все искомые файлы и/или папки находятся в одной папке и могут быть выбраны простым фильтром, лучше воспользоваться <a href="_FileListToArray.htm"><span class="S15">_FileListToArray</span><span class="S8">()</span></a> – она работает значительно быстрее.<br />
+<br />
+Логика фильтров Include/Exclude/Exclude_Folders:<br />
+&nbsp;&nbsp;&nbsp; Нерекурсивный режим:<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Include/Exclude: файлы и/или папки<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Exclude_Folders: игнорируется<br />
+&nbsp;&nbsp;&nbsp; Рекурсивный режим:<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Include/Exclude:<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="S91">$iReturn</span> = <span class="S91">$FLTAR_FILESFOLDERS</span>/<span class="S91">$FLTAR_FILES</span> – только файлы<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="S91">$iReturn</span> = <span class="S91">$FLTAR_FOLDERS</span> – только папки<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Exclude_Folders:<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="S91">$iReturn</span> = <span class="S91">$FLTAR_FILESFOLDERS</span>/<span class="S91">$FLTAR_FILES</span> – только папки<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="S91">$iReturn</span> = <span class="S91">$FLTAR_FOLDERS</span> – игнорируется<br />
+<br />
+Сортировка результата существенно увеличивает время работы UDF.<br />
+<br />
+Несмотря на название, эта UDF является итеративной, а не рекурсивной. Константы определены в <span class="S7">FileConstants.au3</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_FileListToArray.htm">_FileListToArray</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;File.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sAutoItDir</span> <span class="S8">=</span> <a class="le" href="../functions/StringLeft.htm"><span class="S4">StringLeft</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@AutoItExe"><span class="S6">@AutoItExe</span></a><span class="S8">,</span> <a class="le" href="../functions/StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@AutoItExe"><span class="S6">@AutoItExe</span></a><span class="S8">,</span> <span class="S7">"\"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/StringRight.htm"><span class="S4">StringRight</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span> <span class="S8">=</span> <span class="S7">"beta\"</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sAutoItDir</span> <span class="S8">=</span> <a class="le" href="../functions/StringTrimRight.htm"><span class="S4">StringTrimRight</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отсортированный список всех файлов и папок установки AutoIt.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"*"</span><span class="S8">,</span> <span class="S9">$FLTAR_FILESFOLDERS</span><span class="S8">,</span> <span class="S9">$FLTAR_RECUR</span><span class="S8">,</span> <span class="S9">$FLTAR_SORT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Sorted tree"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; То же самое, но без папки "Include".
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"*||include"</span><span class="S8">,</span> <span class="S9">$FLTAR_FILESFOLDERS</span><span class="S8">,</span> <span class="S9">$FLTAR_RECUR</span><span class="S8">,</span> <span class="S9">$FLTAR_SORT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"No 'Include' folder"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отсортированный список всех файлов в папке \AutoIt3, кроме .exe.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"*|*.exe"</span><span class="S8">,</span> <span class="S9">$FLTAR_FILES</span><span class="S8">,</span> <span class="S9">$FLTAR_NORECUR</span><span class="S8">,</span> <span class="S9">$FLTAR_SORT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Non .EXE files"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; А вот те самые .exe-файлы, которые были исключены в прошлый раз.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"*.exe"</span><span class="S8">,</span> <span class="S9">$FLTAR_FILES</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">".EXE Files"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Поиск по всему дереву папок: только .exe-файлы и папки, исключая папки, начинающиеся с I (Icons и Include).
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"*.exe||i*"</span><span class="S8">,</span> <span class="S9">$FLTAR_FILESFOLDERS</span><span class="S8">,</span> <span class="S9">$FLTAR_RECUR</span><span class="S8">,</span> <span class="S9">$FLTAR_SORT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Recur with filter"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Поиск файлов иконок, исключая папку "Icons".
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"*.ico||ic*"</span><span class="S8">,</span> <span class="S9">$FLTAR_FILES</span><span class="S8">,</span> <span class="S9">$FLTAR_RECUR</span><span class="S8">,</span> <span class="S9">$FLTAR_SORT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Ooops!"</span><span class="S8">,</span> <span class="S7">"No ico files found"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Icon files not in 'Icons' folder"</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показывает, что фильтр применяется к файлам И папкам в нерекурсивном режиме.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"*.exe"</span><span class="S8">,</span> <span class="S9">$FLTAR_FILESFOLDERS</span><span class="S8">,</span> <span class="S9">$FLTAR_NORECUR</span><span class="S8">,</span> <span class="S9">$FLTAR_SORT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Non-recur with filter"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Фильтр применяется и к папкам при рекурсивном поиске папок.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"Icons"</span><span class="S8">,</span> <span class="S9">$FLTAR_FOLDERS</span><span class="S8">,</span> <span class="S9">$FLTAR_RECUR</span><span class="S8">,</span> <span class="S9">$FLTAR_SORT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Folder recur with filter"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Параметр exclude_folder игнорируется при поиске папок – "Icons" будет исключена, а "Include" останется.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S9">$sAutoItDir</span><span class="S8">,</span> <span class="S7">"*|ic*|i*"</span><span class="S8">,</span> <span class="S9">$FLTAR_FOLDERS</span><span class="S8">,</span> <span class="S9">$FLTAR_RECUR</span><span class="S8">,</span> <span class="S9">$FLTAR_SORT</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"'Icons' out - 'Include' in"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Корень C:\Windows: скрытые и системные папки включены.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S7">"C:\Windows\"</span><span class="S8">,</span> <span class="S7">"*"</span><span class="S8">,</span> <span class="S9">$FLTAR_FOLDERS</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Show hidden folders"</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Корень C:\Windows: скрытые и системные папки исключены.
+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArrayRec.htm"><span class="S15">_FileListToArrayRec</span></a><span class="S8">(</span><span class="S7">"C:\Windows\"</span><span class="S8">,</span> <span class="S7">"*"</span><span class="S8">,</span> <span class="S9">$FLTAR_FOLDERS</span> <span class="S8">+</span> <span class="S9">$FLTAR_NOHIDDEN</span> <span class="S8">+</span> <span class="S9">$FLTAR_NOSYSTEM</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Hide hidden folders"</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_FileListToArrayRec.au3,"></object>
+</body>
+</html>

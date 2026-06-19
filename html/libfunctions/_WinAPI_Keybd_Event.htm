@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_Keybd_Event</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_Keybd_Event</h1>
+<p class="funcdesc">Синтезирует нажатие клавиши.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_Keybd_Event.htm"><span class="S15">_WinAPI_Keybd_Event</span></a> <span class="S8">(</span> <span class="S9">$vKey</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iScanCode</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iExtraInfo</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$vKey</span></td>
+<td style="width:85%">Код виртуальной клавиши (<span class="S91">$VK_*</span>). Должен быть значением в диапазоне от 1 до 254.<br />
+<br />
+0x01 - Левая кнопка мыши<br />
+0x02 - Правая кнопка мыши<br />
+0x03 - Обработка Ctrl+Break<br />
+0x04 - Средняя кнопка мыши (трёхкнопочная мышь)<br />
+0x05 - Кнопка мыши X1<br />
+0x06 - Кнопка мыши X2<br />
+<br />
+0x08 - Клавиша BACKSPACE<br />
+0x09 - Клавиша TAB<br />
+<br />
+0x0C - Клавиша CLEAR<br />
+0x0D - Клавиша ENTER<br />
+<br />
+0x10 - Клавиша SHIFT<br />
+0x11 - Клавиша CTRL<br />
+0x12 - Клавиша ALT<br />
+0x13 - Клавиша PAUSE<br />
+0x14 - Клавиша CAPS LOCK<br />
+<br />
+0x1B - Клавиша ESC<br />
+<br />
+0x20 - Клавиша SPACEBAR (пробел)<br />
+0x21 - Клавиша PAGE UP<br />
+0x22 - Клавиша PAGE DOWN<br />
+0x23 - Клавиша END<br />
+0x24 - Клавиша HOME<br />
+0x25 - Клавиша LEFT ARROW (стрелка влево)<br />
+0x26 - Клавиша UP ARROW (стрелка вверх)<br />
+0x27 - Клавиша RIGHT ARROW (стрелка вправо)<br />
+0x28 - Клавиша DOWN ARROW (стрелка вниз)<br />
+0x29 - Клавиша SELECT<br />
+0x2A - Клавиша PRINT<br />
+0x2B - Клавиша EXECUTE<br />
+0x2C - Клавиша PRINT SCREEN<br />
+0x2D - Клавиша INS<br />
+0x2E - Клавиша DEL<br />
+0x2F - Клавиша HELP<br />
+0x30 - 0x39 - Клавиши (0 - 9)<br />
+<br />
+0x41 - 0x5A - Клавиши (A - Z)<br />
+0x5B - Левая клавиша Windows<br />
+0x5C - Правая клавиша Windows<br />
+0x5D - Клавиша Applications<br />
+<br />
+0x5F - Клавиша Computer Sleep<br />
+0x60 - 0x69 - Клавиши цифровой клавиатуры (0 - 9)<br />
+0x6A - Клавиша Multiply (умножение)<br />
+0x6B - Клавиша Add (сложение)<br />
+0x6C - Клавиша Separator (разделитель)<br />
+0x6D - Клавиша Subtract (вычитание)<br />
+0x6E - Клавиша Decimal (десятичная точка)<br />
+0x6F - Клавиша Divide (деление)<br />
+0x70 - 0x87 - Клавиши (F1 - F24)<br />
+<br />
+0x90 - Клавиша NUM LOCK<br />
+0x91 - Клавиша SCROLL LOCK<br />
+<br />
+0xA0 - Левая клавиша SHIFT<br />
+0xA1 - Правая клавиша SHIFT<br />
+0xA2 - Левая клавиша CONTROL<br />
+0xA3 - Правая клавиша CONTROL<br />
+0xA4 - Левая клавиша MENU<br />
+0xA5 - Правая клавиша MENU<br />
+0xA6 - Browser Back (назад в браузере)<br />
+0xA7 - Browser Forward (вперёд в браузере)<br />
+0xA8 - Browser Refresh (обновить в браузере)<br />
+0xA9 - Browser Stop (остановить в браузере)<br />
+0xAA - Browser Search (поиск в браузере)<br />
+0xAB - Browser Favorites (избранное в браузере)<br />
+0xAC - Browser Start and Home (домашняя страница браузера)<br />
+0xAD - Volume Mute (выключить звук)<br />
+0xAE - Volume Down (тише)<br />
+0xAF - Volume Up (громче)<br />
+0xB0 - Next Track (следующая дорожка)<br />
+0xB1 - Previous Track (предыдущая дорожка)<br />
+0xB2 - Stop Media (остановить воспроизведение)<br />
+0xB3 - Play/Pause Media (воспроизведение/пауза)<br />
+0xB4 - Start Mail (запустить почту)<br />
+0xB5 - Select Media (выбрать медиа)<br />
+0xB6 - Start Application 1 (запустить приложение 1)<br />
+0xB7 - Start Application 2 (запустить приложение 2)<br />
+<br />
+0xBA - Клавиша ';:'<br />
+0xBB - Клавиша '+'<br />
+0xBC - Клавиша ','<br />
+0xBD - Клавиша '-'<br />
+0xBE - Клавиша '.'<br />
+0xBF - Клавиша '/?'<br />
+0xC0 - Клавиша '`~'<br />
+<br />
+0xDB - Клавиша '[{'<br />
+0xDC - Клавиша '\|'<br />
+0xDD - Клавиша ']}'<br />
+0xDE - Клавиша одинарной/двойной кавычки<br />
+<br />
+0xE2 - Клавиша угловых скобок или обратной косой черты на RT 102-клавишной клавиатуре<br />
+<br />
+0xE7 - Используется для передачи символов Unicode как нажатий клавиш<br />
+<br />
+0xF6 - Клавиша Attn<br />
+0xF7 - Клавиша CrSel<br />
+0xF8 - Клавиша ExSel<br />
+0xF9 - Клавиша Erase EOF<br />
+0xFA - Клавиша Play<br />
+0xFB - Клавиша Zoom<br />
+<br />
+0xFD - Клавиша PA1<br />
+0xFE - Клавиша Clear</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td>Этот параметр может быть одним или несколькими из следующих значений.<br />
+<span class="S91">$KEYEVENTF_EXTENDEDKEY</span><br />
+<span class="S91">$KEYEVENTF_KEYUP</span></td>
+</tr>
+<tr>
+<td><span class="S91">$iScanCode</span></td>
+<td><strong>[необязательный]</strong> Код аппаратного сканирования клавиши. По умолчанию 0.</td>
+</tr>
+<tr>
+<td><span class="S91">$iExtraInfo</span></td>
+<td><strong>[необязательный]</strong> Дополнительное значение, связанное с нажатием клавиши. По умолчанию 0.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+Отсутствует.<br />
+
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=keybd_event">keybd_event</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

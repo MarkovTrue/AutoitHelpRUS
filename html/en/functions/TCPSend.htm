@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function TCPSend</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>TCPSend</h1>
+<p class="funcdesc">Sends data on a connected socket.<br /></p>
+<p class="codeheader">
+TCPSend ( mainsocket, data )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">mainsocket</td>
+<td style="width:85%">The connected socket identifier (SocketID) as returned by a <a href="TCPConnect.htm">TCPConnect()</a> function.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>binary/string to be send to the connected socket.</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">the number of bytes sent to the connected socket.</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>0 and sets the @error flag to non-zero.</td>
+</tr>
+<tr>
+<td class="valign-top">@error:</td>
+<td>Windows API WSAGetLastError return value (see <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).</td>
+</tr>
+</table>
+
+<h2>Remarks</h2>
+<p>If Unicode strings need to be transmitted they must be encoded/decoded with <a href="StringToBinary.htm">StringToBinary()</a>/<a href="BinaryToString.htm">BinaryToString()</a>.<br />
+<br />
+&nbsp; A test of TCPSend() and TCPRecv() can be launch with the following button :<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <object id="hhctrl" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" width="78" height="57"><br />
+&nbsp;&nbsp;&nbsp; <param name="Command" value="ShortCut"><br />
+&nbsp;&nbsp;&nbsp; <param name="Button" value="Text:Open TCPSend-Recv[2].au3"><br />
+&nbsp;&nbsp;&nbsp; <param name="Item1" value=",Examples\Helpfile\TCPSend-Recv[2].au3,"><br />
+&nbsp;&nbsp;&nbsp; </object><br />
+</p>
+
+<h2>Related</h2>
+<p><a href="StringToBinary.htm">StringToBinary</a>, <a href="TCPConnect.htm">TCPConnect</a>, <a href="TCPListen.htm">TCPListen</a>, <a href="TCPRecv.htm">TCPRecv</a>, <a href="TCPStartup.htm">TCPStartup</a>, <a href="AutoItSetOption.htm#TCPTimeout ">TCPTimeout (Option)</a></p>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+  <title>Справочник по языку – Операторы</title>
+</head>
+<body>
+  <h1>Справочник по языку – Операторы</h1>
+  <p>В AutoIt доступны следующие операторы присваивания, арифметические, сравнения, условные и логические.</p>
+
+  <table>
+    <tr>
+      <th>Оператор</th>
+      <th>Описание</th>
+    </tr>
+<a id="Assignment"></a>
+    <tr class="yellow header">
+      <td></td>
+      <td><strong>Операторы присваивания</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center">=</td>
+      <td>Присваивание, например <strong class="S9"><span class="S91">$vVar</span></strong> <strong class="S8">=</strong> <strong class="S3">5</strong> (<em>присваивает число 5 переменной</em> <span class="S91">$vVar</span>).</td>
+    </tr>
+    <tr>
+      <td class="S8 center">+=</td>
+      <td>Сложение с присваиванием, например <strong class="S9"><span class="S91">$vVar</span></strong> <strong class="S8">+=</strong> <strong class="S3">1</strong> (<em>прибавляет 1 к</em> <span class="S91">$vVar</span>).</td>
+    </tr>
+    <tr>
+      <td class="S8 center">-=</td>
+      <td>Вычитание с присваиванием.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">*=</td>
+      <td>Умножение с присваиванием.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">/=</td>
+      <td>Деление с присваиванием.</td>
+    </tr>
+<a id="Concatenation"></a>
+    <tr class="yellow header">
+      <td></td>
+      <td><strong>Операторы конкатенации</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center">&amp;</td>
+      <td>Соединяет две строки, например <strong>"one"</strong> <strong class="S8">&amp;</strong> <strong class="S3">10</strong> (<em>даёт "one10", а не 11</em>).</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&amp;=</td>
+      <td>Конкатенация с присваиванием, например <strong class="S9"><span class="S91">$vVar</span></strong> <strong class="S8">=</strong> <strong>"one"</strong>, далее <strong class="S9"><span class="S91">$vVar</span></strong> <strong class="S8">&amp;=</strong> <strong class="S3">10</strong> (<span class="S91">$vVar</span> теперь "one10").</td>
+    </tr>
+<a id="Mathematical"></a>
+    <tr class="yellow header">
+      <td></td>
+      <td><strong>Арифметические операторы</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center">+</td>
+      <td>Сложение двух чисел, например <strong class="S3">10</strong> <strong class="S8">+</strong> <strong class="S3">20</strong> (<em>результат 30</em>).</td>
+    </tr>
+    <tr>
+      <td class="S8 center">-</td>
+      <td>Вычитание двух чисел, например <strong class="S3">20</strong> <strong class="S8">-</strong> <strong class="S3">10</strong> (<em>результат 10</em>).<br/>
+      Также работает как унарный минус (задаёт отрицательное значение переменной).<br/>
+      См. пояснение ниже.</td>
+    </tr>
+<a id="MD_Mathematical"></a>
+    <tr>
+      <td class="S8 center">*</td>
+      <td>Умножение двух чисел, например <strong class="S3">20</strong> <strong class="S8">*</strong> <strong class="S3">10</strong> (<em>результат 200</em>).</td>
+    </tr>
+    <tr>
+      <td class="S8 center">/</td>
+      <td>Деление двух чисел, например <strong class="S3">20</strong> <strong class="S8">/</strong> <strong class="S3">10</strong> (<em>результат 2</em>).</td>
+    </tr>
+    <tr>
+      <td class="S8 center">^</td>
+      <td>Возведение числа в степень, например <strong class="S3">2</strong> <strong class="S8">^</strong> <strong class="S3">4</strong> (<em>результат 16</em>).</td>
+    </tr>
+<a id="Comparison"></a>
+    <tr class="yellow">
+      <td class="S8 center"></td>
+      <td><strong>Операторы сравнения</strong> (нечувствительны к регистру при работе со строками, кроме <strong class="S8">==</strong>).</td>
+    </tr>
+    <tr>
+      <td class="S8 center">=</td>
+      <td>Проверяет равенство двух значений, например <a href="../keywords/IfElseEndIf.htm"><strong class="S5">If</strong></a> <strong class="S9"><span class="S91">$vVar</span></strong> <strong class="S8">=</strong> <strong class="S3">5</strong> <a href="../keywords/IfElseEndIf.htm"><strong class="S5">Then</strong></a> (<em>истина, если <span class="S91">$vVar</span> равно 5</em>). <strong>Нечувствителен к регистру</strong> при работе со строками. См. ниже о сравнении значений разных типов.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">==</td>
+      <td>Проверяет равенство двух <strong>строк</strong>. <strong>Чувствителен к регистру.</strong> Левое и правое значения преобразуются в строки, если они ещё не строки. Этот оператор стоит использовать только если сравнение строк должно быть с учётом регистра.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&lt;&gt;</td>
+      <td>Проверяет, что значения не равны. <strong>Нечувствителен к регистру</strong> при работе со строками. Для сравнения "не равно" с учётом регистра используйте <strong class="S5">Not</strong> <strong class="S8">(</strong><strong class="S0">"string1"</strong> <strong class="S8">==</strong> <strong class="S0">"string2"</strong><strong class="S8">)</strong>.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&gt;</td>
+      <td>Проверяет, что первое значение больше второго. Строки сравниваются лексикографически, даже если их содержимое числовое.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&gt;=</td>
+      <td>Проверяет, что первое значение больше или равно второму. Строки сравниваются лексикографически, даже если их содержимое числовое.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&lt;</td>
+      <td>Проверяет, что первое значение меньше второго. Строки сравниваются лексикографически, даже если их содержимое числовое.</td>
+    </tr>
+    <tr>
+      <td class="S8 center">&lt;=</td>
+      <td>Проверяет, что первое значение меньше или равно второму. Строки сравниваются лексикографически, даже если их содержимое числовое.</td>
+    </tr>
+<a id="Logical"></a>
+    <tr class="yellow header">
+      <td></td>
+      <td><strong>Логические операторы</strong></td>
+    </tr>
+    <tr>
+      <td class="S5 center">And</td>
+      <td>Логическое И, например <strong class="S5">If</strong> <strong class="S9"><span class="S91">$vVar</span></strong> <strong class="S8">=</strong> <strong class="S3">5</strong> <strong class="S5">And</strong> <strong class="S9"><span class="S91">$vVar2</span></strong> <strong class="S8">&gt;</strong> <strong class="S3">6</strong> <strong class="S5">Then</strong> (<span class="S5">True</span>, если <span class="S91">$vVar</span> равно 5 <strong>и</strong> <span class="S91">$vVar2</span> больше 6).</td>
+    </tr>
+    <tr>
+      <td class="S5 center">Or</td>
+      <td>Логическое ИЛИ, например <strong class="S5">If</strong> <strong class="S9"><span class="S91">$vVar</span></strong> <strong class="S8">=</strong> <strong class="S3">5</strong> <strong class="S5">Or</strong> <strong class="S9"><span class="S91">$vVar2</span></strong> <strong class="S8">&gt;</strong> <strong class="S3">6</strong> <strong class="S5">Then</strong> (<span class="S5">True</span>, если <span class="S91">$vVar</span> равно 5 <strong>или</strong> <span class="S91">$vVar2</span> больше 6</em>).</td>
+    </tr>
+<a id="Not Logical"></a>
+    <tr>
+      <td class="S5 center">Not</td>
+      <td>Логическое НЕ, например <strong class="S5">Not</strong> <strong class="S3">1</strong> (<span class="S5">False</span>)</em>.</td>
+    </tr>
+<a id="Conditional"></a>
+    <tr class="yellow header">
+      <td></td>
+      <td><strong>Условный оператор</strong></td>
+    </tr>
+    <tr>
+      <td class="S8 center"><a href="../keywords/Ternary.htm">? :</a></td>
+      <td>Условный выбор выражения, например <strong><span class="S91">$condition</span> <a href="../keywords/Ternary.htm">?</a> <span class="S91">$expression1</span> <a href="../keywords/Ternary.htm">:</a> <span class="S91">$expression2</span></strong> (<span class="S91">$expression1</span>, если <span class="S91">$condition</span> равно <span class="S5">True</span>, иначе <span class="S91">$expression2</span>). Пример см. в описании оператора <a href="../keywords/Ternary.htm">тернарного</a>.</td>
+    </tr>
+  </table>
+
+<a id="Precedence"></a>
+  <h2>Приоритет</h2>
+  <p>Когда в выражении используется несколько операторов, порядок выполнения определяется <strong>приоритетом операторов</strong>. Используемый в AutoIt приоритет приведён ниже. Если у двух операторов одинаковый приоритет, выражение вычисляется <em>слева направо</em>.</p>
+  <p>От наивысшего приоритета к наименьшему:</p>
+  <p><strong class="S5">Not</strong><br />
+    <strong class="S8">^<br />
+    * /<br />
+    + -<br />
+    &amp;<br />
+    &lt; &gt; &lt;= &gt;= = &lt;&gt; ==<br />
+    ?</strong><br />
+    <strong class="S5">And Or</strong></p>
+  <br />
+  <p>Например, <strong class="S3">2</strong> <strong class="S8">+</strong> <strong class="S3">4</strong> <strong class="S8">*</strong> <strong class="S3">10</strong> вычисляется как <strong class="S3">42</strong>:</p>
+  <p>  <strong class="S3">4</strong> <strong class="S8">*</strong> <strong class="S3">10</strong>  (равно <strong class="S3">40</strong>);</p>
+  <p>  <strong class="S3">2</strong> <strong class="S8">+</strong> <strong class="S3">40</strong>  (равно <strong class="S3">42</strong>).</p>
+  <p>Поскольку у <strong class="S8">*</strong> приоритет выше, чем у <strong class="S8">+</strong>, умножение происходит <strong>до</strong> сложения.</p>
+
+  <p>Хотя приоритет операторов в большинстве случаев достаточен, рекомендуется использовать скобки для явного задания порядка вычисления, если результат критичен или выражение сложное.</p>
+  <p>Например, <strong class="S8">(</strong><strong class="S3">2</strong> <strong class="S8">+</strong> <strong class="S3">4</strong><strong class="S8">) *</strong> <strong class="S3">10</strong> равно <strong class="S3">60</strong>.</p>
+  <p>Особенно это касается оператора <strong class="S8">-</strong>, который используется и как <strong>бинарное вычитание</strong> (двух чисел), и как <strong>унарное отрицание</strong> (задаёт отрицательное значение). Здесь крайне рекомендуется ставить скобки, чтобы избежать путаницы.</p>
+
+  <h2>Короткое замыкание</h2>
+  <p>При использовании логических операторов And, Or учитывайте следующее:</p>
+  <p>Например, <a class="le" href="../keywords/If.htm"><strong class="S5">If</strong></a> <strong class="S4">MyFunc1</strong><strong class="S8">()</strong> <strong class="S5">Or</strong> <strong class="S4">MyFunc2</strong><strong class="S8">()</strong> <strong class="S5">Then</strong> – <em><strong class="S4">MyFunc2</strong><strong class="S8">()</strong> не вызывается, если <strong class="S4">MyFunc1</strong><strong class="S8">()</strong> вернула true</em>.</p>
+  <p>Например, <a class="le" href="../keywords/If.htm"><strong class="S5">If</strong></a> <strong class="S4">MyFunc1</strong><strong class="S8">()</strong> <strong class="S5">And</strong> <strong class="S4">MyFunc2</strong><strong class="S8">()</strong> <strong class="S5">Then</strong> – <em><strong class="S4">MyFunc2</strong><strong class="S8">()</strong> не вызывается, если <strong class="S4">MyFunc1</strong><strong class="S8">()</strong> вернула false</em>.</p>
+
+  <h2>Сравнение разных типов данных</h2>
+  <p>Будьте внимательны при сравнении значений разных типов: если не используется регистрозависимый строковый оператор (<strong>==</strong>), смешанное сравнение обычно делается численно. Большинство строк будут трактованы как <strong>0</strong>, поэтому результат может оказаться не таким, как ожидалось. Рекомендуется приводить сравниваемые значения к одному типу через <em><a class="le" href="../functions/Number.htm"><span class="S4">Number</span><span class="S8">()</span></a>/<em><a class="le" href="../functions/String.htm"><span class="S4">String</span><span class="S8">()</span></a> перед сравнением.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S3">0</span><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">"Some string"</span><br /><br /><span class="S1">; Это будет вычисляться как true, так как строка преобразуется в число, то есть нуль</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br /><span class="S0">&nbsp;&nbsp;</span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" and '"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">"' are equal"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br /><br /><span class="S1">; Это будет вычисляться как false, так как строка и число сравниваются по значению и типу данных</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">==</span></a><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br /><span class="S0">&nbsp;&nbsp;</span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$iNumber</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" and '"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$sString</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">"' are equal"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a></span>
+</p>
+</body>
+</html>

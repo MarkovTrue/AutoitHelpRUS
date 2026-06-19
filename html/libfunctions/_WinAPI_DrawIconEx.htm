@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_DrawIconEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_DrawIconEx</h1>
+<p class="funcdesc">Рисует значок или курсор в указанном контексте устройства.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdiDC.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_DrawIconEx.htm"><span class="S15">_WinAPI_DrawIconEx</span></a> <span class="S8">(</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">,</span> <span class="S9">$hIcon</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWidth</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iHeight</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStep</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$hBrush</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">3</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hDC</span></td>
+<td style="width:85%">Дескриптор контекста устройства.</td>
+</tr>
+<tr>
+<td><span class="S91">$iX</span></td>
+<td>X-координата левого верхнего угла значка.</td>
+</tr>
+<tr>
+<td><span class="S91">$iY</span></td>
+<td>Y-координата левого верхнего угла значка.</td>
+</tr>
+<tr>
+<td><span class="S91">$hIcon</span></td>
+<td>Дескриптор значка, который нужно нарисовать.</td>
+</tr>
+<tr>
+<td><span class="S91">$iWidth</span></td>
+<td><strong>[необязательный]</strong> Логическая ширина значка или курсора.<br />
+Если параметр равен нулю, а <span class="S91">$iFlags</span> = "default size", функция использует системную метрику <span class="S91">$SM_CXICON</span> или <span class="S91">$SM_CXCURSOR</span> для задания ширины.<br />
+Если параметр равен нулю, а "default size" не задана, используется фактическая ширина ресурса.</td>
+</tr>
+<tr>
+<td><span class="S91">$iHeight</span></td>
+<td><strong>[необязательный]</strong> Логическая высота значка или курсора.<br />
+Если параметр равен нулю, а <span class="S91">$iFlags</span> = "default size", функция использует системную метрику <span class="S91">$SM_CYICON</span> или <span class="S91">$SM_CYCURSOR</span> для задания высоты.<br />
+Если параметр равен нулю, а "default size" не задана, используется фактическая высота ресурса.</td>
+</tr>
+<tr>
+<td><span class="S91">$iStep</span></td>
+<td><strong>[необязательный]</strong> Индекс кадра, который нужно нарисовать, если <span class="S91">$hIcon</span> ссылается на анимированный курсор.<br />
+Параметр игнорируется, если <span class="S91">$hIcon</span> – не анимированный курсор.</td>
+</tr>
+<tr>
+<td><span class="S91">$hBrush</span></td>
+<td><strong>[необязательный]</strong> Дескриптор кисти, которую система использует для отрисовки без мерцаний.<br />
+Если <span class="S91">$hBrush</span> – корректный дескриптор кисти, система создаёт внеэкранный битмап с цветом фона из этой кисти, рисует на него значок или курсор и копирует битмап в указанный DC.</td>
+</tr>
+<tr>
+<td><span class="S91">$iFlags</span></td>
+<td><strong>[необязательный]</strong> Флаги отрисовки. Принимает одно из значений:<br />
+1 – рисовать значок или курсор по маске<br />
+2 – рисовать значок или курсор по изображению<br />
+3 – рисовать значок или курсор по маске и изображению<br />
+4 – использовать системный размер по умолчанию<br />
+8 – сжатие совместимое с DDB</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S5">False</span>; вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения подробных сведений об ошибке.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="_WinAPI_DrawIcon.htm">_WinAPI_DrawIcon</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=DrawIconEx">DrawIconEx</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

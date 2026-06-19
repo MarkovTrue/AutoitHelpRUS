@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Function _WinAPI_DwmEnableComposition</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Function Reference</h1>
+<hr style="height:0px">
+<h1>_WinAPI_DwmEnableComposition</h1>
+<p class="funcdesc">Enables or disables Desktop Window Manager (DWM) composition<br /></p>
+<p class="codeheader">
+#include &lt;WinAPIGdi.au3&gt;<br />
+_WinAPI_DwmEnableComposition ( $bEnable )<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$bEnable</td>
+<td style="width:85%">Specifies whether enable or disable DWM composition, valid values:<br />
+&nbsp;&nbsp;&nbsp; True	 - Enable.<br />
+&nbsp;&nbsp;&nbsp; False	- Disable.</td>
+</tr>
+</table>
+
+<h2>Return Value</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Success:</td>
+<td style="width:90%">1.</td>
+</tr>
+<tr>
+<td class="valign-top">Failure:</td>
+<td>0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.</td>
+</tr>
+</table>
+
+<h2>Remarks</h2>
+<p>Disabling DWM composition disables it for the entire desktop.<br />
+DWM composition will be automatically enabled when all processes that have disabled composition have called <a href="_WinAPI_DwmEnableComposition.htm">_WinAPI_DwmEnableComposition()</a> to enable it or have been terminated.<br />
+The WM_DWMCOMPOSITIONCHANGED notification is sent when DWM composition has enabled or disabled.<br />
+<br />
+This function requires <strong>Windows Vista or later</strong>.<br />
+</p>
+
+<h2>See Also</h2>
+<p>Search <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(DwmEnableComposition);k(DevLang-C);k(TargetOS-WINDOWS)&rd=true">DwmEnableComposition</a> in MSDN  Library.
+</p>
+
+</body>
+</html>

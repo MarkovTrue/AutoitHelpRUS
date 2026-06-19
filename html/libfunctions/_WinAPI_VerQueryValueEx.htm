@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_VerQueryValueEx</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_VerQueryValueEx</h1>
+<p class="funcdesc">Получает текстовую информацию из ресурса информации о версии указанного двоичного модуля.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_VerQueryValueEx.htm"><span class="S15">_WinAPI_VerQueryValueEx</span></a> <span class="S8">(</span> <span class="S9">$hModule</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sValues</span> <span class="S8">=</span> <span class="S7">''</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iLanguage</span> <span class="S8">=</span> <span class="S9">$LOCALE_USER_DEFAULT</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$hModule</span></td>
+<td style="width:85%">Дескриптор модуля для получения информации. Также этот параметр может указывать имя<br />
+модуля для загрузки; он должен быть полным или относительным путём. Если этот параметр равен 0 или пустой строке, это<br />
+эквивалентно передаче дескриптора модуля, используемого для создания текущего процесса.</td>
+</tr>
+<tr>
+<td><span class="S91">$sValues</span></td>
+<td><strong>[необязательный]</strong> Строка, содержащая имена полей, для которых вы хотите получить значения. Имена должны быть разделены символом "|".<br />
+Например, "name1|name2|...|namei". Если некоторые поля не существуют, соответствующие элементы массива – пустая строка.<br />
+Если этот параметр не задан (пустая строка), используются зарезервированные имена (12) в следующем порядке:<br />
+<span class="S91">$FV_COMMENTS</span> ("Comments")<br />
+<span class="S91">$FV_COMPANYNAME</span> ("CompanyName")<br />
+<span class="S91">$FV_FILEDESCRIPTION</span> ("FileDescription")<br />
+<span class="S91">$FV_FILEVERSION</span> ("FileVersion")<br />
+<span class="S91">$FV_INTERNALNAME</span> ("InternalName")<br />
+<span class="S91">$FV_LEGALCOPYRIGHT</span> ("LegalCopyright")<br />
+<span class="S91">$FV_LEGALTRADEMARKS</span> ("LegalTrademarks")<br />
+<span class="S91">$FV_ORIGINALFILENAME</span> ("OriginalFilename")<br />
+<span class="S91">$FV_PRODUCTNAME</span> ("ProductName")<br />
+<span class="S91">$FV_PRODUCTVERSION</span> ("ProductVersion")<br />
+<span class="S91">$FV_PRIVATEBUILD</span> ("PrivateBuild")<br />
+<span class="S91">$FV_SPECIALBUILD</span> ("SpecialBuild")<br />
+<br />
+Константы определены в <span class="S7">FileConstants.au3</span>.</td>
+</tr>
+<tr>
+<td><span class="S91">$iLanguage</span></td>
+<td><strong>[необязательный]</strong> Идентификатор языка ресурса информации о версии. Чтобы получить информацию для<br />
+языка пользователя по умолчанию, установите этот параметр на <span class="default-const"><span class="S91">$LOCALE_USER_DEFAULT</span></span> (по умолчанию). Чтобы получить информацию для всех<br />
+языков, расположенных в ресурсе, установите этот параметр на (-1).</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает двумерный массив строковых значений, указанных параметром <span class="S91">$sValues</span> для каждого языка. Нулевой<br />
+элемент массива [0][0] содержит количество языков ресурса. Размер массива (i) равен<br />
+количеству указанных параметров + 1. Нулевой элемент массива [n][0] содержит идентификатор языка<br />
+(ID).<br />
+[0][0] – количество языков (n)<br />
+[0][i] – не используется<br />
+[n][0] – ID<br />
+[n][i] – значение</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Идентификатор (ID) ресурса информации о версии должен быть равен 1, в противном случае функция завершится с ошибкой.<br />
+</p>
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPILocale.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIRes.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sDll</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">'Resources.dll'</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_VerQueryValueEx.htm"><span class="S15">_WinAPI_VerQueryValueEx</span></a><span class="S8">(</span><span class="S9">$sDll</span><span class="S8">,</span> <span class="S7">'FileDescription|FileVersion|OriginalFilename'</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$aData</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aData</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetLocaleInfo.htm"><span class="S15">_WinAPI_GetLocaleInfo</span></a><span class="S8">(</span><span class="S9">$aData</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$LOCALE_SLANGUAGE</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aData</span><span class="S8">,</span> <span class="S7">'_WinAPI_VerQueryValueEx'</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_VerQueryValueEx.au3,"></object>
+</body>
+</html>

@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция MsgBox</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>MsgBox</h1>
+<p class="funcdesc">Отображает простое диалоговое окно сообщения с необязательным таймаутом.</p>
+<p class="codeheader"><a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a> <span class="S8">(</span> <span class="S0">flag</span><span class="S8">,</span> <span class="S7">"title"</span><span class="S8">,</span> <span class="S7">"text"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">timeout</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <a class="le" href="../functions/HWnd.htm"><span class="S4">hwnd</span></a><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">flag</td>
+<td style="width:85%">Флаг определяет тип окна сообщения и набор кнопок. См. раздел Примечания.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Заголовок окна сообщения.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>Текст окна сообщения.</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td><strong>[необязательный]</strong> Таймаут в секундах. По истечении таймаута окно закрывается автоматически. По умолчанию 0 – таймаут не задан.</td>
+</tr>
+<tr>
+<td>hwnd</td>
+<td><strong>[необязательный]</strong> Дескриптор окна, используемого в качестве родительского для диалога.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает идентификатор нажатой кнопки.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает <span class="S91">$IDTIMEOUT</span> (-1), если истёк таймаут.</td>
+</tr>
+</table><br />
+<br&nbsp;/><br />
+<table>
+<tr class="header">
+<td style="width:15%"><strong>Нажатая кнопка</strong></td>
+<td style="width:85%"><strong>Возвращаемое значение</strong></td>
+</tr>
+<tr>
+<td>OK</td>
+<td><span class="S91">$IDOK</span> (1)</td>
+</tr>
+<tr>
+<td>CANCEL</td>
+<td><span class="S91">$IDCANCEL</span> (2)</td>
+</tr>
+<tr>
+<td>ABORT</td>
+<td><span class="S91">$IDABORT</span> (3)</td>
+</tr>
+<tr>
+<td>RETRY</td>
+<td><span class="S91">$IDRETRY</span> (4)</td>
+</tr>
+<tr>
+<td>IGNORE</td>
+<td><span class="S91">$IDIGNORE</span> (5)</td>
+</tr>
+<tr>
+<td>YES</td>
+<td><span class="S91">$IDYES</span> (6)</td>
+</tr>
+<tr>
+<td>NO</td>
+<td><span class="S91">$IDNO</span> (7)</td>
+</tr>
+<tr>
+<td>TRY AGAIN</td>
+<td><span class="S91">$IDTRYAGAIN</span> (10)</td>
+</tr>
+<tr>
+<td>CONTINUE</td>
+<td><span class="S91">$IDCONTINUE</span> (11)</td>
+</tr>
+</table><br />
+Константы определены в <span class="S7">MsgBoxConstants.au3</span>.<br />
+
+
+<h2>Примечания</h2>
+<p>Параметр flag может быть комбинацией следующих значений:<br />
+<br />
+<table>
+<tr class="header">
+<th><strong>Имя константы</strong></th>
+<th><strong>Десятичный флаг</strong></th>
+<th><strong>Кнопки</strong></th>
+<th><strong>Шестнадцатеричный флаг</strong></th>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_OK</span></td>
+<td>0</td>
+<td>OK</td>
+<td>0x0</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_OKCANCEL</span></td>
+<td>1</td>
+<td>OK и Отмена</td>
+<td>0x1</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_ABORTRETRYIGNORE</span></td>
+<td>2</td>
+<td>Прервать, Повторить, Пропустить</td>
+<td>0x2</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_YESNOCANCEL</span></td>
+<td>3</td>
+<td>Да, Нет и Отмена</td>
+<td>0x3</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_YESNO</span></td>
+<td>4</td>
+<td>Да и Нет</td>
+<td>0x4</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_RETRYCANCEL</span></td>
+<td>5</td>
+<td>Повторить и Отмена</td>
+<td>0x5</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_CANCELTRYCONTINUE</span></td>
+<td>6</td>
+<td>Отмена, Повторить, Продолжить</td>
+<td>0x6</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_HELP</span></td>
+<td>16384</td>
+<td>Добавляет кнопку "Справка". При нажатии или F1 система посылает владельцу сообщение WM_HELP.</td>
+<td>0x4000</td>
+</tr>
+
+<tr class="header">
+<td><strong>Имя константы</strong></td>
+<td><strong>Десятичный флаг</strong></td>
+<td><strong>Значок</strong></td>
+<td><strong>Шестнадцатеричный флаг</strong></td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_ICONNONE</span></td>
+<td>0</td>
+<td>(Без значка)</td>
+<td>0x0</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_ICONERROR</span></td>
+<td>16</td>
+<td>Значок "Стоп"</td>
+<td>0x10</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_ICONQUESTION</span></td>
+<td>32</td>
+<td>Значок вопроса</td>
+<td>0x20</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_ICONWARNING</span></td>
+<td>48</td>
+<td>Значок восклицательного знака</td>
+<td>0x30</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_ICONINFORMATION</span></td>
+<td>64</td>
+<td>Значок информации (буква "i" в кружке)</td>
+<td>0x40</td>
+</tr>
+
+<tr class="header">
+<td><strong>Имя константы</strong></td>
+<td><strong>Десятичный флаг</strong></td>
+<td><strong>Кнопка по умолчанию</strong></td>
+<td><strong>Шестнадцатеричный флаг</strong></td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_DEFBUTTON1</span></td>
+<td>0</td>
+<td>Первая кнопка</td>
+<td>0x0</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_DEFBUTTON2</span></td>
+<td>256</td>
+<td>Вторая кнопка</td>
+<td>0x100</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_DEFBUTTON3</span></td>
+<td>512</td>
+<td>Третья кнопка</td>
+<td>0x200</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_DEFBUTTON4</span></td>
+<td>768</td>
+<td>Четвёртая кнопка</td>
+<td>0x300</td>
+</tr>
+
+<tr class="header">
+<td><strong>Имя константы</strong></td>
+<td><strong>Десятичный флаг</strong></td>
+<td><strong>Модальность</strong></td>
+<td><strong>Шестнадцатеричный флаг</strong></td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_APPLMODAL</span></td>
+<td>0</td>
+<td>Уровень приложения</td>
+<td>0x0</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_SYSTEMMODAL</span></td>
+<td>4096</td>
+<td>Системная модальность (со значком)</td>
+<td>0x1000</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_TASKMODAL</span></td>
+<td>8192</td>
+<td>Задачная модальность</td>
+<td>0x2000</td>
+</tr>
+
+<tr class="header">
+<td><strong>Имя константы</strong></td>
+<td><strong>Десятичный флаг</strong></td>
+<td><strong>Прочее</strong></td>
+<td><strong>Шестнадцатеричный флаг</strong></td>
+</tr>
+
+<tr>
+<td></td>
+<td>0</td>
+<td>(ничего особого)</td>
+<td>0x0</td>
+</tr>
+
+<tr>
+<td><span class="default-const"><span class="S91">$MB_DEFAULT_DESKTOP_ONLY</span></span></td>
+<td>131072</td>
+<td><a href="MsgBox.htm"><span class="S4">MsgBox</span><span class="S8">()</span></a> отображается на рабочем столе интерактивной оконной станции.</td>
+<td>0x20000</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_RIGHT</span></td>
+<td>524288</td>
+<td>Заголовок и текст выровнены по правому краю.</td>
+<td>0x80000</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_RTLREADING</span></td>
+<td>1048576</td>
+<td>Текст и заголовок отображаются справа налево (для иврита и арабского).</td>
+<td>0x100000</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_SETFOREGROUND</span></td>
+<td>65536</td>
+<td>Окно сообщения выводится на передний план.</td>
+<td>0x10000</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_TOPMOST</span></td>
+<td>262144</td>
+<td><a href="MsgBox.htm"><span class="S4">MsgBox</span><span class="S8">()</span></a> – поверх всех окон.</td>
+<td>0x40000</td>
+</tr>
+
+<tr>
+<td><span class="S91">$MB_SERVICE_NOTIFICATION</span></td>
+<td>2097152</td>
+<td>Функция отображает окно на текущем активном рабочем столе, даже если пользователь не вошёл в систему.</td>
+<td>0x200000</td>
+</tr>
+</table><br />
+Например, для системно-модального окна с кнопками "Да"/"Нет" значение флага: 4096+4 (или 4100), в шестнадцатеричном виде: 0x1000+0x4 (или 0x1004).<br />
+<br />
+Окно сообщения центрируется на экране и масштабируется по тексту. Однако при флаге SYSTEMMODAL (4096) заголовок может быть обрезан.<br />
+<br />
+Если <em>title</em> равен <a href="../keywords/Default.htm">ключевому слову Default</a>, используется <span class="S61">@ScriptName</span>.<br />
+<br />
+Примечание: при вызове из службы с флагом <span class="S91">$MB_SERVICE_NOTIFICATION</span> параметр timeout не поддерживается. Окно не принадлежит вызывающему процессу.<br />
+<br />
+Константы определены в <span class="S7">MsgBoxConstants.au3</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="InputBox.htm">InputBox</a>, <a href="SplashTextOn.htm">SplashTextOn</a>, <a href="ToolTip.htm">ToolTip</a>, <a href="TrayTip.htm">TrayTip</a></p>
+
+<h2 class="bottom">Пример</h2>
+
+<h3>Пример 1</h3>
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Title"</span><span class="S8">,</span> <span class="S7">"This message box will timeout after 10 seconds or select the OK button."</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\MsgBox.au3,"></object>
+
+<h3>Пример 2</h3>
+<p id="copytext2" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iTimeout</span> <span class="S8">=</span> <span class="S3">10</span><br>
+<br>
+<span class="S1">; Отобразить окно сообщения с переменной в тексте.
+</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Title"</span><span class="S8">,</span> <span class="S7">"This message box will timeout after "</span> <span class="S8">&amp;</span> <span class="S9">$iTimeout</span> <span class="S8">&amp;</span> <span class="S7">" seconds or select the OK button."</span><span class="S8">,</span> <span class="S9">$iTimeout</span><span class="S8">)</span><br>
+</p>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\MsgBox[2].au3,"></object>
+</body>
+</html>

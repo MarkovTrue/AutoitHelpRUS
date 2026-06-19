@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Макросы каталогов</title>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Макросы каталогов</h1>
+  <p>Ниже приведён список макросов каталогов. Обратная косая черта в конце пути не добавляется.</p>
+  <p>Полный список макросов – <a href="../macros.htm">здесь</a>.</p>
+  <p>&nbsp;</p>
+  <table>
+    <tr>
+      <th>Макрос</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2">Макросы для данных "Все пользователи".</td>
+    </tr>
+    <tr>
+      <td><a id="@AppDataCommonDir"></a><strong><span class="S61">@AppDataCommonDir</span></strong></td>
+      <td>Путь к общему Application Data.</td>
+    </tr>
+    <tr>
+      <td><a id="@DesktopCommonDir"></a><strong><span class="S61">@DesktopCommonDir</span></strong></td>
+      <td>Путь к общему Рабочему столу.</td>
+    </tr>
+    <tr>
+      <td><a id="@DocumentsCommonDir"></a><strong><span class="S61">@DocumentsCommonDir</span></strong></td>
+      <td>Путь к общим документам.</td>
+    </tr>
+    <tr>
+      <td><a id="@FavoritesCommonDir"></a><strong><span class="S61">@FavoritesCommonDir</span></strong></td>
+      <td>Путь к общим Избранным.</td>
+    </tr>
+    <tr>
+      <td><a id="@ProgramsCommonDir"></a><strong><span class="S61">@ProgramsCommonDir</span></strong></td>
+      <td>Путь к общей папке Programs меню "Пуск".</td>
+    </tr>
+    <tr>
+      <td><a id="@StartMenuCommonDir"></a><strong><span class="S61">@StartMenuCommonDir</span></strong></td>
+      <td>Путь к общей папке меню "Пуск".</td>
+    </tr>
+    <tr>
+      <td><a id="@StartupCommonDir"></a><strong><span class="S61">@StartupCommonDir</span></strong></td>
+      <td>Путь к общей папке Startup.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2">Макросы для данных текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@AppDataDir"></a><strong><span class="S61">@AppDataDir</span></strong></td>
+      <td>Путь к Roaming Application Data текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@LocalAppDataDir"></a><strong><span class="S61">@LocalAppDataDir</span></strong></td>
+      <td>Путь к Local Application Data текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@DesktopDir"></a><strong><span class="S61">@DesktopDir</span></strong></td>
+      <td>Путь к Рабочему столу текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@MyDocumentsDir"></a><strong><span class="S61">@MyDocumentsDir</span></strong></td>
+      <td>Путь к каталогу "Мои документы".</td>
+    </tr>
+    <tr>
+      <td><a id="@FavoritesDir"></a><strong><span class="S61">@FavoritesDir</span></strong></td>
+      <td>Путь к Избранным текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@ProgramsDir"></a><strong><span class="S61">@ProgramsDir</span></strong></td>
+      <td>Путь к папке Programs текущего пользователя (в меню "Пуск").</td>
+    </tr>
+    <tr>
+      <td><a id="@StartMenuDir"></a><strong><span class="S61">@StartMenuDir</span></strong></td>
+      <td>Путь к меню "Пуск" текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@StartupDir"></a><strong><span class="S61">@StartupDir</span></strong></td>
+      <td>Папка Startup текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@UserProfileDir"></a><strong><span class="S61">@UserProfileDir</span></strong></td>
+      <td>Путь к папке профиля текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><br /></td>
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="2">Прочие макросы компьютерной системы:</td>
+    </tr>
+    <tr>
+      <td><a id="@HomeDrive"></a><strong><span class="S61">@HomeDrive</span></strong></td>
+      <td>Буква диска, содержащего домашний каталог текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@HomePath"></a><strong><span class="S61">@HomePath</span></strong></td>
+      <td>Каталог в домашнем пути текущего пользователя. Для получения полного пути используйте вместе с <span class="S61">@HomeDrive</span>.</td>
+    </tr>
+    <tr>
+      <td><a id="@HomeShare"></a><strong><span class="S61">@HomeShare</span></strong></td>
+      <td>Имя сервера и общего ресурса, содержащих домашний каталог текущего пользователя.</td>
+    </tr>
+    <tr>
+      <td><a id="@LogonDNSDomain"></a><strong><span class="S61">@LogonDNSDomain</span></strong></td>
+      <td>DNS-домен входа в систему.</td>
+    </tr>
+    <tr>
+      <td><a id="@LogonDomain"></a><strong><span class="S61">@LogonDomain</span></strong></td>
+      <td>Домен входа в систему.</td>
+    </tr>
+    <tr>
+      <td><a id="@LogonServer"></a><strong><span class="S61">@LogonServer</span></strong></td>
+      <td>Сервер входа в систему.</td>
+    </tr>
+    <tr>
+      <td><a id="@ProgramFilesDir"></a><strong><span class="S61">@ProgramFilesDir</span></strong></td>
+      <td>Путь к папке Program Files.</td>
+    </tr>
+    <tr>
+      <td><a id="@CommonFilesDir"></a><strong><span class="S61">@CommonFilesDir</span></strong></td>
+      <td>Путь к папке Common Files.</td>
+    </tr>
+    <tr>
+      <td><a id="@WindowsDir"></a><strong><span class="S61">@WindowsDir</span></strong></td>
+      <td>Путь к папке Windows.</td>
+    </tr>
+    <tr>
+      <td><a id="@SystemDir"></a><strong><span class="S61">@SystemDir</span></strong></td>
+      <td>Путь к папке Windows System (или System32).</td>
+    </tr>
+    <tr>
+      <td><a id="@TempDir"></a><strong><span class="S61">@TempDir</span></strong></td>
+      <td>Путь к папке временных файлов.</td>
+    </tr>
+    <tr>
+      <td><a id="@ComSpec"></a><strong><span class="S61">@ComSpec</span></strong></td>
+      <td>Значение %COMSPEC% – путь к интерпретатору команд; используется для запуска команд, например <a href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S61">@ComSpec</span> &amp; " /k help | more"<span class="S8">)</span>.</td>
+    </tr>
+  </table>
+</body>
+</html>

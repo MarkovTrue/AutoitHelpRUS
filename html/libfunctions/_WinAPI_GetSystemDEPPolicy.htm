@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_GetSystemDEPPolicy</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_GetSystemDEPPolicy</h1>
+<p class="funcdesc">Получает параметр политики предотвращения выполнения данных (DEP) системы.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_GetSystemDEPPolicy.htm"><span class="S15">_WinAPI_GetSystemDEPPolicy</span></a> <span class="S8">(</span>  <span class="S8">)</span></p>
+
+<h2>Возвращаемое значение</h2>
+Возвращает параметр политики DEP, который может быть одним из следующих значений.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– AlwaysOff<br />
+&nbsp;&nbsp;&nbsp;&nbsp;DEP отключена для всех частей системы, независимо от поддержки аппаратурой DEP. Процессор<br />
+&nbsp;&nbsp;&nbsp;&nbsp;работает в режиме PAE с 32-разрядными версиями Windows, если PAE не отключена в данных конфигурации загрузки.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– AlwaysOn<br />
+&nbsp;&nbsp;&nbsp;&nbsp;DEP включена для всех частей системы. Все процессы всегда работают с включённой DEP. DEP не может быть<br />
+&nbsp;&nbsp;&nbsp;&nbsp;явно отключена для выбранных приложений. Исправления совместимости системы игнорируются.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– OptIn<br />
+&nbsp;&nbsp;&nbsp;&nbsp;В системах с процессорами, способными к аппаратному обеспечению DEP, DEP автоматически включается<br />
+&nbsp;&nbsp;&nbsp;&nbsp;только для компонентов операционной системы. Это параметр по умолчанию для клиентских версий Windows.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;DEP может быть явно включена для выбранных приложений или текущего процесса.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;– OptOut<br />
+&nbsp;&nbsp;&nbsp;&nbsp;DEP автоматически включена для компонентов операционной системы и всех процессов. Это параметр по умолчанию<br />
+&nbsp;&nbsp;&nbsp;&nbsp;для версий Windows Server. DEP может быть явно отключена для выбранных приложений или<br />
+&nbsp;&nbsp;&nbsp;&nbsp;текущего процесса. Исправления совместимости системы для DEP вступают в силу.<br />
+
+<h2>Примечания</h2>
+<p>Эта функция требует Windows XP с SP3, Windows Vista с SP1 или более позднюю версию.<br />
+</p>
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetSystemDEPPolicy">GetSystemDEPPolicy</a> в библиотеке MSDN
+</p>
+
+</body>
+</html>

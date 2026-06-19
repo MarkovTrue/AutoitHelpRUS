@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция PixelSearch</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>PixelSearch</h1>
+<p class="funcdesc">Ищет пиксель заданного цвета в прямоугольной области.</p>
+<p class="codeheader"><a class="le" href="../functions/PixelSearch.htm"><span class="S4">PixelSearch</span></a> <span class="S8">(</span> <span class="S0">left</span><span class="S8">,</span> <span class="S0">top</span><span class="S8">,</span> <span class="S0">right</span><span class="S8">,</span> <span class="S0">bottom</span><span class="S8">,</span> <span class="S0">color</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">shade</span><span class="S8">-</span><span class="S0">variation</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <a class="le" href="../keywords/For.htm"><span class="S5">step</span></a> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <a class="le" href="../functions/HWnd.htm"><span class="S4">hwnd</span></a><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">left</td>
+<td style="width:85%">Левая координата прямоугольника.</td>
+</tr>
+<tr>
+<td>top</td>
+<td>Верхняя координата прямоугольника.</td>
+</tr>
+<tr>
+<td>right</td>
+<td>Правая координата прямоугольника.</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>Нижняя координата прямоугольника.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>Цвет искомого пикселя (десятичный или шестнадцатеричный).</td>
+</tr>
+<tr>
+<td>shade-variation</td>
+<td><strong>[необязательный]</strong> Число от 0 до 255 – допустимое отклонение компонент R, G, B. По умолчанию 0 (точное совпадение).</td>
+</tr>
+<tr>
+<td>step</td>
+<td><strong>[необязательный]</strong> Шаг перебора пикселей: значение больше 1 пропускает пиксели для ускорения. Значение 2 проверяет каждый второй пиксель. По умолчанию 1. <strong>Не рекомендуется использовать шаг больше 1.</strong></td>
+</tr>
+<tr>
+<td>hwnd</td>
+<td><strong>[необязательный]</strong> Дескриптор окна. По умолчанию используется рабочий стол. См. раздел Примечания.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает двухэлементный массив координат найденного пикселя: Array[0] = x, Array[1] = y.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Устанавливает значение <span class="S61">@error</span> = 1, если цвет не найден.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Направление поиска определяется так:<br />
+&nbsp;&nbsp;&nbsp; Слева направо – left &lt; right<br />
+&nbsp;&nbsp;&nbsp; Справа налево – right &lt; left<br />
+&nbsp;&nbsp;&nbsp; Сверху вниз – top &lt; bottom<br />
+&nbsp;&nbsp;&nbsp; Снизу вверх – bottom &lt; top<br />
+Смена направления поиска полезна, если искомый цвет чаще встречается в определённом квадранте области – поиск быстрее заканчивается при правильном начальном направлении.<br />
+<br />
+Учтите: типичный экран 1024×768 содержит 786 432 пикселя. Несмотря на оптимизацию <a href="PixelSearch.htm"><span class="S4">PixelSearch</span><span class="S8">()</span></a>, сужение области поиска ускоряет результат.<br />
+<br />
+Если PixelCoordMode установлен в режим SCREEN (1) по умолчанию, параметр hwnd игнорируется. Он учитывается только при режиме WINDOW (0) или CLIENT (2).<br />
+</p>
+<h2>См. также</h2>
+<p><a href="PixelChecksum.htm">PixelChecksum</a>, <a href="AutoItSetOption.htm#PixelCoordMode ">PixelCoordMode (Option)</a>, <a href="PixelGetColor.htm">PixelGetColor</a></p>
+
+<h2 class=<em>bottom</em>>Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
+<br>
+<span class="S1">; Найти чисто красный пиксель в области (0,0)–(20,300).
+</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aCoord</span> <span class="S8">=</span> <a class="le" href="../functions/PixelSearch.htm"><span class="S4">PixelSearch</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">0xFF0000</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"X and Y are: "</span> <span class="S8">&amp;</span> <span class="S9">$aCoord</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">","</span> <span class="S8">&amp;</span> <span class="S9">$aCoord</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+<br>
+<span class="S1">; Найти чисто красный пиксель или красный с отклонением до 10 оттенков.
+</span><br>
+<span class="S9">$aCoord</span> <span class="S8">=</span> <a class="le" href="../functions/PixelSearch.htm"><span class="S4">PixelSearch</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">0xFF0000</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"X and Y are: "</span> <span class="S8">&amp;</span> <span class="S9">$aCoord</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">","</span> <span class="S8">&amp;</span> <span class="S9">$aCoord</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
+<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\PixelSearch.au3,"></object>
+</body>
+</html>

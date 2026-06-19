@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Function Notes</title>
+  <meta charset="utf-8">
+  <link href="css/default.css" rel="stylesheet">
+<script src="css/helppage.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Function Notes</h1>
+  <p>Functions in AutoIt are first class objects. Among other things, that means you can assign a function to a variable, pass it around as an argument or return from another function.<br />
+  Aside from certain specific scope-regarding declaration rules (being that the names of the built-in functions are <em>reserved</em> and of UDFs' can be overwritten only locally), the names of functions do not have special status in the language.</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$vFunc</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><br /><br /><span class="S9">$vFunc</span><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hi there!"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Lovely day today."</span><span class="S8">)</span></span>
+</p>
+  <p>&nbsp;</p>
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S0">_Test</span><span class="S8">)</span><br /><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> _Test</span><span class="S8">()</span><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"! Testing"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><a class="codeSnippetLink" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a></span>
+</p>
+  <p>&nbsp;</p>
+<strong>Optional parameters</strong><br />
+  <br />
+  <p>Many functions contain optional parameters that can be omitted. If you wish to specify an optional parameter, however, all preceding parameters must be specified!<br />
+  For example, consider <em><a href="functions/Run.htm">Run</a> ( "filename", ["workingdir" [, flag]] )</em>. If you wish to specify the <em>flag</em>, you <strong>must</strong> specify a <em>workingdir</em>.<br />
+<p>When an optional parameter needs to be defined and is preceded by one or more optional parameters, the default value must be given for that parameter. Generally speaking functions should accept the <a href="keywords/Default.htm">Default</a> keyword when you wish to use the default parameter. See the corresponding optional parameter description for more details.</p>
+  <br />
+  Many Win___ functions contain an optional parameter "text". This parameter is intended to help differentiate between windows that have identical titles.<br />
+  <br />
+<strong>Success/failure indication of internal AutoIt functions</strong><br />
+  <br />
+  Some functions use the <strong>Return value</strong> to indicate success/failure, others set the <strong>@error flag</strong>. Some do both....<br />
+  <br />
+  If the <strong>Return value</strong> method is used, the Help file will specify the expected value for success/failure - but the success value is typically non-zero to allow easy to read code...<br />
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">;...function worked.</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">;...function failed.</span></span>
+</p>
+  <br />
+  <br />
+  When the documentation states that the return value = none, AutoIt always returns a value to avoid errors. 1 is usually the value returned, but you should not depend on this return value.<br />
+  <br />
+  If the <strong>@error flag</strong> method is used, @error = 0 always indicates success. Other @error values indicate a problem and are defined in the Help file for the function.<br />
+<p class="codebox">
+<span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sFileRead</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/FileReadLine.htm"><span class="S4">FileReadLine</span></a><span class="S8">(</span><span class="S7">"C:\someFile.txt"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">-</span></a><span class="S3">1</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">; End-of-file was reached.</span></span>
+</p>
+  <br />
+  <br />
+  If a function uses the <strong>@error flag</strong> method, the flag should be checked immediately after the function returns as @error will be reset to 0 when entering the next function. No attempt to use or access the function return value should be made if the @error flag has been set as in that case the return value is generally undefined...<br />
+  <br />
+  <strong>Success/failure indication of user-written functions</strong><br />
+  <br />
+  The return value, @error, and @extended macros are normally set by the author using the <a href="keywords/Func.htm">Return</a>/<a href="SetError.htm">SetError</a>/<a href="SetExtended.htm">SetExtended</a> functions within the code. See the documentation for the specific user-written library to determine the specific values that are used.<br />
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Функция _WinAPI_RegDeleteKey</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник функций</h1>
+<hr style="height:0px">
+<h1>_WinAPI_RegDeleteKey</h1>
+<p class="funcdesc">Удаляет подключ и его значения.</p>
+<p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIReg.au3&gt;</span><br>
+<a class="le" href="../libfunctions/_WinAPI_RegDeleteKey.htm"><span class="S15">_WinAPI_RegDeleteKey</span></a> <span class="S8">(</span> <span class="S9">$vKey</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sSubKey</span> <span class="S8">=</span> <span class="S7">''</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iSamDesired</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><span class="S91">$vKey</span></td>
+<td style="width:85%">Имя открываемого ключа (см. раздел Примечания).<br />
+или<br />
+Дескриптор открытого ключа реестра. Права доступа этого ключа не влияют на операцию удаления.<br />
+Этот дескриптор возвращается функцией <a href="_WinAPI_RegCreateKey.htm"><span class="S15">_WinAPI_RegCreateKey</span><span class="S8">()</span></a> или <a href="_WinAPI_RegOpenKey.htm"><span class="S15">_WinAPI_RegOpenKey</span><span class="S8">()</span></a>,<br />
+или может быть одним из следующих предопределённых ключей:<br />
+<span class="S91">$HKEY_CLASSES_ROOT</span><br />
+<span class="S91">$HKEY_CURRENT_CONFIG</span><br />
+<span class="S91">$HKEY_CURRENT_USER</span><br />
+<span class="S91">$HKEY_LOCAL_MACHINE</span><br />
+<span class="S91">$HKEY_USERS</span></td>
+</tr>
+<tr>
+<td><span class="S91">$sSubKey</span></td>
+<td><strong>[необязательный]</strong> Имя удаляемого ключа. Он должен быть подключом ключа, определённого параметром <span class="S91">$hKey</span>, но не может иметь подключи.</td>
+</tr>
+<tr>
+<td><span class="S91">$iSamDesired</span></td>
+<td><strong>[необязательный]</strong> Маска доступа, определяющая специфичный для платформы вид реестра.<br />
+Этот параметр может быть одним из следующих значений:<br />
+<span class="S91">$KEY_WOW64_32KEY</span> для 32-битного ключа<br />
+<span class="S91">$KEY_WOW64_64KEY</span> для 64-битного ключа<br />
+По умолчанию ключ соответствует значению <span class="S61">@AutoItX64</span>.</td>
+</tr>
+</table>
+
+<h2>Возвращаемое значение</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">Успех:</td>
+<td style="width:90%">Возвращает 1.</td>
+</tr>
+<tr>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+</tr>
+<tr>
+<td class="valign-top"><span class="S61">@extended</span>:</td>
+<td>Может содержать системный код ошибки.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p><span class="S91">$vKey</span> может быть строкой, содержащей запрошенный подключ, в этом случае <span class="S91">$sSubKey</span> должна быть пуста<br />
+<br />
+Удалённый ключ удаляется только после закрытия последнего дескриптора на него.<br />
+<br />
+В WOW64 32-битные приложения просматривают дерево реестра, которое отделено от дерева реестра, просматриваемого 64-битными приложениями. Эта функция позволяет приложению удалить запись в альтернативном виде реестра.<br />
+Удаляемый подключ не должен иметь подключи. Для удаления ключа и всех его подключей нужно перечислить подключи и удалить их по отдельности. Для рекурсивного удаления ключей используйте функцию <a href="_WinAPI_RegDeleteTree.htm"><span class="S15">_WinAPI_RegDeleteTree</span><span class="S8">()</span></a> или <a href="_WinAPI_RegDeleteTreeEx.htm"><span class="S15">_WinAPI_RegDeleteTreeEx</span><span class="S8">()</span></a>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey</a>, <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey</a>, <a href="_WinAPI_RegDeleteTree.htm">_WinAPI_RegDeleteTree</a>, <a href="_WinAPI_RegDeleteTreeEx.htm">_WinAPI_RegDeleteTreeEx</a></p>
+
+<h2>Дополнительно</h2>
+<p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=RegDeleteKeyEx">RegDeleteKeyEx</a> в библиотеке MSDN
+</p>
+
+<h2 class="bottom">Пример</h2>
+
+<p id="copytext1" class="codebox">
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<a class="le" href="../keywords/RequireAdmin.htm"><span class="S11">#RequireAdmin</span></a><br>
+<br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Debug.au3&gt;</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIReg.au3&gt;</span><br>
+<br>
+<a class="le" href="../libfunctions/_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">(</span><span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
+<br>
+<span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sKey</span> <span class="S8">=</span> <span class="S7">"HKEY_LOCAL_MACHINE"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sSubKey</span> <span class="S8">=</span> <span class="S7">"SOFTWARE\MyApp"</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sMyKey</span> <span class="S8">=</span> <span class="S9">$sKey</span> <span class="S8">&amp;</span> <span class="S7">"\"</span> <span class="S8">&amp;</span> <span class="S9">$sSubKey</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugReport.htm"><span class="S15">_DebugReport</span></a><span class="S8">(</span><span class="S7">'@@ Debug('</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">') : $sMyKey = '</span> <span class="S8">&amp;</span> <span class="S9">$sMyKey</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'&gt;Error code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">'    Extended code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <span class="S7">' (0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">')'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">;### Отладочная консоль</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hOpenKey</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_RegCreateKey.htm"><span class="S15">_WinAPI_RegCreateKey</span></a><span class="S8">(</span><span class="S9">$sMyKey</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugReport.htm"><span class="S15">_DebugReport</span></a><span class="S8">(</span><span class="S7">'@@ Debug('</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">') : $hOpenKey = '</span> <span class="S8">&amp;</span> <span class="S9">$hOpenKey</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'&gt;Error code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">'    Extended code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <span class="S7">' (0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">')'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">;### Отладочная консоль</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRegDelete</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_RegDeleteKey.htm"><span class="S15">_WinAPI_RegDeleteKey</span></a><span class="S8">(</span><span class="S9">$hOpenKey</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugReport.htm"><span class="S15">_DebugReport</span></a><span class="S8">(</span><span class="S7">'@@ Debug('</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">') : $iRegDelete = '</span> <span class="S8">&amp;</span> <span class="S9">$iRegDelete</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'&gt;Error code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">'    Extended code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <span class="S7">' (0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">')'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">;### Отладочная консоль</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRegClose</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_RegCloseKey.htm"><span class="S15">_WinAPI_RegCloseKey</span></a><span class="S8">(</span><span class="S9">$hOpenKey</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugReport.htm"><span class="S15">_DebugReport</span></a><span class="S8">(</span><span class="S7">'@@ Debug('</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">') : $iRegClose = '</span> <span class="S8">&amp;</span> <span class="S9">$iRegClose</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'&gt;Error code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">'    Extended code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <span class="S7">' (0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">')'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">;### Отладочная консоль</span><br>
+<br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
+</span><br>
+</p>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\_WinAPI_RegDeleteKey.au3,"></object>
+</body>
+</html>
