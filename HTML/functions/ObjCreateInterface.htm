@@ -48,136 +48,137 @@
 </table>
 
 <h2>Примечания</h2>
-<p><a href="ObjCreateInterface.htm"><span class="S4">ObjCreateInterface</span><span class="S8">()</span></a> создаёт объекты с методами, перечисленными в строке описания интерфейса.<br />
-Для COM-объектов (на базе IUnknown) первые три метода – всегда QueryInterface, AddRef и Release. Их не нужно указывать в строке описания.<br />
+<p><a href="ObjCreateInterface.htm"><span class="S4">ObjCreateInterface</span><span class="S8">()</span></a> creates objects with methods that are listed in interface-description string.<br />
+For COM objects (IUnknown based) first three methods are always QueryInterface, AddRef and Release. Don't specify them inside the description strings.<br />
 <br />
-<strong>Методы в строке описания должны быть перечислены в порядке vtable интерфейса. Некорректное описание может привести к нестабильности или аварийному завершению AutoIt.</strong><br />
+<strong>Methods listed inside description string must be in v-table order of the interface. If you provide an invalid or incorrect description AutoIt may become unstable or crash.</strong><br />
 <br />
-Формат строки описания:<br />
+Format of the description string is:<br />
 <span class="S91">$sTagInterface</span> = "MethodName1 RetType(ParamType1;ParamType2;...); MethodName2 RetType(..."<br />
 <br />
-По умолчанию AutoIt использует соглашение вызова 'stdcall'. Для 'cdecl' добавьте ':cdecl' после типа возврата.<br />
+By default, AutoIt uses the 'stdcall' calling convention for COM. To use the 'cdecl' place ':cdecl' after the return type.<br />
 <br />
-Допустимые типы:<br />
+Valid Types are:<br />
 <table>
 <tr class="header">
-<td style="width:15%"><strong>Тип</strong></td>
-<td style="width:85%"><strong>Описание</strong></td>
+<td style="width:15%"><strong>Type</strong></td>
+<td style="width:85%"><strong>Details</strong></td>
 </tr>
 <tr>
 <td>none</td>
-<td>нет значения (только для возвращаемого типа – аналог void в C)</td>
+<td>no value (only valid for return type - equivalent to void in C)</td>
 </tr>
 <tr>
 <td>byte</td>
-<td>беззнаковое 8-битное целое</td>
+<td>an unsigned 8 bit integer</td>
 </tr>
 <tr>
 <td>boolean</td>
-<td>беззнаковое 8-битное целое</td>
+<td>an unsigned 8 bit integer</td>
 </tr>
 <tr>
 <td>short</td>
-<td>16-битное целое</td>
+<td>a 16 bit integer</td>
 </tr>
 <tr>
 <td>word, ushort</td>
-<td>беззнаковое 16-битное целое</td>
+<td>an unsigned 16 bit integer</td>
 </tr>
 <tr>
 <td>int, long</td>
-<td>32-битное целое</td>
+<td>a 32 bit integer</td>
 </tr>
 <tr>
 <td>bool</td>
-<td>32-битное целое</td>
+<td>a 32 bit integer</td>
 </tr>
 <tr>
 <td>dword, ulong, uint</td>
-<td>беззнаковое 32-битное целое</td>
+<td>an unsigned 32 bit integer</td>
 </tr>
 <tr>
 <td>hresult</td>
-<td>32-битное целое</td>
+<td>a 32 bit integer</td>
 </tr>
 <tr>
 <td>int64</td>
-<td>64-битное целое</td>
+<td>a 64 bit integer</td>
 </tr>
 <tr>
 <td>uint64</td>
-<td>беззнаковое 64-битное целое</td>
+<td>an unsigned 64 bit integer</td>
 </tr>
 <tr>
 <td>ptr</td>
-<td>универсальный указатель (void *)</td>
+<td>a general pointer (void *)</td>
 </tr>
 <tr>
 <td>hwnd</td>
-<td>дескриптор окна (указатель)</td>
+<td>a window handle (pointer)</td>
 </tr>
 <tr>
 <td>handle</td>
-<td>дескриптор (указатель)</td>
+<td>an handle (pointer)</td>
 </tr>
 <tr>
 <td>float</td>
-<td>число с плавающей точкой одинарной точности</td>
+<td>a single precision floating point number</td>
 </tr>
 <tr>
 <td>double</td>
-<td>число с плавающей точкой двойной точности</td>
+<td>a double precision floating point number</td>
 </tr>
 <tr>
 <td>int_ptr, long_ptr, lresult, lparam</td>
-<td>целое, достаточное для хранения указателя при работе на x86 или x64.</td>
+<td>an integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.</td>
 </tr>
 <tr>
 <td>uint_ptr, ulong_ptr, dword_ptr, wparam</td>
-<td>беззнаковое целое, достаточное для хранения указателя при работе на x86 или x64.</td>
+<td>an unsigned integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.</td>
 </tr>
 <tr>
 <td>str</td>
-<td>ANSI-строка (выделяется минимум 65536 символов).</td>
+<td>an ANSI string (a minimum of 65536 chars is allocated).</td>
 </tr>
 <tr>
 <td>wstr</td>
-<td>UNICODE-строка широких символов (выделяется минимум 65536 символов).</td>
+<td>a UNICODE wide character string (a minimum of 65536 chars is allocated).</td>
 </tr>
 <tr>
 <td>bstr</td>
-<td>составной тип: префикс длины + строка данных + завершитель</td>
+<td>a composite data type that consists of a length prefix, a data string and a terminator</td>
 </tr>
 <tr>
 <td>variant</td>
-<td>теговое объединение, представляющее любой другой тип данных</td>
+<td>a tagged union that can be used to represent any other data type</td>
 </tr>
 <tr>
 <td>idispatch, object</td>
-<td>составной тип, представляющий объект с интерфейсом IDispatch</td>
+<td>a composite data type that represents object with IDispatch interface</td>
 </tr>
 <tr>
 <td>clsid</td>
-<td>128-битное целое в виде строки GUID</td>
+<td>128-bit integer in form of GUID string</td>
 </tr>
 <tr>
 <td>struct</td>
-<td>структура, созданная с помощью <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a></td>
+<td>structure created with <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a></td>
 </tr>
 <tr>
 <td>*</td>
-<td>Добавление * к другому типу передаёт его по ссылке. Например, "int*" – указатель на int.</td>
+<td>Add * to the end of another type to pass it by reference. For example "int*" passes a pointer to an "int" type.</td>
 </tr>
 </table><br />
-Подробнее об объектах – в <a href="../intro/ComRef.htm">справочнике Obj/COM</a>.<br />
+See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more information about Objects.<br />
 </p>
+
 <h2>См. также</h2>
 <p><a href="ObjCreate.htm">ObjCreate</a></p>
 
 <h2 class="bottom">Пример</h2>
 
 <p id="copytext1" class="codebox">
-<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
@@ -225,6 +226,6 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>
-<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ObjCreateInterface.au3,"></object>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\ObjCreateInterface.au3,"></object>
 </body>
 </html>

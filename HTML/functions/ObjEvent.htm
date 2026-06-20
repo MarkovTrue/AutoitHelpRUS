@@ -46,60 +46,61 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Первый формат используется для получения событий от объекта.<br />
-Для обработки конкретного события создайте функцию AutoIt с именем, составленным из заданного префикса и имени события.<br />
+<p>The first format is used to receive Events from the given Object.<br />
+To receive a specific event, create an AutoIt function name using the given prefix appended with the event name.<br />
 <br />
-Второй формат предназначен для обработки ошибок COM.<br />
-При любой ошибке COM вызывается указанная функция. Первый параметр – объект ошибки.<br />
-Через него можно получить различные свойства ошибки.<br />
-Если второй параметр не указан, возвращается строка с именем текущего обработчика ошибок. Если обработчик не задан, возвращается пустая строка.<br />
-Результат вызова ObjEvent необходимо присвоить переменной, иначе обработчик ошибок не будет вызван.<br />
+The second format is used for COM Error Handling.<br />
+If any COM error occurs, the given function is called. First parameter for the function will be the error object.<br />
+You can use it to access different properties of this object.<br />
+If the second parameter is omitted, it will return a string containing the name of the current Error handler function. If no Error handler function has been set, it will return an empty string.<br />
+You must assign the return, from the ObjEvent call, to a variable or the error handler function will not be called in the event of a COM error.<br />
 <br />
-Свойства объекта ошибки AutoIt:<br />
+Properties of the AutoIt Error Object:<br />
 <table>
 <tr>
 <td>.number</td>
-<td>Значение HRESULT Windows, полученное от COM-вызова</td>
+<td>The Windows HRESULT value from a COM call</td>
 </tr>
 
 <tr>
 <td>.windescription</td>
-<td>Текст FormatWinError() для значения .number</td>
+<td>The FormatWinError() text derived from .number</td>
 </tr>
 
 <tr>
 <td>.source</td>
-<td>Имя объекта, породившего ошибку (из ExcepInfo.source)</td>
+<td>Name of the Object generating the error (contents from ExcepInfo.source)</td>
 </tr>
 
 <tr>
 <td>.description</td>
-<td>Описание ошибки от объекта-источника (из ExcepInfo.description)</td>
+<td>Source Object's description of the error (contents from ExcepInfo.description)</td>
 </tr>
 
 <tr>
 <td>.helpfile</td>
-<td>Файл справки объекта-источника (из ExcepInfo.helpfile)</td>
+<td>Source Object's helpfile for the error (contents from ExcepInfo.helpfile)</td>
 </tr>
 
 <tr>
 <td>.helpcontext</td>
-<td>Идентификатор контекста справки объекта-источника (из ExcepInfo.helpcontext)</td>
+<td>Source Object's helpfile context id number (contents from ExcepInfo.helpcontext)</td>
 </tr>
 
 <tr>
 <td>.lastdllerror</td>
-<td>Значение, возвращённое GetLastError()</td>
+<td>The number returned from GetLastError()</td>
 </tr>
 
 <tr>
 <td>.scriptline</td>
-<td>Строка скрипта, в которой произошла ошибка</td>
+<td>The script line on which the error was generated</td>
 </tr>
 </table><br />
 <br />
-Подробнее – в <a href="../intro/ComRef.htm">справочнике Obj/COM</a>.<br />
+See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a detailed explanation.<br />
 </p>
+
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateObj.htm">GUICtrlCreateObj</a>, <a href="IsObj.htm">IsObj</a>, <a href="ObjCreate.htm">ObjCreate</a>, <a href="ObjGet.htm">ObjGet</a></p>
 
@@ -107,7 +108,7 @@
 
 <h3>Пример 1</h3>
 <p id="copytext1" class="codebox">
-<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
@@ -196,11 +197,11 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_ErrFunc
 </span><br>
 </p>
-<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ObjEvent.au3,"></object>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\ObjEvent.au3,"></object>
 
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
-<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$__g_oTemplateCOMErrorHandler</span> <span class="S8">=</span> <span class="S3">0</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oShell</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a><span class="S8">(</span><span class="S7">"Shell.Application"</span><span class="S8">)</span><br>
@@ -236,6 +237,6 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Template_COMErrFunc
 </span><br>
 </p>
-<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ObjEvent[2].au3,"></object>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\ObjEvent[2].au3,"></object>
 </body>
 </html>

@@ -43,15 +43,16 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если используется только идентификатор класса, параметр filename можно оставить пустым, но не опустить.<br />
-Для доступа к объектам из таблицы выполняемых объектов (ROT) передайте пустую строку; в этом случае третий параметр задаёт нужный экземпляр.<br />
-Во всех остальных случаях третий параметр игнорируется.<br />
+<p>The filename is optional if you want to use only the class identifier, but the parameter can't be omitted.<br />
+Use an empty string if you want to access objects from running objects table (ROT). You can use third parameter to specify wanted instance in that case.<br />
+In all other cases third parameter is ignored.<br />
 <br />
-Если задано имя файла, classname необязателен – он нужен только для загрузки объекта конкретного класса.<br />
-Параметр classname <strong>не имеет</strong> значения по умолчанию: если указан, он обрабатывается.<br />
+If you use a filename, the classname is optional. It's only required when you want to load an object of a specific class.<br />
+Classname parameter <strong>does not</strong> have default value. If it's specified then it's processed.<br />
 <br />
-Подробнее об объектах – в <a href="../intro/ComRef.htm">справочнике Obj/COM</a>.<br />
+See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more information about Objects.<br />
 </p>
+
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateObj.htm">GUICtrlCreateObj</a>, <a href="IsObj.htm">IsObj</a>, <a href="ObjCreate.htm">ObjCreate</a>, <a href="ObjEvent.htm">ObjEvent</a>, <a href="ObjName.htm">ObjName</a></p>
 
@@ -59,7 +60,7 @@
 
 <h3>Пример 1</h3>
 <p id="copytext1" class="codebox">
-<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
 <span class="S1">; Пример получения объекта по имени класса.
@@ -85,11 +86,11 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>
-<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ObjGet.au3,"></object>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\ObjGet.au3,"></object>
 
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
-<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <span class="S1">; Пример получения объекта по имени файла.
 </span><br>
 <span class="S1">; ; В каталоге скрипта должен существовать файл Worksheet.xls.
@@ -139,6 +140,6 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>
-<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\ObjGet[2].au3,"></object>
+<object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\ObjGet[2].au3,"></object>
 </body>
 </html>

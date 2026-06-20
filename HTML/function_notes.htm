@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>Примечания к функциям</h1>
-  <p>Функции в AutoIt относятся к объектам первого класса. Помимо прочего, это значит, что функцию можно присвоить переменной, передать как аргумент или вернуть из другой функции.<br />
+  <p>Функции в AutoIt являются объектами первого класса. Помимо прочего это значит, что функцию можно присвоить переменной, передать как аргумент или вернуть из другой функции.<br />
   За исключением отдельных правил объявления, связанных с областью видимости (имена встроенных функций <em>зарезервированы</em>, а имена UDF можно переопределить только локально), имена функций не имеют особого статуса в языке.</p>
 <p class="codebox">
 <span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$vFunc</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><br /><br /><span class="S9">$vFunc</span><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Hi there!"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Lovely day today."</span><span class="S8">)</span></span>
@@ -20,34 +20,34 @@
   <p>&nbsp;</p>
 <strong>Необязательные параметры</strong><br />
   <br />
-  <p>Многие функции содержат необязательные параметры, которые можно опустить. Но чтобы указать необязательный параметр, нужно задать все параметры перед ним!<br />
-  Например, возьмём <em><a href="functions/Run.htm">Run</a> ( "filename", ["workingdir" [, flag]] )</em>. Чтобы указать <em>flag</em>, вы <strong>обязаны</strong> указать <em>workingdir</em>.<br />
-<p>Когда необязательный параметр нужно задать, а перед ним стоят другие необязательные параметры, для них нужно передать значение по умолчанию. Как правило, функции принимают ключевое слово <a href="keywords/Default.htm">Default</a>, когда нужно использовать значение по умолчанию. Подробнее смотрите в описании соответствующего необязательного параметра.</p>
+  <p>Многие функции содержат необязательные параметры, которые можно опустить. Но если вы хотите указать необязательный параметр, нужно указать и все предшествующие ему параметры!<br />
+  Например, рассмотрим <em><a href="functions/Run.htm">Run</a> ( "filename", ["workingdir" [, flag]] )</em>. Если вы хотите задать <em>flag</em>, вы <strong>обязаны</strong> указать <em>workingdir</em>.<br />
+<p>Если необязательный параметр нужно задать, а перед ним стоят один или несколько других необязательных, для них нужно указать значения по умолчанию. Как правило, функции принимают ключевое слово <a href="keywords/Default.htm">Default</a>, когда вы хотите использовать значение по умолчанию. Подробнее смотрите в описании соответствующего необязательного параметра.</p>
   <br />
-  Многие функции Win___ содержат необязательный параметр "text". Он помогает различать окна с одинаковыми заголовками.<br />
+  Многие функции Win___ содержат необязательный параметр <em>text</em>. Этот параметр помогает различать окна с одинаковыми заголовками.<br />
   <br />
 <strong>Индикация успеха/ошибки во встроенных функциях AutoIt</strong><br />
   <br />
-  Одни функции используют <strong>возвращаемое значение</strong> для индикации успеха/ошибки, другие устанавливают флаг <strong><span class="S61">@error</span></strong>. Некоторые делают и то, и другое....<br />
+  Одни функции используют <strong>возвращаемое значение</strong> для индикации успеха/ошибки, другие устанавливают <strong>флаг <span class="S61">@error</span></strong>. Некоторые делают и то, и другое....<br />
   <br />
-  Если используется метод <strong>возвращаемого значения</strong>, справка укажет ожидаемое значение для успеха/ошибки – но значение успеха обычно ненулевое, чтобы код легче читался...<br />
+  Если используется метод <strong>возвращаемого значения</strong>, в справке указано ожидаемое значение для успеха/ошибки, но значение успеха обычно ненулевое, чтобы код легко читался...<br />
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">;...функция отработала.</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">;...функция завершилась с ошибкой.</span></span>
+<span><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">;...функция сработала.</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">;...функция не сработала.</span></span>
 </p>
   <br />
   <br />
-  Когда в документации сказано, что возвращаемое значение = none, AutoIt всё равно возвращает значение, чтобы избежать ошибок. Обычно это 1, но полагаться на это значение не стоит.<br />
+  Когда в документации указано, что возвращаемое значение = none, AutoIt всё равно возвращает значение, чтобы избежать ошибок. Обычно возвращается 1, но полагаться на это значение не стоит.<br />
   <br />
-  Если используется метод флага <strong><span class="S61">@error</span></strong>, значение <span class="S61">@error</span> = 0 всегда означает успех. Другие значения <span class="S61">@error</span> указывают на проблему и описаны в справке по конкретной функции.<br />
+  Если используется метод <strong>флага <span class="S61">@error</span></strong>, то <span class="S61">@error</span> = 0 всегда означает успех. Другие значения <span class="S61">@error</span> указывают на проблему и описаны в справке по функции.<br />
 <p class="codebox">
 <span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sFileRead</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/FileReadLine.htm"><span class="S4">FileReadLine</span></a><span class="S8">(</span><span class="S7">"C:\someFile.txt"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">-</span></a><span class="S3">1</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">; Достигнут конец файла.</span></span>
 </p>
   <br />
   <br />
-  Если функция использует метод флага <strong><span class="S61">@error</span></strong>, флаг нужно проверять сразу после возврата из функции, так как <span class="S61">@error</span> сбрасывается в 0 при входе в следующую функцию. Если флаг <span class="S61">@error</span> установлен, не стоит использовать или читать возвращаемое значение функции – в этом случае оно, как правило, не определено...<br />
+  Если функция использует метод <strong>флага <span class="S61">@error</span></strong>, флаг нужно проверять сразу после возврата из функции, так как <span class="S61">@error</span> сбрасывается в 0 при входе в следующую функцию. Не используйте и не читайте возвращаемое значение функции, если установлен флаг <span class="S61">@error</span>: в этом случае возвращаемое значение обычно не определено...<br />
   <br />
   <strong>Индикация успеха/ошибки в пользовательских функциях</strong><br />
   <br />
-  Возвращаемое значение, макросы <span class="S61">@error</span> и <span class="S61">@extended</span> обычно устанавливает автор с помощью функций <a href="keywords/Func.htm">Return</a>/<a href="SetError.htm">SetError</a>/<a href="SetExtended.htm">SetExtended</a> в коде. Конкретные используемые значения смотрите в документации к соответствующей библиотеке.<br />
+  Возвращаемое значение, макросы <span class="S61">@error</span> и <span class="S61">@extended</span> обычно задаёт автор с помощью функций <a href="keywords/Func.htm">Return</a>/<a href="SetError.htm">SetError</a>/<a href="SetExtended.htm">SetExtended</a> в коде. Конкретные используемые значения смотрите в документации соответствующей пользовательской библиотеки.<br />
 </body>
 </html>

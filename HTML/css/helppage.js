@@ -25,10 +25,12 @@ function ClipBoard(id) {
 }
 
 function OpenScript(id) {
-    try {
-        var ctl = document.getElementById(id);
-        if (ctl && ctl.Click) { ctl.Click(); return; }
-    } catch (e) {}
+    // Объект hhctrl (ShortCut) сам обрабатывает открытие .au3, как в оригинале EN.
+    // Click() симулирует нажатие по его кнопке. Доступен только внутри CHM/HH Viewer.
+    var ctl = document.getElementById(id);
+    if (ctl) {
+        try { ctl.Click(); return; } catch (e) {}
+    }
     alert("Открытие примера работает только внутри CHM-справки.");
 }
 
@@ -95,14 +97,15 @@ var _FLAG_RU = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAYCAIAAAAd2s
 
 function _getLangToggleUrl(toEnglish) {
     var href = location.href.replace(/\\/g, "/").replace(/[?#].*$/, "");
-    var idx = href.indexOf("/html/");
+    // Папка может называться html или HTML — ищем регистронезависимо.
+    var idx = href.toLowerCase().indexOf("/html/");
     if (idx === -1) return null;
-    var relPath = href.substring(idx + 6); // часть после "/html/"
+    var relPath = href.substring(idx + 6); // часть после "/html/" (регистр сохранён)
     if (!relPath || relPath.charAt(relPath.length - 1) === "/") return null;
     var depth = (relPath.match(/\//g) || []).length;
     var prefix = "";
     for (var i = 0; i < depth; i++) prefix += "../";
-    var isEn = relPath.substring(0, 3) === "en/";
+    var isEn = relPath.substring(0, 3).toLowerCase() === "en/";
     if (toEnglish) {
         if (isEn) return null;
         return prefix + "en/" + relPath;
@@ -114,7 +117,7 @@ function _getLangToggleUrl(toEnglish) {
 function _initLangSwitch() {
     if (!document.body) return;
     var href = location.href.replace(/\\/g, "/");
-    var isEn = href.indexOf("/html/en/") !== -1;
+    var isEn = href.toLowerCase().indexOf("/html/en/") !== -1;
     var url = _getLangToggleUrl(!isEn);
     if (!url) return;
 

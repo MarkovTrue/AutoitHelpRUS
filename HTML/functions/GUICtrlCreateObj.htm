@@ -51,22 +51,23 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Функция пытается встроить "ActiveX-элемент управления" или "объект-документ" в GUI.<br />
-Встраивать можно не каждый элемент – он должен как минимум поддерживать интерфейс IDispatch.<br />
+<p>This function attempts to embed an 'ActiveX Control' or a 'Document Object' inside the GUI.<br />
+Not every control can be embedded. They must at least support an 'IDispatch' interface.<br />
 <br />
-См. <a href="../intro/ComRef.htm">справочник Obj/COM</a> для получения дополнительных сведений об объектах.<br />
+See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more information about Objects.<br />
 <br />
-"Объекты-документы" отображаются только при использовании стиля Windows <span class="S91">$WS_CLIPCHILDREN</span> в <a class="le" href="GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">()</span>.<br />
+'Document Objects' will only be visible if the Windows style <span class="S91">$WS_CLIPCHILDREN</span> has been used in <a href="GUICreate.htm"><span class="S4">GUICreate</span><span class="S8">()</span></a>.<br />
 <br />
-Функции GUI <a class="le" href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span></a><span class="S8">()</span> и GUICtrlSet не оказывают воздействия на данный элемент управления. Управление объектом возможно только через методы или свойства переменной <span class="S91">$ObjectVar</span>.<br />
+The GUI functions <a href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span><span class="S8">()</span></a> and GUICtrlSet have no effect on this control. The object can only be controlled using 'methods' or 'properties' on the <span class="S91">$ObjectVar</span>.<br />
 </p>
+
 <h2>См. также</h2>
 <p><a href="IsObj.htm">IsObj</a>, <a href="ObjCreate.htm">ObjCreate</a>, <a href="ObjEvent.htm">ObjEvent</a>, <a href="ObjGet.htm">ObjGet</a></p>
 
 <h2 class="bottom">Пример</h2>
 
 <p id="copytext1" class="codebox">
-<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
+<span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
 <br>
@@ -143,6 +144,6 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_ErrFunc
 </span><br>
 </p>
-<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="ShortCut"><param name="Item1" value=",Examples\HelpFile\GUICtrlCreateObj.au3,"></object>
+<object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\GUICtrlCreateObj.au3,"></object>
 </body>
 </html>
