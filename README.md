@@ -1,4 +1,4 @@
-[![GitHub Release](https://img.shields.io/github/release/MarkovTrue/AutoitHelpRUS)](https://github.com/MarkovTrue/AutoitHelpRUS/releases) [![Downloads](https://img.shields.io/github/downloads/MarkovTrue/AutoitHelpRUS/total?label=downloads&color=blue)](https://github.com/MarkovTrue/AutoitHelpRUS/releases)
+[![GitHub Release](https://img.shields.io/github/release/MarkovTrue/AutoitHelpRUS)](https://github.com/MarkovTrue/AutoitHelpRUS/releases) [![Downloads](https://img.shields.io/github/downloads/MarkovTrue/AutoitHelpRUS/total?label=downloads&color=red)](https://github.com/MarkovTrue/AutoitHelpRUS/releases)
 
 # AutoIT Help RUS
 
