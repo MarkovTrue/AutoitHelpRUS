@@ -1,3 +1,5 @@
+[![GitHub Release](https://img.shields.io/github/release/MarkovTrue/AutoitHelpRUS)](https://github.com/MarkovTrue/AutoitHelpRUS/releases) [![Downloads](https://img.shields.io/github/downloads/MarkovTrue/AutoitHelpRUS/total?label=downloads&color=blue)](https://github.com/MarkovTrue/AutoitHelpRUS/releases)
+
 # AutoIT Help RUS
 
 Русский перевод официальной справки AutoIT v3.3.18.0.
@@ -13,7 +15,7 @@
 
 ## Как сделано
 
-Переводить такой объём вручную не реально. Поэтому собран конвейер, который делает рутину, нейросеть отвечают за текст, а человек за контроль качества.
+Переводить такой объём вручную не реально. Поэтому собран конвейер, который делает рутину, нейросеть отвечает за текст, а человек за контроль качества.
 
 Этапы простыми словами:
 
