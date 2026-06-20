@@ -45,7 +45,7 @@
   <p><strong>Примечание:</strong> вполне допустимо использовать одну и ту же функцию для нескольких событий. В этом случае нужно лишь выполнять действия в зависимости от макроса <span class="S61">@GUI_CtrlId</span>. Например, можно зарегистрировать все системные события на одну функцию.</p>
   <p>&nbsp;</p>
   <p><strong>Событие контрола</strong></p>
-  <p>При щелчке по контролу или его изменении отправляется событие контрола. Событие отправляется функции, заданной через <a href="../functions/GUICtrlSetOnEvent.htm">GUICtrlSetOnEvent</a>. Внутри пользовательской функции <span class="S61">@GUI_CtrlId</span> равен <strong>controlID</strong>, который был возвращён при создании контрола функцией <a href="GUICtrlCreate.htm">GUICtrlCreate...</a>.</p>
+  <p>При щелчке по контролу или его изменении отправляется событие контрола. Событие отправляется функции, заданной через <a href="../functions/GUICtrlSetOnEvent.htm">GUICtrlSetOnEvent</a>. Внутри пользовательской функции <span class="S61">@GUI_CtrlId</span> равен <strong>controlID</strong>, который был возвращён при создании контрола функцией <a href="../functions/GUICtrlCreateManagement.htm">GUICtrlCreate...</a>.</p>
   <p>&nbsp;</p>
   <p><strong>Системное событие</strong></p>
   <p>Системные события – такие как закрытие GUI – отправляются аналогично событиям контролов, но тип события определяется через <span class="S61">@GUI_CtrlId</span>. Событие отправляется функции, заданной через <a href="../functions/GUISetOnEvent.htm">GUISetOnEvent</a>. Возможные значения системных событий приведены ниже:</p>

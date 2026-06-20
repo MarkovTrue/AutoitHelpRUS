@@ -197,7 +197,7 @@
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/3707" target="_blank">#3707</a>: <a href="functions/GUISetOnEvent.htm">GUISetOnEvent</a>($GUI_EVENT_CLOSE, &quot;&quot;) wasn&apos;t disabling the previous set UDF and returned error=1.</li>
 		<li>Fixed: GUIOnEventMode and TrayOnEventMode options had unnecessary slow downs.</li>
 		<li>Fixed: Workarounds added to alleviate slow downs on Windows 10 1809 and later (OS bug/design change).</li>
-		<li>Fixed: Missing <a href="functions/Opt.htm">Opt</a>(&quot;SetExitCode&quot;, 1) and AutoIt3 Exit codes in doc.</li>
+		<li>Fixed: Missing <a href="functions/AutoItSetOption.htm">Opt</a>(&quot;SetExitCode&quot;, 1) and AutoIt3 Exit codes in doc.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/3211" target="_blank">#3211</a>: Doc precision for hwnd parameter in Pixel*() functions.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/3774" target="_blank">#3774</a>: Doc precision about Null keyword comparison.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/3579" target="_blank">#3579</a>: <a href="functions/DllStructGetData.htm">DllStructGetData()</a> doc precision.</li>
@@ -1494,7 +1494,7 @@
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/615" target="_blank">#615</a>: License updated to be less restrictive.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/919" target="_blank">#919</a>: Remarks added to <a href="functions/ConsoleWrite.htm">ConsoleWrite()</a>, <a href="functions/ConsoleWriteError.htm">ConsoleWriteError()</a> and <a href="functions/StdinWrite.htm">StdinWrite()</a> regarding how those functions handle binary data and non-ANSI characters.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/897" target="_blank">#897</a>: Documented that <a href="functions/StringToASCIIArray.htm">StringToASCIIArray()</a> does not accept binary input (convert to a string first).</li>
-		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/937" target="_blank">#937</a>: Bad event handling of <a href="functions/Opt.htm">Opt</a>(&quot;TrayMenuMode&quot;,1)</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/937" target="_blank">#937</a>: Bad event handling of <a href="functions/AutoItSetOption.htm">Opt</a>(&quot;TrayMenuMode&quot;,1)</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/969" target="_blank">#969</a>: <a href="functions/FileFindNextFile.htm">FileFindNextFile()</a> does not set <a href="macros.htm#@extended">@extended</a> if first found is a dir.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1006" target="_blank">#1006</a>: <a href="macros.htm#@MSEC">@MSEC</a> returned wrong value for values &lt; 100.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1010" target="_blank">#1010</a>: <a href="functions/FileRead.htm">FileRead()</a> UTF8 with BOM files return too many chars.</li>
@@ -1510,7 +1510,7 @@
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1116" target="_blank">#1116</a>: <a href="functions/GUICtrlCreateGraphic.htm">GUICtrlCreateGraphic</a> don&apos;t follow ResizeMode.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1102" target="_blank">#1102</a>: Better documentation of the <a href="functions/StringInStr.htm">StringInStr()</a> count parameter.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1161" target="_blank">#1161</a>: Removed all documentation references to ColorMode.</li>
-		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1156" target="_blank">#1156</a>: <a href="functions/AutoItSetOption.htm">AutoItSetOption()</a>/<a href="functions/Opt.htm">Opt()</a> now set <a href="macros.htm#@error">@error</a> instead of generating a fatal error with invalid input.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1156" target="_blank">#1156</a>: <a href="functions/AutoItSetOption.htm">AutoItSetOption()</a>/<a href="functions/AutoItSetOption.htm">Opt()</a> now set <a href="macros.htm#@error">@error</a> instead of generating a fatal error with invalid input.</li>
 		<li>Fixed: Comparing pointers now works correctly.</li>
 		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/906" target="_blank">#906</a>: ActiveX controls were not told what their initial size was.</li>
 		<li>Fixed: Boolean tests on binary strings now behaves properly.</li>
@@ -1811,8 +1811,8 @@
 	<ul>
 		<li>Removed: Unnecessary optional parameter from <a href="functions/ProcessClose.htm">ProcessClose()</a>.</li>
 		<li>Removed: RunAsSet(). (Replaced with <a href="functions/RunAs.htm">RunAs()</a> and <a href="functions/RunAsWait.htm">RunAsWait()</a>)</li>
-		<li>Removed: RunErrorsFatal option ( <a href="functions/Opt.htm">Opt()</a> ).</li>
-		<li>Removed: ColorMode option ( <a href="functions/Opt.htm">Opt()</a> ).</li>
+		<li>Removed: RunErrorsFatal option ( <a href="functions/AutoItSetOption.htm">Opt()</a> ).</li>
+		<li>Removed: ColorMode option ( <a href="functions/AutoItSetOption.htm">Opt()</a> ).</li>
 	</ul>
 	<ul>
 		<li>Changed: @Unicode renamed in @AutoItUnicode. @Unicode is an alias for now. It will be removed &gt; 3.2.14.0.</li>
@@ -1962,7 +1962,7 @@
 		<li>Fixed: _GUICtrlListViewInsertColumn() after _GUICtrlListViewDeleteColumn() of the first column of a ListView control.</li>
 		<li>Fixed: Extra notification on colored button.</li>
 		<li>Fixed: <a href="functions/IniReadSectionNames.htm">IniReadSectionNames()</a> for [] sections.</li>
-		<li>Fixed: <a href="functions/Opt.htm">Opt</a>(&quot;WinTitleMatchMode&quot;, Default) fatal error.</li>
+		<li>Fixed: <a href="functions/AutoItSetOption.htm">Opt</a>(&quot;WinTitleMatchMode&quot;, Default) fatal error.</li>
 		<li>Fixed: <a href="functions/GUICtrlSetStyle.htm">GUICtrlSetStyle()</a> with $ES_READONLY bad $WS_TABSTOP.</li>
 		<li>Fixed: AutoIt Crash on exit if Win...() used with a Title being a COM object.</li>
 		<li>Fixed: <a href="functions/ProcessExists.htm">ProcessExists()</a> on service process under Win2K.</li>
@@ -2214,7 +2214,7 @@
 		<li>Fixed: <a href="functions/Assign.htm">Assign</a> does return error on array element.</li>
 		<li>Fixed: <a href="functions/FileOpen.htm">FileOpen</a>(&quot;test.txt&quot;, 2+8) returning error.</li>
 		<li>Fixed: Error detection in Enum statement.</li>
-		<li>Fixed: <a href="functions/Opt.htm">Opt</a>(&quot;WinTitleMatchMode&quot;).</li>
+		<li>Fixed: <a href="functions/AutoItSetOption.htm">Opt</a>(&quot;WinTitleMatchMode&quot;).</li>
 		<li>Fixed: Stack corruption resulting from improper use of <a href="functions/DllCall.htm">DllCall()</a> now gracefully aborts the script instead of hard crashing.</li>
 		<li>Fixed: Crash when reading empty REG_MULTI_SZ.</li>
 		<li>Fixed: <a href="functions/Round.htm">Round()</a> not returning an integer.</li>
@@ -2227,7 +2227,7 @@
 		<li>Fixed: Edit control would always have focus the first time the GUI was displayed even if it shouldn&apos;t. This behavior also ignored $GUI_FOCUS.</li>
 		<li>Fixed: range value for seed <a href="functions/Number.htm">Number</a> in <a href="functions/SRandom.htm">SRandom()</a>.</li>
 		<li>Fixed: <a href="functions/FileRead.htm">FileRead()</a> crash if no count in raw mode.</li>
-		<li>Fixed: <a href="functions/Opt.htm">Opt</a>(&quot;WinTitleMatchMode&quot;, &lt;0) really matching case insensitive.</li>
+		<li>Fixed: <a href="functions/AutoItSetOption.htm">Opt</a>(&quot;WinTitleMatchMode&quot;, &lt;0) really matching case insensitive.</li>
 		<li>Fixed: <a href="functions/FileSetAttrib.htm">FileSetAttrib</a>/<a href="functions/FileSetTime.htm">FileSetTime</a> wrong setting.</li>
 		<li>Fixed: <a href="functions/Execute.htm">Execute</a>/<a href="functions/Call.htm">Call</a> recursive overflow display error message.</li>
 		<li>Fixed: Aut2exe warning message if icon not found.</li>
@@ -2352,7 +2352,7 @@
 		<li>Changed: The default setting on Au3Info was changed so that it doesn&apos;t highlight controls.</li>
 		<li>Changed: <a href="functions/RegEnumKey.htm">RegEnumKey</a> and <a href="functions/RegEnumVal.htm">RegEnumVal</a> return more precise <a href="macros.htm#@error">@error</a> values to help diagnostics.</li>
 		<li>Changed: &quot;OnAutoItExit&quot; function is now called on system shutdown or user logoff.</li>
-		<li>Changed: <a href="functions/Opt.htm">Opt()</a> with just the &quot;option&quot; will now return the current value for that option.</li>
+		<li>Changed: <a href="functions/AutoItSetOption.htm">Opt()</a> with just the &quot;option&quot; will now return the current value for that option.</li>
 		<li>Changed: <a href="functions/DllCall.htm">DllCall</a> <a href="macros.htm#@error">@error</a> is set when function not found.</li>
 		<li>Changed: <a href="functions/SplashTextOn.htm">SplashTextOn()</a> opt=32 to center vertically.</li>
 		<li>Changed: <a href="functions/GUICtrlCreateList.htm">GUICtrlCreateList()</a> now forces the style $LBS_NOTIFY.</li>
@@ -2394,11 +2394,11 @@
 		<li>Added: <a href="functions/GUICtrlSetData.htm">GUICtrlSetData()</a> text for treeview.</li>
 		<li>Added: $WS_EX_MDICHILD support for <a href="functions/GUICreate.htm">GUICreate()</a>.</li>
 		<li>Added: <a href="functions/GUICtrlCreateGraphic.htm">GUICtrlCreateGraphic()</a>, <a href="functions/GUICtrlSetGraphic.htm">GUICtrlSetGraphic()</a>.</li>
-		<li>Added: <a href="functions/Opt.htm">Opt</a>(&apos;GUIEventOptions&apos;,1) to suppress window action when clicking on Minimize,restore or Maximize buttons.</li>
+		<li>Added: <a href="functions/AutoItSetOption.htm">Opt</a>(&apos;GUIEventOptions&apos;,1) to suppress window action when clicking on Minimize,restore or Maximize buttons.</li>
 		<li>Added: Right-click support for List/Treeview GUI control.</li>
-		<li>Added: <a href="functions/GUICtrlRead.htm">GUICtrlRead()</a> return controlID if <a href="functions/Opt.htm">Opt</a>(&quot;GUIEventCompatibilityMode&apos;,2).</li>
+		<li>Added: <a href="functions/GUICtrlRead.htm">GUICtrlRead()</a> return controlID if <a href="functions/AutoItSetOption.htm">Opt</a>(&quot;GUIEventCompatibilityMode&apos;,2).</li>
 		<li>Added: <a href="functions/GUICtrlCreateMonthCal.htm">GUICtrlCreateMonthCal()</a>.</li>
-		<li>Added: <a href="functions/Opt.htm">Opt</a>(&quot;GUIDataSeparatorChar&quot;,...).</li>
+		<li>Added: <a href="functions/AutoItSetOption.htm">Opt</a>(&quot;GUIDataSeparatorChar&quot;,...).</li>
 		<li>Added: <a href="functions/GUICtrlCreateObj.htm">GUICtrlCreateObj()</a>.</li>
 		<li>Added: <a href="functions/GUICtrlSetColor.htm">GUICtrlSetColor()</a>, <a href="functions/GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a>, <a href="functions/GUICtrlSetImage.htm">GUICtrlSetImage()</a> for ListviewItem controls.</li>
 		<li>Added: <a href="functions/GUISwitch.htm">GUISwitch()</a> tabitemID optional parameter to allow dynamic control creation on a tabitem.</li>
@@ -2433,7 +2433,7 @@
 		<li>Fixed: <a href="functions/StringReplace.htm">StringReplace</a>(&quot;abc&quot;,&quot;&quot;,&quot;&quot;) returns 1 instead of &quot;&quot;.</li>
 		<li>Fixed: <a href="functions/WinSetTrans.htm">WinSetTrans()</a> returns error.</li>
 		<li>Fixed: <a href="functions/Assign.htm">Assign</a> not creating/assigning macro variable.</li>
-		<li>Fixed: <a href="functions/Assign.htm">Assign()</a> respect <a href="functions/Opt.htm">Opt</a>(&quot;MustDeclareVars&quot;,1).</li>
+		<li>Fixed: <a href="functions/Assign.htm">Assign()</a> respect <a href="functions/AutoItSetOption.htm">Opt</a>(&quot;MustDeclareVars&quot;,1).</li>
 		<li>Fixed: <a href="macros.htm#@NumParams">@NumParams</a> destroyed after UDF call.</li>
 		<li>Fixed: MouseClickDelay option.</li>
 		<li>Fixed: ReDim of array ByRef parameter.</li>
@@ -2669,7 +2669,7 @@
 		<li>place this line at the top of your script to use the old method:</li>
 	</ul>
 	<ul>
-		<li><a href="functions/Opt.htm">Opt</a>(&quot;ColorMode&quot;, 1)</li>
+		<li><a href="functions/AutoItSetOption.htm">Opt</a>(&quot;ColorMode&quot;, 1)</li>
 	</ul>
 	<ul>
 	</ul>
@@ -2824,7 +2824,7 @@
 	</ul>
 	<ul>
 		<li>Added: &quot;SendAttachMode&quot; in <a href="functions/AutoItSetOption.htm">AutoItSetOption()</a>.</li>
-		<li>Added: <a href="functions/Opt.htm">Opt()</a> is an alias for <a href="functions/AutoItSetOption.htm">AutoItSetOption()</a> :)</li>
+		<li>Added: <a href="functions/AutoItSetOption.htm">Opt()</a> is an alias for <a href="functions/AutoItSetOption.htm">AutoItSetOption()</a> :)</li>
 		<li>Added: Doc updates.</li>
 		<li>Added: &quot;WinSearchChildren&quot; in <a href="functions/AutoItSetOption.htm">AutoItSetOption()</a>.</li>
 	</ul>

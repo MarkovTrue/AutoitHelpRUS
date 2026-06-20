@@ -28,7 +28,7 @@
   <h2><a id="1"></a>1. <a href="#1">Как запустить DOS-программу из AutoIt?</a></h2>
   <p>Чтобы запустить что-то вроде команды DOS "Dir", нужно сделать это через командный интерпретатор (command.com или cmd.exe в зависимости от ОС). Макрос <a href="macros.htm">@ComSpec</a> содержит правильное расположение этого файла. Используйте функцию <a href="functions/RunWait.htm"><span class="S4">RunWait</span><span class="S8">()</span></a> – она ждёт завершения DOS-программы перед переходом к следующей строке скрипта. Пример запуска DOS-команды Dir для диска C: (то есть выполнение команды <strong>command.com /c Dir C:\</strong>):</p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@ComSpec"><span class="S6">@ComSpec</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" /c Dir C:\"</span><span class="S8">)</span></span>
+<span><a class="codeSnippetLink" href="functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><a class="codeSnippetLink" href="macros.htm#@ComSpec"><span class="S6">@ComSpec</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" /c Dir C:\"</span><span class="S8">)</span></span>
 </p>
   <p>&nbsp;</p>
   <p><a href="#FAQ">К началу</a></p>
@@ -36,16 +36,16 @@
   <h2><a id="2"></a>2. <a href="#2">Почему Run() работает только с .exe? А .msi / .txt и другие?</a></h2>
   <p>"Запускаемых" расширений всего несколько – .exe, .bat, .com, .pif. Другие типы файлов вроде .txt и .msi на самом деле выполняются другой программой. Когда вы дважды щёлкаете по "my_installer.msi", на самом деле в фоне выполняется "msiexec.exe my_installer.msi". Чтобы запустить .msi из AutoIt, нужно сделать так:</p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><span class="S7">"msiexec my_installer.msi"</span><span class="S8">)</span></span>
+<span><a class="codeSnippetLink" href="functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><span class="S7">"msiexec my_installer.msi"</span><span class="S8">)</span></span>
 </p>
   <p>&nbsp;</p>
   <p>Или используйте команду "start", которая сама определит, чем запускать файл:</p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><a class="codeSnippetLink" href="../macros.htm#@ComSpec"><span class="S6">@ComSpec</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" /c Start my_installer.msi"</span><span class="S8">)</span></span>
+<span><a class="codeSnippetLink" href="functions/RunWait.htm"><span class="S4">RunWait</span></a><span class="S8">(</span><a class="codeSnippetLink" href="macros.htm#@ComSpec"><span class="S6">@ComSpec</span></a><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" /c Start my_installer.msi"</span><span class="S8">)</span></span>
 </p>
   <p>Или функцию ShellExecuteWait, которая тоже сама определит, чем запускать файл:</p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../functions/ShellExecuteWait.htm"><span class="S4">ShellExecuteWait</span></a><span class="S8">(</span><span class="S7">"my_installer.msi"</span><span class="S8">)</span></span>
+<span><a class="codeSnippetLink" href="functions/ShellExecuteWait.htm"><span class="S4">ShellExecuteWait</span></a><span class="S8">(</span><span class="S7">"my_installer.msi"</span><span class="S8">)</span></span>
 </p>
 <!--QuoteEnd-->
   <p><a href="#FAQ">К началу</a></p>
@@ -53,11 +53,11 @@
   <h2><a id="3"></a>3. <a href="#3">Почему я получаю ошибки при использовании двойных кавычек (")?</a></h2>
   <p>Чтобы использовать двойные кавычки внутри строки, их нужно "удвоить". То есть на каждую кавычку, которую хотите получить, ставьте две. Например, чтобы присвоить переменной строку: <strong>A word in "this" sentence has quotes around it!</strong> – нужно сделать так:</p>
 <p class="codebox">
-<span><span class="S9">$vVar</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">"A word in ""this"" sentence has quotes around it!"</span></span>
+<span><span class="S9">$vVar</span><span class="S0"> </span><a class="codeSnippetLink" href="intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">"A word in ""this"" sentence has quotes around it!"</span></span>
 </p>
   <p>Либо используйте одинарные кавычки:</p>
 <p class="codebox">
-<span><span class="S9">$vVar</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">'A word in "this" sentence has quotes around it!'</span></span>
+<span><span class="S9">$vVar</span><span class="S0"> </span><a class="codeSnippetLink" href="intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S7">'A word in "this" sentence has quotes around it!'</span></span>
 </p>
   <p>&nbsp;</p>
   <p><a href="#FAQ">К началу</a></p>
@@ -70,16 +70,16 @@
   <h2><a id="5"></a>5. <a href="#5">Почему я не могу вывести переменную через "My var is $vVariable"?</a></h2>
   <p>Если у вас есть переменная <span class="S91">$msg</span> и вы хотите показать её в MsgBox, такой код НЕ сработает:</p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Example"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My variable is $msg"</span><span class="S8">)</span></span>
+<span><a class="codeSnippetLink" href="keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Example"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My variable is $msg"</span><span class="S8">)</span></span>
 </p>
   <p>На самом деле выведется буквально <strong>My variable is <span class="S91">$msg</span></strong>. Нужно объединить строку и переменную с помощью оператора <a href="intro/lang_operators.htm">&amp;</a>:</p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Example"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My variable is "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$msg</span><span class="S8">)</span></span>
+<span><a class="codeSnippetLink" href="keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_OK</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Example"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"My variable is "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$msg</span><span class="S8">)</span></span>
 </p>
   <p>&nbsp;</p>
   <p><strong>Дополнительно:</strong> если в строку нужно вставить несколько переменных, удобнее использовать <a href="functions/StringFormat.htm"><span class="S4">StringFormat</span><span class="S8">()</span></a>. Например, чтобы вставить <span class="S91">$vVar1</span> – <span class="S91">$vVar5</span> в строку, проще написать:</p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sMessage</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"Var1 is %s, Var2 is %s, Var3 is %s, Var4 is %s"</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar1</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar2</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar3</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar4</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$sMessage</span><span class="S8">)</span></span>
+<span><a class="codeSnippetLink" href="keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br /><br /><a class="codeSnippetLink" href="keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sMessage</span><span class="S0"> </span><a class="codeSnippetLink" href="intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"Var1 is %s, Var2 is %s, Var3 is %s, Var4 is %s"</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar1</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar2</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar3</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$vVar4</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">""</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$sMessage</span><span class="S8">)</span></span>
 </p>
   <p>&nbsp;</p>
   <p><a href="#FAQ">К началу</a></p>
@@ -87,7 +87,7 @@
   <h2><a id="6"></a>6. <a href="#6">При использовании Send() для отправки переменной происходят странные вещи?</a></h2>
   <p>Если вы <a href="functions/Send.htm">отправляете</a> содержимое переменной, помните: специальные символы Send (! ^ + {SPACE}) будут интерпретированы как особые нажатия – обычно это нежелательно. Чтобы это обойти, используйте RAW-режим <a href="functions/Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> – он не преобразует специальные клавиши:</p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S9">$vMyVar</span><span class="S8">,</span><span class="S0"> </span><span class="S3">1</span><span class="S8">)</span></span>
+<span><a class="codeSnippetLink" href="functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S9">$vMyVar</span><span class="S8">,</span><span class="S0"> </span><span class="S3">1</span><span class="S8">)</span></span>
 </p>
   <p>&nbsp;</p>
   <p><a href="#FAQ">К началу</a></p>
@@ -101,7 +101,7 @@
   <p>Лёгкий вопрос. Если хотите, чтобы скрипт завершался при нажатии определённой комбинации клавиш, используйте функцию <a href="functions/HotKeySet.htm"><span class="S4">HotKeySet</span><span class="S8">()</span></a> – она запускает пользовательскую функцию при нажатии заданной клавиши. Эта функция должна содержать только ключевое слово <a href="keywords/Exit.htm">Exit</a>.</p>
   <p>Код, который завершает скрипт по нажатию CTRL+ALT+x:<br /></p>
 <p class="codebox">
-<span><a class="codeSnippetLink" href="../functions/HotKeySet.htm"><span class="S4">HotKeySet</span></a><span class="S8">(</span><span class="S7">"^!x"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"MyExit"</span><span class="S8">)</span><br /><span class="S8">...</span><br /><span class="S8">...</span><br /><span class="S1">; Остальная часть скрипта</span><br /><span class="S8">...</span><br /><span class="S8">...</span><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> MyExit</span><span class="S8">()</span><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br /><a class="codeSnippetLink" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;MyExit</span></span>
+<span><a class="codeSnippetLink" href="functions/HotKeySet.htm"><span class="S4">HotKeySet</span></a><span class="S8">(</span><span class="S7">"^!x"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"MyExit"</span><span class="S8">)</span><br /><span class="S8">...</span><br /><span class="S8">...</span><br /><span class="S1">; Остальная часть скрипта</span><br /><span class="S8">...</span><br /><span class="S8">...</span><br /><a class="codeSnippetLink" href="keywords/Func.htm"><span class="S5">Func</span></a><span class="S0"> MyExit</span><span class="S8">()</span><br /><span class="S0">&nbsp; &nbsp; </span><a class="codeSnippetLink" href="keywords/Exit.htm"><span class="S5">Exit</span></a><br /><a class="codeSnippetLink" href="keywords/Func.htm"><span class="S5">EndFunc</span></a><span class="S0"> &nbsp;&nbsp;</span><span class="S1">;==&gt;MyExit</span></span>
 </p>
   <p>&nbsp;</p>
   <p><a href="#FAQ">К началу</a></p>
@@ -112,7 +112,7 @@
   <p><a href="#FAQ">К началу</a></p>
   <hr>
   <h2><a id="10"></a>10. <a href="#10">Как сделать так, чтобы запускалась только одна копия скрипта?</a></h2>
-  <p>Используйте функцию <a href="libfunctions/_Singleton.htm"><span class="S15">_Singleton</span><span class="S8">()</span></a>. Подробнее о <a class="le" href="../libfunctions/_Singleton.htm"><span class="S15">_Singleton</span><span class="S8">()</span></a> и её использовании – в документации по пользовательским функциям (UDF).</p>
+  <p>Используйте функцию <a href="libfunctions/_Singleton.htm"><span class="S15">_Singleton</span><span class="S8">()</span></a>. Подробнее о <a class="le" href="libfunctions/_Singleton.htm"><span class="S15">_Singleton</span><span class="S8">()</span></a> и её использовании – в документации по пользовательским функциям (UDF).</p>
   <p>&nbsp;</p>
   <p><a href="#FAQ">К началу</a></p>
   <hr>

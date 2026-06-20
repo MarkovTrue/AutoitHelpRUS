@@ -81,7 +81,7 @@ iconName может ссылаться на номер группы значка
 Отрицательное число задаёт индексную адресацию (начиная с 1). Некоторые DLL позволяют извлекать значки только с отрицательными числами.<br />
 </p>
 <h2>См. также</h2>
-<p><a href="AutoItSetOption.htm#GUICoordMode ">GUICoordMode (Option)</a>, <a href="GUICtrlSetImage.htm">GUICtrlSetImage</a>, <a href="GUICtrlUpdate%20Management.htm">GUICtrlUpdate...</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
+<p><a href="AutoItSetOption.htm#GUICoordMode ">GUICoordMode (Option)</a>, <a href="GUICtrlSetImage.htm">GUICtrlSetImage</a>, <a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
 
 <h2 class="bottom">Пример</h2>
 
@@ -120,7 +120,7 @@ iconName может ссылаться на номер группы значка
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOldOpt</span> <span class="S8">=</span> <a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOldOpt</span> <span class="S8">=</span> <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"My GUI icon Race"</span><span class="S8">,</span> <span class="S3">350</span><span class="S8">,</span> <span class="S3">74</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">331</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">74</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span><br>
@@ -139,7 +139,7 @@ iconName может ссылаться на номер группы значка
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">10</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">3000</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S9">$iOldOpt</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S9">$iOldOpt</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>

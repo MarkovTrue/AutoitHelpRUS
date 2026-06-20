@@ -76,7 +76,7 @@
 Это незначительно снижает производительность, как описано в форуме <a href="https://social.msdn.microsoft.com/Forums/en-US/dcd6a33c-2a6f-440f-ba0b-4a5fa26d14bb/when-to-use-wsclipchildren-and-wsclipsibilings-styles">$WS_CLIPSIBLINGS</a>.<br />
 </p>
 <h2>См. также</h2>
-<p><a href="AutoItSetOption.htm#GUICoordMode ">GUICoordMode (Option)</a>, <a href="GUICtrlUpdate%20Management.htm">GUICtrlUpdate...</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
+<p><a href="AutoItSetOption.htm#GUICoordMode ">GUICoordMode (Option)</a>, <a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
 
 <h2 class="bottom">Пример</h2>
 
@@ -92,7 +92,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetHelp.htm"><span class="S4">GUISetHelp</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span>&nbsp;<span class="S1">; при нажатии F1 запускает Notepad
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOldOpt</span> <span class="S8">=</span> <a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOldOpt</span> <span class="S8">=</span> <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iWidthCell</span> <span class="S8">=</span> <span class="S3">70</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">"Line 1 Cell 1"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S9">$iWidthCell</span><span class="S8">)</span>&nbsp;<span class="S1">; первая ячейка, ширина 70
@@ -117,7 +117,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOldOpt</span> <span class="S8">=</span> <a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S9">$iOldOpt</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOldOpt</span> <span class="S8">=</span> <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S9">$iOldOpt</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>

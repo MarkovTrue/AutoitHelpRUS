@@ -19,17 +19,17 @@
   <h2>v3.3.14.3</h2>
   <p><strong>UDF:</strong></p>
   <ul>
-   <li>Документация <a class="le" href="../libfunctions/_MathCheckDiv.htm"><span class="S15">_MathCheckDiv</span><span class="S8">()</span></a> удалена. Функция по-прежнему есть в <span class="S7">Math.au3</span>, но может быть удалена позднее. Обновите скрипты: используйте <a class="le" href="../functions/Mod.htm"><span class="S4">Mod</span><span class="S8">()</span></a> вместо неё.</li>
+   <li>Документация <span class="S15">_MathCheckDiv</span><span class="S8">()</span> удалена. Функция по-прежнему есть в <span class="S7">Math.au3</span>, но может быть удалена позднее. Обновите скрипты: используйте <a class="le" href="functions/Mod.htm"><span class="S4">Mod</span><span class="S8">()</span></a> вместо неё.</li>
    <li>Значение при ошибке для <a href="libfunctions/_Degree.htm"><span class="S15">_Degree</span><span class="S8">()</span></a> и <a href="libfunctions/_Radian.htm"><span class="S15">_Radian</span><span class="S8">()</span></a> изменено с пустой строки на 0.</li>
    <li><a href="libfunctions/_WinAPI_DefSubclassProc.htm"><span class="S15">_WinAPI_DefSubclassProc</span><span class="S8">()</span></a>, <a href="libfunctions/_WinAPI_GetWindowSubclass.htm"><span class="S15">_WinAPI_GetWindowSubclass</span><span class="S8">()</span></a>, <a href="libfunctions/_WinAPI_RemoveWindowSubclass.htm"><span class="S15">_WinAPI_RemoveWindowSubclass</span><span class="S8">()</span></a> и <a href="libfunctions/_WinAPI_SetWindowSubclass.htm"><span class="S15">_WinAPI_SetWindowSubclass</span><span class="S8">()</span></a> перенесены из <span class="S7">WinAPIShellEx.au3</span> в <strong><span class="S7">WinAPISys.au3</span></strong>.
    <li>Исправлена опечатка в <span class="S7">AutoItConstants.au3</span>: <span class="S91">$EXITCLOSE_BYSUTDOWN</span> → <span class="S91">$EXITCLOSE_BYS</span><strong>H</strong>UTDOWN (использовалась с <a href="functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a>).
-   <li><a href="libfunctions/WinAPI_GetOpenFileName.htm">WinAPI_GetOPenFileName()</a> и <a href="libfunctions/_WinAPI_GetSaveFileName.htm"><span class="S15">_WinAPI_GetSaveFileName</span><span class="S8">()</span></a> теперь возвращают расширение файла только если оно было введено вручную.</li>
+   <li><a href="libfunctions/_WinAPI_GetOpenFileName.htm">WinAPI_GetOPenFileName()</a> и <a href="libfunctions/_WinAPI_GetSaveFileName.htm"><span class="S15">_WinAPI_GetSaveFileName</span><span class="S8">()</span></a> теперь возвращают расширение файла только если оно было введено вручную.</li>
  </ul>
 
   <h2>v3.3.14.2</h2>
   <p><strong>UDF:</strong></p>
   <ul>
-    <li><a class="le" href="../libfunctions/_SQLite_Startup.htm"><span class="S15">_SQLite_Startup</span><span class="S8">()</span></a> больше не скачивает файлы SQLite DLL с autoitscript.com автоматически. Большинство пользователей не подозревали, что это происходило при каждом запуске скрипта и создавало значительную нагрузку на сервер. Теперь DLL SQLite нужно скачивать вручную. Подробнее см. документацию <a href="libfunctions/_SQLite_Startup.htm"><span class="S15">_SQLite_Startup</span><span class="S8">()</span></a>.</li>
+    <li><a class="le" href="libfunctions/_SQLite_Startup.htm"><span class="S15">_SQLite_Startup</span><span class="S8">()</span></a> больше не скачивает файлы SQLite DLL с autoitscript.com автоматически. Большинство пользователей не подозревали, что это происходило при каждом запуске скрипта и создавало значительную нагрузку на сервер. Теперь DLL SQLite нужно скачивать вручную. Подробнее см. документацию <a href="libfunctions/_SQLite_Startup.htm"><span class="S15">_SQLite_Startup</span><span class="S8">()</span></a>.</li>
   </ul>
 
   <h2>v3.3.14.0</h2>
@@ -37,7 +37,7 @@
   <ul>
     <li>Если Min и Max равны, <a href="functions/Random.htm"><span class="S4">Random</span><span class="S8">()</span></a> теперь возвращает это значение, и флаг <span class="S61">@error</span> не устанавливается.</li>
     <li>Под Vista или Server 2008 для поддержки GDI+ v1.1 функция <a href="libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span><span class="S8">()</span></a> требует явно указать DLL.</li>
-    <li>Файловые операции с текстовыми файлами, открытыми без <a href="functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a> и <strong>явных флагов Unicode</strong>, теперь автоопределяют кодировку немного иначе, приближая поведение к современным редакторам. Это касается всех файловых функций, принимающих имя файла, например <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span>"filename.txt"<span class="S8">)</span>. В частности:</li>
+    <li>Файловые операции с текстовыми файлами, открытыми без <a href="functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a> и <strong>явных флагов Unicode</strong>, теперь автоопределяют кодировку немного иначе, приближая поведение к современным редакторам. Это касается всех файловых функций, принимающих имя файла, например <a class="le" href="functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span>"filename.txt"<span class="S8">)</span>. В частности:</li>
     <ul>
       <li>Файлы с BOM открываются в режиме, соответствующем BOM. Проверяются BOM UTF-8 и UTF-16.</li>
       <li>Файлы UTF-8 и UTF-16 без BOM определяются автоматически и открываются в нужном режиме.</li>
@@ -51,8 +51,8 @@
   </ul>
   <p><strong>UDF:</strong></p>
   <ul>
-    <li>Excel UDF, функция <a class="le" href="../libfunctions/_Excel_BookOpen.htm"><span class="S15">_Excel_BookOpen</span><span class="S8">()</span></a>: если параметр <span class="S91">$bReadOnly</span> = <span class="S5">False</span> и доступ на запись не удалось получить, раньше устанавливался <span class="S61">@error</span> = 4 и книга открывалась только для чтения. Теперь <span class="S61">@error</span> = 0, <span class="S61">@extended</span> = 1, книга открывается только для чтения.</li>
-    <li>Word UDF, функция <a class="le" href="../libfunctions/_Word_DocOpen.htm"><span class="S15">_Word_DocOpen</span><span class="S8">()</span></a>: если параметр <span class="S91">$bReadOnly</span> = <span class="S5">False</span> и доступ на запись не удалось получить, раньше устанавливался <span class="S61">@error</span> = 4 и документ открывался только для чтения. Теперь <span class="S61">@error</span> = 0, <span class="S61">@extended</span> = 1, документ открывается только для чтения.</li>
+    <li>Excel UDF, функция <a class="le" href="libfunctions/_Excel_BookOpen.htm"><span class="S15">_Excel_BookOpen</span><span class="S8">()</span></a>: если параметр <span class="S91">$bReadOnly</span> = <span class="S5">False</span> и доступ на запись не удалось получить, раньше устанавливался <span class="S61">@error</span> = 4 и книга открывалась только для чтения. Теперь <span class="S61">@error</span> = 0, <span class="S61">@extended</span> = 1, книга открывается только для чтения.</li>
+    <li>Word UDF, функция <a class="le" href="libfunctions/_Word_DocOpen.htm"><span class="S15">_Word_DocOpen</span><span class="S8">()</span></a>: если параметр <span class="S91">$bReadOnly</span> = <span class="S5">False</span> и доступ на запись не удалось получить, раньше устанавливался <span class="S61">@error</span> = 4 и документ открывался только для чтения. Теперь <span class="S61">@error</span> = 0, <span class="S61">@extended</span> = 1, документ открывается только для чтения.</li>
   </ul>
   <h2>v3.3.12.0</h2>
   <p><strong>UDF:</strong></p>
@@ -78,7 +78,7 @@
   <h2>v3.3.10.0</h2>
   <p><strong>AutoIt:</strong></p>
   <ul>
-    <li>Возвращаемое значение <a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span><span class="S8">()</span></a> изменено: вместо 1 теперь возвращается PID запущенного процесса или -1, если PID недоступен.</li>
+    <li>Возвращаемое значение <a class="le" href="functions/ShellExecute.htm"><span class="S4">ShellExecute</span><span class="S8">()</span></a> изменено: вместо 1 теперь возвращается PID запущенного процесса или -1, если PID недоступен.</li>
   </ul>
   <p><strong>UDF:</strong></p>
   <ul>
@@ -108,17 +108,17 @@
   <h2>v3.3.6.0</h2>
   <p><strong>UDF:</strong></p>
   <ul>
-    <li><a class="le" href="../libfunctions/_DateToDayOfWeekISO.htm"><span class="S15">_DateToDayOfWeekISO</span><span class="S8">()</span></a> раньше возвращала 0–6; теперь возвращает 1–7, где понедельник = 1.</li>
+    <li><a class="le" href="libfunctions/_DateToDayOfWeekISO.htm"><span class="S15">_DateToDayOfWeekISO</span><span class="S8">()</span></a> раньше возвращала 0–6; теперь возвращает 1–7, где понедельник = 1.</li>
   </ul>
   <h2>v3.3.4.0</h2>
   <p><em><strong>Часть следующих функций устарела. Устаревшие функции больше не документируются, но продолжают работать. Они будут удалены после версии 3.3.4.0. Настоятельно рекомендуется обновить скрипты, использующие устаревшие функции, для работы с новым поведением. Некоторые функции уже удалены и отмечены соответственно.</strong></em></p>
   <p><strong>AutoIt:</strong></p>
   <ul>
-    <li>Режим raw-чтения для <a class="le" href="../functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a> удалён.</li>
-    <li><a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span>, @InetGetActive и @InetGetBytesRead удалены. Список новых функций для замены:</li>
+    <li>Режим raw-чтения для <a class="le" href="functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a> удалён.</li>
+    <li><a class="le" href="functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span>, @InetGetActive и @InetGetBytesRead удалены. Список новых функций для замены:</li>
     <li>
       <ul>
-        <li><strong><a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span></strong> – вызовите новую <a href="functions/InetClose.htm"><span class="S4">InetClose</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы прервать загрузку.</li>
+        <li><strong><a class="le" href="functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span></strong> – вызовите новую <a href="functions/InetClose.htm"><span class="S4">InetClose</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы прервать загрузку.</li>
         <li><strong>@InetGetActive</strong> – вызовите новую <a href="functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span><span class="S8">()</span></a> без параметров, чтобы узнать число активных загрузок.</li>
         <li><strong>@InetGetBytesRead</strong> – вызовите новую <a href="functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы узнать количество прочитанных байт.</li>
       </ul>
@@ -133,20 +133,20 @@
   <ul>
     <li><a href="functions/ShellExecute.htm"><span class="S4">ShellExecute</span><span class="S8">()</span></a> и <a href="functions/ShellExecuteWait.htm"><span class="S4">ShellExecuteWait</span><span class="S8">()</span></a> больше не используют глагол "open" по умолчанию. См. раздел Примечания у этих функций.</li>
     <li>Возвращаемое значение <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> изменено. <strong>Важно</strong> прочитать и понять эти изменения: некорректное использование <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> может привести к утечке ресурсов.</li>
-    <li><a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span>, @InetGetActive и @InetGetBytesRead устарели. Список новых функций для замены:</li>
+    <li><a class="le" href="functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span>, @InetGetActive и @InetGetBytesRead устарели. Список новых функций для замены:</li>
     <li>
       <ul>
-        <li><strong><a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span></strong> – вызовите новую <a href="functions/InetClose.htm"><span class="S4">InetClose</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы прервать загрузку.</li>
+        <li><strong><a class="le" href="functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span>"abort"<span class="S8">)</span></strong> – вызовите новую <a href="functions/InetClose.htm"><span class="S4">InetClose</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы прервать загрузку.</li>
         <li><strong>@InetGetActive</strong> – вызовите новую <a href="functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span><span class="S8">()</span></a> без параметров, чтобы узнать число активных загрузок.</li>
         <li><strong>@InetGetBytesRead</strong> – вызовите новую <a href="functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span><span class="S8">()</span></a> с дескриптором, возвращённым <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a>, чтобы узнать количество прочитанных байт.</li>
       </ul>
     </li>
-    <li>Опция FtpBinaryMode в <a class="le" href="../functions/AutoItSetOption.htm"><span class="S4">AutoItSetOption</span><span class="S8">()</span></a> удалена. Теперь <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> принимает флаг для указания режима передачи.</li>
+    <li>Опция FtpBinaryMode в <a class="le" href="functions/AutoItSetOption.htm"><span class="S4">AutoItSetOption</span><span class="S8">()</span></a> удалена. Теперь <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> принимает флаг для указания режима передачи.</li>
     <li>Псевдоним URLDownloadToFile() для <a href="functions/InetGet.htm"><span class="S4">InetGet</span><span class="S8">()</span></a> удалён.</li>
     <li>AdlibEnable() и AdlibDisable() устарели. Используйте новые функции <a href="functions/AdlibRegister.htm"><span class="S4">AdlibRegister</span><span class="S8">()</span></a> и <a href="functions/AdlibUnRegister.htm"><span class="S4">AdlibUnRegister</span><span class="S8">()</span></a>.</li>
     <li>OnAutoItStart() устарела. Используйте новую директиву препроцессора <a href="keywords/OnAutoItStartRegister.htm">#OnAutoItStartRegister</a>.</li>
     <li>OnAutoItExit() устарела. Используйте новые функции <a href="functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a> и <a href="functions/OnAutoItExitUnRegister.htm"><span class="S4">OnAutoItExitUnRegister</span><span class="S8">()</span></a>.</li>
-    <li>Опция OnExitFunc в <a class="le" href="../functions/AutoItSetOption.htm"><span class="S4">AutoItSetOption</span><span class="S8">()</span></a> удалена. Используйте новые функции <a href="functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a> и <a href="functions/OnAutoItExitUnRegister.htm"><span class="S4">OnAutoItExitUnRegister</span><span class="S8">()</span></a>.</li>
+    <li>Опция OnExitFunc в <a class="le" href="functions/AutoItSetOption.htm"><span class="S4">AutoItSetOption</span><span class="S8">()</span></a> удалена. Используйте новые функции <a href="functions/OnAutoItExitRegister.htm"><span class="S4">OnAutoItExitRegister</span><span class="S8">()</span></a> и <a href="functions/OnAutoItExitUnRegister.htm"><span class="S4">OnAutoItExitUnRegister</span><span class="S8">()</span></a>.</li>
     <li><a href="functions/GUICreate.htm"><span class="S4">GUICreate</span><span class="S8">()</span></a> с <span class="S91">$WS_EX_MDICHILD</span> исправлена: позиционирование теперь относительно клиентской области, как задокументировано.</li>
     <li><a href="functions/ProcessWait.htm"><span class="S4">ProcessWait</span><span class="S8">()</span></a> теперь возвращает PID, а не 1 при успешном завершении.</li>
     <li><a href="functions/WinWait.htm"><span class="S4">WinWait</span><span class="S8">()</span></a>, <a href="functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span><span class="S8">()</span></a>, <a href="functions/WinActivate.htm"><span class="S4">WinActivate</span><span class="S8">()</span></a>, <a href="functions/WinActive.htm"><span class="S4">WinActive</span><span class="S8">()</span></a> и <a href=
@@ -156,9 +156,9 @@
   </ul>
   <p><strong>UDF:</strong></p>
   <ul>
-    <li>Последний необязательный параметр <a class="le" href="../libfunctions/_StringBetween.htm"><span class="S15">_StringBetween</span><span class="S8">()</span></a> удалён.</li>
+    <li>Последний необязательный параметр <a class="le" href="libfunctions/_StringBetween.htm"><span class="S15">_StringBetween</span><span class="S8">()</span></a> удалён.</li>
     <li>_StringAddThousandsSep() удалена: функция слишком многократно пересматривалась из-за разногласий о её поведении.</li>
-    <li>_SQLite_SaveMode() переименована в <a class="le" href="../libfunctions/_SQLite_SafeMode.htm"><span class="S15">_SQLite_SafeMode</span><span class="S8">()</span></a>.</li>
+    <li>_SQLite_SaveMode() переименована в <a class="le" href="libfunctions/_SQLite_SafeMode.htm"><span class="S15">_SQLite_SafeMode</span><span class="S8">()</span></a>.</li>
   </ul>
   <h2>v3.3.0.0</h2>
   <p><strong>AutoIt:</strong></p>
@@ -180,7 +180,7 @@
     <li><a href="functions/StdoutRead.htm"><span class="S4">StdoutRead</span><span class="S8">()</span></a>, <a href="functions/StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a> и <a href="functions/ConsoleRead.htm"><span class="S4">ConsoleRead</span><span class="S8">()</span></a> существенно изменены. Они больше не блокируют выполнение и возвращают управление немедленно. Параметры изменились: чтение по количеству символов больше недоступно; параметр peek перемещён на вторую позицию; третий параметр указывает возврат данных в двоичном формате (по умолчанию – текст). Макрос <span class="S61">@extended</span> теперь содержит количество прочитанных байт/символов.</li>
     <li><a href="functions/StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a>, <a href="functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span><span class="S8">()</span></a> и <a href="functions/ConsoleWriteError.htm"><span class="S4">ConsoleWriteError</span><span class="S8">()</span></a> теперь по-другому работают с двоичными данными: данные записываются как есть, без конвертации в строку. Возвращаемое значение – количество записанных байт вместо 1.</li>
     <li>Удалена опция ColorMode ( <a href="functions/AutoItSetOption.htm"><span class="S4">Opt</span><span class="S8">()</span></a> ).</li>
-    <li>Исправлено: <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span>Min,Max,1<span class="S8">)</span>. Ранее Max никогда не возвращалось, поэтому скрипты, искусственно увеличивавшие Max на 1, теперь нужно изменить.</li>
+    <li>Исправлено: <a class="le" href="functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span>Min,Max,1<span class="S8">)</span>. Ранее Max никогда не возвращалось, поэтому скрипты, искусственно увеличивавшие Max на 1, теперь нужно изменить.</li>
   </ul>
   <p><strong>UDF:</strong></p>
   <ul>

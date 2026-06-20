@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td style="width:15%">controlID</td>
-<td style="width:85%">Идентификатор элемента управления (controlID), возвращённый функцией <a href="GUICtrlCreate%20Management.htm">GUICtrlCreate...()</a>, или -1 для последнего созданного элемента.</td>
+<td style="width:85%">Идентификатор элемента управления (controlID), возвращённый функцией <a href="GUICtrlCreateManagement.htm">GUICtrlCreate...()</a>, или -1 для последнего созданного элемента.</td>
 </tr>
 <tr>
 <td>left</td>
@@ -54,7 +54,7 @@
 <p>Если в качестве параметра передано ключевое слово Default, текущее значение не изменяется.<br />
 </p>
 <h2>См. также</h2>
-<p><a href="GUICtrlCreate%20Management.htm">GUICtrlCreate...</a></p>
+<p><a href="GUICtrlCreateManagement.htm">GUICtrlCreate...</a></p>
 
 <h2 class="bottom">Пример</h2>
 
@@ -100,7 +100,7 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOldOpt</span> <span class="S8">=</span> <a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOldOpt</span> <span class="S8">=</span> <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"My GUI icon Race"</span><span class="S8">,</span> <span class="S3">350</span><span class="S8">,</span> <span class="S3">74</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">331</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">74</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span><br>
@@ -117,7 +117,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetPos.htm"><span class="S4">GUICtrlSetPos</span></a><span class="S8">(</span><span class="S9">$idIcon2</span><span class="S8">,</span> <span class="S9">$b</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">10</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S9">$iOldOpt</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S9">$iOldOpt</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$a</span> <span class="S8">&gt;</span> <span class="S9">$b</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">'Race results'</span><span class="S8">,</span> <span class="S7">'The dinosaur won'</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>

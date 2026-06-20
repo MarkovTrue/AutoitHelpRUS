@@ -20,7 +20,7 @@ GUICtrlRecvMsg ( controlID , msg [, wParam [, lParamType]] )<br />
 <table>
 <tr>
 <td style="width:15%">controlID</td>
-<td style="width:85%">The control identifier (controlID) as returned by a <a href="GUICtrlCreate%20Management.htm">GUICtrlCreate...()</a> function, or -1 for the last created control.</td>
+<td style="width:85%">The control identifier (controlID) as returned by a <a href="GUICtrlCreateManagement.htm">GUICtrlCreate...()</a> function, or -1 for the last created control.</td>
 </tr>
 <tr>
 <td>msg</td>
@@ -49,7 +49,7 @@ GUICtrlRecvMsg ( controlID , msg [, wParam [, lParamType]] )<br />
 </table>
 
 <h2>Remarks</h2>
-<p>This function allows the sending of special Windows messages directly to the control using the SendMessage API. It is used to enable special control features not available with the simple <a href="GUICtrlRead.htm">GUICtrlRead()</a> and <a href="GUICtrlUpdate%20Management.htm">GUICtrlUpdate...</a> range of functions.<br />
+<p>This function allows the sending of special Windows messages directly to the control using the SendMessage API. It is used to enable special control features not available with the simple <a href="GUICtrlRead.htm">GUICtrlRead()</a> and <a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...</a> range of functions.<br />
 <br />
 If the wParam and lParamType parameters are not specified then an array of two elements is returned (LPwParam, LPlParam).<br />
 <br />
@@ -57,7 +57,7 @@ The RECT is returned in an array of 4 elements (Left, Top, Right, Bottom).<br />
 </p>
 
 <h2>Related</h2>
-<p><a href="GUICtrlSendMsg.htm">GUICtrlSendMsg</a>, <a href="GUICtrlUpdate%20Management.htm">GUICtrlUpdate...</a></p>
+<p><a href="GUICtrlSendMsg.htm">GUICtrlSendMsg</a>, <a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...</a></p>
 
 <h2 class="bottom">Example</h2>
 <script type="text/javascript">

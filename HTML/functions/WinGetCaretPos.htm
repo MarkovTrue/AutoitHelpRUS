@@ -56,7 +56,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iXAdjust</span> <span class="S8">=</span> <span class="S3">5</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iYAdjust</span> <span class="S8">=</span> <span class="S3">40</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOpt</span> <span class="S8">=</span> <a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"CaretCoordMode"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; Устанавливаем "CaretCoordMode" в относительный режим и сохраняем предыдущее значение.
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOpt</span> <span class="S8">=</span> <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"CaretCoordMode"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; Устанавливаем "CaretCoordMode" в относительный режим и сохраняем предыдущее значение.
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aGetCaretPos</span> <span class="S8">=</span> <a class="le" href="../functions/WinGetCaretPos.htm"><span class="S4">WinGetCaretPos</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Получаем относительные координаты каретки.
 </span><br>
@@ -65,7 +65,7 @@
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aControlPos</span> <span class="S8">=</span> <a class="le" href="../functions/ControlGetPos.htm"><span class="S4">ControlGetPos</span></a><span class="S8">(</span><span class="S7">"[ACTIVE]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sControl</span><span class="S8">)</span>&nbsp;<span class="S1">; Получаем позицию и размер элемента управления.
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOpt</span> <span class="S8">=</span> <a class="le" href="../functions/opt.htm"><span class="S4">Opt</span></a><span class="S8">(</span><span class="S7">"CaretCoordMode"</span><span class="S8">,</span> <span class="S9">$iOpt</span><span class="S8">)</span>&nbsp;<span class="S1">; Восстанавливаем "CaretCoordMode" в предыдущее значение.
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iOpt</span> <span class="S8">=</span> <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"CaretCoordMode"</span><span class="S8">,</span> <span class="S9">$iOpt</span><span class="S8">)</span>&nbsp;<span class="S1">; Восстанавливаем "CaretCoordMode" в предыдущее значение.
 </span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aReturn</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">]</span>&nbsp;<span class="S1">; Создаём массив для хранения координат x, y.

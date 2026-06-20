@@ -19,75 +19,75 @@ ToolTip UDF полностью переписан: устранены "маги�
     <th>Примечания</th>
   </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_Activate.htm"><span class="S15">_GUIToolTip_Activate</span><span class="S8">()</span></a></td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_Activate.htm"><span class="S15">_GUIToolTip_Activate</span><span class="S8">()</span></a></td>
   <td>Параметр <span class="S91">$fActivate</span> удалён: функция теперь только активирует подсказку, деактивация вынесена в отдельную функцию.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_AddTool.htm"><span class="S15">_GUIToolTip_AddTool</span><span class="S8">()</span></a></td>
-  <td>Параметры <span class="S91">$iFlags</span> изменены: теперь используются константы ToolTip вместо "магических чисел"; значение по умолчанию изменено на <a class="le" href="../functions/BitOr.htm"><span class="S4">BitOr</span></a><span class="S8">(</span><span class="S91">$TTF_SUBCLASS</span>, <span class="S91">$TTF_IDISHWND</span><span class="S8">)</span>.</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_AddTool.htm"><span class="S15">_GUIToolTip_AddTool</span><span class="S8">()</span></a></td>
+  <td>Параметры <span class="S91">$iFlags</span> изменены: теперь используются константы ToolTip вместо "магических чисел"; значение по умолчанию изменено на <a class="le" href="functions/BitOr.htm"><span class="S4">BitOr</span></a><span class="S8">(</span><span class="S91">$TTF_SUBCLASS</span>, <span class="S91">$TTF_IDISHWND</span><span class="S8">)</span>.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a></td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a></td>
   <td>Функциональность полностью изменена: так как "магических чисел" для флагов инструмента больше нет, функция теперь преобразует значение флагов в строку с разделителями-запятыми, содержащую названия используемых констант.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_Create.htm"><span class="S15">_GUIToolTip_Create</span><span class="S8">()</span></a></td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_Create.htm"><span class="S15">_GUIToolTip_Create</span><span class="S8">()</span></a></td>
   <td>Новая константа по умолчанию для создания элемента управления ToolTip.</td>
  </tr>
  <tr>
   <td>&nbsp;&nbsp;&nbsp;<span class="S91">$_TT_ghTTDefaultStyle</span></td>
-  <td>Значение равно <a class="le" href="../functions/BitOr.htm"><span class="S4">BitOr</span></a><span class="S8">(</span><span class="S91">$TTS_ALWAYSTIP</span>, <span class="S91">$TTS_NOPREFIX</span><span class="S8">)</span>.</td>
+  <td>Значение равно <a class="le" href="functions/BitOr.htm"><span class="S4">BitOr</span></a><span class="S8">(</span><span class="S91">$TTS_ALWAYSTIP</span>, <span class="S91">$TTS_NOPREFIX</span><span class="S8">)</span>.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_Destroy.htm"><span class="S15">_GUIToolTip_Destroy</span><span class="S8">()</span></a></td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_Destroy.htm"><span class="S15">_GUIToolTip_Destroy</span><span class="S8">()</span></a></td>
   <td>Задокументированы возвращаемые значения <span class="S61">@error</span>.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_EnumTools.htm"><span class="S15">_GUIToolTip_EnumTools</span><span class="S8">()</span></a></td>
-  <td>Возвращаемые значения изменены в соответствии с изменениями в _GUIToolTip_Add и <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a>: элемент [0] возвращаемого массива теперь содержит строку из <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a> вместо прежних "магических чисел".</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_EnumTools.htm"><span class="S15">_GUIToolTip_EnumTools</span><span class="S8">()</span></a></td>
+  <td>Возвращаемые значения изменены в соответствии с изменениями в _GUIToolTip_Add и <a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a>: элемент [0] возвращаемого массива теперь содержит строку из <a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a> вместо прежних "магических чисел".</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_GetBubbleHeight.htm"><span class="S15">_GUIToolTip_GetBubbleHeight</span><span class="S8">()</span></a></td>
-  <td>Значение по умолчанию для <span class="S91">$iFlags</span> изменено на <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S91">$TTF_IDISHWND</span>, <span class="S91">$TTF_SUBCLASS</span><span class="S8">)</span>.</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_GetBubbleHeight.htm"><span class="S15">_GUIToolTip_GetBubbleHeight</span><span class="S8">()</span></a></td>
+  <td>Значение по умолчанию для <span class="S91">$iFlags</span> изменено на <a class="le" href="functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S91">$TTF_IDISHWND</span>, <span class="S91">$TTF_SUBCLASS</span><span class="S8">)</span>.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_GetBubbleSize.htm"><span class="S15">_GUIToolTip_GetBubbleSize</span><span class="S8">()</span></a></td>
-  <td>Значение по умолчанию для <span class="S91">$iFlags</span> изменено на <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S91">$TTF_IDISHWND</span>, <span class="S91">$TTF_SUBCLASS</span><span class="S8">)</span>.</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_GetBubbleSize.htm"><span class="S15">_GUIToolTip_GetBubbleSize</span><span class="S8">()</span></a></td>
+  <td>Значение по умолчанию для <span class="S91">$iFlags</span> изменено на <a class="le" href="functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S91">$TTF_IDISHWND</span>, <span class="S91">$TTF_SUBCLASS</span><span class="S8">)</span>.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_GetBubbleWidth.htm"><span class="S15">_GUIToolTip_GetBubbleWidth</span><span class="S8">()</span></a></td>
-  <td>Значение по умолчанию для <span class="S91">$iFlags</span> изменено на <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S91">$TTF_IDISHWND</span>, <span class="S91">$TTF_SUBCLASS</span><span class="S8">)</span>.</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_GetBubbleWidth.htm"><span class="S15">_GUIToolTip_GetBubbleWidth</span><span class="S8">()</span></a></td>
+  <td>Значение по умолчанию для <span class="S91">$iFlags</span> изменено на <a class="le" href="functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S91">$TTF_IDISHWND</span>, <span class="S91">$TTF_SUBCLASS</span><span class="S8">)</span>.</td>
  </tr>
  <tr>
   <td>_GUIToolTip_GetCurrentTools</td>
-  <td>Возвращаемые значения изменены в соответствии с изменениями в _GUIToolTip_Add и <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a>: элемент [0] возвращаемого массива теперь содержит строку из <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a> вместо прежних "магических чисел".</td>
+  <td>Возвращаемые значения изменены в соответствии с изменениями в _GUIToolTip_Add и <a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a>: элемент [0] возвращаемого массива теперь содержит строку из <a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a> вместо прежних "магических чисел".</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_GetDelayTime.htm"><span class="S15">_GUIToolTip_GetDelayTime</span><span class="S8">()</span></a></td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_GetDelayTime.htm"><span class="S15">_GUIToolTip_GetDelayTime</span><span class="S8">()</span></a></td>
   <td>Функция теперь корректно использует константы ToolTip для получения времени задержки. Прежние значения были 0–2; правильные значения констант длительности – 1–3.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_GetTitleBitMap.htm"><span class="S15">_GUIToolTip_GetTitleBitMap</span><span class="S8">()</span></a></td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_GetTitleBitMap.htm"><span class="S15">_GUIToolTip_GetTitleBitMap</span><span class="S8">()</span></a></td>
   <td>Исправлена давняя ошибка, из-за которой функция возвращала неверные данные.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_GetTitleText.htm"><span class="S15">_GUIToolTip_GetTitleText</span><span class="S8">()</span></a></td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_GetTitleText.htm"><span class="S15">_GUIToolTip_GetTitleText</span><span class="S8">()</span></a></td>
   <td>Исправлена давняя ошибка, из-за которой функция возвращала неверные данные.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_GetToolInfo.htm"><span class="S15">_GUIToolTip_GetToolInfo</span><span class="S8">()</span></a></td>
-  <td>Возвращаемые значения изменены в соответствии с изменениями в _GUIToolTip_Add и <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a>: элемент [0] возвращаемого массива теперь содержит строку из <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a> вместо прежних "магических чисел".</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_GetToolInfo.htm"><span class="S15">_GUIToolTip_GetToolInfo</span><span class="S8">()</span></a></td>
+  <td>Возвращаемые значения изменены в соответствии с изменениями в _GUIToolTip_Add и <a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a>: элемент [0] возвращаемого массива теперь содержит строку из <a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a> вместо прежних "магических чисел".</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_HitTest.htm"><span class="S15">_GUIToolTip_HitTest</span><span class="S8">()</span></a></td>
-  <td>Возвращаемые значения изменены в соответствии с изменениями в _GUIToolTip_Add и <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a>: элемент [0] возвращаемого массива теперь содержит строку из <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a> вместо прежних "магических чисел".</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_HitTest.htm"><span class="S15">_GUIToolTip_HitTest</span><span class="S8">()</span></a></td>
+  <td>Возвращаемые значения изменены в соответствии с изменениями в _GUIToolTip_Add и <a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a>: элемент [0] возвращаемого массива теперь содержит строку из <a class="le" href="libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span><span class="S8">()</span></a> вместо прежних "магических чисел".</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_SetToolInfo.htm"><span class="S15">_GUIToolTip_SetToolInfo</span><span class="S8">()</span></a></td>
-  <td>Параметры <span class="S91">$iFlags</span> изменены: теперь используются константы ToolTip вместо "магических чисел"; значение по умолчанию изменено на <a class="le" href="../functions/BitOr.htm"><span class="S4">BitOr</span></a><span class="S8">(</span><span class="S91">$TTF_SUBCLASS</span>, <span class="S91">$TTF_IDISHWND</span><span class="S8">)</span>.</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_SetToolInfo.htm"><span class="S15">_GUIToolTip_SetToolInfo</span><span class="S8">()</span></a></td>
+  <td>Параметры <span class="S91">$iFlags</span> изменены: теперь используются константы ToolTip вместо "магических чисел"; значение по умолчанию изменено на <a class="le" href="functions/BitOr.htm"><span class="S4">BitOr</span></a><span class="S8">(</span><span class="S91">$TTF_SUBCLASS</span>, <span class="S91">$TTF_IDISHWND</span><span class="S8">)</span>.</td>
  </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_ToolToArray.htm"><span class="S15">_GUIToolTip_ToolToArray</span><span class="S8">()</span></a></td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_ToolToArray.htm"><span class="S15">_GUIToolTip_ToolToArray</span><span class="S8">()</span></a></td>
   <td>Элемент [0] возвращаемого массива теперь корректно возвращает значение флага на основе констант ToolTip вместо прежних "магических чисел".</td>
  </tr>
  <tr>
@@ -103,8 +103,8 @@ ToolTip UDF полностью переписан: устранены "маги�
     <th>Примечания</th>
   </tr>
  <tr>
-  <td><a class="le" href="../libfunctions/_GUIToolTip_Deactivate.htm"><span class="S15">_GUIToolTip_Deactivate</span><span class="S8">()</span></a></td>
-  <td>Деактивирует всплывающую подсказку; заменяет двойную функциональность, которую прежде выполняла <a class="le" href="../libfunctions/_GUIToolTip_Activate.htm"><span class="S15">_GUIToolTip_Activate</span><span class="S8">()</span></a>.</td>
+  <td><a class="le" href="libfunctions/_GUIToolTip_Deactivate.htm"><span class="S15">_GUIToolTip_Deactivate</span><span class="S8">()</span></a></td>
+  <td>Деактивирует всплывающую подсказку; заменяет двойную функциональность, которую прежде выполняла <a class="le" href="libfunctions/_GUIToolTip_Activate.htm"><span class="S15">_GUIToolTip_Activate</span><span class="S8">()</span></a>.</td>
  </tr>
 </table>
 </body>
