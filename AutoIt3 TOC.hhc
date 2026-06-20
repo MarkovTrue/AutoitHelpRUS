@@ -191,7 +191,7 @@
 <param name="Local" value="HTML/guiref/GUIRef_OnEventMode.htm">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
-<param name="Name" value="Инклуд-файлы констант GUI">
+<param name="Name" value="Константы GUI (файлы Include)">
 <param name="Local" value="HTML/guiref/GUIConstants.htm">
 </OBJECT>
 </UL>
@@ -2310,7 +2310,7 @@
 </OBJECT>
 <UL>
 <LI> <OBJECT type="text/sitemap">
-<param name="Name" value="Инклуд-файлы констант AutoIt">
+<param name="Name" value="Константы AutoIt (файлы Include)">
 <param name="Local" value="HTML/appendix/AutoItConstants.htm">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
@@ -2375,7 +2375,7 @@
 <param name="Local" value="HTML/libfunction_notes.htm">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
-<param name="Name" value="Инклуд-файлы констант UDF">
+<param name="Name" value="Константы UDF (файлы Include)">
 <param name="Local" value="HTML/libfunction_constants.htm">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
