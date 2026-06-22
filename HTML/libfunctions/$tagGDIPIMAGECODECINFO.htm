@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagGDIPIMAGECODECINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagGDIPIMAGECODECINFO</h1>
+<p class="funcdesc">Структура сведений о кодеке изображений GDI+.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagGDIPIMAGECODECINFO</span> <span class="S8">=</span> <span class="S7">"byte CLSID[16];byte FormatID[16];ptr CodecName;ptr DllName;ptr FormatDesc;ptr FileExt;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"ptr MimeType;dword Flags;dword Version;dword SigCount;dword SigSize;ptr SigPattern;ptr SigMask"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">CLSID</td>
+<td style="width:85%">Идентификатор кодека (структура GUID).</td>
+</tr>
+<tr>
+<td>FormatID</td>
+<td>Идентификатор формата файла (структура GUID).</td>
+</tr>
+<tr>
+<td>CodecName</td>
+<td>Указатель на строку Unicode с завершением нулевым символом, содержащую имя кодека.</td>
+</tr>
+<tr>
+<td>DllName</td>
+<td>Указатель на строку Unicode с завершением нулевым символом, содержащую имя пути DLL, в которой находится кодек.<br />
+Если кодек находится не в DLL, этот указатель равен 0.</td>
+</tr>
+<tr>
+<td>FormatDesc</td>
+<td>Указатель на строку Unicode с завершением нулевым символом, содержащую имя формата файла, используемого кодеком.</td>
+</tr>
+<tr>
+<td>FileExt</td>
+<td>Указатель на строку Unicode с завершением нулевым символом, содержащую все расширения имён файлов, связанные с кодеком.<br />
+Расширения разделены точками с запятой.</td>
+</tr>
+<tr>
+<td>MimeType</td>
+<td>Указатель на строку с завершением нулевым символом, содержащую тип MIME кодека.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Комбинация флагов <span class="S91">$GDIP_ICF</span>.</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>Указывает версию кодека.</td>
+</tr>
+<tr>
+<td>SigCount</td>
+<td>Указывает количество подписей, используемых форматом файла, связанным с кодеком.</td>
+</tr>
+<tr>
+<td>SigSize</td>
+<td>Указывает количество байтов в каждой подписи.</td>
+</tr>
+<tr>
+<td>SigPattern</td>
+<td>Указатель на массив байтов, содержащий шаблон каждой подписи.</td>
+</tr>
+<tr>
+<td>SigMask</td>
+<td>Указатель на массив байтов, содержащий маску для каждой подписи.</td>
+</tr>
+</table>
+
+</body>
+</html>

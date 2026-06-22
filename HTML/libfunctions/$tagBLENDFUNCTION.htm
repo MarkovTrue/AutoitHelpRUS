@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagBLENDFUNCTION</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagBLENDFUNCTION</h1>
+<p class="funcdesc">Управляет смешением путём задания функций смешения для исходного и целевого точечных рисунков.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagBLENDFUNCTION</span> <span class="S8">=</span> <span class="S7">"byte Op;byte Flags;byte Alpha;byte Format"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Op</td>
+<td style="width:85%">Определяет операцию смешивания источника:.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Должно быть нулём.</td>
+</tr>
+<tr>
+<td>Alpha</td>
+<td>Определяет значение прозрачности альфа-канала, используемое для всего растрового изображения источника. Это значение комбинируется с любыми значениями альфа-канала для каждого пикселя в растровом изображении источника. Если установлено на 0, предполагается, что ваше изображение прозрачно. Установите 255 (непрозрачно), когда вы хотите использовать только значения альфа-канала для каждого пикселя.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Этот член управляет способом интерпретации исходного и целевого растровых изображений:<br />
+AC_SRC_ALPHA – этот флаг устанавливается, когда растровое изображение имеет альфа-канал (то есть альфа-канал для каждого пикселя). Обратите внимание, что API используют предварительно умноженный альфа-канал, что означает, что значения красного, зелёного и синего каналов в растровом изображении должны быть предварительно умножены на значение альфа-канала.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Растровое изображение источника, используемое с <a class="le" href="../libfunctions/$tagBLENDFUNCTION.htm"><span class="S91">$tagBLENDFUNCTION</span></a>, должно быть 32 bpp<br />
+</p>
+</body>
+</html>

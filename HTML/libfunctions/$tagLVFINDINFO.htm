@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagLVFINDINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagLVFINDINFO</h1>
+<p class="funcdesc">Содержит сведения, используемые при поиске элемента ListView.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagLVFINDINFO</span> <span class="S8">=</span> <span class="S7">"struct; uint Flags;ptr Text;lparam Param;"</span> <span class="S8">&amp;</span> <span class="S9">$tagPOINT</span> <span class="S8">&amp;</span> <span class="S7">";uint Direction; endstruct"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Flags</td>
+<td style="width:85%">Тип выполняемого поиска. Может быть установлен на одно или несколько из следующих значений:<br />
+<span class="S91">$LVFI_PARAM</span> – ищет совпадение между членом Param этой структуры и членом Param элемента. Если указан <span class="S91">$LVFI_PARAM</span>, все остальные флаги игнорируются.<br />
+<span class="S91">$LVFI_PARTIAL</span> – проверяет, начинается ли текст элемента со строки, на которую указывает член Text. Это значение подразумевает использование <span class="S91">$LVFI_STRING</span>.<br />
+<span class="S91">$LVFI_STRING</span> – поиск по тексту элемента. Если не указаны дополнительные значения, текст совпадающего элемента должен точно совпадать со строкой, на которую указывает член Text.<br />
+<span class="S91">$LVFI_SUBSTRING</span> – эквивалент <span class="S91">$LVFI_PARTIAL</span> <strong>Windows Vista и позже</strong>.<br />
+<span class="S91">$LVFI_WRAP</span> – продолжает поиск с начала, если совпадение не найдено<br />
+<span class="S91">$LVFI_NEARESTXY</span> – находит элемент, ближайший к положению, указанному в членах X и Y, в направлении, указанном членом Direction. Этот флаг поддерживается только в режимах больших и малых значков.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Адрес строки для сравнения с текстом элемента. Действительна, если в члене Flags установлен <span class="S91">$LVFI_STRING</span> или <span class="S91">$LVFI_PARTIAL</span>.</td>
+</tr>
+<tr>
+<td>Param</td>
+<td>Значение для сравнения с членом Param структуры <span class="S91">$LVITEM</span> элемента. Действительна только если в члене flags установлен <span class="S91">$LVFI_PARAM</span>.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagPOINT.htm"><span class="S91">$tagPOINT</span></a></td>
+<td>Начальная позиция поиска X,Y. Действительна только если в члене Flags установлен <span class="S91">$LVFI_NEARESTXY</span>.</td>
+</tr>
+<tr>
+<td>Direction</td>
+<td>Код виртуальной клавиши, указывающий направление поиска. Поддерживаются следующие коды:<br />
+VK_LEFT<br />
+VK_RIGHT<br />
+VK_UP<br />
+VK_DOWN<br />
+VK_HOME<br />
+VK_END<br />
+VK_PRIOR<br />
+VK_NEXT<br />
+Этот член действителен только если в члене flags установлен <span class="S91">$LVFI_NEARESTXY</span>.</td>
+</tr>
+</table>
+
+</body>
+</html>

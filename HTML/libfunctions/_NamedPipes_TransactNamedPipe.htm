@@ -39,11 +39,11 @@
 </tr>
 <tr>
 <td><span class="S91">$tOverlapped</span></td>
-<td><strong>[необязательный]</strong> структура <span class="S91">$tagOVERLAPPED</span>.<br />
+<td><strong>[необязательный]</strong> структура <a class="le" href="../libfunctions/$tagOVERLAPPED.htm"><span class="S91">$tagOVERLAPPED</span></a>.<br />
 Эта структура требуется, если <span class="S91">$hNamedPipe</span> был открыт с <span class="S91">$PIPE_FLAG_OVERLAPPED</span>.<br />
 Если <span class="S91">$hNamedPipe</span> был открыт с <span class="S91">$PIPE_FLAG_OVERLAPPED</span>, <span class="S91">$tOverlapped</span> не должен быть 0.<br />
 Если <span class="S91">$hNamedPipe</span> был открыт с <span class="S91">$PIPE_FLAG_OVERLAPPED</span> и <span class="S91">$tOverlapped</span> не равен 0, функция <a class="le" href="_NamedPipes_TransactNamedPipe.htm"><span class="S15">_NamedPipes_TransactNamedPipe</span></a><span class="S8">()</span> выполняется как операция с перекрытием.<br />
-Структура <span class="S91">$tagOVERLAPPED</span> должна содержать объект события с ручным сбросом.<br />
+Структура <a class="le" href="../libfunctions/$tagOVERLAPPED.htm"><span class="S91">$tagOVERLAPPED</span></a> должна содержать объект события с ручным сбросом.<br />
 Если операция не может быть завершена немедленно, функция <a class="le" href="_NamedPipes_TransactNamedPipe.htm"><span class="S15">_NamedPipes_TransactNamedPipe</span></a><span class="S8">()</span> возвращает <span class="S5">False</span>, и <a class="le" href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span></a><span class="S8">()</span> возвращает ERROR_IO_PENDING.</td>
 </tr>
 </table>

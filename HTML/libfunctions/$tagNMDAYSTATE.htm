@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMDAYSTATE</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMDAYSTATE</h1>
+<p class="funcdesc">Содержит сведения для обработки уведомляющего сообщения <span class="S91">$MCN_GETDAYSTATE</span>.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMDAYSTATE</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";"</span> <span class="S8">&amp;</span> <span class="S9">$tagSYSTEMTIME</span> <span class="S8">&amp;</span> <span class="S7">";int DayState;ptr pDayState"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит информацию об уведомлении.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagSYSTEMTIME.htm"><span class="S91">$tagSYSTEMTIME</span></a></td>
+<td>Содержит начальную дату.</td>
+</tr>
+<tr>
+<td>DayState</td>
+<td>Общее количество элементов, которые должны находиться в массиве в <em>pDayState</em>.</td>
+</tr>
+<tr>
+<td>pDayState</td>
+<td>Адрес массива MONTHDAYSTATE (битовое поле DWORD, содержащее состояние каждого дня месяца)<br />
+Каждый бит (от 1 до 31) представляет состояние дня месяца. Если бит установлен, соответствующий день отображается жирным шрифтом, иначе обычным текстом.<br />
+Буфер по этому адресу должен быть достаточно большим, чтобы содержать как минимум <em>DayState</em> элементов.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="$tagSYSTEMTIME.htm">$tagSYSTEMTIME</a></p>
+
+</body>
+</html>

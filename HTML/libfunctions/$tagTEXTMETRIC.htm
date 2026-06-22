@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagTEXTMETRIC</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagTEXTMETRIC</h1>
+<p class="funcdesc">Содержит основные сведения о физическом шрифте.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagTEXTMETRIC</span> <span class="S8">=</span> <span class="S7">"long tmHeight;long tmAscent;long tmDescent;long tmInternalLeading;long tmExternalLeading;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"long tmAveCharWidth;long tmMaxCharWidth;long tmWeight;long tmOverhang;long tmDigitizedAspectX;long tmDigitizedAspectY;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"wchar tmFirstChar;wchar tmLastChar;wchar tmDefaultChar;wchar tmBreakChar;byte tmItalic;byte tmUnderlined;byte tmStruckOut;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"byte tmPitchAndFamily;byte tmCharSet"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">tmHeight</td>
+<td style="width:85%">Высота символов (подъём + спуск) в пикселах.</td>
+</tr>
+<tr>
+<td>tmAscent</td>
+<td>Подъём символов (расстояние выше базовой линии) в пикселах.</td>
+</tr>
+<tr>
+<td>tmDescent</td>
+<td>Спуск символов (расстояние ниже базовой линии) в пикселах.</td>
+</tr>
+<tr>
+<td>tmInternalLeading</td>
+<td>Внутренний межстрочный интервал (пространство) внутри границ, определённых членом <em>tmHeight</em>.<br />
+В этой области могут находиться диакритические знаки и другие символы с диакритикой. Разработчик может установить значение нулём.</td>
+</tr>
+<tr>
+<td>tmExternalLeading</td>
+<td>Дополнительный межстрочный интервал (пространство), добавляемый приложением между строками.<br />
+Поскольку эта область находится вне шрифта, она не содержит знаков и не изменяется вызовами вывода текста в режиме OPAQUE или TRANSPARENT.<br />
+Разработчик может установить значение нулём.</td>
+</tr>
+<tr>
+<td>tmAveCharWidth</td>
+<td>Средняя ширина символов в шрифте (обычно определяется как ширина буквы x).<br />
+Это значение не включает выступ, необходимый для полужирных и курсивных символов.</td>
+</tr>
+<tr>
+<td>tmMaxCharWidth</td>
+<td>Ширина самого широкого символа в шрифте.</td>
+</tr>
+<tr>
+<td>tmWeight</td>
+<td>Толщина (вес) шрифта.<br />
+Значение, определённое приложением, связанное с кнопкой.</td>
+</tr>
+<tr>
+<td>tmOverhang</td>
+<td>Дополнительная ширина на строку, которая может быть добавлена к некоторым синтезированным шрифтам.<br />
+При синтезировании некоторых атрибутов, таких как полужирный или курсив, графический интерфейс (GDI) или устройство может добавлять ширину к строке как для отдельных символов, так и для строки в целом.<br />
+Например, GDI делает строку полужирной, увеличивая промежуток между символами и перехватывая со смещением; курсив реализуется сдвигом строки. В обоих случаях есть выступ за пределы исходной строки.<br />
+Для полужирных строк выступ – это расстояние, на которое сдвинут перехват. Для курсивных строк выступ – это величина сдвига верхней части шрифта относительно нижней.<br />
+Член <em>tmOverhang</em> позволяет приложению определить, какая часть ширины символа, возвращаемой функцией GetTextExtentPoint32 для отдельного символа, является фактической шириной символа, а какая – дополнительной шириной строки.<br />
+Фактическая ширина равна размеру минус выступ.</td>
+</tr>
+<tr>
+<td>tmDigitizedAspectX</td>
+<td>Горизонтальный коэффициент растра устройства, для которого был разработан шрифт.</td>
+</tr>
+<tr>
+<td>tmDigitizedAspectY</td>
+<td>Вертикальный коэффициент растра устройства, для которого был разработан шрифт.<br />
+Отношение членов <em>tmDigitizedAspectX</em> и <em>tmDigitizedAspectY</em> – это коэффициент формата устройства, для которого был разработан шрифт.</td>
+</tr>
+<tr>
+<td>tmFirstChar</td>
+<td>Код первого символа, определённого в шрифте.</td>
+</tr>
+<tr>
+<td>tmLastChar</td>
+<td>Код последнего символа, определённого в шрифте.</td>
+</tr>
+<tr>
+<td>tmDefaultChar</td>
+<td>Код символа-заменителя для символов, отсутствующих в шрифте.</td>
+</tr>
+<tr>
+<td>tmBreakChar</td>
+<td>Код символа, используемый для определения границ слов при выравнивании текста.</td>
+</tr>
+<tr>
+<td>tmItalic</td>
+<td>Ненулевое значение указывает курсивный шрифт.</td>
+</tr>
+<tr>
+<td>tmUnderlined</td>
+<td>Ненулевое значение указывает подчёркнутый шрифт.</td>
+</tr>
+<tr>
+<td>tmStruckOut</td>
+<td>Ненулевое значение указывает перечёркнутый шрифт.</td>
+</tr>
+<tr>
+<td>tmPitchAndFamily</td>
+<td>Информация о шаге (пропорциональности), технологии и семействе шрифта.<br />
+Четыре младших бита этого члена содержат информацию о шаге и технологии шрифта. Для каждого из четырёх битов определена константа.<br />
+<span class="S91">$TMPF_FIXED_PITCH</span> Если бит установлен, то шрифт переменного шага. Если бит очищен, то шрифт фиксированного шага. Учтите, что значение противоположно названию константы.<br />
+<span class="S91">$TMPF_VECTOR</span> Если бит установлен, то шрифт векторный.<br />
+<span class="S91">$TMPF_TRUETYPE</span> Если бит установлен, то шрифт TrueType.<br />
+<span class="S91">$TMPF_DEVICE</span> Если бит установлен, то шрифт является шрифтом устройства.</td>
+</tr>
+<tr>
+<td>tmCharSet</td>
+<td>Кодировка символов шрифта. Может быть одним из следующих значений.<br />
+ANSI_CHARSET<br />
+BALTIC_CHARSET<br />
+CHINESEBIG5_CHARSET<br />
+DEFAULT_CHARSET<br />
+EASTEUROPE_CHARSET<br />
+GB2312_CHARSET<br />
+GREEK_CHARSET<br />
+HANGUL_CHARSET<br />
+MAC_CHARSET<br />
+OEM_CHARSET<br />
+RUSSIAN_CHARSET<br />
+SHIFTJIS_CHARSET<br />
+SYMBOL_CHARSET<br />
+TURKISH_CHARSET<br />
+VIETNAMESE_CHARSET</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Все размеры указаны в логических единицах, то есть зависят от текущего режима отображения контекста дисплея.<br />
+</p>
+</body>
+</html>

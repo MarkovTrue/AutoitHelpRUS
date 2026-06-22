@@ -2818,7 +2818,7 @@
 <param name="Local" value="HTML/appendix/ExitCodes.htm">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
-<param name="Name" value="Символы ASCII">
+<param name="Name" value="Коды ASCII символов">
 <param name="Local" value="HTML/appendix/ascii.htm">
 </OBJECT>
 <LI> <OBJECT type="text/sitemap">
@@ -10802,6 +10802,434 @@
 <LI> <OBJECT type="text/sitemap">
    <param name="Name" value="_StringToHex">
    <param name="Local" value="HTML/libfunctions/_StringToHex.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagBITMAPINFO">
+   <param name="Local" value="HTML/libfunctions/$tagBITMAPINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagBITMAPINFOHEADER">
+   <param name="Local" value="HTML/libfunctions/$tagBITMAPINFOHEADER.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagBLENDFUNCTION">
+   <param name="Local" value="HTML/libfunctions/$tagBLENDFUNCTION.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagCOLORSCHEME">
+   <param name="Local" value="HTML/libfunctions/$tagCOLORSCHEME.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagCOMBOBOXEXITEM">
+   <param name="Local" value="HTML/libfunctions/$tagCOMBOBOXEXITEM.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagDTPRANGE">
+   <param name="Local" value="HTML/libfunctions/$tagDTPRANGE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagEVENTLOGRECORD">
+   <param name="Local" value="HTML/libfunctions/$tagEVENTLOGRECORD.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagFILETIME">
+   <param name="Local" value="HTML/libfunctions/$tagFILETIME.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_Blur">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_Blur.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_BrightnessContrast">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_BrightnessContrast.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_ColorBalance">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_ColorBalance.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_ColorCurve">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_ColorCurve.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_ColorLUT">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_ColorLUT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_HueSaturationLightness">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_HueSaturationLightness.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_Levels">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_Levels.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_RedEyeCorrection">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_RedEyeCorrection.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_Sharpen">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_Sharpen.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIP_EFFECTPARAMS_Tint">
+   <param name="Local" value="HTML/libfunctions/$tagGDIP_EFFECTPARAMS_Tint.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIPBITMAPDATA">
+   <param name="Local" value="HTML/libfunctions/$tagGDIPBITMAPDATA.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIPCOLORMATRIX">
+   <param name="Local" value="HTML/libfunctions/$tagGDIPCOLORMATRIX.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIPENCODERPARAM">
+   <param name="Local" value="HTML/libfunctions/$tagGDIPENCODERPARAM.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIPENCODERPARAMS">
+   <param name="Local" value="HTML/libfunctions/$tagGDIPENCODERPARAMS.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIPIMAGECODECINFO">
+   <param name="Local" value="HTML/libfunctions/$tagGDIPIMAGECODECINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIPRECTF">
+   <param name="Local" value="HTML/libfunctions/$tagGDIPRECTF.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIPSTARTUPINPUT">
+   <param name="Local" value="HTML/libfunctions/$tagGDIPSTARTUPINPUT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGDIPSTARTUPOUTPUT">
+   <param name="Local" value="HTML/libfunctions/$tagGDIPSTARTUPOUTPUT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGETIPAddress">
+   <param name="Local" value="HTML/libfunctions/$tagGETIPAddress.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagGUID">
+   <param name="Local" value="HTML/libfunctions/$tagGUID.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagHARDWAREINPUT">
+   <param name="Local" value="HTML/libfunctions/$tagHARDWAREINPUT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagHDITEM">
+   <param name="Local" value="HTML/libfunctions/$tagHDITEM.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagIMAGEINFO">
+   <param name="Local" value="HTML/libfunctions/$tagIMAGEINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagKBDLLHOOKSTRUCT">
+   <param name="Local" value="HTML/libfunctions/$tagKBDLLHOOKSTRUCT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagKEYBDINPUT">
+   <param name="Local" value="HTML/libfunctions/$tagKEYBDINPUT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagLOGFONT">
+   <param name="Local" value="HTML/libfunctions/$tagLOGFONT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagLVFINDINFO">
+   <param name="Local" value="HTML/libfunctions/$tagLVFINDINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagLVHITTESTINFO">
+   <param name="Local" value="HTML/libfunctions/$tagLVHITTESTINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagLVITEM">
+   <param name="Local" value="HTML/libfunctions/$tagLVITEM.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagMARGINS">
+   <param name="Local" value="HTML/libfunctions/$tagMARGINS.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagMCHITTESTINFO">
+   <param name="Local" value="HTML/libfunctions/$tagMCHITTESTINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagMCMONTHRANGE">
+   <param name="Local" value="HTML/libfunctions/$tagMCMONTHRANGE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagMCRANGE">
+   <param name="Local" value="HTML/libfunctions/$tagMCRANGE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagMCSELRANGE">
+   <param name="Local" value="HTML/libfunctions/$tagMCSELRANGE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagMENUINFO">
+   <param name="Local" value="HTML/libfunctions/$tagMENUINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagMENUITEMINFO">
+   <param name="Local" value="HTML/libfunctions/$tagMENUITEMINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagMOUSEINPUT">
+   <param name="Local" value="HTML/libfunctions/$tagMOUSEINPUT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNETRESOURCE">
+   <param name="Local" value="HTML/libfunctions/$tagNETRESOURCE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMCBEDRAGBEGIN">
+   <param name="Local" value="HTML/libfunctions/$tagNMCBEDRAGBEGIN.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMCBEENDEDIT">
+   <param name="Local" value="HTML/libfunctions/$tagNMCBEENDEDIT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMCOMBOBOXEX">
+   <param name="Local" value="HTML/libfunctions/$tagNMCOMBOBOXEX.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMDATETIMECHANGE">
+   <param name="Local" value="HTML/libfunctions/$tagNMDATETIMECHANGE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMDATETIMEFORMAT">
+   <param name="Local" value="HTML/libfunctions/$tagNMDATETIMEFORMAT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMDATETIMEFORMATQUERY">
+   <param name="Local" value="HTML/libfunctions/$tagNMDATETIMEFORMATQUERY.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMDATETIMEKEYDOWN">
+   <param name="Local" value="HTML/libfunctions/$tagNMDATETIMEKEYDOWN.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMDATETIMESTRING">
+   <param name="Local" value="HTML/libfunctions/$tagNMDATETIMESTRING.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMDAYSTATE">
+   <param name="Local" value="HTML/libfunctions/$tagNMDAYSTATE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMHDDISPINFO">
+   <param name="Local" value="HTML/libfunctions/$tagNMHDDISPINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMHDFILTERBTNCLICK">
+   <param name="Local" value="HTML/libfunctions/$tagNMHDFILTERBTNCLICK.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMHDR">
+   <param name="Local" value="HTML/libfunctions/$tagNMHDR.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMHEADER">
+   <param name="Local" value="HTML/libfunctions/$tagNMHEADER.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMIPADDRESS">
+   <param name="Local" value="HTML/libfunctions/$tagNMIPADDRESS.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMITEMACTIVATE">
+   <param name="Local" value="HTML/libfunctions/$tagNMITEMACTIVATE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMLISTVIEW">
+   <param name="Local" value="HTML/libfunctions/$tagNMLISTVIEW.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMLVCUSTOMDRAW">
+   <param name="Local" value="HTML/libfunctions/$tagNMLVCUSTOMDRAW.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMLVDISPINFO">
+   <param name="Local" value="HTML/libfunctions/$tagNMLVDISPINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMLVFINDITEM">
+   <param name="Local" value="HTML/libfunctions/$tagNMLVFINDITEM.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMLVGETINFOTIP">
+   <param name="Local" value="HTML/libfunctions/$tagNMLVGETINFOTIP.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMLVKEYDOWN">
+   <param name="Local" value="HTML/libfunctions/$tagNMLVKEYDOWN.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMLVSCROLL">
+   <param name="Local" value="HTML/libfunctions/$tagNMLVSCROLL.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMMOUSE">
+   <param name="Local" value="HTML/libfunctions/$tagNMMOUSE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMOBJECTNOTIFY">
+   <param name="Local" value="HTML/libfunctions/$tagNMOBJECTNOTIFY.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMRBAUTOSIZE">
+   <param name="Local" value="HTML/libfunctions/$tagNMRBAUTOSIZE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMREBAR">
+   <param name="Local" value="HTML/libfunctions/$tagNMREBAR.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMREBARAUTOBREAK">
+   <param name="Local" value="HTML/libfunctions/$tagNMREBARAUTOBREAK.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMREBARCHEVRON">
+   <param name="Local" value="HTML/libfunctions/$tagNMREBARCHEVRON.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMREBARCHILDSIZE">
+   <param name="Local" value="HTML/libfunctions/$tagNMREBARCHILDSIZE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMSELCHANGE">
+   <param name="Local" value="HTML/libfunctions/$tagNMSELCHANGE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTBHOTITEM">
+   <param name="Local" value="HTML/libfunctions/$tagNMTBHOTITEM.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTCKEYDOWN">
+   <param name="Local" value="HTML/libfunctions/$tagNMTCKEYDOWN.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTOOLBAR">
+   <param name="Local" value="HTML/libfunctions/$tagNMTOOLBAR.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTREEVIEW">
+   <param name="Local" value="HTML/libfunctions/$tagNMTREEVIEW.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTVCUSTOMDRAW">
+   <param name="Local" value="HTML/libfunctions/$tagNMTVCUSTOMDRAW.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTVDISPINFO">
+   <param name="Local" value="HTML/libfunctions/$tagNMTVDISPINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTVGETINFOTIP">
+   <param name="Local" value="HTML/libfunctions/$tagNMTVGETINFOTIP.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTVITEMCHANGE">
+   <param name="Local" value="HTML/libfunctions/$tagNMTVITEMCHANGE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagNMTVKEYDOWN">
+   <param name="Local" value="HTML/libfunctions/$tagNMTVKEYDOWN.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagOPENFILENAME">
+   <param name="Local" value="HTML/libfunctions/$tagOPENFILENAME.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagOVERLAPPED">
+   <param name="Local" value="HTML/libfunctions/$tagOVERLAPPED.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagPOINT">
+   <param name="Local" value="HTML/libfunctions/$tagPOINT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagPROCESS_INFORMATION">
+   <param name="Local" value="HTML/libfunctions/$tagPROCESS_INFORMATION.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagREBARBANDINFO">
+   <param name="Local" value="HTML/libfunctions/$tagREBARBANDINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagRECT">
+   <param name="Local" value="HTML/libfunctions/$tagRECT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagSCROLLBARINFO">
+   <param name="Local" value="HTML/libfunctions/$tagSCROLLBARINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagSCROLLINFO">
+   <param name="Local" value="HTML/libfunctions/$tagSCROLLINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagSECURITY_ATTRIBUTES">
+   <param name="Local" value="HTML/libfunctions/$tagSECURITY_ATTRIBUTES.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagSIZE">
+   <param name="Local" value="HTML/libfunctions/$tagSIZE.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagSTARTUPINFO">
+   <param name="Local" value="HTML/libfunctions/$tagSTARTUPINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagSYSTEMTIME">
+   <param name="Local" value="HTML/libfunctions/$tagSYSTEMTIME.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagTBBUTTON">
+   <param name="Local" value="HTML/libfunctions/$tagTBBUTTON.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagTBBUTTONINFO">
+   <param name="Local" value="HTML/libfunctions/$tagTBBUTTONINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagTEXTMETRIC">
+   <param name="Local" value="HTML/libfunctions/$tagTEXTMETRIC.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagTIME_ZONE_INFORMATION">
+   <param name="Local" value="HTML/libfunctions/$tagTIME_ZONE_INFORMATION.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagTOKEN_PRIVILEGES">
+   <param name="Local" value="HTML/libfunctions/$tagTOKEN_PRIVILEGES.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagTVHITTESTINFO">
+   <param name="Local" value="HTML/libfunctions/$tagTVHITTESTINFO.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagTVITEMEX">
+   <param name="Local" value="HTML/libfunctions/$tagTVITEMEX.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagWIN32_FIND_DATA">
+   <param name="Local" value="HTML/libfunctions/$tagWIN32_FIND_DATA.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagWINDOWPLACEMENT">
+   <param name="Local" value="HTML/libfunctions/$tagWINDOWPLACEMENT.htm">
+   </OBJECT>
+<LI> <OBJECT type="text/sitemap">
+   <param name="Name" value="$tagWINDOWPOS">
+   <param name="Local" value="HTML/libfunctions/$tagWINDOWPOS.htm">
    </OBJECT>
 <LI> <OBJECT type="text/sitemap">
    <param name="Name" value="_Timer_Diff">

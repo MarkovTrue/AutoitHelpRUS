@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagLVITEM</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagLVITEM</h1>
+<p class="funcdesc">Задаёт или принимает атрибуты элемента ListView.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagLVITEM</span> <span class="S8">=</span> <span class="S7">"struct; uint Mask;int Item;int SubItem;uint State;uint StateMask;ptr Text;int TextMax;int Image;lparam Param;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"int Indent;int GroupID;uint Columns;ptr pColumns;ptr piColFmt;int iGroup; endstruct"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Mask</td>
+<td style="width:85%">Набор флагов, определяющих, какие члены этой структуры содержат данные для установки или какие члены запрашиваются. Этот член может иметь один или несколько из следующих флагов:<br />
+<span class="S91">$LVIF_COLFMT</span> – член piColFmt действителен или должен быть установлен. Если используется этот флаг, то член cColumns действителен или должен быть установлен <strong>Windows Vista и позже</strong>.<br />
+<span class="S91">$LVIF_COLUMNS</span> – член Columns действителен<br />
+<span class="S91">$LVIF_DI_SETITEM</span> – операционная система должна сохранить запрашиваемую информацию элемента списка<br />
+<span class="S91">$LVIF_GROUPID</span> – член GroupID действителен<br />
+<span class="S91">$LVIF_IMAGE</span> – член Image действителен<br />
+<span class="S91">$LVIF_INDENT</span> – член Indent действителен<br />
+<span class="S91">$LVIF_NORECOMPUTE</span> – элемент управления не будет генерировать LVN_GETDISPINFO для получения текстовой информации<br />
+<span class="S91">$LVIF_PARAM</span> – член Param действителен<br />
+<span class="S91">$LVIF_STATE</span> – член State действителен<br />
+<span class="S91">$LVIF_TEXT</span> – член Text действителен.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Индекс элемента (с отсчётом от нуля), к которому относится эта структура.</td>
+</tr>
+<tr>
+<td>SubItem</td>
+<td>Индекс подэлемента (с отсчётом от единицы), к которому относится эта структура.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Состояние элемента, изображение состояния и наложенное изображение.</td>
+</tr>
+<tr>
+<td>StateMask</td>
+<td>Значение, определяющее, какие биты члена state будут получены или изменены.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Указатель на строку с текстом элемента.</td>
+</tr>
+<tr>
+<td>TextMax</td>
+<td>Количество байтов в буфере, на который указывает <em>Text</em>, включая завершающий нулевой символ.</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>Индекс значка элемента в списке изображений элемента управления.</td>
+</tr>
+<tr>
+<td>Param</td>
+<td>Значение, специфичное для элемента.</td>
+</tr>
+<tr>
+<td>Indent</td>
+<td>Количество ширин изображений для отступа элемента.</td>
+</tr>
+<tr>
+<td>GroupID</td>
+<td>Идентификатор группы плиточного представления, которая получает элемент.</td>
+</tr>
+<tr>
+<td>Columns</td>
+<td>Количество столбцов плиточного представления для отображения этого элемента.</td>
+</tr>
+<tr>
+<td>pColumns</td>
+<td>Указатель на массив индексов столбцов.</td>
+</tr>
+<tr>
+<td>piColFmt</td>
+<td>Указатель на массив следующих флагов (по отдельности или в комбинации), определяющих формат каждого подэлемента в расширенном плиточном представлении (Windows 7 и позже).<br />
+Значение Смысл:<br />
+<span class="S91">$LVCFMT_LINE_BREAK</span> – заставляет столбец переноситься на верхнюю часть следующего списка столбцов.<br />
+<span class="S91">$LVCFMT_FILL</span> – заполняет остаток площади плитки. Может иметь заголовок.<br />
+<span class="S91">$LVCFMT_WRAP</span> – позволяет столбцу переноситься в оставшееся место в его списке столбцов.<br />
+<span class="S91">$LVCFMT_NO_TITLE</span> – удаляет заголовок из подэлемента.<br />
+<span class="S91">$LVCFMT_TILE_PLACEMENTMASK</span> – эквивалентна комбинации <span class="S91">$LVCFMT_LINE_BREAK</span> и <span class="S91">$LVCFMT_FILL</span>.</td>
+</tr>
+<tr>
+<td>iGroup</td>
+<td>Индекс группы элемента. Действителен только для данных владельца/обратного вызова (один элемент в нескольких группах) (<strong>Windows Vista и позже</strong>).</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagOVERLAPPED</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagOVERLAPPED</h1>
+<p class="funcdesc">Содержит сведения для асинхронного (перекрывающегося) ввода-вывода.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagOVERLAPPED</span> <span class="S8">=</span> <span class="S7">"ulong_ptr Internal;ulong_ptr InternalHigh;struct; dword Offset;dword OffsetHigh; endstruct;handle hEvent"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Internal</td>
+<td style="width:85%">Зарезервировано для использования операционной системой. Этот член, который указывает на зависящее от системы состояние, действителен, когда функция GetOverlappedResult возвращает результат без установки расширенной информации об ошибке на ERROR_IO_PENDING.</td>
+</tr>
+<tr>
+<td>InternalHigh</td>
+<td>Зарезервировано для использования операционной системой. Этот член, который указывает на длину переданных данных, действителен, когда функция GetOverlappedResult возвращает <span class="S5">True</span>.</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Позиция файла, с которой начинается передача. Позиция файла – это смещение в байтах от начала файла.<br />
+Вызывающий процесс должен установить этот член перед вызовом функции ReadFile или WriteFile.<br />
+Этот член используется только, когда устройство является файлом. В противном случае этот член должен быть нулём.</td>
+</tr>
+<tr>
+<td>OffsetHigh</td>
+<td>Старшее слово позиции файла, с которой начинается передача.<br />
+Этот член используется только, когда устройство является файлом. В противном случае этот член должен быть нулём.</td>
+</tr>
+<tr>
+<td>hEvent</td>
+<td>Дескриптор события, который будет установлен в сигнальное состояние по завершении операции.<br />
+Вызывающий процесс должен установить этот член либо на нуль, либо на допустимый дескриптор события перед вызовом любых перекрывающихся функций.</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagBITMAPINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagBITMAPINFO</h1>
+<p class="funcdesc">Определяет размеры и цветовые сведения аппаратно-независимого точечного рисунка (DIB) на основе Windows.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagBITMAPINFO</span> <span class="S8">=</span> <span class="S9">$tagBITMAPINFOHEADER</span> <span class="S8">&amp;</span> <span class="S7">";dword biRGBQuad[1]"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagBITMAPINFOHEADER.htm"><span class="S91">$tagBITMAPINFOHEADER</span></a></td>
+<td style="width:85%">Содержит информацию о размерах растрового изображения.</td>
+</tr>
+<tr>
+<td>biRGBQuad</td>
+<td>Массив структур tagRGBQUAD. Элементы массива, составляющие таблицу цветов.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Эта структура не должна использоваться для объявления, так как поле <em>biRGBQuad</em> не имеет правильного размера.<br />
+Предоставляется только для документации.<br />
+<br />
+Должна использоваться конкатенация подходящего по размеру массива с <a class="le" href="../libfunctions/$tagBITMAPINFOHEADER.htm"><span class="S91">$tagBITMAPINFOHEADER</span></a>.<br />
+Убедитесь в правильной инициализации поля 'biSize'.<br />
+</p>
+</body>
+</html>

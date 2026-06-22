@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMHDDISPINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMHDDISPINFO</h1>
+<p class="funcdesc">Содержит сведения для обработки уведомляющих сообщений <span class="S91">$HDN_GETDISPINFO</span>.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMHDDISPINFO</span> <span class="S8">=</span> <span class="S7">"hwnd WndFrom;int IDFrom;int Code;int Item;int Mask;ptr Text;int TextMax;int Image;int lParam"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">WndFrom</td>
+<td style="width:85%">Дескриптор окна элемента управления, отправляющего сообщение.</td>
+</tr>
+<tr>
+<td>IDFrom</td>
+<td>Идентификатор элемента управления, отправляющего сообщение.</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>Код уведомления.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Индекс элемента в элементе управления заголовком с отсчётом от нуля.</td>
+</tr>
+<tr>
+<td>Mask</td>
+<td>Набор битовых флагов, определяющих, какие элементы структуры должны быть заполнены владельцем элемента управления. Это значение может быть комбинацией следующих значений:<br />
+<span class="S91">$HDI_TEXT</span> – поле Text должно быть заполнено<br />
+<span class="S91">$HDI_IMAGE</span> – поле Image должно быть заполнено<br />
+<span class="S91">$HDI_LPARAM</span> – поле lParam должно быть заполнено<br />
+<span class="S91">$HDI_DI_SETITEM</span> – возвращаемое значение. Указывает, что элемент управления должен сохранить информацию об элементе и не запрашивать её снова.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Указатель на строку с нулём в конце, содержащую текст, который будет отображаться для элемента заголовка.</td>
+</tr>
+<tr>
+<td>TextMax</td>
+<td>Размер буфера, на который указывает Text.</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>Индекс изображения в списке изображений с отсчётом от нуля. Указанное изображение будет отображаться вместе с элементом заголовка, но оно не займёт место растрового изображения элемента. Если iImage установлен в <span class="S91">$I_IMAGECALLBACK</span>, элемент управления запрашивает информацию об изображении для этого элемента с помощью сообщения уведомления <span class="S91">$HDN_GETDISPINFO</span>.</td>
+</tr>
+<tr>
+<td>lParam</td>
+<td>Определённое приложением значение, связываемое с элементом.</td>
+</tr>
+</table>
+
+</body>
+</html>

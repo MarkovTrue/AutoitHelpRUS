@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagTBBUTTONINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagTBBUTTONINFO</h1>
+<p class="funcdesc">Содержит или принимает сведения об отдельной кнопке панели инструментов.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagTBBUTTONINFO</span> <span class="S8">=</span> <span class="S7">"int Size;int Mask;int Command;int Image;byte State;byte Style;short CX;dword_ptr Param;ptr Text;int TextMax"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Size</td>
+<td style="width:85%">Размер этой структуры в байтах.</td>
+</tr>
+<tr>
+<td>Mask</td>
+<td>Набор флагов, указывающих, какие члены содержат действительную информацию:<br />
+<span class="S91">$TBIF_BYINDEX</span> – параметр Param, отправленный с сообщением <span class="S91">$TB_GETBUTTONINFO</span> или <span class="S91">$TB_SETBUTTONINFO</span>, – это индекс<br />
+<span class="S91">$TBIF_COMMAND</span> – член Command содержит действительную информацию или запрашивается<br />
+<span class="S91">$TBIF_IMAGE</span> – член Image содержит действительную информацию или запрашивается<br />
+<span class="S91">$TBIF_IMAGELABEL</span> – указывает, что следует использовать ImageLabel<br />
+<span class="S91">$TBIF_LPARAM</span> – член Param содержит действительную информацию или запрашивается<br />
+<span class="S91">$TBIF_SIZE</span> – член CX содержит действительную информацию или запрашивается<br />
+<span class="S91">$TBIF_STATE</span> – член State содержит действительную информацию или запрашивается<br />
+<span class="S91">$TBIF_STYLE</span> – член Style содержит действительную информацию или запрашивается<br />
+<span class="S91">$TBIF_TEXT</span> – член Text содержит действительную информацию или запрашивается.</td>
+</tr>
+<tr>
+<td>Command</td>
+<td>Идентификатор команды кнопки.</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>Индекс изображения кнопки. Установите этот член на <span class="S91">$I_IMAGECALLBACK</span>, и панель инструментов отправит уведомление <span class="S91">$TBN_GETDISPINFO</span> для получения индекса изображения при необходимости.<br />
+Установите этот член на <span class="S91">$I_IMAGENONE</span>, чтобы указать, что кнопка не имеет изображения.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Флаги состояния кнопки.</td>
+</tr>
+<tr>
+<td>Style</td>
+<td>Флаги стиля кнопки.</td>
+</tr>
+<tr>
+<td>CX</td>
+<td>Ширина кнопки в пикселах.</td>
+</tr>
+<tr>
+<td>Param</td>
+<td>Значение, определённое приложением, связанное с кнопкой.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Адрес буфера символов, содержащего или принимающего текст кнопки.</td>
+</tr>
+<tr>
+<td>TextMax</td>
+<td>Размер буфера по адресу <em>Text</em>. Если информация кнопки задаётся, этот член игнорируется.</td>
+</tr>
+</table>
+
+</body>
+</html>

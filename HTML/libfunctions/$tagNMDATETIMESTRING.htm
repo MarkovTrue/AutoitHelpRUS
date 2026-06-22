@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMDATETIMESTRING</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMDATETIMESTRING</h1>
+<p class="funcdesc">Содержит сведения об операции редактирования в элементе управления "Выбор даты и времени".</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMDATETIMESTRING</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";ptr UserString;"</span> <span class="S8">&amp;</span> <span class="S9">$tagSYSTEMTIME</span> <span class="S8">&amp;</span> <span class="S7">";dword Flags"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит информацию о сообщении уведомления.</td>
+</tr>
+<tr>
+<td>UserString</td>
+<td>Адрес строки с нулём в конце, введённой пользователем.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagSYSTEMTIME.htm"><span class="S91">$tagSYSTEMTIME</span></a></td>
+<td>Дата и время, которые должны быть заполнены владельцем при обработке кода уведомления <span class="S91">$DTN_USERSTRING</span>.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Поле возврата. Установите этот член на <span class="S91">$GDT_VALID</span>, чтобы указать, что дата действительна, или на <span class="S91">$GDT_NONE</span>, чтобы установить элемент управления в статус "без даты" (только для стиля <span class="S91">$DTS_SHOWNONE</span>).</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Это сообщение используется с сообщением уведомления <span class="S91">$DTN_USERSTRING</span>.<br />
+</p>
+<h2>См. также</h2>
+<p><a href="$tagNMHDR.htm">$tagNMHDR</a>, <a href="$tagSYSTEMTIME.htm">$tagSYSTEMTIME</a></p>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagSCROLLINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagSCROLLINFO</h1>
+<p class="funcdesc">Содержит параметры полосы прокрутки для сообщения <span class="S91">$SBM_SETSCROLLINFO</span> или <span class="S91">$SBM_GETSCROLLINFO</span>.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagSCROLLINFO</span> <span class="S8">=</span> <span class="S7">"uint cbSize;uint fMask;int  nMin;int  nMax;uint nPage;int  nPos;int  nTrackPos"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">cbSize</td>
+<td style="width:85%">Размер структуры в байтах. Вызывающий код должен установить это значение в <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><a class="le" href="../libfunctions/$tagSCROLLINFO.htm"><span class="S91">$tagSCROLLINFO</span></a><span class="S8">)</span>.</td>
+</tr>
+<tr>
+<td>fMask</td>
+<td>Указывает параметры полосы прокрутки для установки или извлечения. Может быть комбинацией следующих значений:<br />
+<span class="S91">$SIF_ALL</span> – комбинация <span class="S91">$SIF_PAGE</span>, <span class="S91">$SIF_POS</span>, <span class="S91">$SIF_RANGE</span> и <span class="S91">$SIF_TRACKPOS</span>.<br />
+<span class="S91">$SIF_DISABLENOSCROLL</span> – используется только при установке параметров полосы прокрутки. Если новые параметры делают полосу прокрутки ненужной, отключает полосу вместо удаления.<br />
+<span class="S91">$SIF_PAGE</span> – член <em>nPage</em> содержит размер страницы для пропорциональной полосы прокрутки.<br />
+<span class="S91">$SIF_POS</span> – член <em>nPos</em> содержит позицию ползунка (не обновляется во время перетаскивания).<br />
+<span class="S91">$SIF_RANGE</span> – члены <em>nMin</em> и <em>nMax</em> содержат минимальное и максимальное значения диапазона прокрутки.<br />
+<span class="S91">$SIF_TRACKPOS</span> – член <em>nTrackPos</em> содержит текущую позицию ползунка во время его перетаскивания.</td>
+</tr>
+<tr>
+<td>nMin</td>
+<td>Минимальная позиция прокрутки.</td>
+</tr>
+<tr>
+<td>nMax</td>
+<td>Максимальная позиция прокрутки.</td>
+</tr>
+<tr>
+<td>nPage</td>
+<td>Размер страницы. Полоса прокрутки использует это значение для определения размера пропорционального ползунка.</td>
+</tr>
+<tr>
+<td>nPos</td>
+<td>Позиция ползунка.</td>
+</tr>
+<tr>
+<td>nTrackPos</td>
+<td>Текущая позиция ползунка, которого пользователь перетаскивает.<br />
+Приложение может получить это значение при обработке кода запроса <span class="S91">$SB_THUMBTRACK</span>.<br />
+Приложение не может установить немедленную позицию прокрутки, функция SetScrollInfo игнорирует этот член.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p><span class="S91">$SIF_xxxxx</span> и <span class="S91">$SB_XXX</span> для полосы прокрутки требуют <span class="S111">#include</span> <span class="S7">&lt;ScrollbarsConstants.au3&gt;</span><br />
+</p>
+</body>
+</html>

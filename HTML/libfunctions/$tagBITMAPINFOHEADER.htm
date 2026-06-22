@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagBITMAPINFOHEADER</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagBITMAPINFOHEADER</h1>
+<p class="funcdesc">Определяет размеры аппаратно-независимого точечного рисунка (DIB) на основе Windows.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagBITMAPINFOHEADER</span> <span class="S8">=</span> <span class="S7">"struct; dword biSize;long biWidth;long biHeight;word biPlanes;word biBitCount;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"dword biCompression;dword biSizeImage;long biXPelsPerMeter;long biYPelsPerMeter;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"dword biClrUsed;dword biClrImportant; endstruct"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">biSize</td>
+<td style="width:85%">Количество байтов, необходимых для структуры, минус размер данных RGBQuad.</td>
+</tr>
+<tr>
+<td>biWidth</td>
+<td>Ширина растрового изображения в пикселах.</td>
+</tr>
+<tr>
+<td>biHeight</td>
+<td>Высота растрового изображения в пикселах.</td>
+</tr>
+<tr>
+<td>biPlanes</td>
+<td>Количество плоскостей для целевого устройства. Должно быть установлено в 1.</td>
+</tr>
+<tr>
+<td>biBitCount</td>
+<td>Количество бит на пиксел.</td>
+</tr>
+<tr>
+<td>biCompression</td>
+<td>Тип сжатия для сжатого растрового изображения, ориентированного вверх.</td>
+</tr>
+<tr>
+<td>biSizeImage</td>
+<td>Размер изображения в байтах.</td>
+</tr>
+<tr>
+<td>biXPelsPerMeter</td>
+<td>Горизонтальное разрешение целевого устройства для растрового изображения в пикселах на метр.</td>
+</tr>
+<tr>
+<td>biYPelsPerMeter</td>
+<td>Вертикальное разрешение целевого устройства для растрового изображения в пикселах на метр.</td>
+</tr>
+<tr>
+<td>biClrUsed</td>
+<td>Количество индексов цвета в таблице цветов, которые фактически используются растровым изображением.</td>
+</tr>
+<tr>
+<td>biClrImportant</td>
+<td>Количество индексов цвета, необходимых для отображения растрового изображения.</td>
+</tr>
+</table>
+
+</body>
+</html>

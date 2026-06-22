@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNETRESOURCE</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNETRESOURCE</h1>
+<p class="funcdesc">Структура сетевого ресурса.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNETRESOURCE</span> <span class="S8">=</span> <span class="S7">"int Scope;int Type;int DisplayType;int Usage;ptr LocalName;ptr RemoteName;ptr Comment;ptr Provider"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Scope</td>
+<td style="width:85%">Область перечисления:<br />
+<span class="S91">$RESOURCE_CONNECTED</span> – перечислить текущие подключённые ресурсы<br />
+<span class="S91">$RESOURCE_GLOBALNET</span> – перечислить все ресурсы в сети<br />
+<span class="S91">$RESOURCE_REMEMBERED</span> – перечислить запомненные подключения.</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Набор битовых флагов, определяющих тип ресурса:<br />
+<span class="S91">$RESOURCETYPE_ANY</span> – все ресурсы<br />
+<span class="S91">$RESOURCETYPE_DISK</span> – дисковые ресурсы<br />
+<span class="S91">$RESOURCETYPE_PRINT</span> – ресурсы печати.</td>
+</tr>
+<tr>
+<td>DisplayType</td>
+<td>Параметры отображения объекта сети в пользовательском интерфейсе просмотра сети:<br />
+<span class="S91">$RESOURCEDISPLAYTYPE_DOMAIN</span> – объект должен отображаться как домен<br />
+<span class="S91">$RESOURCEDISPLAYTYPE_SERVER</span> – объект должен отображаться как сервер<br />
+<span class="S91">$RESOURCEDISPLAYTYPE_SHARE</span> – объект должен отображаться как общая папка<br />
+<span class="S91">$RESOURCEDISPLAYTYPE_GENERIC</span> – способ отображения объекта не имеет значения.</td>
+</tr>
+<tr>
+<td>Usage</td>
+<td>Набор битовых флагов, описывающих способ использования ресурса. Заметьте, что этот элемент может быть указан только если элемент Scope равен <span class="S91">$RESOURCE_GLOBALNET</span>. Этот элемент может быть одним из следующих значений:<br />
+<span class="S91">$RESOURCEUSAGE_CONNECTABLE</span> – ресурс является подключаемым ресурсом; имя, на которое указывает RemoteName, может быть передано функции <a class="le" href="_WinNet_AddConnection.htm"><span class="S15">_WinNet_AddConnection</span></a><span class="S8">()</span> для установления сетевого подключения.<br />
+<span class="S91">$RESOURCEUSAGE_CONTAINER</span> – ресурс является ресурсом-контейнером; имя, на которое указывает RemoteName, может быть передано функции <a class="le" href="_WinNet_OpenEnum.htm"><span class="S15">_WinNet_OpenEnum</span></a><span class="S8">()</span> для перечисления ресурсов в контейнере.</td>
+</tr>
+<tr>
+<td>LocalName</td>
+<td>Если элемент Scope равен <span class="S91">$RESOURCE_CONNECTED</span> или <span class="S91">$RESOURCE_REMEMBERED</span>, этот элемент является указателем на строку символов с нулём в конце, которая задаёт имя локального устройства.<br />
+Этот элемент равен 0, если подключение не использует устройство.</td>
+</tr>
+<tr>
+<td>RemoteName</td>
+<td>Если запись является сетевым ресурсом, этот элемент является указателем на строку с нулём в конце, которая задаёт имя удалённой сети. Если запись является текущим или постоянным подключением, RemoteName указывает на имя сети, связанное с именем, на которое указывает элемент LocalName.</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>Указатель на строку с нулём в конце, содержащую комментарий, предоставленный поставщиком сетевых услуг.</td>
+</tr>
+<tr>
+<td>Provider</td>
+<td>Указатель на строку с нулём в конце, содержащую имя поставщика, владеющего ресурсом. Этот элемент может быть NULL, если имя поставщика неизвестно. Чтобы получить имя поставщика, вы можете вызвать функцию <a class="le" href="_WinNet_GetProviderName.htm"><span class="S15">_WinNet_GetProviderName</span></a><span class="S8">()</span>.</td>
+</tr>
+</table>
+
+</body>
+</html>

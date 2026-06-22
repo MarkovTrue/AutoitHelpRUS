@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagTBBUTTON</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagTBBUTTON</h1>
+<p class="funcdesc">Содержит сведения о кнопке на панели инструментов.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagTBBUTTON</span> <span class="S8">=</span> <span class="S7">"int Bitmap;int Command;byte State;byte Style;short Reserved;dword_ptr Param;int_ptr String"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Bitmap</td>
+<td style="width:85%">0-базовый индекс изображения кнопки. Установите этот член в <span class="S91">$I_IMAGECALLBACK</span>, и панель инструментов отправит уведомление <span class="S91">$TBN_GETDISPINFO</span> для получения индекса изображения, когда это необходимо.<br />
+Установите этот член в <span class="S91">$I_IMAGENONE</span>, чтобы указать, что кнопка не имеет изображения. Макет кнопки не будет включать место для растрового изображения, только текст.<br />
+Если кнопка является разделителем, Bitmap определяет ширину разделителя в пиксах.</td>
+</tr>
+<tr>
+<td>Command</td>
+<td>Идентификатор команды, связанный с кнопкой. Этот идентификатор используется в сообщении <span class="S91">$WM_COMMAND</span>, когда кнопка выбирается.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Флаги состояния кнопки.</td>
+</tr>
+<tr>
+<td>Style</td>
+<td>Флаги стиля кнопки.</td>
+</tr>
+<tr>
+<td>Reserved</td>
+<td>Зарезервировано 2 байта в режиме x86, 6 в режиме x64.</td>
+</tr>
+<tr>
+<td>Param</td>
+<td>Значение, определённое приложением.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>0-базовый индекс строки кнопки или указатель на строку, содержащую текст кнопки</td>
+</tr>
+</table>
+
+</body>
+</html>

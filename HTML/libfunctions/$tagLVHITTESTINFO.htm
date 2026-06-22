@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagLVHITTESTINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagLVHITTESTINFO</h1>
+<p class="funcdesc">Содержит сведения о результате hit-тестирования.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagLVHITTESTINFO</span> <span class="S8">=</span> <span class="S9">$tagPOINT</span> <span class="S8">&amp;</span> <span class="S7">";uint Flags;int Item;int SubItem;int iGroup"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagPOINT.htm"><span class="S91">$tagPOINT</span></a></td>
+<td style="width:85%">Позиция X, Y для проверки попадания.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Результаты проверки попадания. Может быть одно или несколько из следующих значений:<br />
+<span class="S91">$LVHT_ABOVE</span> – позиция выше клиентской области элемента управления<br />
+<span class="S91">$LVHT_BELOW</span> – позиция ниже клиентской области элемента управления<br />
+<span class="S91">$LVHT_NOWHERE</span> – позиция находится внутри клиентского окна, но не над элементом списка<br />
+<span class="S91">$LVHT_ONITEMICON</span> – позиция находится над значком элемента<br />
+<span class="S91">$LVHT_ONITEMLABEL</span> – позиция находится над текстом элемента<br />
+<span class="S91">$LVHT_ONITEMSTATEICON</span> – позиция находится над изображением состояния элемента<br />
+<span class="S91">$LVHT_TOLEFT</span> – позиция находится слева от клиентской области<br />
+<span class="S91">$LVHT_TORIGHT</span> – позиция находится справа от клиентской области<br />
+Для <strong>Windows Vista или более поздних версий</strong>:<br />
+<span class="S91">$LVHT_EX_GROUP_HEADER</span> – точка находится в заголовке группы.<br />
+<span class="S91">$LVHT_EX_GROUP_FOOTER</span> – точка находится в подвале группы.<br />
+<span class="S91">$LVHT_EX_GROUP_COLLAPSE</span> – точка находится в кнопке свёртывания/развёртывания группы.<br />
+<span class="S91">$LVHT_EX_GROUP_BACKGROUND</span> – точка находится в области группы, где отображаются элементы.<br />
+<span class="S91">$LVHT_EX_GROUP_STATEICON</span> – точка находится в значке состояния группы.<br />
+<span class="S91">$LVHT_EX_GROUP_SUBSETLINK</span> – точка находится в ссылке подмножества группы.<br />
+<span class="S91">$LVHT_EX_GROUP</span> – <span class="S91">$LVHT_EX_GROUP_BACKGROUND</span> | <span class="S91">$LVHT_EX_GROUP_COLLAPSE</span> | <span class="S91">$LVHT_EX_GROUP_FOOTER</span> | <span class="S91">$LVHT_EX_GROUP_HEADER</span> | <span class="S91">$LVHT_EX_GROUP_STATEICON</span> | <span class="S91">$LVHT_EX_GROUP_SUBSETLINK</span>.<br />
+<span class="S91">$LVHT_EX_ONCONTENTS</span> – точка находится в содержимом значка или текста элемента, а не на фоне.<br />
+<span class="S91">$LVHT_EX_FOOTER</span> – точка находится в подвале элемента управления представлением списка.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Получает индекс найденного элемента. Или при проверке попадания подэлемента это значение представляет родительский элемент подэлемента.</td>
+</tr>
+<tr>
+<td>SubItem</td>
+<td>Получает индекс найденного подэлемента. При проверке попадания элемента это значение будет нулём.</td>
+</tr>
+<tr>
+<td>iGroup</td>
+<td>Индекс группы найденного элемента (только чтение). Действителен только для данных владельца. Если точка находится в элементе, который отображается в нескольких группах, iGroup будет указывать индекс группы элемента <strong>Windows Vista или более поздней версии</strong>.</td>
+</tr>
+</table>
+
+</body>
+</html>

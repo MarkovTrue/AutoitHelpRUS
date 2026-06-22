@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagMCHITTESTINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagMCHITTESTINFO</h1>
+<p class="funcdesc">Содержит сведения о hit-тестировании точек в элементе управления "Месячный календарь".</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagMCHITTESTINFO</span> <span class="S8">=</span> <span class="S7">"uint Size;"</span> <span class="S8">&amp;</span> <span class="S9">$tagPOINT</span> <span class="S8">&amp;</span> <span class="S7">";uint Hit;"</span> <span class="S8">&amp;</span> <span class="S9">$tagSYSTEMTIME</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">";"</span> <span class="S8">&amp;</span> <span class="S9">$tagRECT</span> <span class="S8">&amp;</span> <span class="S7">";int iOffset;int iRow;int iCol"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Size</td>
+<td style="width:85%">Размер этой структуры в байтах.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagPOINT.htm"><span class="S91">$tagPOINT</span></a></td>
+<td>Координаты X, Y точки для проверки попадания.</td>
+</tr>
+<tr>
+<td>Hit</td>
+<td>Результат операции проверки попадания. Значение может быть одним из следующих:<br />
+<span class="S91">$MCHT_CALENDARBK</span> – точка была в фоне календаря<br />
+<span class="S91">$MCHT_CALENDARDATE</span> – точка была на определённой дате в календаре<br />
+<span class="S91">$MCHT_CALENDARDATENEXT</span> – точка была над датой из следующего месяца<br />
+<span class="S91">$MCHT_CALENDARDATEPREV</span> – точка была над датой из предыдущего месяца<br />
+<span class="S91">$MCHT_CALENDARDAY</span> – точка была над сокращением дня<br />
+<span class="S91">$MCHT_CALENDARWEEKNUM</span> – точка была над номером недели<br />
+<span class="S91">$MCHT_NOWHERE</span> – точка не была на элементе управления календарём<br />
+<span class="S91">$MCHT_TITLEBK</span> – точка была над фоном заголовка месяца<br />
+<span class="S91">$MCHT_TITLEBTNNEXT</span> – точка была над кнопкой в верхнем правом углу<br />
+<span class="S91">$MCHT_TITLEBTNPREV</span> – точка была над кнопкой в верхнем левом углу<br />
+<span class="S91">$MCHT_TITLEMONTH</span> – точка была в панели заголовка месяца над именем месяца<br />
+<span class="S91">$MCHT_TITLEYEAR</span> – точка была в панели заголовка месяца над значением года.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagSYSTEMTIME.htm"><span class="S91">$tagSYSTEMTIME</span></a></td>
+<td>Год<br />
+Месяц<br />
+День недели<br />
+День<br />
+Часы<br />
+Минуты<br />
+Секунды<br />
+Миллисекунды.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagRECT.htm"><span class="S91">$tagRECT</span></a></td>
+<td>Прямоугольник проверенного местоположения.</td>
+</tr>
+<tr>
+<td>iOffset</td>
+<td>При отображении более одного календаря это смещение календаря в проверенной точке (с отсчётом от нуля).</td>
+</tr>
+<tr>
+<td>iRow</td>
+<td>Номер строки в сетке календаря, над которой была проверяемая точка. Пример: если вы проверили 8-е число месяца, которое находится во второй неделе месяца, то iRow будет равно одному, так как индекс строки начинается с нуля.</td>
+</tr>
+<tr>
+<td>iCol</td>
+<td>Номер столбца в сетке календаря, над которым была проверяемая точка. Например, если ваша неделя начинается с воскресенья и 1-е число месяца – пятница, то проверка 1-го числа вернёт пять (5) для iCol, так как пятница находится в пятом столбце от начала строки при использовании индекса столбца с отсчётом от нуля.</td>
+</tr>
+</table>
+
+</body>
+</html>

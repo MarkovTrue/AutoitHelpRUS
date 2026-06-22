@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagWINDOWPOS</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagWINDOWPOS</h1>
+<p class="funcdesc">Содержит сведения о размере и положении окна.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagWINDOWPOS</span> <span class="S8">=</span> <span class="S7">"hwnd hWnd;int InsertAfter;int X;int Y;int CX;int CY;int Flags"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">hWnd</td>
+<td style="width:85%">Дескриптор окна.</td>
+</tr>
+<tr>
+<td>InsertAfter</td>
+<td>Указывает позицию окна в Z-порядке.</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Указывает позицию левого края окна.</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Указывает позицию верхнего края окна.</td>
+</tr>
+<tr>
+<td>CX</td>
+<td>Ширина окна в пикселах.</td>
+</tr>
+<tr>
+<td>CY</td>
+<td>Высота окна в пикселах.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Указывает позицию окна. Этот элемент может быть одним или несколькими из следующих значений:<br />
+<span class="S91">$SWP_DRAWFRAME</span> – нарисовать рамку вокруг окна<br />
+<span class="S91">$SWP_FRAMECHANGED</span> – отправить сообщение WM_NCCALCSIZE в окно, даже если размер окна не изменяется<br />
+<span class="S91">$SWP_HIDEWINDOW</span> – скрыть окно<br />
+<span class="S91">$SWP_NOACTIVATE</span> – не активировать окно<br />
+<span class="S91">$SWP_NOCOPYBITS</span> – отбросить всё содержимое клиентской области<br />
+<span class="S91">$SWP_NOMOVE</span> – сохранить текущую позицию (игнорировать параметры x и y)<br />
+<span class="S91">$SWP_NOOWNERZORDER</span> – не изменять позицию окна-владельца в Z-порядке<br />
+<span class="S91">$SWP_NOREDRAW</span> – не перерисовывать изменения<br />
+<span class="S91">$SWP_NOREPOSITION</span> – то же самое, что флаг SWP_NOOWNERZORDER<br />
+<span class="S91">$SWP_NOSENDCHANGING</span> – предотвратить получение окном сообщения WM_WINDOWPOSCHANGING<br />
+<span class="S91">$SWP_NOSIZE</span> – сохранить текущий размер (игнорировать параметры cx и cy)<br />
+<span class="S91">$SWP_NOZORDER</span> – сохранить текущий Z-порядок (игнорировать параметр InsertAfter)<br />
+<span class="S91">$SWP_SHOWWINDOW</span> – отобразить окно.</td>
+</tr>
+</table>
+
+</body>
+</html>

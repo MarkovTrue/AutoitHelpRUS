@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMITEMACTIVATE</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMITEMACTIVATE</h1>
+<p class="funcdesc">Отправляется элементом управления ListView при активации элемента пользователем.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMITEMACTIVATE</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";int Index;int SubItem;int NewState;int OldState;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"int Changed;int X;int Y;int lParam;int KeyFlags"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>Индекс элемента представления списка. Если индекс элемента не используется для уведомления, этот член будет содержать -1.</td>
+</tr>
+<tr>
+<td>SubItem</td>
+<td>Индекс подэлемента с отсчётом от единицы. Если индекс подэлемента не используется для уведомления или уведомление не применяется к подэлементу, этот член будет содержать нуль.</td>
+</tr>
+<tr>
+<td>NewState</td>
+<td>Новое состояние элемента. Этот член равен нулю для уведомлений, которые его не используют.</td>
+</tr>
+<tr>
+<td>OldState</td>
+<td>Старое состояние элемента. Этот член равен нулю для уведомлений, которые его не используют.</td>
+</tr>
+<tr>
+<td>Changed</td>
+<td>Набор флагов, указывающих изменённые атрибуты элемента.<br />
+Этот член равен нулю для уведомлений, которые его не используют.<br />
+Этот член может иметь один или несколько из следующих флагов:<br />
+<span class="S91">$LVIF_COLUMNS</span> – член Columns действителен<br />
+<span class="S91">$LVIF_DI_SETITEM</span> – операционная система должна сохранить запрашиваемую информацию о элементе списка<br />
+<span class="S91">$LVIF_GROUPID</span> – член GroupID действителен<br />
+<span class="S91">$LVIF_IMAGE</span> – член Image действителен<br />
+<span class="S91">$LVIF_INDENT</span> – член Indent действителен<br />
+<span class="S91">$LVIF_NORECOMPUTE</span> – элемент управления не будет создавать LVN_GETDISPINFO для получения текстовой информации<br />
+<span class="S91">$LVIF_PARAM</span> – член Param действителен<br />
+<span class="S91">$LVIF_STATE</span> – член State действителен<br />
+<span class="S91">$LVIF_TEXT</span> – член Text действителен.</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Координата X точки.</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Координата Y точки.</td>
+</tr>
+<tr>
+<td>lParam</td>
+<td>Определяемое приложением значение элемента. Этот член не определён для уведомлений, которые его не используют.</td>
+</tr>
+<tr>
+<td>KeyFlags</td>
+<td>Клавиши-модификаторы, которые были нажаты в момент активации.<br />
+Этот член содержит нуль или комбинацию следующих флагов:<br />
+<span class="S91">$LVKF_ALT</span> (1) – клавиша нажата.<br />
+<span class="S91">$LVKF_CONTROL</span> (2) – клавиша нажата.<br />
+<span class="S91">$LVKF_SHIFT</span> (4) – клавиша нажата.</td>
+</tr>
+</table>
+
+</body>
+</html>

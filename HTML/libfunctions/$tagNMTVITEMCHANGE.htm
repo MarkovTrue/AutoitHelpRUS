@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMTVITEMCHANGE</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMTVITEMCHANGE</h1>
+<p class="funcdesc">Содержит сведения об изменении элемента TreeView в уведомлениях <span class="S91">$TVN_ITEMCHANGED</span> и <span class="S91">$TVN_ITEMCHANGING</span>.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMTVITEMCHANGE</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";uint Changed;handle hItem;uint StateNew;uint StateOld;lparam lParam;"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>Changed</td>
+<td>Задаёт атрибут. Всегда должно иметь следующее значение:<br />
+TVIF_STATE – изменение является атрибутом состояния.</td>
+</tr>
+<tr>
+<td>hItem</td>
+<td>Дескриптор изменённого элемента иерархического списка.</td>
+</tr>
+<tr>
+<td>StateNew</td>
+<td>Флаг, задающий новое состояние элемента.</td>
+</tr>
+<tr>
+<td>StateOld</td>
+<td>Флаг, задающий предыдущее состояние элемента.</td>
+</tr>
+<tr>
+<td>lParam</td>
+<td>Зарезервировано для данных специфичных приложению. Например, значение для связи с элементом.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Это уведомление присутствует только в Windows Vista и более поздних версиях.<br />
+</p>
+</body>
+</html>

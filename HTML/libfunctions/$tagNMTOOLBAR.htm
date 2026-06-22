@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMTOOLBAR</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMTOOLBAR</h1>
+<p class="funcdesc">Содержит сведения для обработки уведомляющих сообщений панели инструментов.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMTOOLBAR</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";int iItem;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"struct; int iBitmap;int idCommand;byte fsState;byte fsStyle;dword_ptr dwData;int_ptr iString; endstruct"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">";int cchText;ptr pszText;"</span> <span class="S8">&amp;</span> <span class="S9">$tagRECT</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>iItem</td>
+<td>Идентификатор команды кнопки, связанной с уведомлением.</td>
+</tr>
+<tr>
+<td>iBitmap</td>
+<td>Индекс с отсчётом от нуля изображения кнопки.<br />
+Если кнопка является разделителем, то есть если fsStyle установлен на <span class="S91">$BTNS_SEP</span>, iBitmap определяет ширину разделителя в пикселах.</td>
+</tr>
+<tr>
+<td>idCommand</td>
+<td>Идентификатор команды, связанный с кнопкой. Этот идентификатор используется в сообщении WM_COMMAND при выборе кнопки.</td>
+</tr>
+<tr>
+<td>fsState</td>
+<td>Флаги состояния кнопки. Может быть комбинацией значений, перечисленных в разделе о состояниях кнопок панели инструментов.</td>
+</tr>
+<tr>
+<td>fsStyle</td>
+<td>Стиль кнопки. Может быть комбинацией значений стилей кнопок, перечисленных в разделе о стилях панели инструментов и кнопок.</td>
+</tr>
+<tr>
+<td>dwData</td>
+<td>Определяемое приложением значение.</td>
+</tr>
+<tr>
+<td>iString</td>
+<td>Индекс с отсчётом от нуля строки кнопки или указатель на буфер строки, содержащий текст для кнопки.</td>
+</tr>
+<tr>
+<td>cchText</td>
+<td>Количество символов в тексте кнопки.</td>
+</tr>
+<tr>
+<td>pszText</td>
+<td>Адрес буфера символов, содержащего текст кнопки.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagRECT.htm"><span class="S91">$tagRECT</span></a></td>
+<td>Left – координата X верхнего левого угла прямоугольника<br />
+Top – координата Y верхнего левого угла прямоугольника<br />
+Right – координата X нижнего правого угла прямоугольника<br />
+Bottom – координата Y нижнего правого угла прямоугольника.</td>
+</tr>
+</table>
+
+</body>
+</html>

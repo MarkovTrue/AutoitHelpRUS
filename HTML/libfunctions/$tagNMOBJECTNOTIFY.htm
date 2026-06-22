@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMOBJECTNOTIFY</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMOBJECTNOTIFY</h1>
+<p class="funcdesc">Содержит сведения для уведомляющих сообщений <span class="S91">$TBN_GETOBJECT</span>, <span class="S91">$TCN_GETOBJECT</span>, <span class="S91">$RBN_GETOBJECT</span> и <span class="S91">$PSN_GETOBJECT</span>.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMOBJECTNOTIFY</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";int Item;ptr piid;ptr pObject;long Result;dword dwFlags"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Идентификатор элемента, специфичный для элемента управления.</td>
+</tr>
+<tr>
+<td>piid</td>
+<td>Указатель на идентификатор интерфейса запрошенного объекта.</td>
+</tr>
+<tr>
+<td>pObject</td>
+<td>Указатель на объект, предоставленный окном, обрабатывающим сообщение уведомления.<br />
+Приложение, обрабатывающее сообщение уведомления, устанавливает этот член.</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>Флаги успеха или ошибки COM. Приложение, обрабатывающее сообщение уведомления, устанавливает этот член.</td>
+</tr>
+<tr>
+<td>dwFlags</td>
+<td>флаги, специфичные для элемента управления (подсказки о том, где в iItem произошло попадание)</td>
+</tr>
+</table>
+
+</body>
+</html>

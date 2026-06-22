@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagKBDLLHOOKSTRUCT</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagKBDLLHOOKSTRUCT</h1>
+<p class="funcdesc">Содержит сведения о событии нажатия клавиши на низком уровне.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagKBDLLHOOKSTRUCT</span> <span class="S8">=</span> <span class="S7">"dword vkCode;dword scanCode;dword flags;dword time;ulong_ptr dwExtraInfo"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">vkCode</td>
+<td style="width:85%">Виртуальный код клавиши. Код должен быть значением от 1 до 254.</td>
+</tr>
+<tr>
+<td>scanCode</td>
+<td>Аппаратный код развёртки клавиши.</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>Флаг расширенной клавиши, флаг инъецированного события, код контекста и флаг перехода состояния.<br />
+Приложение может использовать следующие значения для проверки флагов нажатия клавиши:<br />
+<span class="S91">$LLKHF_EXTENDED</span> – проверить флаг расширенной клавиши<br />
+<span class="S91">$LLKHF_LOWER_IL_INJECTED</span> – проверить флаг инъецированного события (из процесса, запущенного с более низким уровнем целостности)<br />
+<span class="S91">$LLKHF_INJECTED</span> – проверить флаг инъецированного события<br />
+<span class="S91">$LLKHF_ALTDOWN</span> – проверить код контекста<br />
+<span class="S91">$LLKHF_UP</span> – проверить флаг перехода состояния<br />
+0 – указывает, является ли клавиша расширенной (функциональная клавиша или клавиша на цифровой клавиатуре)<br />
+Значение 1, если расширенная, иначе 0<br />
+1 – указывает, было ли событие инъецировано из процесса, запущенного с более низким уровнем целостности.<br />
+Значение 1 в этом случае, иначе 0.<br />
+Обратите внимание, что бит 4 также устанавливается всякий раз, когда устанавливается бит 1.<br />
+2–3 – зарезервировано<br />
+4 – указывает, было ли событие инъецировано. Значение 1, если было, иначе 0.<br />
+Обратите внимание, что бит 1 не обязательно устанавливается, когда устанавливается бит 4.<br />
+5 – код контекста. Значение 1, если нажата клавиша ALT, иначе 0<br />
+6 – зарезервировано<br />
+7 – состояние перехода. Значение 0, если клавиша нажата, и 1, если она отпускается</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Временная метка сообщения, эквивалентна тому, что вернула бы функция GetMessageTime.</td>
+</tr>
+<tr>
+<td>dwExtraInfo</td>
+<td>Дополнительная информация, связанная с сообщением.</td>
+</tr>
+</table>
+
+</body>
+</html>

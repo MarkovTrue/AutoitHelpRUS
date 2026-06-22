@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagMENUITEMINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagMENUITEMINFO</h1>
+<p class="funcdesc">Содержит сведения о пункте меню.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagMENUITEMINFO</span> <span class="S8">=</span> <span class="S7">"int Size;int Mask;int Type;int State;int ID;int SubMenu;int BmpChecked;int BmpUnchecked;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"ulong_ptr ItemData;ptr TypeData;int CCH;int BmpItem"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Size</td>
+<td style="width:85%">Размер структуры в байтах.</td>
+</tr>
+<tr>
+<td>Mask</td>
+<td>Члены для получения или задания. Может быть одним или несколькими из этих значений:<br />
+<span class="S91">$MIIM_BITMAP</span> – получает или задаёт член BmpItem<br />
+<span class="S91">$MIIM_CHECKMARKS</span> – получает или задаёт члены BmpChecked и BmpUnchecked<br />
+<span class="S91">$MIIM_DATA</span> – получает или задаёт член ItemData<br />
+<span class="S91">$MIIM_FTYPE</span> – получает или задаёт член Type<br />
+<span class="S91">$MIIM_ID</span> – получает или задаёт член ID<br />
+<span class="S91">$MIIM_STATE</span> – получает или задаёт член State<br />
+<span class="S91">$MIIM_STRING</span> – получает или задаёт член TypeData<br />
+<span class="S91">$MIIM_SUBMENU</span> – получает или задаёт член SubMenu<br />
+<span class="S91">$MIIM_TYPE</span> – получает или задаёт члены Type и TypeData.</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Тип элемента меню. Может быть одним или несколькими из следующих значений:<br />
+<span class="S91">$MFT_BITMAP</span> – отображает элемент меню с помощью растрового изображения<br />
+<span class="S91">$MFT_MENUBARBREAK</span> – размещает элемент меню на новой строке или в новом столбце<br />
+<span class="S91">$MFT_MENUBREAK</span> – размещает элемент меню на новой строке или в новом столбце<br />
+<span class="S91">$MFT_OWNERDRAW</span> – возлагает ответственность за рисование элемента меню на владельца меню<br />
+<span class="S91">$MFT_RADIOCHECK</span> – отображает выбранные элементы меню с помощью флажка переключателя<br />
+<span class="S91">$MFT_RIGHTJUSTIFY</span> – выравнивает элемент меню и последующие элементы по правому краю<br />
+<span class="S91">$MFT_RIGHTORDER</span> – указывает, что меню открываются справа налево<br />
+<span class="S91">$MFT_SEPARATOR</span> – указывает, что элемент является разделителем.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Состояние элемента меню. Может быть одним или несколькими из этих значений:<br />
+<span class="S91">$MFS_CHECKED</span> – отмечает элемент меню галочкой<br />
+<span class="default-const"><span class="S91">$MFS_DEFAULT</span></span> – указывает, что элемент является элементом по умолчанию<br />
+<span class="S91">$MFS_DISABLED</span> – отключает элемент меню и делает его серым так, чтобы он не мог быть выбран<br />
+<span class="S91">$MFS_ENABLED</span> – включает элемент меню так, чтобы он мог быть выбран<br />
+<span class="S91">$MFS_GRAYED</span> – отключает элемент меню и делает его серым так, чтобы он не мог быть выбран<br />
+<span class="S91">$MFS_HILITE</span> – выделяет элемент меню.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Определяемое приложением 16-битное значение, идентифицирующее элемент меню.</td>
+</tr>
+<tr>
+<td>SubMenu</td>
+<td>Дескриптор раскрывающегося меню или подменю, связанного с элементом меню.</td>
+</tr>
+<tr>
+<td>BmpChecked</td>
+<td>Дескриптор растрового изображения для отображения рядом с элементом, если он выбран.</td>
+</tr>
+<tr>
+<td>BmpUnchecked</td>
+<td>Дескриптор растрового изображения для отображения рядом с элементом, если он не выбран.</td>
+</tr>
+<tr>
+<td>ItemData</td>
+<td>Определяемое приложением значение, связанное с элементом меню.</td>
+</tr>
+<tr>
+<td>TypeData</td>
+<td>Содержимое элемента меню.</td>
+</tr>
+<tr>
+<td>CCH</td>
+<td>Длина текста элемента меню.</td>
+</tr>
+<tr>
+<td>BmpItem</td>
+<td>Дескриптор растрового изображения для отображения.</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagGDIPSTARTUPINPUT</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagGDIPSTARTUPINPUT</h1>
+<p class="funcdesc">Входные параметры инициализации GDI+.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagGDIPSTARTUPINPUT</span> <span class="S8">=</span> <span class="S7">"int Version;ptr Callback;int NoThread;int NoCodecs"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Version</td>
+<td style="width:85%">Указывает версию Microsoft Windows GDI+.</td>
+</tr>
+<tr>
+<td>Callback</td>
+<td>Указатель на функцию обратного вызова, которую GDI+ может вызывать в отладочных сборках для утверждений и предупреждений.</td>
+</tr>
+<tr>
+<td>NoThread</td>
+<td>Логическое значение, определяющее, нужно ли подавлять фоновый поток GDI+.<br />
+Если установить этот член в <span class="S5">True</span>, GdiplusStartup возвращает указатель на функцию перехвата и указатель на функцию отмены перехвата.<br />
+Вы должны вызвать эти функции соответствующим образом, чтобы заменить фоновый поток.<br />
+Если вы не хотите отвечать за вызов функций перехвата и отмены перехвата, установите этот член в <span class="S5">False</span>.</td>
+</tr>
+<tr>
+<td>NoCodecs</td>
+<td>Логическое значение, определяющее, нужно ли GDI+ подавлять внешние кодеки изображений.<br />
+VERSION GDI+ версия 1.0 не поддерживает внешние кодеки изображений, поэтому этот параметр игнорируется.</td>
+</tr>
+</table>
+
+</body>
+</html>

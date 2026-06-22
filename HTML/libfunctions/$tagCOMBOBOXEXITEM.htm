@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagCOMBOBOXEXITEM</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagCOMBOBOXEXITEM</h1>
+<p class="funcdesc">Содержит сведения об элементе в элементе управления ComboBoxEx.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagCOMBOBOXEXITEM</span> <span class="S8">=</span> <span class="S7">"uint Mask;int_ptr Item;ptr Text;int TextMax;int Image;int SelectedImage;int OverlayImage;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"int Indent;int Param"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Mask</td>
+<td style="width:85%">Набор битовых флагов, задающих атрибуты. Может быть комбинацией следующих значений.<br />
+<span class="S91">$CBEIF_DI_SETITEM</span> – установите этот флаг при обработке <span class="S91">$CBEN_GETDISPINFO</span><br />
+<span class="S91">$CBEIF_IMAGE</span> – член iImage действителен или должен быть заполнен.<br />
+<span class="S91">$CBEIF_INDENT</span> – член iIndent действителен или должен быть заполнен.<br />
+<span class="S91">$CBEIF_LPARAM</span> – член lParam действителен или должен быть заполнен.<br />
+<span class="S91">$CBEIF_OVERLAY</span> – член iOverlay действителен или должен быть заполнен.<br />
+<span class="S91">$CBEIF_SELECTEDIMAGE</span> – член iSelectedImage действителен или должен быть заполнен.<br />
+<span class="S91">$CBEIF_TEXT</span> – член pszText действителен или должен быть заполнен.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Индекс элемента с отсчётом от нуля.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Указатель на буфер символов, содержащий или получающий текст элемента.</td>
+</tr>
+<tr>
+<td>TextMax</td>
+<td>Длина строки в символах. Если задаётся текстовая информация, этот член игнорируется.</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>Индекс с отсчётом от нуля изображения в списке изображений.</td>
+</tr>
+<tr>
+<td>SelectedImage</td>
+<td>Индекс с отсчётом от нуля изображения в списке изображений.</td>
+</tr>
+<tr>
+<td>OverlayImage</td>
+<td>Индекс с отсчётом от единицы наложенного изображения в списке изображений.</td>
+</tr>
+<tr>
+<td>Indent</td>
+<td>Количество отступов для отображения элемента. Каждый отступ равен 10 пикселам.</td>
+</tr>
+<tr>
+<td>Param</td>
+<td>Значение, специфичное для элемента.</td>
+</tr>
+</table>
+
+</body>
+</html>

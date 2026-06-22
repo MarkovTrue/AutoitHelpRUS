@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMCOMBOBOXEX</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMCOMBOBOXEX</h1>
+<p class="funcdesc">Содержит сведения об элементе ComboBoxEx для уведомляющих сообщений.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMCOMBOBOXEX</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";uint Mask;int_ptr Item;ptr Text;int TextMax;int Image;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"int SelectedImage;int OverlayImage;int Indent;int Param"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>Mask</td>
+<td>Набор битовых флагов, определяющих атрибуты. Может быть комбинацией следующих значений.<br />
+CBEIF_DI_SETITEM – установите этот флаг при обработке CBEN_GETDISPINFO<br />
+CBEIF_IMAGE – член iImage действителен или должен быть заполнен.<br />
+CBEIF_INDENT – член iIndent действителен или должен быть заполнен.<br />
+CBEIF_LPARAM – член lParam действителен или должен быть заполнен.<br />
+CBEIF_OVERLAY – член iOverlay действителен или должен быть заполнен.<br />
+CBEIF_SELECTEDIMAGE – член iSelectedImage действителен или должен быть заполнен.<br />
+CBEIF_TEXT – член pszText действителен или должен быть заполнен.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>0-базовый индекс элемента.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Указатель на буфер символов, содержащий или получающий текст элемента.</td>
+</tr>
+<tr>
+<td>TextMax</td>
+<td>Длина pszText в символах (TCHAR). Если устанавливается текстовая информация, это поле игнорируется.</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>0-базовый индекс изображения в списке изображений.</td>
+</tr>
+<tr>
+<td>SelectedImage</td>
+<td>0-базовый индекс изображения в списке изображений.</td>
+</tr>
+<tr>
+<td>OverlayImage</td>
+<td>1-базовый индекс наложенного изображения в списке изображений.</td>
+</tr>
+<tr>
+<td>Indent</td>
+<td>Количество пробелов отступа для отображения элемента. Каждый отступ равен 10 пиксам.</td>
+</tr>
+<tr>
+<td>Param</td>
+<td>Значение, специфичное для элемента.</td>
+</tr>
+</table>
+
+</body>
+</html>

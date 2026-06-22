@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Keyword $tagBITMAPINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Keyword Reference</h1>
+<hr style="height:0px">
+<h1>$tagBITMAPINFO</h1>
+<p class="funcdesc">This structure defines the dimensions and color information of a Windows-based device-independent bitmap (DIB)<br /></p>
+<p class="codeheader">
+Global Const $tagBITMAPINFO = $tagBITMAPINFOHEADER & ";dword biRGBQuad[1]"<br />
+</p>
+
+<h2>Parameters</h2>
+<table>
+<tr>
+<td style="width:15%">$tagBITMAPINFOHEADER</td>
+<td style="width:85%">Contains information about dimensions of a bitmap.</td>
+</tr>
+<tr>
+<td>biRGBQuad</td>
+<td>An array of tagRGBQUAD structures. The elements of the array that make up the color table.</td>
+</tr>
+</table>
+
+<h2>Remarks</h2>
+<p>This structure should not be used for declaration as the biRGBQuad field does not have the right dimension.<br />
+It is provided just for documentation.<br />
+<br />
+Concatenation of a suitable sized array to $tagBITMAPINFOHEADER must be used.<br />
+Take care of the right initialization of 'biSize' field.<br />
+</p>
+
+</body>
+</html>

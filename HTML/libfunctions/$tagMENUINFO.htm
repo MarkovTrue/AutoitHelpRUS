@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagMENUINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagMENUINFO</h1>
+<p class="funcdesc">Содержит сведения о меню.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagMENUINFO</span> <span class="S8">=</span> <span class="S7">"int Size;int Mask;int Style;int YMax;int hBack;int ContextHelpID;ulong_ptr MenuData"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Size</td>
+<td style="width:85%">Размер структуры в байтах.</td>
+</tr>
+<tr>
+<td>Mask</td>
+<td>Члены для получения или задания. Может быть одним или несколькими из следующих значений:<br />
+<span class="S91">$MIM_APPLYTOSUBMENUS</span> – параметры применяются к меню и всем его подменю<br />
+<span class="S91">$MIM_BACKGROUND</span> – получает или задаёт член hBack<br />
+<span class="S91">$MIM_HELPID</span> – получает или задаёт член ContextHelpID<br />
+<span class="S91">$MIM_MAXHEIGHT</span> – получает или задаёт член YMax<br />
+<span class="S91">$MIM_MENUDATA</span> – получает или задаёт член MenuData<br />
+<span class="S91">$MIM_STYLE</span> – получает или задаёт член Style.</td>
+</tr>
+<tr>
+<td>Style</td>
+<td>Стиль меню. Может быть одним или несколькими из следующих значений:<br />
+<span class="S91">$MNS_AUTODISMISS</span> – меню автоматически закрывается, когда мышь находится вне меню примерно 10 секунд<br />
+<span class="S91">$MNS_CHECKORBMP</span> – для флажка и растрового изображения зарезервировано одинаковое место<br />
+<span class="S91">$MNS_DRAGDROP</span> – элементы меню являются целями отпускания OLE или источниками перетаскивания<br />
+<span class="S91">$MNS_MODELESS</span> – меню немодальное, то есть нет модального цикла обработки сообщений меню при активном меню<br />
+<span class="S91">$MNS_NOCHECK</span> – место слева от элемента для флажка не зарезервировано<br />
+<span class="S91">$MNS_NOTIFYBYPOS</span> – сообщение WM_MENUCOMMAND отправляется вместо WM_COMMAND при выборе.</td>
+</tr>
+<tr>
+<td>YMax</td>
+<td>Максимальная высота меню в пикселах.</td>
+</tr>
+<tr>
+<td>hBack</td>
+<td>Кисть для использования в качестве фона меню.</td>
+</tr>
+<tr>
+<td>ContextHelpID</td>
+<td>Идентификатор справки по контексту.</td>
+</tr>
+<tr>
+<td>MenuData</td>
+<td>Определяемое приложением значение.</td>
+</tr>
+</table>
+
+</body>
+</html>

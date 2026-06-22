@@ -29,11 +29,11 @@
 смещение – разница в минутах между UTC и местным временем;<br />
 формула: UTC = местное время + смещение<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – описание стандартного времени<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – структура <span class="S91">$tagSYSTEMTIME</span> с датой и местным временем перехода с летнего на стандартное<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – структура <a class="le" href="../libfunctions/$tagSYSTEMTIME.htm"><span class="S91">$tagSYSTEMTIME</span></a> с датой и местным временем перехода с летнего на стандартное<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> – смещение, используемое для перевода местного времени в период стандартного времени;<br />
 прибавляется к Bias; в большинстве часовых поясов равно нулю<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> – описание летнего времени<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – структура <span class="S91">$tagSYSTEMTIME</span> с датой и местным временем перехода со стандартного на летнее<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – структура <a class="le" href="../libfunctions/$tagSYSTEMTIME.htm"><span class="S91">$tagSYSTEMTIME</span></a> с датой и местным временем перехода со стандартного на летнее<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> – смещение для перевода местного времени в период летнего времени;<br />
 прибавляется к Bias; в большинстве часовых поясов равно –60.</td>
 </tr>
@@ -44,7 +44,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>В структуре <span class="S91">$tagSYSTEMTIME</span> поля wHour и wMinute задают время перехода, wDayOfWeek – день недели, wDay – номер вхождения этого дня недели в месяц (от 1 до 5, где 5 означает последнее вхождение, если данный день встречается менее 5 раз).<br />
+<p>В структуре <a class="le" href="../libfunctions/$tagSYSTEMTIME.htm"><span class="S91">$tagSYSTEMTIME</span></a> поля wHour и wMinute задают время перехода, wDayOfWeek – день недели, wDay – номер вхождения этого дня недели в месяц (от 1 до 5, где 5 означает последнее вхождение, если данный день встречается менее 5 раз).<br />
 <br />
 Пример: 02:00 первого воскресенья апреля: wHour = 2, wMonth = 4, wDayOfWeek = 0, wDay = 1. 02:00 последнего четверга октября: wHour = 2, wMonth = 10, wDayOfWeek = 4, wDay = 5.<br />
 </p>

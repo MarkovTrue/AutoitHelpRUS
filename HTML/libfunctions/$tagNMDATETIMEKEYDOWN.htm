@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMDATETIMEKEYDOWN</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMDATETIMEKEYDOWN</h1>
+<p class="funcdesc">Содержит сведения для обработки уведомляющего сообщения <span class="S91">$DTN_WMKEYDOWN</span>.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMDATETIMEKEYDOWN</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";int VirtKey;ptr Format;"</span> <span class="S8">&amp;</span> <span class="S9">$tagSYSTEMTIME</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>VirtKey</td>
+<td>Код виртуальной клавиши, представляющий клавишу, нажатую пользователем.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Указатель на строку с нулём в конце, которая определяет поле обратного вызова элемента управления.<br />
+Строка состоит из одного или нескольких символов "X".</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagSYSTEMTIME.htm"><span class="S91">$tagSYSTEMTIME</span></a></td>
+<td>Содержит информацию о текущей системной дате и времени из элемента управления DTP.<br />
+Владелец элемента управления должен изменить информацию о времени в зависимости от нажатия клавиши пользователем.</td>
+</tr>
+</table>
+
+<h2>См. также</h2>
+<p><a href="$tagNMHDR.htm">$tagNMHDR</a>, <a href="$tagSYSTEMTIME.htm">$tagSYSTEMTIME</a></p>
+
+</body>
+</html>

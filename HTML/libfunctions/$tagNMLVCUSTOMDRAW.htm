@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMLVCUSTOMDRAW</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMLVCUSTOMDRAW</h1>
+<p class="funcdesc">Содержит сведения об уведомляющем сообщении NM_CUSTOMDRAW, отправляемом элементом управления ListView.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMLVCUSTOMDRAW</span> <span class="S8">=</span> <span class="S7">"struct;"</span> <span class="S8">&amp;</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";dword dwDrawStage;handle hdc;"</span> <span class="S8">&amp;</span> <span class="S9">$tagRECT</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">";dword_ptr dwItemSpec;uint uItemState;lparam lItemlParam;endstruct"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">";dword clrText;dword clrTextBk;int iSubItem;dword dwItemType;dword clrFace;int iIconEffect;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"int iIconPhase;int iPartId;int iStateId;struct;long TextLeft;long TextTop;long TextRight;long TextBottom;endstruct;uint uAlign"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>dwDrawStage</td>
+<td>Текущий этап прорисовки. Это одно из следующих значений:<br />
+Глобальные значения:<br />
+<span class="S91">$CDDS_POSTERASE</span> – после завершения цикла стирания.<br />
+<span class="S91">$CDDS_POSTPAINT</span> – после завершения цикла рисования.<br />
+<span class="S91">$CDDS_PREERASE</span> – перед началом цикла стирания.<br />
+<span class="S91">$CDDS_PREPAINT</span> – перед началом цикла рисования.<br />
+Значения, специфичные для элемента:<br />
+<span class="S91">$CDDS_ITEM</span> – указывает на то, что члены dwItemSpec, uItemState и lItemlParam действительны.<br />
+<span class="S91">$CDDS_ITEMPOSTERASE</span> – после стирания элемента.<br />
+<span class="S91">$CDDS_ITEMPOSTPAINT</span> – после прорисовки элемента.<br />
+<span class="S91">$CDDS_ITEMPREERASE</span> – перед стиранием элемента.<br />
+<span class="S91">$CDDS_ITEMPREPAINT</span> – перед прорисовкой элемента.<br />
+<span class="S91">$CDDS_SUBITEM</span> – флаг, комбинируемый с <span class="S91">$CDDS_ITEMPREPAINT</span> или <span class="S91">$CDDS_ITEMPOSTPAINT</span> при прорисовке подэлемента.<br />
+Устанавливается только если из <span class="S91">$CDDS_PREPAINT</span> возвращён <span class="S91">$CDRF_NOTIFYITEMDRAW</span>.</td>
+</tr>
+<tr>
+<td>hdc</td>
+<td>Дескриптор контекста устройства элемента управления.<br />
+Используйте этот дескриптор контекста устройства (HDC) для выполнения любых функций интерфейса Microsoft Windows Graphics Device Interface (GDI).</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagRECT.htm"><span class="S91">$tagRECT</span></a></td>
+<td>Координата «слева, сверху» левого верхнего угла прямоугольника область прорисовки.<br />
+Этот член инициализируется только уведомлением <span class="S91">$CDDS_ITEMPREPAINT</span> Координата «справа, снизу» правого нижнего угла прямоугольника области прорисовки.<br />
+Этот член инициализируется только уведомлением <span class="S91">$CDDS_ITEMPREPAINT</span>.</td>
+</tr>
+<tr>
+<td>dwItemSpec</td>
+<td>Номер элемента.</td>
+</tr>
+<tr>
+<td>uItemState</td>
+<td>Текущее состояние элемента. Это значение является комбинацией следующих флагов:<br />
+<span class="S91">$CDIS_CHECKED</span> – элемент отмечен.<br />
+<span class="default-const"><span class="S91">$CDIS_DEFAULT</span></span> – элемент находится в состоянии по умолчанию.<br />
+<span class="S91">$CDIS_DISABLED</span> – элемент отключен.<br />
+<span class="S91">$CDIS_FOCUS</span> – элемент имеет фокус.<br />
+<span class="S91">$CDIS_GRAYED</span> – элемент затенён.<br />
+<span class="S91">$CDIS_HOT</span> – элемент сейчас находится под указателем (горячий).<br />
+<span class="S91">$CDIS_INDETERMINATE</span> – элемент находится в неопределённом состоянии.<br />
+<span class="S91">$CDIS_MARKED</span> – элемент отмечен. Значение определяется реализацией.<br />
+<span class="S91">$CDIS_SELECTED</span> – элемент выбран.<br />
+<span class="S91">$CDIS_SHOWKEYBOARDCUES</span> – версия 6.0 Comctl32. Элемент является подсказкой клавиатуры.<br />
+<span class="S91">$CDIS_NEARHOT</span> – элемент является частью элемента управления, находящегося под указателем мыши (горячий), но сам элемент не горячий.<br />
+Значение определяется реализацией.<br />
+<span class="S91">$CDIS_OTHERSIDEHOT</span> – элемент является частью кнопки разделения, находящейся под указателем мыши (горячая), но сам элемент не горячий.<br />
+Значение определяется реализацией.<br />
+<span class="S91">$CDIS_DROPHILITED</span> – элемент является текущей целью операции перетаскивания.</td>
+</tr>
+<tr>
+<td>lItemlParam</td>
+<td>Определяемые приложением данные элемента.</td>
+</tr>
+<tr>
+<td>clrText</td>
+<td>Значение COLORREF, представляющее цвет текста на переднем плане в элементе управления представлением списка.</td>
+</tr>
+<tr>
+<td>clrTextBk</td>
+<td>Значение COLORREF, представляющее цвет фона текста в элементе управления представлением списка.</td>
+</tr>
+<tr>
+<td>iSubItem</td>
+<td>Индекс подэлемента, который прорисовывается. Если прорисовывается основной элемент, это значение будет равно нулю.</td>
+</tr>
+<tr>
+<td>dwItemType</td>
+<td>Версия 6.0. DWORD, содержащее тип прорисовываемого элемента. Этот член может быть одним из следующих значений:<br />
+<span class="S91">$LVCDI_ITEM</span> – элемент подлежит прорисовке.<br />
+<span class="S91">$LVCDI_GROUP</span> – группа подлежит прорисовке.</td>
+</tr>
+<tr>
+<td>clrFace</td>
+<td>Версия 6.0. Значение COLORREF, представляющее цвет фасада элемента.</td>
+</tr>
+<tr>
+<td>iIconEffect</td>
+<td>Версия 6.0. Значение типа int, определяющее эффект, применяемый к значку (например, свечение, тень или импульс).</td>
+</tr>
+<tr>
+<td>iIconPhase</td>
+<td>Версия 6.0. Значение типа int, определяющее фазу значка.</td>
+</tr>
+<tr>
+<td>iPartId</td>
+<td>Версия 6.0. Значение типа int, определяющее идентификатор части элемента для прорисовки.</td>
+</tr>
+<tr>
+<td>iStateId</td>
+<td>Версия 6.0. Значение типа int, определяющее идентификатор состояния прорисовываемого элемента.</td>
+</tr>
+<tr>
+<td>TextLeft</td>
+<td>Координата X левого верхнего угла прямоугольника, в котором будет прорисован текст.</td>
+</tr>
+<tr>
+<td>TextTop</td>
+<td>Координата Y левого верхнего угла прямоугольника, в котором будет прорисован текст.</td>
+</tr>
+<tr>
+<td>TextRight</td>
+<td>Координата X правого нижнего угла прямоугольника, в котором будет прорисован текст.</td>
+</tr>
+<tr>
+<td>TextBottom</td>
+<td>Координата Y правого нижнего угла прямоугольника, в котором будет прорисован текст.</td>
+</tr>
+<tr>
+<td>uAlign</td>
+<td>Версия 6.0. UINT, определяющее способ выравнивания группы. Этот член может быть одним из следующих значений:<br />
+<span class="S91">$LVGA_HEADER_CENTER</span> – выровнять группу по центру.<br />
+<span class="S91">$LVGA_HEADER_LEFT</span> – выровнять группу слева.<br />
+<span class="S91">$LVGA_HEADER_RIGHT</span> – выровнять группу справа.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Константы <span class="S91">$LVxxx_</span> требуют <span class="S111">#include</span> <ListViewConstants.au3>, константы <span class="S91">$CDxx_</span> требуют <span class="S111">#include</span> <WindowsNotifsConstants.au3><br />
+</p>
+</body>
+</html>

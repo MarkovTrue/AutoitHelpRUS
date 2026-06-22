@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMRBAUTOSIZE</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMRBAUTOSIZE</h1>
+<p class="funcdesc">Содержит сведения для обработки уведомляющих сообщений <span class="S91">$RBN_AUTOSIZE</span>.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMRBAUTOSIZE</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";bool fChanged;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"struct; long TargetLeft;long TargetTop;long TargetRight;long TargetBottom; endstruct;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"struct; long ActualLeft;long ActualTop;long ActualRight;long ActualBottom; endstruct"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>fChanged</td>
+<td>Член, указывающий, изменились ли размер или макет элемента управления rebar (ненулевой, если произошло изменение, или ноль в противном случае).</td>
+</tr>
+<tr>
+<td>TargetLeft</td>
+<td>Указывает координату X верхнего левого угла прямоугольника, к которому элемент управления rebar попытался сам себя изменить.</td>
+</tr>
+<tr>
+<td>TargetTop</td>
+<td>Указывает координату Y верхнего левого угла прямоугольника, к которому элемент управления rebar попытался сам себя изменить.</td>
+</tr>
+<tr>
+<td>TargetRight</td>
+<td>Указывает координату X нижнего правого угла прямоугольника, к которому элемент управления rebar попытался сам себя изменить.</td>
+</tr>
+<tr>
+<td>TargetBottom</td>
+<td>Указывает координату Y нижнего правого угла прямоугольника, к которому элемент управления rebar попытался сам себя изменить.</td>
+</tr>
+<tr>
+<td>ActualLeft</td>
+<td>Указывает координату X верхнего левого угла прямоугольника, к которому элемент управления rebar фактически изменил себя.</td>
+</tr>
+<tr>
+<td>ActualTop</td>
+<td>Указывает координату Y верхнего левого угла прямоугольника, к которому элемент управления rebar фактически изменил себя.</td>
+</tr>
+<tr>
+<td>ActualRight</td>
+<td>Указывает координату X нижнего правого угла прямоугольника, к которому элемент управления rebar фактически изменил себя.</td>
+</tr>
+<tr>
+<td>ActualBottom</td>
+<td>Указывает координату Y нижнего правого угла прямоугольника, к которому элемент управления rebar фактически изменил себя.</td>
+</tr>
+</table>
+
+</body>
+</html>

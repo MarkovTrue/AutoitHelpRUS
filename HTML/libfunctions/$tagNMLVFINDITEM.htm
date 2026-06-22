@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMLVFINDITEM</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMLVFINDITEM</h1>
+<p class="funcdesc">Содержит сведения, необходимые владельцу для поиска элементов виртуального ListView.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMLVFINDITEM</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";int Start;"</span> <span class="S8">&amp;</span> <span class="S9">$tagLVFINDINFO</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>Start</td>
+<td>Индекс элемента, с которого начнётся поиск.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagLVFINDINFO.htm"><span class="S91">$tagLVFINDINFO</span></a></td>
+<td>Флаги – тип поиска для выполнения. Этот член может быть установлен на одно или несколько из следующих значений:<br />
+<span class="S91">$LVFI_PARAM</span> – ищет совпадение между членом Param этой структуры и членом Param элемента.<br />
+Если указан <span class="S91">$LVFI_PARAM</span>, все остальные флаги игнорируются.<br />
+<span class="S91">$LVFI_PARTIAL</span> – проверяет, начинается ли текст элемента со строки, на которую указывает член Text.<br />
+Это значение подразумевает использование <span class="S91">$LVFI_STRING</span>.<br />
+<span class="S91">$LVFI_STRING</span> – ищет на основе текста элемента.<br />
+Если не указаны дополнительные значения, текст элемента найденного элемента должен точно совпадать со строкой, на которую указывает член Text.<br />
+<span class="S91">$LVFI_WRAP</span> – продолжает поиск с начала, если совпадение не найдено<br />
+LVFI_NEARESTXY – находит элемент, ближайший к позиции, указанной в членах X и Y, в направлении, указанном членом Direction.<br />
+Этот флаг поддерживается только режимами больших и малых значков.<br />
+Text – адрес строки для сравнения с текстом элемента. Действителен, если в члене Flags установлен <span class="S91">$LVFI_STRING</span> или <span class="S91">$LVFI_PARTIAL</span>.<br />
+Param – значение для сравнения с членом Param структуры <span class="S91">$LVITEM</span> элемента. Действителен только, если в члене flags установлен <span class="S91">$LVFI_PARAM</span>.<br />
+X – начальная позиция поиска X. Действителен только, если в члене Flags установлен <span class="S91">$LVFI_NEARESTXY</span>.<br />
+Y – начальная позиция поиска Y. Действителен только, если в члене Flags установлен <span class="S91">$LVFI_NEARESTXY</span>.<br />
+Direction – виртуальный код клавиши, определяющий направление поиска. Поддерживаются следующие коды:<br />
+VK_LEFT<br />
+VK_RIGHT<br />
+VK_UP<br />
+VK_DOWN<br />
+VK_HOME<br />
+VK_END<br />
+VK_PRIOR<br />
+VK_NEXT<br />
+Этот член действителен только, если в члене flags установлен <span class="S91">$LVFI_NEARESTXY</span>.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Это уведомление даёт приложению (или получателю уведомления) возможность настроить добавочный поиск.<br />
+Например, если элементы поиска являются числовыми, приложение может выполнить численный поиск вместо поиска по строкам.<br />
+Приложение устанавливает член Param на результат поиска или на другое определяемое приложением значение для провала поиска и указания элементу управления способ продолжения<br />
+</p>
+</body>
+</html>

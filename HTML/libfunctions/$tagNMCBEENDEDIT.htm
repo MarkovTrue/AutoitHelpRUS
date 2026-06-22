@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagNMCBEENDEDIT</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagNMCBEENDEDIT</h1>
+<p class="funcdesc">Содержит сведения о завершении операции редактирования в элементе управления ComboBoxEx.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNMCBEENDEDIT</span> <span class="S8">=</span> <span class="S9">$tagNMHDR</span> <span class="S8">&amp;</span> <span class="S7">";bool fChanged;int NewSelection;wchar szText[260];int Why"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%"><a class="le" href="../libfunctions/$tagNMHDR.htm"><span class="S91">$tagNMHDR</span></a></td>
+<td style="width:85%">Содержит сведения об уведомляющем сообщении.</td>
+</tr>
+<tr>
+<td>fChanged</td>
+<td>Указывает, изменилось ли содержимое поля редактирования элемента управления.</td>
+</tr>
+<tr>
+<td>NewSelection</td>
+<td>Индекс с отсчётом от нуля элемента, который будет выбран после завершения операции редактирования<br />
+Это значение может быть <span class="S91">$CB_ERR</span>, если ни один элемент не будет выбран.</td>
+</tr>
+<tr>
+<td>szText</td>
+<td>Строка с нулём в конце, которая содержит текст из поля редактирования элемента управления.</td>
+</tr>
+<tr>
+<td>Why</td>
+<td>Действие, которое создало сообщение уведомления <span class="S91">$CBEN_ENDEDIT</span><br />
+Это значение может быть одним из следующих:<br />
+<span class="S91">$CBENF_DROPDOWN</span> – пользователь активировал выпадающий список<br />
+<span class="S91">$CBENF_ESCAPE</span> – пользователь нажал ESC<br />
+<span class="S91">$CBENF_KILLFOCUS</span> – поле редактирования потеряло фокус клавиатуры<br />
+<span class="S91">$CBENF_RETURN</span> – пользователь завершил операцию редактирования нажатием ENTER.</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagGDIPENCODERPARAMS</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagGDIPENCODERPARAMS</h1>
+<p class="funcdesc">Структура набора параметров кодировщика GDI+.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagGDIPENCODERPARAMS</span> <span class="S8">=</span> <span class="S7">"uint Count;"</span> <span class="S8">&amp;</span> <span class="S9">$tagGDIPENCODERPARAM</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Count</td>
+<td style="width:85%">Количество структур <a class="le" href="../libfunctions/$tagGDIPENCODERPARAM.htm"><span class="S91">$tagGDIPENCODERPARAM</span></a> в массиве.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagGDIPENCODERPARAM.htm"><span class="S91">$tagGDIPENCODERPARAM</span></a></td>
+<td>Первая структура <a class="le" href="../libfunctions/$tagGDIPENCODERPARAM.htm"><span class="S91">$tagGDIPENCODERPARAM</span></a> массива.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p>Используйте такой код, чтобы запись <span class="S91">$i</span> была меньше <span class="S91">$ibEntries</span> в <a class="le" href="../libfunctions/$tagGDIPENCODERPARAMS.htm"><span class="S91">$tagGDIPENCODERPARAMS</span></a> (Count)<br />
+<br />
+; Просто для вычисления размера записи, чтобы она была ОК под x86 или x64<br />
+Local <span class="S91">$tParam</span> = <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><a class="le" href="../libfunctions/$tagGDIPENCODERPARAM.htm"><span class="S91">$tagGDIPENCODERPARAM</span></a><span class="S8">)</span><br />
+Local <span class="S91">$iParamSize</span> = <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S91">$tParam</span><span class="S8">)</span><br />
+<br />
+; выделить структуру <a class="le" href="../libfunctions/$tagGDIPENCODERPARAMS.htm"><span class="S91">$tagGDIPENCODERPARAMS</span></a> с <span class="S91">$ibEntries</span><br />
+Local <span class="S91">$ibEntries</span> = 3;<br />
+Local <span class="S91">$tParams</span> = DllStructCreate(<a class="le" href="../libfunctions/$tagGDIPENCODERPARAMS.htm"><span class="S91">$tagGDIPENCODERPARAMS</span></a> & "byte[<span class="S91">$iEntrySize</span> * (<span class="S91">$ibEntries</span> - 1))<br />
+DLLStructSetData(<span class="S91">$tParams</span>, <em>Count</em>, <span class="S91">$ibEntries</span>)<br />
+<br />
+; Переделить структуру записи, чтобы указать на нужную запись <span class="S91">$i</span> (0-базовую)<br />
+Local <span class="S91">$i</span> = 1;<br />
+Local <span class="S91">$tParamI</span> = DllStructCreate(<a class="le" href="../libfunctions/$tagGDIPENCODERPARAM.htm"><span class="S91">$tagGDIPENCODERPARAM</span></a>, <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S91">$tParams</span>, "GUID"<span class="S8">)</span> + (<span class="S91">$i</span> * <span class="S91">$iParamSize</span>))<br />
+<br />
+; мы можем получить доступ к выбранной записи <a class="le" href="../libfunctions/$tagGDIPENCODERPARAM.htm"><span class="S91">$tagGDIPENCODERPARAM</span></a>, просто используя структуру <span class="S91">$tParam</span>, которая была переделана<br />
+<br />
+; если мы используем только <strong>одну запись</strong>, код <strong>значительно упрощается</strong><br />
+Local <span class="S91">$tParams</span> = <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><a class="le" href="../libfunctions/$tagGDIPENCODERPARAMS.htm"><span class="S91">$tagGDIPENCODERPARAMS</span></a><span class="S8">)</span><br />
+DLLStructSetData(<span class="S91">$tParams</span>, <em>Count</em>, 1)<br />
+<br />
+; записьможно получить напрямую через структуру <span class="S91">$tParams</span><br />
+</p>
+<h2>См. также</h2>
+<p><a href="$tagGDIPENCODERPARAM.htm">$tagGDIPENCODERPARAM</a></p>
+
+</body>
+</html>

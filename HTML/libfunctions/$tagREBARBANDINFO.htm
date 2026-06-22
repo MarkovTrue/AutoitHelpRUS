@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagREBARBANDINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagREBARBANDINFO</h1>
+<p class="funcdesc">Содержит сведения, определяющие полосу в элементе управления rebar.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagREBARBANDINFO</span> <span class="S8">=</span> <span class="S7">"uint cbSize;uint fMask;uint fStyle;dword clrFore;dword clrBack;ptr lpText;uint cch;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"int iImage;hwnd hwndChild;uint cxMinChild;uint cyMinChild;uint cx;handle hbmBack;uint wID;uint cyChild;uint cyMaxChild;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"uint cyIntegral;uint cxIdeal;lparam lParam;uint cxHeader;"</span> <span class="S8">&amp;</span> <span class="S9">$tagRECT</span> <span class="S8">&amp;</span> <span class="S7">";uint uChevronState"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">cbSize</td>
+<td style="width:85%">Размер этой структуры в байтах. Ваше приложение должно заполнить этот элемент перед отправкой любых сообщений, которые используют адрес этой структуры как параметр.</td>
+</tr>
+<tr>
+<td>fMask</td>
+<td>Флаги, указывающие, какие элементы этой структуры действительны или должны быть заполнены. Это значение может быть комбинацией следующих:<br />
+<span class="S91">$RBBIM_BACKGROUND</span> – элемент hbmBack действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_CHILD</span> – элемент hwndChild действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_CHILDSIZE</span> – элементы cxMinChild, cyMinChild, cyChild, cyMaxChild и cyIntegral действительны или должны быть установлены.<br />
+<span class="S91">$RBBIM_COLORS</span> – элементы clrFore и clrBack действительны или должны быть установлены.<br />
+<span class="S91">$RBBIM_HEADERSIZE</span> – версия 4.71. Элемент cxHeader действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_IDEALSIZE</span> – версия 4.71. Элемент cxIdeal действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_ID</span> – элемент wID действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_IMAGE</span> – элемент iImage действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_LPARAM</span> – версия 4.71. Элемент lParam действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_SIZE</span> – элемент cx действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_STYLE</span> – элемент fStyle действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_TEXT</span> – элемент lpText действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_CHEVRONLOCATION</span> – элемент rcChevronLocation действителен или должен быть установлен.<br />
+<span class="S91">$RBBIM_CHEVRONSTATE</span> – элемент uChevronState действителен или должен быть установлен.</td>
+</tr>
+<tr>
+<td>fStyle</td>
+<td>Флаги, определяющие стиль полосы. Это значение может быть комбинацией следующих:<br />
+<span class="S91">$RBBS_BREAK</span> – полоса находится на новой строке.<br />
+<span class="S91">$RBBS_CHILDEDGE</span> – у полосы есть граница сверху и снизу дочернего окна.<br />
+<span class="S91">$RBBS_FIXEDBMP</span> – фоновое растровое изображение не движется при изменении размера полосы.<br />
+<span class="S91">$RBBS_FIXEDSIZE</span> – размер полосы нельзя менять. При таком стиле ручка изменения размера не отображается на полосе.<br />
+<span class="S91">$RBBS_GRIPPERALWAYS</span> – версия 4.71. Полоса всегда будет иметь ручку изменения размера, даже если это единственная полоса в реб-баре.<br />
+<span class="S91">$RBBS_HIDDEN</span> – полоса не будет видна.<br />
+<span class="S91">$RBBS_NOGRIPPER</span> – версия 4.71. Полоса никогда не будет иметь ручку изменения размера, даже если в реб-баре более одной полосы.<br />
+<span class="S91">$RBBS_USECHEVRON</span> – версия 5.80. Показать кнопку шеврона, если полоса меньше cxIdeal.<br />
+<span class="S91">$RBBS_VARIABLEHEIGHT</span> – версия 4.71. Размер полосы может быть изменен элементом управления реб-бар; cyIntegral и cyMaxChild влияют на то, как реб-бар изменит размер полосы.<br />
+<span class="S91">$RBBS_NOVERT</span> – не показывать в вертикальном режиме.<br />
+<span class="S91">$RBBS_USECHEVRON</span> – показать кнопку выпадающего меню.<br />
+<span class="S91">$RBBS_HIDETITLE</span> – скрыть заголовок полосы.<br />
+<span class="S91">$RBBS_TOPALIGN</span> – расположить полосу в верхней строке.</td>
+</tr>
+<tr>
+<td>clrFore</td>
+<td>Цвета переднего плана полосы.</td>
+</tr>
+<tr>
+<td>clrBack</td>
+<td>Цвета фона полосы.<br />
+Если hbmBack указывает фоновое растровое изображение, эти элементы игнорируются.<br />
+По умолчанию полоса будет использовать цвет фона элемента управления реб-бар, установленный сообщением <span class="S91">$RB_SETBKCOLOR</span>.<br />
+Если здесь указан цвет фона, вместо этого будет использован этот цвет фона.</td>
+</tr>
+<tr>
+<td>lpText</td>
+<td>Указатель на буфер, содержащий отображаемый текст полосы.<br />
+Если информация о полосе запрашивается у элемента управления и в fMask указан <span class="S91">$RBBIM_TEXT</span>, этот элемент должен быть инициализирован адресом буфера, который получит текст.</td>
+</tr>
+<tr>
+<td>cch</td>
+<td>Размер буфера в lpText в байтах. Если информация не запрашивается у элемента управления, этот элемент игнорируется.</td>
+</tr>
+<tr>
+<td>iImage</td>
+<td>Индекс изображения с отсчётом от нуля, которое должно отображаться в полосе. Список изображений устанавливается с помощью сообщения <span class="S91">$RB_SETBARINFO</span>.</td>
+</tr>
+<tr>
+<td>hwndChild</td>
+<td>Дескриптор дочернего окна, содержащегося в полосе, если оно есть.</td>
+</tr>
+<tr>
+<td>cxMinChild</td>
+<td>Минимальная ширина дочернего окна в пикселах. Полоса не может быть меньше этого значения.</td>
+</tr>
+<tr>
+<td>cyMinChild</td>
+<td>Минимальная высота дочернего окна в пикселах. Полоса не может быть меньше этого значения.</td>
+</tr>
+<tr>
+<td>cx</td>
+<td>Длина полосы в пикселах.</td>
+</tr>
+<tr>
+<td>hbmBack</td>
+<td>Дескриптор растрового изображения, используемого как фон для этой полосы.</td>
+</tr>
+<tr>
+<td>wID</td>
+<td>Значение UINT, которое элемент управления использует для определения этой полосы в сообщениях уведомления пользовательской отрисовки.</td>
+</tr>
+<tr>
+<td>cyChild</td>
+<td>Версия 4.71. Начальная высота полосы в пикселах. Этот элемент игнорируется, если не указан стиль <span class="S91">$RBBS_VARIABLEHEIGHT</span>.</td>
+</tr>
+<tr>
+<td>cyMaxChild</td>
+<td>Версия 4.71. Максимальная высота полосы в пикселах. Этот элемент игнорируется, если не указан стиль <span class="S91">$RBBS_VARIABLEHEIGHT</span>.</td>
+</tr>
+<tr>
+<td>cyIntegral</td>
+<td>Версия 4.71. Значение шага, на который полоса может увеличиваться или уменьшаться, в пикселах.<br />
+Если полоса изменит размер, она будет изменена на шаги, указанные этим значением.<br />
+Этот элемент игнорируется, если не указан стиль <span class="S91">$RBBS_VARIABLEHEIGHT</span>.</td>
+</tr>
+<tr>
+<td>cxIdeal</td>
+<td>Версия 4.71. Идеальная ширина полосы в пикселах.<br />
+Если полоса развёрнута до идеальной ширины (см. <span class="S91">$RB_MAXIMIZEBAND</span>), элемент управления реб-бар попытается сделать полосу такой ширины.</td>
+</tr>
+<tr>
+<td>lParam</td>
+<td>Версия 4.71. Определённое приложением значение.</td>
+</tr>
+<tr>
+<td>cxHeader</td>
+<td>Версия 4.71. Размер заголовка полосы в пикселах.<br />
+Заголовок полосы – это область между краем полосы и краем дочернего окна.<br />
+Это область, где отображаются текст и изображения полосы, если они указаны.<br />
+Если это значение указано, оно переопределит нормальные размеры заголовка, которые элемент управления вычисляет для полосы.</td>
+</tr>
+<tr>
+<td><a class="le" href="../libfunctions/$tagRECT.htm"><span class="S91">$tagRECT</span></a></td>
+<td>Версия 6. Расположение шеврона.</td>
+</tr>
+<tr>
+<td>uChevronState</td>
+<td>Версия 6. Комбинация констант состояния объекта.</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagSTARTUPINFO</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagSTARTUPINFO</h1>
+<p class="funcdesc">Задаёт оконную станцию, рабочий стол, стандартные дескрипторы и внешний вид главного окна процесса при его создании.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagSTARTUPINFO</span> <span class="S8">=</span> <span class="S7">"int Size;ptr Reserved1;ptr Desktop;ptr Title;int X;int Y;int XSize;int YSize;int XCountChars;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"int YCountChars;int FillAttribute;int Flags;short ShowWindow;short Reserved2;ptr Reserved3;int StdInput;"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+<span class="S7">"int StdOutput;int StdError"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">Size</td>
+<td style="width:85%">Размер структуры в байтах.</td>
+</tr>
+<tr>
+<td>Reserved1</td>
+<td>Зарезервировано, должно быть нулём.</td>
+</tr>
+<tr>
+<td>Desktop</td>
+<td>Имя рабочего стола или имя рабочего стола и станции окна для этого процесса.</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>Для консольных процессов – заголовок, выводимый в строке заголовка, если создаётся новая консоль.</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USEPOSITION</span>, содержит смещение x верхнего левого угла окна в пикселах (если создаётся новое окно).</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USEPOSITION</span>, содержит смещение y верхнего левого угла окна в пикселах (если создаётся новое окно).</td>
+</tr>
+<tr>
+<td>XSize</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESIZE</span>, содержит высоту окна в пикселах.</td>
+</tr>
+<tr>
+<td>YSize</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESIZE</span>, содержит ширину окна в пикселах.</td>
+</tr>
+<tr>
+<td>XCountChars</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USECOUNTCHARS</span>, содержит ширину буфера экрана консоли в символах (если создаётся новое консольное окно).</td>
+</tr>
+<tr>
+<td>YCountChars</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USECOUNTCHARS</span>, содержит высоту буфера экрана консоли в строках (если создаётся новое консольное окно).</td>
+</tr>
+<tr>
+<td>FillAttribute</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USEFILLATTRIBUTE</span>, содержит исходные цвета текста и фона консоли (если создаётся новое консольное окно).</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Определяет, какие члены используются при создании окна процессом:<br />
+<span class="S91">$STARTF_FORCEONFEEDBACK</span> – курсор в режиме обратной связи в течение двух секунд после вызова CreateProcess.<br />
+Отображается курсор Working in Background.<br />
+Если за эти две секунды процесс выполнит первый вызов GUI, система даёт процессу ещё пять секунд.<br />
+Если за эти пять секунд процесс покажет окно, система даёт ещё пять секунд на завершение рисования окна.<br />
+Курсор обратной связи отключается после первого вызова GetMessage, независимо от того, рисует ли процесс.<br />
+<span class="S91">$STARTF_FORCEOFFFEEDBACK</span> – курсор обратной связи принудительно отключен при запуске процесса.<br />
+Отображается стандартный курсор Select.<br />
+<span class="S91">$STARTF_RUNFULLSCREEN</span> – процесс запускается в полноэкранном режиме, а не в оконном режиме.<br />
+Этот флаг действителен только для консольных приложений, запущенных на компьютере x86.<br />
+<span class="S91">$STARTF_USECOUNTCHARS</span> – члены XCountChars и YCountChars действительны.<br />
+<span class="S91">$STARTF_USEFILLATTRIBUTE</span> – член FillAttribute действителен.<br />
+<span class="S91">$STARTF_USEPOSITION</span> – члены X и Y действительны.<br />
+<span class="S91">$STARTF_USESHOWWINDOW</span> – член ShowWindow действителен.<br />
+<span class="S91">$STARTF_USESIZE</span> – члены XSize и YSize действительны.<br />
+<span class="S91">$STARTF_USESTDHANDLES</span> – члены hStdInput, hStdOutput и hStdError действительны.</td>
+</tr>
+<tr>
+<td>ShowWindow</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESHOWWINDOW</span>, может быть любой из констант <span class="S91">$SW_</span>.</td>
+</tr>
+<tr>
+<td>Reserved2</td>
+<td>Зарезервировано, должно быть нулём.</td>
+</tr>
+<tr>
+<td>Reserved3</td>
+<td>Зарезервировано, должно быть нулём.</td>
+</tr>
+<tr>
+<td>StdInput</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESTDHANDLES</span>, содержит дескриптор стандартного входа.</td>
+</tr>
+<tr>
+<td>StdOutput</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESTDHANDLES</span>, содержит дескриптор стандартного выхода.</td>
+</tr>
+<tr>
+<td>StdError</td>
+<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESTDHANDLES</span>, содержит дескриптор стандартного потока ошибок.</td>
+</tr>
+</table>
+
+</body>
+</html>

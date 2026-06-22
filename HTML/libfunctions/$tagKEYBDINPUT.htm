@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ключевое слово $tagKEYBDINPUT</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+<script src="../css/helppage.js" type="text/javascript"></script>
+</head>
+
+<body>
+<h1 class="small">Справочник ключевых слов</h1>
+<hr style="height:0px">
+<h1>$tagKEYBDINPUT</h1>
+<p class="funcdesc">Содержит сведения о событии нажатия клавиши на низком уровне.</p>
+<p class="codeheader"><a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagKEYBDINPUT</span> <span class="S8">=</span> <span class="S7">"dword type;struct;word wVk;word wScan;dword dwFlags;dword time;ulong_ptr dwExtraInfo;byte filler[8];endstruct"</span></p>
+
+<h2>Параметры</h2>
+<table>
+<tr>
+<td style="width:15%">type</td>
+<td style="width:85%"><span class="S91">$INPUT_KEYBOARD</span> – событие является событием клавиатуры.</td>
+</tr>
+<tr>
+<td>wVk</td>
+<td>Виртуальный код клавиши. Код должен быть значением в диапазоне от 1 до 254. Если член dwFlags определяет <span class="S91">$KEYEVENTF_UNICODE</span>, wVk должен быть 0.</td>
+</tr>
+<tr>
+<td>wScan</td>
+<td>Аппаратный код развёртки для клавиши. Если dwFlags определяет <span class="S91">$KEYEVENTF_UNICODE</span>, wScan определяет символ Unicode, который будет отправлен на переднее приложение.</td>
+</tr>
+<tr>
+<td>dwFlags</td>
+<td>Определяет различные аспекты нажатия клавиши. Этот член может быть определёнными комбинациями следующих значений.<br />
+<span class="S91">$KEYEVENTF_EXTENDEDKEY</span> (1) – если указано, код развёртки wScan состоит из последовательности двух байтов, где первый байт имеет значение 0xE0.<br />
+<span class="S91">$KEYEVENTF_KEYUP</span> (2) – если указано, клавиша отпускается. Если не указано, клавиша нажимается.<br />
+<span class="S91">$KEYEVENTF_UNICODE</span> (4) – если указано, система синтезирует нажатие клавиши <span class="S91">$VK_PACKET</span>. Параметр wVk должен быть нулём. Этот флаг можно комбинировать только с флагом <span class="S91">$KEYEVENTF_KEYUP</span>.<br />
+<span class="S91">$KEYEVENTF_SCANCODE</span> (8) – если указано, wScan идентифицирует клавишу, а wVk игнорируется.</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Временная метка события в миллисекундах. Если этот параметр равен нулю, система предоставит собственную временную метку.</td>
+</tr>
+<tr>
+<td>dwExtraInfo</td>
+<td>Дополнительное значение, связанное с нажатием клавиши. Используйте функцию GetMessageExtraInfo для получения этой информации.</td>
+</tr>
+<tr>
+<td>filler</td>
+<td>не документировано в MSDN.</td>
+</tr>
+</table>
+
+<h2>Примечания</h2>
+<p><span class="S91">$INPUT_KEYBOARD</span> поддерживает методы ввода без клавиатуры (такие как распознавание рукописного ввода или голоса) так, как если бы это был текстовый ввод, используя флаг <span class="S91">$KEYEVENTF_UNICODE</span>.<br />
+Если указан <span class="S91">$KEYEVENTF_UNICODE</span>, SendInput отправляет сообщение WM_KEYDOWN или WM_KEYUP в очередь сообщений потока переднего плана с wParam, равным VK_PACKET.<br />
+Если GetMessage или PeekMessage получит это сообщение, передача сообщения в TranslateMessage отправляет сообщение WM_CHAR с символом Unicode, первоначально указанным в wScan.<br />
+Этот символ Unicode будет автоматически преобразован в соответствующее значение ANSI, если он отправлен в окно ANSI.<br />
+<br />
+Установите флаг <span class="S91">$KEYEVENTF_SCANCODE</span> для определения ввода с клавиатуры в терминах кода развёртки.<br />
+Это полезно для имитации физического нажатия клавиши независимо от того, какая клавиатура в настоящее время используется.<br />
+<br />
+Вы также можете передать флаг <span class="S91">$KEYEVENTF_EXTENDEDKEY</span>, если код развёртки является расширённой клавишей.<br />
+Виртуальное значение клавиши может изменяться в зависимости от текущей раскладки клавиатуры или того, какие другие клавиши были нажаты, но код развёртки всегда будет одинаковым.<br />
+</p>
+</body>
+</html>
