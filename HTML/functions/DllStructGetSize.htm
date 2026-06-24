@@ -34,7 +34,7 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – структура не является корректной структурой, возвращённой <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
+<td>1 – структура не соответствует структуре, возвращенной <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
 </tr>
 </table>
 
@@ -53,39 +53,29 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной константной переменной определение структуры.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной константной переменной определение структуры.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagSTRUCT1</span> <span class="S8">=</span> <span class="S7">"struct;int var1;byte var2;uint var3;char var4[128];endstruct"</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной структуру.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tSTRUCT1</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagSTRUCT1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Error in DllStructCreate, Code: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs Comments:
-</span><span class="S2"></span><br>
-<span class="S2">		– выравнивание данных по умолчанию составляет 4 байта, поэтому каждый элемент занимает не менее 4 байт.
-</span><br>
-<span class="S2">		– минимальный размер можно получить, установив выравнивание 1 в начале определения структуры: "align 1;struct; ..."
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs Примечания:</span><span class="S2"></span><br>
+<span class="S2">		– выравнивание данных по умолчанию составляет 4 байта, поэтому каждый элемент занимает не менее 4 байт.</span><br>
+<span class="S2">		– минимальный размер можно получить, установив выравнивание 1 в начале определения структуры: "align 1;struct; ..."</span><br>
 <span class="S2">
 </span><br>
-<span class="S2">		– подробная информация о размере структуры:
-</span><br>
-<span class="S2">		var1: int – 4 байта
-</span><br>
-<span class="S2">		var2: byte – 1 байт + 3 байта выравнивания = 4 байта
-</span><br>
-<span class="S2">		var3: uint – 4 байта
-</span><br>
-<span class="S2">		var4: char[128] – 1 × 128 байт
-</span><br>
-<span class="S2">	#ce Comments:
-</span><br>
+<span class="S2">		– подробная информация о размере структуры:</span><br>
+<span class="S2">		var1: int – 4 байта</span><br>
+<span class="S2">		var2: byte – 1 байт + 3 байта выравнивания = 4 байта</span><br>
+<span class="S2">		var3: uint – 4 байта</span><br>
+<span class="S2">		var4: char[128] – 1 × 128 байт</span><br>
+<span class="S2">	#ce Примечания:</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Struct Size: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
