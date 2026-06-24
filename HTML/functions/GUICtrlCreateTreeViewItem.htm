@@ -39,13 +39,13 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Для установки дополнительных параметров см. функции GUICtrlUpdate...().<br />
+<p>Для установки дополнительных параметров см. функции <a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...()</a>.<br />
 <br />
-Чтобы отображать элемент дерева жирным (как элемент по умолчанию), используйте <a class="le" href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S91">$treeviewItem</span>, <span class="S91">$GUI_DEFBUTTON</span><span class="S8">)</span>; для отключения – <a class="le" href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">()</span> с любым значением, кроме <span class="S91">$GUI_DEFBUTTON</span>, например <a class="le" href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S91">$treeviewItem</span>, 0<span class="S8">)</span>.<br />
+Чтобы выделить элемент дерева жирным (как элемент по умолчанию), используйте <a href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S91">$treeviewItem</span>, <span class="S91">$GUI_DEFBUTTON</span><span class="S8">)</span>. Чтобы отключить это, используйте <a href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span><span class="S8">()</span></a> с другим значением, кроме <span class="S91">$GUI_DEFBUTTON</span>, например <a href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S91">$treeviewItem</span>, 0<span class="S8">)</span>.<br />
 <br />
-Для раскрытия элемента дерева используйте <a class="le" href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S91">$treeviewItem</span>, <span class="S91">$GUI_EXPAND</span><span class="S8">)</span>.<br />
+Для раскрытия элемента дерева используйте <a href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S91">$treeviewItem</span>, <span class="S91">$GUI_EXPAND</span><span class="S8">)</span>.<br />
 <br />
-Для выбора конкретного элемента дерева используйте <a class="le" href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S91">$treeviewItem</span>, <span class="S91">$GUI_FOCUS</span><span class="S8">)</span>.<br />
+Для выбора конкретного элемента дерева используйте <a href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S91">$treeviewItem</span>, <span class="S91">$GUI_FOCUS</span><span class="S8">)</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateTreeView.htm">GUICtrlCreateTreeView</a>, <a href="GUICtrlGetHandle.htm">GUICtrlGetHandle</a>, <a href="GUICtrlRead.htm">GUICtrlRead</a>, <a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
@@ -101,8 +101,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idMsg</span> <span class="S8">=</span> <span class="S9">$idBtn_Cancel</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S9">$idMsg</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idMsg</span> <span class="S8">=</span> <span class="S9">$idBtn_Toggle</span>&nbsp;<span class="S1">; Переключить выделение жирным
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idMsg</span> <span class="S8">=</span> <span class="S9">$idBtn_Toggle</span>&nbsp;<span class="S1">; Переключить выделение жирным</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlRead.htm"><span class="S4">GUICtrlRead</span></a><span class="S8">(</span><span class="S9">$idTVi_General</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$GUI_DEFBUTTON</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idTVi_General</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idTVi_Display</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
@@ -131,8 +130,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idTreeview</span><span class="S8">,</span> <span class="S9">$TVM_EXPAND</span><span class="S8">,</span> <span class="S9">$TVE_TOGGLE</span><span class="S8">,</span> <span class="S9">$hItem</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Следующие элементы скроют другие подписи (1-й и 2-й параметры) и покажут собственные (3-й и 4-й параметры)
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Следующие элементы скроют другие подписи (1-й и 2-й параметры) и покажут собственные (3-й и 4-й параметры)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idMsg</span> <span class="S8">=</span> <span class="S9">$idTVi_General</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">GUIChangeItems</span><span class="S8">(</span><span class="S9">$idLbl_About</span><span class="S8">,</span> <span class="S9">$idLbl_Compinfo</span><span class="S8">,</span> <span class="S9">$idLbl_Start</span><span class="S8">,</span> <span class="S9">$idLbl_Start</span><span class="S8">)</span><br>
 <br>
