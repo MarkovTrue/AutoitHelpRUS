@@ -30,11 +30,11 @@
 </tr>
 <tr>
 <td>width</td>
-<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию – ранее использованная ширина).</td>
+<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию ранее использованная ширина).</td>
 </tr>
 <tr>
 <td>height</td>
-<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию – ранее использованная высота).</td>
+<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию ранее использованная высота).</td>
 </tr>
 <tr>
 <td>style</td>
@@ -62,26 +62,26 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Для добавления элементов в ListView используйте <a class="le" href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">()</span>.<br />
+<p>Для добавления элементов в ListView используйте <a href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span><span class="S8">()</span></a>.<br />
 <br />
-По умолчанию ListView отображается как в Проводнике, в режиме "Подробности" (стиль <span class="S91">$LVS_REPORT</span> принудительный).<br />
-Начальную ширину столбца можно задать, добавив пробелы к заголовку. Ширина столбца может увеличиваться при добавлении элементов через <a class="le" href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">()</span> в соответствии с их размером. Максимальный размер столбца – около 25 символов. При обновлении через <a class="le" href="GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">()</span> ширина не пересчитывается.<br />
+По умолчанию ListView отображается как в Проводнике в режиме подробностей (стиль <span class="S91">$LVS_REPORT</span> обязателен).<br />
+Начальную ширину столбца можно управлять, добавляя пробелы к определению заголовка. Столбец может расширяться при добавлении элементов через <a href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span><span class="S8">()</span></a> в соответствии с размером элемента. Размер столбца может быть до 25 символов. При обновлении через <a href="GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span><span class="S8">()</span></a> ширина не изменяется.<br />
 <br />
-Чтобы создать ListView в стиле Icon, SmallIcon или List, после создания вызовите <a class="le" href="GUICtrlSetStyle.htm"><span class="S4">GUICtrlSetStyle</span></a><span class="S8">()</span> со стилем <span class="S91">$LVS_ICON</span>, <span class="S91">$LVS_LIST</span> или <span class="S91">$LVS_SMALLICON</span>.<br />
+Для создания ListView со стилем Icon, SmallIcon или List используйте после создания <a href="GUICtrlSetStyle.htm"><span class="S4">GUICtrlSetStyle</span><span class="S8">()</span></a> со стилями <span class="S91">$LVS_ICON</span>, <span class="S91">$LVS_LIST</span> или <span class="S91">$LVS_SMALLICON</span>.<br />
 <br />
-Сортировка по клику на заголовок столбца (как в Проводнике) в настоящее время не реализована.<br />
+Сортировка списка по клику на заголовок столбца (как в Проводнике) в настоящий момент не реализована.<br />
 <br />
-Для визуальной подсветки всей строки используйте <a href="../appendix/GUIStyles.htm#Extended">расширенный стиль</a> LVS_EX_FULLROWSELECT.<br />
+Для визуального выделения всей строки используйте <a href="../appendix/GUIStyles.htm#Extended">расширенный стиль</a> LVS_EX_FULLROWSELECT.<br />
 <br />
-Для объединения стилей со стилем по умолчанию используйте <a class="le" href="BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_LISTVIEW</span></span>, новый_стиль, ...<span class="S8">)</span>.<br />
-Для использования указанных выше значений необходимо включить в скрипт <span class="S111">#include</span> <span class="S7">&lt;ListViewConstants.au3&gt;</span>.<br />
+Для объединения стилей с стилем по умолчанию используйте <a href="BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_LISTVIEW</span></span>, новый_стиль, ...<span class="S8">)</span>.<br />
+Для использования указанных значений необходимо <span class="S111">#include</span> <span class="S7">&lt;ListViewConstants.au3&gt;</span> в скрипт.<br />
 <br />
-Если добавить стиль <span class="S91">$LVS_EX_CHECKBOXES</span>, рамка ListView исчезнет. Для её отображения добавьте стиль <span class="S91">$WS_EX_CLIENTEDGE</span>.<br />
+Если добавить стиль <span class="S91">$LVS_EX_CHECKBOXES</span> к ListView, границы исчезнут. Добавьте стиль <span class="S91">$WS_EX_CLIENTEDGE</span> для их отображения.<br />
 <br />
 <br />
-Специальный флаг <span class="S91">$GUI_BKCOLOR_LV_ALTERNATE</span> позволяет задать чередующийся фон строк ListView.<br />
-Нечётные строки получат цвет, заданный через <a class="le" href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span></a><span class="S8">()</span> для элемента управления ListView.<br />
-Чётные строки получат цвет, заданный через <a class="le" href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span></a><span class="S8">()</span> для элемента управления ListViewItem.<br />
+Специальный флаг <span class="S91">$GUI_BKCOLOR_LV_ALTERNATE</span> используется с элементом управления ListView для задания чередующегося фона строк ListviewItems.<br />
+Нечётные строки получат цвет, заданный через <a href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span><span class="S8">()</span></a> элемента управления ListView.<br />
+Чётные строки получат цвет, заданный через <a href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span><span class="S8">()</span></a> элемента управления ListviewItem.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="AutoItSetOption.htm#GUICoordMode ">GUICoordMode (Option)</a>, <a href="GUICtrlCreateListViewItem.htm">GUICtrlCreateListViewItem</a>, <a href="GUICtrlRegisterListViewSort.htm">GUICtrlRegisterListViewSort</a>, <a href="GUICtrlSetData.htm">GUICtrlSetData</a>, <a href="AutoItSetOption.htm#GUIDataSeparatorChar ">GUIDataSeparatorChar (Option)</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
@@ -106,8 +106,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLVi_Item2</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"item1|col12|col13"</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLVi_Item3</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"item3|col32|col33"</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$GUI_DROPACCEPTED</span><span class="S8">)</span>&nbsp;<span class="S1">; разрешить перетаскивание
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$GUI_DROPACCEPTED</span><span class="S8">)</span>&nbsp;<span class="S1">; разрешить перетаскивание</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idLVi_Item2</span><span class="S8">,</span> <span class="S7">"ITEM1"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idLVi_Item3</span><span class="S8">,</span> <span class="S7">"||COL33"</span><span class="S8">)</span><br>
