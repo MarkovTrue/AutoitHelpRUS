@@ -40,13 +40,13 @@
 <td style="width:90%">Возвращает требуемые данные.</td>
 </tr>
 <tr>
-<td class="valign-top">Failure: </td>
+<td class="valign-top">Ошибка:</td>
 <td>Возвращает 0 и устанавливает значение <span class="S61">@error</span> = 1, если передана недопустимая шестнадцатеричная строка или произошло переполнение.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>По умолчанию входная строка рассматривается как целое число. В этом случае, если результат находится в пределах диапазона 32-разрядного целого, он возвращается как 32-разрядное целое, иначе – как 64-разрядное; оба со знаком.<br />
+<p>По умолчанию входная строка рассматривается как целое число. В этом случае, если результат находится в пределах диапазона 32-разрядного целого, он возвращается как 32-разрядное целое, иначе как 64-разрядное – оба со знаком.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Hex.htm">Hex</a></p>
@@ -61,8 +61,7 @@
 <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iDec</span> <span class="S8">=</span> <a class="le" href="../functions/Dec.htm"><span class="S4">Dec</span></a><span class="S8">(</span><span class="S7">"FFF"</span><span class="S8">,</span> <span class="S9">$NUMBER_AUTO</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iDec</span><span class="S8">)</span>&nbsp;<span class="S1">; Отображает число 4095.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iDec</span><span class="S8">)</span>&nbsp;<span class="S1">; Отображает число 4095.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_Example
 </span><br>
 </p>
