@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td style="width:15%">UNICODEcode</td>
-<td style="width:85%">Unicode-код в диапазоне 0–65535 (например, 65 возвращает заглавную букву A).</td>
+<td style="width:85%">Unicode-код в диапазоне 0-65535 (например, 65 возвращает заглавную букву A).</td>
 </tr>
 </table>
 
@@ -48,11 +48,9 @@
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sText</span> <span class="S8">=</span> <span class="S7">""</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">256</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">512</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sText</span> <span class="S8">=</span> <span class="S9">$sText</span> <span class="S8">&amp;</span> <a class="le" href="../functions/ChrW.htm"><span class="S4">ChrW</span></a><span class="S8">(</span><span class="S9">$i</span><span class="S8">)</span>&nbsp;<span class="S1">; Также можно использовать $sText &amp;= ChrW($i).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sText</span> <span class="S8">=</span> <span class="S9">$sText</span> <span class="S8">&amp;</span> <a class="le" href="../functions/ChrW.htm"><span class="S4">ChrW</span></a><span class="S8">(</span><span class="S9">$i</span><span class="S8">)</span>&nbsp;<span class="S1">; Также можно использовать $sText &amp;= ChrW($i).</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
-<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Unicode chars 256 to 512"</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать unicode-символы в диапазоне 256–512.
-</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Unicode chars 256 to 512"</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать unicode-символы в диапазоне 256–512.</span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\ChrW.au3,"></object>
 </body>
