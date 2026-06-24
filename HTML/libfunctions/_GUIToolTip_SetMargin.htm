@@ -66,18 +66,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idButton</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать элемент tooltip</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToolTip1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIToolTip_Create.htm"><span class="S15">_GUIToolTip_Create</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При наличии темы Windows это отключает тему для отображаемой подсказки, чтобы вы могли
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; изменить поля и увидеть результат
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При наличии темы Windows это отключает тему для отображаемой подсказки, чтобы вы могли</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; изменить поля и увидеть результат</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><span class="S9">$hToolTip1</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToolTip2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIToolTip_Create.htm"><span class="S15">_GUIToolTip_Create</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><span class="S9">$hToolTip2</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это используется только потому что подсказка многострочная, вам не нужно это использовать
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; для изменения полей
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это используется только потому что подсказка многострочная, вам не нужно это использовать</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; для изменения полей</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_SetMaxTipWidth.htm"><span class="S15">_GUIToolTip_SetMaxTipWidth</span></a><span class="S8">(</span><span class="S9">$hToolTip1</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_SetMaxTipWidth.htm"><span class="S15">_GUIToolTip_SetMaxTipWidth</span></a><span class="S8">(</span><span class="S9">$hToolTip2</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
 <br>

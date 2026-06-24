@@ -164,13 +164,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI с различными элементами управления.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Example"</span><span class="S8">,</span> <span class="S3">420</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$WS_EX_ACCEPTFILES</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать метку и разрешить для неё приём перетаскивания.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать метку и разрешить для неё приём перетаскивания.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLabel</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">"Drop a file on this label."</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S9">$WS_BORDER</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idLabel</span><span class="S8">,</span> <span class="S9">$GUI_DROPACCEPTED</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать поле ввода и разрешить для него приём перетаскивания.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать поле ввода и разрешить для него приём перетаскивания.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idInput</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">22</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idInput</span><span class="S8">,</span> <span class="S9">$GUI_DROPACCEPTED</span><span class="S8">)</span><br>
 <br>
@@ -185,8 +183,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_DROPPED</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если @GUI_DropId равен $idLabel, установить текст метки из имени перетащенного файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если @GUI_DropId равен $idLabel, установить текст метки из имени перетащенного файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@GUI_DropId"><span class="S6">@GUI_DropId</span></a> <span class="S8">=</span> <span class="S9">$idLabel</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idLabel</span><span class="S8">,</span> <a class="le" href="../macros.htm#@GUI_DragFile"><span class="S6">@GUI_DragFile</span></a><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>

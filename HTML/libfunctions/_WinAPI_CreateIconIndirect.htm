@@ -76,8 +76,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIIcons.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIMisc.au3&gt;</span><br>
 <br>
-<span class="S1">; Растровое изображение
-</span><br>
+<span class="S1">; Растровое изображение</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDC.htm"><span class="S15">_WinAPI_GetDC</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMemDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleDC.htm"><span class="S15">_WinAPI_CreateCompatibleDC</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hXOR</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleBitMapEx.htm"><span class="S15">_WinAPI_CreateCompatibleBitmapEx</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
@@ -97,8 +96,7 @@
 <a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hMemDC</span><span class="S8">,</span> <span class="S9">$hSv</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DeleteDC.htm"><span class="S15">_WinAPI_DeleteDC</span></a><span class="S8">(</span><span class="S9">$hMemDC</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Растровое изображение
-</span><br>
+<span class="S1">; Растровое изображение</span><br>
 <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDC.htm"><span class="S15">_WinAPI_GetDC</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
 <span class="S9">$hMemDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleDC.htm"><span class="S15">_WinAPI_CreateCompatibleDC</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hAND</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateBitmap.htm"><span class="S15">_WinAPI_CreateBitmap</span></a><span class="S8">(</span><span class="S3">32</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
@@ -122,8 +120,7 @@
 <span class="S1">; Создать иконку</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateIconIndirect.htm"><span class="S15">_WinAPI_CreateIconIndirect</span></a><span class="S8">(</span><span class="S9">$hXOR</span><span class="S8">,</span> <span class="S9">$hAND</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Растровое изображение
-</span><br>
+<span class="S1">; Растровое изображение</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hXOR</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hAND</span><span class="S8">)</span><br>
 <br>

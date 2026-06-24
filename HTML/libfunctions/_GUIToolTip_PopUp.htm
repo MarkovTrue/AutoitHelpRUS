@@ -47,8 +47,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"ToolTip showing"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">130</span><span class="S8">,</span> <span class="S3">28</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idButton</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGUI</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; в порядке
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGUI</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; в порядке</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToolTip</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIToolTip_Create.htm"><span class="S15">_GUIToolTip_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$_TT_ghTTDefaultStyle</span><span class="S8">,</span> <span class="S9">$TTS_BALLOON</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">4</span><span class="S8">,</span> <span class="S3">68</span><span class="S8">,</span> <span class="S3">444</span><span class="S8">,</span> <span class="S3">196</span><span class="S8">)</span><br>
 <br>
@@ -63,8 +62,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MouseMove.htm"><span class="S4">MouseMove</span></a><span class="S8">(</span><span class="S3">50</span><span class="S8">,</span> <span class="S3">42</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">250</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBoxStatus</span><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; отобразить ожидание закрытия
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBoxStatus</span><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; отобразить ожидание закрытия</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_TrackActivate.htm"><span class="S15">_GUIToolTip_TrackActivate</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$hButton</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$bDisplay</span> <span class="S8">=</span> <span class="S5">True</span><br>
@@ -76,18 +74,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aMousePos</span> <span class="S8">=</span> <a class="le" href="../functions/MouseGetPos.htm"><span class="S4">MouseGetPos</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_TrackPosition.htm"><span class="S15">_GUIToolTip_TrackPosition</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$aMousePos</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">+</span> <span class="S3">10</span><span class="S8">,</span> <span class="S9">$aMousePos</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">+</span> <span class="S3">20</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_UpdateTipText.htm"><span class="S15">_GUIToolTip_UpdateTipText</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$hButton</span><span class="S8">,</span> <span class="S7">"X: "</span> <span class="S8">&amp;</span> <span class="S9">$aMousePos</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">" Y: "</span> <span class="S8">&amp;</span> <span class="S9">$aMousePos</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Каждые 3 секунды подсказка будет "появляться" или исчезать из поля зрения
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; чтобы подсказка отображалась после истечения 8 секунд, нужно навести курсор
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; на кнопку.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Каждые 3 секунды подсказка будет "появляться" или исчезать из поля зрения</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; чтобы подсказка отображалась после истечения 8 секунд, нужно навести курсор</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; на кнопку.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/TimerDiff.htm"><span class="S4">TimerDiff</span></a><span class="S8">(</span><span class="S9">$hTimer</span><span class="S8">)</span> <span class="S8">&gt;</span> <span class="S3">3000</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$bDisplay</span> <span class="S8">=</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$bDisplay</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hTimer</span> <span class="S8">=</span> <a class="le" href="../functions/TimerInit.htm"><span class="S4">TimerInit</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bDisplay</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; разрешить отображение подсказки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; разрешить отображение подсказки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MouseMove.htm"><span class="S4">MouseMove</span></a><span class="S8">(</span><span class="S3">50</span><span class="S8">,</span> <span class="S3">42</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">250</span><span class="S8">)</span><br>
 <br>

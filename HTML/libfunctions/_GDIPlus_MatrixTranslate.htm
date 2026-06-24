@@ -68,14 +68,12 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"GDI+ Example ("</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
 <a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-<span class="S1">; запустить GDI+
-</span><br>
+<span class="S1">; запустить GDI+</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGraphics</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMatrix</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_MatrixCreate.htm"><span class="S15">_GDIPlus_MatrixCreate</span></a><span class="S8">(</span><span class="S8">)</span><br>
-<span class="S1">; сдвинуть матрицу на половину ширины и высоты к центру
-</span><br>
+<span class="S1">; сдвинуть матрицу на половину ширины и высоты к центру</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_MatrixTranslate.htm"><span class="S15">_GDIPlus_MatrixTranslate</span></a><span class="S8">(</span><span class="S9">$hMatrix</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_MatrixRotate.htm"><span class="S15">_GDIPlus_MatrixRotate</span></a><span class="S8">(</span><span class="S9">$hMatrix</span><span class="S8">,</span> <span class="S3">45</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_GraphicsSetTransform.htm"><span class="S15">_GDIPlus_GraphicsSetTransform</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S9">$hMatrix</span><span class="S8">)</span><br>
@@ -83,8 +81,7 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hPen</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_PenCreate.htm"><span class="S15">_GDIPlus_PenCreate</span></a><span class="S8">(</span><span class="S3">0xFF00FF00</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../libfunctions/_GDIPlus_GraphicsClear.htm"><span class="S15">_GDIPlus_GraphicsClear</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">)</span><br>
-<span class="S1">; рисовать у верхнего левого угла GUI, но из-за переноса матрицы объект появится в центре GUI
-</span><br>
+<span class="S1">; рисовать у верхнего левого угла GUI, но из-за переноса матрицы объект появится в центре GUI</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawRect.htm"><span class="S15">_GDIPlus_GraphicsDrawRect</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">50</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">50</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S9">$hPen</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>

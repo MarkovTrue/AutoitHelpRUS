@@ -73,8 +73,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">50</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать позицию мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aPos</span> <span class="S8">=</span> <a class="le" href="../functions/MouseGetPos.htm"><span class="S4">MouseGetPos</span></a><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Использовать позицию мыши для установки положения подсказки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Использовать позицию мыши для установки положения подсказки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_TrackPosition.htm"><span class="S15">_GUIToolTip_TrackPosition</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_UpdateTipText.htm"><span class="S15">_GUIToolTip_UpdateTipText</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"X: "</span> <span class="S8">&amp;</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">" Y: "</span> <span class="S8">&amp;</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
 <br>
@@ -85,8 +84,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ...
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Через 3 секунды после запуска это удалит инструмент из отображения
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Через 3 секунды после запуска это удалит инструмент из отображения</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/TimerDiff.htm"><span class="S4">TimerDiff</span></a><span class="S8">(</span><span class="S9">$hTimer</span><span class="S8">)</span> <span class="S8">&gt;=</span> <span class="S3">3000</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_Pop.htm"><span class="S15">_GUIToolTip_Pop</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>

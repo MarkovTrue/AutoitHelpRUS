@@ -91,10 +91,8 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
 <br>
-<span class="S1">; InetGet загружает файл в фоновом режиме.
-</span><br>
-<span class="S1">; Скрипт AutoIt ожидает завершения загрузки в цикле.
-</span><br>
+<span class="S1">; InetGet загружает файл в фоновом режиме.</span><br>
+<span class="S1">; Скрипт AutoIt ожидает завершения загрузки в цикле.</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
@@ -135,10 +133,8 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
 <br>
-<span class="S1">; Загрузить файл в фоновом режиме.
-</span><br>
-<span class="S1">; Ожидать завершения загрузки.
-</span><br>
+<span class="S1">; Загрузить файл в фоновом режиме.</span><br>
+<span class="S1">; Ожидать завершения загрузки.</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
@@ -146,20 +142,17 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сохранить загруженный файл во временную папку.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFilePath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetTempFileName.htm"><span class="S15">_WinAPI_GetTempFileName</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить файл с ожиданием завершения. Флаг $INET_FORCERELOAD принудительно перезагружает файл с удалённого сайта.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить файл с ожиданием завершения. Флаг $INET_FORCERELOAD принудительно перезагружает файл с удалённого сайта.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBytesSize</span> <span class="S8">=</span> <a class="le" href="../functions/InetGet.htm"><span class="S4">InetGet</span></a><span class="S8">(</span><span class="S7">"http://www.autoitscript.com/autoit3/files/beta/update.dat"</span><span class="S8">,</span> <span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$INET_FORCERELOAD</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить размер файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить размер файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iFileSize</span> <span class="S8">=</span> <a class="le" href="../functions/FileGetSize.htm"><span class="S4">FileGetSize</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать сведения об общем числе прочитанных байт и размере файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The total download size: "</span> <span class="S8">&amp;</span> <span class="S9">$iBytesSize</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"The total filesize: "</span> <span class="S8">&amp;</span> <span class="S9">$iFileSize</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить загруженный файл.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить загруженный файл.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

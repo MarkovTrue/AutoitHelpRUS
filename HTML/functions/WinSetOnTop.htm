@@ -61,20 +61,16 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем дескриптор активного окна.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем дескриптор активного окна.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinGetHandle.htm"><span class="S4">WinGetHandle</span></a><span class="S8">(</span><span class="S7">"[ACTIVE]"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем активное окно поверх всех по дескриптору, возвращённому WinGetHandle.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем активное окно поверх всех по дескриптору, возвращённому WinGetHandle.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetOnTop.htm"><span class="S4">WinSetOnTop</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$WINDOWS_ONTOP</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды для отображения изменения.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды для отображения изменения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Снимаем флаг "поверх всех" с активного окна.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Снимаем флаг "поверх всех" с активного окна.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetOnTop.htm"><span class="S4">WinSetOnTop</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$WINDOWS_NOONTOP</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

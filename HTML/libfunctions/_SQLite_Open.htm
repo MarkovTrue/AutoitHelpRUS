@@ -100,8 +100,7 @@
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_SQLite_LibVersion="</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_SQLite_LibVersion.htm"><span class="S15">_SQLite_LibVersion</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <br>
-<a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Создание БД в памяти (:memory:) и неиспользование её дескриптора
-</span><br>
+<a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Создание БД в памяти (:memory:) и неиспользование её дескриптора</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"SQLite Error"</span><span class="S8">,</span> <span class="S7">"Can't create a memory Database!"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">1</span><br>
@@ -114,30 +113,24 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">1</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hTmpDb</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">)</span>&nbsp;<span class="S1">; Создание временной БД на диске
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hTmpDb</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">)</span>&nbsp;<span class="S1">; Создание временной БД на диске</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"SQLite Error"</span><span class="S8">,</span> <span class="S7">"Can't create a temporary Database!"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">1</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sDbName</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_TempFile.htm"><span class="S15">_TempFile</span></a><span class="S8">(</span><span class="S8">)</span><br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDskDb</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S9">$sDbName</span><span class="S8">)</span>&nbsp;<span class="S1">; Открытие постоянной БД на диске
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDskDb</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S9">$sDbName</span><span class="S8">)</span>&nbsp;<span class="S1">; Открытие постоянной БД на диске</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"SQLite Error"</span><span class="S8">,</span> <span class="S7">"Can't open or create a permanent Database!"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">1</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; используем 3 БД по мере необходимости, ссылаясь на их дескрипторы
-</span><br>
+<span class="S1">; используем 3 БД по мере необходимости, ссылаясь на их дескрипторы</span><br>
 <br>
-<span class="S1">; закрытие созданных БД в любом порядке
-</span><br>
-<a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S9">$hTmpDb</span><span class="S8">)</span>&nbsp;<span class="S1">; временные БД автоматически удаляются при закрытии
-</span><br>
-<a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S9">$hDskDb</span><span class="S8">)</span>&nbsp;<span class="S1">; БД – обычный файл, который можно открыть снова позже
-</span><br>
+<span class="S1">; закрытие созданных БД в любом порядке</span><br>
+<a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S9">$hTmpDb</span><span class="S8">)</span>&nbsp;<span class="S1">; временные БД автоматически удаляются при закрытии</span><br>
+<a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S9">$hDskDb</span><span class="S8">)</span>&nbsp;<span class="S1">; БД – обычный файл, который можно открыть снова позже</span><br>
 <a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S9">$hMemDb</span><span class="S8">)</span><br>
 <br>
 <span class="S1">; эта БД нам не нужна</span><br>

@@ -57,24 +57,19 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запускаем Write.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запускаем Write.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"Write.exe"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 10 секунд появления окна Write.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 10 секунд появления окна Write.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:WordPadClass]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задаём заголовок окна Write по дескриптору, возвращённому WinWait.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задаём заголовок окна Write по дескриптору, возвращённому WinWait.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetTitle.htm"><span class="S4">WinSetTitle</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"New WordPad Title - AutoIt"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды для отображения окна Write с новым заголовком.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды для отображения окна Write с новым заголовком.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрываем окно Write по дескриптору, возвращённому WinWait.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрываем окно Write по дескриптору, возвращённому WinWait.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

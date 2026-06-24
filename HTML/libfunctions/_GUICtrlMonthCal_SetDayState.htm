@@ -56,14 +56,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Month Calendar Set Day State (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMonthCal</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMonthCal.htm"><span class="S4">GUICtrlCreateMonthCal</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_BORDER</span><span class="S8">,</span> <span class="S9">$MCS_DAYSTATE</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">0x00000000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить число месяцев, для которых нужно подать маски. Обычно это 3.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить число месяцев, для которых нужно подать маски. Обычно это 3.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aMasks</span><span class="S8">[</span><a class="le" href="../libfunctions/_GUICtrlMonthCal_GetMonthRangeSpan.htm"><span class="S15">_GUICtrlMonthCal_GetMonthRangeSpan</span></a><span class="S8">(</span><span class="S9">$idMonthCal</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><span class="S8">]</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сделать 1-е, 8-е и 16-е числа текущего месяца жирными. Это даёт двоичную маску 1000 0000 1000 0001, или
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; 0x8081 в hex.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сделать 1-е, 8-е и 16-е числа текущего месяца жирными. Это даёт двоичную маску 1000 0000 1000 0001, или</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; 0x8081 в hex.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aMasks</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0x8081</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlMonthCal_SetDayState.htm"><span class="S15">_GUICtrlMonthCal_SetDayState</span></a><span class="S8">(</span><span class="S9">$idMonthCal</span><span class="S8">,</span> <span class="S9">$aMasks</span><span class="S8">)</span><br>
 <br>

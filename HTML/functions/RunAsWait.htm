@@ -108,8 +108,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sUserName</span> <span class="S8">=</span> <span class="S7">"Username"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPassword</span> <span class="S8">=</span> <span class="S7">"Password"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить Блокнот от имени указанного пользователя и ждать его закрытия.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить Блокнот от имени указанного пользователя и ждать его закрытия.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iReturn</span> <span class="S8">=</span> <a class="le" href="../functions/RunAsWait.htm"><span class="S4">RunAsWait</span></a><span class="S8">(</span><span class="S9">$sUserName</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ComputerName"><span class="S6">@ComputerName</span></a><span class="S8">,</span> <span class="S9">$sPassword</span><span class="S8">,</span> <span class="S9">$RUN_LOGON_NOPROFILE</span><span class="S8">,</span> <span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>

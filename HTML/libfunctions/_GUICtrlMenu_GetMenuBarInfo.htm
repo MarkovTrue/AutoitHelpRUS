@@ -78,8 +78,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить информацию о строке меню
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить информацию о строке меню</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aInfo</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMenu_GetMenuBarInfo.htm"><span class="S15">_GUICtrlMenu_GetMenuBarInfo</span></a><span class="S8">(</span><span class="S9">$g_hWnd</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Writeln</span><span class="S8">(</span><span class="S7">"Left ............: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Writeln</span><span class="S8">(</span><span class="S7">"Top .............: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>

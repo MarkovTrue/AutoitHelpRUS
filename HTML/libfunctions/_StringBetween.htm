@@ -67,25 +67,21 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать массив всех значений между "[" и "]".
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать массив всех значений между "[" и "]".</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_StringBetween.htm"><span class="S15">_StringBetween</span></a><span class="S8">(</span><span class="S7">"[18][20][3][5][500][60]"</span><span class="S8">,</span> <span class="S7">"["</span><span class="S8">,</span> <span class="S7">"]"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результаты через _ArrayDisplay.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Default Search"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать массив всех значений между "|" и "|" – обратите внимание, что $sStart и $sEnd идентичны
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать массив всех значений между "|" и "|" – обратите внимание, что $sStart и $sEnd идентичны</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">"-----|Both Modes|$STR_ENDISSTART only|Both Modes|-----"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Режим $STR_ENDISSTART – по умолчанию – $sEnd является следующим $sStart
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Режим $STR_ENDISSTART – по умолчанию – $sEnd является следующим $sStart</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_StringBetween.htm"><span class="S15">_StringBetween</span></a><span class="S8">(</span><span class="S9">$sString</span><span class="S8">,</span> <span class="S7">"|"</span><span class="S8">,</span> <span class="S7">"|"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результаты через _ArrayDisplay.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"$STR_ENDISSTART"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Режим $STR_ENDNOTSTART – $sEnd не является следующим $sStart
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Режим $STR_ENDNOTSTART – $sEnd не является следующим $sStart</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_StringBetween.htm"><span class="S15">_StringBetween</span></a><span class="S8">(</span><span class="S9">$sString</span><span class="S8">,</span> <span class="S7">"|"</span><span class="S8">,</span> <span class="S7">"|"</span><span class="S8">,</span> <span class="S9">$STR_ENDNOTSTART</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результаты через _ArrayDisplay.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"$STR_ENDNOTSTART"</span><span class="S8">)</span><br>

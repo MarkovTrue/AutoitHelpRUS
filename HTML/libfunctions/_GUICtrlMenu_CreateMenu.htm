@@ -83,8 +83,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать элемент memo</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">30</span> <span class="S8">+</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">396</span><span class="S8">,</span> <span class="S3">276</span> <span class="S8">-</span> <span class="S3">30</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetStyles</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Для установки флажков в элементах стиля меню
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetStyles</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Для установки флажков в элементах стиля меню</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
@@ -106,8 +105,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">CreateMenus</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_LOCK"><span class="S6">@SW_LOCK</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить предыдущие меню
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить предыдущие меню</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlMenu_DestroyMenu.htm"><span class="S15">_GUICtrlMenu_DestroyMenu</span></a><span class="S8">(</span><span class="S9">$g_hFile</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlMenu_DestroyMenu.htm"><span class="S15">_GUICtrlMenu_DestroyMenu</span></a><span class="S8">(</span><span class="S9">$g_hStyle</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlMenu_DestroyMenu.htm"><span class="S15">_GUICtrlMenu_DestroyMenu</span></a><span class="S8">(</span><span class="S9">$g_hHelp</span><span class="S8">)</span><br>
@@ -176,17 +174,14 @@
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">UpdateStyles</span><span class="S8">(</span><span class="S9">$nStyle</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$g_iStyle</span><span class="S8">,</span> <span class="S9">$nStyle</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сбросить стиль
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сбросить стиль</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_iStyle</span> <span class="S8">=</span> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$g_iStyle</span><span class="S8">,</span> <a class="le" href="../functions/BitNOT.htm"><span class="S4">BitNOT</span></a><span class="S8">(</span><span class="S9">$nStyle</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить стиль
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить стиль</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_iStyle</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$g_iStyle</span><span class="S8">,</span> <span class="S9">$nStyle</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пересоздать меню с новыми стилями, так как изменения $MNS_MODELESS не могут быть динамическими
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пересоздать меню с новыми стилями, так как изменения $MNS_MODELESS не могут быть динамическими</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">CreateMenus</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"restarting with styles: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S0">ConvStyles</span><span class="S8">(</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetStyles</span><span class="S8">(</span><span class="S8">)</span><br>

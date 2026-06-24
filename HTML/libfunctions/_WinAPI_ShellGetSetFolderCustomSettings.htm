@@ -65,15 +65,13 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIDlg.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShellEx.au3&gt;</span><br>
 <br>
-<span class="S1">; Выбрать папку
-</span><br>
+<span class="S1">; Выбрать папку</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPath</span> <span class="S8">=</span> <a class="le" href="../functions/FileSelectFolder.htm"><span class="S4">FileSelectFolder</span></a><span class="S8">(</span><span class="S7">'Select Folder'</span><span class="S8">,</span> <span class="S7">''</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$sPath</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Выбрать значок
-</span><br>
+<span class="S1">; Выбрать значок</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_PickIconDlg.htm"><span class="S15">_WinAPI_PickIconDlg</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <br>

@@ -111,8 +111,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_PRIMARYUP</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bDragging</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$bDragging</span> <span class="S8">=</span> <span class="S5">False</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; удалить список изображений
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; удалить список изображений</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIImageList_Destroy.htm"><span class="S15">_GUIImageList_Destroy</span></a><span class="S8">(</span><span class="S9">$hDrag</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_InvalidateRect.htm"><span class="S15">_WinAPI_InvalidateRect</span></a><span class="S8">(</span><span class="S9">$hTreeView</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_InvalidateRect.htm"><span class="S15">_WinAPI_InvalidateRect</span></a><span class="S8">(</span><a class="le" href="../functions/HWnd.htm"><span class="S4">HWnd</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span><span class="S8">)</span><br>
@@ -125,8 +124,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 <br>
-<span class="S1">; рисовать изображение перетаскивания
-</span><br>
+<span class="S1">; рисовать изображение перетаскивания</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">DrawDragImage</span><span class="S8">(</span><a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$hControl</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$hDrag</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tPoint</span><span class="S8">,</span> <span class="S9">$hDC</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetWindowDC.htm"><span class="S15">_WinAPI_GetWindowDC</span></a><span class="S8">(</span><span class="S9">$hControl</span><span class="S8">)</span><br>

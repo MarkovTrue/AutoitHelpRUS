@@ -93,12 +93,9 @@
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Error opening '.\Extras\Test.doc'."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <br>
-<span class="S1">; Сцена 1
-</span><br>
-<span class="S1">; Переместить начало диапазона на следующий абзац и расширить конец на 2 слова.
-</span><br>
-<span class="S1">; Вставить текст перед и после диапазона и отобразить статистику
-</span><br>
+<span class="S1">; Сцена 1</span><br>
+<span class="S1">; Переместить начало диапазона на следующий абзац и расширить конец на 2 слова.</span><br>
+<span class="S1">; Вставить текст перед и после диапазона и отобразить статистику</span><br>
 <span class="S9">$oRange</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Word_DocRangeSet.htm"><span class="S15">_Word_DocRangeSet</span></a><span class="S8">(</span><span class="S9">$oDoc</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$wdParagraph</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Error setting/expanding range."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -106,55 +103,44 @@
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Range has been successfully set to the first two words in the second paragraph."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить текст перед диапазоном
-</span><br>
+<span class="S1">; Вставить текст перед диапазоном</span><br>
 <span class="S9">$oRange</span>.<span class="Scom">InsertBefore</span><span class="S8">(</span><span class="S7">"Inserted text at the start! "</span><span class="S8">)</span><br>
 <span class="S9">$oRange</span>.<span class="Scom">Select</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S7">"Inserted text at the start of the range."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить текст после диапазона
-</span><br>
+<span class="S1">; Вставить текст после диапазона</span><br>
 <span class="S9">$oRange</span>.<span class="Scom">InsertAfter</span><span class="S8">(</span><span class="S7">"inserted text at the end! "</span><span class="S8">)</span><br>
 <span class="S9">$oRange</span>.<span class="Scom">Select</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S7">"Inserted text at the end of the range."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Отобразить статистику
-</span><br>
+<span class="S1">; Отобразить статистику</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iWords</span> <span class="S8">=</span> <span class="S9">$oRange</span>.<span class="Scom">ComputeStatistics</span><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iCharacters</span> <span class="S8">=</span> <span class="S9">$oRange</span>.<span class="Scom">ComputeStatistics</span><span class="S8">(</span><span class="S3">3</span><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S7">"The selected range has:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iWords</span> <span class="S8">&amp;</span> <span class="S7">" words "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$iCharacters</span> <span class="S8">&amp;</span> <span class="S7">" characters."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Сцена 2
-</span><br>
-<span class="S1">; Переместить конец диапазона на один символ влево, чтобы расстояние до следующего
-</span><br>
-<span class="S1">; слова не было отформатировано и отформатировать текст жирным, курсивом и подчеркнутым
-</span><br>
+<span class="S1">; Сцена 2</span><br>
+<span class="S1">; Переместить конец диапазона на один символ влево, чтобы расстояние до следующего</span><br>
+<span class="S1">; слова не было отформатировано и отформатировать текст жирным, курсивом и подчеркнутым</span><br>
 <span class="S9">$oRange</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Word_DocRangeSet.htm"><span class="S15">_Word_DocRangeSet</span></a><span class="S8">(</span><span class="S9">$oDoc</span><span class="S8">,</span> <span class="S9">$oRange</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$wdCharacter</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Error setting/expanding range."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
-<span class="S1">; Отформатировать диапазон жирным, курсивом и подчеркнутым
-</span><br>
+<span class="S1">; Отформатировать диапазон жирным, курсивом и подчеркнутым</span><br>
 <span class="S9">$oRange</span>.<span class="Scom">Bold</span> <span class="S8">=</span> <span class="S5">True</span><br>
 <span class="S9">$oRange</span>.<span class="Scom">Italic</span> <span class="S8">=</span> <span class="S5">True</span><br>
 <span class="S9">$oRange</span>.<span class="Scom">Underline</span> <span class="S8">=</span> <span class="S5">True</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S7">"Added some formatting."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Сцена 3
-</span><br>
-<span class="S1">; Свернуть диапазон до 0 длины (маркер вставки) и вставить разрыв строки
-</span><br>
+<span class="S1">; Сцена 3</span><br>
+<span class="S1">; Свернуть диапазон до 0 длины (маркер вставки) и вставить разрыв строки</span><br>
 <span class="S9">$oRange</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Word_DocRangeSet.htm"><span class="S15">_Word_DocRangeSet</span></a><span class="S8">(</span><span class="S9">$oDoc</span><span class="S8">,</span> <span class="S9">$oRange</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Error setting/expanding range."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <span class="S9">$oRange</span>.<span class="Scom">InsertBreak</span><span class="S8">(</span><span class="S9">$wdLineBreak</span><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S7">"Inserted a break."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Сцена 4
-</span><br>
-<span class="S1">; Переместить диапазон к первому символу в следующей строке (пробел) и удалить его
-</span><br>
+<span class="S1">; Сцена 4</span><br>
+<span class="S1">; Переместить диапазон к первому символу в следующей строке (пробел) и удалить его</span><br>
 <span class="S9">$oRange</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Word_DocRangeSet.htm"><span class="S15">_Word_DocRangeSet</span></a><span class="S8">(</span><span class="S9">$oDoc</span><span class="S8">,</span> <span class="S9">$oRange</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$wdCharacter</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocRangeSet Example"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Error setting/expanding range."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>

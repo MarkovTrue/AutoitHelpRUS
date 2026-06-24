@@ -76,12 +76,10 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iLastLineNumber</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlRichEdit_GetLineCount.htm"><span class="S15">_GUICtrlRichEdit_GetLineCount</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить позицию первого символа последней строки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить позицию первого символа последней строки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iCharPosition</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlRichEdit_GetFirstCharPosOnLine.htm"><span class="S15">_GUICtrlRichEdit_GetFirstCharPosOnLine</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S9">$iLastLineNumber</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; выделить 4 символа – должно получиться слово "http"
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; выделить 4 символа – должно получиться слово "http"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_SetSel.htm"><span class="S15">_GUICtrlRichEdit_SetSel</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">,</span> <span class="S9">$iCharPosition</span><span class="S8">,</span> <span class="S9">$iCharPosition</span> <span class="S8">+</span> <span class="S3">4</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Report</span><span class="S8">(</span><span class="S7">"Character attributes at start of line "</span> <span class="S8">&amp;</span> <span class="S9">$iLastLineNumber</span> <span class="S8">&amp;</span> <span class="S7">" are "</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_GetCharAttributes.htm"><span class="S15">_GUICtrlRichEdit_GetCharAttributes</span></a><span class="S8">(</span><span class="S9">$hRichEdit</span><span class="S8">)</span><span class="S8">)</span><br>

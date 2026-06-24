@@ -87,12 +87,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Теперь перевести позицию в начало.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetPos.htm"><span class="S4">FileSetPos</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$FILE_BEGIN</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем конец файла на текущей позиции.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем конец файла на текущей позиции.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetEnd.htm"><span class="S4">FileSetEnd</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверяем позицию и пытаемся прочитать данные с текущей позиции. Данные уничтожены.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверяем позицию и пытаемся прочитать данные с текущей позиции. Данные уничтожены.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Position: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/FileGetPos.htm"><span class="S4">FileGetPos</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Data: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть дескриптор, возвращённый FileOpen.</span><br>
@@ -125,24 +123,21 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записываем данные через дескриптор FileOpen и устанавливаем конец файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записываем данные через дескриптор FileOpen и устанавливаем конец файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileWrite.htm"><span class="S4">FileWrite</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">,</span> <span class="S7">"ABCDEF"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetEnd.htm"><span class="S4">FileSetEnd</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать размер и содержимое файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Size: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/FileGetSize.htm"><span class="S4">FileGetSize</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Data: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Расширяем файл до 9 байт без записи дополнительных данных.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Расширяем файл до 9 байт без записи дополнительных данных.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetPos.htm"><span class="S4">FileSetPos</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">,</span> <span class="S9">$FILE_BEGIN</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetEnd.htm"><span class="S4">FileSetEnd</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать размер и содержимое файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Size: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/FileGetSize.htm"><span class="S4">FileGetSize</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Data: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Переходим на позицию после ABCDEF (6 байт) и дописываем данные – файл расширится до 12 байт.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Переходим на позицию после ABCDEF (6 байт) и дописываем данные – файл расширится до 12 байт.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetPos.htm"><span class="S4">FileSetPos</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">,</span> <span class="S9">$FILE_BEGIN</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileWrite.htm"><span class="S4">FileWrite</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">,</span> <span class="S7">"HIJKLM"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetEnd.htm"><span class="S4">FileSetEnd</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить конец файла.</span><br>
@@ -150,8 +145,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать размер и содержимое файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Size: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/FileGetSize.htm"><span class="S4">FileGetSize</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Data: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Усекаем файл до 9 байт.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Усекаем файл до 9 байт.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetPos.htm"><span class="S4">FileSetPos</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">,</span> <span class="S9">$FILE_BEGIN</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileSetEnd.htm"><span class="S4">FileSetEnd</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить конец файла.</span><br>
 <br>

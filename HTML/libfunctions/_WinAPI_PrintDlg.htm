@@ -57,8 +57,7 @@
 <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать структуру PRINTDLG и установить начальные значения для количества копий, начальной и конечной страницы
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать структуру PRINTDLG и установить начальные значения для количества копий, начальной и конечной страницы</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tPRINTDLG</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagPRINTDLG</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPRINTDLG</span><span class="S8">,</span> <span class="S7">'Size'</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tPRINTDLG</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPRINTDLG</span><span class="S8">,</span> <span class="S7">'Flags'</span><span class="S8">,</span> <span class="S9">$PD_PAGENUMS</span><span class="S8">)</span><br>
@@ -68,8 +67,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPRINTDLG</span><span class="S8">,</span> <span class="S7">'MaxPage'</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPRINTDLG</span><span class="S8">,</span> <span class="S7">'Copies'</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать диалоговое окно печати
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать диалоговое окно печати</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_PrintDlg.htm"><span class="S15">_WinAPI_PrintDlg</span></a><span class="S8">(</span><span class="S9">$tPRINTDLG</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>

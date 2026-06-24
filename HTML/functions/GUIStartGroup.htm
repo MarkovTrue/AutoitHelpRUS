@@ -69,26 +69,21 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idInput_1</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">"Input 1"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S3">160</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idInput_2</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">"Input 2"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">160</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить значения по умолчанию (выбранные переключатели, кнопка по умолчанию и т.п.)
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить значения по умолчанию (выбранные переключатели, кнопка по умолчанию и т.п.)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idRadio_1</span><span class="S8">,</span> <span class="S9">$GUI_CHECKED</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idRadio_6</span><span class="S8">,</span> <span class="S9">$GUI_CHECKED</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idButton_1</span><span class="S8">,</span> <span class="S9">$GUI_FOCUS</span> <span class="S8">+</span> <span class="S9">$GUI_DEFBUTTON</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Инициализировать переменные для отслеживания событий переключателей
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRadioVal1</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; Предполагаем: 0 = первый переключатель выбран, 2 = последний
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Инициализировать переменные для отслеживания событий переключателей</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRadioVal1</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; Предполагаем: 0 = первый переключатель выбран, 2 = последний</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRadioVal2</span> <span class="S8">=</span> <span class="S3">2</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMsg</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; В этом message-loop мы используем переменные для отслеживания изменений радиокнопок, другие</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; способ – вызвать GUICtrlRead() в конце для чтения состояния каждого элемента управления. Оба
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; метода одинаково допустимы
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; способ – вызвать GUICtrlRead() в конце для чтения состояния каждого элемента управления. Оба</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; метода одинаково допустимы</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idMsg</span> <span class="S8">=</span> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Select</span></a><br>

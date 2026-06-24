@@ -92,11 +92,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBMP</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateHBITMAPFromBitmap.htm"><span class="S15">_GDIPlus_BitmapCreateHBITMAPFromBitmap</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сохранить bitmap в файл</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ScreenCapture_SaveImage.htm"><span class="S15">_ScreenCapture_SaveImage</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\Image.bmp"</span><span class="S8">,</span> <span class="S9">$hBMP</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; True – $hBMP уничтожается.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ScreenCapture_SaveImage.htm"><span class="S15">_ScreenCapture_SaveImage</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\Image.bmp"</span><span class="S8">,</span> <span class="S9">$hBMP</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; True – $hBMP уничтожается.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Освободить ресурс.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Освободить ресурс.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageDispose.htm"><span class="S15">_GDIPlus_ImageDispose</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Завершить работу с библиотекой GDI+</span><br>

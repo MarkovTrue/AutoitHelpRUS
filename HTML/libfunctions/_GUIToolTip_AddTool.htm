@@ -157,20 +157,15 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIToolTip.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StaticConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Этот пример демонстрирует как добавить инструмент; инструмент не назначается какому-либо элементу управления, а просто области GUI
-</span><br>
+<span class="S1">; Этот пример демонстрирует как добавить инструмент; инструмент не назначается какому-либо элементу управления, а просто области GUI</span><br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"ToolTip AddTool - v("</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">350</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать рамки, указывающие где будет отображаться подсказка при движении мыши
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; в нужное место GUI; эти рамки не имеют назначенной подсказки
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; эти рамки только для визуального обозначения того, где будет отображаться подсказка
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; они не требуются для отображения подсказки.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать рамки, указывающие где будет отображаться подсказка при движении мыши</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; в нужное место GUI; эти рамки не имеют назначенной подсказки</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; эти рамки только для визуального обозначения того, где будет отображаться подсказка</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; они не требуются для отображения подсказки.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">160</span><span class="S8">,</span> <span class="S3">75</span><span class="S8">,</span> <span class="S9">$SS_ETCHEDFRAME</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; этот label должен быть отключён, иначе tooltip не отобразится при наведении</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; мыши на него.</span><br>
@@ -192,16 +187,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать элемент tooltip с настройками по умолчанию</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToolTip</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIToolTip_Create.htm"><span class="S15">_GUIToolTip_Create</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить 4 инструмента к элементу управления ToolTip; инструменты создаются с использованием расположения на GUI
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; а не назначением их конкретному элементу управления.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить 4 инструмента к элементу управления ToolTip; инструменты создаются с использованием расположения на GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; а не назначением их конкретному элементу управления.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_AddTool.htm"><span class="S15">_GUIToolTip_AddTool</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">"Upper Left corner"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">168</span><span class="S8">,</span> <span class="S3">85</span><span class="S8">,</span> <span class="S9">$TTF_SUBCLASS</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_AddTool.htm"><span class="S15">_GUIToolTip_AddTool</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">"Upper Right corner"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">168</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">328</span><span class="S8">,</span> <span class="S3">85</span><span class="S8">,</span> <span class="S9">$TTF_SUBCLASS</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_AddTool.htm"><span class="S15">_GUIToolTip_AddTool</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">"Lower Left corner"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">85</span><span class="S8">,</span> <span class="S3">168</span><span class="S8">,</span> <span class="S3">160</span><span class="S8">,</span> <span class="S9">$TTF_SUBCLASS</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_AddTool.htm"><span class="S15">_GUIToolTip_AddTool</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">"Lower Right corner"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">168</span><span class="S8">,</span> <span class="S3">85</span><span class="S8">,</span> <span class="S3">328</span><span class="S8">,</span> <span class="S3">160</span><span class="S8">,</span> <span class="S9">$TTF_SUBCLASS</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить инструмент к элементу управления ToolTip, назначенный кнопке
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить инструмент к элементу управления ToolTip, назначенный кнопке</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_AddTool.htm"><span class="S15">_GUIToolTip_AddTool</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">"This tooltip belongs to the button"</span><span class="S8">,</span> <span class="S9">$hButton</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>

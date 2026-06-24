@@ -74,14 +74,12 @@
 <a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_SQLite_LibVersion="</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_SQLite_LibVersion.htm"><span class="S15">_SQLite_LibVersion</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Без $sCallback это инструкция без результата
-</span><br>
+<span class="S1">; Без $sCallback это инструкция без результата</span><br>
 <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"Create table tblTest (a,b int,c single not null);"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Insert into tblTest values ('1',2,3);"</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Insert into tblTest values (Null,5,6);"</span><span class="S8">)</span><br>
 <br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$d</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"Select rowid,* From tblTest"</span><span class="S8">,</span> <span class="S7">"_cb"</span><span class="S8">)</span>&nbsp;<span class="S1">; _cb будет вызвана для каждой строки
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$d</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"Select rowid,* From tblTest"</span><span class="S8">,</span> <span class="S7">"_cb"</span><span class="S8">)</span>&nbsp;<span class="S1">; _cb будет вызвана для каждой строки</span><br>
 <br>
 <a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Shutdown.htm"><span class="S15">_SQLite_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
@@ -99,8 +97,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S9">$s</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вернуть $SQLITE_ABORT; приведёт к прерыванию процесса и вызовет @error в _SQLite_Exec()
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вернуть $SQLITE_ABORT; приведёт к прерыванию процесса и вызовет @error в _SQLite_Exec()</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_cb
 </span><br>
 </p>

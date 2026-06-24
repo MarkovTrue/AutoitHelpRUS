@@ -118,8 +118,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sUserName</span> <span class="S8">=</span> <span class="S7">"Username"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPassword</span> <span class="S8">=</span> <span class="S7">"Password"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить Блокнот с развёрнутым окном от имени указанного пользователя.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить Блокнот с развёрнутым окном от имени указанного пользователя.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPID</span> <span class="S8">=</span> <a class="le" href="../functions/RunAs.htm"><span class="S4">RunAs</span></a><span class="S8">(</span><span class="S9">$sUserName</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ComputerName"><span class="S6">@ComputerName</span></a><span class="S8">,</span> <span class="S9">$sPassword</span><span class="S8">,</span> <span class="S9">$RUN_LOGON_NOPROFILE</span><span class="S8">,</span> <span class="S7">"notepad.exe"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <a class="le" href="../macros.htm#@SW_SHOWMAXIMIZED"><span class="S6">@SW_SHOWMAXIMIZED</span></a><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
@@ -128,8 +127,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пауза 2 секунды.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Завершить процесс Блокнота по PID, возвращённому RunAs.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Завершить процесс Блокнота по PID, возвращённому RunAs.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ProcessClose.htm"><span class="S4">ProcessClose</span></a><span class="S8">(</span><span class="S9">$iPID</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

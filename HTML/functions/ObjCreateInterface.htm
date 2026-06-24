@@ -184,44 +184,34 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more 
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объявить CLSID, IID и описание интерфейса для ITaskbarList.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Методы IUnknown описывать не нужно.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объявить CLSID, IID и описание интерфейса для ITaskbarList.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Методы IUnknown описывать не нужно.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sCLSID_TaskbarList</span> <span class="S8">=</span> <span class="S7">"{56FDF344-FD6D-11D0-958A-006097C9A090}"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sIID_ITaskbarList</span> <span class="S8">=</span> <span class="S7">"{56FDF342-FD6D-11D0-958A-006097C9A090}"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sTagITaskbarList</span> <span class="S8">=</span> <span class="S7">"HrInit hresult(); AddTab hresult(hwnd); DeleteTab hresult(hwnd); ActivateTab hresult(hwnd); SetActiveAlt hresult(hwnd);"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать объект.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать объект.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oTaskbarList</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreateInterface.htm"><span class="S4">ObjCreateInterface</span></a><span class="S8">(</span><span class="S9">$sCLSID_TaskbarList</span><span class="S8">,</span> <span class="S9">$sIID_ITaskbarList</span><span class="S8">,</span> <span class="S9">$sTagITaskbarList</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Инициализировать объект ITaskbarList.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Инициализировать объект ITaskbarList.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oTaskbarList</span>.<span class="Scom">HrInit</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить Блокнот.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить Блокнот.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ожидать появления окна Блокнота и получить его дескриптор.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ожидать появления окна Блокнота и получить его дескриптор.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hNotepad</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сообщить пользователю, что нужно найти.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сообщить пользователю, что нужно найти.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Look in the Taskbar and you should see an entry for Notepad."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Press OK to continue."</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить запись Блокнота с панели задач.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить запись Блокнота с панели задач.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oTaskbarList</span>.<span class="Scom">DeleteTab</span><span class="S8">(</span><span class="S9">$hNotepad</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Попросить пользователя проверить снова.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Попросить пользователя проверить снова.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Look in the Taskbar.  There should no longer be a Notepad entry but Notepad is still running."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Press OK to continue."</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть Блокнот.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть Блокнот.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinClose.htm"><span class="S4">WinClose</span></a><span class="S8">(</span><span class="S9">$hNotepad</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

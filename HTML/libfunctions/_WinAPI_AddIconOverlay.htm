@@ -59,8 +59,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIShellEx.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
 <br>
-<span class="S1">; Создаёт значок с маской наложения (48x48)
-</span><br>
+<span class="S1">; Создаёт значок с маской наложения (48x48)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_ShellExtractIcon.htm"><span class="S15">_WinAPI_ShellExtractIcon</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SystemDir"><span class="S6">@SystemDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\shell32.dll'</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hOverlay</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/Number.htm"><span class="S4">Number</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetVersion.htm"><span class="S15">_WinAPI_GetVersion</span></a><span class="S8">(</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">&gt;=</span> <span class="S3">6.0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>

@@ -68,16 +68,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_SetText.htm"><span class="S15">_GUICtrlEdit_SetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">,</span> <span class="S3">500</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; текст, полученный в формате по умолчанию
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; текст, полученный в формате по умолчанию</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sBefore</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlEdit_GetText.htm"><span class="S15">_GUICtrlEdit_GetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; вставить мягкие разрывы строк
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; вставить мягкие разрывы строк</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_FmtLines.htm"><span class="S15">_GUICtrlEdit_FmtLines</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; текст с мягкими разрывами строк
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; текст с мягкими разрывами строк</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sAfter</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlEdit_GetText.htm"><span class="S15">_GUICtrlEdit_GetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <span class="S7">"Before:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sBefore</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>

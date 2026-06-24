@@ -52,8 +52,7 @@
 <br>
 <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"TrayMenuMode"</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span>&nbsp;<span class="S1">; Стандартные пункты меню трея не будут показаны, и пункты не помечаются при выборе. Это опции 1 и 2 для TrayMenuMode.</span><br>
 <br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$MIM_APPLYTOSUBMENUS</span> <span class="S8">=</span> <span class="S3">0x80000000</span><span class="S8">,</span> <span class="S9">$MIM_BACKGROUND</span> <span class="S8">=</span> <span class="S3">0x00000002</span>&nbsp;<span class="S1">; Константы, необходимые для SetMenuColor.
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$MIM_APPLYTOSUBMENUS</span> <span class="S8">=</span> <span class="S3">0x80000000</span><span class="S8">,</span> <span class="S9">$MIM_BACKGROUND</span> <span class="S8">=</span> <span class="S3">0x00000002</span>&nbsp;<span class="S1">; Константы, необходимые для SetMenuColor.</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
@@ -70,10 +69,8 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TraySetState.htm"><span class="S4">TraySetState</span></a><span class="S8">(</span><span class="S9">$TRAY_ICONSTATE_SHOW</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать меню в трее.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0xEEBB99</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение цвета в формате BGR; '0' означает само меню трея.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$idSettings</span><span class="S8">,</span> <span class="S3">0x66BB99</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение цвета в формате BGR для меню 'Settings'.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0xEEBB99</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение цвета в формате BGR; '0' означает само меню трея.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$idSettings</span><span class="S8">,</span> <span class="S3">0x66BB99</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение цвета в формате BGR для меню 'Settings'.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/TrayGetMsg.htm"><span class="S4">TrayGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
@@ -93,8 +90,7 @@
 </span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$iMenuID</span><span class="S8">,</span> <span class="S9">$iColor</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMenu</span> <span class="S8">=</span> <a class="le" href="../functions/TrayItemGetHandle.htm"><span class="S4">TrayItemGetHandle</span></a><span class="S8">(</span><span class="S9">$iMenuID</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить внутренний дескриптор меню.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMenu</span> <span class="S8">=</span> <a class="le" href="../functions/TrayItemGetHandle.htm"><span class="S4">TrayItemGetHandle</span></a><span class="S8">(</span><span class="S9">$iMenuID</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить внутренний дескриптор меню.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBrush</span> <span class="S8">=</span> <a class="le" href="../functions/DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">(</span><span class="S7">"gdi32.dll"</span><span class="S8">,</span> <span class="S7">"hwnd"</span><span class="S8">,</span> <span class="S7">"CreateSolidBrush"</span><span class="S8">,</span> <span class="S7">"int"</span><span class="S8">,</span> <span class="S9">$iColor</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBrush</span> <span class="S8">=</span> <span class="S9">$hBrush</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>

@@ -53,13 +53,10 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить информацию для инструмента, назначенного кнопке
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить информацию для инструмента, назначенного кнопке</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aTool</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIToolTip_GetToolInfo.htm"><span class="S15">_GUIToolTip_GetToolInfo</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$hButton</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Конвертировать массив в текст используя функцию _GUIToolTip_BitsToTTF для конвертирования флага
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; информации в строку текста.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Конвертировать массив в текст используя функцию _GUIToolTip_BitsToTTF для конвертирования флага</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; информации в строку текста.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Tooltip info"</span><span class="S8">,</span> <span class="S7">"Flags: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUIToolTip_BitsToTTF.htm"><span class="S15">_GUIToolTip_BitsToTTF</span></a><span class="S8">(</span><span class="S9">$aTool</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"HWnd: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S9">$aTool</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"ID: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S9">$aTool</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>

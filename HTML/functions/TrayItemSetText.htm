@@ -54,29 +54,23 @@
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StringConstants.au3&gt;</span><br>
-<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;TrayConstants.au3&gt;</span>&nbsp;<span class="S1">; Требуется для констант $TRAY_ICONSTATE_SHOW, $TRAY_ITEM_EXIT и $TRAY_ITEM_PAUSE.
-</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;TrayConstants.au3&gt;</span>&nbsp;<span class="S1">; Требуется для констант $TRAY_ICONSTATE_SHOW, $TRAY_ITEM_EXIT и $TRAY_ITEM_PAUSE.</span><br>
 <br>
-<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"TrayAutoPause"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; Скрипт не будет приостанавливаться при выборе значка трея.
-</span><br>
-<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"TrayMenuMode"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; Элементы не отмечаются при выборе.
-</span><br>
+<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"TrayAutoPause"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; Скрипт не будет приостанавливаться при выборе значка трея.</span><br>
+<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"TrayMenuMode"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; Элементы не отмечаются при выборе.</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idRandom</span> <span class="S8">=</span> <a class="le" href="../functions/TrayCreateItem.htm"><span class="S4">TrayCreateItem</span></a><span class="S8">(</span><span class="S7">"Random:"</span><span class="S8">)</span>&nbsp;<span class="S1">; Выбрать этот элемент для изменения текста случайным числом.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idRandom</span> <span class="S8">=</span> <a class="le" href="../functions/TrayCreateItem.htm"><span class="S4">TrayCreateItem</span></a><span class="S8">(</span><span class="S7">"Random:"</span><span class="S8">)</span>&nbsp;<span class="S1">; Выбрать этот элемент для изменения текста случайным числом.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TrayCreateItem.htm"><span class="S4">TrayCreateItem</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">)</span>&nbsp;<span class="S1">; Создать разделительную линию.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idAbout</span> <span class="S8">=</span> <a class="le" href="../functions/TrayCreateItem.htm"><span class="S4">TrayCreateItem</span></a><span class="S8">(</span><span class="S7">"About"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TraySetState.htm"><span class="S4">TraySetState</span></a><span class="S8">(</span><span class="S9">$TRAY_ICONSTATE_SHOW</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать меню в трее.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TrayItemSetText.htm"><span class="S4">TrayItemSetText</span></a><span class="S8">(</span><span class="S9">$TRAY_ITEM_EXIT</span><span class="S8">,</span> <span class="S7">"Exit Program"</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить текст стандартного элемента 'Exit'.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TrayItemSetText.htm"><span class="S4">TrayItemSetText</span></a><span class="S8">(</span><span class="S9">$TRAY_ITEM_PAUSE</span><span class="S8">,</span> <span class="S7">"Pause Program"</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить текст стандартного элемента 'Pause'.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TrayItemSetText.htm"><span class="S4">TrayItemSetText</span></a><span class="S8">(</span><span class="S9">$TRAY_ITEM_EXIT</span><span class="S8">,</span> <span class="S7">"Exit Program"</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить текст стандартного элемента 'Exit'.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TrayItemSetText.htm"><span class="S4">TrayItemSetText</span></a><span class="S8">(</span><span class="S9">$TRAY_ITEM_PAUSE</span><span class="S8">,</span> <span class="S7">"Pause Program"</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить текст стандартного элемента 'Pause'.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/TrayGetMsg.htm"><span class="S4">TrayGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
@@ -86,8 +80,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Install Path: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringLeft.htm"><span class="S4">StringLeft</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@AutoItExe"><span class="S6">@AutoItExe</span></a><span class="S8">,</span> <a class="le" href="../functions/StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@AutoItExe"><span class="S6">@AutoItExe</span></a><span class="S8">,</span> <span class="S7">"\"</span><span class="S8">,</span> <span class="S9">$STR_NOCASESENSEBASIC</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Найти каталог полного пути.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idRandom</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст элемента 'Random' случайным целым числом.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст элемента 'Random' случайным целым числом.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TrayItemSetText.htm"><span class="S4">TrayItemSetText</span></a><span class="S8">(</span><span class="S9">$idRandom</span><span class="S8">,</span> <span class="S7">"Random: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Int.htm"><span class="S4">Int</span></a><span class="S8">(</span><a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>

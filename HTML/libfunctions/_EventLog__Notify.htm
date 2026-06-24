@@ -75,21 +75,18 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">596</span><span class="S8">,</span> <span class="S3">294</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Настраиваем объект события.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Настраиваем объект события.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hEventLog</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_EventLog__Open.htm"><span class="S15">_EventLog__Open</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S7">"Security"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hEvent</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateEvent.htm"><span class="S15">_WinAPI_CreateEvent</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_EventLog__Notify.htm"><span class="S15">_EventLog__Notify</span></a><span class="S8">(</span><span class="S9">$hEventLog</span><span class="S8">,</span> <span class="S9">$hEvent</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ожидаем нового события.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ожидаем нового события.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Waiting for new event"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iResult</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_WaitForSingleObject.htm"><span class="S15">_WinAPI_WaitForSingleObject</span></a><span class="S8">(</span><span class="S9">$hEvent</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hEvent</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_EventLog__Close.htm"><span class="S15">_EventLog__Close</span></a><span class="S8">(</span><span class="S9">$hEventLog</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим результаты.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим результаты.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iResult</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Wait failed"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>

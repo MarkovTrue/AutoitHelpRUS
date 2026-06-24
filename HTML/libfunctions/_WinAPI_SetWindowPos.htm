@@ -96,31 +96,25 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать в локальную переменную дескриптор окна Notepad
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать в локальную переменную дескриптор окна Notepad</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinGetHandle.htm"><span class="S4">WinGetHandle</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если окно не существует, показать сообщение и вернуть False.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если окно не существует, показать сообщение и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Notepad window not found."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать в локальную переменную стиль окна Notepad.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать в локальную переменную стиль окна Notepad.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iStyle</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetWindowLong.htm"><span class="S15">_WinAPI_GetWindowLong</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$GWL_STYLE</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Убрать из стиля окна MAXIMIZEBOX, MINIMIZEBOX и SIZEBOX.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Убрать из стиля окна MAXIMIZEBOX, MINIMIZEBOX и SIZEBOX.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iStyle</span> <span class="S8">=</span> <a class="le" href="../functions/BitXOR.htm"><span class="S4">BitXOR</span></a><span class="S8">(</span><span class="S9">$iStyle</span><span class="S8">,</span> <span class="S9">$WS_MAXIMIZEBOX</span><span class="S8">,</span> <span class="S9">$WS_MINIMIZEBOX</span><span class="S8">,</span> <span class="S9">$WS_SIZEBOX</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать стиль окна.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать стиль окна.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowLong.htm"><span class="S15">_WinAPI_SetWindowLong</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$GWL_STYLE</span><span class="S8">,</span> <span class="S9">$iStyle</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Применить стиль
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Применить стиль</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowPos.htm"><span class="S15">_WinAPI_SetWindowPos</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$HWND_TOP</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$SWP_FRAMECHANGED</span><span class="S8">,</span> <span class="S9">$SWP_NOMOVE</span><span class="S8">,</span> <span class="S9">$SWP_NOSIZE</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

@@ -96,8 +96,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIMem.au3&gt;</span><br>
 <br>
-<span class="S1">; Создаёт логический шрифт ("Times") и получает биты точечного рисунка для произвольного символа
-</span><br>
+<span class="S1">; Создаёт логический шрифт ("Times") и получает биты точечного рисунка для произвольного символа</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleDC.htm"><span class="S15">_WinAPI_CreateCompatibleDC</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hFont</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateFont.htm"><span class="S15">_WinAPI_CreateFont</span></a><span class="S8">(</span><span class="S3">512</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S9">$DEFAULT_CHARSET</span><span class="S8">,</span> <span class="S9">$OUT_DEFAULT_PRECIS</span><span class="S8">,</span> <span class="S9">$CLIP_DEFAULT_PRECIS</span><span class="S8">,</span> <span class="S9">$DEFAULT_QUALITY</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">'Times'</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hSv</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hFont</span><span class="S8">)</span><br>
@@ -108,12 +107,10 @@
 <a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hSv</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hFont</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создаёт точечный рисунок 1 бит/пикс
-</span><br>
+<span class="S1">; Создаёт точечный рисунок 1 бит/пикс</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBmp</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateBitmap.htm"><span class="S15">_WinAPI_CreateBitmap</span></a><span class="S8">(</span><span class="S3">32</span> <span class="S8">*</span> <a class="le" href="../functions/Ceiling.htm"><span class="S4">Ceiling</span></a><span class="S8">(</span><span class="S9">$W</span> <span class="S8">/</span> <span class="S3">32</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$H</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$pData</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Обрезает точечный рисунок до нужного размера и раскрашивает его
-</span><br>
+<span class="S1">; Обрезает точечный рисунок до нужного размера и раскрашивает его</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aColorTable</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">0xFFFFFF</span><span class="S8">,</span> <span class="S3">0xC00000</span><span class="S8">]</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDib</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateDIB.htm"><span class="S15">_WinAPI_CreateDIB</span></a><span class="S8">(</span><span class="S9">$W</span><span class="S8">,</span> <span class="S9">$H</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_CreateDIBColorTable.htm"><span class="S15">_WinAPI_CreateDIBColorTable</span></a><span class="S8">(</span><span class="S9">$aColorTable</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <span class="S9">$hSv</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hDib</span><span class="S8">)</span><br>
@@ -121,8 +118,7 @@
 <a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$hSv</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hBmp</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Освобождает ненужные ресурсы
-</span><br>
+<span class="S1">; Освобождает ненужные ресурсы</span><br>
 <a class="le" href="../libfunctions/_WinAPI_FreeMemory.htm"><span class="S15">_WinAPI_FreeMemory</span></a><span class="S8">(</span><span class="S9">$pData</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DeleteDC.htm"><span class="S15">_WinAPI_DeleteDC</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">)</span><br>
 <br>

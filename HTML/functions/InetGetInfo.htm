@@ -76,20 +76,17 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">250</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span></a><span class="S8">(</span><span class="S9">$hDownload</span><span class="S8">,</span> <span class="S9">$INET_DOWNLOADCOMPLETE</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить сведения о загружаемом файле.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить сведения о загружаемом файле.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aData</span> <span class="S8">=</span> <a class="le" href="../functions/InetGetInfo.htm"><span class="S4">InetGetInfo</span></a><span class="S8">(</span><span class="S9">$hDownload</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span>&nbsp;<span class="S1">; Если произошла ошибка – выйти из функции и удалить файл.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span>&nbsp;<span class="S1">; Если произошла ошибка – выйти из функции и удалить файл.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть дескриптор, возвращённый InetGet.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/InetClose.htm"><span class="S4">InetClose</span></a><span class="S8">(</span><span class="S9">$hDownload</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить сведения о загруженном файле.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить сведения о загруженном файле.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Bytes read: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADREAD</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Size: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADSIZE</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Complete: "</span> <span class="S8">&amp;</span> <span class="S9">$aData</span><span class="S8">[</span><span class="S9">$INET_DOWNLOADCOMPLETE</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>

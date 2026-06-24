@@ -41,26 +41,20 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем системную переменную окружения %PATH%.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем системную переменную окружения %PATH%.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sEnvVar</span> <span class="S8">=</span> <a class="le" href="../functions/EnvGet.htm"><span class="S4">EnvGet</span></a><span class="S8">(</span><span class="S7">"PATH"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присваиваем системной переменной %PATH% её текущее значение, дополненное каталогом скрипта.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При записи в переменную окружения знаки процента (%) указывать не нужно.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присваиваем системной переменной %PATH% её текущее значение, дополненное каталогом скрипта.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При записи в переменную окружения знаки процента (%) указывать не нужно.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/EnvSet.htm"><span class="S4">EnvSet</span></a><span class="S8">(</span><span class="S7">"PATH"</span><span class="S8">,</span> <span class="S9">$sEnvVar</span> <span class="S8">&amp;</span> <span class="S7">";"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обновляем переменные окружения ОС, чтобы изменения вступили в силу.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обновляем переменные окружения ОС, чтобы изменения вступили в силу.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/EnvUpdate.htm"><span class="S4">EnvUpdate</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Считываем переменную окружения, которой только что присвоили значение.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Считываем переменную окружения, которой только что присвоили значение.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sEnvVar</span> <span class="S8">=</span> <a class="le" href="../functions/EnvGet.htm"><span class="S4">EnvGet</span></a><span class="S8">(</span><span class="S7">"PATH"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим значение переменной окружения %PATH%.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим значение переменной окружения %PATH%.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The environment variable %PATH% has the value of: "</span> <span class="S8">&amp;</span> <span class="S9">$sEnvVar</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

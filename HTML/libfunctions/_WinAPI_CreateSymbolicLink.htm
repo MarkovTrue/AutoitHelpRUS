@@ -76,8 +76,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Включение привилегии "SeCreateSymbolicLinkPrivilege" для создания символических ссылок
-</span><br>
+<span class="S1">; Включение привилегии "SeCreateSymbolicLinkPrivilege" для создания символических ссылок</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToken</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_OpenProcessToken.htm"><span class="S15">_WinAPI_OpenProcessToken</span></a><span class="S8">(</span><a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$TOKEN_ADJUST_PRIVILEGES</span><span class="S8">,</span> <span class="S9">$TOKEN_QUERY</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aAdjust</span><br>
 <a class="le" href="../libfunctions/_WinAPI_AdjustTokenPrivileges.htm"><span class="S15">_WinAPI_AdjustTokenPrivileges</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">,</span> <span class="S9">$SE_CREATE_SYMBOLIC_LINK_NAME</span><span class="S8">,</span> <span class="S9">$SE_PRIVILEGE_ENABLED</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">)</span><br>
@@ -86,8 +85,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Создание файла
-</span><br>
+<span class="S1">; Создание файла</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_CreateSymbolicLink.htm"><span class="S15">_WinAPI_CreateSymbolicLink</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@DesktopDir"><span class="S6">@DesktopDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringRegExpReplace.htm"><span class="S4">StringRegExpReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a><span class="S8">,</span> <span class="S7">'^.*\\'</span><span class="S8">,</span> <span class="S7">'@'</span><span class="S8">)</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ShowLastError.htm"><span class="S15">_WinAPI_ShowLastError</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>

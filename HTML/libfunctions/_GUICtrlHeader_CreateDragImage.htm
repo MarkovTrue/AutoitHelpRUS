@@ -77,8 +77,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlHeader_AddItem.htm"><span class="S15">_GUICtrlHeader_AddItem</span></a><span class="S8">(</span><span class="S9">$hHeader</span><span class="S8">,</span> <span class="S7">"Column 2"</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlHeader_AddItem.htm"><span class="S15">_GUICtrlHeader_AddItem</span></a><span class="S8">(</span><span class="S9">$hHeader</span><span class="S8">,</span> <span class="S7">"Column 3"</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать изображение перетаскивания
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать изображение перетаскивания</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hImage</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlHeader_CreateDragImage.htm"><span class="S15">_GUICtrlHeader_CreateDragImage</span></a><span class="S8">(</span><span class="S9">$hHeader</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aSize</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIImageList_GetIconSize.htm"><span class="S15">_GUIImageList_GetIconSize</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDC.htm"><span class="S15">_WinAPI_GetDC</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span><br>
@@ -89,8 +88,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBoxStatus</span><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">; больше действий нет, ждём закрытия GUI</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$tPos</span><span class="S8">,</span> <span class="S9">$tRECT</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать изображение перетаскивания в позиции курсора до выхода пользователя
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать изображение перетаскивания в позиции курсора до выхода пользователя</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iMsg</span> <span class="S8">=</span> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_MOUSEMOVE</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>

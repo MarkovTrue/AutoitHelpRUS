@@ -122,8 +122,7 @@
 <br>
 <a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S7">'::{645FF040-5081-101B-9F08-00AA002F954E}'</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Удалить файл в Корзину
-</span><br>
+<span class="S1">; Удалить файл в Корзину</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/FileExists.htm"><span class="S4">FileExists</span></a><span class="S8">(</span><span class="S9">$sTemp</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ShellFileOperation.htm"><span class="S15">_WinAPI_ShellFileOperation</span></a><span class="S8">(</span><span class="S9">$sTemp</span><span class="S8">,</span> <span class="S7">''</span><span class="S8">,</span> <span class="S9">$FO_DELETE</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$FOF_ALLOWUNDO</span><span class="S8">,</span> <span class="S9">$FOF_NO_UI</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>

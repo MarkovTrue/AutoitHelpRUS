@@ -55,8 +55,7 @@
 <a class="le" href="../functions/FileWriteLine.htm"><span class="S4">FileWriteLine</span></a><span class="S8">(</span><span class="S9">$sTestAu3</span><span class="S8">,</span> <span class="S7">'$i = $i'</span><span class="S8">)</span><br>
 <a class="le" href="../functions/FileWriteLine.htm"><span class="S4">FileWriteLine</span></a><span class="S8">(</span><span class="S9">$sTestAu3</span><span class="S8">,</span> <span class="S7">'Next'</span><span class="S8">)</span><br>
 <br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$fFrequency</span> <span class="S8">=</span> <span class="S3">1.0</span> <span class="S8">/</span> <a class="le" href="../libfunctions/_WinAPI_QueryPerformanceFrequency.htm"><span class="S15">_WinAPI_QueryPerformanceFrequency</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">*</span> <span class="S3">4</span>&nbsp;<span class="S1">; 4 – количество ЦПУ, и скрипт запуска выполняется только на одном
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$fFrequency</span> <span class="S8">=</span> <span class="S3">1.0</span> <span class="S8">/</span> <a class="le" href="../libfunctions/_WinAPI_QueryPerformanceFrequency.htm"><span class="S15">_WinAPI_QueryPerformanceFrequency</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">*</span> <span class="S3">4</span>&nbsp;<span class="S1">; 4 – количество ЦПУ, и скрипт запуска выполняется только на одном</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPid</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@Compiled"><span class="S6">@Compiled</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
@@ -71,8 +70,7 @@
 <a class="le" href="../functions/ProcessClose.htm"><span class="S4">ProcessClose</span></a><span class="S8">(</span><span class="S9">$iPid</span><span class="S8">)</span><br>
 <a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sTestAu3</span><span class="S8">)</span><br>
 <br>
-<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_TOPMOST</span><span class="S8">,</span> <span class="S7">'Test TickCount'</span><span class="S8">,</span> <span class="S9">$nTickCount</span> <span class="S8">&amp;</span> <span class="S7">" msec"</span><span class="S8">)</span>&nbsp;<span class="S1">; не равно 2000, так как скрипт запуска не получает постоянное распределение ЦПУ
-</span><br>
+<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_TOPMOST</span><span class="S8">,</span> <span class="S7">'Test TickCount'</span><span class="S8">,</span> <span class="S9">$nTickCount</span> <span class="S8">&amp;</span> <span class="S7">" msec"</span><span class="S8">)</span>&nbsp;<span class="S1">; не равно 2000, так как скрипт запуска не получает постоянное распределение ЦПУ</span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\_WinAPI_QueryProcessCycleTime.au3,"></object>
 </body>

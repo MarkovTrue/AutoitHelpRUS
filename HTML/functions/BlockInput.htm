@@ -77,37 +77,28 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить элемент управления, имеющий фокус клавиатуры в Блокноте.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить элемент управления, имеющий фокус клавиатуры в Блокноте.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sEditControl</span> <span class="S8">=</span> <a class="le" href="../functions/ControlGetFocus.htm"><span class="S4">ControlGetFocus</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отключить пользовательский ввод с мыши и клавиатуры.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отключить пользовательский ввод с мыши и клавиатуры.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/BlockInput.htm"><span class="S4">BlockInput</span></a><span class="S8">(</span><span class="S9">$BI_DISABLE</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; набор с клавиатуры не даёт эффекта
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; набор с клавиатуры не даёт эффекта</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пауза 2 секунды.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправить клавишу 'F5' в поле ввода Блокнота для отображения даты и времени.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Дескриптор, возвращённый WinWait, используется в параметре "title" функции ControlSend.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ControlSend отработает даже при активном BlockInput()
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправить клавишу 'F5' в поле ввода Блокнота для отображения даты и времени.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Дескриптор, возвращённый WinWait, используется в параметре "title" функции ControlSend.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ControlSend отработает даже при активном BlockInput()</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ControlSend.htm"><span class="S4">ControlSend</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sEditControl</span><span class="S8">,</span> <span class="S7">"{F5}"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Включить пользовательский ввод с мыши и клавиатуры.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Включить пользовательский ввод с мыши и клавиатуры.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/BlockInput.htm"><span class="S4">BlockInput</span></a><span class="S8">(</span><span class="S9">$BI_ENABLE</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; набор с клавиатуры работает
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; набор с клавиатуры работает</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать 2 секунды для проверки, что ввод включён
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать 2 секунды для проверки, что ввод включён</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">4000</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_NotepadForceClose</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>

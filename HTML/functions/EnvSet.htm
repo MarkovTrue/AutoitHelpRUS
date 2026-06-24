@@ -53,16 +53,13 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создание переменной окружения %MYVAR% и присваивание ей значения. При присваивании и получении имя переменной указывается без знаков процента (%).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создание переменной окружения %MYVAR% и присваивание ей значения. При присваивании и получении имя переменной указывается без знаков процента (%).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/EnvSet.htm"><span class="S4">EnvSet</span></a><span class="S8">(</span><span class="S7">"MYVAR"</span><span class="S8">,</span> <span class="S7">"This is some text!"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получение значения ранее созданной переменной окружения.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получение значения ранее созданной переменной окружения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sEnvVar</span> <span class="S8">=</span> <a class="le" href="../functions/EnvGet.htm"><span class="S4">EnvGet</span></a><span class="S8">(</span><span class="S7">"MYVAR"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображение значения переменной окружения %MYVAR%.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображение значения переменной окружения %MYVAR%.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The environment variable %MYVAR% has the value of: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sEnvVar</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

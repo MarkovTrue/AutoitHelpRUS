@@ -113,8 +113,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$a_hPic</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$a_idPic</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <br>
-<span class="S1">; Создать растр1
-</span><br>
+<span class="S1">; Создать растр1</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDC.htm"><span class="S15">_WinAPI_GetDC</span></a><span class="S8">(</span><span class="S9">$a_hPic</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDestDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleDC.htm"><span class="S15">_WinAPI_CreateCompatibleDC</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">)</span><br>
 <span class="S9">$a_hBitmap</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleBitMapEx.htm"><span class="S15">_WinAPI_CreateCompatibleBitmapEx</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">0xFF00FF</span><span class="S8">)</span><br>
@@ -130,8 +129,7 @@
 <a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hDestDC</span><span class="S8">,</span> <span class="S9">$hDestSv</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DeleteDC.htm"><span class="S15">_WinAPI_DeleteDC</span></a><span class="S8">(</span><span class="S9">$hDestDC</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создать растр2
-</span><br>
+<span class="S1">; Создать растр2</span><br>
 <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDC.htm"><span class="S15">_WinAPI_GetDC</span></a><span class="S8">(</span><span class="S9">$a_hPic</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
 <span class="S9">$hDestDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleDC.htm"><span class="S15">_WinAPI_CreateCompatibleDC</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">)</span><br>
 <span class="S9">$a_hBitmap</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleBitMapEx.htm"><span class="S15">_WinAPI_CreateCompatibleBitmapEx</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_SwitchColor.htm"><span class="S15">_WinAPI_SwitchColor</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_3DFACE</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>

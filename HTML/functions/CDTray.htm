@@ -57,20 +57,17 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;AutoItConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Получить список всех CD-приводов
-</span><br>
+<span class="S1">; Получить список всех CD-приводов</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aCDRom</span> <span class="S8">=</span> <a class="le" href="../functions/DriveGetDrive.htm"><span class="S4">DriveGetDrive</span></a><span class="S8">(</span><span class="S9">$DT_CDROM</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"No CDRom found."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Открыть лоток CD первого привода
-</span><br>
+<span class="S1">; Открыть лоток CD первого привода</span><br>
 <a class="le" href="../functions/CDTray.htm"><span class="S4">CDTray</span></a><span class="S8">(</span><span class="S9">$aCDRom</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$CDTRAY_OPEN</span><span class="S8">)</span><br>
 <a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
-<a class="le" href="../functions/CDTray.htm"><span class="S4">CDTray</span></a><span class="S8">(</span><span class="S9">$aCDRom</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$CDTRAY_CLOSED</span><span class="S8">)</span>&nbsp;<span class="S1">; не работает для ноутбучных лотков, которые можно закрыть только вручную.
-</span><br>
+<a class="le" href="../functions/CDTray.htm"><span class="S4">CDTray</span></a><span class="S8">(</span><span class="S9">$aCDRom</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$CDTRAY_CLOSED</span><span class="S8">)</span>&nbsp;<span class="S1">; не работает для ноутбучных лотков, которые можно закрыть только вручную.</span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\CDTray.au3,"></object>
 </body>

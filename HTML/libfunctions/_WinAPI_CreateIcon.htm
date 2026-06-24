@@ -145,20 +145,17 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'00 00 00 00'</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'00 00 00 00'</span><br>
 <br>
-<span class="S1">; Создать структуру AND-bitmask
-</span><br>
+<span class="S1">; Создать структуру AND-bitmask</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$bData</span> <span class="S8">=</span> <a class="le" href="../functions/Binary.htm"><span class="S4">Binary</span></a><span class="S8">(</span><span class="S7">'0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringStripWS.htm"><span class="S4">StringStripWS</span></a><span class="S8">(</span><span class="S9">$sANDBits</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tANDBits</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">'byte['</span> <span class="S8">&amp;</span> <a class="le" href="../functions/BinaryLen.htm"><span class="S4">BinaryLen</span></a><span class="S8">(</span><span class="S9">$bData</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">']'</span><span class="S8">)</span><br>
 <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tANDBits</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$bData</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создать структуру XOR-bitmask
-</span><br>
+<span class="S1">; Создать структуру XOR-bitmask</span><br>
 <span class="S9">$bData</span> <span class="S8">=</span> <a class="le" href="../functions/Binary.htm"><span class="S4">Binary</span></a><span class="S8">(</span><span class="S7">'0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringStripWS.htm"><span class="S4">StringStripWS</span></a><span class="S8">(</span><span class="S9">$sXORBits</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tXORBits</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">'byte['</span> <span class="S8">&amp;</span> <a class="le" href="../functions/BinaryLen.htm"><span class="S4">BinaryLen</span></a><span class="S8">(</span><span class="S9">$bData</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">']'</span><span class="S8">)</span><br>
 <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tXORBits</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$bData</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создать монохромную иконку (32x32)
-</span><br>
+<span class="S1">; Создать монохромную иконку (32x32)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIcon</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateIcon.htm"><span class="S15">_WinAPI_CreateIcon</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$tANDBits</span><span class="S8">,</span> <span class="S9">$tXORBits</span><span class="S8">)</span><br>
 <br>
 <span class="S1">; Создать GUI</span><br>

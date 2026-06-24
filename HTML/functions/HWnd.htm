@@ -54,17 +54,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Преобразовать дескриптор в строку.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Преобразовать дескриптор в строку.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sHWnd</span> <span class="S8">=</span> <a class="le" href="../functions/String.htm"><span class="S4">String</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Свернуть окно Блокнота и подождать 2 секунды.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Свернуть окно Блокнота и подождать 2 секунды.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetState.htm"><span class="S4">WinSetState</span></a><span class="S8">(</span><a class="le" href="../functions/HWnd.htm"><span class="S4">HWnd</span></a><span class="S8">(</span><span class="S9">$sHWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <a class="le" href="../macros.htm#@SW_MINIMIZE"><span class="S6">@SW_MINIMIZE</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Восстановить окно Блокнота и подождать 2 секунды.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Восстановить окно Блокнота и подождать 2 секунды.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetState.htm"><span class="S4">WinSetState</span></a><span class="S8">(</span><a class="le" href="../functions/HWnd.htm"><span class="S4">HWnd</span></a><span class="S8">(</span><span class="S9">$sHWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <a class="le" href="../macros.htm#@SW_RESTORE"><span class="S6">@SW_RESTORE</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>

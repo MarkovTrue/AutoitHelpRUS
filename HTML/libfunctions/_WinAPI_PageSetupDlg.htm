@@ -59,8 +59,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Memory.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIDlg.au3&gt;</span><br>
 <br>
-<span class="S1">; Создать структуру PAGESETUPDLG и установить начальные значения полей для 10.00 мм со всех сторон
-</span><br>
+<span class="S1">; Создать структуру PAGESETUPDLG и установить начальные значения полей для 10.00 мм со всех сторон</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tPAGESETUPDLG</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagPAGESETUPDLG</span><span class="S8">)</span><br>
 <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPAGESETUPDLG</span><span class="S8">,</span> <span class="S7">'Size'</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tPAGESETUPDLG</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPAGESETUPDLG</span><span class="S8">,</span> <span class="S7">'Flags'</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$PSD_INHUNDREDTHSOFMILLIMETERS</span><span class="S8">,</span> <span class="S9">$PSD_MARGINS</span><span class="S8">)</span><span class="S8">)</span><br>
@@ -69,8 +68,7 @@
 <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPAGESETUPDLG</span><span class="S8">,</span> <span class="S7">'MarginRight'</span><span class="S8">,</span> <span class="S3">10</span> <span class="S8">*</span> <span class="S3">100</span><span class="S8">)</span><br>
 <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPAGESETUPDLG</span><span class="S8">,</span> <span class="S7">'MarginBottom'</span><span class="S8">,</span> <span class="S3">10</span> <span class="S8">*</span> <span class="S3">100</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создать диалоговое окно параметров страницы
-</span><br>
+<span class="S1">; Создать диалоговое окно параметров страницы</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_PageSetupDlg.htm"><span class="S15">_WinAPI_PageSetupDlg</span></a><span class="S8">(</span><span class="S9">$tPAGESETUPDLG</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>

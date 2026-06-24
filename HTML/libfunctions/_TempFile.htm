@@ -48,12 +48,10 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;File.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Генерировать уникальное имя файла в @TempDir
-</span><br>
+<span class="S1">; Генерировать уникальное имя файла в @TempDir</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sTempFile_1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_TempFile.htm"><span class="S15">_TempFile</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Генерировать уникальное имя файла в каталоге @HomeDrive, начинающееся с префикса prefix_
-</span><br>
+<span class="S1">; Генерировать уникальное имя файла в каталоге @HomeDrive, начинающееся с префикса prefix_</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sTempFile_2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_TempFile.htm"><span class="S15">_TempFile</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@HomeDrive"><span class="S6">@HomeDrive</span></a> <span class="S8">&amp;</span> <span class="S7">"\"</span><span class="S8">,</span> <span class="S7">"prefix_"</span><span class="S8">,</span> <span class="S7">".txt"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">)</span>&nbsp;<span class="S1">; Использовать ключевое слово Default для применения параметров по умолчанию</span><br>
 <br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Names suitable for temporary file usage: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>

@@ -62,16 +62,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">100</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить GDIPlus.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Запустить GDIPlus.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGraphic</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать сплошную кисть</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBrush1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BrushCreateSolid.htm"><span class="S15">_GDIPlus_BrushCreateSolid</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить цвет сплошной кисти.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить цвет сплошной кисти.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iClr1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BrushGetSolidColor.htm"><span class="S15">_GDIPlus_BrushGetSolidColor</span></a><span class="S8">(</span><span class="S9">$hBrush1</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нарисовать что-то исходным цветом кисти</span><br>
@@ -80,19 +78,16 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить новый цвет кисти (0xFFFF0000 = красный)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BrushSetSolidColor.htm"><span class="S15">_GDIPlus_BrushSetSolidColor</span></a><span class="S8">(</span><span class="S9">$hBrush1</span><span class="S8">,</span> <span class="S3">0xFFFF0000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить новый цвет сплошной кисти.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить новый цвет сплошной кисти.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iClr2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BrushGetSolidColor.htm"><span class="S15">_GDIPlus_BrushGetSolidColor</span></a><span class="S8">(</span><span class="S9">$hBrush1</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нарисовать что-то новым цветом кисти</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillRect.htm"><span class="S15">_GDIPlus_GraphicsFillRect</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S3">220</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S9">$hBrush1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать исходный цвет кисти в Label1.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать исходный цвет кисти в Label1.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idLabel1</span><span class="S8">,</span> <span class="S7">"Brush orignal color: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><span class="S9">$iClr1</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать новый цвет кисти в Label2.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать новый цвет кисти в Label2.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idLabel2</span><span class="S8">,</span> <span class="S7">"Brush new color: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><span class="S9">$iClr2</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>

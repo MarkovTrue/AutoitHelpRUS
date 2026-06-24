@@ -60,13 +60,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить идентификатор потока и через переменную $iPID записать PID.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить идентификатор потока и через переменную $iPID записать PID.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPID</span> <span class="S8">=</span> <span class="S3">0</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iThread</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetWindowThreadProcessId.htm"><span class="S15">_WinAPI_GetWindowThreadProcessId</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iPID</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать поток процесса и PID окна Notepad.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать поток процесса и PID окна Notepad.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">''</span><span class="S8">,</span> <span class="S7">"Process thread: "</span> <span class="S8">&amp;</span> <span class="S9">$iThread</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Process ID (PID): "</span> <span class="S8">&amp;</span> <span class="S9">$iPID</span><span class="S8">)</span><br>
 <br>

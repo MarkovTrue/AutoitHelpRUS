@@ -105,8 +105,7 @@
 
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Создать кнопку с пользовательской отрисовкой/цветом
-</span><br>
+<span class="S1">; Создать кнопку с пользовательской отрисовкой/цветом</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;ButtonConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FrameConstants.au3&gt;</span><br>
@@ -129,15 +128,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Ownerdrawn Created Button"</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">90</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetStyle.htm"><span class="S4">GUICtrlSetStyle</span></a><span class="S8">(</span><span class="S9">$idButton</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_TABSTOP</span><span class="S8">,</span> <span class="S9">$BS_NOTIFY</span><span class="S8">,</span> <span class="S9">$BS_OWNERDRAW</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить флаг пользовательской отрисовки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetStyle.htm"><span class="S4">GUICtrlSetStyle</span></a><span class="S8">(</span><span class="S9">$idButton</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_TABSTOP</span><span class="S8">,</span> <span class="S9">$BS_NOTIFY</span><span class="S8">,</span> <span class="S9">$BS_OWNERDRAW</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить флаг пользовательской отрисовки</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton2</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Normal Button"</span><span class="S8">,</span> <span class="S3">90</span><span class="S8">,</span> <span class="S3">110</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><span class="S9">$WM_COMMAND</span><span class="S8">,</span> <span class="S7">"WM_COMMAND"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; WM_DRAWITEM необходимо зарегистрировать до отображения GUI, иначе начальная отрисовка не выполнится
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; WM_DRAWITEM необходимо зарегистрировать до отображения GUI, иначе начальная отрисовка не выполнится</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><span class="S9">$WM_DRAWITEM</span><span class="S8">,</span> <span class="S7">"WM_DRAWITEM"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
@@ -171,12 +168,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iId</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_LoWord.htm"><span class="S15">_WinAPI_LoWord</span></a><span class="S8">(</span><span class="S9">$wParam</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hCtrl</span> <span class="S8">=</span> <span class="S9">$lParam</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iId</span> <span class="S8">&lt;&gt;</span> <span class="S3">2</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S9">$nNotifyCode</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Проверить IDCANCEL - 2
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Кнопки с пользовательской отрисовкой не отправляют сообщение при нажатии ENTER
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Поэтому при IDOK - 1 проверяем, какой элемент управления имеет фокус
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iId</span> <span class="S8">&lt;&gt;</span> <span class="S3">2</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S9">$nNotifyCode</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Проверить IDCANCEL - 2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Кнопки с пользовательской отрисовкой не отправляют сообщение при нажатии ENTER</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Поэтому при IDOK - 1 проверяем, какой элемент управления имеет фокус</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iId</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hFocus</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetFocus.htm"><span class="S15">_WinAPI_GetFocus</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idControl</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDlgCtrlID.htm"><span class="S15">_WinAPI_GetDlgCtrlID</span></a><span class="S8">(</span><span class="S9">$hFocus</span><span class="S8">)</span><br>
@@ -195,20 +189,15 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; Работает только при клике по кнопке</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При выходе будет запущен стандартный внутренний обработчик AutoIt3
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Он также запускается, если "Return" возвращает $GUI_RUNDEFMSG, как ниже
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Использование "Return" с любым другим значением (или без значения) означает, что обработчик AutoIt
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; не будет запущен
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При выходе будет запущен стандартный внутренний обработчик AutoIt3</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Он также запускается, если "Return" возвращает $GUI_RUNDEFMSG, как ниже</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Использование "Return" с любым другим значением (или без значения) означает, что обработчик AutoIt</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; не будет запущен</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;WM_COMMAND
 </span><br>
 <br>
-<span class="S1">; Повторно отправить сообщение WM_COMMAND элементу управления в окне GUI
-</span><br>
+<span class="S1">; Повторно отправить сообщение WM_COMMAND элементу управления в окне GUI</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">PostButtonClick</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$idControl</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">(</span><span class="S7">"user32.dll"</span><span class="S8">,</span> <span class="S7">"int"</span><span class="S8">,</span> <span class="S7">"PostMessage"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"hwnd"</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S8">_</span><br>
@@ -218,8 +207,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;PostButtonClick
 </span><br>
 <br>
-<span class="S1">; Нарисовать кнопку
-</span><br>
+<span class="S1">; Нарисовать кнопку</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">WM_DRAWITEM</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagDRAWITEMSTRUCT</span> <span class="S8">=</span> <span class="S7">"uint;uint;uint;uint;uint;hwnd;handle;long[4];ulong_ptr"</span><br>
@@ -247,13 +235,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tDrawItem</span> <span class="S8">=</span> <span class="S3">0</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span>&nbsp;<span class="S1">; Запустить стандартный внутренний обработчик сообщений AutoIt
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span>&nbsp;<span class="S1">; Запустить стандартный внутренний обработчик сообщений AutoIt</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;WM_DRAWITEM
 </span><br>
 <br>
-<span class="S1">; Основная процедура отрисовки
-</span><br>
+<span class="S1">; Основная процедура отрисовки</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">DrawButton</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$hCtrl</span><span class="S8">,</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iLeft</span><span class="S8">,</span> <span class="S9">$iTop</span><span class="S8">,</span> <span class="S9">$iRight</span><span class="S8">,</span> <span class="S9">$iBottom</span><span class="S8">,</span> <span class="S9">$nItemState</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$nTextColor</span><span class="S8">,</span> <span class="S9">$nBackColor</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$hWnd</span><br>
 <br>

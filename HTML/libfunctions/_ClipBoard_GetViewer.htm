@@ -82,8 +82,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать, что сообщение получено</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"***** $WM_CHANGECBCHAIN *****"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если следующее окно закрывается – восстановить цепочку
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если следующее окно закрывается – восстановить цепочку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$wParam</span> <span class="S8">=</span> <span class="S9">$g_hNext</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hNext</span> <span class="S8">=</span> <span class="S9">$lParam</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Иначе передать сообщение следующему просмотрщику</span><br>

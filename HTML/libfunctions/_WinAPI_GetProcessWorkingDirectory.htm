@@ -61,8 +61,7 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToken</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_OpenProcessToken.htm"><span class="S15">_WinAPI_OpenProcessToken</span></a><span class="S8">(</span><a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$TOKEN_ADJUST_PRIVILEGES</span><span class="S8">,</span> <span class="S9">$TOKEN_QUERY</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_WinAPI_AdjustTokenPrivileges.htm"><span class="S15">_WinAPI_AdjustTokenPrivileges</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">,</span> <span class="S9">$SE_DEBUG_NAME</span><span class="S8">,</span> <span class="S9">$SE_PRIVILEGE_ENABLED</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Получить рабочие каталоги для всех процессов системы
-</span><br>
+<span class="S1">; Получить рабочие каталоги для всех процессов системы</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S8">(</span><a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aList</span> <span class="S8">=</span> <a class="le" href="../functions/ProcessList.htm"><span class="S4">ProcessList</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$aList</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
@@ -70,8 +69,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Восстановить значения по умолчанию для привилегии "SeDebugPrivilege"
-</span><br>
+<span class="S1">; Восстановить значения по умолчанию для привилегии "SeDebugPrivilege"</span><br>
 <a class="le" href="../libfunctions/_WinAPI_AdjustTokenPrivileges.htm"><span class="S15">_WinAPI_AdjustTokenPrivileges</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">)</span><br>
 <br>

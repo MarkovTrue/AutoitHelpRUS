@@ -58,12 +58,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hMenu</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMenu_GetSystemMenu.htm"><span class="S15">_GUICtrlMenu_GetSystemMenu</span></a><span class="S8">(</span><span class="S9">$g_hWnd</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Работа с системным меню
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Работа с системным меню</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlMenu_InsertMenuItem.htm"><span class="S15">_GUICtrlMenu_InsertMenuItem</span></a><span class="S8">(</span><span class="S9">$hMenu</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S7">"&amp;AutoIt"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить системное меню
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить системное меню</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iCount</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMenu_GetItemCount.htm"><span class="S15">_GUICtrlMenu_GetItemCount</span></a><span class="S8">(</span><span class="S9">$hMenu</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Writeln</span><span class="S8">(</span><span class="S7">"System menu handle: 0x"</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><span class="S9">$hMenu</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Writeln</span><span class="S8">(</span><span class="S7">"Item count .......: "</span> <span class="S8">&amp;</span> <span class="S9">$iCount</span><span class="S8">)</span><br>

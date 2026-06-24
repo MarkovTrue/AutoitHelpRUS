@@ -63,26 +63,21 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more 
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Пример получения объекта по имени класса.
-</span><br>
-<span class="S1">; ; Для успешного выполнения примера Excel должен быть запущен.
-</span><br>
+<span class="S1">; Пример получения объекта по имени класса.</span><br>
+<span class="S1">; ; Для успешного выполнения примера Excel должен быть запущен.</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../functions/ObjGet.htm"><span class="S4">ObjGet</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S7">"Excel.Application"</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить существующий объект Excel.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../functions/ObjGet.htm"><span class="S4">ObjGet</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S7">"Excel.Application"</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить существующий объект Excel.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Excel File Test"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Error Getting an active Excel Object. Error code: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oExcel</span>.<span class="Scom">Visible</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Сделать Excel видимым.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oExcel</span>.<span class="Scom">workbooks</span>.<span class="Scom">add</span>&nbsp;<span class="S1">; Добавить новую книгу.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oExcel</span>.<span class="Scom">Visible</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Сделать Excel видимым.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oExcel</span>.<span class="Scom">workbooks</span>.<span class="Scom">add</span>&nbsp;<span class="S1">; Добавить новую книгу.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>
@@ -91,12 +86,9 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more 
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Пример получения объекта по имени файла.
-</span><br>
-<span class="S1">; ; В каталоге скрипта должен существовать файл Worksheet.xls.
-</span><br>
-<span class="S1">; Это необходимо для работы примера.
-</span><br>
+<span class="S1">; Пример получения объекта по имени файла.</span><br>
+<span class="S1">; ; В каталоге скрипта должен существовать файл Worksheet.xls.</span><br>
+<span class="S1">; Это необходимо для работы примера.</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
@@ -110,20 +102,15 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcelDoc</span> <span class="S8">=</span> <a class="le" href="../functions/ObjGet.htm"><span class="S4">ObjGet</span></a><span class="S8">(</span><span class="S9">$sFileName</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить объект Excel из существующего файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcelDoc</span> <span class="S8">=</span> <a class="le" href="../functions/ObjGet.htm"><span class="S4">ObjGet</span></a><span class="S8">(</span><span class="S9">$sFileName</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить объект Excel из существующего файла.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/IsObj.htm"><span class="S4">IsObj</span></a><span class="S8">(</span><span class="S9">$oExcelDoc</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Совет: раскомментируйте эти строки, чтобы сделать Excel видимым (авт.: DaleHohm).
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $oExcelDoc.Windows(1).Visible = 1; Отобразить первый лист книги.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $oExcelDoc.Application.Visible = 1; Отобразить приложение (без этого Excel завершится).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Совет: раскомментируйте эти строки, чтобы сделать Excel видимым (авт.: DaleHohm).</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $oExcelDoc.Windows(1).Visible = 1; Отобразить первый лист книги.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $oExcelDoc.Application.Visible = 1; Отобразить приложение (без этого Excel завершится).</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">""</span>&nbsp;<span class="S1">; Строка для вывода.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">""</span>&nbsp;<span class="S1">; Строка для вывода.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$oProperty</span> <a class="le" href="../keywords/ForInNext.htm"><span class="S5">In</span></a> <span class="S9">$oExcelDoc</span>.<span class="Scom">BuiltinDocumentProperties</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sString</span> <span class="S8">&amp;=</span> <span class="S9">$oProperty</span>.<span class="Scom">Name</span> <span class="S8">&amp;</span> <span class="S7">":"</span> <span class="S8">&amp;</span> <span class="S9">$oProperty</span>.<span class="Scom">Value</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
@@ -131,8 +118,7 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more 
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Excel File Test:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"The document properties of "</span> <span class="S8">&amp;</span> <span class="S9">$sFileName</span> <span class="S8">&amp;</span> <span class="S7">" are:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sString</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oExcelDoc</span>.<span class="Scom">Close</span>&nbsp;<span class="S1">; Закрыть документ Excel.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oExcelDoc</span>.<span class="Scom">Close</span>&nbsp;<span class="S1">; Закрыть документ Excel.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Excel File Test"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Error: Could not open "</span> <span class="S8">&amp;</span> <span class="S9">$sFileName</span> <span class="S8">&amp;</span> <span class="S7">" as an Excel Object."</span><span class="S8">)</span><br>

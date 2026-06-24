@@ -71,8 +71,7 @@
 <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить расширенный метафайл (.emf) и получить его размер (x6)
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить расширенный метафайл (.emf) и получить его размер (x6)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sEmf</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">'Flag.emf'</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hEmf</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetEnhMetaFile.htm"><span class="S15">_WinAPI_GetEnhMetaFile</span></a><span class="S8">(</span><span class="S9">$sEmf</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tSIZE</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetEnhMetaFileDimension.htm"><span class="S15">_WinAPI_GetEnhMetaFileDimension</span></a><span class="S8">(</span><span class="S9">$hEmf</span><span class="S8">)</span><br>
@@ -85,8 +84,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idPic</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreatePic.htm"><span class="S4">GUICtrlCreatePic</span></a><span class="S8">(</span><span class="S7">''</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hPic</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idPic</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать растровое изображение из расширенного метафайла
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать растровое изображение из расширенного метафайла</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDC.htm"><span class="S15">_WinAPI_GetDC</span></a><span class="S8">(</span><span class="S9">$hPic</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMemDC</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleDC.htm"><span class="S15">_WinAPI_CreateCompatibleDC</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateCompatibleBitMapEx.htm"><span class="S15">_WinAPI_CreateCompatibleBitmapEx</span></a><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_SwitchColor.htm"><span class="S15">_WinAPI_SwitchColor</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetSysColor.htm"><span class="S15">_WinAPI_GetSysColor</span></a><span class="S8">(</span><span class="S9">$COLOR_3DFACE</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
@@ -98,8 +96,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SelectObject.htm"><span class="S15">_WinAPI_SelectObject</span></a><span class="S8">(</span><span class="S9">$hMemDC</span><span class="S8">,</span> <span class="S9">$hMemSv</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteDC.htm"><span class="S15">_WinAPI_DeleteDC</span></a><span class="S8">(</span><span class="S9">$hMemDC</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Освободить расширенный метафайл
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Освободить расширенный метафайл</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteEnhMetaFile.htm"><span class="S15">_WinAPI_DeleteEnhMetaFile</span></a><span class="S8">(</span><span class="S9">$hEmf</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить bitmap для элемента управления</span><br>
