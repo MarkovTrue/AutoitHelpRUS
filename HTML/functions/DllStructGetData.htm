@@ -43,11 +43,11 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – структура не является допустимой структурой, возвращённой <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.<br />
-2 – элемент выходит за пределы диапазона или неизвестен.<br />
-3 – индекс выходит за пределы диапазона.<br />
-4 – неизвестный тип данных элемента<br />
-5 – индекс &lt;= 0.</td>
+<td>1 – структура не является допустимой структурой, возвращённой <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.<br>
+2&nbsp;– элемент выходит за пределы диапазона или неизвестен.<br>
+3&nbsp;– индекс выходит за пределы диапазона.<br>
+4&nbsp;– неизвестный тип данных элемента.<br>
+5&nbsp;– индекс &lt;= 0.</td>
 </tr>
 </table>
 
@@ -68,10 +68,8 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs Comments:
-</span><span class="S2"></span><br>
-<span class="S2">		Создание следующей структуры (язык C):
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs Примечания:</span><span class="S2"></span><br>
+<span class="S2">		Создать следующую структуру (на C):</span><br>
 <span class="S2">		struct {
 </span><br>
 <span class="S2">			int var1;
@@ -86,8 +84,7 @@
 </span><br>
 <span class="S2">
 </span><br>
-<span class="S2">		Схема:
-</span><br>
+<span class="S2">		Схема:</span><br>
 <span class="S2">		------------------------------------
 </span><br>
 <span class="S2">		\ int    \ byte   \ uint   \ char   \
@@ -96,8 +93,7 @@
 </span><br>
 <span class="S2">		  ------------------------------------
 </span><br>
-<span class="S2">	#ce Comments:
-</span><br>
+<span class="S2">	#ce Примечания:</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной константе определение структуры (внимательно читайте примечания DllStructCreate).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagSTRUCT1</span> <span class="S8">=</span> <span class="S7">"struct;int var1;byte var2;uint var3;char var4[128];endstruct"</span><br>
@@ -107,7 +103,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной структуру.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tSTRUCT1</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagSTRUCT1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Error in DllStructCreate, Code: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
