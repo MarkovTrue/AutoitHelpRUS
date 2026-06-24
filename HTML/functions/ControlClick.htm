@@ -38,11 +38,11 @@
 </tr>
 <tr>
 <td>x</td>
-<td><strong>[необязательный]</strong> Координата x клика внутри элемента управления. По умолчанию – центр.</td>
+<td><strong>[необязательный]</strong> X координата клика внутри элемента управления. По умолчанию центр.</td>
 </tr>
 <tr>
 <td>y</td>
-<td><strong>[необязательный]</strong> Координата y клика внутри элемента управления. По умолчанию – центр.</td>
+<td><strong>[необязательный]</strong> Y координата клика внутри элемента управления. По умолчанию центр.</td>
 </tr>
 </table>
 
@@ -60,9 +60,9 @@
 
 <h2>Примечания</h2>
 <p>Некоторые элементы управления не реагируют на клик, пока их окно не активно. Используйте <a href="WinActivate.htm"><span class="S4">WinActivate</span><span class="S8">()</span></a>, чтобы вывести окно элемента на передний план перед вызовом <a href="ControlClick.htm"><span class="S4">ControlClick</span><span class="S8">()</span></a>.<br />
-Указание 2 в количестве кликов отправит элементу сообщение о двойном клике – это можно использовать даже для запуска программ из explorer-элемента!<br />
+Указание 2 в количестве кликов отправит элементу сообщение о двойном клике, это можно использовать даже для запуска программ из explorer-элемента!<br />
 <br />
-Если пользователь поменял местами левую и правую кнопки мыши в панели управления, поведение кнопок изменится. "Left" и "right" всегда нажимают именно эти кнопки, независимо от их подмены. "Primary" или "main" – основной клик независимо от подмены. "Secondary" или "menu" обычно вызывают контекстное меню, независимо от подмены.<br />
+Если пользователь поменял местами левую и правую кнопки мыши в панели управления, поведение кнопок изменится. "Left" и "Right" всегда нажимают именно эти кнопки, независимо от их подмены. "Primary" или "Main" основной клик независимо от подмены. "Secondary" или "Menu" обычно вызывают контекстное меню, независимо от подмены.<br />
 <br />
 <table>
 <tr class="header">
@@ -137,8 +137,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправить клик мыши в edit-элемент Блокнота, используя дескриптор, возвращённый WinWait.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправить клик мыши в edit-элемент Блокнота, используя дескриптор, возвращённый WinWait.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ControlClick.htm"><span class="S4">ControlClick</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <a class="le" href="../functions/ControlGetFocus.htm"><span class="S4">ControlGetFocus</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пауза 2 секунды.</span><br>
