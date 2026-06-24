@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td style="width:15%">Filename</td>
-<td style="width:85%">Путь к удаляемому файлу (или файлам). Допускаются символы подстановки * и ? – см. раздел Примечания.</td>
+<td style="width:85%">Путь к удаляемому файлу или файлам. Допускаются символы подстановки <strong>*</strong> и <strong>?</strong> – см. раздел Примечания.</td>
 </tr>
 </table>
 
@@ -30,7 +30,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>0, если файлы не удалось удалить или они не существуют.</td>
+<td>Возвращает 0, если файлы не удалось удалить или они не существуют.</td>
 </tr>
 </table>
 
@@ -69,8 +69,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить временный файл.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iDelete</span> <span class="S8">=</span> <a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим сообщение о результате удаления файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим сообщение о результате удаления файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iDelete</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The file was successfuly deleted."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
