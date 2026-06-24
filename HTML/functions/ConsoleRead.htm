@@ -39,10 +39,10 @@
 </table>
 
 <h2>Примечания</h2>
-<p><a href="ConsoleRead.htm"><span class="S4">ConsoleRead</span><span class="S8">()</span></a> читает из стандартного потока ввода консоли процесса AutoIt-скрипта. Обычно этот поток используется консольными приложениями для чтения ввода от родительского процесса.<br />
-<a href="ConsoleRead.htm"><span class="S4">ConsoleRead</span><span class="S8">()</span></a> не блокирует выполнение и возвращает управление сразу. Чтобы получить все данные, функцию необходимо вызывать в цикле.<br />
-Режим <em>peek</em> не удаляет данные из буфера, но возвращает доступные данные как обычно.<br />
-По умолчанию данные возвращаются в текстовом формате. При использовании бинарной опции данные возвращаются в двоичном формате.<br />
+<p><a href="ConsoleRead.htm"><span class="S4">ConsoleRead</span><span class="S8">()</span></a> читает из стандартного потока ввода консоли процесса AutoIt-скрипта. Обычно этот поток используется консольными приложениями для чтения ввода от родительского процесса.<br>
+<a href="ConsoleRead.htm"><span class="S4">ConsoleRead</span><span class="S8">()</span></a> не блокирует выполнение и возвращает управление сразу. Чтобы получить все данные, функцию необходимо вызывать в цикле.<br>
+Режим <em>peek</em> не удаляет данные из буфера, но возвращает доступные данные как обычно.<br>
+По умолчанию данные возвращаются в текстовом формате. При использовании бинарной опции данные возвращаются в двоичном формате.<br>
 </p>
 <h2>См. также</h2>
 <p><a href="ConsoleWrite.htm">ConsoleWrite</a>, <a href="ConsoleWriteError.htm">ConsoleWriteError</a>, <a href="Run.htm">Run</a></p>
@@ -55,23 +55,17 @@
 <br>
 <span class="S2">#cs
 </span><span class="S2"></span><br>
-<span class="S2">	Compile this script to "ConsoleRead.exe".
-</span><br>
-<span class="S2">	Open a command prompt to the directory where ConsoleRead.exe resides.
-</span><br>
-<span class="S2">	Введите в командной строке:
-</span><br>
-<span class="S2">	Скомпилируйте этот скрипт в "ConsoleRead.exe".
+<span class="S2">	Скомпилировать этот скрипт в "ConsoleRead.exe".</span><br>
+<span class="S2">	Открыть командную строку в каталоге, где лежит ConsoleRead.exe.</span><br>
+<span class="S2">	Введите следующее в командной строке:</span><br>
+<span class="S2">	echo Hello! | ConsoleRead.exe
 </span><br>
 <span class="S2">
 </span><br>
-<span class="S2">	При выполнении в консольном окне эта команда выводит текст "Hello!",
-</span><br>
-<span class="S2">	но вместо его отображения символ | перенаправляет его в поток STDIN
-</span><br>
-<span class="S2">	процесса ConsoleRead.exe.
-</span><br>
-<span class="S2">	Откройте командную строку в каталоге, где находится ConsoleRead.exe.
+<span class="S2">	При выполнении в консольном окне эта команда выводит текст "Hello!",</span><br>
+<span class="S2">	но вместо его отображения символ | перенаправляет его в поток STDIN</span><br>
+<span class="S2">	процесса ConsoleRead.exe.</span><br>
+<span class="S2">#ce
 </span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
