@@ -30,11 +30,11 @@
 </tr>
 <tr>
 <td>width</td>
-<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию – ранее использованная ширина).</td>
+<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию ранее использованная ширина).</td>
 </tr>
 <tr>
 <td>height</td>
-<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию – ранее использованная высота).</td>
+<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию ранее использованная высота).</td>
 </tr>
 <tr>
 <td>style</td>
@@ -87,13 +87,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI с различными элементами управления.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Example"</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём элемент управления ComboBox.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём элемент управления ComboBox.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idComboBox</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateCombo.htm"><span class="S4">GUICtrlCreateCombo</span></a><span class="S8">(</span><span class="S7">"Item 1"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">185</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton_Close</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Close"</span><span class="S8">,</span> <span class="S3">210</span><span class="S8">,</span> <span class="S3">170</span><span class="S8">,</span> <span class="S3">85</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавляем дополнительные элементы в ComboBox.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавляем дополнительные элементы в ComboBox.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idComboBox</span><span class="S8">,</span> <span class="S7">"Item 2|Item 3"</span><span class="S8">,</span> <span class="S7">"Item 2"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить GUI.</span><br>
