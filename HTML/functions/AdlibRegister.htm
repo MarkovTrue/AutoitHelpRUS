@@ -65,19 +65,16 @@ Adlib-функцию стоит держать простой: она вызыв
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Зарегистрировать функцию MyAdLibFunc() для вызова каждые 250 мс (по умолчанию).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/AdlibRegister.htm"><span class="S4">AdlibRegister</span></a><span class="S8">(</span><span class="S7">"MyAdLibFunc"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Sleep не останавливает выполнение AdLib-функций.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Sleep не останавливает выполнение AdLib-функций.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; AdLib-функции не выполняются во время блокирующих функций (MsgBox, InputBox, WinWait, WinWaitClose и т. д.).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"No console message(s) will be shown whilst the messagebox is displayed."</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; AdLib-функция MyAdLibFunc() снова начнёт вызываться.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; AdLib-функция MyAdLibFunc() снова начнёт вызываться.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отменить регистрацию функции MyAdLibFunc(), чтобы она больше не вызывалась каждые 250 мс.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отменить регистрацию функции MyAdLibFunc(), чтобы она больше не вызывалась каждые 250 мс.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/AdlibUnRegister.htm"><span class="S4">AdlibUnRegister</span></a><span class="S8">(</span><span class="S7">"MyAdLibFunc"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
