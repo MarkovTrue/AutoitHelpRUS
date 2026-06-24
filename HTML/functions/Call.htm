@@ -22,7 +22,7 @@
 </tr>
 <tr>
 <td>param</td>
-<td>Аргументы, передаваемые вызываемой функции – см. раздел Примечания.</td>
+<td>Аргументы, передаваемые вызываемой функции. См. раздел Примечания.</td>
 </tr>
 </table>
 
@@ -55,37 +55,27 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вызывает функцию без аргументов.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вызывает функцию без аргументов.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S7">"Test1"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вызывает функцию с одним параметром и передаёт ей аргумент.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вызывает функцию с одним параметром и передаёт ей аргумент.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S7">"Test2"</span><span class="S8">,</span> <span class="S7">"Message from Call()!"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Демонстрация использования специального массива-аргумента.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Демонстрация использования специального массива-аргумента.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"CallArgArray"</span>&nbsp;<span class="S1">; Это обязательно, иначе Call() не распознает массив как содержащий аргументы
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"This is a string"</span>&nbsp;<span class="S1">; Первый параметр – строка
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">47</span>&nbsp;<span class="S1">; Второй параметр – число
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"CallArgArray"</span>&nbsp;<span class="S1">; Это обязательно, иначе Call() не распознает массив как содержащий аргументы</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"This is a string"</span>&nbsp;<span class="S1">; Первый параметр – строка</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">47</span>&nbsp;<span class="S1">; Второй параметр – число</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Array Element 0"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Array Element 1"</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$aArray</span>&nbsp;<span class="S1">; Третий параметр – массив
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aArgs</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$aArray</span>&nbsp;<span class="S1">; Третий параметр – массив</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Специальный массив собран, теперь вызываем функцию
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Специальный массив собран, теперь вызываем функцию</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S7">"Test3"</span><span class="S8">,</span> <span class="S9">$aArgs</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверка вызова несуществующей функции. Показан правильный способ проверки
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; путём сравнения @error и @extended с документированными значениями сбоя.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверка вызова несуществующей функции. Показан правильный способ проверки</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; путём сравнения @error и @extended с документированными значениями сбоя.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sFunction</span> <span class="S8">=</span> <span class="S7">"DoesNotExist"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Call.htm"><span class="S4">Call</span></a><span class="S8">(</span><span class="S9">$sFunction</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">=</span> <span class="S3">0xDEAD</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">=</span> <span class="S3">0xBEEF</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Function does not exist."</span><span class="S8">)</span><br>
