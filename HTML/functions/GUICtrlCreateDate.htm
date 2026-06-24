@@ -30,11 +30,11 @@
 </tr>
 <tr>
 <td>width</td>
-<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию – ранее использованная ширина).</td>
+<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию ранее использованная ширина).</td>
 </tr>
 <tr>
 <td>height</td>
-<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию – ранее использованная высота).</td>
+<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию ранее использованная высота).</td>
 </tr>
 <tr>
 <td>style</td>
@@ -148,8 +148,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"My GUI get date"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">800</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idDate</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateDate.htm"><span class="S4">GUICtrlCreateDate</span></a><span class="S8">(</span><span class="S7">"1953/04/25"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">185</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; выбор конкретного формата по умолчанию
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; выбор конкретного формата по умолчанию</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sStyle</span> <span class="S8">=</span> <span class="S7">"yyyy/MM/dd HH:mm:ss"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idDate</span><span class="S8">,</span> <span class="S9">$DTM_SETFORMATW</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$sStyle</span><span class="S8">)</span><br>
 <br>
