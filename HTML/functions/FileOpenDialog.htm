@@ -40,7 +40,7 @@
 </tr>
 <tr>
 <td>default name</td>
-<td><strong>[необязательный]</strong> Предлагаемое имя файла. По умолчанию – пустая строка ("").</td>
+<td><strong>[необязательный]</strong> Предлагаемое имя файла. По умолчанию пустая строка ("").</td>
 </tr>
 <tr>
 <td>hwnd</td>
@@ -52,7 +52,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает полный путь выбранного файла (или файлов). При множественном выборе – строку вида "Каталог|файл1|файл2|...".</td>
+<td style="width:90%">Возвращает полный путь выбранного файла или файлов. При множественном выборе строку вида "Каталог|файл1|файл2|...".</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -92,8 +92,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать локальную константу с текстом для отображения в FileOpenDialog.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sMessage</span> <span class="S8">=</span> <span class="S7">"Hold down Ctrl or Shift to choose multiple files."</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открываем диалог выбора одного или нескольких файлов.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открываем диалог выбора одного или нескольких файлов.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFileOpenDialog</span> <span class="S8">=</span> <a class="le" href="../functions/FileOpenDialog.htm"><span class="S4">FileOpenDialog</span></a><span class="S8">(</span><span class="S9">$sMessage</span><span class="S8">,</span> <a class="le" href="../macros.htm#@WindowsDir"><span class="S6">@WindowsDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\"</span><span class="S8">,</span> <span class="S7">"Images (*.jpg;*.bmp)|Videos (*.avi;*.mpg)"</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$FD_FILEMUSTEXIST</span><span class="S8">,</span> <span class="S9">$FD_MULTISELECT</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать сообщение об ошибке.</span><br>
@@ -108,8 +107,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Заменить все "|" на @CRLF в строке, возвращённой FileOpenDialog.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sFileOpenDialog</span> <span class="S8">=</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><span class="S9">$sFileOpenDialog</span><span class="S8">,</span> <span class="S7">"|"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим список выбранных файлов.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим список выбранных файлов.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"You chose the following files:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sFileOpenDialog</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
@@ -144,8 +142,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Заменить все "|" на @CRLF в строке, возвращённой FileOpenDialog.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sFileOpenDialog</span> <span class="S8">=</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><span class="S9">$sFileOpenDialog</span><span class="S8">,</span> <span class="S7">"|"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим выбранный файл.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим выбранный файл.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"You chose the following file:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sFileOpenDialog</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
