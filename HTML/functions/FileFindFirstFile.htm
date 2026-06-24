@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td style="width:15%">filename</td>
-<td style="width:85%">Путь и имя файла. Допускаются символы подстановки * и ? – см. раздел Примечания.</td>
+<td style="width:85%">Путь и имя файла. Допускаются символы подстановки <strong>*</strong> и <strong>?</strong> – см. раздел Примечания.</td>
 </tr>
 </table>
 
@@ -30,16 +30,16 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>-1, если ничего не найдено. Флаг <span class="S61">@error</span> устанавливается в 1 только в том случае, если папка пуста.</td>
+<td>Возвращает -1, если ничего не найдено. Флаг <span class="S61">@error</span> устанавливается в 1 только в том случае, если папка пуста.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
 <p>Строка поиска не чувствительна к регистру.<br />
-Символы подстановки: в общем случае <strong>*</strong> означает ноль или более символов, а <strong>?</strong> – ноль или один символ. Если строка поиска состоит только из символов подстановки (или равна "*.*"), смотрите пример ниже для понимания возвращаемого значения.<br />
+Символы подстановки: в общем случае <strong>*</strong> означает ноль или более символов, а <strong>?</strong> означает ноль или один символ. Если строка поиска состоит только из символов подстановки (или равна "*.*"), смотрите пример ниже для понимания возвращаемого значения.<br />
 <br />
 В части имени файла и в части расширения допускается использовать только по одному символу подстановки, например a*.b?.<br />
-При использовании трёхсимвольного расширения будет найдено любое расширение, начинающееся с этих трёх символов – например, "*.log" совпадёт с "test.log_1" (это не описано и в документации Microsoft).<br />
+При использовании трёхсимвольного расширения будет найдено любое расширение, начинающееся с этих трёх символов, например: "*.log" совпадёт с "test.log_1" (это не описано и в документации Microsoft).<br />
 <br />
 По окончании поиска с помощью функций FileFind... необходимо вызвать <a href="FileClose.htm"><span class="S4">FileClose</span><span class="S8">()</span></a> для освобождения дескриптора поиска.<br />
 <br />
@@ -63,7 +63,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной search-дескриптор всех файлов текущей папки.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hSearch</span> <span class="S8">=</span> <a class="le" href="../functions/FileFindFirstFile.htm"><span class="S4">FileFindFirstFile</span></a><span class="S8">(</span><span class="S7">"*.*"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверить успех поиска – при неудаче показать сообщение и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверить успех поиска, при неудаче показать сообщение и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$hSearch</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Error: No files/directories matched the search pattern."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
@@ -74,14 +74,12 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sFileName</span> <span class="S8">=</span> <a class="le" href="../functions/FileFindNextFile.htm"><span class="S4">FileFindNextFile</span></a><span class="S8">(</span><span class="S9">$hSearch</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если файлов, соответствующих критерию поиска, больше нет.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если файлов, соответствующих критерию поиска, больше нет.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать имя файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iResult</span> <span class="S8">=</span> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_OKCANCEL</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"File: "</span> <span class="S8">&amp;</span> <span class="S9">$sFileName</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iResult</span> <span class="S8">&lt;&gt;</span> <span class="S9">$IDOK</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a>&nbsp;<span class="S1">; Если пользователь нажал кнопку отмены или закрытия.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iResult</span> <span class="S8">&lt;&gt;</span> <span class="S9">$IDOK</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a>&nbsp;<span class="S1">; Если пользователь нажал кнопку отмены или закрытия.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть search-дескриптор.</span><br>
