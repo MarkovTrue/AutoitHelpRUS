@@ -42,7 +42,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>0, если возникли ошибки.</td>
+<td>Возвращает 0, если возникли ошибки.</td>
 </tr>
 </table>
 
@@ -72,14 +72,12 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_YESNO</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Note: This is an example and shouldn't be run under normal circumstances. "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Do you wish to run the example?"</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$IDYES</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Помечаем все .au3-файлы в текущем каталоге как "только чтение" и "системный".
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Помечаем все .au3-файлы в текущем каталоге как "только чтение" и "системный".</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/FileSetAttrib.htm"><span class="S4">FileSetAttrib</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\*.au3"</span><span class="S8">,</span> <span class="S7">"+RS"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Error"</span><span class="S8">,</span> <span class="S7">"Problem setting attributes."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Помечаем все .bmp-файлы на @HomeDrive и в подкаталогах как "архивный" (снимаем "только чтение").
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Помечаем все .bmp-файлы на @HomeDrive и в подкаталогах как "архивный" (снимаем "только чтение").</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/FileSetAttrib.htm"><span class="S4">FileSetAttrib</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@HomeDrive"><span class="S6">@HomeDrive</span></a> <span class="S8">&amp;</span> <span class="S7">"\*.bmp"</span><span class="S8">,</span> <span class="S7">"-R+A"</span><span class="S8">,</span> <span class="S9">$FT_RECURSIVE</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Error"</span><span class="S8">,</span> <span class="S7">"Problem setting attributes."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
