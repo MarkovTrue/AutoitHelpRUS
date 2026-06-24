@@ -38,7 +38,7 @@
 </tr>
 <tr>
 <td>default name</td>
-<td><strong>[необязательный]</strong> Предлагаемое имя файла для сохранения. По умолчанию – пустая строка ("").</td>
+<td><strong>[необязательный]</strong> Имя файла, предлагаемое пользователю для сохранения. По умолчанию пустая строка ("").</td>
 </tr>
 <tr>
 <td>hwnd</td>
@@ -50,7 +50,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает полный путь выбранного файла. При множественном выборе – строку вида "Каталог|файл1|файл2|...".</td>
+<td style="width:90%">Возвращает полный путь выбранного файла. При множественном выборе возвращает строку вида "Каталог|файл1|файл2|...".</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -64,14 +64,14 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Несколько типов файлов внутри одной группы фильтра разделяются точкой с запятой – как показано в примере.<br />
+<p>Несколько типов файлов внутри одной группы фильтра, разделяются точкой с запятой как показано в примере.<br />
 Несколько групп фильтров разделяются символом "|".<br />
 <br />
-Если указан параметр default name, параметр options также должен быть задан. Если параметры не нужны, передайте 0.<br />
+Если указан параметр default name, параметр options также должен быть задан. Если параметры не требуются, передайте 0.<br />
 <br />
-Специальные папки Windows (например, "Мои документы") можно задать в качестве корневой, используя соответствующий CLSID из <a href="../appendix/clsid.htm">Приложения</a>.<br />
+Специальные папки Windows (например "Мои документы") можно задать в качестве корневой, используя соответствующий CLSID из <a href="../appendix/clsid.htm">Приложения</a>.<br />
 <br />
-При успешном завершении значение <a href="../macros/AutoItRelated.htm">@WorkingDir</a> обновляется.<br />
+При успешном завершении функции обновляется значение <a href="../macros/AutoItRelated.htm">@WorkingDir</a>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="FileOpenDialog.htm">FileOpenDialog</a>, <a href="FileSelectFolder.htm">FileSelectFolder</a></p>
@@ -87,39 +87,31 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём локальную константу с сообщением для отображения в FileSaveDialog.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём локальную константу с сообщением для отображения в FileSaveDialog.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sMessage</span> <span class="S8">=</span> <span class="S7">"Choose a filename."</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открываем диалог сохранения файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открываем диалог сохранения файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFileSaveDialog</span> <span class="S8">=</span> <a class="le" href="../functions/FileSaveDialog.htm"><span class="S4">FileSaveDialog</span></a><span class="S8">(</span><span class="S9">$sMessage</span><span class="S8">,</span> <span class="S7">"::{450D8FBA-AD25-11D0-98A8-0800361B1103}"</span><span class="S8">,</span> <span class="S7">"Scripts (*.au3)"</span><span class="S8">,</span> <span class="S9">$FD_PATHMUSTEXIST</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать сообщение об ошибке.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"No file was saved."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Извлекаем имя файла из пути, например Example.au3.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Извлекаем имя файла из пути, например Example.au3.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFileName</span> <span class="S8">=</span> <a class="le" href="../functions/StringTrimLeft.htm"><span class="S4">StringTrimLeft</span></a><span class="S8">(</span><span class="S9">$sFileSaveDialog</span><span class="S8">,</span> <a class="le" href="../functions/StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span><span class="S9">$sFileSaveDialog</span><span class="S8">,</span> <span class="S7">"\"</span><span class="S8">,</span> <span class="S9">$STR_NOCASESENSEBASIC</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверяем, имеет ли файл расширение .au3.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверяем, имеет ли файл расширение .au3.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iExtension</span> <span class="S8">=</span> <a class="le" href="../functions/StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span><span class="S9">$sFileName</span><span class="S8">,</span> <span class="S7">"."</span><span class="S8">,</span> <span class="S9">$STR_NOCASESENSEBASIC</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если точка найдена – проверяем, равно ли расширение .au3.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если точка найдена – проверяем, равно ли расширение .au3.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iExtension</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если расширение не равно .au3 – добавляем его в конец пути.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если расширение не равно .au3 – добавляем его в конец пути.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S8">(</span><a class="le" href="../functions/StringTrimLeft.htm"><span class="S4">StringTrimLeft</span></a><span class="S8">(</span><span class="S9">$sFileName</span><span class="S8">,</span> <span class="S9">$iExtension</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">=</span> <span class="S7">".au3"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sFileSaveDialog</span> <span class="S8">&amp;=</span> <span class="S7">".au3"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если точка не найдена – добавляем расширение в конец имени файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если точка не найдена – добавляем расширение в конец имени файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sFileSaveDialog</span> <span class="S8">&amp;=</span> <span class="S7">".au3"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим имя сохранённого файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим имя сохранённого файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"You saved the following file:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sFileSaveDialog</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
