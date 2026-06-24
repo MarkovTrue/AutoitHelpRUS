@@ -70,10 +70,8 @@
 <span class="S0">Test2</span><span class="S8">(</span><span class="S8">)</span><br>
 <span class="S0">Test3</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Этот пример демонстрирует базовую замену: гласные буквы aeiou
-</span><br>
-<span class="S1">; заменяются символом @.
-</span><br>
+<span class="S1">; Этот пример демонстрирует базовую замену: гласные буквы aeiou</span><br>
+<span class="S1">; заменяются символом @.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Test1</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sInput</span> <span class="S8">=</span> <span class="S7">"Where have all the flowers gone, long time passing?"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sOutput</span> <span class="S8">=</span> <a class="le" href="../functions/StringRegExpReplace.htm"><span class="S4">StringRegExpReplace</span></a><span class="S8">(</span><span class="S9">$sInput</span><span class="S8">,</span> <span class="S7">"[aeiou]"</span><span class="S8">,</span> <span class="S7">"@"</span><span class="S8">)</span><br>
@@ -81,10 +79,8 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Test1
 </span><br>
 <br>
-<span class="S1">; Следующий пример демонстрирует использование обратных ссылок для изменения формата даты
-</span><br>
-<span class="S1">; из MM/DD/YYYY в DD.MM.YYYY.
-</span><br>
+<span class="S1">; Следующий пример демонстрирует использование обратных ссылок для изменения формата даты</span><br>
+<span class="S1">; из MM/DD/YYYY в DD.MM.YYYY.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Test2</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sInput</span> <span class="S8">=</span> <span class="S7">'some text1 12/31/2009 01:02:03 some text2'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'some text3 02/28/2009 11:22:33 some text4'</span><br>
@@ -93,8 +89,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Test2
 </span><br>
 <br>
-<span class="S1">; Следующий пример демонстрирует необходимость удвоения обратной косой черты.
-</span><br>
+<span class="S1">; Следующий пример демонстрирует необходимость удвоения обратной косой черты.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Test3</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sInput</span> <span class="S8">=</span> <span class="S7">'%CommonProgramFiles%\Microsoft Shared\'</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sOutput</span> <span class="S8">=</span> <a class="le" href="../functions/StringRegExpReplace.htm"><span class="S4">StringRegExpReplace</span></a><span class="S8">(</span><span class="S9">$sInput</span><span class="S8">,</span> <span class="S7">'%([^%]*?)%'</span><span class="S8">,</span> <span class="S7">'C:\\WINDOWS\\Some Other Folder$'</span><span class="S8">)</span><br>
@@ -103,8 +98,7 @@
 </span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Display</span><span class="S8">(</span><span class="S9">$sInput</span><span class="S8">,</span> <span class="S9">$sOutput</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Форматирование вывода.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Форматирование вывода.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sMsg</span> <span class="S8">=</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"Input:\t%s\n\nOutput:\t%s"</span><span class="S8">,</span> <span class="S9">$sInput</span><span class="S8">,</span> <span class="S9">$sOutput</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Results"</span><span class="S8">,</span> <span class="S9">$sMsg</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Display

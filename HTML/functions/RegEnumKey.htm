@@ -64,8 +64,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sSubKey</span> <span class="S8">=</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sEnumKey</span> <span class="S8">=</span> <span class="S7">"under HKLM\SOFTWARE:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перебрать от 1 до 10 экземпляров, отображая разделы реестра.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перебрать от 1 до 10 экземпляров, отображая разделы реестра.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">10</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sSubKey</span> <span class="S8">=</span> <a class="le" href="../functions/RegEnumKey.htm"><span class="S4">RegEnumKey</span></a><span class="S8">(</span><span class="S7">"HKEY_LOCAL_MACHINE\SOFTWARE"</span><span class="S8">,</span> <span class="S9">$i</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>

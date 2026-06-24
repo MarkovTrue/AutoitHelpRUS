@@ -134,8 +134,7 @@
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StringConstants.au3&gt;</span><br>
-<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;TrayConstants.au3&gt;</span>&nbsp;<span class="S1">; Требуется для констант $TRAY_EVENT_PRIMARYDOUBLE, $TRAY_EVENT_SECONDARYUP и $TRAY_ICONSTATE_SHOW.
-</span><br>
+<a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;TrayConstants.au3&gt;</span>&nbsp;<span class="S1">; Требуется для констант $TRAY_EVENT_PRIMARYDOUBLE, $TRAY_EVENT_SECONDARYUP и $TRAY_ICONSTATE_SHOW.</span><br>
 <br>
 <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"TrayMenuMode"</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span>&nbsp;<span class="S1">; Стандартные пункты меню трея не будут показаны, и пункты не помечаются при выборе. Это опции 1 и 2 для TrayMenuMode.</span><br>
 <span class="S4">Opt</span><span class="S8">(</span><span class="S7">"TrayOnEventMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Включить TrayOnEventMode.</span><br>
@@ -162,8 +161,7 @@
 </span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">TrayEvent</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../macros.htm#@TRAY_ID"><span class="S6">@TRAY_ID</span></a>&nbsp;<span class="S1">; Проверить идентификатор последнего элемента трея.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../macros.htm#@TRAY_ID"><span class="S6">@TRAY_ID</span></a>&nbsp;<span class="S1">; Проверить идентификатор последнего элемента трея.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$TRAY_EVENT_PRIMARYDOUBLE</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать окно сообщения с версией AutoIt и путём установки исполняемого файла AutoIt.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"AutoIt tray menu example."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>

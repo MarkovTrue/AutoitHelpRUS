@@ -84,15 +84,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Читаем первую строку файла, используя дескриптор, возвращённый FileOpen.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Читаем первую строку файла, используя дескриптор, возвращённый FileOpen.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFileRead</span> <span class="S8">=</span> <a class="le" href="../functions/FileReadLine.htm"><span class="S4">FileReadLine</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть дескриптор, возвращённый FileOpen.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileClose.htm"><span class="S4">FileClose</span></a><span class="S8">(</span><span class="S9">$hFileOpen</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим первую строку файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим первую строку файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"First line of the file:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sFileRead</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удалить временный файл.</span><br>
