@@ -26,7 +26,7 @@
 </tr>
 <tr>
 <td>value n</td>
-<td><strong>[необязательный]</strong> n-е число – всего можно задать до 255 значений.</td>
+<td><strong>[необязательный]</strong> n-е число. Можно задать до 255 значений.</td>
 </tr>
 </table>
 
@@ -53,31 +53,25 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Примечание: "b" – это символ байта.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 0.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitOR1</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 0.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitOR1</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 0.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результат.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iBitOR1</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 1.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitOR2</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 0.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitOR2</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 0.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результат.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iBitOR2</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 13 (1101b) и 7 (0111b).
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitOR3</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">13</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">)</span>&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 1.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 13 (1101b) и 7 (0111b).</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitOR3</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">13</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">)</span>&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 1.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результат.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iBitOR3</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 2 (0010b), 3 (0011b) и 6 (0110b).
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitOR4</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">)</span>&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 0.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 2 (0010b), 3 (0011b) и 6 (0110b).</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitOR4</span> <span class="S8">=</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">)</span>&nbsp;<span class="S1">; Присвоить локальной переменной результат побитового OR для 1 и 0.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результат.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$iBitOR4</span><span class="S8">)</span><br>
