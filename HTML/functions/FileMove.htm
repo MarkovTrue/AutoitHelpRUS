@@ -44,7 +44,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>0, если <em>source</em> не удалось переместить, или если <em>dest</em> уже существует и flag=0.</td>
+<td>Возвращает 0, если <em>source</em> не удалось переместить, или если <em>dest</em> уже существует и flag=0.</td>
 </tr>
 </table>
 
@@ -53,12 +53,12 @@
 <br />
 Если исходный и целевой пути находятся на разных томах, вместо перемещения выполняется копирование с последующим удалением источника.<br />
 <br />
-В AutoIt отсутствует функция "FileRename", однако переименовать файл можно с помощью данной функции, передав в параметры source и dest полные пути со старым и новым именем файла соответственно.<br />
+В AutoIt нет отдельной функции FileRename. Переименовать файл можно с помощью FileMove, передав в параметры source и dest полные пути со старым и новым именем соответственно.<br />
 <br />
-Каталог назначения должен существовать заранее – за исключением случая, когда передан флаг <span class="S91">$FC_CREATEPATH</span> (8).<br />
-Например, комбинация <span class="S91">$FC_OVERWRITE</span> (1) + <span class="S91">$FC_CREATEPATH</span> (8) перезаписывает файл назначения и автоматически создаёт всю структуру каталогов, если она отсутствует.<br />
+Каталог назначения должен существовать заранее, если не используется флаг <span class="S91">$FC_CREATEPATH</span> (8).<br />
+Например, комбинация <span class="S91">$FC_OVERWRITE</span> (1) + <span class="S91">$FC_CREATEPATH</span> (8) перезаписывает целевой файл и автоматически создаёт всю структуру каталогов, если она отсутствует.<br />
 <br />
-Некоторые атрибуты файла могут препятствовать перезаписи; в таком случае воспользуйтесь <a href="FileSetAttrib.htm"><span class="S4">FileSetAttrib</span><span class="S8">()</span></a>, чтобы изменить атрибуты файла.<br />
+Некоторые атрибуты файла могут препятствовать перезаписи. В этом случае воспользуйтесь <a href="FileSetAttrib.htm"><span class="S4">FileSetAttrib</span><span class="S8">()</span></a> для их изменения.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="DirMove.htm">DirMove</a>, <a href="FileCopy.htm">FileCopy</a>, <a href="FileDelete.htm">FileDelete</a>, <a href="FileRecycle.htm">FileRecycle</a></p>
@@ -78,15 +78,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать локальную константу с путём к файлу для чтения/записи.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sFilePath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetTempFileName.htm"><span class="S15">_WinAPI_GetTempFileName</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём временный файл для перемещения.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём временный файл для перемещения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/FileWrite.htm"><span class="S4">FileWrite</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S7">"This is an example of using FileMove."</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"An error occurred whilst writing the temporary file."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перемещаем au3-файлы из временного каталога в новую папку Au3Files.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перемещаем au3-файлы из временного каталога в новую папку Au3Files.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileMove.htm"><span class="S4">FileMove</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\*.au3"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\Au3Files\"</span><span class="S8">,</span> <span class="S9">$FC_OVERWRITE</span> <span class="S8">+</span> <span class="S9">$FC_CREATEPATH</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать временный каталог.</span><br>
@@ -106,31 +104,24 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём локальные константы с путями переименовываемых файлов.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём локальные константы с путями переименовываемых файлов.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sSource</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetTempFileName.htm"><span class="S15">_WinAPI_GetTempFileName</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">)</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sDestination</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetTempFileName.htm"><span class="S15">_WinAPI_GetTempFileName</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём временный файл для переименования.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём временный файл для переименования.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/FileWrite.htm"><span class="S4">FileWrite</span></a><span class="S8">(</span><span class="S9">$sSource</span><span class="S8">,</span> <span class="S7">"This is an example of using FileMove."</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"An error occurred whilst writing the temporary file."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Переименовываем файл с помощью FileMove; если файл с новым именем существует – перезаписываем.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Переименовываем файл с помощью FileMove; если файл с новым именем существует – перезаписываем.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileMove.htm"><span class="S4">FileMove</span></a><span class="S8">(</span><span class="S9">$sSource</span><span class="S8">,</span> <span class="S9">$sDestination</span><span class="S8">,</span> <span class="S9">$FC_OVERWRITE</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим результат – файл назначения переименован.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Does the source file exist?: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/FileExists.htm"><span class="S4">FileExists</span></a><span class="S8">(</span><span class="S9">$sSource</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; FileExists должна вернуть 0.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Does destination file exist?: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/FileExists.htm"><span class="S4">FileExists</span></a><span class="S8">(</span><span class="S9">$sDestination</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">; FileExists должна вернуть 1.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим результат – файл назначения переименован.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Does the source file exist?: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/FileExists.htm"><span class="S4">FileExists</span></a><span class="S8">(</span><span class="S9">$sSource</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; FileExists должна вернуть 0.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Does destination file exist?: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/FileExists.htm"><span class="S4">FileExists</span></a><span class="S8">(</span><span class="S9">$sDestination</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">; FileExists должна вернуть 1.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удаляем временные файлы. FileDelete проверяет существование файла.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удаляем временные файлы. FileDelete проверяет существование файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sSource</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sDestination</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
