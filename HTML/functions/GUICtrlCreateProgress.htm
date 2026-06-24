@@ -26,15 +26,15 @@
 </tr>
 <tr>
 <td>width</td>
-<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию – ранее использованная ширина).</td>
+<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию ранее использованная ширина).</td>
 </tr>
 <tr>
 <td>height</td>
-<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию – ранее использованная высота).</td>
+<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию ранее использованная высота).</td>
 </tr>
 <tr>
 <td>style</td>
-<td><strong>[необязательный]</strong> Задаёт стиль элемента управления. См. <a href="../appendix/GUIStyles.htm#Progress">приложение "Стили элементов управления GUI"</a>.</td>
+<td><strong>[необязательный]</strong> Задаёт стиль элемента управления. См. <a href="../appendix/GUIStyles.htm#Progress">Стили GUI и элементов</a>.</td>
 </tr>
 <tr>
 <td>exStyle</td>
@@ -86,10 +86,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Start"</span><span class="S8">,</span> <span class="S3">75</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iWait</span> <span class="S8">=</span> <span class="S3">20</span>&nbsp;<span class="S1">; ожидание 20 мс до следующего шага прогресса
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSavPos</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; сохранение позиции индикатора
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iWait</span> <span class="S8">=</span> <span class="S3">20</span>&nbsp;<span class="S1">; ожидание 20 мс до следующего шага прогресса</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSavPos</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; сохранение позиции индикатора</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMsg</span><span class="S8">,</span> <span class="S9">$idM</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
@@ -105,8 +103,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$idM</span> <span class="S8">=</span> <span class="S9">$idButton</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idButton</span><span class="S8">,</span> <span class="S7">"Next"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iSavPos</span> <span class="S8">=</span> <span class="S9">$i</span>&nbsp;<span class="S1">; сохранить текущую позицию индикатора в $iSavPos
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iSavPos</span> <span class="S8">=</span> <span class="S9">$i</span>&nbsp;<span class="S1">;сохранить текущую позицию индикатора в $iSavPos</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iSavPos</span> <span class="S8">=</span> <span class="S3">0</span><br>
