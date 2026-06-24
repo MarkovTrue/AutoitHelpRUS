@@ -221,6 +221,7 @@
 <br />
 Если вызов функции завершается ошибкой, <span class="S61">@error</span> ≠ 0.<br />
 В противном случае возвращается массив, содержащий возвращаемое значение функции и копии всех параметров (включая параметры, изменённые функцией при передаче по ссылке).<br />
+<br />
 <span class="S91">$return</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = возвращаемое значение функции<br />
 <span class="S91">$return</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = param1<br />
 <span class="S91">$return</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> = param2<br />
@@ -244,36 +245,27 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Включить режим GUI-событий.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Включить режим GUI-событий.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUIOnEventMode"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать простой GUI.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать простой GUI.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"DllCallAddress Example"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Зарегистрировать обработчик события закрытия.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Зарегистрировать обработчик события закрытия.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetOnEvent.htm"><span class="S4">GUISetOnEvent</span></a><span class="S8">(</span><span class="S9">$GUI_EVENT_CLOSE</span><span class="S8">,</span> <span class="S7">"OnClose"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить GUI.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить GUI.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOWNORMAL"><span class="S6">@SW_SHOWNORMAL</span></a><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить указатель на WindowProc() окна.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить указатель на WindowProc() окна.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$pWndProc</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetWindowLong.htm"><span class="S15">_WinAPI_GetWindowLong</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$GWL_WNDPROC</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сообщить пользователю о предстоящем действии.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сообщить пользователю о предстоящем действии.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"DllCallAddress Example Msg"</span><span class="S8">,</span> <span class="S7">"When you press OK the test window will close."</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Явно сгенерировать событие WM_CLOSE и передать его напрямую в WindowProc().
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; В реальном приложении так делать не следует (лучше использовать _SendMessage()), но
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; это демонстрирует использование функции.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Явно сгенерировать событие WM_CLOSE и передать его напрямую в WindowProc().</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; В реальном приложении так делать не следует (лучше использовать _SendMessage()), но</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; это демонстрирует использование функции.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllCallAddress.htm"><span class="S4">DllCallAddress</span></a><span class="S8">(</span><span class="S7">"LRESULT"</span><span class="S8">,</span> <span class="S9">$pWndProc</span><span class="S8">,</span> <span class="S7">"HWND"</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">"UINT"</span><span class="S8">,</span> <span class="S9">$WM_CLOSE</span><span class="S8">,</span> <span class="S7">"WPARAM"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"LPARAM"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
