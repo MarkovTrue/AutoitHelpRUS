@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td style="width:15%">source</td>
-<td style="width:85%"><strong>[необязательный]</strong> Корневой путь для очистки; если не указан – очищается корзина на всех дисках.</td>
+<td style="width:85%"><strong>[необязательный]</strong> Корневой путь для очистки; если не указан, очищается корзина на всех дисках.</td>
 </tr>
 </table>
 
@@ -30,7 +30,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>0 (корзину не удалось очистить).</td>
+<td>Возвращает 0 (корзину не удалось очистить).</td>
 </tr>
 </table>
 
@@ -49,16 +49,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открыть корзину по указанному CLSID.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S7">"::{645FF040-5081-101B-9F08-00AA002F954E}"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим окно с запросом подтверждения удаления файлов из корзины.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим окно с запросом подтверждения удаления файлов из корзины.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_YESNO</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Would you like to empty the recycle bin on the "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@HomeDrive"><span class="S6">@HomeDrive</span></a> <span class="S8">&amp;</span> <span class="S7">"\ drive?"</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$IDNO</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Очищаем корзину только для @HomeDrive – обычно это диск C:\.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Очищаем корзину только для @HomeDrive – обычно это диск C:\.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRecycle</span> <span class="S8">=</span> <a class="le" href="../functions/FileRecycleEmpty.htm"><span class="S4">FileRecycleEmpty</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@HomeDrive"><span class="S6">@HomeDrive</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим сообщение о результате очистки корзины.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим сообщение о результате очистки корзины.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iRecycle</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The recycle bin was emptied successfuly."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
