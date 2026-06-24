@@ -48,16 +48,16 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Каталог назначения должен существовать заранее.<br />
-<br />
-Функция работает только на томах с файловой системой NTFS.<br />
-<br />
-Если источник – файл, жёсткая ссылка должна располагаться на том же томе.<br />
-Если источник – каталог, допускается использование разных томов.<br />
-<br />
-Для жёсткой ссылки можно применять <a href="FileDelete.htm"><span class="S4">FileDelete</span><span class="S8">()</span></a> и <a href="FileMove.htm"><span class="S4">FileMove</span><span class="S8">()</span></a>.<br />
-<br />
-Для управления ссылками через Проводник можно воспользоваться расширением оболочки <a href="http://elsdoerfer.name/ntfslink">NTFSLink</a>.<br />
+<p>Каталог назначения должен существовать заранее.<br>
+<br>
+Функция работает только на томах с файловой системой NTFS.<br>
+<br>
+Если источник – файл, жёсткая ссылка должна располагаться на том же томе.<br>
+Если источник – каталог, допускается использование разных томов.<br>
+<br>
+Для жёсткой ссылки можно применять <a href="FileDelete.htm"><span class="S4">FileDelete</span><span class="S8">()</span></a> и <a href="FileMove.htm"><span class="S4">FileMove</span><span class="S8">()</span></a>.<br>
+<br>
+Для управления ссылками через Проводник можно воспользоваться расширением оболочки <a href="http://elsdoerfer.name/ntfslink">NTFSLink</a>.<br>
 </p>
 <h2>См. также</h2>
 <p><a href="FileCreateShortcut.htm">FileCreateShortcut</a></p>
@@ -75,22 +75,18 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать локальную константу с путём к файлу для чтения/записи.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sFilePath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetTempFileName.htm"><span class="S15">_WinAPI_GetTempFileName</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём временный файл для создания ссылки.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём временный файл для создания ссылки.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/FileWrite.htm"><span class="S4">FileWrite</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S7">"This is an example of using FileCreateNTFSLink."</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"An error occurred whilst writing the temporary file."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём NTFS-ссылку с .txt-файла на .log-файл на рабочем столе.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаём NTFS-ссылку с .txt-файла на .log-файл на рабочем столе.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iNTFSLink</span> <span class="S8">=</span> <a class="le" href="../functions/FileCreateNTFSLink.htm"><span class="S4">FileCreateNTFSLink</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\ExampleNTFSLink.log"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим сообщение о результате создания NTFS-ссылки.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим сообщение о результате создания NTFS-ссылки.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iNTFSLink</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открываем каталог рабочего стола.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открываем каталог рабочего стола.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The NTFS link was created."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"FileCreateNTFSLink returned: "</span> <span class="S8">&amp;</span> <span class="S9">$iNTFSLink</span><span class="S8">)</span><br>
@@ -98,8 +94,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The NTFS link wasn't created."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"FileCreateNTFSLink returned: "</span> <span class="S8">&amp;</span> <span class="S9">$iNTFSLink</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удаляем временные файлы.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удаляем временные файлы.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\ExampleNTFSLink.log"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
