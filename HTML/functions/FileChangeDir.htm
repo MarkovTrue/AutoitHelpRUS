@@ -30,7 +30,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>0, если рабочий каталог не удалось изменить.</td>
+<td>Возвращает 0, если рабочий каталог не удалось изменить.</td>
 </tr>
 </table>
 
@@ -46,16 +46,13 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим текущий рабочий каталог.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим текущий рабочий каталог.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The current working directory: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@WorkingDir"><span class="S6">@WorkingDir</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем рабочий каталог @WorkingDir равным @WindowsDir. Обычно это C:\Windows.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем рабочий каталог @WorkingDir равным @WindowsDir. Обычно это C:\Windows.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileChangeDir.htm"><span class="S4">FileChangeDir</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@WindowsDir"><span class="S6">@WindowsDir</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим рабочий каталог после смены на каталог Windows.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выводим рабочий каталог после смены на каталог Windows.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The current working directory: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@WorkingDir"><span class="S6">@WorkingDir</span></a><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
