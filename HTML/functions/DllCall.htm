@@ -213,11 +213,11 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – невозможно использовать DLL-файл,<br />
-2 – неизвестный тип возвращаемого значения,<br />
-3 = <em>function</em> не найдена в DLL-файле,<br />
-4 – неверное количество параметров,<br />
-5 – неверный параметр.</td>
+<td>1 – невозможно использовать DLL-файл,<br>
+2&nbsp;– неизвестный тип возвращаемого значения,<br>
+3&nbsp;- <em>function</em> не найдена в DLL-файле,<br>
+4&nbsp;– неверное количество параметров,<br>
+5&nbsp;– неверный параметр.</td>
 </tr>
 </table><br />
 
@@ -226,12 +226,17 @@
 <p>Если указано имя DLL-файла, то DLL автоматически загружается и закрывается по завершении вызова. Для ручного управления загрузкой/выгрузкой DLL используйте <a href="DllOpen.htm"><span class="S4">DllOpen</span><span class="S8">()</span></a> и <a href="DllClose.htm"><span class="S4">DllClose</span><span class="S8">()</span></a>, передавая дескриптор вместо имени файла.<br />
 <br />
 По умолчанию AutoIt использует соглашение о вызовах 'stdcall'. Для использования метода 'cdecl' добавьте ':cdecl' после типа возвращаемого значения.<br />
-<a href="DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">(</span>"SQLite.dll", "int:cdecl", "sqlite3_open", "str", <span class="S91">$sDatabase_Filename</span> , "long*", 0<span class="S8">)</span>.<br />
+</p>
+<p class="codebox">
+<a class="le" href="../functions/DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">(</span><span class="S7">"SQLite.dll"</span><span class="S8">,</span> <span class="S7">"int:cdecl"</span><span class="S8">,</span> <span class="S7">"sqlite3_open"</span><span class="S8">,</span> <span class="S7">"str"</span><span class="S8">,</span> <span class="S9">$sDatabase_Filename</span> <span class="S8">,</span> <span class="S7">"long*"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>
+</p>
+<p>
 <br />
 По умолчанию AutoIt пытается использовать ANSI-версию имени функции, то есть при передаче "MessageBox" сначала вызывается MessageBoxA. Для вызова Unicode-версии используйте MessageBoxW.<br />
 <br />
 Если вызов функции завершается ошибкой, <span class="S61">@error</span> ≠ 0.<br />
 В противном случае возвращается массив, содержащий возвращаемое значение функции и копии всех параметров (включая параметры, изменённые функцией при передаче по ссылке).<br />
+<br />
 <span class="S91">$return</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = возвращаемое значение функции<br />
 <span class="S91">$return</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = param1<br />
 <span class="S91">$return</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> = param2<br />
@@ -262,15 +267,13 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Вызов функции, изменяющей параметры,
-</span><br>
+<span class="S1">; Вызов функции, изменяющей параметры,</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPID</span> <span class="S8">=</span> <a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad"</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">2000</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Время ожидания истекло.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Время ожидания истекло.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"Unable to start notepad!"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
@@ -287,19 +290,16 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl3');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext3');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Отобразить диалог Windows PickIconDlg.
-</span><br>
+<span class="S1">; Отобразить диалог Windows PickIconDlg.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFileName</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@SystemDir"><span class="S6">@SystemDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\shell32.dll'</span><br>
 <br>
-<span class="S1">; Создать структуру для хранения индекса иконки
-</span><br>
+<span class="S1">; Создать структуру для хранения индекса иконки</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tIconIndex</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"int"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tString</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"wchar[260]"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iStructsize</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tString</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">2</span><br>
 <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tString</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$sFileName</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Запустить PickIconDlg – '62' является порядковым номером этой функции
-</span><br>
+<span class="S1">; Запустить PickIconDlg – '62' является порядковым номером этой функции</span><br>
 <a class="le" href="../functions/DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">(</span><span class="S7">"shell32.dll"</span><span class="S8">,</span> <span class="S7">"none"</span><span class="S8">,</span> <span class="S3">62</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"hwnd"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"struct*"</span><span class="S8">,</span> <span class="S9">$tString</span><span class="S8">,</span> <span class="S8">_</span><br>
@@ -309,8 +309,7 @@
 <span class="S9">$sFileName</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tString</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iIconIndex</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tIconIndex</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Отобразить новое имя файла и индекс иконки
-</span><br>
+<span class="S1">; Отобразить новое имя файла и индекс иконки</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Info"</span><span class="S8">,</span> <span class="S7">"Last selected file: "</span> <span class="S8">&amp;</span> <span class="S9">$sFileName</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Icon-Index: "</span> <span class="S8">&amp;</span> <span class="S9">$iIconIndex</span><span class="S8">)</span><br>
 </p>
 <object id="hhctrl3" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\DllCall[3].au3,"></object>
