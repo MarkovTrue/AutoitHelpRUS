@@ -39,7 +39,7 @@
 Параметр extended необязателен и позволяет установить <span class="S61">@error</span> и <span class="S61">@extended</span> одновременно. Если нужно установить только <span class="S61">@extended</span>, рекомендуется использовать <a href="SetExtended.htm"><span class="S4">SetExtended</span><span class="S8">()</span></a>.<br />
 Параметр return value необязателен и позволяет использовать синтаксис <a href="../keywords/Func.htm">Return</a> <a href="SetError.htm">SetError(...)</a> для одновременного задания возвращаемого значения и кода ошибки. Если значение не указано, возвращается 1, так как <a class="le" href="SetError.htm"><span class="S4">SetError</span></a><span class="S8">()</span> выполняется успешно.<br />
 <br />
-<span class="S61">@error</span> допускает значения от –2147483648 до 2147483647.<br />
+<span class="S61">@error</span> допускает значения от -2147483648 до 2147483647.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="SetExtended.htm">SetExtended</a>, <a href="../keywords/Func.htm">Return</a></p>
@@ -61,11 +61,9 @@
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">myDiv</span><span class="S8">(</span><span class="S9">$iDividend</span><span class="S8">,</span> <span class="S9">$iDivisor</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iDividend</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <span class="S9">$iDivisor</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; Неопределённая форма 0/0.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; Неопределённая форма 0/0.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">ElseIf</span></a> <span class="S9">$iDivisor</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Деление на ноль.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Деление на ноль.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$iDividend</span> <span class="S8">/</span> <span class="S9">$iDivisor</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;myDiv
@@ -80,15 +78,13 @@
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sReturn</span> <span class="S8">=</span> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вывести возвращаемое значение, @error и @extended.
-</span><br>
+<span class="S1">; Вывести возвращаемое значение, @error и @extended.</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Return value = "</span> <span class="S8">&amp;</span> <span class="S9">$sReturn</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Value of @error is: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Value of @extended is: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S3">3</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S7">"Some return value"</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить @error в 3, @extended в 10 и вернуть строку "Some return value.".
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S3">3</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S7">"Some return value"</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить @error в 3, @extended в 10 и вернуть строку "Some return value.".</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>
