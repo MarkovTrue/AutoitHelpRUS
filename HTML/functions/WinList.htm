@@ -22,7 +22,7 @@
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст окон, список которых нужно получить. По умолчанию – пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окон, список которых нужно получить. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
 </tr>
 </table>
 
@@ -55,12 +55,10 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем список дескрипторов окон.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем список дескрипторов окон.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aList</span> <span class="S8">=</span> <a class="le" href="../functions/WinList.htm"><span class="S4">WinList</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перебираем массив, выводя только видимые окна с заголовком.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перебираем массив, выводя только видимые окна с заголовком.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$aList</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$aList</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&lt;&gt;</span> <span class="S7">""</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><a class="le" href="../functions/WinGetState.htm"><span class="S4">WinGetState</span></a><span class="S8">(</span><span class="S9">$aList</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Title: "</span> <span class="S8">&amp;</span> <span class="S9">$aList</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Handle: "</span> <span class="S8">&amp;</span> <span class="S9">$aList</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
@@ -79,8 +77,7 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем список дескрипторов окон с помощью регулярного выражения. Выражение ищет заголовки, содержащие слово SciTE или Internet Explorer.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем список дескрипторов окон с помощью регулярного выражения. Выражение ищет заголовки, содержащие слово SciTE или Internet Explorer.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aWinList</span> <span class="S8">=</span> <a class="le" href="../functions/WinList.htm"><span class="S4">WinList</span></a><span class="S8">(</span><span class="S7">"[REGEXPTITLE:(?i)(.*SciTE.*|.*Internet Explorer.*)]"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aWinList</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
