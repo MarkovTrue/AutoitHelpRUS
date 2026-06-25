@@ -27,8 +27,8 @@
 <tr>
 <td>flag</td>
 <td><strong>[необязательный]</strong><br />
-UDP_DATA_DEFAULT (0) – автоопределение двоичных/строковых данных.<br />
-UDP_DATA_BINARY (1) – возвращать двоичные данные.<br />
+<span class="default-const"><span class="S91">$UDP_DATA_DEFAULT</span></span> (0) – автоопределение двоичных/строковых данных.<br />
+<span class="S91">$UDP_DATA_BINARY</span> (1) – возвращать двоичные данные.<br />
 <span class="S91">$UDP_DATA_ARRAY</span> (2) – возвращать массив: [0] данные, [1] IP-адрес источника, [2] порт источника.<br />
 Для обоих режимов используйте значение 3.<br />
 <br />
@@ -70,8 +70,7 @@ UDP_DATA_BINARY (1) – возвращать двоичные данные.<br /
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
 <span class="S1">; Сначала нажмите "1. Server"</span><br>
-<span class="S1">; Затем запустите второй экземпляр скрипта, выбрав "2. Клиент"
-</span><br>
+<span class="S1">; Затем запустите второй экземпляр скрипта, выбрав "2. Клиент"</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
@@ -122,7 +121,7 @@ UDP_DATA_BINARY (1) – возвращать двоичные данные.<br /
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной сокет и привязать к указанным IP-адресу и порту.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSocket</span> <span class="S8">=</span> <a class="le" href="../functions/UDPBind.htm"><span class="S4">UDPBind</span></a><span class="S8">(</span><span class="S9">$sIPAddress</span><span class="S8">,</span> <span class="S9">$iPort</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возможно, кто-то уже привязан к этому IP-адресу и порту (скрипт уже запущен?).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
@@ -154,7 +153,7 @@ UDP_DATA_BINARY (1) – возвращать двоичные данные.<br /
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSocket</span> <span class="S8">=</span> <a class="le" href="../functions/UDPOpen.htm"><span class="S4">UDPOpen</span></a><span class="S8">(</span><span class="S9">$sIPAddress</span><span class="S8">,</span> <span class="S9">$iPort</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <span class="S3">0</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сервер, вероятно, офлайн, или порт на сервере не открыт.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
@@ -165,7 +164,7 @@ UDP_DATA_BINARY (1) – возвращать двоичные данные.<br /
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправить строку "toto", преобразованную в бинарную, на сервер.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/UDPSend.htm"><span class="S4">UDPSend</span></a><span class="S8">(</span><span class="S9">$iSocket</span><span class="S8">,</span> <a class="le" href="../functions/StringToBinary.htm"><span class="S4">StringToBinary</span></a><span class="S8">(</span><span class="S7">"toto"</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Client:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Could not send the data, Error code: "</span> <span class="S8">&amp;</span> <span class="S9">$iError</span><span class="S8">)</span><br>
