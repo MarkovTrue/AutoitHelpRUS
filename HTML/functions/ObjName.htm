@@ -48,7 +48,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Не все объекты поддерживают флаги 2–7. Всегда проверяйте <span class="S61">@error</span> в таких случаях.<br />
+<p>Не все объекты поддерживают флаги 2-7. Всегда проверяйте <span class="S61">@error</span> в таких случаях.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="IsObj.htm">IsObj</a>, <a href="ObjCreate.htm">ObjCreate</a>, <a href="ObjGet.htm">ObjGet</a></p>
@@ -62,10 +62,8 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oInternet</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a><span class="S8">(</span><span class="S7">"InternetExplorer.Application"</span><span class="S8">)</span><br>
-<span class="S9">$oInternet</span>.<span class="Scom">Navigate</span><span class="S8">(</span><span class="S7">"http://www.google.com"</span><span class="S8">)</span>&nbsp;<span class="S1">; Открытие веб-страницы, содержащей форму.
-</span><br>
-<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">4000</span><span class="S8">)</span>&nbsp;<span class="S1">; Дать странице время загрузиться.
-</span><br>
+<span class="S9">$oInternet</span>.<span class="Scom">Navigate</span><span class="S8">(</span><span class="S7">"http://www.google.com"</span><span class="S8">)</span>&nbsp;<span class="S1">; Открытие веб-страницы, содержащей форму.</span><br>
+<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">4000</span><span class="S8">)</span>&nbsp;<span class="S1">; Дать странице время загрузиться.</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oDoc</span> <span class="S8">=</span> <span class="S9">$oInternet</span>.<span class="Scom">Document</span>&nbsp;<span class="S1">; Пример объекта для теста</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oForm</span> <span class="S8">=</span> <span class="S9">$oDoc</span>.<span class="Scom">Forms</span><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; Пример объекта для теста</span><br>
@@ -94,8 +92,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sInfo</span> <span class="S8">&amp;=</span> <span class="S7">'+&gt;'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">'ObjName($oObj,1) {The name of the Object} ='</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../functions/ObjName.htm"><span class="S4">ObjName</span></a><span class="S8">(</span><span class="S9">$oObj</span><span class="S8">,</span> <span class="S9">$OBJ_NAME</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ПРИМЕЧАНИЕ: не все объекты поддерживают флаги 2–7. Всегда проверяйте @error.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ПРИМЕЧАНИЕ: не все объекты поддерживают флаги 2–7. Всегда проверяйте @error.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sInfo</span> <span class="S8">&amp;=</span> <span class="S7">'+&gt;'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">'ObjName($oObj,2) {Description string of the Object} ='</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../functions/ObjName.htm"><span class="S4">ObjName</span></a><span class="S8">(</span><span class="S9">$oObj</span><span class="S8">,</span> <span class="S9">$OBJ_STRING</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sInfo</span> <span class="S8">&amp;=</span> <span class="S7">'@error = '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sInfo</span> <span class="S8">&amp;=</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
