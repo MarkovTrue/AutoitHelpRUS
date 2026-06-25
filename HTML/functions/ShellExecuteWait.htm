@@ -63,7 +63,7 @@
 <h2>Примечания</h2>
 <p>После запуска программы выполнение скрипта приостанавливается до её завершения.<br />
 <br />
-Если глагол не указан, используется глагол по умолчанию, заданный в реестре. Если в реестре глагол по умолчанию не задан, используется "open". Если "open" отсутствует – первый глагол, перечисленный в реестре.<br />
+Если глагол не указан, используется глагол по умолчанию из реестра. Если глагол по умолчанию в реестре не задан, используется "open". Если "open" не найден, используется первый глагол из реестра.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Run.htm">Run</a>, <a href="RunAs.htm">RunAs</a>, <a href="RunAsWait.htm">RunAsWait</a>, <a href="RunWait.htm">RunWait</a>, <a href="ShellExecute.htm">ShellExecute</a></p>
@@ -77,8 +77,7 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открыть Блокнот и ждать его закрытия.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открыть Блокнот и ждать его закрытия.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iReturn</span> <span class="S8">=</span> <a class="le" href="../functions/ShellExecuteWait.htm"><span class="S4">ShellExecuteWait</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать код возврата процесса Блокнота.</span><br>
