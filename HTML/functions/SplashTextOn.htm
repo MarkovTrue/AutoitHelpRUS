@@ -34,20 +34,20 @@
 </tr>
 <tr>
 <td>x pos</td>
-<td><strong>[необязательный]</strong> Позиция окна от левого края экрана в пикселях (по умолчанию – по центру).</td>
+<td><strong>[необязательный]</strong> Позиция окна от левого края экрана в пикселях (по умолчанию по центру).</td>
 </tr>
 <tr>
 <td>y pos</td>
-<td><strong>[необязательный]</strong> Позиция окна от верхнего края экрана в пикселях (по умолчанию – по центру).</td>
+<td><strong>[необязательный]</strong> Позиция окна от верхнего края экрана в пикселях (по умолчанию по центру).</td>
 </tr>
 <tr>
 <td>opt</td>
-<td><strong>[необязательный]</strong> Суммируйте нужные значения. По умолчанию – "текст по центру / всегда поверх / с заголовком":<br />
-<span class="default-const"><span class="S91">$DLG_CENTERONTOP</span></span> (0) = текст по центру / всегда поверх / с заголовком (по умолчанию)<br />
+<td><strong>[необязательный]</strong> Суммируйте нужные значения. По умолчанию "текст по центру/всегда поверх/с заголовком"<br />
+<span class="default-const"><span class="S91">$DLG_CENTERONTOP</span></span> (0) = текст по центру/всегда поверх/с заголовком (по умолчанию)<br />
 <span class="S91">$DLG_NOTITLE</span> (1) = окно с тонкой рамкой без заголовка<br />
 <span class="S91">$DLG_NOTONTOP</span> (2) = без атрибута "всегда поверх"<br />
-<span class="S91">$DLG_TEXTLEFT</span> (4) = текст по левому краю<br />
-<span class="S91">$DLG_TEXTRIGHT</span> (8) = текст по правому краю<br />
+<span class="S91">$DLG_TEXTLEFT</span> (4) = текст выравнен по левому краю<br />
+<span class="S91">$DLG_TEXTRIGHT</span> (8) = текст выравнен по правому краю<br />
 <span class="S91">$DLG_MOVEABLE</span> (16) = окно можно перемещать<br />
 <span class="S91">$DLG_TEXTVCENTER</span> (32) = текст по вертикальному центру<br />
 <br />
@@ -75,6 +75,7 @@
 <span class="S91">$FW_BOLD</span> (700)<br />
 <span class="S91">$FW_EXTRABOLD</span> (800)<br />
 <span class="S91">$FW_HEAVY</span> (900)<br />
+
 Константы определены в <span class="S7">FontConstants.au3</span>.</td>
 </tr>
 </table>
@@ -85,7 +86,7 @@
 <h2>Примечания</h2>
 <p>Для пропуска необязательного параметра с сохранением значения по умолчанию передайте:<br />
 &nbsp;&nbsp;&nbsp; "" для строковых параметров<br />
-&nbsp;&nbsp;&nbsp; –1 для числовых параметров<br />
+&nbsp;&nbsp;&nbsp; -1 для числовых параметров<br />
 <br />
 Одновременно допускается только одно окно SplashImage/Text. Для смены изображения или текста достаточно снова вызвать <a href="SplashImageOn.htm"><span class="S4">SplashImageOn</span><span class="S8">()</span></a> или <a href="SplashTextOn.htm"><span class="S4">SplashTextOn</span><span class="S8">()</span></a> с новыми данными.<br />
 <br />
@@ -112,8 +113,7 @@
 <a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">3000</span><span class="S8">)</span><br>
 <a class="le" href="../functions/SplashOff.htm"><span class="S4">SplashOff</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; ; С МЕРЦАНИЕМ
-</span><br>
+<span class="S1">; ; С МЕРЦАНИЕМ</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sMessage</span> <span class="S8">=</span> <span class="S7">""</span><br>
 <a class="le" href="../functions/SplashTextOn.htm"><span class="S4">SplashTextOn</span></a><span class="S8">(</span><span class="S7">"TitleFoo"</span><span class="S8">,</span> <span class="S9">$sMessage</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$DLG_TEXTLEFT</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">20</span><br>
@@ -122,8 +122,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">100</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <br>
-<span class="S1">; ; БЕЗ МЕРЦАНИЯ
-</span><br>
+<span class="S1">; ; БЕЗ МЕРЦАНИЯ</span><br>
 <span class="S9">$sMessage</span> <span class="S8">=</span> <span class="S7">""</span><br>
 <a class="le" href="../functions/SplashTextOn.htm"><span class="S4">SplashTextOn</span></a><span class="S8">(</span><span class="S7">"TitleFoo"</span><span class="S8">,</span> <span class="S9">$sMessage</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$DLG_TEXTLEFT</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">20</span><br>
