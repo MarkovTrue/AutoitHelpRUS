@@ -67,14 +67,12 @@ RECT возвращается в виде массива из 4 элементо
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI с элементом управления Edit.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI с элементом управления Edit.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Example"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idEdit</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateEdit.htm"><span class="S4">GUICtrlCreateEdit</span></a><span class="S8">(</span><span class="S7">"Line 0"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">350</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton_Ok</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span> <span class="S3">310</span><span class="S8">,</span> <span class="S3">370</span><span class="S8">,</span> <span class="S3">85</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить данные элемента управления Edit.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить данные элемента управления Edit.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">25</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S7">"Line "</span> <span class="S8">&amp;</span> <span class="S9">$i</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
@@ -85,8 +83,7 @@ RECT возвращается в виде массива из 4 элементо
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить GUI.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Инициализировать переменную $aCtrlRecvMsg для хранения значения, возвращённого GUICtrlRecvMsg.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Инициализировать переменную $aCtrlRecvMsg для хранения значения, возвращённого GUICtrlRecvMsg.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aCtrlRecvMsg</span> <span class="S8">=</span> <span class="S3">0</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
@@ -96,15 +93,13 @@ RECT возвращается в виде массива из 4 элементо
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idButton_Ok</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправить сообщение EM_GETSEL для получения текущего выделения в Edit.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправить сообщение EM_GETSEL для получения текущего выделения в Edit.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCtrlRecvMsg</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlRecvMsg.htm"><span class="S4">GUICtrlRecvMsg</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S9">$EM_GETSEL</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить фокус на edit-элемент.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S9">$GUI_FOCUS</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если GUICtrlRecvMsg вернул 0, произошла ошибка; иначе отобразить содержимое массива.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если GUICtrlRecvMsg вернул 0, произошла ошибка; иначе отобразить содержимое массива.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$aCtrlRecvMsg</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"An error occurred. The value returned was - "</span> <span class="S8">&amp;</span> <span class="S9">$aCtrlRecvMsg</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
