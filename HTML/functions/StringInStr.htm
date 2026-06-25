@@ -35,7 +35,7 @@
 </tr>
 <tr>
 <td>occurrence</td>
-<td><strong>[необязательный]</strong> Порядковый номер вхождения подстроки. Отрицательное значение – поиск справа налево. По умолчанию 1 (первое вхождение).</td>
+<td><strong>[необязательный]</strong> Порядковый номер вхождения подстроки. Отрицательное значение для поиска справа налево. По умолчанию 1 (первое вхождение).</td>
 </tr>
 <tr>
 <td>start</td>
@@ -64,7 +64,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Позиция первого символа – 1.<br />
+<p>Позиция первого символа равна 1.<br />
 <br />
 Параметр count не должен быть меньше длины искомой подстроки. Совместно с параметром start он ограничивает поиск частью строки. Следующие два вызова эквивалентны:<br />
 <a href="StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span>"the string to search", <em>string</em>, 0, 1, 1, 11<span class="S8">)</span><br />
@@ -79,8 +79,7 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Найти позицию первого вхождения строки "white" в предложении.
-</span><br>
+<span class="S1">; Найти позицию первого вхождения строки "white" в предложении.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPosition</span> <span class="S8">=</span> <a class="le" href="../functions/StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span><span class="S7">"This is a sentence with whitespace."</span><span class="S8">,</span> <span class="S7">"white"</span><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The search string 'white' first appears at position: "</span> <span class="S8">&amp;</span> <span class="S9">$iPosition</span><span class="S8">)</span><br>
 </p>
