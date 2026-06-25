@@ -29,7 +29,7 @@
 <td style="width:90%">Возвращает <span class="S91">$DECLARED_GLOBAL</span> (1) для глобальной переменной или переменной, объявленной вне функций.</td>
 </tr>
 <tr>
-<td class="valign-top">Special:</td>
+<td class="valign-top">Специальное:</td>
 <td>Возвращает <span class="S91">$DECLARED_LOCAL</span> (-1) для локальной переменной.</td>
 </tr>
 <tr>
@@ -41,7 +41,7 @@
 
 
 <h2>Примечания</h2>
-<p>Если требуется проверить существование переменной через <a href="IsDeclared.htm"><span class="S4">IsDeclared</span><span class="S8">()</span></a>, то в большинстве случаев для создания/записи следует использовать <a href="Assign.htm"><span class="S4">Assign</span><span class="S8">()</span></a>, а для чтения – <a href="Eval.htm"><span class="S4">Eval</span><span class="S8">()</span></a>.<br />
+<p>Если требуется проверить существование переменной через <a href="IsDeclared.htm"><span class="S4">IsDeclared</span><span class="S8">()</span></a>, в большинстве случаев для создания или записи используйте <a href="Assign.htm"><span class="S4">Assign</span><span class="S8">()</span></a>, а для чтения используйте <a href="Eval.htm"><span class="S4">Eval</span><span class="S8">()</span></a>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Assign.htm">Assign</a>, <a href="Eval.htm">Eval</a></p>
@@ -52,15 +52,12 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Проверить, объявлена ли переменная $vVar. Если нет – отобразить сообщение об ошибке.
-</span><br>
+<span class="S1">; Проверить, объявлена ли переменная $vVar. Если нет – отобразить сообщение об ошибке.</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/IsDeclared.htm"><span class="S4">IsDeclared</span></a><span class="S8">(</span><span class="S7">"vVar"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The variable $vVar is not declared."</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vVar</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; Инициализировать переменную $vVar данными.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/IsDeclared.htm"><span class="S4">IsDeclared</span></a><span class="S8">(</span><span class="S7">"vVar"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Проверить, объявлена ли переменная $vVar.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vVar</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; Инициализировать переменную $vVar данными.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/IsDeclared.htm"><span class="S4">IsDeclared</span></a><span class="S8">(</span><span class="S7">"vVar"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Проверить, объявлена ли переменная $vVar.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The variable $vVar is declared."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The variable $vVar is not declared."</span><span class="S8">)</span><br>
