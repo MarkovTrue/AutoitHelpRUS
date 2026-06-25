@@ -26,7 +26,7 @@
 </tr>
 <tr>
 <td>binary</td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, данные читаются в двоичном формате вместо текстового (по умолчанию – текст).</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, данные читаются в двоичном формате вместо текстового (по умолчанию текст).</td>
 </tr>
 </table>
 
@@ -43,10 +43,10 @@
 </table>
 
 <h2>Примечания</h2>
-<p><a href="StdoutRead.htm"><span class="S4">StdoutRead</span><span class="S8">()</span></a> читает данные из стандартного потока вывода консольного дочернего процесса. При вызове <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a> для этого процесса параметр STD I/O должен включать значение <span class="S91">$STDOUT_CHILD</span> (2) (см. описание функции <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>).<br />
-<a href="StdoutRead.htm"><span class="S4">StdoutRead</span><span class="S8">()</span></a> не блокирует выполнение и возвращает управление немедленно. Для получения всех данных необходимо вызывать функцию в цикле.<br />
-Просмотр (peek) не удаляет данные из буфера, однако возвращает доступные данные в обычном режиме.<br />
-По умолчанию данные возвращаются в текстовом формате; при указании двоичного режима – в двоичном.<br />
+<p><a href="StdoutRead.htm"><span class="S4">StdoutRead</span><span class="S8">()</span></a> читает данные из стандартного потока вывода консольного дочернего процесса, который обычно используется консольными приложениями для вывода на экран. При вызове <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a> для дочернего процесса параметр STD I/O должен включать значение <span class="S91">$STDOUT_CHILD</span> (2) для корректной работы (см. <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>).<br />
+<a href="StdoutRead.htm"><span class="S4">StdoutRead</span><span class="S8">()</span></a> не блокирует выполнение и возвращает управление немедленно. Для получения всех данных нужно вызывать функцию в цикле.<br />
+Просмотр потока (peek) не удаляет данные из буфера, но возвращает доступные данные в обычном режиме.<br />
+По умолчанию данные возвращаются в текстовом формате. При указании двоичного режима данные возвращаются в двоичном формате.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Run.htm">Run</a>, <a href="RunAs.htm">RunAs</a>, <a href="StderrRead.htm">StderrRead</a>, <a href="StdinWrite.htm">StdinWrite</a>, <a href="StdioClose.htm">StdioClose</a></p>
@@ -66,8 +66,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFilePath</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a>&nbsp;<span class="S1">; Искать в каталоге текущего скрипта.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFilter</span> <span class="S8">=</span> <span class="S7">"*.*"</span>&nbsp;<span class="S1">; Искать все файлы текущего каталога. Список валидных wildcards – по 'Wildcards' в справке.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если путь не является каталогом, выйти из функции Example.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если путь не является каталогом, выйти из функции Example.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span><a class="le" href="../functions/FileGetAttrib.htm"><span class="S4">FileGetAttrib</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">"D"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
@@ -77,30 +76,22 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs
 </span><span class="S2"></span><br>
-<span class="S2">		Параметры командной строки DIR:
-</span><br>
-<span class="S2">		/B – простой вывод.
-</span><br>
-<span class="S2">		/A-D – поиск всех файлов, кроме папок.
-</span><br>
-<span class="S2">		/S – поиск в подпапках.
-</span><br>
+<span class="S2">		Параметры командной строки DIR:</span><br>
+<span class="S2">		/B – простой вывод.</span><br>
+<span class="S2">		/A-D – искать все файлы, исключая папки.</span><br>
+<span class="S2">		/S – искать в подпапках.</span><br>
 <span class="S2">	#ce
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPID</span> <span class="S8">=</span> <a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ComSpec"><span class="S6">@ComSpec</span></a> <span class="S8">&amp;</span> <span class="S7">' /C DIR "'</span> <span class="S8">&amp;</span> <span class="S9">$sFilePath</span> <span class="S8">&amp;</span> <span class="S9">$sFilter</span> <span class="S8">&amp;</span> <span class="S7">'" /B /A-D /S'</span><span class="S8">,</span> <span class="S9">$sFilePath</span><span class="S8">,</span> <a class="le" href="../macros.htm#@SW_HIDE"><span class="S6">@SW_HIDE</span></a><span class="S8">,</span> <span class="S9">$STDOUT_CHILD</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Для поиска файлов с именами в кодировке Unicode используйте параметр командной строки /U.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Для поиска файлов с именами в кодировке Unicode используйте параметр командной строки /U.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать завершения процесса с PID, возвращённым функцией Run.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать завершения процесса с PID, возвращённым функцией Run.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ProcessWaitClose.htm"><span class="S4">ProcessWaitClose</span></a><span class="S8">(</span><span class="S9">$iPID</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Читать поток Stdout процесса с PID, возвращённым Run. Можно также использовать цикл While – см. пример для StderrRead.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Читать поток Stdout процесса с PID, возвращённым Run. Можно также использовать цикл While – см. пример для StderrRead.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sOutput</span> <span class="S8">=</span> <a class="le" href="../functions/StdoutRead.htm"><span class="S4">StdoutRead</span></a><span class="S8">(</span><span class="S9">$iPID</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Разбить вывод StdoutRead на массив через StringSplit. Символы возврата каретки (@CRLF) убираются, разделитель – @CRLF (перевод строки).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Разбить вывод StdoutRead на массив через StringSplit. Символы возврата каретки (@CRLF) убираются, разделитель – @CRLF (перевод строки).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span> <span class="S8">=</span> <a class="le" href="../functions/StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span><a class="le" href="../functions/StringTrimRight.htm"><span class="S4">StringTrimRight</span></a><span class="S8">(</span><a class="le" href="../functions/StringStripCR.htm"><span class="S4">StringStripCR</span></a><span class="S8">(</span><span class="S9">$sOutput</span><span class="S8">)</span><span class="S8">,</span> <a class="le" href="../functions/StringLen.htm"><span class="S4">StringLen</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@LF"><span class="S6">@LF</span></a><span class="S8">)</span><span class="S8">)</span><span class="S8">,</span> <a class="le" href="../macros.htm#@LF"><span class="S6">@LF</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"It appears there was an error trying to find all the files in the current script directory."</span><span class="S8">)</span><br>
