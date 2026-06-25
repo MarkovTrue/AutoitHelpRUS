@@ -30,11 +30,11 @@
 </tr>
 <tr>
 <td>width</td>
-<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию – ранее использованная ширина).</td>
+<td><strong>[необязательный]</strong> Ширина элемента управления (по умолчанию ранее использованная ширина).</td>
 </tr>
 <tr>
 <td>height</td>
-<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию – ранее использованная высота).</td>
+<td><strong>[необязательный]</strong> Высота элемента управления (по умолчанию ранее использованная высота).</td>
 </tr>
 </table>
 
@@ -51,16 +51,15 @@
 </table>
 
 <h2>Примечания</h2>
-<p>This function attempts to embed an 'ActiveX Control' or a 'Document Object' inside the GUI.<br />
-Not every control can be embedded. They must at least support an 'IDispatch' interface.<br />
+<p>Функция пытается встроить "ActiveX-элемент управления" или "объект-документ" в GUI.<br />
+Встраивать можно не каждый элемент: они должны как минимум поддерживать интерфейс IDispatch.<br />
 <br />
-See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more information about Objects.<br />
+См. <a href="../intro/ComRef.htm">справочник Obj/COM</a> для получения дополнительных сведений об объектах.<br />
 <br />
-'Document Objects' will only be visible if the Windows style <span class="S91">$WS_CLIPCHILDREN</span> has been used in <a href="GUICreate.htm"><span class="S4">GUICreate</span><span class="S8">()</span></a>.<br />
+"Объекты-документы" видны только при использовании в <a href="GUICreate.htm"><span class="S4">GUICreate</span><span class="S8">()</span></a> стиля Windows <span class="S91">$WS_CLIPCHILDREN</span>.<br />
 <br />
-The GUI functions <a href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span><span class="S8">()</span></a> and GUICtrlSet have no effect on this control. The object can only be controlled using 'methods' or 'properties' on the <span class="S91">$ObjectVar</span>.<br />
+Функции GUI <a href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span><span class="S8">()</span></a> и GUICtrlSet не влияют на этот элемент управления. Управлять объектом можно только через методы и свойства переменной <span class="S91">$ObjectVar</span>.<br />
 </p>
-
 <h2>См. также</h2>
 <p><a href="IsObj.htm">IsObj</a>, <a href="ObjCreate.htm">ObjCreate</a>, <a href="ObjEvent.htm">ObjEvent</a>, <a href="ObjGet.htm">ObjGet</a></p>
 
@@ -73,11 +72,9 @@ The GUI functions <a href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span><
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Простой пример: встраивание объекта Internet Explorer в GUI AutoIt
-</span><br>
+<span class="S1">; Простой пример: встраивание объекта Internet Explorer в GUI AutoIt</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Этот объект объявлен через ObjEvent(), поэтому его нужно сохранить; #forceref – чтобы Au3Check не выдавал предупреждение.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Этот объект объявлен через ObjEvent(), поэтому его нужно сохранить; #forceref – чтобы Au3Check не выдавал предупреждение.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oErrorHandler</span> <span class="S8">=</span> <a class="le" href="../functions/ObjEvent.htm"><span class="S4">ObjEvent</span></a><span class="S8">(</span><span class="S7">"AutoIt.Error"</span><span class="S8">,</span> <span class="S7">"_ErrFunc"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$oErrorHandler</span><br>
 <br>
@@ -86,8 +83,7 @@ The GUI functions <a href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span><
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a><span class="S8">(</span><span class="S7">"Shell.Explorer.2"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать простой GUI для вывода
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать простой GUI для вывода</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Embedded Web control Test"</span><span class="S8">,</span> <span class="S3">640</span><span class="S8">,</span> <span class="S3">580</span><span class="S8">,</span> <span class="S8">(</span><a class="le" href="../macros.htm#@DesktopWidth"><span class="S6">@DesktopWidth</span></a> <span class="S8">-</span> <span class="S3">640</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">,</span> <span class="S8">(</span><a class="le" href="../macros.htm#@DesktopHeight"><span class="S6">@DesktopHeight</span></a> <span class="S8">-</span> <span class="S3">580</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_OVERLAPPEDWINDOW</span><span class="S8">,</span> <span class="S9">$WS_CLIPSIBLINGS</span><span class="S8">,</span> <span class="S9">$WS_CLIPCHILDREN</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateObj.htm"><span class="S4">GUICtrlCreateObj</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S3">600</span><span class="S8">,</span> <span class="S3">360</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetResizing.htm"><span class="S4">GUICtrlSetResizing</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$GUI_DOCKAUTO</span><span class="S8">)</span><br>
@@ -126,11 +122,9 @@ The GUI functions <a href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span><
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 <br>
-<span class="S1">; Пользовательская функция обработки ошибок COM. Вызывается при возникновении ошибки COM.
-</span><br>
+<span class="S1">; Пользовательская функция обработки ошибок COM. Вызывается при возникновении ошибки COM.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_ErrFunc</span><span class="S8">(</span><span class="S9">$oError</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Здесь можно выполнить любые действия.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Здесь можно выполнить любые действия.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a> <span class="S8">&amp;</span> <span class="S7">" ("</span> <span class="S8">&amp;</span> <span class="S9">$oError</span>.<span class="Scom">scriptline</span> <span class="S8">&amp;</span> <span class="S7">") : ==&gt; COM Error intercepted !"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"err.number is: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"0x"</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><span class="S9">$oError</span>.<span class="Scom">number</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"err.windescription:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S9">$oError</span>.<span class="Scom">windescription</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
