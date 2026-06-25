@@ -94,8 +94,7 @@ Eлементами ListViewItem и TabItem управляют через инд
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 <br>
-<span class="S1">; Применить цвет к меню
-</span><br>
+<span class="S1">; Применить цвет к меню</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$nMenuID</span><span class="S8">,</span> <span class="S9">$nColor</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$MIM_APPLYTOSUBMENUS</span> <span class="S8">=</span> <span class="S3">0x80000000</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$MIM_BACKGROUND</span> <span class="S8">=</span> <span class="S3">0x00000002</span><br>
@@ -112,8 +111,7 @@ Eлементами ListViewItem и TabItem управляют через инд
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">(</span><span class="S7">"user32.dll"</span><span class="S8">,</span> <span class="S7">"int"</span><span class="S8">,</span> <span class="S7">"SetMenuInfo"</span><span class="S8">,</span> <span class="S7">"hwnd"</span><span class="S8">,</span> <span class="S9">$hMenu</span><span class="S8">,</span> <span class="S7">"struct*"</span><span class="S8">,</span> <span class="S9">$tMenuInfo</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; освобождение структуры не обязательно, так как она локальная
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Освобождение структуры не обязательно, так как она локальная</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tMenuInfo</span> <span class="S8">=</span> <span class="S3">0</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;SetMenuColor
 </span><br>
