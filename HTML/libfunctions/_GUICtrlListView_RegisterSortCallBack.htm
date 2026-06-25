@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlListView_RegisterSortCallBack</h1>
-<p class="funcdesc">Сортировать.</p>
+<p class="funcdesc">Регистрирует CallBack функцию простой сортировки.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiListView.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlListView_RegisterSortCallBack.htm"><span class="S15">_GUICtrlListView_RegisterSortCallBack</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vCompareType</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bArrows</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sPrivateCallBack</span> <span class="S8">=</span> <span class="S7">"__GUICtrlListView_Sort"</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -51,7 +51,22 @@
 </table>
 
 <h2>Примечания</h2>
-Получает элемент
+<p>На каждый вызов <a href="_GUICtrlListView_RegisterSortCallBack.htm"><span class="S15">_GUICtrlListView_RegisterSortCallBack</span><span class="S8">()</span></a> по завершении работы (перед выходом) должен приходиться вызов <a href="_GUICtrlListView_UnRegisterSortCallBack.htm"><span class="S15">_GUICtrlListView_UnRegisterSortCallBack</span><span class="S8">()</span></a>.<br />
+<br />
+За вызов <a href="_GUICtrlListView_UnRegisterSortCallBack.htm"><span class="S15">_GUICtrlListView_UnRegisterSortCallBack</span><span class="S8">()</span></a> для каждого сделанного вызова <a href="_GUICtrlListView_RegisterSortCallBack.htm"><span class="S15">_GUICtrlListView_RegisterSortCallBack</span><span class="S8">()</span></a> отвечаете вы сами.<br />
+<br />
+Это альтернатива функции <a href="_GUICtrlListView_SimpleSort.htm"><span class="S15">_GUICtrlListView_SimpleSort</span><span class="S8">()</span></a>.<br />
+<br />
+Эта функция сортирует списки ListView со значками, флажками и значками подэлементов.<br />
+<br />
+Функция <span class="S91">$sPrivateCallBack</span> вызывается с тремя параметрами (<span class="S91">$nItem1</span>, <span class="S91">$nItem2</span>, <span class="S91">$hWnd</span>).<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$nItem1</span> – параметр 1-го элемента<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$nItem2</span> – параметр 2-го элемента<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$hWnd</span>  – дескриптор элемента управления<br />
+<br />
+Значение элемента получают через <a href="_GUICtrlListView_GetItemText.htm">_GUICtrlListView_GetItemText</a> ( <span class="S91">$hWnd</span>, <span class="S91">$nItemX</span> [, <span class="S91">$iSubItem</span> = 0] ).<br />
+Функция должна возвращать 0 (без изменений), -1 если первый элемент меньше второго, либо 1 в зависимости от результата сравнения.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlListView_SortItems.htm">_GUICtrlListView_SortItems</a>, <a href="_GUICtrlListView_UnRegisterSortCallBack.htm">_GUICtrlListView_UnRegisterSortCallBack</a></p>
 
