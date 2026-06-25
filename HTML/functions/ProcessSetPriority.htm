@@ -22,15 +22,15 @@
 </tr>
 <tr>
 <td>priority</td>
-<td>Флаг, определяющий устанавливаемый приоритет:<br />
-<span class="S91">$PROCESS_LOW</span> (0) = Низкий<br />
-<span class="S91">$PROCESS_BELOWNORMAL</span> (1) = Ниже нормального<br />
-<span class="S91">$PROCESS_NORMAL</span> (2) = Нормальный<br />
-<span class="S91">$PROCESS_ABOVENORMAL</span> (3) = Выше нормального<br />
-<span class="S91">$PROCESS_HIGH</span> (4) = Высокий<br />
-<span class="S91">$PROCESS_REALTIME</span> (5) = Реального времени (применять с осторожностью – может дестабилизировать систему)<br />
-<br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+<td>Флаг, определяющий устанавливаемый приоритет:<br>
+<span class="S91">$PROCESS_LOW</span> (0) = Низкий<br>
+<span class="S91">$PROCESS_BELOWNORMAL</span> (1) = Ниже нормального<br>
+<span class="S91">$PROCESS_NORMAL</span> (2) = Нормальный<br>
+<span class="S91">$PROCESS_ABOVENORMAL</span> (3) = Выше нормального<br>
+<span class="S91">$PROCESS_HIGH</span> (4) = Высокий<br>
+<span class="S91">$PROCESS_REALTIME</span> (5) = Реального времени (применять с осторожностью, может дестабилизировать систему)<br>
+<br>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -67,8 +67,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить приоритет процесса Блокнота в "Низкий".
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить приоритет процесса Блокнота в "Низкий".</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ProcessSetPriority.htm"><span class="S4">ProcessSetPriority</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пауза 2 секунды.</span><br>
