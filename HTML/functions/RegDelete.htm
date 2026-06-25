@@ -33,7 +33,7 @@
 <td style="width:90%">Возвращает 1.</td>
 </tr>
 <tr>
-<td class="valign-top">Special:</td>
+<td class="valign-top">Специальное:</td>
 <td>Возвращает 0, если раздел или значение не существует.</td>
 </tr>
 <tr>
@@ -57,7 +57,7 @@
 <br />
 Для доступа к значению <strong>(Default)</strong> передайте <strong>""</strong> (пустую строку) в качестве valuename.<br />
 <br />
-Удаление данных из реестра потенциально опасно – действуйте осторожно!<br />
+Удаление данных из реестра потенциально опасно, действуйте осторожно!<br />
 <br />
 Для доступа к удалённому реестру используйте имя раздела вида "\\имя_компьютера\раздел". Требуются соответствующие права доступа.<br />
 </p>
@@ -107,16 +107,14 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgboxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">;~ #RequireAdmin
+<span class="S1">;### Отладочное сообщение
 </span><br>
 <br>
-<span class="S1">; требуются права администратора
-</span><br>
+<span class="S1">; требуются права администратора</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sKey</span> <span class="S8">=</span> <span class="S7">"HKEY_LOCAL_MACHINE64\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Active Setup Temp Folders"</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRegWrite</span> <span class="S8">=</span> <a class="le" href="../functions/RegWrite.htm"><span class="S4">RegWrite</span></a><span class="S8">(</span><span class="S9">$sKey</span><span class="S8">,</span> <span class="S7">"test"</span><span class="S8">,</span> <span class="S7">"REG_DWORD"</span><span class="S8">,</span> <span class="S7">"1"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iRegWrite</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_ICONWARNING</span> <span class="S8">+</span> <span class="S9">$MB_TOPMOST</span><span class="S8">,</span> <span class="S7">"REQUIRE Admin"</span><span class="S8">,</span> <span class="S7">"Cannot be created"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sKey</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'Return = '</span> <span class="S8">&amp;</span> <span class="S9">$iRegWrite</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'@error = '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">'@extended = '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <span class="S7">' (0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">')'</span><span class="S8">)</span>&nbsp;<span class="S1">;### Отладочное сообщение
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_ICONWARNING</span> <span class="S8">+</span> <span class="S9">$MB_TOPMOST</span><span class="S8">,</span> <span class="S7">"REQUIRE Admin"</span><span class="S8">,</span> <span class="S7">"Cannot be created"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sKey</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'Return = '</span> <span class="S8">&amp;</span> <span class="S9">$iRegWrite</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'@error = '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">'@extended = '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <span class="S7">' (0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">')'</span><span class="S8">)</span>&nbsp;<span class="S1">;### Отладочное сообщение</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_TOPMOST</span><span class="S8">,</span> <span class="S7">"RegWrite"</span><span class="S8">,</span> <span class="S9">$sKey</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"succesfully created"</span><span class="S8">)</span><br>
 <br>
