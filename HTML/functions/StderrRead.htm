@@ -26,7 +26,7 @@
 </tr>
 <tr>
 <td>binary</td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, данные читаются в двоичном формате вместо текстового (по умолчанию – текст).</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, данные читаются в двоичном формате вместо текстового (по умолчанию текст).</td>
 </tr>
 </table>
 
@@ -46,7 +46,7 @@
 <p><a href="StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a> читает данные из стандартного потока вывода консольного дочернего процесса. При вызове <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a> для этого процесса параметр STD I/O должен включать значение <span class="S91">$STDERR_CHILD</span> (4) (см. описание функции <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>).<br />
 <a href="StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a> не блокирует выполнение и возвращает управление немедленно. Для получения всех данных необходимо вызывать функцию в цикле.<br />
 Просмотр (peek) не удаляет данные из буфера, однако возвращает доступные данные в обычном режиме.<br />
-По умолчанию данные возвращаются в текстовом формате; при указании двоичного режима – в двоичном.<br />
+По умолчанию данные возвращаются в текстовом формате. Если использовать параметр двоичного режима, данные будут возвращены в двоичном формате.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Run.htm">Run</a>, <a href="RunAs.htm">RunAs</a>, <a href="StdinWrite.htm">StdinWrite</a>, <a href="StdioClose.htm">StdioClose</a>, <a href="StdoutRead.htm">StdoutRead</a></p>
@@ -74,8 +74,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sOutput</span> <span class="S8">=</span> <span class="S7">''</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sOutput</span> <span class="S8">&amp;=</span> <a class="le" href="../functions/StderrRead.htm"><span class="S4">StderrRead</span></a><span class="S8">(</span><span class="S9">$iPID</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Выйти из цикла, если процесс завершился или StderrRead вернул ошибку.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Выйти из цикла, если процесс завершился или StderrRead вернул ошибку.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Stderr Read:"</span><span class="S8">,</span> <span class="S9">$sOutput</span><span class="S8">)</span><br>
