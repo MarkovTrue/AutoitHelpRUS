@@ -26,7 +26,7 @@
 </tr>
 <tr>
 <td>transparency</td>
-<td>Число в диапазоне 0–255. Чем меньше значение, тем прозрачнее окно. 255 = непрозрачное, 0 = невидимое.</td>
+<td>Число в диапазоне 0-255. Чем меньше значение, тем прозрачнее окно. 255 = непрозрачное, 0 = невидимое.</td>
 </tr>
 </table>
 
@@ -58,8 +58,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем прозрачность окна Блокнота на уровне 170.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем прозрачность окна Блокнота на уровне 170.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetTrans.htm"><span class="S4">WinSetTrans</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">170</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать 2 секунды отображения окна Блокнота.</span><br>
