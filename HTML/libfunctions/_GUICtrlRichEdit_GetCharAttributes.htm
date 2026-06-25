@@ -27,7 +27,29 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает строка, состоящая из групп по три символа. Каждая группа состоит из названия атрибута, пробела и значения.</td>
+<td style="width:90%">Возвращает строку из групп по три символа.<br />
+<br />
+Каждая группа состоит из пары этих символов:<br />
+bo&nbsp;– полужирный<br />
+di&nbsp;– отключённый, символы отображаются с тенью [nd]<br />
+em&nbsp;– рельефный [nd]<br />
+hi&nbsp;– скрытый, не отображается<br />
+im&nbsp;– вдавленный [nd]<br />
+it&nbsp;– курсив<br />
+li&nbsp;– сообщения EN_LINK отправляются, когда курсор мыши над текстом с этим атрибутом<br />
+ou&nbsp;– контурный [nd]<br />
+pr&nbsp;– EN_PROTECT отправляется при попытке изменения<br />
+re&nbsp;– помечен как изменённый [nd]<br />
+sh&nbsp;– с тенью [nd]<br />
+sm&nbsp;– малые прописные буквы [nd]<br />
+st&nbsp;– зачёркнутый<br />
+sb&nbsp;– подстрочный [nd]<br />
+sp&nbsp;– надстрочный [nd]<br />
+un&nbsp;– подчёркнутый<br />
+<br />
+Третий символ:<br />
++&nbsp; если включён<br />
+~&nbsp; если смешанный<br /></td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -41,7 +63,10 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Некоторые атрибуты не отображаются в элементе управления Rich Edit; они помечены [nd] выше.</p>
+<p>Некоторые атрибуты не отображаются в элементе управления Rich Edit; они помечены [nd] выше.<br />
+<br />
+Возвращает "", если ни один атрибут не включён.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlRichEdit_SetCharAttributes.htm">_GUICtrlRichEdit_SetCharAttributes</a></p>
 
@@ -90,7 +115,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_SetCharAttributes.htm"><span class="S15">_GUICtrlRichEdit_SetCharAttributes</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <span class="S7">"+bo"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Report</span><span class="S8">(</span><span class="S7">"2. Some characters bolded"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">3</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол – можно посмотреть настройки в Word</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол, чтобы посмотреть настройки в Word</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_Deselect.htm"><span class="S15">_GUICtrlRichEdit_Deselect</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_StreamToFile.htm"><span class="S15">_GUICtrlRichEdit_StreamToFile</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@DesktopDir"><span class="S6">@DesktopDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\gcre.rtf"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idBtn_Next</span><span class="S8">,</span> <span class="S9">$GUI_DISABLE</span><span class="S8">)</span><br>
