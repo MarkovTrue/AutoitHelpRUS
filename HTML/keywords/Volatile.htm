@@ -47,8 +47,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIE</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a><span class="S8">(</span><span class="S7">"InternetExplorer.Application"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверить ошибки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oIE</span>.<span class="Scom">Visible</span> <span class="S8">=</span> <span class="S5">True</span>&nbsp;<span class="S1">; установить видимость
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oIE</span>.<span class="Scom">Visible</span> <span class="S8">=</span> <span class="S5">True</span>&nbsp;<span class="S1">; Установить видимость.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Кастомный sink-объект</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ObjEvent.htm"><span class="S4">ObjEvent</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S7">"_IEEvent_"</span><span class="S8">,</span> <span class="S7">"DWebBrowserEvents2"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перейти куда-нибудь</span><br>
@@ -58,15 +57,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oIE</span>.<span class="Scom">Quit</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать загрузки страницы
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ожидать загрузки страницы.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$oIE</span>.<span class="Scom">readyState</span> <span class="S8">=</span> <span class="S7">"complete"</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S9">$oIE</span>.<span class="Scom">readyState</span> <span class="S8">=</span> <span class="S3">4</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">10</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Подождать несколько секунд, чтобы увидеть, будут ли срабатывать ещё события
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Подождать несколько секунд – проверить, появятся ли ещё события.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">3000</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Больше ничего делать не нужно. Закрыть IE и вернуться из функции</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oIE</span>.<span class="Scom">Quit</span><span class="S8">(</span><span class="S8">)</span><br>
@@ -77,8 +74,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Volatile</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_IEEvent_BeforeNavigate2</span><span class="S8">(</span><span class="S9">$oIEpDisp</span><span class="S8">,</span> <span class="S9">$sIEURL</span><span class="S8">,</span> <span class="S9">$iIEFlags</span><span class="S8">,</span> <span class="S9">$sIETargetFrameName</span><span class="S8">,</span> <span class="S9">$sIEPostData</span><span class="S8">,</span> <span class="S9">$iIEHeaders</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$bIECancel</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--BeforeNavigate2 fired--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$oIEpDisp = "</span> <span class="S8">&amp;</span> <span class="S9">$oIEpDisp</span><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"  -  "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/ObjName.htm"><span class="S4">ObjName</span></a><span class="S8">(</span><span class="S9">$oIEpDisp</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; например свойство по умолчанию и имя объекта
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$oIEpDisp = "</span> <span class="S8">&amp;</span> <span class="S9">$oIEpDisp</span><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"  -  "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/ObjName.htm"><span class="S4">ObjName</span></a><span class="S8">(</span><span class="S9">$oIEpDisp</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; Например, свойство и имя объекта по умолчанию.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$sIEURL = "</span> <span class="S8">&amp;</span> <span class="S9">$sIEURL</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$iIEFlags = "</span> <span class="S8">&amp;</span> <span class="S9">$iIEFlags</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$sIETargetFrameName = "</span> <span class="S8">&amp;</span> <span class="S9">$sIETargetFrameName</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
@@ -87,8 +83,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$bIECancel = "</span> <span class="S8">&amp;</span> <span class="S9">$bIECancel</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отмена навигации
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отмена навигации</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$bIECancel</span> <span class="S8">=</span> <span class="S5">True</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_IEEvent_BeforeNavigate2
 </span><br>
