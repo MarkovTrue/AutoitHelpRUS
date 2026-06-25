@@ -48,9 +48,9 @@
 <strong>Примечание</strong>: Статические переменные <em>должны</em> быть объявлены с помощью ключевого слова <strong>Static</strong> перед использованием, независимо от того, как устанавливается AutoItSetOption("<a href="../functions/AutoItSetOption.htm#MustDeclareVars">MustDeclareVars</a>"). Статические переменные не могут быть <strong><a href="Dim.htm">Const</a></strong>.<br />
 <br />
 Вы также можете объявить несколько статических переменных на одной строке:<br />
-<p class="code">Static <span class="S91">$a</span>, <span class="S91">$b</span>, <span class="S91">$c</span></p><br />
+<p class="codebox"><a class="le" href="../keywords/Static.htm"><span class="S5">Static</span></a> <span class="S9">$a</span><span class="S8">,</span> <span class="S9">$b</span><span class="S8">,</span> <span class="S9">$c</span></p><br />
 И инициализировать переменные:<br />
-<p class="code">Static <span class="S91">$a</span> = 2, <span class="S91">$b</span> = 10, <span class="S91">$c</span> = 20</p><br />
+<p class="codebox"><a class="le" href="../keywords/Static.htm"><span class="S5">Static</span></a> <span class="S9">$a</span> <span class="S8">=</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$b</span> <span class="S8">=</span> <span class="S3">10</span><span class="S8">,</span> <span class="S9">$c</span> <span class="S8">=</span> <span class="S3">20</span></p><br />
 <br />
 При инициализации статической переменной значение инициализации вычисляется и присваивается только первый раз, когда создаётся переменная. При всех последующих проходах инициализатор игнорируется.<br />
 <br />
@@ -70,12 +70,10 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Вызвать функцию Example для инициализации статической переменной в локальной области видимости.
-</span><br>
+<span class="S1">; Вызвать функцию Example для инициализации статической переменной в локальной области видимости.</span><br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вызвать функцию Example второй раз, чтобы показать, что переменная сохранила данные, которые мы ей последний раз присвоили.
-</span><br>
+<span class="S1">; Вызвать функцию Example второй раз, чтобы показать, что переменная сохранила данные, которые мы ей последний раз присвоили.</span><br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
@@ -84,7 +82,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sString</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">"If using just Local scope this string wouldn't be visible if this function was called multiple times, but since we're using the Static keyword"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"the variable $sString will retain the data last assigned to it."</span><br>
-<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\Static.au3,"></object>
@@ -97,28 +95,20 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 1.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 2.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 3.
-</span><br>
-<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 1.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 2.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Это выведет окно сообщения 1, 3.</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">SomeFunc</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это инициализирует статическую переменную в локальной области видимости. Когда переменная объявляется только в локальной области видимости (внутри функции,)
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; она уничтожается, когда функция завершается/возвращается. Это не имеет место для статической переменной. Переменная не может быть
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; доступна с любого другого места в скрипте, кроме функции, в которой она была объявлена.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это инициализирует статическую переменную в локальной области видимости. Когда переменная объявляется только в локальной области видимости (внутри функции,)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; она уничтожается, когда функция завершается/возвращается. Это не имеет место для статической переменной. Переменная не может быть</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; доступна с любого другого места в скрипте, кроме функции, в которой она была объявлена.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Static.htm"><span class="S5">Static</span></a> <span class="S9">$vVariableThatIsStatic</span> <span class="S8">=</span> <span class="S3">0</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vVariableThatIsLocal</span> <span class="S8">=</span> <span class="S3">0</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vVariableThatIsLocal</span> <span class="S8">+=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Это всегда будет 1, так как она была уничтожена, когда возвращалась из SomeFunc.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vVariableThatIsStatic</span> <span class="S8">+=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Это будет увеличиваться на 1.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vVariableThatIsLocal</span> <span class="S8">+=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Это всегда будет 1, так как она была уничтожена, когда возвращалась из SomeFunc.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vVariableThatIsStatic</span> <span class="S8">+=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Это будет увеличиваться на 1.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S9">$vVariableThatIsLocal</span><span class="S8">,</span> <span class="S9">$vVariableThatIsStatic</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;SomeFunc
 </span><br>
