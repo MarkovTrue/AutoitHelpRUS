@@ -26,11 +26,11 @@
 </tr>
 <tr>
 <td>flag</td>
-<td><strong>[необязательный]</strong> Изменяет режим разбиения; для нескольких режимов значения флагов складываются:<br />
-<span class="default-const"><span class="S91">$STR_CHRSPLIT</span></span> (0) = каждый символ строки разделителей является точкой разбиения (по умолчанию)<br />
-<span class="S91">$STR_ENTIRESPLIT</span> (1) = для разбиения требуется совпадение всей строки разделителей<br />
-<span class="S91">$STR_NOCOUNT</span> (2) = не помещать счётчик в первый элемент – массив фактически становится 0-базированным (для получения размера массива используйте <a href="UBound.htm"><span class="S4">UBound</span><span class="S8">()</span></a>).<br />
-<br />
+<td><strong>[необязательный]</strong> Изменяет режим разбиения; для нескольких режимов значения флагов складываются:<br>
+<span class="default-const">$STR_CHRSPLIT</span> (0) = каждый символ строки разделителей является точкой разбиения (по умолчанию)<br>
+<span class="S91">$STR_ENTIRESPLIT</span> (1) = для разбиения требуется совпадение всей строки разделителей<br>
+<span class="S91">$STR_NOCOUNT</span> (2) = не помещать счётчик в первый элемент, массив фактически становится 0-базированным (для получения размера массива используйте <a href="UBound.htm"><span class="S4">UBound</span><span class="S8">()</span></a>).<br>
+<br>
 Константы определены в <span class="S7">StringConstants.au3</span>.</td>
 </tr>
 </table>
@@ -64,22 +64,16 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aDays</span> <span class="S8">=</span> <a class="le" href="../functions/StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span><span class="S7">"Mon,Tues,Wed,Thur,Fri,Sat,Sun"</span><span class="S8">,</span> <span class="S7">","</span><span class="S8">)</span>&nbsp;<span class="S1">; Разбить строку с названиями дней по разделителю "," со значением флага по умолчанию.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aDays</span> <span class="S8">=</span> <a class="le" href="../functions/StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span><span class="S7">"Mon,Tues,Wed,Thur,Fri,Sat,Sun"</span><span class="S8">,</span> <span class="S7">","</span><span class="S8">)</span>&nbsp;<span class="S1">; Разбить строку с названиями дней по разделителю "," со значением флага по умолчанию.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs
 </span><span class="S2"></span><br>
-<span class="S2">		Возвращаемый массив будет содержать следующие значения:
-</span><br>
-<span class="S2">		$aDays[1] = "Пн"
-</span><br>
-<span class="S2">		$aDays[2] = "Вт"
-</span><br>
-<span class="S2">		$aDays[3] = "Ср"
-</span><br>
+<span class="S2">		Возвращаемый массив содержит следующие значения:</span><br>
+<span class="S2">		$aDays[1] = "Пн"</span><br>
+<span class="S2">		$aDays[2] = "Вт"</span><br>
+<span class="S2">		$aDays[3] = "Ср"</span><br>
 <span class="S2">		...
 </span><br>
-<span class="S2">		$aDays[7] = "Вс"
-</span><br>
+<span class="S2">		$aDays[7] = "Вс"</span><br>
 <span class="S2">	#ce
 </span><br>
 <br>
@@ -105,16 +99,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Параметр flag задан как $STR_ENTIRESPLIT (1), иначе разбиение произойдёт по \ или n.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs
 </span><span class="S2"></span><br>
-<span class="S2">		Возвращаемый массив будет содержать следующие значения:
-</span><br>
-<span class="S2">		$aArray[1] = "Это"
-</span><br>
-<span class="S2">		$aArray[2] = "строка"
-</span><br>
+<span class="S2">		Возвращаемый массив содержит следующие значения:</span><br>
+<span class="S2">		$aArray[1] = "Это"</span><br>
+<span class="S2">		$aArray[2] = "строка"</span><br>
 <span class="S2">		...
 </span><br>
-<span class="S2">		$aArray[4] = "переносы в стиле C."
-</span><br>
+<span class="S2">		$aArray[4] = "переносы в стиле C."</span><br>
 <span class="S2">	#ce
 </span><br>
 <br>
@@ -139,20 +129,15 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать переменную в StringSplit с разделителем "\n".</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Параметр flag задан как $STR_ENTIRESPLIT (1), иначе разбиение произойдёт по \ или n.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <a class="le" href="../functions/StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span><span class="S9">$sText</span><span class="S8">,</span> <span class="S7">'\n'</span><span class="S8">,</span> <span class="S9">$STR_ENTIRESPLIT</span><span class="S8">)</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">)</span>&nbsp;<span class="S1">; Прямой доступ к индексу массива через обращение к выражению.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <a class="le" href="../functions/StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span><span class="S9">$sText</span><span class="S8">,</span> <span class="S7">'\n'</span><span class="S8">,</span> <span class="S9">$STR_ENTIRESPLIT</span><span class="S8">)</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">)</span>&nbsp;<span class="S1">; Прямой доступ к индексу массива через обращение к выражению.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs
 </span><span class="S2"></span><br>
-<span class="S2">		Внутренний временный массив используется для возврата строки, которая может содержать одно из следующих значений:
-</span><br>
-<span class="S2">		$aArray[1] = "Это"
-</span><br>
-<span class="S2">		$aArray[2] = "строка"
-</span><br>
+<span class="S2">		Внутренний временный массив используется для возврата строки, которая может содержать одно из следующих значений:</span><br>
+<span class="S2">		$aArray[1] = "Это"</span><br>
+<span class="S2">		$aArray[2] = "строка"</span><br>
 <span class="S2">		...
 </span><br>
-<span class="S2">		$aArray[4] = "переносы в стиле C."
-</span><br>
+<span class="S2">		$aArray[4] = "переносы в стиле C."</span><br>
 <span class="S2">	#ce
 </span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
