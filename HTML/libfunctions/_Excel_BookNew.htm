@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iSheets</span></td>
-<td><strong>[необязательный]</strong> Количество листов в новой книге (по умолчанию – параметр Excel SheetsInNewWorkbook). Максимум 255.</td>
+<td><strong>[необязательный]</strong> Количество листов в новой книге (по умолчанию параметр Excel SheetsInNewWorkbook). Максимум 255.</td>
 </tr>
 </table>
 
@@ -41,7 +41,7 @@
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$oExcel</span> не является объектом<br />
 2 – <span class="S91">$iSheets</span> не является целым числом<br />
-3 – <span class="S91">$iSheets</span> вне допустимого диапазона (1–255)<br />
+3 – <span class="S91">$iSheets</span> вне допустимого диапазона (1-255)<br />
 4 – Excel вернул ошибку.</td>
 </tr>
 <tr>
@@ -67,8 +67,7 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_BookNew Example 1"</span><span class="S8">,</span> <span class="S7">"Error creating the Excel application object."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создаём новую книгу с тремя листами.
-</span><br>
+<span class="S1">; Создаём новую книгу с тремя листами.</span><br>
 <a class="le" href="../libfunctions/_Excel_BookNew.htm"><span class="S15">_Excel_BookNew</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_BookNew Example 1"</span><span class="S8">,</span> <span class="S7">"Error creating new workbook."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_BookNew Example"</span><span class="S8">,</span> <span class="S7">"Workbook has been created successfully with only 2 worksheets."</span><span class="S8">)</span><br>
