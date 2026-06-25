@@ -45,10 +45,10 @@
 
 <h2>Примечания</h2>
 <p>Используйте функцию <a href="_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span><span class="S8">()</span></a> для подклассирования окна. Обычно все окна одного класса используют одну процедуру окна.<br />
-Подкласс – это окно или набор окон одного класса, сообщения которых перехватываются и обрабатываются другой процедурой окна (или несколькими) перед передачей в процедуру окна класса.<br />
+Подкласс представляет собой окно или набор окон одного класса, сообщения которых перехватываются и обрабатываются другой процедурой окна (или несколькими) перед передачей в процедуру окна класса.<br />
 <br />
 Функция <a href="_WinAPI_SetWindowLong.htm"><span class="S15">_WinAPI_SetWindowLong</span><span class="S8">()</span></a> создаёт подкласс, изменяя процедуру окна, связанную с конкретным окном, в результате чего система вызывает новую процедуру окна вместо предыдущей.<br />
-Приложение должно передавать любые сообщения, не обработанные новой процедурой окна, предыдущей процедуре окна путём вызова <a href="_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span><span class="S8">()</span></a>.<br />
+Приложение должно передавать любые сообщения, не обработанные новой процедурой окна, предыдущей процедуре окна посредством вызова <a href="_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span><span class="S8">()</span></a>.<br />
 Это позволяет приложению создавать цепочку процедур окна.<br />
 </p>
 <h2>См. также</h2>
@@ -110,14 +110,11 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">do_clever_stuff_with_clipboard</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sData</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sData</span> <span class="S8">=</span> <a class="le" href="../functions/ClipGet.htm"><span class="S4">ClipGet</span></a><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">;данные буфера обмена не являются текстом или буфер пуст
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;делай что угодно
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">;данные буфера обмена не являются текстом или буфер пуст</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;делай что угодно</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sData</span> <span class="S8">=</span> <a class="le" href="../functions/StringUpper.htm"><span class="S4">StringUpper</span></a><span class="S8">(</span><span class="S9">$sData</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;задать текст</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetDlgCtrlID.htm"><span class="S15">_WinAPI_GetDlgCtrlID</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$sData</span><span class="S8">)</span>&nbsp;<span class="S1">;или _GUICtrlEdit_SetText($hWnd, $sData)
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetDlgCtrlID.htm"><span class="S15">_WinAPI_GetDlgCtrlID</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$sData</span><span class="S8">)</span>&nbsp;<span class="S1">;или _GUICtrlEdit_SetText($hWnd, $sData)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;do_clever_stuff_with_clipboard
 </span><br>
@@ -146,14 +143,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$WM_SETCURSOR</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetCursor.htm"><span class="S4">GUICtrlSetCursor</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetDlgCtrlID.htm"><span class="S15">_WinAPI_GetDlgCtrlID</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span>&nbsp;<span class="S1">;;установи курсор I-beam
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">;;и не позволяй процедуре окна по умолчанию испортить ситуацию
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetCursor.htm"><span class="S4">GUICtrlSetCursor</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_GetDlgCtrlID.htm"><span class="S15">_WinAPI_GetDlgCtrlID</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span>&nbsp;<span class="S1">;;установи курсор I-beam</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">;;и не позволяй процедуре окна по умолчанию испортить ситуацию</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;передай необработанные сообщения процедуре окна по умолчанию
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;передай необработанные сообщения процедуре окна по умолчанию</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../libfunctions/_WinAPI_CallWindowProc.htm"><span class="S15">_WinAPI_CallWindowProc</span></a><span class="S8">(</span><span class="S9">$g_hProcOld</span><span class="S8">,</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iMsg</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_MyWindowProc
 </span><br>
