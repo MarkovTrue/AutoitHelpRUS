@@ -49,21 +49,20 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Use <a href="ObjCreate.htm"><span class="S4">ObjCreate</span><span class="S8">()</span></a> if you want to have a new instance of the referring application.<br />
-If you want to connect to an existing process, use <a href="ObjGet.htm"><span class="S4">ObjGet</span><span class="S8">()</span></a> instead.<br />
+<p>Используйте <a href="ObjCreate.htm"><span class="S4">ObjCreate</span><span class="S8">()</span></a>, если вам нужен новый экземпляр приложения.<br />
+Для подключения к существующему процессу используйте <a href="ObjGet.htm"><span class="S4">ObjGet</span><span class="S8">()</span></a>.<br />
 <br />
-Keep in mind that not all computers have the same set of Objects. So <strong>always</strong> check for errors after calling <a href="ObjCreate.htm"><span class="S4">ObjCreate</span><span class="S8">()</span></a>. To check errors use <a href="ObjEvent.htm"><span class="S4">ObjEvent</span><span class="S8">()</span></a>.<br />
+Помните, что не все компьютеры имеют одинаковый набор объектов. Поэтому <strong>всегда</strong> проверяйте ошибки после вызова <a href="ObjCreate.htm"><span class="S4">ObjCreate</span><span class="S8">()</span></a>. Используйте <a href="ObjEvent.htm"><span class="S4">ObjEvent</span><span class="S8">()</span></a> для проверки ошибок.<br />
 <br />
-The following requirements apply if you want to access objects on <em>remote</em> computers:<br />
+Следующие требования применяются при доступе к объектам на <em>удалённых</em> компьютерах:<br />
 <ul><br />
-<li>The user running the script must have the appropriate permissions.</li><br />
-<li>The Object on the remote computer must support DCOM (Distributed COM)</li><br />
-<li>The remote computer must have 'Remote Registry Service' and 'File and Printer sharing' services running.</li><br />
+<li>Пользователь, запустивший скрипт, должен иметь соответствующие права.</li><br />
+<li>Объект на удалённом компьютере должен поддерживать DCOM (Distributed COM).</li><br />
+<li>На удалённом компьютере должны работать службы Remote Registry Service и File and Printer sharing.</li><br />
 </ul><br />
 <br />
-See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for more information about Objects.<br />
+Подробнее об объектах см. в <a href="../intro/ComRef.htm">справочнике Obj/COM</a>.<br />
 </p>
-
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateObj.htm">GUICtrlCreateObj</a>, <a href="IsObj.htm">IsObj</a>, <a href="ObjEvent.htm">ObjEvent</a>, <a href="ObjGet.htm">ObjGet</a>, <a href="ObjName.htm">ObjName</a></p>
 
