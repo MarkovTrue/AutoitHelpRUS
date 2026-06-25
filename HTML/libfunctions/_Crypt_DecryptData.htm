@@ -48,7 +48,7 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>70 – ошибка расшифровки данных<br />
-10–30 – не удалось создать ключ<br />
+10-30 – не удалось создать ключ<br />
 80 – не удалось получить AlgID для <span class="S91">$CALG_USERKEY</span><br />
 1000+ – ошибка <a class="le" href="_Crypt_Startup.htm"><span class="S15">_Crypt_Startup</span></a><span class="S8">()</span></td>
 </tr>
@@ -192,8 +192,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">StringEncrypt</span><span class="S8">(</span><span class="S9">$bEncrypt</span><span class="S8">,</span> <span class="S9">$sData</span><span class="S8">,</span> <span class="S9">$sPassword</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_Crypt_Startup.htm"><span class="S15">_Crypt_Startup</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; Запустить библиотеку Crypt.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vReturn</span> <span class="S8">=</span> <span class="S7">''</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bEncrypt</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Если флаг True – шифруем, иначе – расшифровываем.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bEncrypt</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Если флаг True – шифруем, иначе – расшифровываем.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vReturn</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Crypt_EncryptData.htm"><span class="S15">_Crypt_EncryptData</span></a><span class="S8">(</span><span class="S9">$sData</span><span class="S8">,</span> <span class="S9">$sPassword</span><span class="S8">,</span> <span class="S9">$CALG_RC4</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$vReturn</span> <span class="S8">=</span> <a class="le" href="../functions/BinaryToString.htm"><span class="S4">BinaryToString</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_Crypt_DecryptData.htm"><span class="S15">_Crypt_DecryptData</span></a><span class="S8">(</span><span class="S9">$sData</span><span class="S8">,</span> <span class="S9">$sPassword</span><span class="S8">,</span> <span class="S9">$CALG_RC4</span><span class="S8">)</span><span class="S8">)</span><br>
