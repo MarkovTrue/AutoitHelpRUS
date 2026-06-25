@@ -46,61 +46,60 @@
 </table>
 
 <h2>Примечания</h2>
-<p>The first format is used to receive Events from the given Object.<br />
-To receive a specific event, create an AutoIt function name using the given prefix appended with the event name.<br />
+<p>Первый формат используется для получения событий от объекта.<br />
+Для обработки конкретного события создайте функцию AutoIt с именем, составленным из заданного префикса и имени события.<br />
 <br />
-The second format is used for COM Error Handling.<br />
-If any COM error occurs, the given function is called. First parameter for the function will be the error object.<br />
-You can use it to access different properties of this object.<br />
-If the second parameter is omitted, it will return a string containing the name of the current Error handler function. If no Error handler function has been set, it will return an empty string.<br />
-You must assign the return, from the ObjEvent call, to a variable or the error handler function will not be called in the event of a COM error.<br />
+Второй формат предназначен для обработки ошибок COM.<br />
+При любой ошибке COM вызывается указанная функция. Первый параметр функции будет объектом ошибки.<br />
+Через него вы можете получить доступ к различным свойствам ошибки.<br />
+Если второй параметр не указан, возвращается строка с именем текущего обработчика ошибок. Если обработчик не установлен, возвращается пустая строка.<br />
+Вы должны присвоить результат вызова ObjEvent переменной, иначе обработчик ошибок не будет вызван при возникновении ошибки COM.<br />
 <br />
-Properties of the AutoIt Error Object:<br />
+Свойства объекта ошибки AutoIt:<br />
 <table>
 <tr>
 <td>.number</td>
-<td>The Windows HRESULT value from a COM call</td>
+<td>Значение HRESULT Windows, полученное при вызове COM</td>
 </tr>
 
 <tr>
 <td>.windescription</td>
-<td>The FormatWinError() text derived from .number</td>
+<td>Текст FormatWinError() для значения .number</td>
 </tr>
 
 <tr>
 <td>.source</td>
-<td>Name of the Object generating the error (contents from ExcepInfo.source)</td>
+<td>Имя объекта, вызвавшего ошибку (из ExcepInfo.source)</td>
 </tr>
 
 <tr>
 <td>.description</td>
-<td>Source Object's description of the error (contents from ExcepInfo.description)</td>
+<td>Описание ошибки от исходного объекта (из ExcepInfo.description)</td>
 </tr>
 
 <tr>
 <td>.helpfile</td>
-<td>Source Object's helpfile for the error (contents from ExcepInfo.helpfile)</td>
+<td>Файл справки исходного объекта (из ExcepInfo.helpfile)</td>
 </tr>
 
 <tr>
 <td>.helpcontext</td>
-<td>Source Object's helpfile context id number (contents from ExcepInfo.helpcontext)</td>
+<td>ID контекста справки исходного объекта (из ExcepInfo.helpcontext)</td>
 </tr>
 
 <tr>
 <td>.lastdllerror</td>
-<td>The number returned from GetLastError()</td>
+<td>Значение, возвращённое GetLastError()</td>
 </tr>
 
 <tr>
 <td>.scriptline</td>
-<td>The script line on which the error was generated</td>
+<td>Строка скрипта, в которой произошла ошибка</td>
 </tr>
 </table><br />
 <br />
-See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a detailed explanation.<br />
+Подробнее см. в <a href="../intro/ComRef.htm">справочнике Obj/COM</a>.<br />
 </p>
-
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateObj.htm">GUICtrlCreateObj</a>, <a href="IsObj.htm">IsObj</a>, <a href="ObjCreate.htm">ObjCreate</a>, <a href="ObjGet.htm">ObjGet</a></p>
 
@@ -114,10 +113,8 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a det
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Мониторинг ошибок. Перехватывает все ошибки COM на время жизни объекта.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объект объявлен локальным – после возврата из функции он перестанет существовать.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Мониторинг ошибок. Перехватывает все ошибки COM на время жизни объекта.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объект объявлен локальным – после возврата из функции он перестанет существовать.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oErrorHandler</span> <span class="S8">=</span> <a class="le" href="../functions/ObjEvent.htm"><span class="S4">ObjEvent</span></a><span class="S8">(</span><span class="S7">"AutoIt.Error"</span><span class="S8">,</span> <span class="S7">"_ErrFunc"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать объект Internet Explorer</span><br>
@@ -125,8 +122,7 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a det
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверить ошибки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oIE</span>.<span class="Scom">Visible</span> <span class="S8">=</span> <span class="S5">True</span>&nbsp;<span class="S1">; Установить видимость.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oIE</span>.<span class="Scom">Visible</span> <span class="S8">=</span> <span class="S5">True</span>&nbsp;<span class="S1">; Установить видимость.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Кастомный sink-объект</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oIEEvents</span> <span class="S8">=</span> <a class="le" href="../functions/ObjEvent.htm"><span class="S4">ObjEvent</span></a><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S7">"_IEEvent_"</span><span class="S8">,</span> <span class="S7">"DWebBrowserEvents2"</span><span class="S8">)</span><br>
@@ -139,22 +135,19 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a det
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ожидать загрузки страницы.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ожидать загрузки страницы.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$oIE</span>.<span class="Scom">readyState</span> <span class="S8">=</span> <span class="S7">"complete"</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S9">$oIE</span>.<span class="Scom">readyState</span> <span class="S8">=</span> <span class="S3">4</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">10</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Намеренно вызвать ошибку, обратившись к несуществующему методу.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Намеренно вызвать ошибку, обратившись к несуществующему методу.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oIE</span>.<span class="Scom">PlayMeARockAndRollSong</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Проверить ошибки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"COM Error"</span><span class="S8">,</span> <span class="S7">"@error is set to COM error number."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = 0x"</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Подождать несколько секунд – проверить, появятся ли ещё события.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Подождать несколько секунд – проверить, появятся ли ещё события.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">3000</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Больше ничего делать не нужно. Закрыть IE и вернуться из функции</span><br>
@@ -167,8 +160,7 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a det
 <span class="S1">; Определение метода BeforeNavigate2</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_IEEvent_BeforeNavigate2</span><span class="S8">(</span><span class="S9">$oIEpDisp</span><span class="S8">,</span> <span class="S9">$sIEURL</span><span class="S8">,</span> <span class="S9">$iIEFlags</span><span class="S8">,</span> <span class="S9">$sIETargetFrameName</span><span class="S8">,</span> <span class="S9">$sIEPostData</span><span class="S8">,</span> <span class="S9">$iIEHeaders</span><span class="S8">,</span> <span class="S9">$bIECancel</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--BeforeNavigate2 fired--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$oIEpDisp = "</span> <span class="S8">&amp;</span> <span class="S9">$oIEpDisp</span><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"  -  "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/ObjName.htm"><span class="S4">ObjName</span></a><span class="S8">(</span><span class="S9">$oIEpDisp</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; Например, свойство и имя объекта по умолчанию.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$oIEpDisp = "</span> <span class="S8">&amp;</span> <span class="S9">$oIEpDisp</span><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"  -  "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/ObjName.htm"><span class="S4">ObjName</span></a><span class="S8">(</span><span class="S9">$oIEpDisp</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; Например, свойство и имя объекта по умолчанию.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$sIEURL = "</span> <span class="S8">&amp;</span> <span class="S9">$sIEURL</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$iIEFlags = "</span> <span class="S8">&amp;</span> <span class="S9">$iIEFlags</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"$sIETargetFrameName = "</span> <span class="S8">&amp;</span> <span class="S9">$sIETargetFrameName</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
@@ -179,11 +171,9 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a det
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_IEEvent_BeforeNavigate2
 </span><br>
 <br>
-<span class="S1">; Пользовательская функция обработки ошибок COM. Вызывается при ошибке.
-</span><br>
+<span class="S1">; Пользовательская функция обработки ошибок COM. Вызывается при возникновении ошибки COM.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_ErrFunc</span><span class="S8">(</span><span class="S9">$oError</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Здесь можно выполнить любые действия.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Здесь можно выполнить любые действия.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a> <span class="S8">&amp;</span> <span class="S7">" ("</span> <span class="S8">&amp;</span> <span class="S9">$oError</span>.<span class="Scom">scriptline</span> <span class="S8">&amp;</span> <span class="S7">") : ==&gt; COM Error intercepted !"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"err.number is: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"0x"</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><span class="S9">$oError</span>.<span class="Scom">number</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"err.windescription:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S9">$oError</span>.<span class="Scom">windescription</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
@@ -206,18 +196,15 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a det
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oShell</span> <span class="S8">=</span> <a class="le" href="../functions/ObjCreate.htm"><span class="S4">ObjCreate</span></a><span class="S8">(</span><span class="S7">"Shell.Application"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Обернуть вызовы, которые могут привести к фатальной ошибке.
-</span><br>
+<span class="S1">; Обернуть вызовы, которые могут привести к фатальной ошибке.</span><br>
 <br>
-<span class="S1">; Не приведёт к фатальной ошибке – установит @error, как в версии 3.3.11.0.
-</span><br>
+<span class="S1">; Не приведёт к фатальной ошибке – установит @error, как в версии 3.3.11.0.</span><br>
 <span class="S0">Template_COMErrorRegister</span><span class="S8">(</span><span class="S8">)</span><br>
 <span class="S9">$oShell</span>.<span class="Scom">InvalidFunction</span><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">4096</span><span class="S8">,</span> <span class="S7">"COM Error Detected"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><br>
 <span class="S0">Template_COMErrorUnregister</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Приведёт к фатальной ошибке; вторая строка не будет выполнена.
-</span><br>
+<span class="S1">; Приведёт к фатальной ошибке; вторая строка не будет выполнена.</span><br>
 <span class="S9">$oShell</span>.<span class="Scom">InvalidFunction</span><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">4096</span><span class="S8">,</span> <span class="S7">"COM Error Detected"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><br>
 <br>
@@ -232,8 +219,7 @@ See the <a href="../intro/ComRef.htm">Справочник Obj/COM</a> for a det
 </span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Template_COMErrFunc</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ничего особенного – просто проверять @error после подозрительных вызовов.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ничего особенного – просто проверять @error после подозрительных вызовов.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Template_COMErrFunc
 </span><br>
 </p>
