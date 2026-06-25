@@ -22,11 +22,10 @@
 </tr>
 <tr>
 <td>flag</td>
-<td><strong>[необязательный]</strong> Определяет поведение функции.<br />
-Возможные значения:<br />
-<span class="default-const"><span class="S91">$NUMBER_AUTO</span></span> (0) = (по умолчанию) результат – автоматически выбранный тип целого числа. См. раздел Примечания.<br />
-<span class="S91">$NUMBER_32BIT</span> (1) = строка интерпретируется как 32-битное целое число.<br />
-<span class="S91">$NUMBER_64BIT</span> (2) = строка интерпретируется как 64-битное целое число.<br />
+<td><strong>[необязательный]</strong> Определяет поведение функции. Возможные значения:<br />
+<span class="default-const"><span class="S91">$NUMBER_AUTO</span></span> (0) = результат автоматически выбранного типа целого числа (по умолчанию); подробнее см. раздел "Примечания"<br />
+<span class="S91">$NUMBER_32BIT</span> (1) = строка интерпретируется как 32-битное целое число<br />
+<span class="S91">$NUMBER_64BIT</span> (2) = строка интерпретируется как 64-битное целое число<br />
 <br />
 Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
 </tr>
@@ -36,10 +35,10 @@
 Возвращает целое число.<br />
 
 <h2>Примечания</h2>
-<p>По умолчанию, если результат укладывается в диапазон 32-битного целого, возвращается 32-битное целое, иначе – 64-битное. Оба типа знаковые.<br />
-Дробная часть отбрасывается: <a href="Int.htm"><span class="S4">Int</span></a><span class="S8">(</span>1.999999<span class="S8">)</span> возвращает 1.<br />
+<p>По умолчанию, если результат укладывается в диапазон 32-битного целого, то возвращается 32-битное целое; иначе возвращается 64-битное. Оба типа знаковые.<br />
+Дробная часть отбрасывается, так что <a href="Int.htm"><span class="S4">Int</span></a><span class="S8">(</span>1.999999<span class="S8">)</span> возвращает 1.<br />
 <a href="Int.htm"><span class="S4">Int</span></a><span class="S8">(</span>0/0<span class="S8">)</span> возвращает -9223372036854775807.<br />
-Функция выполняет незначительную корректировку чисел с плавающей точкой, компенсируя неточность их представления. Например, выражение 0.7 + 0.2 + 0.1 даёт число, не равное ровно 1.0. <a href="Int.htm"><span class="S4">Int</span><span class="S8">()</span></a> исправляет эту аномалию, однако в крайне редких случаях может вернуть неожиданное значение (вероятность этого ниже, чем без коррекции).<br />
+Функция выполняет незначительную корректировку чисел с плавающей точкой, чтобы компенсировать неточность их представления. Например, выражение 0.7 + 0.2 + 0.1 даёт число, не равное в точности 1.0. <a href="Int.htm"><span class="S4">Int</span><span class="S8">()</span></a> исправляет эту аномалию; однако в крайне редких случаях она может вернуть неожиданное значение (вероятность этого ниже, чем без коррекции).<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Binary.htm">Binary</a>, <a href="Ceiling.htm">Ceiling</a>, <a href="Floor.htm">Floor</a>, <a href="HWnd.htm">HWnd</a>, <a href="Mod.htm">Mod</a>, <a href="Number.htm">Number</a>, <a href="Ptr.htm">Ptr</a>, <a href="Round.htm">Round</a>, <a href="String.htm">String</a></p>
@@ -50,8 +49,7 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Присвоить локальной переменной целочисленное представление числа 10.793.
-</span><br>
+<span class="S1">; Присвоить локальной переменной целочисленное представление числа 10.793.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iInt</span> <span class="S8">=</span> <a class="le" href="../functions/Int.htm"><span class="S4">Int</span></a><span class="S8">(</span><span class="S3">10.793</span><span class="S8">)</span><br>
 <br>
 <span class="S1">; Показать результат.</span><br>
