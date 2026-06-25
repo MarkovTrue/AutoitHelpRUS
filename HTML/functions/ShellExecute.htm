@@ -52,7 +52,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает PID запущенного процесса или –1, если PID недоступен.</td>
+<td style="width:90%">Возвращает PID запущенного процесса или -1, если PID недоступен.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -63,7 +63,7 @@
 <h2>Примечания</h2>
 <p>После запуска программы выполнение скрипта продолжается. Чтобы дождаться завершения дочернего процесса, используйте <a href="ShellExecuteWait.htm"><span class="S4">ShellExecuteWait</span><span class="S8">()</span></a>.<br />
 <br />
-Если глагол не указан, используется глагол по умолчанию, заданный в реестре. Если в реестре глагол по умолчанию не задан, используется "open". Если "open" отсутствует – первый глагол, перечисленный в реестре.<br />
+Если глагол не указан, используется глагол по умолчанию из реестра. Если в реестре глагол по умолчанию не задан, используется "open". Если "open" отсутствует, используется первый глагол из реестра.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Run.htm">Run</a>, <a href="RunAs.htm">RunAs</a>, <a href="RunAsWait.htm">RunAsWait</a>, <a href="RunWait.htm">RunWait</a>, <a href="ShellExecuteWait.htm">ShellExecuteWait</a></p>
@@ -77,14 +77,12 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить следующий текстовый файл из папки include в каталоге установки AutoIt.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить следующий текстовый файл из папки include в каталоге установки AutoIt.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sWow64</span> <span class="S8">=</span> <span class="S7">""</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@AutoItX64"><span class="S6">@AutoItX64</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sWow64</span> <span class="S8">=</span> <span class="S7">"\Wow6432Node"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFile</span> <span class="S8">=</span> <a class="le" href="../functions/RegRead.htm"><span class="S4">RegRead</span></a><span class="S8">(</span><span class="S7">"HKEY_LOCAL_MACHINE\SOFTWARE"</span> <span class="S8">&amp;</span> <span class="S9">$sWow64</span> <span class="S8">&amp;</span> <span class="S7">"\AutoIt v3\AutoIt"</span><span class="S8">,</span> <span class="S7">"InstallDir"</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"\include\_ReadMe_.txt"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открыть файл readme (.txt) редактором, используемым по умолчанию для текстовых файлов в Windows.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открыть файл readme (.txt) редактором, используемым по умолчанию для текстовых файлов в Windows.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPID</span> <span class="S8">=</span> <a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"PID: "</span> <span class="S8">&amp;</span> <span class="S9">$iPID</span><span class="S8">)</span><br>
