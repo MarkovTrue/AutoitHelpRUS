@@ -11,8 +11,8 @@
 <h1 class="small">Справочник ключевых слов</h1>
 <hr style="height:0px">
 <h1>For...In...Next</h1>
-<p class="funcdesc">Перечисляет элементы в коллекции Object или массиве.</p>
-<p class="codeheader"><strong><a class="le" href="../keywords/For.htm"><span class="S5">For</span></a></strong>&nbsp;<span class="S8">&lt;</span><span class="S0">Variable</span><span class="S8">&gt;</span><strong><a class="le" href="../keywords/ForInNext.htm"><span class="S5">In</span></a></strong>&nbsp;<span class="S8">&lt;</span><span class="S0">expression</span><span class="S8">&gt;</span><br><span class="S0">statements</span><br>
+<p class="funcdesc">Перечисляет элементы в коллекции объекта или массива.</p>
+<p class="codeheader"><strong><a class="le" href="../keywords/For.htm"><span class="S5">For</span></a></strong>&nbsp;<span class="S8">&lt;</span><span class="S0">Variable</span><span class="S8">&gt;</span> <strong><a class="le" href="../keywords/ForInNext.htm"><span class="S5">In</span></a></strong>&nbsp;<span class="S8">&lt;</span><span class="S0">expression</span><span class="S8">&gt;</span><br><span class="S0">statements</span><br>
 ...<br><strong><a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a></strong></p>
 
 <h2>Параметры</h2>
@@ -23,17 +23,17 @@
 </tr>
 <tr>
 <td>expression</td>
-<td>Должно быть выражение, результирующее в Object или массив с по крайней мере одним элементом.</td>
+<td>Должно быть выражение, возвращающее объект или массив с как минимум одним элементом.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Переменная будет создана автоматически с локальной областью видимости, даже если <a href="../functions/AutoItSetOption.htm#MustDeclareVars">MustDeclareVars</a> включен.<br />
-Если выражение – коллекция Object без элементов или многомерный массив, цикл будет пропущен и переменная будет содержать пустую строку.<br />
-Если выражение – ни Object ни Array, скрипт остановится с ошибкой, если только обработчик ошибок COM не был сконфигурирован.<br />
-Массивы AutoIt доступны только для чтения при использовании For...In. Хотя вы можете присвоить переменной внутри цикла For...In значение, это изменение не отразится на самом массиве. Для изменения содержимого массива во время перечисления используйте цикл For...To.<br />
-<br />
-Инструкции For...In...Next могут быть вложены.<br />
+<p>Переменная создаётся автоматически в локальной области видимости, даже если включена опция <a href="../functions/AutoItSetOption.htm#MustDeclareVars">MustDeclareVars</a>.<br>
+Если выражением является коллекция объекта, не содержащая элементов, цикл будет пропущен, а переменной будет присвоена пустая строка.<br>
+Если выражение не является объектом или массив, скрипт остановится с ошибкой, если только обработчик ошибок COM не был сконфигурирован.<br>
+Массивы AutoIt внутри выражения For...In доступны только для чтения. Присвоить значение переменной внутри выражения For...In возможно, однако, это изменение никак не скажется на самом массиве. Чтобы иметь возможность модифицировать содержание массива используйте цикл For...To.<br>
+<br>
+Выражения For...In...Next могут быть вложенными.<br>
 </p>
 <h2>См. также</h2>
 <p><a href="With.htm">With...EndWith</a></p>
@@ -79,7 +79,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"You have no open shell windows."</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
-<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Пример
+<a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\ForInNext.au3,"></object>
