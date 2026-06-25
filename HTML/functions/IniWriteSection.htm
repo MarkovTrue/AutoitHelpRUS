@@ -26,7 +26,7 @@
 </tr>
 <tr>
 <td>data</td>
-<td>Данные для записи. Можно передать строку или массив. Если передаётся строка, каждая пара ключ=значение должна разделяться <span class="S61">@LF</span>. Если передаётся массив, он должен быть двумерным, а вторая размерность – 2 элемента.</td>
+<td>Данные для записи. Можно передать строку или массив. Если это строка, каждая пара ключ=значение должна разделяться <span class="S61">@LF</span>. Если это массив, он должен быть двумерным, и вторая размерность должна быть 2 элемента.</td>
 </tr>
 <tr>
 <td>index</td>
@@ -72,12 +72,10 @@ Key=Value</em><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать локальную константу с путём к файлу для чтения/записи.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sFilePath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetTempFileName.htm"><span class="S15">_WinAPI_GetTempFileName</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать структуру раздела .ini в виде массива. Нулевой элемент – количество элементов, в данном случае 3.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать структуру раздела .ini в виде массива. Нулевой элемент – количество элементов, в данном случае 3.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aSection</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S8">[</span><span class="S3">3</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S7">"Title"</span><span class="S8">,</span> <span class="S7">"AutoIt"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S7">"Version"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S7">"OS"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@OSVersion"><span class="S6">@OSVersion</span></a><span class="S8">]</span><span class="S8">]</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать массив в раздел с именем 'General'.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать массив в раздел с именем 'General'.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/IniWriteSection.htm"><span class="S4">IniWriteSection</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S7">"General"</span><span class="S8">,</span> <span class="S9">$aSection</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать секцию INI 'General'. Возвращается двумерный массив.</span><br>
