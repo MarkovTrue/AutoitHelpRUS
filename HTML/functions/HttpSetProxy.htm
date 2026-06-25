@@ -46,12 +46,12 @@
 <h2>Примечания</h2>
 <p>Поддерживаются только прокси-серверы типа CERN.<br />
 <br />
-Прокси-серверы обычно задаются веб-адресом и номером порта. Большинство провайдеров используют порт 8080. Если прокси – "www.proxy.com" с портом 8080, установить его можно так:<br />
+Прокси-серверы состоят из веб-адреса и номера порта. Большинство провайдеров используют порт 8080. Если прокси имеет адрес "www.proxy.com" и порт 8080, установить его можно следующим образом:<br />
 <a href="HttpSetProxy.htm"><span class="S4">HttpSetProxy</span></a><span class="S8">(</span>2, "www.proxy.com:8080"<span class="S8">)</span><br />
 <br />
 Большинство прокси-серверов не требуют имени пользователя и пароля.<br />
 <br />
-При использовании режима 0 можно указать имя пользователя и пароль – они будут применяться с прокси, настроенным в Internet Explorer.<br />
+При использовании режима 0 можно указать имя пользователя и пароль, которые будут применяться с прокси, настроенным в Internet Explorer.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="FtpSetProxy.htm">FtpSetProxy</a>, <a href="InetGet.htm">InetGet</a>, <a href="InetGetSize.htm">InetGetSize</a>, <a href="InetRead.htm">InetRead</a></p>
@@ -60,16 +60,13 @@
 
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Без прокси
-</span><br>
+<span class="S1">; Без прокси</span><br>
 <a class="le" href="../functions/HttpSetProxy.htm"><span class="S4">HttpSetProxy</span></a><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Использовать настройки прокси IE по умолчанию
-</span><br>
+<span class="S1">; Использовать настройки IE для прокси</span><br>
 <a class="le" href="../functions/HttpSetProxy.htm"><span class="S4">HttpSetProxy</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Использовать прокси "www-cache.myisp.net" на порту 8080
-</span><br>
+<span class="S1">; Использовать прокси "www-cache.myisp.net" на порту 8080</span><br>
 <a class="le" href="../functions/HttpSetProxy.htm"><span class="S4">HttpSetProxy</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S7">"www-cache.myisp.net:8080"</span><span class="S8">)</span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\HttpSetProxy.au3,"></object>
