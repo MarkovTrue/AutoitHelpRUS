@@ -98,10 +98,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Сохраняем книгу (xls) в другом формате (html) в другой каталог и
-</span><br>
-<span class="S1">; перезаписываем существующий файл.
-</span><br>
+<span class="S1">; Сохраняем книгу (xls) в другом формате (html) в другой каталог и</span><br>
+<span class="S1">; перезаписываем существующий файл.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sWorkbook</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\_Excel1.html"</span><br>
 <a class="le" href="../libfunctions/_Excel_BookSaveAs.htm"><span class="S15">_Excel_BookSaveAs</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$sWorkbook</span><span class="S8">,</span> <span class="S9">$xlHtml</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_BookSaveAs Example 1"</span><span class="S8">,</span> <span class="S7">"Error saving workbook to '"</span> <span class="S8">&amp;</span> <span class="S9">$sWorkbook</span> <span class="S8">&amp;</span> <span class="S7">"'."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
