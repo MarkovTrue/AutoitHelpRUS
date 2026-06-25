@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td><span class="S91">$bConvert</span></td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span> и остался один столбец, массив преобразуется в 1D</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span> и остался один столбец, массив преобразуется в одномерный 1D.</td>
 </tr>
 </table>
 
@@ -43,14 +43,14 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив<br />
-2&nbsp;– <span class="S91">$aArray</span> не 2D массив<br />
-3&nbsp;– <span class="S91">$iColumn</span> вне границ массива</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> не является двумерным 2D массивом<br />
+3 – <span class="S91">$iColumn</span> выходит за границы массива</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Функция НЕ обновляет счётчик внутри массива; при успехе возвращается итоговое количество столбцов.<br />
+<p>Функция НЕ обновляет счётный элемент массива, однако при успехе возвращает итоговое количество столбцов.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ArrayColInsert.htm">_ArrayColInsert</a></p>
@@ -72,12 +72,10 @@
 <a class="le" href="../libfunctions/_ArrayColDelete.htm"><span class="S15">_ArrayColDelete</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Col 2 Deleted"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Копируем массив с двумя столбцами
-</span><br>
+<span class="S1">; Копируем массив с двумя столбцами</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray_2Col</span> <span class="S8">=</span> <span class="S9">$aArray</span><br>
 <br>
-<span class="S1">; По умолчанию оставшийся столбец остаётся 2D массивом
-</span><br>
+<span class="S1">; По умолчанию оставшийся столбец остаётся 2D массивом</span><br>
 <a class="le" href="../libfunctions/_ArrayColDelete.htm"><span class="S15">_ArrayColDelete</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Col 0 del - 2D array"</span><span class="S8">)</span><br>
 <br>
