@@ -22,10 +22,10 @@
 </tr>
 <tr>
 <td>flag</td>
-<td><strong>[необязательный]</strong> Изменяет способ обработки <em>keys</em>:<br />
-<span class="default-const"><span class="S91">$SEND_DEFAULT</span></span> (0) = текст содержит специальные символы, такие как + и ! для имитации нажатий SHIFT и ALT (по умолчанию).<br />
-<span class="S91">$SEND_RAW</span> (1) = клавиши отправляются как есть.<br />
-<br />
+<td><strong>[необязательный]</strong> Изменяет способ обработки <em>keys</em>:<br>
+<span class="default-const"><span class="S91">$SEND_DEFAULT</span></span> (0) = текст содержит специальные символы, такие как + и ! для имитации нажатий SHIFT и ALT (по умолчанию).<br>
+<span class="S91">$SEND_RAW</span> (1) = клавиши отправляются как есть.<br>
+<br>
 Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
 </tr>
 </table>
@@ -35,30 +35,30 @@
 
 
 <h2>Примечания</h2>
-<p>Советы по использованию <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> см. в <a href="../appendix/SendKeys.htm">Приложении</a>. AutoIt поддерживает отправку всех ASCII и расширенных ASCII-символов (0–255). Для отправки UNICODE-символов используйте параметр "ASC" и код нужного символа (см. {ASC} в конце таблицы ниже).<br />
+<p>Советы по использованию <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> см. в <a href="../appendix/SendKeys.htm">Приложении</a>. AutoIt поддерживает отправку всех ASCII и расширенных ASCII-символов (0-255). Для отправки UNICODE-символов используйте параметр "ASC" и код нужного символа (см. {ASC} в конце таблицы ниже).<br />
 <br />
 Синтаксис команды <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> схож с синтаксисом ScriptIt и команды Visual Basic "SendKeys". Символы отправляются как написаны, за исключением следующих:<br />
 <br />
 '!'<br />
-Отправляет нажатие ALT. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"This is text!a"<span class="S8">)</span> отправит текст "This is text", а затем нажмёт "ALT+a".<br />
+Отправляет нажатие ALT. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"This is text!a"</span><span class="S8">)</span> отправит текст "This is text", а затем нажмёт "ALT+a".<br />
 <br />
 Примечание: некоторые программы различают регистр букв при комбинациях с ALT: "!A" означает ALT+SHIFT+A, а "!a" – ALT+a. В случае сомнений используйте строчные буквы!<br />
 <br />
 '+'<br />
-Отправляет нажатие SHIFT. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"Hell+o"<span class="S8">)</span> отправит текст "HellO", а <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"!+a"<span class="S8">)</span> отправит "ALT+SHIFT+a".<br />
+Отправляет нажатие SHIFT. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"Hell+o"</span><span class="S8">)</span> отправит текст "HellO", а <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!+a"</span><span class="S8">)</span> отправит "ALT+SHIFT+a".<br />
 <br />
 '^'<br />
-Отправляет нажатие CTRL. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"^!a"<span class="S8">)</span> отправит "CTRL+ALT+a".<br />
+Отправляет нажатие CTRL. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"^!a"</span><span class="S8">)</span> отправит "CTRL+ALT+a".<br />
 <br />
 Примечание: некоторые программы различают регистр букв при комбинациях с CTRL: "^A" означает CTRL+SHIFT+A, а "^a" – CTRL+a. В случае сомнений используйте строчные буквы!<br />
 <br />
 '#'<br />
-Отправляет нажатие клавиши Windows. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"#r"<span class="S8">)</span> отправит Win+r, открывая диалог <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>.<br />
+Отправляет нажатие клавиши Windows. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"#r"</span><span class="S8">)</span> отправит Win+r, открывая диалог <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>.<br />
 <br />
 <br />
 С помощью SendCapslockMode можно отключить CAPS LOCK перед началом операции <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> и восстановить его по завершении.<br />
 Однако если пользователь удерживает Shift в момент вызова <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>, текст может быть отправлен в верхнем регистре.<br />
-Один из способов обойти это – отправить <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{SHIFTDOWN}{SHIFTUP}"<span class="S8">)</span> перед другими операциями <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>.<br />
+Один из способов обойти это, отправить <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{SHIFTDOWN}{SHIFTUP}"</span><span class="S8">)</span> перед другими операциями <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>.<br />
 <br />
 Некоторые клавиатуры, например чешская, при включённом CAPS LOCK или нажатом Shift отправляют другие символы. В реализации AutoIt символ, набранный при CAPS LOCK, отправляется как Shift-символ, поэтому <strong>такой вариант работать не будет.</strong><br />
 Определённые специальные клавиши можно отправлять, заключая их имена в фигурные скобки:<br />
@@ -426,40 +426,31 @@
 <td>клавиша угловой скобки или обратной косой черты на 102-клавишной клавиатуре RT</td>
 </tr>
 </table><br />
-Для отправки ASCII-символа A (аналогично нажатию ALT+065 на цифровой клавиатуре):<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{ASC 065}"<span class="S8">)</span><br />
+Для отправки ASCII-символа A (аналогично нажатию ALT+065 на цифровой клавиатуре):
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ASC 065}"</span><span class="S8">)</span></p>
 <br />
 (При двузначных ASCII-кодах добавляйте ведущий ноль, иначе используется устаревшая кодовая страница 437.)<br />
 <br />
-Для отправки UNICODE-символов укажите код символа (десятичный или шестнадцатеричный). Например, следующие команды отправляют китайский иероглиф:<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{ASC 2709}"<span class="S8">)</span> или <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{ASC 0xA95}"<span class="S8">)</span><br />
+Для отправки UNICODE-символов укажите код символа (десятичный или шестнадцатеричный). Например, следующие команды отправляют китайский иероглиф:
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ASC 2709}"</span><span class="S8">)</span> или <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ASC 0xA95}"</span><span class="S8">)</span></p>
 <br />
+Одну клавишу можно отправлять несколько раз:
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{DEL 4}"</span><span class="S8">)</span> <span class="S1">;нажать DEL 4 раза</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{S 30}"</span><span class="S8">)</span> <span class="S1">;отправить 30 символов 'S'</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"+{TAB 4}"</span><span class="S8">)</span> <span class="S1">;нажать SHIFT+TAB 4 раза</span></p>
 <br />
-Одну клавишу можно отправлять несколько раз:<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{DEL 4}"<span class="S8">)</span>&nbsp;&nbsp;&nbsp; ;нажать DEL 4 раза<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{S 30}"<span class="S8">)</span> ;отправить 30 символов 'S'<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"+{TAB 4}"<span class="S8">)</span> ;нажать SHIFT+TAB 4 раза<br />
+При нулевом счётчике клавиша не отправляется, что удобно для программного управления:
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{M "</span> &amp; <span class="S91">$iCount</span> &amp; <span class="S7">"}"</span><span class="S8">)</span> <span class="S1">;нажать M столько раз, сколько задано в <span class="S91">$iCount</span></span></p>
 <br />
-При нулевом счётчике клавиша не отправляется, что удобно для программного управления:<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{M " &amp; <span class="S91">$iCount</span> &amp; "}"<span class="S8">)</span>&nbsp;&nbsp;&nbsp; ;нажать M столько раз, сколько задано в <span class="S91">$iCount</span><br />
+Удержание клавиши:
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{a down}"</span><span class="S8">)</span> <span class="S1">;удержать клавишу A</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{a up}"</span><span class="S8">)</span> <span class="S1">;отпустить клавишу A</span></p>
 <br />
+Управление состоянием CapsLock, NumLock и ScrollLock:
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{NumLock on}"</span><span class="S8">)</span> <span class="S1">;включить NumLock</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{CapsLock off}"</span><span class="S8">)</span> <span class="S1">;выключить CapsLock</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ScrollLock toggle}"</span><span class="S8">)</span> <span class="S1">;переключить ScrollLock</span></p>
 <br />
-Удержание клавиши:<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{a down}"<span class="S8">)</span> ;удержать клавишу A<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{a up}"<span class="S8">)</span> ;отпустить клавишу A<br />
+Если нужно использовать переменную для счётчика:
+<p class="codebox"><span class="S91">$n</span> <span class="S8">=</span> <span class="S3">4</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"+{TAB "</span> &amp; <span class="S91">$n</span> &amp; <span class="S7">"}"</span><span class="S8">)</span></p>
 <br />
-Управление состоянием CapsLock, NumLock и ScrollLock:<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{NumLock on}"<span class="S8">)</span> ;включить NumLock<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{CapsLock off}"<span class="S8">)</span> ;выключить CapsLock<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{ScrollLock toggle}"<span class="S8">)</span> ;переключить ScrollLock<br />
-<br />
-Если нужно использовать переменную для счётчика:<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$n</span> = 4<br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"+{TAB " &amp; <span class="S91">$n</span> &amp; "}"<span class="S8">)</span><br />
-<br />
-Для отправки ASCII-символа A четыре раза:<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$x</span> = <a href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span>65<span class="S8">)</span><br />
-&nbsp;&nbsp;&nbsp; <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{" &amp; <span class="S91">$x</span> &amp; " 4}"<span class="S8">)</span><br />
+Для отправки ASCII-символа A четыре раза:
+<p class="codebox"><span class="S91">$x</span> <span class="S8">=</span> <a href="Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span><span class="S3">65</span><span class="S8">)</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{"</span> &amp; <span class="S91">$x</span> &amp; <span class="S7">" 4}"</span><span class="S8">)</span></p>
 <br />
 На большинстве ноутбуков есть специальная клавиша Fn. Её эмуляция невозможна.<br />
 <br />
@@ -470,66 +461,66 @@
 <br />
 <table>
 <tr>
-<th><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{TAB}"<span class="S8">)</span></th>
+<th><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{TAB}"</span><span class="S8">)</span></th>
 <th>перейти к следующему элементу управления (кнопка, флажок и т.д.)</th>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"+{TAB}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"+{TAB}"</span><span class="S8">)</span></td>
 <td>перейти к предыдущему элементу управления.</td>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"^{TAB}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"^{TAB}"</span><span class="S8">)</span></td>
 <td>перейти на следующую вкладку диалогового окна</td>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"^+{TAB}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"^+{TAB}"</span><span class="S8">)</span></td>
 <td>перейти на предыдущую вкладку.</td>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{SPACE}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{SPACE}"</span><span class="S8">)</span></td>
 <td>переключить флажок или нажать кнопку.</td>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{+}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{+}"</span><span class="S8">)</span></td>
 <td>обычно устанавливает флажок (если это "настоящий" флажок).</td>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{-}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{-}"</span><span class="S8">)</span></td>
 <td>обычно снимает флажок.</td>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{NumPadMult}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{NumPadMult}"</span><span class="S8">)</span></td>
 <td>рекурсивно разворачивает папки в SysTreeView32.</td>
 </tr>
 </table><br />
 Для доступа к пунктам меню используйте комбинации с Alt. Откройте Блокнот и попробуйте:<br />
-<a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"!f"<span class="S8">)</span> – отправляет Alt+f, клавишу доступа к меню "Файл" Блокнота. Попробуйте другие буквы!<br />
+<a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!f"</span><span class="S8">)</span>, отправляет Alt+f, клавишу доступа к меню "Файл" Блокнота. Попробуйте другие буквы!<br />
 <br />
 <table>
 <tr>
-<th><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{DOWN}"<span class="S8">)</span></th>
+<th><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{DOWN}"</span><span class="S8">)</span></th>
 <th>перемещение вниз по меню.</th>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{UP}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{UP}"</span><span class="S8">)</span></td>
 <td>перемещение вверх по меню.</td>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{LEFT}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{LEFT}"</span><span class="S8">)</span></td>
 <td>переход к предыдущему меню или раскрытие подменю.</td>
 </tr>
 
 <tr>
-<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span>"{RIGHT}"<span class="S8">)</span></td>
+<td><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{RIGHT}"</span><span class="S8">)</span></td>
 <td>переход к следующему меню или свёртывание подменю.</td>
 </tr>
 </table><br />
@@ -551,23 +542,19 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эмулировать нажатие Win+R для открытия диалога "Выполнить".
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эмулировать нажатие Win+R для открытия диалога "Выполнить".</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"#r"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать появления диалога "Выполнить" не более 10 секунд.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать появления диалога "Выполнить" не более 10 секунд.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"Run"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эмулировать ввод notepad.exe и нажатие клавиши Enter.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эмулировать ввод notepad.exe и нажатие клавиши Enter.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"notepad.exe{Enter}"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эмулировать ввод строки и нажатие F5 для вставки даты и времени в поле редактирования Блокнота.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эмулировать ввод строки и нажатие F5 для вставки даты и времени в поле редактирования Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"Today's time/date is {F5}"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть окно Блокнота по дескриптору, возвращённому WinWait.</span><br>
