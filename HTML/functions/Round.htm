@@ -30,7 +30,7 @@
 Возвращает округлённое число.<br />
 
 <h2>Примечания</h2>
-<p>Параметр <em>decimalplaces</em> может быть отрицательным – тогда округление выполняется до единиц, десятков, сотен и т.д. Отображается не более 15 значащих цифр; <em>decimalplaces</em> никогда не дополняет число нулями справа.<br />
+<p>Параметр <em>decimalplaces</em> может быть отрицательным, тогда округление выполняется до единиц, десятков, сотен и т.д. Отображается не более 15 значащих цифр; <em>decimalplaces</em> никогда не дополняет число нулями справа.<br>
 </p>
 <h2>См. также</h2>
 <p><a href="Ceiling.htm">Ceiling</a>, <a href="Floor.htm">Floor</a>, <a href="Int.htm">Int</a>, <a href="Number.htm">Number</a>, <a href="Random.htm">Random</a></p>
@@ -43,10 +43,8 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRound1</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1.582</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает -1.6.</span><br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRound2</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">3.1415</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение не изменяется.
-</span><br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRound3</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">123.5</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 120.
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRound2</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">3.1415</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение не изменяется.</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRound3</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">123.5</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 120.</span><br>
 <br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"The following values were rounded: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRound1</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$iRound2</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$iRound3</span><span class="S8">)</span><br>
@@ -61,19 +59,14 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объявить локальную переменную-массив для округлённых чисел.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объявить локальную переменную-массив для округлённых чисел.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aRound</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1.582</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает -1.6.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">3.1415</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 3.1415.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">123.5</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 120.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">123.5</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 124.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">50</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 50.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">3.1415</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 3.1415.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">123.5</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 120.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">123.5</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 124.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aRound</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/Round.htm"><span class="S4">Round</span></a><span class="S8">(</span><span class="S3">50</span><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 50.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать результаты.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aRound</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
