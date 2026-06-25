@@ -39,7 +39,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>При изменении размеров окна GUI входящие в него элементы управления реагируют – эта функция определяет, как именно. Чтобы окно GUI допускало изменение размеров, оно должно быть создано со стилями <span class="S91">$WS_SIZEBOX</span> и <span class="S91">$WS_SYSMENU</span>. См. <a class="le" href="GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">()</span>.<br />
+<p>При изменении размеров окна GUI входящие в него элементы управления реагируют, эта функция определяет, как именно. Чтобы окно GUI допускало изменение размеров, оно должно быть создано со стилями <span class="S91">$WS_SIZEBOX</span> и <span class="S91">$WS_SYSMENU</span>. См. <a class="le" href="GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">()</span>.<br />
 <br />
 &nbsp;&nbsp;&nbsp; <a id="DockingValues"></a><strong>Таблица значений докинга</strong><br />
 <br />
@@ -139,7 +139,7 @@
 <td>(2+4+32+64) Элемент растягивается вместе с окном</td>
 </tr>
 </table><br />
-Поведение изменения размеров по умолчанию зависит от типа элемента управления – см. документацию конкретного элемента.<br />
+Поведение изменения размеров по умолчанию зависит от типа элемента управления, см. документацию конкретного элемента.<br />
 Значение по умолчанию для любого элемента можно задать через GUIResizeMode (Option).<br />
 <br />
 Автоматическое событие изменения размеров можно отключить, установив GUIEventOptions (Option) в 1.<br />
@@ -159,17 +159,14 @@
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUICoordMode"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"My InputBox"</span><span class="S8">,</span> <span class="S3">190</span><span class="S8">,</span> <span class="S3">114</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$WS_SIZEBOX</span> <span class="S8">+</span> <span class="S9">$WS_SYSMENU</span><span class="S8">)</span>&nbsp;<span class="S1">; начало определения
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"My InputBox"</span><span class="S8">,</span> <span class="S3">190</span><span class="S8">,</span> <span class="S3">114</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$WS_SIZEBOX</span> <span class="S8">+</span> <span class="S9">$WS_SYSMENU</span><span class="S8">)</span>&nbsp;<span class="S1">; начало определения</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetFont.htm"><span class="S4">GUISetFont</span></a><span class="S8">(</span><span class="S3">8</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"Arial"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">"Prompt"</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">)</span>&nbsp;<span class="S1">; добавить подсказку
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S7">"Prompt"</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">)</span>&nbsp;<span class="S1">; добавить подсказку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetResizing.htm"><span class="S4">GUICtrlSetResizing</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$GUI_DOCKLEFT</span> <span class="S8">+</span> <span class="S9">$GUI_DOCKTOP</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idInp_Button</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">"Default"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">175</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S9">$ES_PASSWORD</span><span class="S8">)</span>&nbsp;<span class="S1">; добавить поле ввода
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idInp_Button</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">"Default"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">175</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S9">$ES_PASSWORD</span><span class="S8">)</span>&nbsp;<span class="S1">; добавить поле ввода</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idInp_Button</span><span class="S8">,</span> <span class="S9">$GUI_FOCUS</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetResizing.htm"><span class="S4">GUICtrlSetResizing</span></a><span class="S8">(</span><span class="S9">$idInp_Button</span><span class="S8">,</span> <span class="S9">$GUI_DOCKBOTTOM</span> <span class="S8">+</span> <span class="S9">$GUI_DOCKHEIGHT</span><span class="S8">)</span><br>
 <br>
@@ -179,8 +176,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton_Cancel</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Cancel"</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; добавить кнопку закрытия GUI</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetResizing.htm"><span class="S4">GUICtrlSetResizing</span></a><span class="S8">(</span><span class="S9">$idButton_Cancel</span><span class="S8">,</span> <span class="S9">$GUI_DOCKBOTTOM</span> <span class="S8">+</span> <span class="S9">$GUI_DOCKSIZE</span> <span class="S8">+</span> <span class="S9">$GUI_DOCKHCENTER</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span>&nbsp;<span class="S1">; отобразить GUI
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span>&nbsp;<span class="S1">; отобразить GUI</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
