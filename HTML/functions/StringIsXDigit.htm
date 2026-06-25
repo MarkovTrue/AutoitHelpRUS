@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>StringIsXDigit</h1>
-<p class="funcdesc">Проверяет, содержит ли строка только шестнадцатеричные символы (0–9, A–F).</p>
+<p class="funcdesc">Проверяет, содержит ли строка только шестнадцатеричные символы (0-9, A–F).</p>
 <p class="codeheader"><a class="le" href="../functions/StringIsXDigit.htm"><span class="S4">StringIsXDigit</span></a> <span class="S8">(</span> <span class="S7">"string"</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -54,8 +54,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Is the string 00 a hexadecimal digit: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringIsXDigit.htm"><span class="S4">StringIsXDigit</span></a><span class="S8">(</span><span class="S7">"00"</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; Возвращает 1, так как строка содержит только шестнадцатеричные символы (0-9, A-F).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Is the string 1.0 a hexadecimal digit: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringIsXDigit.htm"><span class="S4">StringIsXDigit</span></a><span class="S8">(</span><span class="S7">"1.0"</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; Возвращает 0 из-за десятичной точки.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Is the number 1.0 a hexadecimal digit: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringIsXDigit.htm"><span class="S4">StringIsXDigit</span></a><span class="S8">(</span><span class="S3">1.0</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span>&nbsp;<span class="S1">; Возвращает 1 из-за преобразования числа в строку.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Is the string 'A string' a hexadecimal digit: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringIsXDigit.htm"><span class="S4">StringIsXDigit</span></a><span class="S8">(</span><span class="S7">"A string."</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 0, так как строка содержит пробельные символы.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Is the string 'A string' a hexadecimal digit: "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringIsXDigit.htm"><span class="S4">StringIsXDigit</span></a><span class="S8">(</span><span class="S7">"A string."</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">; Возвращает 0, так как строка содержит пробельные символы.</span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\StringIsXDigit.au3,"></object>
 </body>
