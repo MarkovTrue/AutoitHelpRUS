@@ -76,15 +76,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iListenSocket</span> <span class="S8">=</span> <a class="le" href="../functions/TCPListen.htm"><span class="S4">TCPListen</span></a><span class="S8">(</span><span class="S9">$sIPAddress</span><span class="S8">,</span> <span class="S9">$iPort</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Примечание: слушать можно только на приватных IP, как здесь;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; или в диапазоне 192–223 (обычно 192.168.X.X; для тестирования на локальном IP используйте @IPAddress1 [потребуется другой компьютер]).
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Идентификатор сокета прослушивания используется только в функции TCPAccept.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; или в диапазоне 192–223 (обычно 192.168.X.X; для тестирования на локальном IP используйте @IPAddress1 [потребуется другой компьютер]).</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Идентификатор сокета прослушивания используется только в функции TCPAccept.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возможно, на этом IP-адресе и порту уже ведётся прослушивание (скрипт уже запущен?).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возможно, на этом IP-адресе и порту уже ведётся прослушивание (скрипт уже запущен?).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$sMsgBoxTitle</span><span class="S8">,</span> <span class="S7">"Could not listen, Error code: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_WinAPI_GetErrorMessage.htm"><span class="S15">_WinAPI_GetErrorMessage</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
@@ -92,8 +89,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть слушающий сокет, чтобы разрешить дальнейшие привязки.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пока не закрыто, другие программы не могут привязаться к тому же IP-адресу и порту.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пока не закрыто, другие программы не могут привязаться к тому же IP-адресу и порту.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TCPCloseSocket.htm"><span class="S4">TCPCloseSocket</span></a><span class="S8">(</span><span class="S9">$iListenSocket</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
