@@ -43,11 +43,11 @@
 </table>
 
 <h2>Примечания</h2>
-<p>OnEvent-функции вызываются только при установленном параметре <a href="../functions/AutoItSetOption.htm#TrayOnEventMode">Opt("TrayOnEventMode", 1)</a> – в этом режиме <a href="TrayGetMsg.htm"><span class="S4">TrayGetMsg</span><span class="S8">()</span></a> не используется вовсе.<br />
-<br />
-Внутри вызываемой функции идентификатор элемента доступен через <span class="S61">@TRAY_ID</span>.<br />
-<br />
-Если функция – пустая строка "", ранее назначенная функция отключается.<br />
+<p>OnEvent-функции вызываются только при установленном параметре <a href="../functions/AutoItSetOption.htm#TrayOnEventMode">Opt("TrayOnEventMode", 1)</a> – в этом режиме <a href="TrayGetMsg.htm"><span class="S4">TrayGetMsg</span><span class="S8">()</span></a> не используется вовсе.<br>
+<br>
+Внутри вызываемой функции идентификатор элемента доступен через <span class="S61">@TRAY_ID</span>.<br>
+<br>
+Если функция ровна пустой строке "", ранее назначенная функция отключается.<br>
 </p>
 <h2>См. также</h2>
 <p><a href="TrayCreateItem.htm">TrayCreateItem</a>, <a href="TrayGetMsg.htm">TrayGetMsg</a>, <a href="AutoItSetOption.htm#TrayOnEventMode ">TrayOnEventMode (Option)</a>, <a href="TraySetOnEvent.htm">TraySetOnEvent</a></p>
@@ -76,8 +76,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TrayCreateItem.htm"><span class="S4">TrayCreateItem</span></a><span class="S8">(</span><span class="S7">"Exit"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TrayItemSetOnEvent.htm"><span class="S4">TrayItemSetOnEvent</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"ExitScript"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TraySetOnEvent.htm"><span class="S4">TraySetOnEvent</span></a><span class="S8">(</span><span class="S9">$TRAY_EVENT_PRIMARYDOUBLE</span><span class="S8">,</span> <span class="S7">"About"</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать диалог About при двойном щелчке основной кнопкой мыши по значку трея.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TraySetOnEvent.htm"><span class="S4">TraySetOnEvent</span></a><span class="S8">(</span><span class="S9">$TRAY_EVENT_PRIMARYDOUBLE</span><span class="S8">,</span> <span class="S7">"About"</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать диалог About при двойном щелчке основной кнопкой мыши по значку трея.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TraySetState.htm"><span class="S4">TraySetState</span></a><span class="S8">(</span><span class="S9">$TRAY_ICONSTATE_SHOW</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать меню в трее.</span><br>
 <br>
