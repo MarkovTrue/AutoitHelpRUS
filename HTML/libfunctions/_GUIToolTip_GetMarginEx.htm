@@ -54,10 +54,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать элемент tooltip</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToolTip</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIToolTip_Create.htm"><span class="S15">_GUIToolTip_Create</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$_TT_ghTTDefaultStyle</span><span class="S8">,</span> <span class="S9">$TTS_BALLOON</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При наличии темы Windows это отключает тему для отображаемой подсказки, чтобы вы могли
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; изменить параметры полей. Если этого не сделать, поля не будут выглядеть иначе
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; При наличии темы Windows это отключает тему для отображаемой подсказки, чтобы вы могли</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; изменить параметры полей. Если этого не сделать, поля не будут выглядеть иначе</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowTheme.htm"><span class="S15">_WinAPI_SetWindowTheme</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
 <br>
 <span class="S1">;~ 	 $hGUI = 0 ; is OK
@@ -67,8 +65,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать поля подсказки вручную вместо настроек по умолчанию.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIToolTip_SetMargin.htm"><span class="S15">_GUIToolTip_SetMargin</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S3">12</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить параметры полей подсказки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить параметры полей подсказки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIToolTip_GetMarginEx.htm"><span class="S15">_GUIToolTip_GetMarginEx</span></a><span class="S8">(</span><span class="S9">$hToolTip</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
