@@ -40,7 +40,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>В отличие от большинства частей AutoIt, ключи Map чувствительны к регистру – "MyKey" и "mykey" – разные ключи.<br />
+<p>В отличие от большинства частей AutoIt, ключи Map различаются по регистру: "MyKey" и "mykey" это разные ключи.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="MapAppend.htm">MapAppend</a></p>
@@ -60,22 +60,18 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$mMap</span><span class="S8">[</span><span class="S7">"Beethoven"</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Beethoven value"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$mMap</span><span class="S8">[</span><span class="S7">"Pinky"</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Pinky value"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать ключи
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать ключи</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aKeys</span> <span class="S8">=</span> <span class="S0">MapKeys</span><span class="S8">(</span><span class="S9">$mMap</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sData</span> <span class="S8">=</span> <span class="S7">""</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать значения
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать значения</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aKeys</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sData</span> <span class="S8">&amp;=</span> <span class="S9">$aKeys</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">": "</span> <span class="S8">&amp;</span> <span class="S9">$mMap</span><span class="S8">[</span><span class="S9">$aKeys</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить результат
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить результат</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sData</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'Beethoven exists: '</span> <span class="S8">&amp;</span> <span class="S0">MapExists</span><span class="S8">(</span><span class="S9">$mMap</span><span class="S8">,</span> <span class="S7">"Beethoven"</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'Beethoven equals Null: '</span> <span class="S8">&amp;</span> <span class="S8">(</span><span class="S9">$mMap</span><span class="S8">[</span><span class="S7">"Beethoven"</span><span class="S8">]</span> <span class="S8">==</span> <span class="S5">Null</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Очистить ключ, присвоив ему Null. Ключ останется в Map.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Очистить ключ, присвоив ему Null. Ключ останется в Map.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$mMap</span><span class="S8">[</span><span class="S7">"Beethoven"</span><span class="S8">]</span> <span class="S8">=</span> <span class="S5">Null</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать ключи и значения</span><br>
@@ -84,13 +80,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aKeys</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sData</span> <span class="S8">&amp;=</span> <span class="S9">$aKeys</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">": "</span> <span class="S8">&amp;</span> <span class="S9">$mMap</span><span class="S8">[</span><span class="S9">$aKeys</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить значения ключей Map. Обратите внимание: ключ "Beethoven" теперь содержит пустое значение (Null).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить значения ключей Map. Обратите внимание: ключ "Beethoven" теперь содержит пустое значение (Null).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sData</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'Beethoven exists: '</span> <span class="S8">&amp;</span> <span class="S0">MapExists</span><span class="S8">(</span><span class="S9">$mMap</span><span class="S8">,</span> <span class="S7">"Beethoven"</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'Beethoven equals Null: '</span> <span class="S8">&amp;</span> <span class="S8">(</span><span class="S9">$mMap</span><span class="S8">[</span><span class="S7">"Beethoven"</span><span class="S8">]</span> <span class="S8">==</span> <span class="S5">Null</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Полностью удалить ключ "Beethoven".
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Полностью удалить ключ "Beethoven".</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">MapRemove</span><span class="S8">(</span><span class="S9">$mMap</span><span class="S8">,</span> <span class="S7">"Beethoven"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать ключи и значения</span><br>
@@ -99,8 +93,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aKeys</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sData</span> <span class="S8">&amp;=</span> <span class="S9">$aKeys</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">": "</span> <span class="S8">&amp;</span> <span class="S9">$mMap</span><span class="S8">[</span><span class="S9">$aKeys</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить значения ключей Map. Обратите внимание: ключ "Beethoven" больше не существует.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить значения ключей Map. Обратите внимание: ключ "Beethoven" больше не существует.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sData</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">'Beethoven exists: '</span> <span class="S8">&amp;</span> <span class="S0">MapExists</span><span class="S8">(</span><span class="S9">$mMap</span><span class="S8">,</span> <span class="S7">"Beethoven"</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'Beethoven equals Null: '</span> <span class="S8">&amp;</span> <span class="S8">(</span><span class="S9">$mMap</span><span class="S8">[</span><span class="S7">"Beethoven"</span><span class="S8">]</span> <span class="S8">==</span> <span class="S5">Null</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
