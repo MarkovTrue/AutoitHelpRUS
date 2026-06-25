@@ -45,15 +45,12 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">MySortFunction</span><span class="S8">(</span><span class="S9">$nListViewID</span><span class="S8">,</span> <span class="S9">$LParam1</span><span class="S8">,</span> <span class="S9">$LParam2</span><span class="S8">,</span> <span class="S9">$nColumn</span><span class="S8">)</span><br>
 ...<br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>
-</p><br />
-Или:<br />
-<br />
+</p>Или:<br />
 <p class="codebox">
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">MySortFunction</span><span class="S8">(</span><span class="S9">$nListViewID</span><span class="S8">,</span> <span class="S9">$LParam1</span><span class="S8">,</span> <span class="S9">$LParam2</span><span class="S8">)</span><br>
 ...<br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>
 </p><br />
-<br />
 При вызове пользовательской функции эти 4 параметра имеют следующие значения:<br />
 <br />
 <table>
@@ -87,7 +84,7 @@
 <td>Номер столбца, по которому выполнена сортировка, первый столбец имеет номер 0.</td>
 </tr>
 </table><br />
-Для управления поведением обратного вызова сортировки функция должна возвращать следующие значения:<br />
+Для управления поведением обратного вызова сортировки, функция должна возвращать следующие значения:<br />
 <br />
 <table>
 <tr class="header">
@@ -110,7 +107,7 @@
 <td>Первый элемент должен стоять после второго.</td>
 </tr>
 </table><br />
-См. также примеры сортировки с самостоятельно созданными элементами ListView.<br />
+Смотрите также примеры сортировки с самостоятельно созданными элементами ListView.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateListView.htm">GUICtrlCreateListView</a></p>
@@ -213,7 +210,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tBuffer</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"char[260]"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nIndex</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_FINDITEM</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvfi</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Сохранить текст элемента в структуре
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nIndex</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_FINDITEM</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvfi</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">;
 </span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tLvi</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"uint;int;int;uint;uint;ptr;int;int;int;int"</span><span class="S8">)</span><br>
@@ -224,7 +221,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvi</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tBuffer</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvi</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">,</span> <span class="S3">260</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_GETITEMA</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvi</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить lParam структуры в индекс строки; уникален в пределах ListView
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_GETITEMA</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvi</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">;
 </span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sItemText</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tBuffer</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
