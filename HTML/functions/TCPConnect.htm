@@ -63,8 +63,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIError.au3&gt;</span><br>
 <br>
-<span class="S1">; Я клиент, запусти меня после сервера! (Сначала запусти пример TCPAccept).
-</span><br>
+<span class="S1">; Я клиент, запусти меня после сервера! (Сначала запусти пример TCPAccept).</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
@@ -81,7 +80,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной сокет и подключиться к слушающему сокету по указанным IP и порту.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSocket</span> <span class="S8">=</span> <a class="le" href="../functions/TCPConnect.htm"><span class="S4">TCPConnect</span></a><span class="S8">(</span><span class="S9">$sIPAddress</span><span class="S8">,</span> <span class="S9">$iPort</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сервер, вероятно, офлайн, или порт на сервере не открыт.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
@@ -111,7 +110,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIError.au3&gt;</span><br>
 <br>
-<span class="S1">; Я клиент, запускайте меня после сервера, не более чем через 10 секунд! (Скрипт сервера – это пример TCPAccept).</span><br>
+<span class="S1">; Я клиент, запускайте меня после сервера, не более чем через 10 секунд! (Скрипт сервера это пример TCPAccept).</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
@@ -136,9 +135,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной сокет и подключиться к слушающему сокету по указанным IP и порту.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iSocket</span> <span class="S8">=</span> <a class="le" href="../functions/TCPConnect.htm"><span class="S4">TCPConnect</span></a><span class="S8">(</span><span class="S9">$sIPAddress</span><span class="S8">,</span> <span class="S9">$iPort</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">=</span> <span class="S3">10060</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Таймаут – попробовать снова</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Произошёл таймаут, повторить попытку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nMaxTimeout</span> <span class="S8">-=</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$nMaxTimeout</span> <span class="S8">&lt;=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$sMsgBoxTitle</span><span class="S8">,</span> <span class="S7">"Could not connect, after "</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Int.htm"><span class="S4">Int</span></a><span class="S8">(</span><a class="le" href="../functions/TimerDiff.htm"><span class="S4">TimerDiff</span></a><span class="S8">(</span><span class="S9">$hTimer</span><span class="S8">)</span> <span class="S8">/</span> <span class="S3">1000</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">" sec"</span><span class="S8">)</span><br>
