@@ -39,7 +39,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>!!! Чтобы пользовательская функция работала, необходимо объявить её с <strong>не более чем 4 параметрами</strong>, иначе функция не будет вызвана !!!<br />
+<p>!!! Чтобы пользовательская функция работала, она должна быть объявлена с <strong>не более чем 4 параметрами</strong>, иначе функция не будет вызвана !!!<br />
 Например:<br />
 <p class="codebox">
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">MySortFunction</span><span class="S8">(</span><span class="S9">$nListViewID</span><span class="S8">,</span> <span class="S9">$LParam1</span><span class="S8">,</span> <span class="S9">$LParam2</span><span class="S8">,</span> <span class="S9">$nColumn</span><span class="S8">)</span><br>
@@ -54,7 +54,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>
 </p><br />
 <br />
-При вызове пользовательской функции 4 параметра имеют следующие значения:<br />
+При вызове пользовательской функции эти 4 параметра имеют следующие значения:<br />
 <br />
 <table>
 <tr class="header">
@@ -72,19 +72,19 @@
 <tr>
 <td>2</td>
 <td>lParam1</td>
-<td>Значение lParam первого элемента (по умолчанию – controlID элемента).</td>
+<td>Значение lParam первого элемента, по умолчанию controlID элемента.</td>
 </tr>
 
 <tr>
 <td>3</td>
 <td>lParam2</td>
-<td>Значение lParam второго элемента (по умолчанию – controlID элемента).</td>
+<td>Значение lParam второго элемента, по умолчанию controlID элемента.</td>
 </tr>
 
 <tr>
 <td>4</td>
 <td>column</td>
-<td>Столбец, по которому был выполнен щелчок для сортировки (нумерация начинается с 0).</td>
+<td>Номер столбца, по которому выполнена сортировка, первый столбец имеет номер 0.</td>
 </tr>
 </table><br />
 Для управления поведением обратного вызова сортировки функция должна возвращать следующие значения:<br />
@@ -120,8 +120,7 @@
 <h3>Пример 1</h3>
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; сортировка 3 столбцов по-разному
-</span><br>
+<span class="S1">; сортировка 3 столбцов по-разному</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;ListViewConstants.au3&gt;</span><br>
@@ -137,8 +136,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Test"</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLv</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">(</span><span class="S7">"Column1|Col2|Col3"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">280</span><span class="S8">,</span> <span class="S3">180</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlRegisterListViewSort.htm"><span class="S4">GUICtrlRegisterListViewSort</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"LVSort"</span><span class="S8">)</span>&nbsp;<span class="S1">; Зарегистрировать функцию "LVSort" как обратный вызов сортировки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlRegisterListViewSort.htm"><span class="S4">GUICtrlRegisterListViewSort</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"LVSort"</span><span class="S8">)</span>&nbsp;<span class="S1">; Зарегистрировать функцию "LVSort" как обратный вызов сортировки</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"ABC|666|10.05.2004"</span><span class="S8">,</span> <span class="S9">$idLv</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetImage.htm"><span class="S4">GUICtrlSetImage</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"shell32.dll"</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">)</span><br>
@@ -172,8 +170,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">LVSort</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$nItem1</span><span class="S8">,</span> <span class="S9">$nItem2</span><span class="S8">,</span> <span class="S9">$iColumn</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sVal1</span><span class="S8">,</span> <span class="S9">$sVal2</span><span class="S8">,</span> <span class="S9">$iResult</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Переключить направление сортировки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Переключить направление сортировки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iColumn</span> <span class="S8">=</span> <span class="S9">$g_iCurCol</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$g_bSet</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_iSortDir</span> <span class="S8">=</span> <span class="S9">$g_iSortDir</span> <span class="S8">*</span> <span class="S8">-</span><span class="S3">1</span><br>
@@ -187,8 +184,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sVal1</span> <span class="S8">=</span> <span class="S0">GetSubItemText</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$nItem1</span><span class="S8">,</span> <span class="S9">$iColumn</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sVal2</span> <span class="S8">=</span> <span class="S0">GetSubItemText</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$nItem2</span><span class="S8">,</span> <span class="S9">$iColumn</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если это 3-й столбец (нумерация с 0), сравнивать даты
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если это 3-й столбец (нумерация с 0), сравнивать даты</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iColumn</span> <span class="S8">=</span> <span class="S3">2</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sVal1</span> <span class="S8">=</span> <a class="le" href="../functions/StringRight.htm"><span class="S4">StringRight</span></a><span class="S8">(</span><span class="S9">$sVal1</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringMid.htm"><span class="S4">StringMid</span></a><span class="S8">(</span><span class="S9">$sVal1</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringLeft.htm"><span class="S4">StringLeft</span></a><span class="S8">(</span><span class="S9">$sVal1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sVal2</span> <span class="S8">=</span> <a class="le" href="../functions/StringRight.htm"><span class="S4">StringRight</span></a><span class="S8">(</span><span class="S9">$sVal2</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringMid.htm"><span class="S4">StringMid</span></a><span class="S8">(</span><span class="S9">$sVal2</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringLeft.htm"><span class="S4">StringLeft</span></a><span class="S8">(</span><span class="S9">$sVal2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
@@ -217,7 +213,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tBuffer</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"char[260]"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nIndex</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_FINDITEM</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvfi</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">;
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nIndex</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_FINDITEM</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvfi</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Сохранить текст элемента в структуре
 </span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tLvi</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"uint;int;int;uint;uint;ptr;int;int;int;int"</span><span class="S8">)</span><br>
@@ -228,7 +224,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvi</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tBuffer</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvi</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">,</span> <span class="S3">260</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_GETITEMA</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvi</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">;
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_GETITEMA</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvi</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Установить lParam структуры в индекс строки; уникален в пределах ListView
 </span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sItemText</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tBuffer</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
@@ -242,8 +238,7 @@
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; сортировка с самостоятельно созданными элементами через DllCall
-</span><br>
+<span class="S1">; сортировка с самостоятельно созданными элементами через DllCall</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;ListViewConstants.au3&gt;</span><br>
@@ -265,8 +260,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Test"</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLv</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">(</span><span class="S7">"Column1|Col2|Col3"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">280</span><span class="S8">,</span> <span class="S3">180</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlRegisterListViewSort.htm"><span class="S4">GUICtrlRegisterListViewSort</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"LVSort2"</span><span class="S8">)</span>&nbsp;<span class="S1">; Зарегистрировать функцию "SortLV" как обратный вызов сортировки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlRegisterListViewSort.htm"><span class="S4">GUICtrlRegisterListViewSort</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"LVSort2"</span><span class="S8">)</span>&nbsp;<span class="S1">; Зарегистрировать функцию "SortLV" как обратный вызов сортировки</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">MyGUICtrlCreateListViewItem</span><span class="S8">(</span><span class="S7">"ABC|666|10.05.2004"</span><span class="S8">,</span> <span class="S9">$idLv</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">MyGUICtrlCreateListViewItem</span><span class="S8">(</span><span class="S7">"DEF|444|11.05.2005"</span><span class="S8">,</span> <span class="S9">$idLv</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
@@ -296,8 +290,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">LVSort2</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$idItem1</span><span class="S8">,</span> <span class="S9">$idItem2</span><span class="S8">,</span> <span class="S9">$idColumn</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sVal1</span><span class="S8">,</span> <span class="S9">$sVal2</span><span class="S8">,</span> <span class="S9">$iResult</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Переключить направление сортировки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Переключить направление сортировки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$idColumn</span> <span class="S8">=</span> <span class="S9">$g_iCurCol</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$g_bSet</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_iSortDir</span> <span class="S8">=</span> <span class="S9">$g_iSortDir</span> <span class="S8">*</span> <span class="S8">-</span><span class="S3">1</span><br>
@@ -311,8 +304,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sVal1</span> <span class="S8">=</span> <span class="S0">GetSubItemText</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$idItem1</span><span class="S8">,</span> <span class="S9">$idColumn</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sVal2</span> <span class="S8">=</span> <span class="S0">GetSubItemText</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$idItem2</span><span class="S8">,</span> <span class="S9">$idColumn</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если это 3-й столбец (нумерация с 0), сравнивать даты
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если это 3-й столбец (нумерация с 0), сравнивать даты</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$idColumn</span> <span class="S8">=</span> <span class="S3">2</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sVal1</span> <span class="S8">=</span> <a class="le" href="../functions/StringRight.htm"><span class="S4">StringRight</span></a><span class="S8">(</span><span class="S9">$sVal1</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringMid.htm"><span class="S4">StringMid</span></a><span class="S8">(</span><span class="S9">$sVal1</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringLeft.htm"><span class="S4">StringLeft</span></a><span class="S8">(</span><span class="S9">$sVal1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sVal2</span> <span class="S8">=</span> <a class="le" href="../functions/StringRight.htm"><span class="S4">StringRight</span></a><span class="S8">(</span><span class="S9">$sVal2</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringMid.htm"><span class="S4">StringMid</span></a><span class="S8">(</span><span class="S9">$sVal2</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringLeft.htm"><span class="S4">StringLeft</span></a><span class="S8">(</span><span class="S9">$sVal2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
@@ -332,8 +324,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;LVSort2
 </span><br>
 <br>
-<span class="S1">; Создать и вставить элементы напрямую в ListView
-</span><br>
+<span class="S1">; Создать и вставить элементы напрямую в ListView</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">MyGUICtrlCreateListViewItem</span><span class="S8">(</span><span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$iIndex</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tLvitem</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"uint;int;int;uint;uint;ptr;int;int;int;int;"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tText</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"char[260]"</span><span class="S8">)</span><br>
@@ -341,32 +332,27 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iIndex</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$iIndex</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_GETITEMCOUNT</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tText</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$aText</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span>&nbsp;<span class="S1">; Сохранить текст элемента в структуре
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tText</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$aText</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span>&nbsp;<span class="S1">; Сохранить текст элемента в структуре</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvitem</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$LVIF_TEXT</span><span class="S8">,</span> <span class="S9">$LVIF_PARAM</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvitem</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$iIndex</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvitem</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tText</span><span class="S8">)</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить lParam структуры равным индексу строки – уникален в пределах ListView
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить lParam структуры равным индексу строки – уникален в пределах ListView</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvitem</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">,</span> <span class="S9">$iIndex</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iIndex</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_INSERTITEMA</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvitem</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iIndex</span> <span class="S8">&gt;</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Теперь вставить оставшийся текст столбцов
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Теперь вставить оставшийся текст столбцов</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">2</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$aText</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tText</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$aText</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvitem</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S9">$i</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Сохранить индекс подэлемента
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tLvitem</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S9">$i</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Сохранить индекс подэлемента</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_SETITEMTEXTA</span><span class="S8">,</span> <span class="S9">$iIndex</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tLvitem</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Изменить ширину столбца по размеру текста элемента
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Изменить ширину столбца по размеру текста элемента</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">2</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_SETCOLUMNWIDTH</span><span class="S8">,</span> <span class="S9">$i</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSendMsg.htm"><span class="S4">GUICtrlSendMsg</span></a><span class="S8">(</span><span class="S9">$idCtrl</span><span class="S8">,</span> <span class="S9">$LVM_SETCOLUMNWIDTH</span><span class="S8">,</span> <span class="S9">$i</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">2</span><span class="S8">)</span><br>
