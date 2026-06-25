@@ -42,7 +42,7 @@
 </tr>
 <tr>
 <td>speed</td>
-<td><strong>[необязательный]</strong> Скорость перемещения окна от 1 (быстрее всего) до 100 (медленнее всего). Если не задано, перемещение происходит мгновенно.</td>
+<td><strong>[необязательный]</strong> Скорость перемещения окна от 1 (быстрее) до 100 (медленнее). Если не задано, перемещение происходит мгновенно.</td>
 </tr>
 </table>
 
@@ -59,14 +59,15 @@
 </table>
 
 <h2>Примечания</h2>
-<p><a href="WinMove.htm"><span class="S4">WinMove</span><span class="S8">()</span></a> не действует на свёрнутые окна, но работает со скрытыми.<br />
-Если ширина и высота малы (или отрицательны), окно не будет меньше 112 × 27 пикселей. При больших значениях окно не превысит приблизительно [12+<span class="S61">@DesktopWidth</span>] × [12+<span class="S61">@DesktopHeight</span>] пикселей.<br />
-Для координат x и y допускаются отрицательные значения: окно можно вынести за пределы экрана; если программа запоминает последнее положение окна, при следующем запуске оно появится в углу экрана (полностью видимым).<br />
-Если несколько окон соответствуют критериям, используется наиболее недавно активное.<br />
+<p><a href="WinMove.htm"><span class="S4">WinMove</span><span class="S8">()</span></a> не действует на свёрнутые окна, но работает со скрытыми окнами.<br />
+Если ширина и высота малы или отрицательны, окно не будет меньше 112 × 27 пикселей. При больших значениях окно не превысит приблизительно [12+<span class="S61">@DesktopWidth</span>] × [12+<span class="S61">@DesktopHeight</span>] пикселей.<br />
 <br />
-Если x и y равны ключевому слову <a href="../keywords/Default.htm">Default</a>, перемещения не происходит – выполняется только изменение размера.<br />
+Для координат x и y допускаются отрицательные значения, окно можно вынести за пределы экрана. При следующем запуске программы, если запоминается последнее положение окна, оно всё ровно появится в углу экрана полностью видимым.<br />
+Если несколько окон соответствуют критериям, используется наиболее недавно активное окно.<br />
 <br />
-При использовании параметра speed перемещение выполняется уже с новым размером.<br />
+Если X и Y равны ключевому слову <a href="../keywords/Default.htm">Default</a>, перемещение не происходит, выполняется только изменение размера.<br />
+<br />
+При использовании параметра <em>speed</em> перемещение выполняется с учётом нового размера.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="WinActivate.htm">WinActivate</a>, <a href="WinClose.htm">WinClose</a>, <a href="WinGetClientSize.htm">WinGetClientSize</a>, <a href="WinGetPos.htm">WinGetPos</a>, <a href="WinSetState.htm">WinSetState</a></p>
@@ -84,24 +85,19 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем позицию, высоту и ширину окна Блокнота, чтобы вернуть его на место после перемещения.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем позицию, высоту и ширину окна Блокнота, чтобы вернуть его на место после перемещения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aPos</span> <span class="S8">=</span> <a class="le" href="../functions/WinGetPos.htm"><span class="S4">WinGetPos</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перемещаем Блокнот в позицию x=0, y=0 и задаём ширину и высоту 200×200.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перемещаем Блокнот в позицию x=0, y=0 и задаём ширину и высоту 200×200.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinMove.htm"><span class="S4">WinMove</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды, чтобы отобразить новую позицию окна Блокнота.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды, чтобы отобразить новую позицию окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возвращаем окно Блокнота в исходную позицию, используя массив, возвращённый WinGetPos.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возвращаем окно Блокнота в исходную позицию, используя массив, возвращённый WinGetPos.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinMove.htm"><span class="S4">WinMove</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды, чтобы отобразить исходную позицию окна Блокнота.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды, чтобы отобразить исходную позицию окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть окно Блокнота по дескриптору, возвращённому WinWait.</span><br>
