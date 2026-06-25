@@ -64,14 +64,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sIPAddress</span> <span class="S8">=</span> <span class="S7">"127.0.0.1"</span>&nbsp;<span class="S1">; Этот IP-адрес работает только для тестирования на локальном компьютере.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPort</span> <span class="S8">=</span> <span class="S3">65432</span>&nbsp;<span class="S1">; Порт, используемый для подключения.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Привязать к указанному IP-адресу и порту с максимум 100 ожидающих соединений.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;(Подробнее см. пример этой функции).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Привязать к указанному IP-адресу и порту с максимум 100 ожидающих соединений.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;(Подробнее см. пример этой функции).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iListenSocket</span> <span class="S8">=</span> <a class="le" href="../functions/TCPListen.htm"><span class="S4">TCPListen</span></a><span class="S8">(</span><span class="S9">$sIPAddress</span><span class="S8">,</span> <span class="S9">$iPort</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <span class="S3">0</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возможно, кто-то уже слушает на этом IP и порту (скрипт уже запущен?).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
@@ -79,14 +77,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объявить локальные переменные для сокетов прослушивания и клиентского.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объявить локальные переменные для сокетов прослушивания и клиентского.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSocket</span> <span class="S8">=</span> <span class="S3">0</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a>&nbsp;<span class="S1">; Ждать подключения (без лимита).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Принимать входящие подключения (сокет закрывается по завершении; один сокет на клиента).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iSocket</span> <span class="S8">=</span> <a class="le" href="../functions/TCPAccept.htm"><span class="S4">TCPAccept</span></a><span class="S8">(</span><span class="S9">$iListenSocket</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Could not accept the incoming connection, Error code: "</span> <span class="S8">&amp;</span> <span class="S9">$iError</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_WinAPI_GetErrorMessage.htm"><span class="S15">_WinAPI_GetErrorMessage</span></a><span class="S8">(</span><span class="S9">$iError</span><span class="S8">)</span><span class="S8">)</span><br>
@@ -117,8 +114,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIError.au3&gt;</span><br>
 <br>
-<span class="S1">; Примечание: полезные комментарии – в Примере 1; здесь демонстрируется только функция SocketToIP.
-</span><br>
+<span class="S1">; Примечание: полезные комментарии – в Примере 1; здесь демонстрируется только функция SocketToIP.</span><br>
 <br>
 <span class="S1">; Я сервер, запускайте меня первым! (Затем запускайте пример TCPConnect).</span><br>
 <br>
@@ -153,15 +149,12 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TCPCloseSocket.htm"><span class="S4">TCPCloseSocket</span></a><span class="S8">(</span><span class="S9">$iListenSocket</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить IP-адрес, связанный с принятым сокетом, и присвоить его локальной переменной.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить IP-адрес, связанный с принятым сокетом, и присвоить его локальной переменной.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sClientIPAddress</span> <span class="S8">=</span> <span class="S0">SocketToIP</span><span class="S8">(</span><span class="S9">$iSocket</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Примечание: эта функция НЕ работает с сокетом прослушивания; её можно использовать с сокетом, возвращённым TCPConnect.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Примечание: эта функция НЕ работает с сокетом прослушивания; её можно использовать с сокетом, возвращённым TCPConnect.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить сообщение об успешном соединении с IP-адресом клиента.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить сообщение об успешном соединении с IP-адресом клиента.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S9">$sMsgBoxTitle</span><span class="S8">,</span> <span class="S7">"Client Connected, IP Address: "</span> <span class="S8">&amp;</span> <span class="S9">$sClientIPAddress</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TCPCloseSocket.htm"><span class="S4">TCPCloseSocket</span></a><span class="S8">(</span><span class="S9">$iSocket</span><span class="S8">)</span><br>
