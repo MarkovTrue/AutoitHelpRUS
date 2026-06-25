@@ -22,15 +22,15 @@
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст изменяемого окна. По умолчанию – пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст изменяемого окна. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
 </tr>
 <tr>
 <td>flashes</td>
-<td><strong>[необязательный]</strong> Количество миганий окна. По умолчанию – 4.</td>
+<td><strong>[необязательный]</strong> Количество миганий окна. По умолчанию 4.</td>
 </tr>
 <tr>
 <td>delay</td>
-<td><strong>[необязательный]</strong> Интервал между миганиями в миллисекундах. По умолчанию – 500 мс.</td>
+<td><strong>[необязательный]</strong> Интервал между миганиями в миллисекундах. По умолчанию 500 мс.</td>
 </tr>
 </table>
 
@@ -57,12 +57,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждать до 10 секунд появления окна Блокнота.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinWait.htm"><span class="S4">WinWait</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Мигаем окном 4 раза с интервалом 1/2 секунды.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Мигаем окном 4 раза с интервалом 1/2 секунды.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinFlash.htm"><span class="S4">WinFlash</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">1000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 5 секунд, отображая окно Блокнота без дальнейшего мигания.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 5 секунд, отображая окно Блокнота без дальнейшего мигания.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">5000</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть окно Блокнота по дескриптору, возвращённому WinWait.</span><br>
