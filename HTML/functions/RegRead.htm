@@ -47,19 +47,19 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Раздел реестра должен начинаться с "HKEY_LOCAL_MACHINE" ("HKLM"), "HKEY_USERS" ("HKU"), "HKEY_CURRENT_USER" ("HKCU"), "HKEY_CLASSES_ROOT" ("HKCR") или "HKEY_CURRENT_CONFIG" ("HKCC").<br />
-<br />
-При работе в 64-разрядной Windows для чтения значений 64-разрядной ветки реестра добавьте суффикс 64 к корневому ключу, например HKLM64.<br />
-<br />
-AutoIt поддерживает разделы реестра типов REG_BINARY, REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, REG_QWORD и REG_DWORD.<br />
-<br />
-Для доступа к значению <strong>(Default)</strong> передайте <strong>""</strong> (пустую строку) в качестве valuename.<br />
-<br />
-При чтении REG_BINARY результат возвращается как двоичный тип (в предыдущих версиях – строка шестнадцатеричных символов).<br />
-<br />
-При чтении REG_MULTI_SZ несколько записей разделяются символом <span class="S61">@LF</span> – используйте <a href="StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span>..., <span class="S61">@LF</span><span class="S8">)</span> для получения каждой строки.<br />
-<br />
-Для доступа к удалённому реестру используйте имя раздела вида "\\имя_компьютера\раздел". Требуются соответствующие права доступа.<br />
+<p>Раздел реестра должен начинаться с "HKEY_LOCAL_MACHINE" ("HKLM"), "HKEY_USERS" ("HKU"), "HKEY_CURRENT_USER" ("HKCU"), "HKEY_CLASSES_ROOT" ("HKCR") или "HKEY_CURRENT_CONFIG" ("HKCC").<br>
+<br>
+При работе в 64-разрядной Windows для чтения значений 64-разрядной ветки реестра добавьте суффикс 64 к корневому ключу, например HKLM64.<br>
+<br>
+AutoIt поддерживает разделы реестра типов REG_BINARY, REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, REG_QWORD и REG_DWORD.<br>
+<br>
+Для доступа к значению <strong>(Default)</strong> передайте <strong>""</strong> (пустую строку) в качестве valuename.<br>
+<br>
+При чтении REG_BINARY результат возвращается как двоичный тип (в предыдущих версиях строка шестнадцатеричных символов).<br>
+<br>
+При чтении REG_MULTI_SZ несколько записей разделяются символом <span class="S61">@LF</span> – используйте <a href="StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span>..., <span class="S61">@LF</span><span class="S8">)</span> для получения каждой строки.<br>
+<br>
+Для доступа к удалённому реестру используйте имя раздела вида "\\имя_компьютера\раздел". Требуются соответствующие права доступа.<br>
 </p>
 <h2>См. также</h2>
 <p><a href="RegDelete.htm">RegDelete</a>, <a href="RegWrite.htm">RegWrite</a>, <a href="StringSplit.htm">StringSplit</a></p>
