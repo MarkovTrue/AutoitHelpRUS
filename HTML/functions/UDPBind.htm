@@ -68,7 +68,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной сокет и привязать к указанным IP-адресу и порту.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aSocket</span> <span class="S8">=</span> <a class="le" href="../functions/UDPBind.htm"><span class="S4">UDPBind</span></a><span class="S8">(</span><span class="S9">$sIPAddress</span><span class="S8">,</span> <span class="S9">$iPort</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка – показать код ошибки и вернуть False.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если произошла ошибка, показать код ошибки и вернуть False.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возможно, кто-то уже привязан к этому IP-адресу и порту (скрипт уже запущен?).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
@@ -79,8 +79,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть слушающий сокет, чтобы разрешить дальнейшие привязки.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пока не закрыто, другие программы не могут привязаться к тому же IP-адресу и порту.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пока не закрыто, другие программы не могут привязаться к тому же IP-адресу и порту.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/UDPCloseSocket.htm"><span class="S4">UDPCloseSocket</span></a><span class="S8">(</span><span class="S9">$aSocket</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
