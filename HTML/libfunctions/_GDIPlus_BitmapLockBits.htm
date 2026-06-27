@@ -23,41 +23,41 @@
 </tr>
 <tr>
 <td><span class="S91">$iLeft</span></td>
-<td>Координата X левого верхнего угла блокируемой области.</td>
+<td>X-координата левого верхнего угла блокируемого прямоугольника.</td>
 </tr>
 <tr>
 <td><span class="S91">$iTop</span></td>
-<td>Координата Y левого верхнего угла блокируемой области.</td>
+<td>Y-координата левого верхнего угла блокируемого прямоугольника.</td>
 </tr>
 <tr>
 <td><span class="S91">$iWidth</span></td>
-<td>Ширина блокируемой области.</td>
+<td>Ширина блокируемого прямоугольника.</td>
 </tr>
 <tr>
 <td><span class="S91">$iHeight</span></td>
-<td>Высота блокируемой области.</td>
+<td>Высота блокируемого прямоугольника.</td>
 </tr>
 <tr>
 <td><span class="S91">$iFlags</span></td>
-<td><strong>[необязательный]</strong> Набор флагов, определяющих режим доступа к заблокированной части и наличие пользовательского буфера. Допускается сочетание следующих значений:<br />
+<td><strong>[необязательный]</strong> Набор флагов, задающих, доступна ли заблокированная часть для чтения или записи и выделил ли вызывающий код буфер. Может быть комбинацией:<br />
 <span class="S91">$GDIP_ILMREAD</span> – часть изображения заблокирована для чтения<br />
 <span class="S91">$GDIP_ILMWRITE</span> – часть изображения заблокирована для записи<br />
 <span class="S91">$GDIP_ILMUSERINPUTBUF</span> – буфер выделен пользователем.</td>
 </tr>
 <tr>
 <td><span class="S91">$iFormat</span></td>
-<td><strong>[необязательный]</strong> Формат пиксельных данных во временном буфере. Одно из следующих значений:<br />
-<span class="S91">$GDIP_PXF01INDEXED</span> – 1 бит/пикс., индексированный<br />
-<span class="S91">$GDIP_PXF04INDEXED</span> – 4 бит/пикс., индексированный<br />
-<span class="S91">$GDIP_PXF08INDEXED</span> – 8 бит/пикс., индексированный<br />
-<span class="S91">$GDIP_PXF16GRAYSCALE</span> – 16 бит/пикс., оттенки серого<br />
-<span class="S91">$GDIP_PXF16RGB555</span> – 16 бит/пикс.; по 5 бит на каждую составляющую RGB<br />
-<span class="S91">$GDIP_PXF16RGB565</span> – 16 бит/пикс.; 5 бит красный, 6 бит зелёный, 5 бит синий<br />
-<span class="S91">$GDIP_PXF16ARGB1555</span> – 16 бит/пикс.; 1 бит на альфа-канал и 5 бит на каждую составляющую RGB<br />
-<span class="S91">$GDIP_PXF24RGB</span> – 24 бит/пикс.; по 8 бит на каждую составляющую RGB<br />
-<span class="S91">$GDIP_PXF32RGB</span> – 32 бит/пикс.; по 8 бит на каждую составляющую RGB. Без альфа-канала.<br />
-<span class="S91">$GDIP_PXF32ARGB</span> – 32 бит/пикс.; по 8 бит на каждую составляющую RGB и альфа-канал<br />
-<span class="S91">$GDIP_PXF32PARGB</span> – 32 бит/пикс.; по 8 бит на составляющие RGB и альфа-канал, предумноженные.</td>
+<td><strong>[необязательный]</strong> Формат данных пикселей во временном буфере. Одно из значений:<br />
+<span class="S91">$GDIP_PXF01INDEXED</span> – 1 бит/пикс, индексированный<br />
+<span class="S91">$GDIP_PXF04INDEXED</span> – 4 бит/пикс, индексированный<br />
+<span class="S91">$GDIP_PXF08INDEXED</span> – 8 бит/пикс, индексированный<br />
+<span class="S91">$GDIP_PXF16GRAYSCALE</span> – 16 бит/пикс, оттенки серого<br />
+<span class="S91">$GDIP_PXF16RGB555</span> – 16 бит/пикс; по 5 бит на каждый RGB<br />
+<span class="S91">$GDIP_PXF16RGB565</span> – 16 бит/пикс; 5 бит красный, 6 бит зелёный и 5 бит синий<br />
+<span class="S91">$GDIP_PXF16ARGB1555</span> – 16 бит/пикс; 1 бит на альфа и по 5 бит на каждый компонент RGB<br />
+<span class="S91">$GDIP_PXF24RGB</span> – 24 бит/пикс; по 8 бит на каждый RGB<br />
+<span class="S91">$GDIP_PXF32RGB</span> – 32 бит/пикс; по 8 бит на каждый RGB. Без альфа.<br />
+<span class="S91">$GDIP_PXF32ARGB</span> – 32 бит/пикс; по 8 бит на каждый RGB и альфа<br />
+<span class="S91">$GDIP_PXF32PARGB</span> – 32 бит/пикс; по 8 бит на каждый RGB и альфа, с предумножением.</td>
 </tr>
 </table>
 
@@ -74,7 +74,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>После завершения работы с заблокированной областью вызовите <a href="_GDIPlus_BitmapUnlockBits.htm"><span class="S15">_GDIPlus_BitmapUnlockBits</span><span class="S8">()</span></a> для её освобождения.<br />
+<p>Закончив работу с заблокированной частью, вызовите <a class="le" href="_GDIPlus_BitmapUnlockBits.htm"><span class="S15">_GDIPlus_BitmapUnlockBits</span></a><span class="S8">()</span> для освобождения заблокированной области.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GDIPlus_ImageGetPixelFormat.htm">_GDIPlus_ImageGetPixelFormat</a>, <a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject</a></p>
@@ -115,48 +115,36 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iW</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetWidth.htm"><span class="S15">_GDIPlus_ImageGetWidth</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$iH</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetHeight.htm"><span class="S15">_GDIPlus_ImageGetHeight</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить ширину и высоту изображения.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iW</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetWidth.htm"><span class="S15">_GDIPlus_ImageGetWidth</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$iH</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetHeight.htm"><span class="S15">_GDIPlus_ImageGetHeight</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span>&nbsp;<span class="S1">;Получить ширину и высоту изображения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromScan0.htm"><span class="S15">_GDIPlus_BitmapCreateFromScan0</span></a><span class="S8">(</span><span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hContext</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetGraphicsContext.htm"><span class="S15">_GDIPlus_ImageGetGraphicsContext</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$hContext</span><span class="S8">,</span> <span class="S9">$hImage</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tBitmapData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapLockBits.htm"><span class="S15">_GDIPlus_BitmapLockBits</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$GDIP_ILMWRITE</span><span class="S8">,</span> <span class="S9">$GDIP_ILMREAD</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$GDIP_PXF32ARGB</span><span class="S8">)</span>&nbsp;<span class="S1">; Заблокировать часть изображения для чтения и записи.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iScan0</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tBitmapData</span><span class="S8">,</span> <span class="S7">"Scan0"</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить scan0 (пиксельные данные) из заблокированного изображения.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSearchPixel</span> <span class="S8">=</span> <a class="le" href="../functions/Int.htm"><span class="S4">Int</span></a><span class="S8">(</span><span class="S3">0xFF000080</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$iReplaceColor</span> <span class="S8">=</span> <span class="S3">0x00000000</span>&nbsp;<span class="S1">; Формат цвета 0xAARRGGBB.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tBitmapData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapLockBits.htm"><span class="S15">_GDIPlus_BitmapLockBits</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$GDIP_ILMWRITE</span><span class="S8">,</span> <span class="S9">$GDIP_ILMREAD</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$GDIP_PXF32ARGB</span><span class="S8">)</span>&nbsp;<span class="S1">;Заблокировать часть изображения для чтения и записи.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iScan0</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tBitmapData</span><span class="S8">,</span> <span class="S7">"Scan0"</span><span class="S8">)</span>&nbsp;<span class="S1">;Получить scan0 (пиксельные данные) из заблокированного изображения.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iSearchPixel</span> <span class="S8">=</span> <a class="le" href="../functions/Int.htm"><span class="S4">Int</span></a><span class="S8">(</span><span class="S3">0xFF000080</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$iReplaceColor</span> <span class="S8">=</span> <span class="S3">0x00000000</span>&nbsp;<span class="S1">;Формат цвета 0xAARRGGBB.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tPixel</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">"int["</span> <span class="S8">&amp;</span> <span class="S9">$iW</span> <span class="S8">*</span> <span class="S9">$iH</span> <span class="S8">&amp;</span> <span class="S7">"];"</span><span class="S8">,</span> <span class="S9">$iScan0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPixel</span><span class="S8">,</span> <span class="S9">$iRowOffset</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iY</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iH</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRowOffset</span> <span class="S8">=</span> <span class="S9">$iY</span> <span class="S8">*</span> <span class="S9">$iW</span> <span class="S8">+</span> <span class="S3">1</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iX</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iW</span> <span class="S8">-</span> <span class="S3">1</span>&nbsp;<span class="S1">; Перебрать каждый пиксель в каждой строке и столбце.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iPixel</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tPixel</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iRowOffset</span> <span class="S8">+</span> <span class="S9">$iX</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить цвет пикселя.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iPixel</span> <span class="S8">=</span> <span class="S9">$iSearchPixel</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPixel</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iReplaceColor</span><span class="S8">,</span> <span class="S9">$iRowOffset</span> <span class="S8">+</span> <span class="S9">$iX</span><span class="S8">)</span>&nbsp;<span class="S1">; Сравнить и заменить цвет пикселя (синий на прозрачный).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iX</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iW</span> <span class="S8">-</span> <span class="S3">1</span>&nbsp;<span class="S1">;Перебрать каждый пиксель в каждой строке и столбце.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iPixel</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tPixel</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iRowOffset</span> <span class="S8">+</span> <span class="S9">$iX</span><span class="S8">)</span>&nbsp;<span class="S1">;Получить цвет пикселя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iPixel</span> <span class="S8">=</span> <span class="S9">$iSearchPixel</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPixel</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iReplaceColor</span><span class="S8">,</span> <span class="S9">$iRowOffset</span> <span class="S8">+</span> <span class="S9">$iX</span><span class="S8">)</span>&nbsp;<span class="S1">;Сравнить и заменить цвет пикселя (синий на прозрачный).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapUnlockBits.htm"><span class="S15">_GDIPlus_BitmapUnlockBits</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$tBitmapData</span><span class="S8">)</span>&nbsp;<span class="S1">; Разблокировать часть изображения, заблокированную _GDIPlus_BitmapLockBits.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapUnlockBits.htm"><span class="S15">_GDIPlus_BitmapUnlockBits</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$tBitmapData</span><span class="S8">)</span>&nbsp;<span class="S1">;Разблокировать часть изображения, заблокированную _GDIPlus_BitmapLockBits.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Для сохранения изменённого изображения используйте _GDIPlus_ImageSaveToFile().
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Для сохранения изменённого изображения используйте _GDIPlus_ImageSaveToFile().</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">; Отобразить исходное изображение для сравнения с изменённым.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">;Отобразить исходное изображение для сравнения с изменённым.</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить изменённое изображение.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Отобразить изменённое изображение.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"_GDIPlus_BitmapLockBits Demo"</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGraphic</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;создать объект Graphics из дескриптора окна</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span>&nbsp;<span class="S1">; Скопировать изменённое изображение в дескриптор Graphics.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span>&nbsp;<span class="S1">;Скопировать изменённое изображение в дескриптор Graphics.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
