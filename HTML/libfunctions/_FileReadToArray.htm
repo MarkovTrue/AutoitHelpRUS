@@ -23,20 +23,20 @@
 </tr>
 <tr>
 <td><span class="S91">$vReturn</span></td>
-<td>Переменная для хранения возвращённых данных; массивом быть не обязана.</td>
+<td>Переменная для возвращаемых данных, массивом быть не обязана.</td>
 </tr>
 <tr>
 <td><span class="S91">$iFlags</span></td>
-<td><strong>[необязательный]</strong> Можно суммировать несколько значений<br />
-<span class="S91">$FRTA_NOCOUNT</span> (0) – массив с нулевым индексом, размер через <a href="../functions/UBound.htm"><span class="S4">UBound</span><span class="S8">()</span></a><br />
-<span class="S91">$FRTA_COUNT</span> (1) – первый элемент массива содержит количество элементов (по умолчанию)<br />
-<span class="S91">$FRTA_INTARRAYS</span> (2) – создать "массив массивов" – см. примечания<br />
-<span class="S91">$FRTA_ENTIRESPLIT</span> (4) – использовать строку-разделитель целиком как точку разбиения (по умолчанию каждый символ задаёт точку разбиения).</td>
+<td><strong>[необязательный]</strong> Складывайте нужные значения<br />
+<span class="S91">$FRTA_NOCOUNT</span> (0) – массив с нулевым индексом, размер через <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">()</span><br />
+<span class="S91">$FRTA_COUNT</span> (1) – количество элементов массива в первом элементе (по умолчанию)<br />
+<span class="S91">$FRTA_INTARRAYS</span> (2) – создать "массив массивов" – см. раздел Примечания<br />
+<span class="S91">$FRTA_ENTIRESPLIT</span> (4) – использовать всю строку-разделитель как точку разбиения (по умолчанию каждый символ задаёт точку разбиения).</td>
 </tr>
 <tr>
 <td><span class="S91">$sDelimiter</span></td>
 <td><strong>[необязательный]</strong><br />
-Используется для дополнительного разбиения каждой строки файла – например, при чтении CSV в двумерный массив.</td>
+Дополнительно разбивает каждую строку файла – например, для чтения CSV-файлов в двумерный массив.</td>
 </tr>
 </table>
 
@@ -52,19 +52,19 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – ошибка при открытии указанного файла<br />
-2&nbsp;– не удаётся разбить файл<br />
-3&nbsp;– строки файла содержат разное количество полей (только если флаг <span class="S91">$FRTA_INTARRAYS</span> не установлен)<br />
-4&nbsp;– разделители не найдены (только если флаг <span class="S91">$FRTA_INTARRAYS</span> не установлен)</td>
+<td>1 – ошибка открытия указанного файла<br />
+2 – не удалось разбить файл<br />
+3 – строки файла содержат разное число полей (только если флаг <span class="S91">$FRTA_INTARRAYS</span> не задан)<br />
+4 – разделители не найдены (только если флаг <span class="S91">$FRTA_INTARRAYS</span> не задан)</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Если разделитель не задан, функция возвращает одномерный массив, каждый элемент которого содержит строку файла; допустимы любые окончания строк: <span class="S61">@CR</span>, <span class="S61">@LF</span>, <span class="S61">@CRLF</span> или их сочетания.<br />
+<p>Если разделитель не задан, функция возвращает одномерный массив, где каждый элемент содержит строку файла – окончания строк могут быть любым сочетанием <span class="S61">@CR</span>, <span class="S61">@LF</span> и <span class="S61">@CRLF</span>.<br />
 <br />
-Если разделитель задан, функция дополнительно разбивает каждую строку файла. Поведение зависит от флага <span class="S91">$FRTA_INTARRAYS</span>. Если флаг не установлен и все строки содержат одинаковое число полей, создаётся двумерный массив; в противном случае <span class="S61">@error</span> устанавливается в 3 и массив не возвращается. При установленном флаге <span class="S91">$FRTA_INTARRAYS</span> создаётся одномерный массив, каждый элемент которого является массивом полей соответствующей строки – строки при этом могут содержать разное число полей. См. пример ниже.<br />
+Если разделитель задан, функция пытается дополнительно разбить каждую строку файла – способ зависит от флага <span class="S91">$FRTA_INTARRAYS</span>. Если флаг не задан и в каждой строке одинаковое число полей, разделённых разделителем, создаётся двумерный массив, но если это не так, <span class="S61">@error</span> устанавливается в 3 и массив не возвращается. Если флаг <span class="S91">$FRTA_INTARRAYS</span> задан, функция создаёт одномерный массив, где каждый элемент – вложенный массив с полями строки, разбитыми по разделителю, при этом строки могут иметь разное число полей. См. пример ниже.<br />
 <br />
-Если разделитель состоит из нескольких символов, способ разбиения определяется флагом <span class="S91">$FRTA_ENTIRESPLIT</span>.<br />
+Если разделитель длиннее одного символа, способ разбиения определяется флагом <span class="S91">$FRTA_ENTIRESPLIT</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_FileWriteFromArray.htm">_FileWriteFromArray</a></p>
@@ -83,26 +83,24 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S9">$sFilePath</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\Test.txt"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать одномерный массив.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать одномерный массив.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"0"</span><span class="S8">,</span> <span class="S7">"1"</span><span class="S8">,</span> <span class="S7">"2"</span><span class="S8">,</span> <span class="S7">"3"</span><span class="S8">,</span> <span class="S7">"4"</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Записать в файл</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileWriteFromArray.htm"><span class="S15">_FileWriteFromArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать – с подсчётом</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать, с подсчётом</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileReadToArray.htm"><span class="S15">_FileReadToArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aRetArray</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S7">"1D array - count"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать – без подсчёта</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать, без подсчёта</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileReadToArray.htm"><span class="S15">_FileReadToArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S9">$FRTA_NOCOUNT</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S7">"1D array - no count"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 </span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать "квадратный" двумерный массив.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать "квадратный" двумерный массив.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S8">]</span><span class="S8">[</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">"00"</span><span class="S8">,</span> <span class="S7">"01"</span><span class="S8">,</span> <span class="S7">"02"</span><span class="S8">,</span> <span class="S7">"03"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S8">[</span><span class="S7">"10"</span><span class="S8">,</span> <span class="S7">"11"</span><span class="S8">,</span> <span class="S7">"12"</span><span class="S8">,</span> <span class="S7">"13"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">_</span><br>
@@ -113,37 +111,32 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileWriteFromArray.htm"><span class="S15">_FileWriteFromArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">","</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать – с подсчётом</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать, с подсчётом</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileReadToArray.htm"><span class="S15">_FileReadToArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">","</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S7">"2D array - count"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать – без подсчёта</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать, без подсчёта</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileReadToArray.htm"><span class="S15">_FileReadToArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S9">$FRTA_NOCOUNT</span><span class="S8">,</span> <span class="S7">","</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S7">"2D array - no count"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать в "массив массивов" со счётчиком.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать в "массив массивов" со счётчиком.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileReadToArray.htm"><span class="S15">_FileReadToArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S9">$FRTA_COUNT</span> <span class="S8">+</span> <span class="S9">$FRTA_INTARRAYS</span><span class="S8">,</span> <span class="S7">","</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S7">"Array of arrays - count"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Заглянуть внутрь вложенных массивов.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Заглянуть внутрь вложенных массивов.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aRetArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S7">"Array 1 inside RetArray - count"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 </span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перезаписать двумерный массив с несколькими разделителями.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перезаписать двумерный массив с несколькими разделителями.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileWriteFromArray.htm"><span class="S15">_FileWriteFromArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">":|"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать – каждый символ разделителя является точкой разбиения.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать – каждый символ разделителя является точкой разбиения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileReadToArray.htm"><span class="S15">_FileReadToArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S9">$FRTA_NOCOUNT</span><span class="S8">,</span> <span class="S7">":|"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S7">"Split on each character"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать – строка разделителя используется целиком.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перечитать – строка разделителя используется целиком.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FileReadToArray.htm"><span class="S15">_FileReadToArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S9">$FRTA_NOCOUNT</span> <span class="S8">+</span> <span class="S9">$FRTA_ENTIRESPLIT</span><span class="S8">,</span> <span class="S7">":|"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aRetArray</span><span class="S8">,</span> <span class="S7">"Split on full delimiter"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
 <br>
@@ -163,20 +156,16 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объявить переменную для передачи в _FileReadToArray.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Объявить переменную для передачи в _FileReadToArray.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S3">0</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать текущий файл скрипта в массив, используя ранее объявленную переменную.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $iFlag = 0: счётчик в массиве не сохраняется. Для определения размера используйте UBound().
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Прочитать текущий файл скрипта в массив, используя ранее объявленную переменную.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $iFlag = 0: счётчик в массиве не сохраняется. Для определения размера используйте UBound().</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_FileReadToArray.htm"><span class="S15">_FileReadToArray</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptFullPath"><span class="S6">@ScriptFullPath</span></a><span class="S8">,</span> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"There was an error reading the file. @error: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span>&nbsp;<span class="S1">; Произошла ошибка при чтении текущего файла скрипта.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить массив через _ArrayDisplay.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить массив через _ArrayDisplay.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
