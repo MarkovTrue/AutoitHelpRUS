@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Array2DCreate</h1>
-<p class="funcdesc">Собирает двумерный 2D массив из двух одномерных 1D или двумерных 2D массивов.</p>
+<p class="funcdesc">Собирает двумерный массив из двух одномерных или двумерных массивов.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <span class="S0">_Array2DCreate</span> <span class="S8">(</span> <span class="S9">$aArray1</span><span class="S8">,</span> <span class="S9">$aArray2</span> <span class="S8">)</span></p>
 
@@ -19,11 +19,11 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$aArray1</span></td>
-<td style="width:85%">1D или 2D массив.</td>
+<td style="width:85%">Одномерный или двумерный массив.</td>
 </tr>
 <tr>
 <td><span class="S91">$aArray2</span></td>
-<td>1D или 2D массив.</td>
+<td>Одномерный или двумерный массив.</td>
 </tr>
 </table>
 
@@ -31,7 +31,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает 2D массив.</td>
+<td style="width:90%">Возвращает двумерный массив.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -39,14 +39,14 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – один из параметров не является одномерным 1D или двумерным 2D массивом.<br />
-2 – массивы имеют разное количество строк.<br />
+<td>1 – один из параметров не является одномерным или двумерным массивом.<br />
+2 – массивы имеют разное число строк.<br />
 3 – один из параметров не является массивом.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Поддерживаются сочетания 1D + 1D, 1D + 2D, 2D + 1D и 2D + 2D (см. Пример 2).<br>
+<p>Поддерживаются любые сочетания одномерных и двумерных массивов (см. Пример 2).<br>
 </p>
 <h2 class="bottom">Пример</h2>
 
