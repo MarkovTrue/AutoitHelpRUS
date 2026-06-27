@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_Print</h1>
-<p class="funcdesc">Печатает книгу, рабочий лист, диаграмму или диапазон.</p>
+<p class="funcdesc">Печатает книгу, лист, диаграмму или диапазон.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_Print.htm"><span class="S15">_Excel_Print</span></a> <span class="S8">(</span> <span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$vObject</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iCopies</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sPrinter</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bPreview</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFrom</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iTo</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bPrintToFile</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bCollate</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sPrToFileName</span> <span class="S8">=</span> <span class="S7">""</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,35 +23,35 @@
 </tr>
 <tr>
 <td><span class="S91">$vObject</span></td>
-<td>Объект книги, листа, диаграммы или диапазона для печати. Диапазон можно задать в формате A1.</td>
+<td>Объект книги, листа, диаграммы или диапазона для печати. Диапазон можно также задать в формате A1.</td>
 </tr>
 <tr>
 <td><span class="S91">$iCopies</span></td>
-<td><strong>[необязательный]</strong> Количество копий для печати (по умолчанию Default = 1).</td>
+<td><strong>[необязательный]</strong> Число копий для печати (по умолчанию Default = 1).</td>
 </tr>
 <tr>
 <td><span class="S91">$sPrinter</span></td>
-<td><strong>[необязательный]</strong> Имя используемого принтера. По умолчанию – активный принтер (Default).</td>
+<td><strong>[необязательный]</strong> Имя используемого принтера. По умолчанию активный принтер (по умолчанию Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$bPreview</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – открыть предварительный просмотр перед печатью (по умолчанию Default = <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> показывает предпросмотр перед печатью (по умолчанию Default = <span class="S5">False</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$iFrom</span></td>
-<td><strong>[необязательный]</strong> Номер страницы, с которой начинается печать (по умолчанию Default – первая страница).</td>
+<td><strong>[необязательный]</strong> Номер страницы, с которой начинать печать (по умолчанию Default = первая).</td>
 </tr>
 <tr>
 <td><span class="S91">$iTo</span></td>
-<td><strong>[необязательный]</strong> Номер страницы, на которой завершается печать (по умолчанию Default – последняя страница).</td>
+<td><strong>[необязательный]</strong> Номер страницы, на которой заканчивается печать (по умолчанию Default = последняя).</td>
 </tr>
 <tr>
 <td><span class="S91">$bPrintToFile</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – печать в файл. См. параметр <span class="S91">$sPrToFileName</span> (по умолчанию Default = <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> печатает в файл. См. параметр <span class="S91">$sPrToFileName</span> (по умолчанию Default = <span class="S5">False</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bCollate</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – разобрать копии по экземплярам (по умолчанию Default = <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> разбирает несколько копий по комплектам (по умолчанию Default = <span class="S5">False</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$sPrToFileName</span></td>
@@ -71,13 +71,9 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oExcel</span> не является объектом или объектом приложения<br />
-2 – <span class="S91">$vObject</span> не является объектом или недопустимым диапазоном A1; <span class="S61">@error</span> содержит код COM-ошибки<br />
-3 – ошибка печати объекта.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+<td>1 – <span class="S91">$oExcel</span> не является объектом или не является объектом приложения<br />
+2 – <span class="S91">$vObject</span> не является объектом или недопустимый диапазон A1. <span class="S61">@error</span> содержит COM-код ошибки<br />
+3 – ошибка при печати объекта. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
@@ -104,8 +100,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Печатаем диапазон A1:B3 активного листа на принтере по умолчанию.
-</span><br>
+<span class="S1">; Печатаем диапазон A1:B3 активного листа на принтере по умолчанию.</span><br>
 <a class="le" href="../libfunctions/_Excel_Print.htm"><span class="S15">_Excel_Print</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S7">"A1:B3"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_Print Example 1"</span><span class="S8">,</span> <span class="S7">"Error printing cells."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_Print Example 1"</span><span class="S8">,</span> <span class="S7">"Range successfully printed."</span><span class="S8">)</span><br>
@@ -130,8 +125,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Печатаем активный лист на принтере по умолчанию.
-</span><br>
+<span class="S1">; Печатаем активный лист на принтере по умолчанию.</span><br>
 <a class="le" href="../libfunctions/_Excel_Print.htm"><span class="S15">_Excel_Print</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$oExcel</span>.<span class="Scom">ActiveSheet</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_Print Example 2"</span><span class="S8">,</span> <span class="S7">"Error printing worksheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_Print Example 2"</span><span class="S8">,</span> <span class="S7">"Active Worksheet successfully printed."</span><span class="S8">)</span><br>
@@ -156,8 +150,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Печатаем всю книгу на принтере по умолчанию.
-</span><br>
+<span class="S1">; Печатаем всю книгу на принтере по умолчанию.</span><br>
 <a class="le" href="../libfunctions/_Excel_Print.htm"><span class="S15">_Excel_Print</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$oWorkbook</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_Print Example 3"</span><span class="S8">,</span> <span class="S7">"Error printing workbook."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_Print Example 3"</span><span class="S8">,</span> <span class="S7">"Workbook successfully printed."</span><span class="S8">)</span><br>
