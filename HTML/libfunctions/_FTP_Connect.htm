@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_FTP_Connect</h1>
-<p class="funcdesc">Устанавливает соединение с FTP-сервером.</p>
+<p class="funcdesc">Подключается к FTP-серверу.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FTPEx.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_FTP_Connect.htm"><span class="S15">_FTP_Connect</span></a> <span class="S8">(</span> <span class="S9">$hInternetSession</span><span class="S8">,</span> <span class="S9">$sServerName</span><span class="S8">,</span> <span class="S9">$sUsername</span><span class="S8">,</span> <span class="S9">$sPassword</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iPassive</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iServerPort</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iService</span> <span class="S8">=</span> <span class="S9">$INTERNET_SERVICE_FTP</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S9">$INTERNET_FLAG_DEFAULT</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$fuContext</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$hInternetSession</span></td>
-<td style="width:85%">дескриптор, возвращённый функцией <a href="_FTP_Open.htm"><span class="S15">_FTP_Open</span><span class="S8">()</span></a></td>
+<td style="width:85%">Дескриптор, возвращённый <a class="le" href="_FTP_Open.htm"><span class="S15">_FTP_Open</span></a><span class="S8">()</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$sServerName</span></td>
@@ -43,14 +43,14 @@
 </tr>
 <tr>
 <td><span class="S91">$iService</span></td>
-<td><strong>[необязательный]</strong> Одно из следующих значений:<br />
-<span class="S91">$INTERNET_SERVICE_FTP</span> (1) – служба FTP (по умолчанию)<br />
-<span class="S91">$INTERNET_SERVICE_GOPHER</span> (2) – служба Gopher; только Windows XP, Windows Server 2003 R2 и более ранние версии.<br />
+<td><strong>[необязательный]</strong> Одно из следующих значений констант:<br />
+<span class="S91">$INTERNET_SERVICE_FTP</span> (1) – служба FTP (значение по умолчанию)<br />
+<span class="S91">$INTERNET_SERVICE_GOPHER</span> (2) – служба Gopher. Доступна только в Windows XP, Windows Server 2003 R2 и более ранних.<br />
 <span class="S91">$INTERNET_SERVICE_HTTP</span> (3) – служба HTTP.</td>
 </tr>
 <tr>
 <td><span class="S91">$iFlags</span></td>
-<td><strong>[необязательный]</strong> Дополнительные флаги.<br />
+<td><strong>[необязательный]</strong> Специальные флаги.<br />
 <span class="default-const"><span class="S91">$INTERNET_FLAG_DEFAULT</span></span> (0)<br />
 <span class="S91">$INTERNET_FLAG_PASSIVE</span> (0x08000000)<br />
 <span class="S91">$INTERNET_FLAG_TRANSFER_ASCII</span> (1)<br />
@@ -67,7 +67,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает дескриптор установленного соединения.</td>
+<td style="width:90%">Возвращает дескриптор подключённого сеанса.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -76,8 +76,8 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Возвращённый дескриптор необходимо закрыть с помощью <a href="_FTP_Close.htm"><span class="S15">_FTP_Close</span><span class="S8">()</span></a>.<br />
-Если <span class="S91">$iPassive</span> = 1, флаг <span class="S91">$INTERNET_FLAG_PASSIVE</span> автоматически добавляется к параметру <span class="S91">$iFlag</span>.<br />
+<p>Возвращаемый дескриптор нужно закрыть через <a class="le" href="_FTP_Close.htm"><span class="S15">_FTP_Close</span></a><span class="S8">()</span>.<br />
+Если <span class="S91">$iPassive</span> равен 1, специальный флаг <span class="S91">$INTERNET_FLAG_PASSIVE</span> автоматически объединяется с пользовательским параметром <span class="S91">$iFlag</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_FTP_Close.htm">_FTP_Close</a>, <a href="_FTP_Command.htm">_FTP_Command</a>, <a href="_FTP_DirCreate.htm">_FTP_DirCreate</a>, <a href="_FTP_DirDelete.htm">_FTP_DirDelete</a>, <a href="_FTP_DirGetCurrent.htm">_FTP_DirGetCurrent</a>, <a href="_FTP_DirPutContents.htm">_FTP_DirPutContents</a>, <a href="_FTP_DirSetCurrent.htm">_FTP_DirSetCurrent</a>, <a href="_FTP_FileDelete.htm">_FTP_FileDelete</a>, <a href="_FTP_FileGet.htm">_FTP_FileGet</a>, <a href="_FTP_FileGetSize.htm">_FTP_FileGetSize</a>, <a href="_FTP_FilePut.htm">_FTP_FilePut</a>, <a href="_FTP_FileRename.htm">_FTP_FileRename</a>, <a href="_FTP_ListToArray.htm">_FTP_ListToArray</a>, <a href="_FTP_ListToArray2D.htm">_FTP_ListToArray2D</a>, <a href="_FTP_ListToArrayEx.htm">_FTP_ListToArrayEx</a>, <a href="_FTP_Open.htm">_FTP_Open</a>, <a href="_FTP_SetStatusCallback.htm">_FTP_SetStatusCallback</a></p>
@@ -110,8 +110,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iErr</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">,</span> <span class="S9">$sFTP_Message</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FTP_GetLastResponseInfo.htm"><span class="S15">_FTP_GetLastResponseInfo</span></a><span class="S8">(</span><span class="S9">$iErr</span><span class="S8">,</span> <span class="S9">$sFTP_Message</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'$iErr='</span> <span class="S8">&amp;</span> <span class="S9">$iErr</span> <span class="S8">&amp;</span> <span class="S7">'   $sFTP_Message:'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S9">$sFTP_Message</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; выполнить нужные действия...
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; выполнить нужные действия...</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FTP_Close.htm"><span class="S15">_FTP_Close</span></a><span class="S8">(</span><span class="S9">$hConn</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_FTP_Close.htm"><span class="S15">_FTP_Close</span></a><span class="S8">(</span><span class="S9">$hOpen</span><span class="S8">)</span><br>
