@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_FTP_ProgressDownload</h1>
-<p class="funcdesc">Загружает файл в двоичном режиме, отображая окно прогресса или вызывая пользовательскую функцию.</p>
+<p class="funcdesc">Загружает файл в двоичном режиме с отображением окна прогресса или вызовом пользовательской функции.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FTPEx.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_FTP_ProgressDownload.htm"><span class="S15">_FTP_ProgressDownload</span></a> <span class="S8">(</span> <span class="S9">$hFTPSession</span><span class="S8">,</span> <span class="S9">$sLocalFile</span><span class="S8">,</span> <span class="S9">$sRemoteFile</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$hFunctionToCall</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,11 +27,11 @@
 </tr>
 <tr>
 <td><span class="S91">$sRemoteFile</span></td>
-<td>Исходный удалённый файл.</td>
+<td>Удалённый файл-источник.</td>
 </tr>
 <tr>
 <td><span class="S91">$hFunctionToCall</span></td>
-<td><strong>[необязательный]</strong> Переменная с пользовательской функцией для обновления индикатора прогресса или реакции на действия пользователя (прерывание, выход). По умолчанию не задана. См. раздел Примечания.</td>
+<td><strong>[необязательный]</strong> Переменная с пользовательской функцией для обновления индикатора прогресса или реакции на действия пользователя, например прерывание или выход. По умолчанию не задана. См. раздел Примечания.</td>
 </tr>
 </table>
 
@@ -48,22 +48,22 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>-1 – не удалось создать локальный файл<br />
--2&nbsp;– не удалось получить размер удалённого файла<br />
--3&nbsp;– не удалось открыть удалённый файл<br />
--4&nbsp;– ошибка чтения удалённого файла<br />
--5&nbsp;– ошибка закрытия удалённого файла<br />
--6&nbsp;– загрузка прервана пользовательской функцией<br />
--7&nbsp;– ошибка записи локального файла</td>
+-2 – не удалось получить размер удалённого файла<br />
+-3 – не удалось открыть удалённый файл<br />
+-4 – ошибка чтения из удалённого файла<br />
+-5 – не удалось закрыть удалённый файл<br />
+-6 – загрузка прервана функцией прогресса по возврату вызываемой функции<br />
+-7 – ошибка записи в локальный файл</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Сведения о <span class="S91">$hFunctionToCall</span>:<br />
+<p>О функции <span class="S91">$hFunctionToCall</span>:<br />
 &nbsp;&nbsp;&nbsp; Параметр: <span class="S91">$iPercentage</span> – процент выполнения<br />
 &nbsp;&nbsp;&nbsp; Возвращаемые значения:<br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Продолжить загрузку – 1<br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Прервать загрузку &nbsp;&nbsp;&nbsp;– ноль или отрицательное значение, например 0 или -1<br />
-&nbsp;&nbsp;&nbsp; Те же значения возвращает <a href="_FTP_ProgressUpload.htm"><span class="S15">_FTP_ProgressUpload</span><span class="S8">()</span></a>, что позволяет единообразно обрабатывать прерывание пользователем, закрытие приложения и тайм-аут.<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; продолжить загрузку – 1<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; прервать загрузку – ноль или меньше нуля, например 0 или -1<br />
+&nbsp;&nbsp;&nbsp; Эти значения также возвращает <a class="le" href="_FTP_ProgressUpload.htm"><span class="S15">_FTP_ProgressUpload</span></a><span class="S8">()</span>, поэтому можно реагировать на разные действия, например прерывание пользователем, закрытие приложения или таймаут процесса.<br />
 </p>
 <h2 class="bottom">Пример</h2>
 
@@ -106,8 +106,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_UpdateProgress</span><span class="S8">(</span><span class="S9">$iPercent</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ProgressSet.htm"><span class="S4">ProgressSet</span></a><span class="S8">(</span><span class="S9">$iPercent</span><span class="S8">,</span> <a class="le" href="../functions/Int.htm"><span class="S4">Int</span></a><span class="S8">(</span><span class="S9">$iPercent</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"%"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../libfunctions/_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span><span class="S7">"77"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; Прервать по F8</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">; 1 – продолжить загрузку.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">; 1 – продолжить загрузку.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_UpdateProgress
 </span><br>
 </p>
@@ -142,8 +141,7 @@
 <a class="le" href="../libfunctions/_FTP_Close.htm"><span class="S15">_FTP_Close</span></a><span class="S8">(</span><span class="S9">$hInternetSession</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать GUI.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать GUI.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"My GUI download Progressbar"</span><span class="S8">,</span> <span class="S3">220</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateLabel.htm"><span class="S4">GUICtrlCreateLabel</span></a><span class="S8">(</span><span class="S9">$g_sRemoteFile</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_idProgress_BarCtrl</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateProgress.htm"><span class="S4">GUICtrlCreateProgress</span></a><span class="S8">(</span><span class="S3">10</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">,</span> <span class="S9">$PBS_SMOOTH</span><span class="S8">)</span><br>
@@ -160,13 +158,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">(</span><span class="S9">$g_idProgress_BarCtrl</span><span class="S8">,</span> <span class="S9">$iPercent</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">1</span>&nbsp;<span class="S1">; _FTP_DownloadProgress прерывается с кодом -1, после чего можно завершить приложение.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">1</span>&nbsp;<span class="S1">; _FTP_DownloadProgress прерывается с кодом -1, после чего можно завершить приложение.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$g_idBtn_Cancel</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">2</span>&nbsp;<span class="S1">; Просто Cancel без специального возвращаемого значения</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">; Иначе продолжить загрузку.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">1</span>&nbsp;<span class="S1">; Иначе продолжить загрузку.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_UpdateGUIProgressBar
 </span><br>
 </p>
