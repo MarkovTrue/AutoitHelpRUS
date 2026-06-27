@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$vRange</span></td>
-<td>Диапазон: объект Range или строка в формате A1 (например, "A1:B2", "1:2" (строки 1–2), "D:G" (столбцы D–G) и т.д.).</td>
+<td>Диапазон: объект Range или строка в формате A1 (например, "A1:B2", "1:2" (строки 1-2), "D:G" (столбцы D–G) и т.д.).</td>
 </tr>
 <tr>
 <td><span class="S91">$iShift</span></td>
@@ -49,16 +49,8 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$oWorksheet</span> не является объектом или объектом листа<br />
-2 – <span class="S91">$vRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – ошибка при вставке пустых ячеек.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+2 – <span class="S91">$vRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – ошибка при вставке пустых ячеек. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
@@ -85,10 +77,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Вставляем диапазон из 3 строк и 2 столбцов перед A1 на активном листе
-</span><br>
-<span class="S1">; со сдвигом ячеек вниз.
-</span><br>
+<span class="S1">; Вставляем диапазон из 3 строк и 2 столбцов перед A1 на активном листе</span><br>
+<span class="S1">; со сдвигом ячеек вниз.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeInsert.htm"><span class="S15">_Excel_RangeInsert</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S7">"A1:B3"</span><span class="S8">,</span> <span class="S9">$xlShiftDown</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeInsert Example 1"</span><span class="S8">,</span> <span class="S7">"Error inserting cells."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeInsert Example 1"</span><span class="S8">,</span> <span class="S7">"Range successfully inserted."</span><span class="S8">)</span><br>
@@ -113,8 +103,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Вставляем 3 столбца перед столбцом B на активном листе.
-</span><br>
+<span class="S1">; Вставляем 3 столбца перед столбцом B на активном листе.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeInsert.htm"><span class="S15">_Excel_RangeInsert</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S7">"B:D"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeInsert Example 2"</span><span class="S8">,</span> <span class="S7">"Error inserting columns."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeInsert Example 2"</span><span class="S8">,</span> <span class="S7">"3 columns successfully inserted before column B."</span><span class="S8">)</span><br>
@@ -139,8 +128,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Вставляем 2 строки перед строкой 1 на листе 2.
-</span><br>
+<span class="S1">; Вставляем 2 строки перед строкой 1 на листе 2.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeInsert.htm"><span class="S15">_Excel_RangeInsert</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span>.<span class="Scom">Worksheets</span><span class="S8">(</span><span class="S3">2</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">"1:2"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeInsert Example 3"</span><span class="S8">,</span> <span class="S7">"Error inserting rows."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeInsert Example 3"</span><span class="S8">,</span> <span class="S7">"Rows successfully inserted on worksheet 2."</span><span class="S8">)</span><br>
