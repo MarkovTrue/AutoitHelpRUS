@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayExtract</h1>
-<p class="funcdesc">Извлекает массив из указанных элементов одномерного 1D или двумерного 2D массива.</p>
+<p class="funcdesc">Извлекает массив из указанных элементов одномерного или двумерного массива.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayExtract.htm"><span class="S15">_ArrayExtract</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart_Row</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd_Row</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart_Col</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd_Col</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -19,23 +19,23 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$aArray</span></td>
-<td style="width:85%">Исходный массив для извлечения.</td>
+<td style="width:85%">Массив, из которого выполняется извлечение.</td>
 </tr>
 <tr>
 <td><span class="S91">$iStart_Row</span></td>
-<td><strong>[необязательный]</strong> Первая строка извлекаемого массива</td>
+<td><strong>[необязательный]</strong> Первая строка извлекаемого массива.</td>
 </tr>
 <tr>
 <td><span class="S91">$iEnd_Row</span></td>
-<td><strong>[необязательный]</strong> Последняя строка извлекаемого массива</td>
+<td><strong>[необязательный]</strong> Последняя строка извлекаемого массива.</td>
 </tr>
 <tr>
 <td><span class="S91">$iStart_Col</span></td>
-<td><strong>[необязательный]</strong> Первый столбец извлекаемого массива (только для 2D массива)</td>
+<td><strong>[необязательный]</strong> Первый столбец извлекаемого массива (только для двумерного массива)</td>
 </tr>
 <tr>
 <td><span class="S91">$iEnd_Col</span></td>
-<td><strong>[необязательный]</strong> Последний столбец извлекаемого массива (только для 2D массива)</td>
+<td><strong>[необязательный]</strong> Последний столбец извлекаемого массива (только для двумерного массива)</td>
 </tr>
 </table>
 
@@ -51,12 +51,12 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив<br />
-2&nbsp;– <span class="S91">$aArray</span> не 1D и не 2D массив<br />
-3&nbsp;– <span class="S91">$iStart_Row</span> или <span class="S91">$iEnd_Row</span> вне границ массива<br />
-4&nbsp;– <span class="S91">$iStart_Row</span> больше <span class="S91">$iEnd_Row</span><br />
-5&nbsp;– <span class="S91">$iStart_Col</span> или <span class="S91">$iEnd_Col</span> вне границ массива<br />
-6&nbsp;– <span class="S91">$iStart_Col</span> больше <span class="S91">$iEnd_Col</span></td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+3 – <span class="S91">$iStart_Row</span> или <span class="S91">$iEnd_Row</span> выходят за границы массива<br />
+4 – <span class="S91">$iStart_Row</span> больше <span class="S91">$iEnd_Row</span><br />
+5 – <span class="S91">$iStart_Col</span> или <span class="S91">$iEnd_Col</span> выходят за границы массива<br />
+6 – <span class="S91">$iStart_Col</span> больше <span class="S91">$iEnd_Col</span></td>
 </tr>
 </table>
 
