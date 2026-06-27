@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArraySearch</h1>
-<p class="funcdesc">Ищет элемент в одномерном 1D или двумерном 2D массиве. Аналог <a class="le" href="_ArrayBinarySearch.htm"><span class="S15">_ArrayBinarySearch</span></a><span class="S8">()</span>, но не требует предварительной сортировки массива.</p>
+<p class="funcdesc">Находит элемент в одномерном или двумерном массиве. Аналогична <a class="le" href="_ArrayBinarySearch.htm"><span class="S15">_ArrayBinarySearch</span></a><span class="S8">()</span>, но не требует предварительной сортировки массива.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArraySearch.htm"><span class="S15">_ArraySearch</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$vValue</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iCase</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iCompare</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iForward</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iSubItem</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bRow</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,35 +27,35 @@
 </tr>
 <tr>
 <td><span class="S91">$iStart</span></td>
-<td><strong>[необязательный]</strong> Индекс массива для начала поиска</td>
+<td><strong>[необязательный]</strong> Индекс массива для начала поиска.</td>
 </tr>
 <tr>
 <td><span class="S91">$iEnd</span></td>
-<td><strong>[необязательный]</strong> Индекс элемента, на котором заканчивается поиск</td>
+<td><strong>[необязательный]</strong> Индекс элемента, на котором заканчивается поиск.</td>
 </tr>
 <tr>
 <td><span class="S91">$iCase</span></td>
-<td><strong>[необязательный]</strong> Если 1, поиск с учётом регистра</td>
+<td><strong>[необязательный]</strong> Если равен 1, поиск чувствителен к регистру.</td>
 </tr>
 <tr>
 <td><span class="S91">$iCompare</span></td>
 <td><strong>[необязательный]</strong><br />
-0 – приведение переменных к одному типу (по умолчанию): "string" = 0, "" = 0 или "0" = 0 совпадают (если <span class="S91">$iCase</span> = 0)<br />
+0 – приведение переменных к одному типу (по умолчанию), "string" = 0, "" = 0 или "0" = 0 совпадают (если <span class="S91">$iCase</span> = 0)<br />
 1 – частичный поиск<br />
 2 – совпадение при одинаковом типе и значении переменных<br />
 3 – сравнение по регулярному выражению, переданному в <span class="S91">$vValue</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iForward</span></td>
-<td><strong>[необязательный]</strong> Если 0, поиск идёт с конца массива к началу (вместо начала к концу)</td>
+<td><strong>[необязательный]</strong> Если равен 0, поиск ведётся с конца массива к началу (вместо начала к концу).</td>
 </tr>
 <tr>
 <td><span class="S91">$iSubItem</span></td>
-<td><strong>[необязательный]</strong> Подиндекс для поиска в 2D массивах</td>
+<td><strong>[необязательный]</strong> Подиндекс для поиска в двумерных массивах.</td>
 </tr>
 <tr>
 <td><span class="S91">$bRow</span></td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, <span class="S91">$iSubItem</span> задаёт строку для поиска; <span class="S5">False</span> (по умолчанию) – поиск по столбцам</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, <span class="S91">$iSubItem</span> задаёт строку для поиска. Если <span class="S5">False</span> (по умолчанию), то поиск по столбцам.</td>
 </tr>
 </table>
 
@@ -71,17 +71,17 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив<br />
-2&nbsp;– <span class="S91">$aArray</span> не 1D и не 2D массив<br />
-3&nbsp;– <span class="S91">$aArray</span> пуст<br />
-4&nbsp;– <span class="S91">$iStart</span> больше <span class="S91">$iEnd</span><br />
-5&nbsp;– массив не 2D, а <span class="S91">$bRow</span> равен <span class="S5">True</span><br />
-6&nbsp;– <span class="S91">$vValue</span> не найден в массиве</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+3 – <span class="S91">$aArray</span> пуст<br />
+4 – <span class="S91">$iStart</span> больше <span class="S91">$iEnd</span><br />
+5 – массив не является двумерным, а <span class="S91">$bRow</span> установлен в <span class="S5">True</span><br />
+6 – <span class="S91">$vValue</span> не найден в массиве</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Функция, как правило, медленнее <a href="_ArrayBinarySearch.htm"><span class="S15">_ArrayBinarySearch</span><span class="S8">()</span></a>, но удобна, когда массив нельзя отсортировать перед поиском.<br />
+<p>Эта функция, как правило, медленнее <a class="le" href="_ArrayBinarySearch.htm"><span class="S15">_ArrayBinarySearch</span></a><span class="S8">()</span>, но удобна, когда массив нельзя отсортировать перед поиском.<br />
 <br />
 Значения <span class="S91">$iCompare</span> нельзя комбинировать.<br />
 </p>
@@ -104,13 +104,11 @@
 <a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Looking for '#32'"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Поиск по столбцу (в столбце 2)
-</span><br>
+<span class="S1">; Поиск по столбцу (в столбце 2)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iIndex</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArraySearch.htm"><span class="S15">_ArraySearch</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"#32"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Found '#32'"</span><span class="S8">,</span> <span class="S7">"Column 2 on Row "</span> <span class="S8">&amp;</span> <span class="S9">$iIndex</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Поиск по строке (в строке 3)
-</span><br>
+<span class="S1">; Поиск по строке (в строке 3)</span><br>
 <span class="S9">$iIndex</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArraySearch.htm"><span class="S15">_ArraySearch</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"#32"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Found '#32'"</span><span class="S8">,</span> <span class="S7">"Row 3 in Col "</span> <span class="S8">&amp;</span> <span class="S9">$iIndex</span><span class="S8">)</span><br>
 </p>
@@ -119,7 +117,7 @@
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; использование 2D массива</span><br>
+<span class="S1">; использование двумерного массива</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
