@@ -19,11 +19,11 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$iWidth</span></td>
-<td style="width:85%">Ширина изображения в пикселях.</td>
+<td style="width:85%">Ширина растрового изображения в пикселях.</td>
 </tr>
 <tr>
 <td><span class="S91">$iHeight</span></td>
-<td>Высота изображения в пикселях.</td>
+<td>Высота растрового изображения в пикселях.</td>
 </tr>
 <tr>
 <td><span class="S91">$hGraphics</span></td>
@@ -80,14 +80,11 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;создать буферизованный набор кадров для плавного перемещения графики</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hGfx</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$g_hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;создать графический объект из дескриптора окна</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromGraphics.htm"><span class="S15">_GDIPlus_BitmapCreateFromGraphics</span></a><span class="S8">(</span><span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">,</span> <span class="S9">$g_hGfx</span><span class="S8">)</span>&nbsp;<span class="S1">; Создать объект Bitmap на основе объекта Graphics.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hGfxCtxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetGraphicsContext.htm"><span class="S15">_GDIPlus_ImageGetGraphicsContext</span></a><span class="S8">(</span><span class="S9">$g_hBitmap</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить графический контекст изображения/Bitmap для рисования.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromGraphics.htm"><span class="S15">_GDIPlus_BitmapCreateFromGraphics</span></a><span class="S8">(</span><span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">,</span> <span class="S9">$g_hGfx</span><span class="S8">)</span>&nbsp;<span class="S1">;Создать объект Bitmap на основе объекта Graphics.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hGfxCtxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetGraphicsContext.htm"><span class="S15">_GDIPlus_ImageGetGraphicsContext</span></a><span class="S8">(</span><span class="S9">$g_hBitmap</span><span class="S8">)</span>&nbsp;<span class="S1">;Получить графический контекст изображения/Bitmap для рисования.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsSetSmoothingMode.htm"><span class="S15">_GDIPlus_GraphicsSetSmoothingMode</span></a><span class="S8">(</span><span class="S9">$g_hGfxCtxt</span><span class="S8">,</span> <span class="S9">$GDIP_SMOOTHINGMODE_HIGHQUALITY</span><span class="S8">)</span>&nbsp;<span class="S1">;задаёт качество отрисовки графики (сглаживание)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hBrush</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BrushCreateSolid.htm"><span class="S15">_GDIPlus_BrushCreateSolid</span></a><span class="S8">(</span><span class="S3">0xFF8080FF</span><span class="S8">)</span>&nbsp;<span class="S1">; Создать объект сплошной кисти.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hBrush</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BrushCreateSolid.htm"><span class="S15">_GDIPlus_BrushCreateSolid</span></a><span class="S8">(</span><span class="S3">0xFF8080FF</span><span class="S8">)</span>&nbsp;<span class="S1">;Создать объект сплошной кисти.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetOnEvent.htm"><span class="S4">GUISetOnEvent</span></a><span class="S8">(</span><span class="S9">$GUI_EVENT_CLOSE</span><span class="S8">,</span> <span class="S7">"_Exit"</span><span class="S8">)</span><br>
 <br>
@@ -96,20 +93,15 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$iDots</span> <span class="S8">=</span> <span class="S3">16</span><span class="S8">,</span> <span class="S9">$iAngelDist</span> <span class="S8">=</span> <span class="S3">360</span> <span class="S8">/</span> <span class="S9">$iDots</span><span class="S8">,</span> <span class="S9">$iRadius</span> <span class="S8">=</span> <span class="S3">200</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsClear.htm"><span class="S15">_GDIPlus_GraphicsClear</span></a><span class="S8">(</span><span class="S9">$g_hGfxCtxt</span><span class="S8">,</span> <span class="S3">0xFF000000</span> <span class="S8">+</span> <span class="S9">$iBgColor</span><span class="S8">)</span>&nbsp;<span class="S1">; Очистить изображение заданным цветом (формат AARRGGBB).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsClear.htm"><span class="S15">_GDIPlus_GraphicsClear</span></a><span class="S8">(</span><span class="S9">$g_hGfxCtxt</span><span class="S8">,</span> <span class="S3">0xFF000000</span> <span class="S8">+</span> <span class="S9">$iBgColor</span><span class="S8">)</span>&nbsp;<span class="S1">;Очистить изображение заданным цветом (формат AARRGGBB).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iDots</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iXPos</span> <span class="S8">=</span> <span class="S9">$iX_Center</span> <span class="S8">+</span> <a class="le" href="../functions/Cos.htm"><span class="S4">Cos</span></a><span class="S8">(</span><span class="S9">$iAngle</span> <span class="S8">*</span> <span class="S9">$iDeg</span><span class="S8">)</span> <span class="S8">*</span> <span class="S9">$iRadius</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iYPos</span> <span class="S8">=</span> <span class="S9">$iY_Center</span> <span class="S8">+</span> <a class="le" href="../functions/Sin.htm"><span class="S4">Sin</span></a><span class="S8">(</span><span class="S9">$iAngle</span> <span class="S8">*</span> <span class="S9">$iDeg</span><span class="S8">)</span> <span class="S8">*</span> <span class="S9">$iRadius</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillEllipse.htm"><span class="S15">_GDIPlus_GraphicsFillEllipse</span></a><span class="S8">(</span><span class="S9">$g_hGfxCtxt</span><span class="S8">,</span> <span class="S9">$iXPos</span><span class="S8">,</span> <span class="S9">$iYPos</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">,</span> <span class="S9">$g_hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">; Нарисовать точки по окружности.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iAngle</span> <span class="S8">+=</span> <span class="S9">$iAngelDist</span>&nbsp;<span class="S1">; Увеличить угол до следующей точки.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillEllipse.htm"><span class="S15">_GDIPlus_GraphicsFillEllipse</span></a><span class="S8">(</span><span class="S9">$g_hGfxCtxt</span><span class="S8">,</span> <span class="S9">$iXPos</span><span class="S8">,</span> <span class="S9">$iYPos</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">,</span> <span class="S9">$iSize</span><span class="S8">,</span> <span class="S9">$g_hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">;Нарисовать точки по окружности.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iAngle</span> <span class="S8">+=</span> <span class="S9">$iAngelDist</span>&nbsp;<span class="S1">;Увеличить угол до следующей точки.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iAngle</span> <span class="S8">+=</span> <span class="S3">1</span>&nbsp;<span class="S1">; Увеличить общий угол.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$g_hGfx</span><span class="S8">,</span> <span class="S9">$g_hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">)</span>&nbsp;<span class="S1">; Скопировать нарисованное изображение в GUI.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iAngle</span> <span class="S8">+=</span> <span class="S3">1</span>&nbsp;<span class="S1">;Увеличить общий угол.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$g_hGfx</span><span class="S8">,</span> <span class="S9">$g_hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">)</span>&nbsp;<span class="S1">;Скопировать нарисованное изображение в GUI.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">20</span><span class="S8">)</span>&nbsp;<span class="S1">;Sleep() always returns 1 and Not 1 is 0
 </span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
