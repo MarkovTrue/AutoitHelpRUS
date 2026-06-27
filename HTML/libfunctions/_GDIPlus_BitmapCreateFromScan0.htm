@@ -19,26 +19,26 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$iWidth</span></td>
-<td style="width:85%">Ширина изображения в пикселях.</td>
+<td style="width:85%">Ширина растрового изображения в пикселях.</td>
 </tr>
 <tr>
 <td><span class="S91">$iHeight</span></td>
-<td>Высота изображения в пикселях.</td>
+<td>Высота растрового изображения в пикселях.</td>
 </tr>
 <tr>
 <td><span class="S91">$iPixelFormat</span></td>
-<td><strong>[необязательный]</strong> Задаёт формат пиксельных данных.<br />
+<td><strong>[необязательный]</strong> Формат данных пикселей.<br />
 <span class="S91">$GDIP_PXF01INDEXED</span> = 1 бит/пикс, индексированный<br />
 <span class="S91">$GDIP_PXF04INDEXED</span> = 4 бит/пикс, индексированный<br />
 <span class="S91">$GDIP_PXF08INDEXED</span> = 8 бит/пикс, индексированный<br />
 <span class="S91">$GDIP_PXF16GRAYSCALE</span> = 16 бит/пикс, оттенки серого<br />
-<span class="S91">$GDIP_PXF16RGB555</span> = 16 бит/пикс; по 5 бит на каждую составляющую RGB<br />
-<span class="S91">$GDIP_PXF16RGB565</span> = 16 бит/пикс; 5 бит красный, 6 бит зелёный, 5 бит синий<br />
-<span class="S91">$GDIP_PXF16ARGB1555</span> = 16 бит/пикс; 1 бит на альфа-канал и по 5 бит на каждую составляющую RGB<br />
-<span class="S91">$GDIP_PXF24RGB</span> = 24 бит/пикс; по 8 бит на каждую составляющую RGB<br />
-<span class="S91">$GDIP_PXF32RGB</span> = 32 бит/пикс; по 8 бит на каждую составляющую RGB. Без альфа-канала.<br />
-<span class="S91">$GDIP_PXF32ARGB</span> = 32 бит/пикс; по 8 бит на каждую составляющую RGB и альфа-канал<br />
-<span class="S91">$GDIP_PXF32PARGB</span> = 32 бит/пикс; по 8 бит на составляющие RGB и альфа-канал, предумноженные.</td>
+<span class="S91">$GDIP_PXF16RGB555</span> = 16 бит/пикс; по 5 бит на каждый компонент RGB<br />
+<span class="S91">$GDIP_PXF16RGB565</span> = 16 бит/пикс; 5 бит на красный, 6 на зелёный и 5 на синий<br />
+<span class="S91">$GDIP_PXF16ARGB1555</span> = 16 бит/пикс; 1 бит на альфа и по 5 бит на каждый компонент RGB<br />
+<span class="S91">$GDIP_PXF24RGB</span> = 24 бит/пикс; по 8 бит на каждый компонент RGB<br />
+<span class="S91">$GDIP_PXF32RGB</span> = 32 бит/пикс; по 8 бит на каждый компонент RGB. Без альфа-компонента.<br />
+<span class="S91">$GDIP_PXF32ARGB</span> = 32 бит/пикс; по 8 бит на каждый компонент RGB и альфа<br />
+<span class="S91">$GDIP_PXF32PARGB</span> = 32 бит/пикс; по 8 бит на каждый компонент RGB и альфа, с предумножением.</td>
 </tr>
 <tr>
 <td><span class="S91">$iStride</span></td>
@@ -46,7 +46,7 @@
 </tr>
 <tr>
 <td><span class="S91">$pScan0</span></td>
-<td><strong>[необязательный]</strong> Указатель на массив байтов с пиксельными данными.</td>
+<td><strong>[необязательный]</strong> Указатель на массив байтов с данными пикселей.</td>
 </tr>
 </table>
 
@@ -67,7 +67,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>После завершения работы с объектом вызовите <a href="_GDIPlus_BitmapDispose.htm"><span class="S15">_GDIPlus_BitmapDispose</span><span class="S8">()</span></a> для освобождения ресурсов.<br />
+<p>Закончив работу с объектом, вызовите <a class="le" href="_GDIPlus_BitmapDispose.htm"><span class="S15">_GDIPlus_BitmapDispose</span></a><span class="S8">()</span> для освобождения его ресурсов.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GDIPlus_ImageDispose.htm">_GDIPlus_ImageDispose</a></p>
@@ -89,22 +89,17 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$iW</span> <span class="S8">=</span> <span class="S3">460</span><span class="S8">,</span> <span class="S9">$iH</span> <span class="S8">=</span> <span class="S3">100</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromScan0.htm"><span class="S15">_GDIPlus_BitmapCreateFromScan0</span></a><span class="S8">(</span><span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span>&nbsp;<span class="S1">;создать пустой bitmap</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBmpCtxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetGraphicsContext.htm"><span class="S15">_GDIPlus_ImageGetGraphicsContext</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить графический контекст изображения.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBmpCtxt</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetGraphicsContext.htm"><span class="S15">_GDIPlus_ImageGetGraphicsContext</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">)</span>&nbsp;<span class="S1">;Получить графический контекст изображения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsSetSmoothingMode.htm"><span class="S15">_GDIPlus_GraphicsSetSmoothingMode</span></a><span class="S8">(</span><span class="S9">$hBmpCtxt</span><span class="S8">,</span> <span class="S9">$GDIP_SMOOTHINGMODE_HIGHQUALITY</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsClear.htm"><span class="S15">_GDIPlus_GraphicsClear</span></a><span class="S8">(</span><span class="S9">$hBmpCtxt</span><span class="S8">,</span> <span class="S3">0xFFFFFFFF</span><span class="S8">)</span>&nbsp;<span class="S1">; Залить изображение белым цветом.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawString.htm"><span class="S15">_GDIPlus_GraphicsDrawString</span></a><span class="S8">(</span><span class="S9">$hBmpCtxt</span><span class="S8">,</span> <span class="S7">"AutoIt rulez!"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"Comic Sans MS"</span><span class="S8">,</span> <span class="S3">52</span><span class="S8">)</span>&nbsp;<span class="S1">; Нарисовать текст на изображении.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsClear.htm"><span class="S15">_GDIPlus_GraphicsClear</span></a><span class="S8">(</span><span class="S9">$hBmpCtxt</span><span class="S8">,</span> <span class="S3">0xFFFFFFFF</span><span class="S8">)</span>&nbsp;<span class="S1">;Залить изображение белым цветом.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawString.htm"><span class="S15">_GDIPlus_GraphicsDrawString</span></a><span class="S8">(</span><span class="S9">$hBmpCtxt</span><span class="S8">,</span> <span class="S7">"AutoIt rulez!"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"Comic Sans MS"</span><span class="S8">,</span> <span class="S3">52</span><span class="S8">)</span>&nbsp;<span class="S1">;Нарисовать текст на изображении.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFile</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\Test.jpg"</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageSaveToFile.htm"><span class="S15">_GDIPlus_ImageSaveToFile</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">; Сохранить изображение на диск.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageSaveToFile.htm"><span class="S15">_GDIPlus_ImageSaveToFile</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">;Сохранить изображение на диск.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;освободить ресурсы GDI+</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDispose.htm"><span class="S15">_GDIPlus_GraphicsDispose</span></a><span class="S8">(</span><span class="S9">$hBmpCtxt</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapDispose.htm"><span class="S15">_GDIPlus_BitmapDispose</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">; Открыть изображение приложением по умолчанию.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ShellExecute.htm"><span class="S4">ShellExecute</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">;Открыть изображение приложением по умолчанию.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
 </p>
@@ -144,8 +139,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_RESTORE</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перерисовать Bitmap.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Перерисовать Bitmap.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImage.htm"><span class="S15">_GDIPlus_GraphicsDrawImage</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
