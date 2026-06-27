@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayColDelete</h1>
-<p class="funcdesc">Удаляет указанный столбец из двумерного 2D массива.</p>
+<p class="funcdesc">Удаляет указанный столбец из двумерного массива.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayColDelete.htm"><span class="S15">_ArrayColDelete</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$iColumn</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bConvert</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td><span class="S91">$bConvert</span></td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span> и остался один столбец, массив преобразуется в одномерный 1D.</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span> и остался один столбец, массив преобразуется в одномерный.</td>
 </tr>
 </table>
 
@@ -44,7 +44,7 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$aArray</span> не является массивом<br />
-2 – <span class="S91">$aArray</span> не является двумерным 2D массивом<br />
+2 – <span class="S91">$aArray</span> не является двумерным массивом<br />
 3 – <span class="S91">$iColumn</span> выходит за границы массива</td>
 </tr>
 </table>
@@ -75,11 +75,11 @@
 <span class="S1">; Копируем массив с двумя столбцами</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray_2Col</span> <span class="S8">=</span> <span class="S9">$aArray</span><br>
 <br>
-<span class="S1">; По умолчанию оставшийся столбец остаётся 2D массивом</span><br>
+<span class="S1">; По умолчанию оставшийся столбец остаётся двумерным массивом</span><br>
 <a class="le" href="../libfunctions/_ArrayColDelete.htm"><span class="S15">_ArrayColDelete</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Col 0 del - 2D array"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Преобразовать 1D массив из одного столбца</span><br>
+<span class="S1">; Преобразовать массив с одним столбцом в одномерный</span><br>
 <a class="le" href="../libfunctions/_ArrayColDelete.htm"><span class="S15">_ArrayColDelete</span></a><span class="S8">(</span><span class="S9">$aArray_2Col</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray_2Col</span><span class="S8">,</span> <span class="S7">"Col 0 del - 1D array"</span><span class="S8">)</span><br>
 </p>
