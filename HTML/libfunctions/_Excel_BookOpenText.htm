@@ -31,8 +31,8 @@
 </tr>
 <tr>
 <td><span class="S91">$iDataType</span></td>
-<td><strong>[необязательный]</strong> Задаёт формат столбцов данных в файле. Допустимые значения – константы XlTextParsingType.<br />
-При значении Default Excel сам определяет формат столбцов (по умолчанию Default).</td>
+<td><strong>[необязательный]</strong> Указывает формат столбца с данными в файле. Может быть любым из значений перечисления XlTextParsingType.<br />
+Если задано ключевое слово Default, Excel пытается определить формат столбца (по умолчанию Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$sTextQualifier</span></td>
@@ -48,22 +48,22 @@
 </tr>
 <tr>
 <td><span class="S91">$aFieldInfo</span></td>
-<td><strong>[необязательный]</strong> Массив с информацией о разборе отдельных столбцов данных.<br />
+<td><strong>[необязательный]</strong> Массив с информацией о разборе отдельных столбцов.<br />
 Интерпретация зависит от значения DataType.<br />
-Для разделённых данных параметр представляет собой массив двухэлементных массивов, каждый из которых<br />
-задаёт параметры преобразования конкретного столбца.<br />
-Первый элемент – номер столбца (начиная с 1), второй – константа XlColumnDataType,<br />
+При разборе разделённых данных это массив двухэлементных массивов, каждый из которых<br />
+задаёт параметры преобразования для конкретного столбца.<br />
+Первый элемент: номер столбца (начиная с 1), второй элемент – константа XlColumnDataType,<br />
 определяющая способ разбора столбца (по умолчанию Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$sDecimalSeparator</span></td>
 <td><strong>[необязательный]</strong> Десятичный разделитель, используемый Excel при распознавании чисел.<br />
-По умолчанию – системная настройка (Default).</td>
+По умолчанию используется системная настройка (Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$sThousandsSeparator</span></td>
 <td><strong>[необязательный]</strong> Разделитель тысяч, используемый Excel при распознавании чисел.<br />
-По умолчанию – системная настройка (Default).</td>
+По умолчанию используется системная настройка (Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$bTrailingMinusNumbers</span></td>
@@ -87,7 +87,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0 и устанавливает <span class="S61">@error</span>.</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span>:</td>
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
@@ -121,10 +121,8 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_BookOpenText Example"</span><span class="S8">,</span> <span class="S7">"Error creating the Excel application object."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <br>
-<span class="S1">; Открываем текстовый файл с разделителем |, передаём fieldinfo и задаём
-</span><br>
-<span class="S1">; десятичный разделитель и разделитель тысяч.
-</span><br>
+<span class="S1">; Открываем текстовый файл с разделителем |, передаём fieldinfo и задаём</span><br>
+<span class="S1">; десятичный разделитель и разделитель тысяч.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sTextFile</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">"_Excel1.txt"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aField1</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$xlTextFormat</span><span class="S8">]</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aField2</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">2</span><span class="S8">,</span> <span class="S9">$xlTextFormat</span><span class="S8">]</span><br>
@@ -150,8 +148,7 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S3">16</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_BookOpenText Example"</span><span class="S8">,</span> <span class="S7">"Error creating the Excel application object."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <br>
-<span class="S1">; Открываем текстовый файл с фиксированной шириной столбцов; остальные параметры Excel определит сам.
-</span><br>
+<span class="S1">; Открываем текстовый файл с фиксированной шириной столбцов; остальные параметры Excel определит сам.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sTextFile</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">"_Excel2.txt"</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_BookOpenText.htm"><span class="S15">_Excel_BookOpenText</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$sTextFile</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlFixedWidth</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_BookOpenText Example 2"</span><span class="S8">,</span> <span class="S7">"Error opening '"</span> <span class="S8">&amp;</span> <span class="S9">$sTextFile</span> <span class="S8">&amp;</span> <span class="S7">"'."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
