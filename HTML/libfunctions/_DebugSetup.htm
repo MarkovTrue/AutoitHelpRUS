@@ -19,18 +19,18 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$sTitle</span></td>
-<td style="width:85%"><strong>[необязательный]</strong> Заголовок окна отчёта. Значение по умолчанию – "AutoIt Debug Report".</td>
+<td style="width:85%"><strong>[необязательный]</strong> Заголовок окна отчёта. По умолчанию "AutoIt Debug Report".</td>
 </tr>
 <tr>
 <td><span class="S91">$bBugReportInfos</span></td>
-<td><strong>[необязательный]</strong> Отображать информацию для отчёта об ошибке. По умолчанию – <span class="S5">False</span>.</td>
+<td><strong>[необязательный]</strong> Отображать сведения BugReport. По умолчанию <span class="S5">False</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$vReportType</span></td>
 <td><strong>[необязательный]</strong> 1 – окно журнала отчётов (по умолчанию)<br />
 2 – ConsoleWrite<br />
 3 – MsgBox<br />
-4 – запись в файл; имя файла задаётся параметром <span class="S91">$vLogFile</span><br />
+4 – FileWrite, имя файла задаётся параметром <span class="S91">$vLogFile</span><br />
 5 – окно Блокнота (см. раздел Примечания для Windows 11)<br />
 6 – окно журнала с таймаутом (см. раздел Примечания для Windows 11)<br />
 строка – имя пользовательской функции вывода.</td>
@@ -38,11 +38,11 @@
 <tr>
 <td><span class="S91">$vLogFile</span></td>
 <td><strong>[необязательный]</strong> Имя файла при <span class="S91">$vReportType</span> = 4<br />
-Таймаут в секундах при <span class="S91">$vReportType</span> = 6 (по умолчанию – 10).</td>
+Таймаут в секундах при <span class="S91">$vReportType</span> = 6 (по умолчанию 10).</td>
 </tr>
 <tr>
 <td><span class="S91">$bTimeStamp</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – добавлять временну́ю метку "YYYY/MM/DD HH:MM:SS" перед каждым сообщением.</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span>, если перед каждым сообщением нужно добавлять метку времени "YYYY/MM/DD HH:MM:SS".</td>
 </tr>
 </table>
 
@@ -50,7 +50,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает тип вывода отчётов.</td>
+<td style="width:90%">Возвращает тип вывода отчёта.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -70,12 +70,12 @@
 Одновременно в запущенном скрипте может быть только один сеанс отладки.<br />
 Несколько скриптов можно отлаживать в одном сеансе: для этого при вызове <a class="le" href="_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">()</span> укажите одинаковый <span class="S91">$sTitle</span>. Весь вывод <a class="le" href="_DebugOut.htm"><span class="S15">_DebugOut</span></a><span class="S8">()</span> будет поступать в один сеанс.<br />
 <br />
-Если закомментировать вызов <a class="le" href="_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">()</span>, все вызовы _Debug...() перестанут работать. Перед выпуском финальной версии скрипта рекомендуется удалить все вызовы _Debug...-функций.<br />
+Если закомментировать вызов <a class="le" href="_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">()</span>, все вызовы _Debug...() перестанут работать. Но перед выпуском финальной версии скрипта, возможно, захотите убрать все вызовы _Debug...-функций.<br />
 <br />
-При использовании типа "Report Log Window" скрипт завершится только при закрытии окна журнала.<br />
+При использовании типа "Report Log Window" скрипт завершится только при закрытии окна отчёта.<br />
 <br />
-При использовании типа "Report Notepad Window" в Windows 11 Блокнот нельзя закрыть без регистрации.<br />
-В этом случае содержимое окна копируется в буфер обмена, и перед завершением скрипта отображается MsgBox.<br />
+При использовании типа "Report Notepad Window" в Windows 11 окно Блокнота нельзя закрыть без запроса на его регистрацию.<br />
+Поэтому содержимое окна копируется в буфер обмена, и перед завершением скрипта оно показывается в MsgBox.<br />
 Если скрипт запущен от имени администратора, используется старый Блокнот, как в Windows 10 (см. пример 2).<br />
 </p>
 <h2>См. также</h2>
@@ -96,10 +96,8 @@
 </span><br>
 <span class="S2">
 </span><br>
-<span class="S2">	Script Function:
-</span><br>
-<span class="S2">	Базовый скрипт для демонстрации функций отладки.
-</span><br>
+<span class="S2">	Функция скрипта:</span><br>
+<span class="S2">	Базовый скрипт для демонстрации функций отладки.</span><br>
 <span class="S2">
 </span><br>
 <span class="S2">#ce ----------------------------------------------------------------------------
@@ -107,8 +105,7 @@
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Debug.au3&gt;</span><br>
 <br>
-<a class="le" href="../libfunctions/_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">(</span><span class="S7">"Check Excel"</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; Начинаем отображение среды отладки.
-</span><br>
+<a class="le" href="../libfunctions/_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">(</span><span class="S7">"Check Excel"</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; Начинаем отображение среды отладки.</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">4</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinActivate.htm"><span class="S4">WinActivate</span></a><span class="S8">(</span><span class="S7">"Microsoft Excel"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; взаимодействие с Excel</span><br>
@@ -121,8 +118,7 @@
 <h3>Sample 2 script using Report Notepad Window (5)</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; == Sample 2 script using Report Notepad Window (5)
-</span><br>
+<span class="S1">; == Пример 2: скрипт с использованием Report Notepad Window (5)</span><br>
 <br>
 <span class="S1">; позволит запускать со старым поведением Notepad в Windows 11</span><br>
 <a class="le" href="../keywords/RequireAdmin.htm"><span class="S11">#RequireAdmin</span></a><br>
