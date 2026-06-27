@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$vRange</span></td>
-<td>Диапазон: объект Range или строка в формате A1 (например, "A1:B2", "1:2" (строки 1–2), "D:G" (столбцы D–G) и т.д.).</td>
+<td>Диапазон: объект Range или строка в формате A1 (например, "A1:B2", "1:2" (строки 1-2), "D:G" (столбцы D–G) и т.д.).</td>
 </tr>
 <tr>
 <td><span class="S91">$iShift</span></td>
@@ -49,16 +49,8 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$oWorksheet</span> не является объектом или объектом листа<br />
-2 – <span class="S91">$vRange</span> не является допустимым диапазоном.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – ошибка при удалении диапазона.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+2 – <span class="S91">$vRange</span> не является допустимым диапазоном. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – ошибка при удалении диапазона. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
@@ -82,10 +74,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Удаляем диапазон из 3 строк и 2 столбцов на активном листе
-</span><br>
-<span class="S1">; со сдвигом ячеек вверх.
-</span><br>
+<span class="S1">; Удаляем диапазон из 3 строк и 2 столбцов на активном листе</span><br>
+<span class="S1">; со сдвигом ячеек вверх.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sRange</span> <span class="S8">=</span> <span class="S7">"J5:K7"</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeDelete Example 1"</span><span class="S8">,</span> <span class="S7">"Deleting cells "</span> <span class="S8">&amp;</span> <span class="S9">$sRange</span> <span class="S8">&amp;</span> <span class="S7">"."</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeDelete.htm"><span class="S15">_Excel_RangeDelete</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span>.<span class="Scom">ActiveSheet</span><span class="S8">,</span> <span class="S9">$sRange</span><span class="S8">,</span> <span class="S9">$xlShiftUp</span><span class="S8">)</span><br>
@@ -111,8 +101,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Удаляем 2 строки (1 и 2) на листе 3.
-</span><br>
+<span class="S1">; Удаляем 2 строки (1 и 2) на листе 3.</span><br>
 <span class="S9">$oWorkbook</span>.<span class="Scom">Worksheets</span><span class="S8">(</span><span class="S3">3</span><span class="S8">)</span>.<span class="Scom">Activate</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeDelete Example 2"</span><span class="S8">,</span> <span class="S7">"Deleting rows 1 and 2 on worksheet 3."</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeDelete.htm"><span class="S15">_Excel_RangeDelete</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span>.<span class="Scom">Worksheets</span><span class="S8">(</span><span class="S3">3</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">"1:2"</span><span class="S8">)</span><br>
