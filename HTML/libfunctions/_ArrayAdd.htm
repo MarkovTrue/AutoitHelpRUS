@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayAdd</h1>
-<p class="funcdesc">Добавляет указанное значение в конец существующего одномерного 1D или двумерного 2D массива.</p>
+<p class="funcdesc">Добавляет указанное значение в конец существующего одномерного или двумерного массива.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayAdd.htm"><span class="S15">_ArrayAdd</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$vValue</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sDelim_Item</span> <span class="S8">=</span> <span class="S7">"|"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sDelim_Row</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iForce</span> <span class="S8">=</span> <span class="S9">$ARRAYFILL_FORCE_DEFAULT</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,11 +23,11 @@
 </tr>
 <tr>
 <td><span class="S91">$vValue</span></td>
-<td>Добавляемое значение или значения: один элемент, строка с разделителями или массив.</td>
+<td>Добавляемое значение или значения, может быть одним элементом, строкой с разделителями или массивом.</td>
 </tr>
 <tr>
 <td><span class="S91">$iStart</span></td>
-<td><strong>[необязательный]</strong> Столбец, с которого начинается добавление (только для 2D массива)</td>
+<td><strong>[необязательный]</strong> Столбец, с которого начинается добавление (только для двумерного массива)</td>
 </tr>
 <tr>
 <td><span class="S91">$sDelim_Item</span></td>
@@ -35,15 +35,15 @@
 </tr>
 <tr>
 <td><span class="S91">$sDelim_Row</span></td>
-<td><strong>[необязательный]</strong> Разделитель, по которому строка разбивается на строки массива (только для 2D массива)</td>
+<td><strong>[необязательный]</strong> Разделитель, по которому строка разбивается на строки массива (только для двумерного массива)</td>
 </tr>
 <tr>
 <td><span class="S91">$iForce</span></td>
-<td><strong>[необязательный]</strong> Сохраняет поведение по умолчанию:<br />
+<td><strong>[необязательный]</strong> Сохраняет поведение по умолчанию,<br />
 <span class="default-const"><span class="S91">$ARRAYFILL_FORCE_DEFAULT</span></span> (0)<br />
-Принудительно добавляет <span class="S91">$vValue</span> как один элемент:<br />
+Принудительно добавляет <span class="S91">$vValue</span> как один элемент,<br />
 <span class="S91">$ARRAYFILL_FORCE_SINGLEITEM</span> (1)<br />
-Или принудительно задаёт тип данных для всех добавляемых элементов:<br />
+Или принудительно задаёт тип данных для всех добавляемых элементов<br />
 <span class="S91">$ARRAYFILL_FORCE_INT</span> (2)<br />
 <span class="S91">$ARRAYFILL_FORCE_NUMBER</span> (3)<br />
 <span class="S91">$ARRAYFILL_FORCE_PTR</span> (4)<br />
@@ -67,33 +67,39 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$aArray</span> не является массивом<br />
-2 – <span class="S91">$aArray</span> не является одномерным 1D или двумерным 2D массивом<br />
+2 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
 3 – у <span class="S91">$vValue</span> слишком много столбцов для размещения в <span class="S91">$aArray</span><br />
-4 – <span class="S91">$iStart</span> выходит за границы массива (только для 2D)<br />
-5 – число измерений <span class="S91">$avArray</span> и <span class="S91">$vValue</span> не совпадает</td>
+4 – <span class="S91">$iStart</span> выходит за границы массива (только для двумерного массива)<br />
+5 – число измерений <span class="S91">$aArray</span> и <span class="S91">$vValue</span> не совпадает</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
 <p>Режим добавления зависит от типа <span class="S91">$vValue</span>, однако параметр <span class="S91">$iForce</span> может изменить поведение. По умолчанию:<br />
 <br />
-1D-массивы:<br />
-&nbsp;&nbsp;&nbsp; Одиночный элемент: добавляет 1 элемент<br />
-&nbsp;&nbsp;&nbsp; Строка с разделителем <span class="S91">$sDelim_Item</span>: добавляет столько элементов, сколько частей<br />
-&nbsp;&nbsp;&nbsp; 1D-массив с нулевым индексом: добавляет столько элементов, сколько в массиве<br />
+Одномерные массивы:<br />
+&nbsp;&nbsp;&nbsp; Одиночный элемент – добавляет 1 элемент<br />
+&nbsp;&nbsp;&nbsp; Строка с разделителем <span class="S91">$sDelim_Item</span> – добавляет столько элементов, сколько частей<br />
+&nbsp;&nbsp;&nbsp; одномерный массив с нулевым индексом – добавляет столько элементов, сколько в массиве<br />
 <br />
-2D-массивы:<br />
-&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Item</span>: добавляет 1 строку, столбцы заполняются при наличии достаточного числа элементов<br />
-&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Row</span>: добавляет столько строк, сколько частей, заполняется только 1 столбец<br />
-&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Item</span> и <span class="S91">$sDelim_Row</span>: добавляет строки и элементы в зависимости от точек разбивки<br />
-&nbsp;&nbsp;&nbsp; 2D-массив с нулевым индексом: добавляет столько строк/столбцов, сколько в массиве<br />
+Двумерные массивы:<br />
+&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Item</span> – добавляет 1 строку, столбцы заполняются при наличии достаточного числа элементов<br />
+&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Row</span> – добавляет столько строк, сколько частей, заполняется только 1 столбец<br />
+&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Item</span> и <span class="S91">$sDelim_Row</span> – добавляет строки и элементы в зависимости от точек разбивки<br />
+&nbsp;&nbsp;&nbsp; двумерный массив с нулевым индексом – добавляет столько строк/столбцов, сколько в массиве<br />
 <br />
 Если в <span class="S91">$vValue</span> недостаточно элементов, добавляется пустая строка (""). Лишние элементы игнорируются.<br />
 <br />
 Параметр <span class="S91">$iForce</span> может изменить режим вставки или тип данных добавляемых элементов. Может быть установлен следующим образом:<br />
-&nbsp;&nbsp;&nbsp; – <span class="default-const"><span class="S91">$ARRAYFILL_FORCE_DEFAULT</span></span> (по умолчанию): элементы разбиваются как описано выше; одиночные элементы и элементы массива сохраняют свои типы данных, строки с разделителями добавляются как строки.<br />
-&nbsp;&nbsp;&nbsp; – <span class="S91">$ARRAYFILL_FORCE_SINGLEITEM</span>: если <span class="S91">$aArray</span> является 1D, <span class="S91">$vValue</span> добавляется как один элемент; если <span class="S91">$aArray</span> является 2D, параметр игнорируется.<br />
-&nbsp;&nbsp;&nbsp; – <span class="S91">$ARRAYFILL_FORCE_INT</span>, <span class="S91">$ARRAYFILL_FORCE_NUMBER</span>, <span class="S91">$ARRAYFILL_FORCE_PTR</span>, <span class="S91">$ARRAYFILL_FORCE_HWND</span>, <span class="S91">$ARRAYFILL_FORCE_STRING</span>, <span class="S91">$ARRAYFILL_FORCE_BOOLEAN</span>: если <span class="S91">$vValue</span> представляет собой одиночный элемент, он приводится к указанному типу данных (по умолчанию сохраняет существующий тип); если <span class="S91">$vValue</span> представляет собой строку с разделителями, все элементы приводятся к указанному типу (по умолчанию добавляются как строки; при необходимости разных типов элементы должны передаваться массивом); если <span class="S91">$vValue</span> является массивом, параметр игнорируется и элементы добавляются с сохранением существующих типов.<br />
+&nbsp;&nbsp;&nbsp; – <span class="default-const"><span class="S91">$ARRAYFILL_FORCE_DEFAULT</span></span> (по умолчанию):<br />
+ – Элементы разбиваются как описано выше. Одиночные элементы и элементы массива сохраняют свои типы данных, строки с разделителями добавляются как строки.<br />
+&nbsp;&nbsp;&nbsp; – <span class="S91">$ARRAYFILL_FORCE_SINGLEITEM</span>:<br />
+ – Если <span class="S91">$aArray</span> одномерный, <span class="S91">$vValue</span> добавляется как один элемент.<br />
+ – Если <span class="S91">$aArray</span> двумерный, параметр игнорируется.<br />
+&nbsp;&nbsp;&nbsp; – <span class="S91">$ARRAYFILL_FORCE_INT</span>, <span class="S91">$ARRAYFILL_FORCE_NUMBER</span>, <span class="S91">$ARRAYFILL_FORCE_PTR</span>, <span class="S91">$ARRAYFILL_FORCE_HWND</span>, <span class="S91">$ARRAYFILL_FORCE_STRING</span>, <span class="S91">$ARRAYFILL_FORCE_BOOLEAN</span>:<br />
+ – Если <span class="S91">$vValue</span> одиночный элемент, он приводится к указанному типу данных (по умолчанию сохраняет существующий тип).<br />
+ – Если <span class="S91">$vValue</span> строка с разделителями, все элементы приводятся к указанному типу (по умолчанию добавляются как строки). Для разных типов передавайте массив.<br />
+ – Если <span class="S91">$vValue</span> массив, параметр игнорируется и элементы добавляются с сохранением существующих типов.<br />
 <br />
 Любое иное значение <span class="S91">$iForce</span> игнорируется.<br />
 <br />
@@ -132,7 +138,7 @@
 <a class="le" href="../libfunctions/_ArrayAdd.htm"><span class="S15">_ArrayAdd</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"1D - Delim string"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Добавить 1D массив – каждый элемент добавляет новый элемент</span><br>
+<span class="S1">; Добавить одномерный массив – каждый элемент добавляет новый элемент</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aFill</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">4</span><br>
@@ -172,13 +178,13 @@
 <a class="le" href="../libfunctions/_ArrayAdd.htm"><span class="S15">_ArrayAdd</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D - Item &amp; row Delimited"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Добавить 2D массив</span><br>
+<span class="S1">; Добавить двумерный массив</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aFill</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S8">[</span><span class="S7">"New Item 2 - 1"</span><span class="S8">,</span> <span class="S7">"New Item 2 - 2"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S7">"New Item 3 - 1"</span><span class="S8">,</span> <span class="S7">"New Item 3 - 2"</span><span class="S8">]</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_ArrayAdd.htm"><span class="S15">_ArrayAdd</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$aFill</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D - 2D Array"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Добавить 2D массив – один элемент/столбец – загрузка в столбец 1</span><br>
+<span class="S1">; Добавить двумерный массив – один элемент/столбец – загрузка в столбец 1</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aFill</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S8">[</span><span class="S7">"New Item 2 - 1"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S7">"New Item 3 - 1"</span><span class="S8">]</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_ArrayAdd.htm"><span class="S15">_ArrayAdd</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$aFill</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
