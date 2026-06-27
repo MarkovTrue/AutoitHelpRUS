@@ -23,23 +23,23 @@
 </tr>
 <tr>
 <td><span class="S91">$iColumn</span></td>
-<td><strong>[необязательный]</strong> Столбец с нулевым индексом (по умолчанию – 0; только для 2D).</td>
+<td><strong>[необязательный]</strong> Столбец с нулевым индексом, по умолчанию 0 (только для двумерного массива).</td>
 </tr>
 <tr>
 <td><span class="S91">$iBase</span></td>
-<td><strong>[необязательный]</strong> База индексирования массива: 0 – с нуля (по умолчанию), 1 – с единицы.</td>
+<td><strong>[необязательный]</strong> Массив начинается с 0 или с 1. По умолчанию 0.</td>
 </tr>
 <tr>
 <td><span class="S91">$iCase</span></td>
-<td><strong>[необязательный]</strong> Флаг чувствительности к регистру. По умолчанию 0 – без учёта регистра.</td>
+<td><strong>[необязательный]</strong> Флаг чувствительности к регистру. По умолчанию 0: без учёта регистра.</td>
 </tr>
 <tr>
 <td><span class="S91">$iCount</span></td>
-<td><strong>[необязательный]</strong> Флаг, определяющий, хранится ли в элементе [0] счётчик возвращённых элементов (по умолчанию – да). Подробнее – в разделе "Примечания".</td>
+<td><strong>[необязательный]</strong> Флаг, определяющий, хранится ли счётчик возвращённых элементов в позиции [0] (по умолчанию да). См. раздел Примечания.</td>
 </tr>
 <tr>
 <td><span class="S91">$iIntType</span></td>
-<td><strong>[необязательный]</strong> Флаг для выбора алгоритма функции. Подробнее – в разделе "Примечания".</td>
+<td><strong>[необязательный]</strong> Флаг для выбора алгоритма функции. См. раздел Примечания.</td>
 </tr>
 </table>
 
@@ -72,14 +72,13 @@
 <br />
 Функция может использовать быстрый алгоритм, если анализируемые элементы не содержат значений Int64 (64-битных целых, дескрипторов, указателей). При их наличии применяется медленный алгоритм. Параметр <span class="S91">$iIntType</span> изменяет поведение функции следующим образом:<br />
 <br />
-<span class="S91">$ARRAYUNIQUE_AUTO</span> (0) (по умолчанию): если первый элемент не целое число – быстрый алгоритм; при обнаружении Int64 возвращает ошибку.<br />
-&nbsp;&nbsp;&nbsp; Если первый элемент целое число – устанавливает соответствующее значение FORCE32/64.<br />
-<span class="S91">$ARRAYUNIQUE_FORCE32</span> (1): приводит все целые к Int32, быстрый алгоритм; при наличии Int64 возвращает ошибку.<br />
-<span class="S91">$ARRAYUNIQUE_FORCE64</span> (2): приводит все целые к Int64, медленный алгоритм; при наличии Int32 возвращает ошибку.<br />
-<span class="S91">$ARRAYUNIQUE_MATCH</span> (3): 0x00000123 и 0x0123 считаются одним значением, возвращается первое встреченное; медленный алгоритм.<br />
-<span class="S91">$ARRAYUNIQUE_DISTINCT</span> (4): 0x00000123 и 0x0123 считаются различными, возвращаются оба; медленный алгоритм.<br />
+<span class="S91">$ARRAYUNIQUE_AUTO</span> (0) (по умолчанию): если первый элемент не целое число, работает быстрый алгоритм – при обнаружении Int64 возвращает ошибку. Если первый элемент целое число, устанавливает соответствующее значение FORCE32/64.<br />
+<span class="S91">$ARRAYUNIQUE_FORCE32</span> (1): приводит все целые к Int32, работает быстрый алгоритм – при наличии Int64 возвращает ошибку.<br />
+<span class="S91">$ARRAYUNIQUE_FORCE64</span> (2): приводит все целые к Int64, работает медленный алгоритм – при наличии Int32 возвращает ошибку.<br />
+<span class="S91">$ARRAYUNIQUE_MATCH</span> (3): 0x00000123 и 0x0123 считаются одним значением, возвращается первое встреченное – медленный алгоритм.<br />
+<span class="S91">$ARRAYUNIQUE_DISTINCT</span> (4): 0x00000123 и 0x0123 считаются различными, возвращаются оба – медленный алгоритм.<br />
 <br />
-Использовать настройки, отличные от <span class="S91">$ARRAYUNIQUE_AUTO</span>, следует только при наличии или подозрении на значения Int64. Необходимость медленного алгоритма при работе с Int64 – ограничение объекта Scripting.Dictionary, а не самого AutoIt.<br />
+Использовать настройки, отличные от стандартного <span class="S91">$ARRAYUNIQUE_AUTO</span>, следует только если известно или подозревается наличие значений Int64. Необходимость медленного алгоритма при обработке Int64 обусловлена ограничением объекта Scripting.Dictionary, используемого в функции, а не самого AutoIt.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ArrayMax.htm">_ArrayMax</a>, <a href="_ArrayMin.htm">_ArrayMin</a></p>
@@ -91,12 +90,10 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">]</span>&nbsp;<span class="S1">; Создаём одномерный массив с дублирующимися значениями.
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">]</span>&nbsp;<span class="S1">; Создаём одномерный массив с дублирующимися значениями.</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"$aArray Initial"</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать текущий массив.</span><br>
 <br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArrayUnique</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayUnique.htm"><span class="S15">_ArrayUnique</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span>&nbsp;<span class="S1">; Создаём уникальный массив с параметрами по умолчанию.
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArrayUnique</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayUnique.htm"><span class="S15">_ArrayUnique</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span>&nbsp;<span class="S1">; Создаём уникальный массив с параметрами по умолчанию.</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArrayUnique</span><span class="S8">,</span> <span class="S7">"$aArray Unique"</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать массив уникальных значений.</span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\_ArrayUnique.au3,"></object>
@@ -108,12 +105,10 @@
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"A"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S3">2</span><span class="S8">,</span> <span class="S7">"B"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S3">3</span><span class="S8">,</span> <span class="S7">"C"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"A"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S3">2</span><span class="S8">,</span> <span class="S7">"B"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S3">3</span><span class="S8">,</span> <span class="S7">"C"</span><span class="S8">]</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D array"</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать текущий массив.</span><br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArrayUnique</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayUnique.htm"><span class="S15">_ArrayUnique</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span>&nbsp;<span class="S1">; Создаём уникальный массив первого столбца с параметрами по умолчанию.
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArrayUnique</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayUnique.htm"><span class="S15">_ArrayUnique</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">)</span>&nbsp;<span class="S1">; Создаём уникальный массив первого столбца с параметрами по умолчанию.</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArrayUnique</span><span class="S8">,</span> <span class="S7">"$aArray first column"</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать массив уникальных значений.</span><br>
 <br>
-<span class="S9">$aArrayUnique</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayUnique.htm"><span class="S15">_ArrayUnique</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Создаём уникальный массив второго столбца.
-</span><br>
+<span class="S9">$aArrayUnique</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayUnique.htm"><span class="S15">_ArrayUnique</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Создаём уникальный массив второго столбца.</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArrayUnique</span><span class="S8">,</span> <span class="S7">"$aArray second column"</span><span class="S8">)</span>&nbsp;<span class="S1">; Показать массив уникальных значений.</span><br>
 </p>
 <object id="hhctrl2" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\_ArrayUnique[2].au3,"></object>
