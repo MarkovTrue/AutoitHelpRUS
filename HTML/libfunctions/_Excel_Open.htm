@@ -19,23 +19,23 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$bVisible</span></td>
-<td style="width:85%"><strong>[необязательный]</strong> <span class="S5">True</span> – приложение будет видимым (по умолчанию <span class="S5">True</span>).</td>
+<td style="width:85%"><strong>[необязательный]</strong> <span class="S5">True</span> делает приложение видимым (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bDisplayAlerts</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">False</span> – подавить все запросы и предупреждения при открытии книги (по умолчанию <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">False</span> подавляет все запросы и сообщения об ошибках при открытии книги (по умолчанию <span class="S5">False</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bScreenUpdating</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">False</span> – отключить обновление экрана для ускорения скрипта (по умолчанию <span class="S5">True</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">False</span> отключает обновление экрана для ускорения скрипта (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bInteractive</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">False</span> – Excel блокирует весь ввод с клавиатуры и мыши (кроме диалоговых окон) (по умолчанию <span class="S5">True</span>).</td>
+<td><strong>[необязательный]</strong> При <span class="S5">False</span> Excel блокирует весь ввод с клавиатуры и мыши (кроме диалоговых окон) (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bForceNew</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – принудительно создать новый экземпляр Excel, даже если уже есть запущенный (по умолчанию <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> принудительно создаёт новый экземпляр Excel, даже если уже запущен (по умолчанию <span class="S5">False</span>).</td>
 </tr>
 </table>
 
@@ -44,9 +44,9 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает объект приложения Excel.<br />
-<span class="S61">@extended</span> устанавливается в:<br />
+Устанавливает <span class="S61">@extended</span> в:<br />
 0 – Excel уже был запущен<br />
-1 – Excel не был запущен или <span class="S91">$bForceNew</span> = <span class="S5">True</span>; создан новый экземпляр Excel.</td>
+1 – Excel не был запущен или <span class="S91">$bForceNew</span> = <span class="S5">True</span>. Создан новый экземпляр Excel.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -54,21 +54,17 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – ошибка ObjCreate.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+<td>1 – ошибка, возвращённая ObjCreate. <span class="S61">@extended</span> содержит COM-код ошибки.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Если <span class="S91">$bDisplayAlerts</span> установлен в <span class="S5">False</span>, а сообщение требует ответа, Excel выбирает ответ по умолчанию.<br />
+<p>Если <span class="S91">$bDisplayAlerts</span> = <span class="S5">False</span> и сообщение требует ответа, Excel выбирает ответ по умолчанию.<br />
 <br />
-Для повышения производительности установите <span class="S91">$bScreenUpdating</span> в <span class="S5">False</span>. Экран не будет обновляться до тех пор, пока вы не вернёте значение <span class="S5">True</span> (<span class="S91">$oExcel</span>.ScreenUpdating = <span class="S5">True</span>).<br />
+Для повышения производительности задайте <span class="S91">$bScreenUpdating</span> = <span class="S5">False</span>. Экран не будет обновляться, пока вы не установите <span class="S5">True</span> (<span class="S91">$oExcel</span>.ScreenUpdating = <span class="S5">True</span>).<br />
 <br />
-Блокировка пользовательского ввода (<span class="S91">$bInteractive</span> = <span class="S5">False</span>) предотвращает вмешательство пользователя в работу скрипта AutoIt.<br />
-Если это значение установлено в <span class="S5">False</span>, не забудьте вернуть его в <span class="S5">True</span> (<span class="S91">$oExcel</span>.Interactive = <span class="S5">True</span>).<br />
+Блокировка ввода (<span class="S91">$bInteractive</span> = <span class="S5">False</span>) препятствует вмешательству пользователя в скрипт AutoIt.<br />
+При установке <span class="S5">False</span> не забудьте задать <span class="S5">True</span> (<span class="S91">$oExcel</span>.Interactive = <span class="S5">True</span>)<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_Excel_Close.htm">_Excel_Close</a></p>
