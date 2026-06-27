@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayCombinations</h1>
-<p class="funcdesc">Возвращает массив сочетаний элементов из выбранного одномерного 1D массива.</p>
+<p class="funcdesc">Возвращает массив всевозможных сочетаний элементов заданного одномерного массива.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayCombinations.htm"><span class="S15">_ArrayCombinations</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$iSet</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sDelimiter</span> <span class="S8">=</span> <span class="S7">""</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td><span class="S91">$sDelimiter</span></td>
-<td><strong>[необязательный]</strong> Разделитель элементов в строке результата. По умолчанию "" (без разделителя).</td>
+<td><strong>[необязательный]</strong> Разделитель элементов в строке результата. По умолчанию пустая строка (без разделителя).</td>
 </tr>
 </table>
 
@@ -36,8 +36,8 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив сочетаний.<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> содержит количество возвращённых строк.<br />
-Остальные элементы (<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> и т. д.) содержат сами сочетания.</td>
+Первый элемент (<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>) содержит количество возвращённых строк.<br />
+Остальные элементы (<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> и т.д.) содержат сами сочетания.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -45,13 +45,13 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – входной параметр должен быть массивом<br />
-2&nbsp;– <span class="S91">$aArray</span> не 1D массив</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> не является одномерным массивом</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Входной массив должен быть с нулевым индексом – без счётчика в <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>. Реализация основана на алгоритме Kenneth H. Rosen.<br />
+<p>Входной массив должен быть с нулевым индексом, то есть без счётчика в <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>. Реализация основана на алгоритме Kenneth H. Rosen.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ArrayPermute.htm">_ArrayPermute</a></p>
@@ -60,7 +60,7 @@
 
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Объявить 1D массив и создать массив, показывающий возможные комбинации.</span><br>
+<span class="S1">; Объявить одномерный массив и создать массив, показывающий возможные комбинации.</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <br>
