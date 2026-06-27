@@ -19,9 +19,9 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$vReturnType</span></td>
-<td style="width:85%"><strong>[необязательный]</strong> Тип возвращаемого значения (другие значения – в разделе "Примечания"):<br />
-0 – COLORREF rgbcolor (по умолчанию)<br />
-1 – шестнадцатеричный BGR<br />
+<td style="width:85%"><strong>[необязательный]</strong> Тип переданного <span class="S91">$iColorRef</span> (другие значения см. раздел Примечания):<br>
+0 – COLORREF rgbcolor (по умолчанию)<br>
+1 – шестнадцатеричный BGR<br>
 2 – шестнадцатеричный RGB</td>
 </tr>
 <tr>
@@ -30,7 +30,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iRefType</span></td>
-<td><strong>[необязательный]</strong> Тип переданного <span class="S91">$iColorRef</span> (другие значения – в разделе "Примечания"):<br />
+<td><strong>[необязательный]</strong> Тип переданного <span class="S91">$iColorRef</span> (другие значения см. раздел Примечания):<br />
 0 – COLORREF rgbcolor (по умолчанию)<br />
 1 – шестнадцатеричный BGR<br />
 2 – шестнадцатеричный RGB</td>
@@ -58,12 +58,12 @@
 </table>
 
 <h2>Примечания</h2>
-<p><span class="S91">$vReturnType</span> может принимать значения: 0 (RGB COLORREF), 1 (шестнадцатеричный BGR), 2 (шестнадцатеричный RGB),<br />
+<p><span class="S91">$vReturnType</span> может принимать значения: 0 (RGB COLORREF), 1 (Hex BGR), 2 (Hex RGB),<br />
 &nbsp;&nbsp;&nbsp; -9 (вернуть сохранённые пользовательские цвета),<br />
 &nbsp;&nbsp;&nbsp; -10 (вернуть сохранённые пользовательские цвета и очистить/удалить их),<br />
 &nbsp;&nbsp;&nbsp; или массив (см. ниже).<br />
 <br />
-<span class="S91">$iRefType</span> может быть 0 (ColorRef), 1 (шестнадцатеричный BGR) или 2 (шестнадцатеричный RGB).<br />
+<span class="S91">$iRefType</span> может быть 0 (ColorRef), 1 (Hex BGR) или 2 (Hex RGB).<br />
 <br />
 <span class="S91">$vReturnType</span> может быть массивом[17], где:<br />
 &nbsp;&nbsp;&nbsp; индекс 0 содержит значение:<br />
@@ -73,12 +73,11 @@
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; -9 : возвращает текущие сохранённые пользовательские цвета как array[17];<br />
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; здесь же при возврате помещается возвращаемое значение (при использовании в виде массива).<br />
 <br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; индексы 1–16 содержат цвета пользовательской палитры в формате RGB.<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; индексы 1-16 содержат цвета пользовательской палитры в формате RGB.<br />
 <br />
-Когда <span class="S91">$vReturnType</span> является массивом, возвращается изменённый массив (не цвет как целое число),<br />
-&nbsp;&nbsp;&nbsp; с выбранным цветом в array[0]; при отмене обновление не происходит.<br />
+Когда <span class="S91">$vReturnType</span> является массивом, возвращается изменённый массив (не цвет как целое число), с выбранным цветом в array[0]; при отмене обновление не происходит.<br />
 <br />
-&nbsp;&nbsp;&nbsp; Прибавление <a class="le" href="../functions/int.htm"><span class="S4">int</span></a><span class="S8">(</span>10<span class="S8">)</span> к <span class="S91">$vReturnType</span> (как целому числу) также очищает сохранённые пользовательские цвета.<br />
+Прибавление <a class="le" href="../functions/int.htm"><span class="S4">int</span></a><span class="S8">(</span>10<span class="S8">)</span> к <span class="S91">$vReturnType</span> (как целому числу) также очищает сохранённые пользовательские цвета.<br />
 </p>
 <h2 class="bottom">Пример</h2>
 
@@ -105,12 +104,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">17</span><span class="S8">]</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">9</span>&nbsp;&nbsp;<span class="S1">; Инициализируем пользовательские цвета.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0xFF0000</span>&nbsp;<span class="S1">; Если хотите,
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">16</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0x0000FF</span>&nbsp;<span class="S1">; не загружая интерфейс.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">9</span>&nbsp;&nbsp;<span class="S1">; Инициализируем пользовательские цвета.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0xFF0000</span>&nbsp;<span class="S1">; Если хотите,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">16</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0x0000FF</span>&nbsp;<span class="S1">; не загружая интерфейс.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ChooseColor.htm"><span class="S15">_ChooseColor</span></a><span class="S8">(</span><span class="S9">$aCustColors1</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aCustColors2</span><span class="S8">[</span><span class="S3">17</span><span class="S8">]</span><br>
@@ -125,8 +121,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idBtn_Clear</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idBtn_Clear</span><span class="S8">,</span> <span class="S9">$GUI_DISABLE</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ChooseColor.htm"><span class="S15">_ChooseColor</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">10</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">200</span><span class="S8">)</span>&nbsp;<span class="S1">; Небольшая обратная связь, чтобы показать результат =)
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">200</span><span class="S8">)</span>&nbsp;<span class="S1">; Небольшая обратная связь, чтобы показать результат =)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idBtn_Clear</span><span class="S8">,</span> <span class="S9">$GUI_ENABLE</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idBtn_COLORREF</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_ShowChoice</span><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$idMemo</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../libfunctions/_ChooseColor.htm"><span class="S15">_ChooseColor</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">255</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">"COLORREF color of your choice: "</span><span class="S8">)</span><br>
@@ -135,10 +130,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idBtn_RGB</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_ShowChoice</span><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$idMemo</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <a class="le" href="../libfunctions/_ChooseColor.htm"><span class="S15">_ChooseColor</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">0x0080C0</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">"RGB Hex color of your choice: "</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idBtn_RGBwA1</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">2</span>&nbsp;<span class="S1">; Это "ReturnType".
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ChooseColor.htm"><span class="S15">_ChooseColor</span></a><span class="S8">(</span><span class="S9">$aCustColors1</span><span class="S8">,</span> <span class="S3">0x0080C0</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">; Обновляем сохранённые пользовательские цвета обратно в массив.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">2</span>&nbsp;<span class="S1">; Это "ReturnType".</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ChooseColor.htm"><span class="S15">_ChooseColor</span></a><span class="S8">(</span><span class="S9">$aCustColors1</span><span class="S8">,</span> <span class="S3">0x0080C0</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">; Обновляем сохранённые пользовательские цвета обратно в массив.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_ShowChoice</span><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$idMemo</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$aCustColors1</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S7">"RGB Hex color of your choice ( #1 ): "</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idBtn_RGBwA2</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCustColors2</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">2</span><br>
@@ -152,8 +145,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sCr</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iChoose</span> <span class="S8">&lt;&gt;</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iType</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Преобразуем COLORREF в RGB для этого примера.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iType</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;<span class="S1">; Преобразуем COLORREF в RGB для этого примера.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sCr</span> <span class="S8">=</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><span class="S9">$iChoose</span><span class="S8">,</span> <span class="S3">6</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetBkColor.htm"><span class="S4">GUISetBkColor</span></a><span class="S8">(</span><span class="S7">'0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringMid.htm"><span class="S4">StringMid</span></a><span class="S8">(</span><span class="S9">$sCr</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringMid.htm"><span class="S4">StringMid</span></a><span class="S8">(</span><span class="S9">$sCr</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringMid.htm"><span class="S4">StringMid</span></a><span class="S8">(</span><span class="S9">$sCr</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
