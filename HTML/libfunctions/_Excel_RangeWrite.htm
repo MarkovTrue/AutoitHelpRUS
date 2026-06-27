@@ -57,26 +57,10 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$oWorkbook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$vRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-4 – ошибка при записи данных методом транспонирования.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-5 – ошибка при записи данных функцией <a class="le" href="_ArrayTranspose.htm"><span class="S15">_ArrayTranspose</span></a><span class="S8">()</span>.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
+2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$vRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – ошибка при записи данных методом транспонирования. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+5 – ошибка при записи данных функцией <a class="le" href="_ArrayTranspose.htm"><span class="S15">_ArrayTranspose</span></a><span class="S8">()</span>. <span class="S61">@extended</span> содержит COM-код ошибки<br />
 6 – <span class="S91">$vValue</span> не является строкой, одномерным или двумерным массивом</td>
 </tr>
 </table>
@@ -87,7 +71,7 @@
 Если массив меньше <span class="S91">$vRange</span>, ячейки за пределами массива получают значение #НД.<br />
 Метод транспонирования Excel имеет недокументированное ограничение на количество ячеек (зависит от версии Excel).<br />
 При транспонировании более 65 535 ячеек параметр <span class="S91">$bForceFunc</span> принудительно устанавливается в <span class="S5">True</span>.<br />
-Метод транспонирования Excel не поддерживает ячейки с более чем 255 символами; установите <span class="S91">$bForceFunc</span> = <span class="S5">True</span> для обхода этого ограничения.<br />
+Метод транспонирования Excel не поддерживает ячейки с более чем 255 символами. Установите <span class="S91">$bForceFunc</span> = <span class="S5">True</span> для обхода этого ограничения.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_Excel_RangeRead.htm">_Excel_RangeRead</a></p>
@@ -110,8 +94,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Записываем одно значение в ячейку A1 активного листа указанной книги.
-</span><br>
+<span class="S1">; Записываем одно значение в ячейку A1 активного листа указанной книги.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$oWorkbook</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S7">"Test"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"String"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeWrite Example 1"</span><span class="S8">,</span> <span class="S7">"Error writing to worksheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeWrite Example 1"</span><span class="S8">,</span> <span class="S7">"String successfully written."</span><span class="S8">)</span><br>
@@ -134,8 +117,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Записываем одномерный массив в строку начиная с ячейки A1.
-</span><br>
+<span class="S1">; Записываем одномерный массив в строку начиная с ячейки A1.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray1D</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"AA"</span><span class="S8">,</span> <span class="S7">"BB"</span><span class="S8">,</span> <span class="S7">"CC"</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$oWorkbook</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S9">$aArray1D</span><span class="S8">,</span> <span class="S7">"A3"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeWrite Example 2"</span><span class="S8">,</span> <span class="S7">"Error writing to worksheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -149,8 +131,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Создаёт объект приложения и новую книгу
-</span><br>
+<span class="S1">; Создаёт объект приложения и новую книгу</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeWrite Beispiel 3"</span><span class="S8">,</span> <span class="S7">"Fehler beim Erstellen des Excel-Anwendungsobjekts."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oWorkbook</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_BookNew.htm"><span class="S15">_Excel_BookNew</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">)</span><br>
@@ -160,10 +141,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Записывает 2D-массив в диапазон B1:D2 активного листа активной книги.
-</span><br>
-<span class="S1">; Записываются только 2 строки и 3 столбца массива, поскольку указанный диапазон меньше массива.
-</span><br>
+<span class="S1">; Записывает двумерный массив в диапазон B1:D2 активного листа активной книги.</span><br>
+<span class="S1">; Записываются только 2 строки и 3 столбца массива, поскольку указанный диапазон меньше массива.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray2D</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S8">[</span><span class="S3">11</span><span class="S8">,</span> <span class="S3">12</span><span class="S8">,</span> <span class="S3">13</span><span class="S8">,</span> <span class="S3">14</span><span class="S8">,</span> <span class="S3">15</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S3">21</span><span class="S8">,</span> <span class="S3">22</span><span class="S8">,</span> <span class="S3">23</span><span class="S8">,</span> <span class="S3">24</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S3">31</span><span class="S8">,</span> <span class="S3">32</span><span class="S8">,</span> <span class="S3">33</span><span class="S8">,</span> <span class="S3">34</span><span class="S8">,</span> <span class="S3">35</span><span class="S8">]</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$oWorkbook</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S9">$aArray2D</span><span class="S8">,</span> <span class="S7">"B1"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeWrite Beispiel 3"</span><span class="S8">,</span> <span class="S7">"Fehler beim Schreiben in das Arbeitsblatt."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -187,8 +166,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Записываем двумерный массив в диапазон начиная с ячейки A1.
-</span><br>
+<span class="S1">; Записываем двумерный массив в диапазон начиная с ячейки A1.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$oWorkbook</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S7">"=B1+3"</span><span class="S8">,</span> <span class="S7">"B5:F6"</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeWrite Example 4"</span><span class="S8">,</span> <span class="S7">"Error writing to worksheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeWrite Example 4"</span><span class="S8">,</span> <span class="S7">"Range successfully filled with a formula."</span><span class="S8">)</span><br>
