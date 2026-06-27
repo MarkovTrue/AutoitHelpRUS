@@ -31,8 +31,8 @@
 
 <h2>Примечания</h2>
 <p>Не все файловые системы поддерживают запись времени создания и последнего доступа, и не все делают это одинаково.<br />
-Например, в FAT время создания имеет точность 10 миллисекунд, время записи – 2 секунды, время доступа – 1 день (фактически только дата доступа). Поэтому <a class="le" href="_Date_Time_GetFileTime.htm"><span class="S15">_Date_Time_GetFileTime</span></a><span class="S8">()</span> может возвращать время, отличающееся от установленного через <a class="le" href="_Date_Time_SetFileTime.htm"><span class="S15">_Date_Time_SetFileTime</span></a><span class="S8">()</span>.<br />
-NTFS откладывает обновление времени последнего доступа к файлу до одного часа после фактического доступа.<br />
+Например, в FAT время создания имеет точность 10 миллисекунд, время записи составляет 2 секунды, время доступа составляет 1 день (на самом деле только дата доступа). Поэтому <a href="_Date_Time_GetFileTime.htm"><span class="S15">_Date_Time_GetFileTime</span><span class="S8">()</span></a> может возвращать данные, отличающиеся от установленных через <a href="_Date_Time_SetFileTime.htm"><span class="S15">_Date_Time_SetFileTime</span><span class="S8">()</span></a>.<br />
+NTFS откладывает обновление времени последнего доступа к файлу на срок до одного часа после фактического доступа.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="$tagFILETIME.htm">$tagFILETIME</a>, <a href="_Date_Time_SetFileTime.htm">_Date_Time_SetFileTime</a></p>
