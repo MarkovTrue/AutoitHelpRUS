@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_BookOpen</h1>
-<p class="funcdesc">Открывает указанную книгу.</p>
+<p class="funcdesc">Открывает существующую рабочую книгу.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_BookOpen.htm"><span class="S15">_Excel_BookOpen</span></a> <span class="S8">(</span> <span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$sFilePath</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bReadOnly</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bVisible</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sPassword</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sWritePassword</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bUpdateLinks</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,27 +23,31 @@
 </tr>
 <tr>
 <td><span class="S91">$sFilePath</span></td>
-<td>Полный путь к открываемой книге.</td>
+<td>Путь и имя открываемого файла.</td>
 </tr>
 <tr>
 <td><span class="S91">$bReadOnly</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – открыть книгу в режиме только для чтения (по умолчанию <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> открывает книгу только для чтения (по умолчанию <span class="S5">False</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bVisible</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – отобразить книгу (по умолчанию <span class="S5">True</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> делает окно книги видимым (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$sPassword</span></td>
-<td><strong>[необязательный]</strong> Пароль для открытия защищённой книги.</td>
+<td><strong>[необязательный]</strong> Пароль, защищающий книгу от чтения, если он есть (по умолчанию отсутствует).</td>
 </tr>
 <tr>
 <td><span class="S91">$sWritePassword</span></td>
-<td><strong>[необязательный]</strong> Пароль для записи в защищённую книгу.</td>
+<td><strong>[необязательный]</strong> Пароль, защищающий книгу от записи, если он есть (по умолчанию отсутствует).</td>
 </tr>
 <tr>
 <td><span class="S91">$bUpdateLinks</span></td>
-<td><strong>[необязательный]</strong> Задаёт режим обновления ссылок в файле. Default – используется параметр Excel по умолчанию. 0 – не обновлять ссылки. 3 – обновить ссылки.</td>
+<td><strong>[необязательный]</strong> Задаёт способ обновления внешних ссылок в файле (по умолчанию Default)<br />
+Допустимые значения:<br />
+Default: Excel спрашивает пользователя, как обновлять ссылки.<br />
+0: Excel не обновляет ссылки.<br />
+3: Excel обновляет все ссылки.</td>
 </tr>
 </table>
 
@@ -51,7 +55,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает объект книги. <span class="S61">@extended</span> устанавливается в 1, если книга открыта только для чтения, хотя для <span class="S91">$bReadOnly</span> было задано <span class="S5">False</span>.</td>
+<td style="width:90%">Возвращает объект рабочей книги. <span class="S61">@extended</span> устанавливается в 1, если <span class="S91">$bReadOnly</span> = <span class="S5">False</span>, но доступ для чтения и записи получить не удалось. Подробности см. раздел Примечания.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -59,21 +63,25 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oExcel</span> не является объектом<br />
-2 – <span class="S91">$sFilePath</span> не является допустимым путём<br />
-3 – <span class="S91">$bReadOnly</span> не является булевым значением<br />
-4 – Excel вернул ошибку.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+<td>1 – <span class="S91">$oExcel</span> не является объектом или не является объектом приложения<br />
+2 – указанный <span class="S91">$sFilePath</span> не существует<br />
+3 – не удалось открыть <span class="S91">$sFilePath</span>. <span class="S61">@extended</span> содержит COM-код ошибки, возвращённый методом Open<br />
+4 – Excel не вернул объект книги, возможно из-за того, что Excel не может открыть одновременно две книги с одинаковым именем.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Если <span class="S91">$bReadOnly</span> задан как <span class="S5">False</span>, а книга открыта только для чтения (например, другим пользователем), <span class="S61">@extended</span> устанавливается в 1.<br />
-Если <span class="S91">$bVisible</span> задан как <span class="S5">False</span>, перед сохранением установите его в <span class="S5">True</span>, чтобы избежать запросов Excel.<br />
-При значении Default для <span class="S91">$bUpdateLinks</span> поведение зависит от параметра <span class="S91">$bDisplayAlerts</span> функции <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span>.<br />
+<p>Если задано <span class="S91">$bReadOnly</span> = <span class="S5">False</span>, но документ нельзя открыть для чтения и записи, <span class="S61">@extended</span> устанавливается в 1.<br />
+Книга открыта только для чтения, потому что её уже открыл другой пользователь или процесс, либо файл помечен как доступный только для чтения в файловой системе.<br />
+Если вы измените книгу, для сохранения в другое место или под другим именем используйте <a class="le" href="_Excel_BookSaveAs.htm"><span class="S15">_Excel_BookSaveAs</span></a><span class="S8">()</span>.<br />
+<br />
+Если при открытии книги задано <span class="S91">$bVisible</span> = <span class="S5">False</span>, перед сохранением обязательно сделайте её снова видимой.<br />
+Чтобы снова показать книгу, используйте <span class="S91">$oExcel</span>.Windows(<span class="S91">$oWorkbook</span>.Name).Visible = <span class="S5">True</span>.<br />
+Иначе книга не отобразится при ручном открытии в Excel.<br />
+Чаще всего этот параметр не нужен. Предпочтительнее задавать <span class="S91">$bVisible</span> = <span class="S5">False</span> в <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span>.<br />
+<br />
+Если <span class="S91">$bUpdateLinks</span> равен Default, пользователь получит запрос только при <span class="S91">$bDisplayAlerts</span> = <span class="S5">True</span> в функции <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span>.<br />
+Если <span class="S91">$bDisplayAlerts</span> = <span class="S5">False</span>, Excel выбирает ответ по умолчанию.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_Excel_BookAttach.htm">_Excel_BookAttach</a>, <a href="_Excel_BookClose.htm">_Excel_BookClose</a>, <a href="_Excel_BookNew.htm">_Excel_BookNew</a>, <a href="_Excel_BookOpenText.htm">_Excel_BookOpenText</a></p>
