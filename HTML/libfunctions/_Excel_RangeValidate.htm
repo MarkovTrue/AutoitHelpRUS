@@ -76,21 +76,9 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$oWorkbook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$vRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-4 – ошибка метода проверки данных.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$vRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – ошибка метода проверки данных. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
@@ -117,8 +105,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Добавляем проверку данных к диапазону. Допустимы только значения от 1 до 10.
-</span><br>
+<span class="S1">; Добавляем проверку данных к диапазону. Допустимы только значения от 1 до 10.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeValidate.htm"><span class="S15">_Excel_RangeValidate</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"A1:A10"</span><span class="S8">,</span> <span class="S9">$xlValidateList</span><span class="S8">,</span> <span class="S7">"Yes;No;Don't know"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeValidate Example 1"</span><span class="S8">,</span> <span class="S7">"Error setting range validation."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeValidate Example 1"</span><span class="S8">,</span> <span class="S7">"Validation against a list of values successfully set for range 'A1:A10'."</span><span class="S8">)</span><br>
@@ -141,14 +128,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Добавляем проверку списком для ячейки. Допустимы только элементы из списка.
-</span><br>
-<span class="S1">; Добавляем проверку списком для ячейки. Допустимы только значения из указанного диапазона.
-</span><br>
+<span class="S1">; Добавляем проверку списком для ячейки. Допустимы только элементы из списка.</span><br>
+<span class="S1">; Добавляем проверку списком для ячейки. Допустимы только значения из указанного диапазона.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aValidation</span><span class="S8">[</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"10"</span><span class="S8">,</span> <span class="S7">"20"</span><span class="S8">,</span> <span class="S7">"30"</span><span class="S8">,</span> <span class="S7">"40"</span><span class="S8">,</span> <span class="S7">"50"</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeWrite.htm"><span class="S15">_Excel_RangeWrite</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$aValidation</span><span class="S8">,</span> <span class="S7">"D1"</span><span class="S8">)</span><br>
-<span class="S1">; Добавляем проверку списком для ячейки с сообщением об ошибке.
-</span><br>
+<span class="S1">; Добавляем проверку списком для ячейки с сообщением об ошибке.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeValidate.htm"><span class="S15">_Excel_RangeValidate</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"C:C"</span><span class="S8">,</span> <span class="S9">$xlValidateList</span><span class="S8">,</span> <span class="S7">"=D:D"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeValidate Example 2"</span><span class="S8">,</span> <span class="S7">"Error setting range validation."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeValidate Example 2"</span><span class="S8">,</span> <span class="S7">"Validation against a list of values in cell range '=D:D' successfully set for colum 'C'."</span><span class="S8">)</span><br>
@@ -171,8 +155,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Показываем оповещение об ошибке.
-</span><br>
+<span class="S1">; Показываем оповещение об ошибке.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeValidate.htm"><span class="S15">_Excel_RangeValidate</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"B:B"</span><span class="S8">,</span> <span class="S9">$xlValidateDecimal</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$xlGreater</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlValidAlertStop</span><span class="S8">,</span> <span class="S7">"You entered a non numeric value!"</span><span class="S8">,</span> <span class="S7">"Only numeric values are valid."</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeValidate Example 3"</span><span class="S8">,</span> <span class="S7">"Error setting range validation."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeValidate Example 3"</span><span class="S8">,</span> <span class="S7">"Only numeric values are valid in column 'B'."</span><span class="S8">)</span><br>
@@ -195,8 +178,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Добавляем проверку списком для ячейки с подсказкой ввода.
-</span><br>
+<span class="S1">; Добавляем проверку списком для ячейки с подсказкой ввода.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeValidate.htm"><span class="S15">_Excel_RangeValidate</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"E:E"</span><span class="S8">,</span> <span class="S9">$xlValidateCustom</span><span class="S8">,</span> <span class="S7">"=SUM(E:E)&lt;=100"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"Sum of all cells in column 'E' &gt; 100."</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeValidate Example 4"</span><span class="S8">,</span> <span class="S7">"Error setting range validation."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeValidate Example 4"</span><span class="S8">,</span> <span class="S7">"Sum of all cells in column 'E' has to be &lt; 100."</span><span class="S8">)</span><br>
