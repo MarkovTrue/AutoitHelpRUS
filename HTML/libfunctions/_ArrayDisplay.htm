@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayDisplay</h1>
-<p class="funcdesc">Отображает одномерный 1D или двумерный 2D массив в виде ListView.</p>
+<p class="funcdesc">Отображает одномерный или двумерный массив в виде ListView.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sTitle</span> <span class="S8">=</span> <span class="S7">"ArrayDisplay"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sArrayRange</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vUser_Separator</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sHeader</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iDesired_Colwidth</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,20 +27,20 @@
 </tr>
 <tr>
 <td><span class="S91">$sArrayRange</span></td>
-<td><strong>[необязательный]</strong> Диапазон отображаемых строк/столбцов. По умолчанию ("") – весь массив (подробности ниже).</td>
+<td><strong>[необязательный]</strong> Диапазон отображаемых строк или столбцов. По умолчанию ("") отображается весь массив (подробности ниже).</td>
 </tr>
 <tr>
 <td><span class="S91">$iFlags</span></td>
 <td><strong>[необязательный]</strong> Параметры UDF. Складывайте нужные значения:<br />
-<span class="default-const"><span class="S91">$ARRAYDISPLAY_COLALIGNLEFT</span></span> (0) = (по умолчанию) выравнивание текста в столбцах по левому краю<br />
-<span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> (1) = транспонировать массив (только для 2D массива)<br />
-<span class="S91">$ARRAYDISPLAY_COLALIGNRIGHT</span> (2) = выравнивание по правому краю<br />
-<span class="S91">$ARRAYDISPLAY_COLALIGNCENTER</span> (4) = выравнивание по центру<br />
+<span class="default-const"><span class="S91">$ARRAYDISPLAY_COLALIGNLEFT</span></span> (0) = (по умолчанию) выравнивание текста столбцов по левому краю<br />
+<span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> (1) = транспонировать массив (только для двумерного массива)<br />
+<span class="S91">$ARRAYDISPLAY_COLALIGNRIGHT</span> (2) = выравнивание текста столбцов по правому краю<br />
+<span class="S91">$ARRAYDISPLAY_COLALIGNCENTER</span> (4) = выравнивание текста столбцов по центру<br />
 <span class="S91">$ARRAYDISPLAY_VERBOSE</span> (8) = подробный режим – показывать MsgBox при ошибке и заставку при обработке больших массивов<br />
 16 = устарело<br />
 32 = устарело<br />
-<span class="S91">$ARRAYDISPLAY_NOROW</span> (64) = не отображать столбец "Row"<br />
-<span class="S91">$ARRAYDISPLAY_CHECKERROR</span> (128) = возвращать, если <span class="S61">@error</span> вызывающего &lt;&gt; 0.</td>
+<span class="S91">$ARRAYDISPLAY_NOROW</span> (64) = столбец "Row" не отображается<br />
+<span class="S91">$ARRAYDISPLAY_CHECKERROR</span> (128) = вернуть управление, если <span class="S61">@error</span> вызывающего ≠ 0.</td>
 </tr>
 <tr>
 <td><span class="S91">$vUser_Separator</span></td>
@@ -48,13 +48,13 @@
 </tr>
 <tr>
 <td><span class="S91">$sHeader</span></td>
-<td><strong>[необязательный]</strong> Имена столбцов заголовка – строка имён, разделённых текущим символом-разделителем (обычно "|"). Значение по умолчанию – см. раздел Примечания.</td>
+<td><strong>[необязательный]</strong> Имена столбцов в заголовке (строка имён, разделённых текущим символом-разделителем, обычно "|"). По умолчанию см. раздел Примечания.</td>
 </tr>
 <tr>
 <td><span class="S91">$iDesired_Colwidth</span></td>
-<td><strong>[необязательный]</strong> Положительное значение – максимальная ширина столбца ListView для отображения содержимого. По умолчанию 350 пикселей.<br />
-Отрицательное значение – все столбцы, кроме первого (55), устанавливаются равными <a class="le" href="../functions/Abs.htm"><span class="S4">Abs</span></a><span class="S8">(</span><span class="S91">$iDesired_Colwidth</span><span class="S8">)</span>.<br />
-Учтите: ширина столбца всегда адаптируется под длину отображаемого элемента.</td>
+<td><strong>[необязательный]</strong> При положительном значении максимальная ширина, до которой столбец ListView расширяется для показа содержимого. По умолчанию 350 пикселей.<br />
+При отрицательном значении все столбцы, кроме первого (он равен 55), устанавливаются в <a class="le" href="../functions/Abs.htm"><span class="S4">Abs</span></a><span class="S8">(</span><span class="S91">$iDesired_Colwidth</span><span class="S8">)</span>.<br />
+Помните, ширина столбца всегда подстраивается под длину отображаемого элемента.</td>
 </tr>
 </table>
 
@@ -66,87 +66,87 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0 и устанавливает флаг <span class="S61">@error</span> следующим образом:.</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0:</td>
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив<br />
-2&nbsp;– у <span class="S91">$aArray</span> слишком много измерений (поддерживаются только 1D и 2D)<br />
-3&nbsp;– <span class="S61">@error</span> был установлен в момент вызова функции</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+3 – <span class="S61">@error</span> был установлен на момент вызова функции</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Если функции передана не массив или массив с числом измерений больше 2, функция возвращает ошибку, а скрипт продолжает работу. Если в <span class="S91">$iFlags</span> задан флаг "verbose", появляется MsgBox с предложением немедленно завершить скрипт или продолжить с обычным возвратом ошибки.<br />
+<p>Если функции передана переменная, не являющаяся массивом, или массив с числом измерений больше 2, функция возвращает ошибку, и скрипт продолжает работу. Если в <span class="S91">$iFlags</span> установлен флаг "verbose", появляется MsgBox с возможностью немедленно завершить скрипт или продолжить с обычным возвратом ошибки.<br />
 <br />
-Ограничений на размер отображаемого массива нет, но из-за ограничений Windows-контрола заголовки и столбцы ListView не выравниваются, если столбцов больше ~600.<br />
+На размер отображаемого массива ограничений нет, однако из-за ограничения Windows-контрола заголовки и столбцы ListView перестают выравниваться, если их больше примерно 600.<br />
 <br />
 Синтаксис параметра <span class="S91">$sArrayRange</span>:<table>
 <tr>
 <td>"7"</td>
-<td>Строки 0–7, все столбцы</td>
+<td>Строки с 0 по 7, все столбцы</td>
 </tr>
 
 <tr>
 <td>"7:"</td>
-<td>Строки 7 – конец, все столбцы</td>
+<td>Строки с 7 до конца, все столбцы</td>
 </tr>
 
 <tr>
 <td>"|7"</td>
-<td>Все строки, столбцы 0–7</td>
+<td>Все строки, столбцы с 0 по 7</td>
 </tr>
 
 <tr>
 <td>"|7:"</td>
-<td>Все строки, столбцы 7 – конец</td>
+<td>Все строки, столбцы с 7 до конца</td>
 </tr>
 
 <tr>
 <td>"7|7"</td>
-<td>Строки 0–7, столбцы 0–7</td>
+<td>Строки с 0 по 7, столбцы с 0 по 7</td>
 </tr>
 
 <tr>
 <td>"5:7"</td>
-<td>Строки 5–7, все столбцы</td>
+<td>Строки с 5 по 7, все столбцы</td>
 </tr>
 
 <tr>
 <td>"|5:7"</td>
-<td>Все строки, столбцы 5–7</td>
+<td>Все строки, столбцы с 5 по 7</td>
 </tr>
 
 <tr>
 <td>"7|5:7"</td>
-<td>Строки 0–7, столбцы 5–7</td>
+<td>Строки с 0 по 7, столбцы с 5 по 7</td>
 </tr>
 
 <tr>
 <td>"5:7|7"</td>
-<td>Строки 5–7, столбцы 0–7</td>
+<td>Строки с 5 по 7, столбцы с 0 по 7</td>
 </tr>
 
 <tr>
 <td>"5:7|5:7"</td>
-<td>Строки 5–7, столбцы 5–7</td>
+<td>Строки с 5 по 7, столбцы с 5 по 7</td>
 </tr>
 </table><br />
-Для 1D массивов значения столбцов игнорируются.<br />
+Для одномерных массивов значения столбцов игнорируются.<br />
 <br />
-Имена <span class="S91">$sHeader</span> (разделённые текущим символом-разделителем) используются для соответствующих столбцов. Если пользовательские имена не указаны или указаны не для всех столбцов, применяется заголовок по умолчанию: "Row|Col0" для 1D массива или "Row|Col0|Col1|...|Col n" для 2D. При транспонировании массива заголовок игнорируется.<br />
+Имена из <span class="S91">$sHeader</span> (разделённые текущим символом-разделителем) применяются к стольким столбцам, сколько задано имён. Если пользовательские имена не заданы или их не хватает, подставляется заголовок по умолчанию "Row|Col0" для одномерного массива или "Row|Col0|Col1|...|Col n" для двумерного. При отображении массива транспонированным заголовок игнорируется.<br />
 Переменная <span class="S91">$ARRAYDISPLAY_ROWPREFIX</span> задаёт префикс нумерации строк (по умолчанию: #).<br />
-Чтобы принудительно использовать числовое сравнение для конкретного столбца, завершите соответствующее имя символом <span class="S91">$ARRAYDISPLAY_NUMERICSORT</span> (по умолчанию: *).<br />
+Чтобы для конкретного столбца использовать числовое сравнение, завершите соответствующее имя символом <span class="S91">$ARRAYDISPLAY_NUMERICSORT</span> (по умолчанию: *).<br />
 <br />
-Размеры массива выводятся под ним. Текст красный, если массив транспонирован или отображается только диапазон – во всплывающей подсказке указываются конкретные случаи.<br />
+Размеры массива показываются под ним. Текст красный, если массив транспонирован или показан только диапазон элементов – конкретные случаи указываются во всплывающей подсказке.<br />
 <br />
-Если в <span class="S91">$iFlags</span> задан флаг "verbose", при начальной обработке массива с более чем 10000 элементов показывается заставка.<br />
+Если в <span class="S91">$iFlags</span> установлен флаг "verbose", при начальной обработке массива с более чем 10000 элементами показывается заставка.<br />
 <br />
 Элемент массива, содержащий другой массив или Map, отображается как {Array} или {Map}.<br />
 <br />
-При использовании <span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> или <span class="S91">$sArrayRange</span> создаётся копия <span class="S91">$aArray</span> – это увеличивает потребление памяти.<br />
+При использовании <span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> или <span class="S91">$sArrayRange</span> создаётся копия <span class="S91">$aArray</span>, поэтому расходуется дополнительная память.<br />
 <br />
-Щелчок по заголовку столбца сортирует его. При большом числе строк сортировка может занять несколько секунд – об этом предупреждает всплывающая подсказка.<br />
+Щёлкните по заголовку столбца, чтобы отсортировать его. При большом числе строк это может занять несколько секунд. Во время загрузки появляется всплывающая подсказка с предупреждением, что сортировка может занять несколько секунд.<br />
 </p>
 <h2 class="bottom">Пример</h2>
 
@@ -186,7 +186,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S4">Opt</span><span class="S8">(</span><span class="S7">"GUIDataSeparatorChar"</span><span class="S8">,</span> <span class="S7">"!"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray_2D</span><span class="S8">,</span> <span class="S7">"! Header separator"</span><span class="S8">,</span> <span class="S7">"3:7|4:9"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"AA!BB!CC!DD!EE!FF"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать не-массивную переменную, чтобы вызвать ошибку – MsgBox показывается, так как $iFlags задан</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать переменную, не являющуюся массивом, чтобы вызвать ошибку – MsgBox показывается, так как задан $iFlags</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$vVar</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iRet</span><span class="S8">,</span> <span class="S9">$iError</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRet</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$vVar</span><span class="S8">,</span> <span class="S7">"No MsgBox on Error"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
