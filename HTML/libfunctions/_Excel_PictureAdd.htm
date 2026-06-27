@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_PictureAdd</h1>
-<p class="funcdesc">Добавляет изображение на указанный лист книги.</p>
+<p class="funcdesc">Добавляет картинку на указанную книгу и лист.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_PictureAdd.htm"><span class="S15">_Excel_PictureAdd</span></a> <span class="S8">(</span> <span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$vWorksheet</span><span class="S8">,</span> <span class="S9">$sFile</span><span class="S8">,</span> <span class="S9">$vRangeOrLeft</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iTop</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWidth</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iHeight</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bKeepRatio</span> <span class="S8">=</span> <span class="S5">True</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,33 +23,33 @@
 </tr>
 <tr>
 <td><span class="S91">$vWorksheet</span></td>
-<td>Имя, индекс или объект листа, на который добавляется изображение. При значении Default используется активный лист.</td>
+<td>Имя, индекс или объект листа для добавления картинки. При значении Default используется активный лист.</td>
 </tr>
 <tr>
 <td><span class="S91">$sFile</span></td>
-<td>Полный путь к добавляемому файлу изображения.</td>
+<td>Полный путь к добавляемому файлу картинки.</td>
 </tr>
 <tr>
 <td><span class="S91">$vRangeOrLeft</span></td>
-<td>Диапазон A1, объект Range или целое число, задающее положение левого верхнего угла изображения по горизонтали.</td>
+<td>Диапазон A1, объект Range или целое число, обозначающее левую позицию левого верхнего угла картинки.</td>
 </tr>
 <tr>
 <td><span class="S91">$iTop</span></td>
-<td><strong>[необязательный]</strong> Если <span class="S91">$vRangeOrLeft</span> является целым числом, задаёт положение левого верхнего угла изображения по вертикали.</td>
+<td><strong>[необязательный]</strong> Если <span class="S91">$vRangeOrLeft</span> – целое число, то <span class="S91">$iTop</span> – верхняя позиция левого верхнего угла картинки.</td>
 </tr>
 <tr>
 <td><span class="S91">$iWidth</span></td>
-<td><strong>[необязательный]</strong> Задаёт ширину изображения. Если не указана, ширина подстраивается автоматически (по умолчанию – автоматически).</td>
+<td><strong>[необязательный]</strong> Если указано, задаёт ширину картинки. Если не указано, ширина подстраивается автоматически (по умолчанию Automatic).</td>
 </tr>
 <tr>
 <td><span class="S91">$iHeight</span></td>
-<td><strong>[необязательный]</strong> Задаёт высоту изображения. Если не указана, высота подстраивается автоматически (по умолчанию – автоматически).</td>
+<td><strong>[необязательный]</strong> Если указано, задаёт высоту картинки. Если не указано, высота подстраивается автоматически (по умолчанию Automatic).</td>
 </tr>
 <tr>
 <td><span class="S91">$bKeepRatio</span></td>
-<td><strong>[необязательный]</strong> Используется только при многоячеечном диапазоне в <span class="S91">$vRangeOrLeft</span> (по умолчанию <span class="S5">True</span>).<br />
-<span class="S5">True</span> – сохранять пропорции изображения в границах <span class="S91">$vRangeOrLeft</span>.<br />
-<span class="S5">False</span> – растянуть изображение по <span class="S91">$vRangeOrLeft</span> без сохранения пропорций.</td>
+<td><strong>[необязательный]</strong> Используется только если <span class="S91">$vRangeOrLeft</span> – диапазон из нескольких ячеек (по умолчанию <span class="S5">True</span>)<br />
+<span class="S5">True</span> сохраняет соотношение сторон картинки в границах <span class="S91">$vRangeOrLeft</span>.<br />
+<span class="S5">False</span> заполняет <span class="S91">$vRangeOrLeft</span> независимо от исходного соотношения сторон.</td>
 </tr>
 </table>
 
@@ -57,7 +57,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает объект Shape, представляющий добавленное изображение.</td>
+<td style="width:90%">Возвращает объект Shape, представляющий новую картинку.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -65,34 +65,22 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oWorkbook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$vRangeOrLeft</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-4 – ошибка при добавлении изображения.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-5 – файл <span class="S91">$sFile</span> не существует</td>
+<td>1 – <span class="S91">$oWorkbook</span> не является объектом или не является объектом книги<br />
+2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы, либо <span class="S91">$vWorksheet</span> не является объектом листа. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$vRangeOrLeft</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – ошибка при добавлении картинки. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+5 – <span class="S91">$sFile</span> не существует</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Если <span class="S91">$vRangeOrLeft</span> является многоячеечным диапазоном, параметры <span class="S91">$iWidth</span> и <span class="S91">$iHeight</span> игнорируются (чтобы задать размеры, не привязанные к диапазону, укажите одну ячейку в <span class="S91">$vRangeOrLeft</span>).<br />
+<p>Если <span class="S91">$vRangeOrLeft</span> – диапазон из нескольких ячеек, <span class="S91">$iWidth</span> и <span class="S91">$iHeight</span> игнорируются (для задания ширины/высоты независимо от диапазона используйте одну ячейку в <span class="S91">$vRangeOrLeft</span>).<br />
 <br />
-Если задан только один из параметров <span class="S91">$iWidth</span> или <span class="S91">$iHeight</span>, второй (со значением по умолчанию) масштабируется для сохранения пропорций.<br />
-Если заданы оба параметра, изображение принимает указанные размеры независимо от исходных пропорций.<br />
-Если ни <span class="S91">$iWidth</span>, ни <span class="S91">$iHeight</span> не заданы, изображение принимает исходный размер файла.<br />
+Если указано только одно из <span class="S91">$iWidth</span> или <span class="S91">$iHeight</span>, другое (по умолчанию) масштабируется для сохранения исходного соотношения сторон картинки.<br />
+Если указаны оба <span class="S91">$iWidth</span> и <span class="S91">$iHeight</span>, картинка использует эти значения независимо от исходного соотношения сторон.<br />
+Если ни <span class="S91">$iWidth</span> ни <span class="S91">$iHeight</span> не указаны, картинка автоматически масштабируется до размера исходной картинки.<br />
 <br />
-<span class="S91">$bKeepRatio</span> учитывается только при указании многоячеечного диапазона (подробности в описании параметров).<br />
+<span class="S91">$bKeepRatio</span> игнорируется, если не задан диапазон из нескольких ячеек (см. раздел Параметры).<br />
 </p>
 <h2 class="bottom">Пример</h2>
 
@@ -106,8 +94,7 @@
 <span class="S1">; Создать объект приложения и открыть пример рабочей книги</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_PictureAdd Example"</span><span class="S8">,</span> <span class="S7">"Error creating the Excel application object."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
-<span class="S1">; Создаём новую книгу.
-</span><br>
+<span class="S1">; Создаём новую книгу.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oWorkbook</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_BookNew.htm"><span class="S15">_Excel_BookNew</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_PictureAdd Example"</span><span class="S8">,</span> <span class="S7">"Error creating workbook."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -115,15 +102,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Вставляем изображение в диапазон ячеек с изменением размера. Пропорции сохраняются.
-</span><br>
+<span class="S1">; Вставляем изображение в диапазон ячеек с изменением размера. Пропорции сохраняются.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPicture</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">"_Excel.jpg"</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_PictureAdd.htm"><span class="S15">_Excel_PictureAdd</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$sPicture</span><span class="S8">,</span> <span class="S7">"B2:D8"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_PictureAdd Example 1"</span><span class="S8">,</span> <span class="S7">"Error inserting picture."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_PictureAdd Example 1"</span><span class="S8">,</span> <span class="S7">"Picture inserted/resized at 'B2:D8', aspect ratio retained."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставляем изображение без изменения размера.
-</span><br>
+<span class="S1">; Вставляем изображение без изменения размера.</span><br>
 <a class="le" href="../libfunctions/_Excel_PictureAdd.htm"><span class="S15">_Excel_PictureAdd</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$sPicture</span><span class="S8">,</span> <span class="S7">"F8"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_PictureAdd Example 2"</span><span class="S8">,</span> <span class="S7">"Error inserting picture."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_PictureAdd Example 2"</span><span class="S8">,</span> <span class="S7">"Picture inserted at 'F8' without resizing."</span><span class="S8">)</span><br>
