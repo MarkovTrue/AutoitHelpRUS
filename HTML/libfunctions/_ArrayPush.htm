@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayPush</h1>
-<p class="funcdesc">Добавляет новые значения без увеличения размера массива: вставляет новое значение в конец и удаляет первый элемент – или наоборот.</p>
+<p class="funcdesc">Добавляет новые значения без увеличения размера массива путём вставки нового значения в конец и удаления первого элемента, или наоборот.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayPush.htm"><span class="S15">_ArrayPush</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$vValue</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iDirection</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,13 +23,13 @@
 </tr>
 <tr>
 <td><span class="S91">$vValue</span></td>
-<td>Добавляемое значение или значения (можно передать массивом).</td>
+<td>Добавляемое значение или значения (может быть массивом).</td>
 </tr>
 <tr>
 <td><span class="S91">$iDirection</span></td>
-<td><strong>[необязательный]</strong> Направление сдвига существующих элементов:<br />
-0 = сдвиг влево, добавление в конец (по умолчанию)<br />
-1 = сдвиг вправо, добавление в начало</td>
+<td><strong>[необязательный]</strong> Направление сдвига существующих элементов массива:<br />
+0 = Сдвиг влево (добавление в конец) (по умолчанию)<br />
+1 = Сдвиг вправо (добавление в начало).</td>
 </tr>
 </table>
 
@@ -45,16 +45,16 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив<br />
-2&nbsp;– <span class="S91">$vValue</span> – массив, размер которого превышает <span class="S91">$aArray</span><br />
-3&nbsp;– <span class="S91">$aArray</span> не 1D массив</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$vValue</span> является массивом, размер которого превышает <span class="S91">$aArray</span><br />
+3 – <span class="S91">$aArray</span> не является одномерным массивом</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Функция используется для непрерывного обновления данных в массиве без его роста.<br />
+<p>Функция используется для непрерывного обновления данных в массиве без его увеличения.<br />
 Она сохраняет все значения внутри массива (по принципу истории), вытесняя первый или последний элемент в зависимости от выбранного направления.<br />
-Аналог команды push в ассемблере.<br />
+Аналогична команде push в языке ассемблера.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ArrayAdd.htm">_ArrayAdd</a>, <a href="_ArrayConcatenate.htm">_ArrayConcatenate</a>, <a href="_ArrayDelete.htm">_ArrayDelete</a>, <a href="_ArrayInsert.htm">_ArrayInsert</a>, <a href="_ArrayPop.htm">_ArrayPop</a></p>
