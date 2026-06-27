@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_Export</h1>
-<p class="funcdesc">Экспортирует книгу, рабочий лист, диаграмму или диапазон в формат PDF или XPS.</p>
+<p class="funcdesc">Экспортирует книгу, лист, диаграмму или диапазон в PDF или XPS.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_Export.htm"><span class="S15">_Excel_Export</span></a> <span class="S8">(</span> <span class="S9">$oExcel</span><span class="S8">,</span> <span class="S9">$vObject</span><span class="S8">,</span> <span class="S9">$sFileName</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iType</span> <span class="S8">=</span> <span class="S9">$xlTypePDF</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iQuality</span> <span class="S8">=</span> <span class="S9">$xlQualityStandard</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bIncludeProperties</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFrom</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iTo</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bOpenAfterPublish</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$vObject</span></td>
-<td>Объект книги, листа, диаграммы или диапазона для экспорта в PDF или XPS. Диапазон можно задать также в формате A1.</td>
+<td>Объект книги, листа, диаграммы или диапазона для экспорта в PDF или XPS. Диапазон можно также задать в формате A1.</td>
 </tr>
 <tr>
 <td><span class="S91">$sFileName</span></td>
@@ -31,27 +31,27 @@
 </tr>
 <tr>
 <td><span class="S91">$iType</span></td>
-<td><strong>[необязательный]</strong> Константа XlFixedFormatType: <span class="S91">$xlTypePDF</span> или <span class="S91">$xlTypeXPS</span> (по умолчанию <span class="S91">$xlTypePDF</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S91">$xlTypePDF</span> или <span class="S91">$xlTypeXPS</span> из перечисления XlFixedFormatType (по умолчанию <span class="S91">$xlTypePDF</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$iQuality</span></td>
-<td><strong>[необязательный]</strong> Константа XlFixedFormatQuality, задающая качество (по умолчанию <span class="S91">$xlQualityStandard</span>).</td>
+<td><strong>[необязательный]</strong> Любое значение из перечисления XlFixedFormatQuality (по умолчанию <span class="S91">$xlQualityStandard</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bIncludeProperties</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – включить свойства документа в экспортируемый файл (по умолчанию <span class="S5">True</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> включает свойства документа (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$iFrom</span></td>
-<td><strong>[необязательный]</strong> Номер страницы, с которой начинается публикация (по умолчанию Default – с начала документа).</td>
+<td><strong>[необязательный]</strong> Номер страницы, с которой начинать экспорт (по умолчанию Default = начало).</td>
 </tr>
 <tr>
 <td><span class="S91">$iTo</span></td>
-<td><strong>[необязательный]</strong> Номер страницы, на которой заканчивается публикация (по умолчанию Default – последняя страница).</td>
+<td><strong>[необязательный]</strong> Номер страницы, на которой заканчивается экспорт (по умолчанию Default = конец).</td>
 </tr>
 <tr>
 <td><span class="S91">$bOpenAfterPublish</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – открыть файл в программе просмотра после публикации (по умолчанию <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> открывает файл в просмотрщике после экспорта (по умолчанию <span class="S5">False</span>).</td>
 </tr>
 </table>
 
@@ -67,14 +67,10 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oExcel</span> не является объектом или объектом приложения<br />
-2 – <span class="S91">$vObject</span> не является объектом или недопустимым диапазоном A1; <span class="S61">@error</span> содержит код COM-ошибки<br />
-3 – <span class="S91">$sFileName</span> пустой<br />
-4 – ошибка экспорта объекта.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки метода ExportAsFixedFormat.</td>
+<td>1 – <span class="S91">$oExcel</span> не является объектом или не является объектом приложения<br />
+2 – <span class="S91">$vObject</span> не является объектом или недопустимый диапазон A1. <span class="S61">@error</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$sFileName</span> пуста<br />
+4 – ошибка при экспорте объекта. <span class="S61">@extended</span> содержит COM-код ошибки, возвращённый методом ExportAsFixedFormat</td>
 </tr>
 </table>
 
