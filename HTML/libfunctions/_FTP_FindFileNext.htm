@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_FTP_FindFileNext</h1>
-<p class="funcdesc">Ищет следующий файл на FTP-сервере.</p>
+<p class="funcdesc">Находит следующий файл на FTP-сервере.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FTPEx.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_FTP_FindFileNext.htm"><span class="S15">_FTP_FindFileNext</span></a> <span class="S8">(</span> <span class="S9">$hFTPFind</span> <span class="S8">)</span></p>
 
@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$hFTPFind</span></td>
-<td style="width:85%">Дескриптор, возвращённый функцией <a href="_FTP_FindFileFirst.htm"><span class="S15">_FTP_FindFileFirst</span><span class="S8">()</span></a>.</td>
+<td style="width:85%">Дескриптор, возвращённый <a class="le" href="_FTP_FindFileFirst.htm"><span class="S15">_FTP_FindFileFirst</span></a><span class="S8">()</span>.</td>
 </tr>
 </table>
 
@@ -28,18 +28,18 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив:<br />
-[0]&nbsp;– количество элементов<br />
-[1]&nbsp;– атрибуты файла<br />
-[2]&nbsp;– LOWORD времени создания<br />
-[3]&nbsp;– HIWORD времени создания<br />
-[4]&nbsp;– LOWORD времени доступа<br />
-[5]&nbsp;– HIWORD времени доступа<br />
-[6]&nbsp;– LOWORD времени последней записи<br />
-[7]&nbsp;– HIWORD времени последней записи<br />
-[8]&nbsp;– старшая часть размера файла<br />
-[9]&nbsp;– младшая часть размера файла<br />
-[10]&nbsp;– имя файла<br />
-[11]&nbsp;– альтернативное имя</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – количество элементов<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – атрибуты файла<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – младшая часть времени создания<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – старшая часть времени создания<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> – младшая часть времени доступа<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> – старшая часть времени доступа<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – младшая часть времени последней записи<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> – старшая часть времени последней записи<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span> – старшая часть размера файла<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">9</span><span class="S8">]</span> – младшая часть размера файла<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span> – имя файла<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">11</span><span class="S8">]</span> – альтернативное имя</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
