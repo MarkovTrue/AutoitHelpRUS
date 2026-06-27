@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_FileWriteLog</h1>
-<p class="funcdesc">Записывает текущую дату, время и указанный текст в файл журнала.</p>
+<p class="funcdesc">Записывает текущие дату, время и указанный текст в файл журнала.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;File.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_FileWriteLog.htm"><span class="S15">_FileWriteLog</span></a> <span class="S8">(</span> <span class="S9">$sLogPath</span><span class="S8">,</span> <span class="S9">$sLogMsg</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlag</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$sLogPath</span></td>
-<td style="width:85%">Путь к файлу журнала или дескриптор файла, возвращённый функцией <a href="../functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a>.</td>
+<td style="width:85%">Путь к файлу для записи или дескриптор файла, возвращённый <a class="le" href="../functions/FileOpen.htm"><span class="S4">FileOpen</span></a><span class="S8">()</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$sLogMsg</span></td>
@@ -27,9 +27,9 @@
 </tr>
 <tr>
 <td><span class="S91">$iFlag</span></td>
-<td><strong>[необязательный]</strong> Определяет, куда записывать <span class="S91">$sLogMsg</span>: в конец или в начало файла.<br />
-Если <span class="S91">$iFlag</span> = -1 (по умолчанию), сообщение добавляется в конец файла.<br />
-В противном случае – в начало файла.</td>
+<td><strong>[необязательный]</strong> Флаг, определяющий, записывать <span class="S91">$sLogMsg</span> в конец файла или в начало.<br />
+Если <span class="S91">$iFlag</span> = -1 (по умолчанию), <span class="S91">$sLogMsg</span> записывается в конец файла.<br />
+Иначе <span class="S91">$sLogMsg</span> записывается в начало файла.</td>
 </tr>
 </table>
 
@@ -45,12 +45,12 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – ошибка при открытии указанного файла<br />
-2&nbsp;– невозможно записать в файл</td>
+<td>1 – ошибка открытия указанного файла<br />
+2 – не удалось записать в файл</td>
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>1 при попытке записать в начало файла через дескриптор</td>
+<td>Возвращает 1 при попытке записать в начало файла через дескриптор.</td>
 </tr>
 </table>
 
@@ -59,17 +59,14 @@
 <h3>Пример 1</h3>
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Открыть файл журнала для записи.
-</span><br>
+<span class="S1">; Открыть файл журнала для записи.</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;File.au3&gt;</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hFile</span> <span class="S8">=</span> <a class="le" href="../functions/FileOpen.htm"><span class="S4">FileOpen</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\Example.log"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
-<a class="le" href="../libfunctions/_FileWriteLog.htm"><span class="S15">_FileWriteLog</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">,</span> <span class="S7">"Text 1"</span><span class="S8">)</span>&nbsp;<span class="S1">; Записать в журнал, передав дескриптор, возвращённый FileOpen.
-</span><br>
-<a class="le" href="../functions/FileClose.htm"><span class="S4">FileClose</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">)</span>&nbsp;<span class="S1">; Закрыть дескриптор, чтобы освободить файл.
-</span><br>
+<a class="le" href="../libfunctions/_FileWriteLog.htm"><span class="S15">_FileWriteLog</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">,</span> <span class="S7">"Text 1"</span><span class="S8">)</span>&nbsp;<span class="S1">; Записать в журнал, передав дескриптор, возвращённый FileOpen.</span><br>
+<a class="le" href="../functions/FileClose.htm"><span class="S4">FileClose</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">)</span>&nbsp;<span class="S1">; Закрыть дескриптор, чтобы освободить файл.</span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\_FileWriteLog.au3,"></object>
 
