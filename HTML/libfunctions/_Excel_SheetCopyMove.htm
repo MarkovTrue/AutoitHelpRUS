@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_SheetCopyMove</h1>
-<p class="funcdesc">Копирует или перемещает указанный лист до или после заданного листа в той же или другой книге.</p>
+<p class="funcdesc">Копирует или перемещает указанный лист перед или после другого листа в одной или разных книгах.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_SheetCopyMove.htm"><span class="S15">_Excel_SheetCopyMove</span></a> <span class="S8">(</span> <span class="S9">$oSourceBook</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vSourceSheet</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$oTargetBook</span> <span class="S8">=</span> <span class="S9">$oSourceBook</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vTargetSheet</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bBefore</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bCopy</span> <span class="S8">=</span> <span class="S5">True</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -19,27 +19,27 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$oSourceBook</span></td>
-<td style="width:85%">Объект книги с исходным листом.</td>
+<td style="width:85%">Объект исходной книги, из которой копируется или перемещается лист.</td>
 </tr>
 <tr>
 <td><span class="S91">$vSourceSheet</span></td>
-<td><strong>[необязательный]</strong> Имя, индекс или объект копируемого/перемещаемого листа. При значении Default используется активный лист (по умолчанию Default).</td>
+<td><strong>[необязательный]</strong> Имя, индекс или объект копируемого или перемещаемого листа (по умолчанию Default = активный лист).</td>
 </tr>
 <tr>
 <td><span class="S91">$oTargetBook</span></td>
-<td><strong>[необязательный]</strong> Объект книги-назначения (по умолчанию Default = <span class="S91">$oSourceBook</span>).</td>
+<td><strong>[необязательный]</strong> Объект целевой книги, в которую копируется или перемещается лист (по умолчанию Default = <span class="S91">$oSourceBook</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$vTargetSheet</span></td>
-<td><strong>[необязательный]</strong> Имя, индекс или объект листа, перед/после которого будет помещён источник (по умолчанию Default = первый лист).</td>
+<td><strong>[необязательный]</strong> Скопированный или перемещённый лист располагается перед или после этого листа (имя, индекс или объект) (по умолчанию Default = первый лист).</td>
 </tr>
 <tr>
 <td><span class="S91">$bBefore</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – поместить лист перед <span class="S91">$vTargetSheet</span>, <span class="S5">False</span> – после (по умолчанию <span class="S5">True</span>).</td>
+<td><strong>[необязательный]</strong> Копируемый или перемещаемый лист размещается перед <span class="S91">$vTargetSheet</span> при <span class="S5">True</span> и после при <span class="S5">False</span> (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bCopy</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – копировать лист, <span class="S5">False</span> – переместить (по умолчанию <span class="S5">True</span>).</td>
+<td><strong>[необязательный]</strong> При <span class="S5">True</span> копирует лист, при <span class="S5">False</span> перемещает (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 </table>
 
@@ -47,7 +47,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает объект скопированного/перемещённого листа.</td>
+<td style="width:90%">Возвращает объект скопированного или перемещённого листа.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -55,23 +55,11 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oSourceBook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vSourceSheet</span> недопустимы либо <span class="S91">$vSourceSheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$oTargetBook</span> не является объектом или объектом книги<br />
-4 – имя или индекс <span class="S91">$vTargetSheet</span> недопустимы либо <span class="S91">$vTargetSheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-5 – ошибка при копировании/перемещении листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+<td>1 – <span class="S91">$oSourceBook</span> не является объектом или не является объектом книги<br />
+2 – <span class="S91">$oTargetBook</span> не является объектом или не является объектом книги<br />
+3 – указанный исходный лист не существует. Имя или индекс недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – указанный целевой лист не существует. Имя или индекс недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+5 – ошибка при копировании или перемещении листа. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
@@ -91,8 +79,7 @@
 <span class="S1">; Создать объект приложения</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oExcel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetCopyMove Example 1"</span><span class="S8">,</span> <span class="S7">"Error creating the Excel application object."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
-<span class="S1">; Копируем лист 1 перед листом 3 в той же книге.
-</span><br>
+<span class="S1">; Копируем лист 1 перед листом 3 в той же книге.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oWorkbook1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_BookOpen.htm"><span class="S15">_Excel_BookOpen</span></a><span class="S8">(</span><span class="S9">$oExcel</span><span class="S8">,</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">"_Excel1.xls"</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetCopyMove Example 1"</span><span class="S8">,</span> <span class="S7">"Error opening workbook '"</span> <span class="S8">&amp;</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">"_Excel1.xls'."</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -100,8 +87,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Перемещаем активный лист после последнего листа в той же книге.
-</span><br>
+<span class="S1">; Перемещаем активный лист после последнего листа в той же книге.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oCopiedSheet</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_SheetCopyMove.htm"><span class="S15">_Excel_SheetCopyMove</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetCopyMove Example 1"</span><span class="S8">,</span> <span class="S7">"Error copying sheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <span class="S1">; Установить имя нового листа</span><br>
@@ -130,8 +116,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Открываем 2 книги.
-</span><br>
+<span class="S1">; Открываем 2 книги.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oMovedSheet</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_SheetCopyMove.htm"><span class="S15">_Excel_SheetCopyMove</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetCopyMove Example 2"</span><span class="S8">,</span> <span class="S7">"Error moving sheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <span class="S1">; Установить имя нового листа</span><br>
@@ -167,8 +152,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Копируем активный лист из книги 1 после последнего листа в книге 2.
-</span><br>
+<span class="S1">; Копируем активный лист из книги 1 после последнего листа в книге 2.</span><br>
 <a class="le" href="../libfunctions/_Excel_SheetCopyMove.htm"><span class="S15">_Excel_SheetCopyMove</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S9">$oWorkbook2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetCopyMove Example 3"</span><span class="S8">,</span> <span class="S7">"Error copying sheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetCopyMove Example 3"</span><span class="S8">,</span> <span class="S7">"Workbook 1 Sheet 3 copied to Workbook2 after sheet 3"</span><span class="S8">)</span><br>
@@ -201,8 +185,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Перемещаем лист 1 книги 1 после листа 2 книги 2.
-</span><br>
+<span class="S1">; Перемещаем лист 1 книги 1 после листа 2 книги 2.</span><br>
 <a class="le" href="../libfunctions/_Excel_SheetCopyMove.htm"><span class="S15">_Excel_SheetCopyMove</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$oWorkbook2</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetCopyMove Example 4"</span><span class="S8">,</span> <span class="S7">"Error moving sheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetCopyMove Example 4"</span><span class="S8">,</span> <span class="S7">"Workbook 1 Sheet 1 moved to Workbook2 before sheet 1"</span><span class="S8">)</span><br>
