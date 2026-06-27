@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_Close</h1>
-<p class="funcdesc">Закрывает все рабочие листы и экземпляр приложения Excel.</p>
+<p class="funcdesc">Закрывает все листы и экземпляр приложения Excel.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_Close.htm"><span class="S15">_Excel_Close</span></a> <span class="S8">(</span> <span class="S9">$oExcel</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bSaveChanges</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bForceClose</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,11 +23,11 @@
 </tr>
 <tr>
 <td><span class="S91">$bSaveChanges</span></td>
-<td><strong>[необязательный]</strong> Определяет, сохранять ли изменённые рабочие листы перед закрытием (по умолчанию <span class="S5">True</span>).</td>
+<td><strong>[необязательный]</strong> Указывает, следует ли сохранять изменённые листы перед закрытием (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$bForceClose</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – закрыть приложение Excel, даже если оно не было запущено функцией <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span> (по умолчанию <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> При <span class="S5">True</span> закрывает Excel даже если он был запущен не через <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span> (по умолчанию <span class="S5">False</span>).</td>
 </tr>
 </table>
 
@@ -43,20 +43,16 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oExcel</span> не является объектом или объектом приложения<br />
-2 – ошибка метода Application.Quit;<br />
-3 – ошибка метода Application.Save.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+<td>1 – <span class="S91">$oExcel</span> не является объектом или не является объектом приложения<br />
+2 – ошибка, возвращённая методом Application.Quit. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – ошибка, возвращённая методом Application.Save. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
 <p>Если Excel был запущен функцией <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span>, то <a class="le" href="_Excel_Close.htm"><span class="S15">_Excel_Close</span></a><span class="S8">()</span> закрывает все книги<br />
-(включая открытые вручную пользователем для данного экземпляра после <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span>) и завершает указанный экземпляр Excel.<br />
-Если <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span> подключилась к уже запущенному экземпляру Excel, для того же эффекта необходимо установить <span class="S91">$bForceClose</span> в <span class="S5">True</span>.<br />
+(даже те, что пользователь открыл вручную после <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span>) и закрывает указанный экземпляр Excel.<br />
+Если <a class="le" href="_Excel_Open.htm"><span class="S15">_Excel_Open</span></a><span class="S8">()</span> подключилась к уже запущенному экземпляру, для закрытия нужно установить <span class="S91">$bForceClose</span> = <span class="S5">True</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_Excel_Open.htm">_Excel_Open</a></p>
