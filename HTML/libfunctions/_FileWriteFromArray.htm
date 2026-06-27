@@ -19,11 +19,11 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$sFilePath</span></td>
-<td style="width:85%">Путь к файлу для записи или дескриптор файла, возвращённый функцией <a href="../functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a>.</td>
+<td style="width:85%">Путь к файлу для записи или дескриптор файла, возвращённый <a class="le" href="../functions/FileOpen.htm"><span class="S4">FileOpen</span></a><span class="S8">()</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$aArray</span></td>
-<td>Массив, который нужно записать в файл.</td>
+<td>Массив для записи в указанный файл.</td>
 </tr>
 <tr>
 <td><span class="S91">$iBase</span></td>
@@ -31,11 +31,11 @@
 </tr>
 <tr>
 <td><span class="S91">$iUbound</span></td>
-<td><strong>[необязательный]</strong> Индекс последнего записываемого элемента. По умолчанию – весь массив.</td>
+<td><strong>[необязательный]</strong> Последняя запись, которую нужно записать в файл. По умолчанию весь массив.</td>
 </tr>
 <tr>
 <td><span class="S91">$sDelimiter</span></td>
-<td><strong>[необязательный]</strong> Символ(ы)-разделитель для двумерных массивов. По умолчанию "|".</td>
+<td><strong>[необязательный]</strong> Символ-разделитель для двумерных массивов. По умолчанию "|".</td>
 </tr>
 </table>
 
@@ -51,17 +51,17 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – ошибка при открытии указанного файла<br />
-2&nbsp;– <span class="S91">$aArray</span> не является массивом<br />
-3&nbsp;– ошибка записи в файл<br />
-4&nbsp;– <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
-5&nbsp;– начальный индекс больше параметра <span class="S91">$iUbound</span></td>
+<td>1 – ошибка открытия указанного файла<br />
+2 – <span class="S91">$aArray</span> не является массивом<br />
+3 – ошибка записи в файл<br />
+4 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+5 – начальный индекс больше параметра <span class="S91">$iUbound</span></td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Если передан строковый путь, файл будет перезаписан и закрыт.<br />
-Для других режимов записи – например, дозаписи или Unicode-форматов – откройте файл через <a href="../functions/FileOpen.htm"><span class="S4">FileOpen</span><span class="S8">()</span></a> и передайте дескриптор.<br />
+<p>Если передан строковый путь, файл перезаписывается и закрывается.<br />
+Для других режимов записи, например добавления или форматов Unicode, сначала откройте файл через <a class="le" href="../functions/FileOpen.htm"><span class="S4">FileOpen</span></a><span class="S8">()</span> и передайте дескриптор файла.<br />
 Если передан дескриптор файла, после записи файл остаётся открытым.<br />
 </p>
 <h2>См. также</h2>
@@ -73,16 +73,13 @@
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;File.au3&gt;</span><br>
 <br>
-<span class="S1">; Получить список всех файлов в папке текущего скрипта.
-</span><br>
+<span class="S1">; Получить список всех файлов в папке текущего скрипта.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aScriptDir</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArray.htm"><span class="S15">_FileListToArray</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создать файл в каталоге %TEMP% пользователя.
-</span><br>
+<span class="S1">; Создать файл в каталоге %TEMP% пользователя.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFilePath</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\Examples.txt"</span><br>
 <br>
-<span class="S1">; Записать массив в файл, передав имя файла.
-</span><br>
+<span class="S1">; Записать массив в файл, передав имя файла.</span><br>
 <a class="le" href="../libfunctions/_FileWriteFromArray.htm"><span class="S15">_FileWriteFromArray</span></a><span class="S8">(</span><span class="S9">$sFilePath</span><span class="S8">,</span> <span class="S9">$aScriptDir</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
 <span class="S1">; Отобразить файл.</span><br>
