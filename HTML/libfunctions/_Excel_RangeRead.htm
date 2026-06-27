@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$vWorksheet</span></td>
-<td><strong>[необязательный]</strong> Имя, индекс или объект читаемого листа. При значении Default используется активный лист (по умолчанию Default).</td>
+<td><strong>[необязательный]</strong> Имя, индекс или объект листа. При значении Default используется активный лист (по умолчанию Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$vRange</span></td>
@@ -31,15 +31,15 @@
 </tr>
 <tr>
 <td><span class="S91">$iReturn</span></td>
-<td><strong>[необязательный]</strong> Что возвращать из ячейки:<br />
+<td><strong>[необязательный]</strong> Что вернуть из указанной ячейки:<br />
 1 – значение (по умолчанию)<br />
 2 – формула<br />
 3 – отображаемый текст<br />
-4 – Value2 (отличается от Value тем, что не использует типы Currency и Date).</td>
+4 – Value2. Отличие Value2 от Value в том, что свойство Value2 не использует типы данных Currency и Date.</td>
 </tr>
 <tr>
 <td><span class="S91">$bForceFunc</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – принудительно использовать функцию <a class="le" href="_ArrayTranspose.htm"><span class="S15">_ArrayTranspose</span></a><span class="S8">()</span> вместо метода транспонирования Excel (по умолчанию <span class="S5">False</span>).<br />
+<td><strong>[необязательный]</strong> <span class="S5">True</span> заставляет использовать функцию <a class="le" href="_ArrayTranspose.htm"><span class="S15">_ArrayTranspose</span></a><span class="S8">()</span> вместо метода Excel transpose (по умолчанию <span class="S5">False</span>).<br />
 Подробности см. раздел Примечания.</td>
 </tr>
 </table>
@@ -48,7 +48,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает данные из указанных ячеек: строку для одной ячейки, одномерный или двумерный массив с отсчётом от нуля для диапазона (см. раздел Примечания).</td>
+<td style="width:90%">Возвращает данные из указанных ячеек. Для одной ячейки – строку, для диапазона ячеек – одномерный или двумерный массив с нулевым индексом (см. раздел Примечания).</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -56,40 +56,24 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oWorkbook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$vRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-4 – недопустимый параметр <span class="S91">$iReturn</span>: должен быть от 1 до 4<br />
-5 – ошибка при чтении данных методом транспонирования.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
+<td>1 – <span class="S91">$oWorkbook</span> не является объектом или не является объектом книги<br />
+2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы, либо <span class="S91">$vWorksheet</span> не является объектом листа. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$vRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – параметр <span class="S91">$iReturn</span> недопустим. Должен быть от 1 до 4<br />
+5 – ошибка при чтении данных методом transpose. <span class="S61">@extended</span> содержит COM-код ошибки<br />
 6 – превышен максимальный размер массива AutoIt (2^24 = 16 777 216 элементов)<br />
-7 – ошибка при чтении данных функцией <a class="le" href="_ArrayTranspose.htm"><span class="S15">_ArrayTranspose</span></a><span class="S8">()</span>.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-8 – <span class="S91">$iReturn</span> = 3 возвращает только одну ячейку; <span class="S91">$vRange</span> содержит более одной ячейки</td>
+7 – ошибка при чтении данных функцией <a class="le" href="_ArrayTranspose.htm"><span class="S15">_ArrayTranspose</span></a><span class="S8">()</span>. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+8 – при <span class="S91">$iReturn</span> = 3 можно вернуть только одну ячейку, а <span class="S91">$vRange</span> задаёт больше одной.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Параметр 2 игнорируется, если параметр 3 задаёт диапазон на листе, отличном от указанного в параметре 2.<br />
-Метод транспонирования Excel имеет недокументированное ограничение на количество ячеек (зависит от версии Excel).<br />
-При транспонировании более 65 535 ячеек параметр <span class="S91">$bForceFunc</span> принудительно устанавливается в <span class="S5">True</span>.<br />
-Метод транспонирования Excel не поддерживает ячейки с более чем 255 символами; установите <span class="S91">$bForceFunc</span> = <span class="S5">True</span> для обхода этого ограничения.<br />
-<span class="S91">$iReturn</span> = 3 позволяет получить отображаемый текст только одной ячейки – это ограничение Excel.<br />
-Если функция возвращает массив, при диапазоне из одного столбца возвращается одномерный массив, в остальных случаях – двумерный.<br />
+<p>Параметр 2 игнорируется, если параметр 3 задаёт диапазон на другом листе, чем указано в параметре 2.<br />
+Метод Excel transpose имеет недокументированное ограничение на число транспонируемых ячеек (зависит от версии Excel).<br />
+При транспонировании более 65535 ячеек <span class="S91">$bForceFunc</span> принудительно устанавливается в <span class="S5">True</span>.<br />
+Метод Excel transpose не поддерживает ячейки длиннее 255 символов. Чтобы обойти это ограничение, задайте <span class="S91">$bForceFunc</span> = <span class="S5">True</span>.<br />
+При <span class="S91">$iReturn</span> = 3 можно получить отображаемый текст только одной ячейки. Это ограничение Excel.<br />
+Если функция возвращает массив, то это одномерный массив, когда <span class="S91">$vRange</span> охватывает только один столбец, иначе двумерный.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_Excel_RangeWrite.htm">_Excel_RangeWrite</a></p>
@@ -114,8 +98,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Читаем данные из одной ячейки на активном листе указанной книги.
-</span><br>
+<span class="S1">; Читаем данные из одной ячейки на активном листе указанной книги.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sResult</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_RangeRead.htm"><span class="S15">_Excel_RangeRead</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"A1"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeRead Example 1"</span><span class="S8">,</span> <span class="S7">"Error reading from workbook."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeRead Example 1"</span><span class="S8">,</span> <span class="S7">"Data successfully read."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Value of cell A1: "</span> <span class="S8">&amp;</span> <span class="S9">$sResult</span><span class="S8">)</span><br>
@@ -141,8 +124,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Читаем формулы из диапазона ячеек на листе 2 указанной книги.
-</span><br>
+<span class="S1">; Читаем формулы из диапазона ячеек на листе 2 указанной книги.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aResult</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_RangeRead.htm"><span class="S15">_Excel_RangeRead</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S7">"A1:C1"</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeRead Example 2"</span><span class="S8">,</span> <span class="S7">"Error reading from workbook."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeRead Example 2"</span><span class="S8">,</span> <span class="S7">"Data successfully read."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Please click 'OK' to display the formulas of cells A1:C1 of sheet 2."</span><span class="S8">)</span><br>
@@ -169,8 +151,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Читаем формулы из диапазона ячеек (все заполненные ячейки столбца A).
-</span><br>
+<span class="S1">; Читаем формулы из диапазона ячеек (все заполненные ячейки столбца A).</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aResult</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_RangeRead.htm"><span class="S15">_Excel_RangeRead</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$oWorkbook</span>.<span class="Scom">ActiveSheet</span>.<span class="Scom">Usedrange</span>.<span class="Scom">Columns</span><span class="S8">(</span><span class="S7">"A:A"</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeRead Example 3"</span><span class="S8">,</span> <span class="S7">"Error reading from workbook."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeRead Example 3"</span><span class="S8">,</span> <span class="S7">"Data successfully read."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Please click 'OK' to display all formulas in column A."</span><span class="S8">)</span><br>
