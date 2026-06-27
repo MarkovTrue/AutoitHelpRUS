@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayMaxIndex</h1>
-<p class="funcdesc">Возвращает индекс элемента с наибольшим значением в одномерном 1D или двумерном 2D массиве.</p>
+<p class="funcdesc">Возвращает индекс элемента с наибольшим значением в одномерном или двумерном массиве.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayMaxIndex.htm"><span class="S15">_ArrayMaxIndex</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iCompNumeric</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iSubItem</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -29,15 +29,15 @@
 </tr>
 <tr>
 <td><span class="S91">$iStart</span></td>
-<td><strong>[необязательный]</strong> Индекс массива для начала поиска</td>
+<td><strong>[необязательный]</strong> Индекс массива для начала поиска.</td>
 </tr>
 <tr>
 <td><span class="S91">$iEnd</span></td>
-<td><strong>[необязательный]</strong> Индекс массива для окончания поиска</td>
+<td><strong>[необязательный]</strong> Индекс массива для окончания поиска.</td>
 </tr>
 <tr>
 <td><span class="S91">$iSubItem</span></td>
-<td><strong>[необязательный]</strong> Столбец массива для поиска</td>
+<td><strong>[необязательный]</strong> Столбец массива для поиска.</td>
 </tr>
 </table>
 
@@ -53,12 +53,12 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив или пуст<br />
-2&nbsp;– <span class="S91">$aArray</span> не 1D и не 2D массив<br />
-3&nbsp;– <span class="S91">$iStart</span> или <span class="S91">$iEnd</span> вне границ массива<br />
-4&nbsp;– <span class="S91">$iStart</span> больше <span class="S91">$iEnd</span><br />
-5&nbsp;– <span class="S91">$aArray</span> пуст<br />
-6&nbsp;– <span class="S91">$iSubItem</span> вне границ массива</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом или пуст<br />
+2 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+3 – <span class="S91">$iStart</span> или <span class="S91">$iEnd</span> выходят за границы массива<br />
+4 – <span class="S91">$iStart</span> больше <span class="S91">$iEnd</span><br />
+5 – <span class="S91">$aArray</span> пуст<br />
+6 – <span class="S91">$iSubItem</span> выходит за границы массива</td>
 </tr>
 </table>
 
