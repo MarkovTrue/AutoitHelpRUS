@@ -69,31 +69,11 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$oWorksheet</span> не является объектом или объектом листа<br />
-2 – <span class="S91">$vSourceRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$vTargetRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-4 – ошибка при вставке ячеек.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-5 – ошибка при вырезании ячеек.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-6 – ошибка при копировании ячеек.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
+2 – <span class="S91">$vSourceRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$vTargetRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – ошибка при вставке ячеек. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+5 – ошибка при вырезании ячеек. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+6 – ошибка при копировании ячеек. <span class="S61">@extended</span> содержит COM-код ошибки<br />
 7 – <span class="S91">$vSourceRange</span> и <span class="S91">$vTargetRange</span> не могут одновременно быть равны Default</td>
 </tr>
 </table>
@@ -127,10 +107,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Копируем диапазон из 3 строк и 2 столбцов на активном листе.
-</span><br>
-<span class="S1">; Передаём исходный диапазон как объект.
-</span><br>
+<span class="S1">; Копируем диапазон из 3 строк и 2 столбцов на активном листе.</span><br>
+<span class="S1">; Передаём исходный диапазон как объект.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oRange</span> <span class="S8">=</span> <span class="S9">$oWorkbook1</span>.<span class="Scom">ActiveSheet</span>.<span class="Scom">Range</span><span class="S8">(</span><span class="S7">"I2:J4"</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span>.<span class="Scom">ActiveSheet</span><span class="S8">,</span> <span class="S9">$oRange</span><span class="S8">,</span> <span class="S7">"G7"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example 1"</span><span class="S8">,</span> <span class="S7">"Error copying cells."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -164,8 +142,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Копируем одну ячейку из другой книги. Передаём исходный диапазон как объект.
-</span><br>
+<span class="S1">; Копируем одну ячейку из другой книги. Передаём исходный диапазон как объект.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oRange</span> <span class="S8">=</span> <span class="S9">$oWorkbook2</span>.<span class="Scom">Worksheets</span><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span>.<span class="Scom">Range</span><span class="S8">(</span><span class="S7">"A1"</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span>.<span class="Scom">Worksheets</span><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$oRange</span><span class="S8">,</span> <span class="S7">"G15"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example 2"</span><span class="S8">,</span> <span class="S7">"Error copying cells."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -192,16 +169,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Копируем 2 строки (1 и 2) с листа 2 в буфер обмена.
-</span><br>
+<span class="S1">; Копируем 2 строки (1 и 2) с листа 2 в буфер обмена.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span>.<span class="Scom">Worksheets</span><span class="S8">(</span><span class="S3">2</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">"1:2"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example 3"</span><span class="S8">,</span> <span class="S7">"Error copying rows."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example 3"</span><span class="S8">,</span> <span class="S7">"Rows 1+2 successfully copied from worksheet 2 to the clipboard."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставляем диапазон из буфера обмена (из примера 3) на активный лист.
-</span><br>
-<span class="S1">; Вставляются только значения без форматирования.
-</span><br>
+<span class="S1">; Вставляем диапазон из буфера обмена (из примера 3) на активный лист.</span><br>
+<span class="S1">; Вставляются только значения без форматирования.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"1:1"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlPasteValues</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example 4"</span><span class="S8">,</span> <span class="S7">"Error copying rows."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example 4"</span><span class="S8">,</span> <span class="S7">"2 Rows successfully pasted from the clipboard to row 1."</span><span class="S8">)</span><br>
@@ -227,13 +201,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Вставляем формат ячейки в другие ячейки.
-</span><br>
-<a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S7">"A1"</span><span class="S8">)</span>&nbsp;<span class="S1">; Копируем ячейку в буфер обмена.
-</span><br>
+<span class="S1">; Вставляем формат ячейки в другие ячейки.</span><br>
+<a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S7">"A1"</span><span class="S8">)</span>&nbsp;<span class="S1">; Копируем ячейку в буфер обмена.</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example5"</span><span class="S8">,</span> <span class="S7">"Error copying rcell A1."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
-<a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"B1:E16"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlPasteFormats</span><span class="S8">)</span>&nbsp;<span class="S1">; Вставляем формат в целевой диапазон.
-</span><br>
+<a class="le" href="../libfunctions/_Excel_RangeCopyPaste.htm"><span class="S15">_Excel_RangeCopyPaste</span></a><span class="S8">(</span><span class="S9">$oWorkbook1</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"B1:E16"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlPasteFormats</span><span class="S8">)</span>&nbsp;<span class="S1">; Вставляем формат в целевой диапазон.</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example5"</span><span class="S8">,</span> <span class="S7">"Error pasting cells."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeCopy Example 5"</span><span class="S8">,</span> <span class="S7">"Format of cell 'A1' successfully pasted to 'B1:E16'."</span><span class="S8">)</span><br>
 </p>
