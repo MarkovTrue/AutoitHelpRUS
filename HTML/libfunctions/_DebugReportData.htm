@@ -23,106 +23,106 @@
 </tr>
 <tr>
 <td><span class="S91">$sTitle</span></td>
-<td><strong>[необязательный]</strong> Заголовок отчёта. По умолчанию – "DebugReportData".</td>
+<td><strong>[необязательный]</strong> Заголовок отчёта. По умолчанию "DebugReportData".</td>
 </tr>
 <tr>
 <td><span class="S91">$sArrayRange</span></td>
-<td><strong>[необязательный]</strong> Диапазон строк/столбцов для отображения. По умолчанию ("") – весь массив. (см. раздел Примечания.)</td>
+<td><strong>[необязательный]</strong> Диапазон отображаемых строк или столбцов. По умолчанию ("") отображается весь массив (подробности ниже).</td>
 </tr>
 <tr>
 <td><span class="S91">$iFlags</span></td>
-<td><strong>[необязательный]</strong> Параметры UDF. Суммируйте нужные значения.<br />
-<span class="default-const"><span class="S91">$ARRAYDISPLAY_COLALIGNLEFT</span></span> (0) = (по умолчанию) выравнивание текста в столбцах – по левому краю<br />
-<span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> (1) = транспонировать массив (только для 2D)<br />
-<span class="S91">$ARRAYDISPLAY_COLALIGNRIGHT</span> (2) = выравнивание текста в столбцах – по правому краю<br />
-<span class="S91">$ARRAYDISPLAY_NOROW</span> (64) = не показывать столбец "Row".</td>
+<td><strong>[необязательный]</strong> Параметры UDF. Складывайте нужные значения:<br />
+<span class="default-const"><span class="S91">$ARRAYDISPLAY_COLALIGNLEFT</span></span> (0) = (по умолчанию) выравнивание текста столбцов по левому краю<br />
+<span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> (1) = транспонировать массив (только для двумерного массива)<br />
+<span class="S91">$ARRAYDISPLAY_COLALIGNRIGHT</span> (2) = выравнивание текста столбцов по правому краю<br />
+<span class="S91">$ARRAYDISPLAY_NOROW</span> (64) = столбец "Row" не отображается.</td>
 </tr>
 <tr>
 <td><span class="S91">$vUser_Separator</span></td>
-<td><strong>[необязательный]</strong> Параметр отображения столбцов при копировании данных в буфер обмена.<br />
+<td><strong>[необязательный]</strong> Задаёт способ отображения столбцов при копировании данных в буфер обмена.<br />
 Символ = разделитель между столбцами.<br />
-Число = фиксированная ширина столбца; более длинные значения обрезаются.<br />
-По умолчанию – текущий символ-разделитель (обычно "|").</td>
+Число = фиксированная ширина столбца – более длинные значения обрезаются.<br />
+По умолчанию = текущий символ-разделитель (обычно "|").</td>
 </tr>
 <tr>
 <td><span class="S91">$sHeader</span></td>
-<td><strong>[необязательный]</strong> Имена столбцов в заголовке (строка имён, разделённых текущим символом-разделителем – обычно "|"). Значение по умолчанию – см. раздел Примечания.</td>
+<td><strong>[необязательный]</strong> Имена столбцов в заголовке (строка имён, разделённых текущим символом-разделителем, обычно "|"). По умолчанию см. раздел Примечания.</td>
 </tr>
 </table>
 
 <h2>Возвращаемое значение</h2>
-Возвращаемого значения нет; значения <span class="S61">@error</span> и <span class="S61">@extended</span> вызывающего кода сохраняются.<br />
+Отсутствует. <span class="S61">@error</span> и <span class="S61">@extended</span> вызывающего кода сохраняются.<br />
 
 <h2>Примечания</h2>
 <p>Если <a class="le" href="_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">()</span> не была вызвана, функция всегда возвращает управление.<br />
 <br />
-Если передана не-массивная переменная, функция работает как <a class="le" href="_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">()</span>.<br />
-Если передана строка с <span class="S91">$sTitle</span> = Default, она выводится в исходном виде.<br />
-Это удобно для замены строк <a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">()</span> в SciTE при отладке.<br />
+Если функции передана переменная, не являющаяся массивом, она работает как <a class="le" href="_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">()</span>.<br />
+Если передана строка и <span class="S91">$sTitle</span> = Default, она выводится как есть.<br />
+Это удобно, чтобы заменить отладочную строку <a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">()</span> в SciTE на вывод в отчёт.<br />
 <br />
-Если передан массив, вывод форматируется по столбцам – это нагляднее, чем <a class="le" href="_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">()</span>.<br />
-Все необязательные параметры начиная с <span class="S91">$sArrayRange</span> используются так же, как в _DebugArrayDisplay().<br />
+Если передан массив, вывод форматируется по столбцам, что нагляднее, чем у <a class="le" href="_DebugReportVar.htm"><span class="S15">_DebugReportVar</span></a><span class="S8">()</span>.<br />
+Все необязательные параметры, начиная с <span class="S91">$sArrayRange</span>, работают так же, как в <a class="le" href="_DebugArrayDisplay.htm"><span class="S15">_DebugArrayDisplay</span></a><span class="S8">()</span>.<br />
 <span class="S91">$ARRAYDISPLAY_COLALIGNCENTER</span> не реализован.<br />
 <br />
 Синтаксис параметра <span class="S91">$sArrayRange</span>:<table>
 <tr>
 <td>"7"</td>
-<td>Строки 0–7, все столбцы</td>
+<td>Строки 0-7, все столбцы</td>
 </tr>
 
 <tr>
 <td>"7:"</td>
-<td>Строки 7–конец, все столбцы</td>
+<td>Строки 7-конец, все столбцы</td>
 </tr>
 
 <tr>
 <td>"|7"</td>
-<td>Все строки, столбцы 0–7</td>
+<td>Все строки, столбцы 0-7</td>
 </tr>
 
 <tr>
 <td>"|7:"</td>
-<td>Все строки, столбцы 7–конец</td>
+<td>Все строки, столбцы 7-конец</td>
 </tr>
 
 <tr>
 <td>"7|7"</td>
-<td>Строки 0–7, столбцы 0–7</td>
+<td>Строки 0-7, столбцы 0-7</td>
 </tr>
 
 <tr>
 <td>"5:7"</td>
-<td>Строки 5–7, все столбцы</td>
+<td>Строки 5-7, все столбцы</td>
 </tr>
 
 <tr>
 <td>"|5:7"</td>
-<td>Все строки, столбцы 5–7</td>
+<td>Все строки, столбцы 5-7</td>
 </tr>
 
 <tr>
 <td>"7|5:7"</td>
-<td>Строки 0–7, столбцы 5–7</td>
+<td>Строки 0-7, столбцы 5-7</td>
 </tr>
 
 <tr>
 <td>"5:7|7"</td>
-<td>Строки 5–7, столбцы 0–7</td>
+<td>Строки 5-7, столбцы 0-7</td>
 </tr>
 
 <tr>
 <td>"5:7|5:7"</td>
-<td>Строки 5–7, столбцы 5–7</td>
+<td>Строки 5-7, столбцы 5-7</td>
 </tr>
 </table><br />
 Для одномерных массивов значения столбцов игнорируются.<br />
 <br />
-Имена из <span class="S91">$sHeader</span> используются для соответствующего числа столбцов. При нехватке пользовательских имён применяется заголовок по умолчанию: "Row|Col0" для 1D или "Row|Col0|Col1|...|Col n" для 2D. При транспонировании заголовок игнорируется.<br />
+Имена из <span class="S91">$sHeader</span> (разделённые текущим символом-разделителем) применяются к стольким столбцам, сколько задано имён. Если пользовательские имена не заданы или их не хватает, подставляется заголовок по умолчанию "Row|Col0" для одномерного массива или "Row|Col0|Col1|...|Col n" для двумерного. При отображении массива транспонированным заголовок игнорируется.<br />
 Переменная <span class="S91">$ARRAYDISPLAY_ROWPREFIX</span> задаёт префикс нумерации строк (по умолчанию: #).<br />
 <br />
 Элемент массива, содержащий другой массив или Map, отображается как {Array} или {Map}.<br />
 <br />
-При использовании <span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> или <span class="S91">$sArrayRange</span> создаётся копия массива, что увеличивает потребление памяти.<br />
+При использовании <span class="S91">$ARRAYDISPLAY_TRANSPOSE</span> или <span class="S91">$sArrayRange</span> создаётся копия <span class="S91">$aArray</span>, поэтому расходуется дополнительная память.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_DebugReportVar.htm">_DebugReportVar</a>, <a href="_DebugArrayDisplay.htm">_DebugArrayDisplay</a></p>
@@ -220,8 +220,7 @@
 </span><br>
 <span class="S0">_DebugReportData</span><span class="S8">(</span><span class="S7">'@@ Debug('</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">') : $iRet = '</span> <span class="S8">&amp;</span> <span class="S9">$iRet</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'&gt;Error code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">'    Extended code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a> <span class="S8">&amp;</span> <span class="S7">' (0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">')'</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">;### Отладочная консоль</span><br>
 <br>
-<span class="S1">; Для 1D- или 2D-массивов лучше использовать _DebugReportData() напрямую – вывод будет отформатирован по столбцам.
-</span><br>
+<span class="S1">; Для одномерных или двумерных массивов лучше использовать _DebugReportData() напрямую – вывод будет отформатирован по столбцам.</span><br>
 <a class="le" href="../keywords/ReDim.htm"><span class="S5">ReDim</span></a> <span class="S9">$aArray2D</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$r</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray2D</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$c</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aArray2D</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
