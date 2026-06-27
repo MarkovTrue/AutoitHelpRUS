@@ -63,21 +63,9 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$oWorkbook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$vRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-4 – ошибка при добавлении/удалении гиперссылки.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$vRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – ошибка при добавлении/удалении гиперссылки. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
@@ -104,14 +92,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Добавляем ссылку на ячейки A1:C1.
-</span><br>
+<span class="S1">; Добавляем ссылку на ячейки A1:C1.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeLinkAddRemove.htm"><span class="S15">_Excel_RangeLinkAddRemove</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$oWorkbook</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S7">"A1:C1"</span><span class="S8">,</span> <span class="S7">"http://www.autoitscript.com"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"AutoIt Homepage"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeLinkAddRemove Example 1"</span><span class="S8">,</span> <span class="S7">"Error setting hyperlink."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeLinkAddRemove Example 1"</span><span class="S8">,</span> <span class="S7">"Links set to cells 'A1:C3'."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Удаляем ссылки из ячеек A1:C1.
-</span><br>
+<span class="S1">; Удаляем ссылки из ячеек A1:C1.</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeLinkAddRemove.htm"><span class="S15">_Excel_RangeLinkAddRemove</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$oWorkbook</span>.<span class="Scom">Activesheet</span><span class="S8">,</span> <span class="S7">"A1:C1"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeLinkAddRemove Example 2"</span><span class="S8">,</span> <span class="S7">"Error setting hyperlink."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeLinkAddRemove Example 2"</span><span class="S8">,</span> <span class="S7">"Links removed from cells 'A1:C3'."</span><span class="S8">)</span><br>
@@ -136,10 +122,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Вставляем лист-оглавление со ссылками на все остальные листы.
-</span><br>
-<span class="S1">; Корректно обрабатывает имена листов с пробелами.
-</span><br>
+<span class="S1">; Вставляем лист-оглавление со ссылками на все остальные листы.</span><br>
+<span class="S1">; Корректно обрабатывает имена листов с пробелами.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oSheet</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_SheetAdd.htm"><span class="S15">_Excel_SheetAdd</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"Index"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeLinkAddRemove Example 3"</span><span class="S8">,</span> <span class="S7">"Error adding sheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <span class="S9">$oSheet</span>.<span class="Scom">Range</span><span class="S8">(</span><span class="S7">"A1"</span><span class="S8">)</span>.<span class="Scom">Value</span> <span class="S8">=</span> <span class="S7">"Index"</span><br>
