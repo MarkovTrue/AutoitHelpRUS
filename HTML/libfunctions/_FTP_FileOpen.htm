@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_FTP_FileOpen</h1>
-<p class="funcdesc">Инициирует доступ к удалённому файлу на FTP-сервере для чтения или записи.</p>
+<p class="funcdesc">Открывает доступ к удалённому файлу на FTP-сервере для чтения или записи.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;FTPEx.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_FTP_FileOpen.htm"><span class="S15">_FTP_FileOpen</span></a> <span class="S8">(</span> <span class="S9">$hConnect</span><span class="S8">,</span> <span class="S9">$sFileName</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iAccess</span> <span class="S8">=</span> <span class="S9">$GENERIC_READ</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlags</span> <span class="S8">=</span> <span class="S9">$INTERNET_FLAG_TRANSFER_BINARY</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iContext</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,28 +23,28 @@
 </tr>
 <tr>
 <td><span class="S91">$sFileName</span></td>
-<td>Имя открываемого FTP-файла.</td>
+<td>Имя открываемого файла на FTP.</td>
 </tr>
 <tr>
 <td><span class="S91">$iAccess</span></td>
-<td><strong>[необязательный]</strong> Режим доступа (по умолчанию <span class="S91">$GENERIC_READ</span>).</td>
+<td><strong>[необязательный]</strong> Локальный атрибут доступа (по умолчанию <span class="S91">$GENERIC_READ</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$iFlags</span></td>
-<td><strong>[необязательный]</strong> Условия передачи файла. Выберите один тип передачи и при необходимости флаги управления кешированием.<br />
+<td><strong>[необязательный]</strong> Задаёт условия передачи. Выберите один тип передачи и любые флаги, управляющие кэшированием файла.<br />
 <br />
 Тип передачи – одно из значений:<br />
-<span class="S91">$FTP_TRANSFER_TYPE_ASCII</span> (1) – передача методом ASCII FTP (Type A); управляющая и форматирующая информация преобразуется в локальные эквиваленты.<br />
-<span class="S91">$FTP_TRANSFER_TYPE_BINARY</span> (2) – передача методом Image FTP (Type I); файл передаётся без изменений. Метод по умолчанию.<br />
+<span class="S91">$FTP_TRANSFER_TYPE_ASCII</span> (1) – передача файла методом FTP ASCII (тип A). Управляющая информация и форматирование преобразуются в локальные эквиваленты.<br />
+<span class="S91">$FTP_TRANSFER_TYPE_BINARY</span> (2) – передача файла методом FTP Image (тип I). Файл передаётся как есть, без изменений. Метод передачи по умолчанию.<br />
 <span class="S91">$FTP_TRANSFER_TYPE_UNKNOWN</span> (0) – соответствует <span class="S91">$FTP_TRANSFER_TYPE_BINARY</span>.<br />
-<span class="S91">$INTERNET_FLAG_TRANSFER_ASCII</span> (1) – передача в режиме ASCII.<br />
-<span class="S91">$INTERNET_FLAG_TRANSFER_BINARY</span> (2) – передача в двоичном режиме.<br />
+<span class="S91">$INTERNET_FLAG_TRANSFER_ASCII</span> (1) – передача файла как ASCII.<br />
+<span class="S91">$INTERNET_FLAG_TRANSFER_BINARY</span> (2) – передача файла как двоичного.<br />
 <br />
-Для управления кешированием можно указать одно или несколько из следующих значений:<br />
-<span class="S91">$INTERNET_FLAG_HYPERLINK</span> (0x00000400) – принудительная перезагрузка, если сервер не вернул время истечения срока действия и дату последнего изменения.<br />
-<span class="S91">$INTERNET_FLAG_NEED_FILE</span> (0x00000010) – создаёт временный файл, если файл не может быть кеширован.<br />
-<span class="S91">$INTERNET_FLAG_RELOAD</span> (0x80000000) – принудительная загрузка с исходного сервера, минуя кеш.<br />
-<span class="S91">$INTERNET_FLAG_RESYNCHRONIZE</span> (0x00000800) – перезагружает HTTP-ресурс, если он изменился с момента последней загрузки; все FTP- и Gopher-ресурсы перезагружаются всегда.</td>
+Следующие значения управляют кэшированием файла. Можно использовать одно или несколько:<br />
+<span class="S91">$INTERNET_FLAG_HYPERLINK</span> (0x00000400) – принудительная перезагрузка, если сервер не вернул время Expires и LastModified при определении необходимости перезагрузки элемента из сети.<br />
+<span class="S91">$INTERNET_FLAG_NEED_FILE</span> (0x00000010) – создаёт временный файл, если файл нельзя кэшировать.<br />
+<span class="S91">$INTERNET_FLAG_RELOAD</span> (0x80000000) – принудительная загрузка запрошенного файла, объекта или списка каталога с исходного сервера, а не из кэша.<br />
+<span class="S91">$INTERNET_FLAG_RESYNCHRONIZE</span> (0x00000800) – перезагружает HTTP-ресурсы, если ресурс изменился с момента последней загрузки. Все ресурсы FTP и Gopher перезагружаются.</td>
 </tr>
 <tr>
 <td><span class="S91">$iContext</span></td>
@@ -57,7 +57,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает дескриптор FTP-файла для чтения/записи через <a href="_FTP_FileRead.htm"><span class="S15">_FTP_FileRead</span><span class="S8">()</span></a>.</td>
+<td style="width:90%">Возвращает дескриптор FTP-файла для чтения/записи через <a class="le" href="_FTP_FileRead.htm"><span class="S15">_FTP_FileRead</span></a><span class="S8">()</span>.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
