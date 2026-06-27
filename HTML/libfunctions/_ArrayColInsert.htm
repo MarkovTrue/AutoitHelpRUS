@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayColInsert</h1>
-<p class="funcdesc">Вставляет указанный столбец в одномерный 1D или двумерный 2D массив.</p>
+<p class="funcdesc">Вставляет указанный столбец в одномерный или двумерный массив.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayColInsert.htm"><span class="S15">_ArrayColInsert</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$iColumn</span> <span class="S8">)</span></p>
 
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iColumn</span></td>
-<td>Вставляемый столбец. Если массив 1D, он автоматически преобразуется в 2D.</td>
+<td>Вставляемый столбец. Если массив одномерный, он автоматически преобразуется в двумерный.</td>
 </tr>
 </table>
 
@@ -39,14 +39,14 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив<br />
-2&nbsp;– <span class="S91">$aArray</span> не 1D и не 2D массив<br />
-3&nbsp;– <span class="S91">$iColumn</span> меньше 0 или больше верхней границы массива плюс 1</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+3 – <span class="S91">$iColumn</span> меньше 0 или больше верхней границы массива плюс 1</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Функция НЕ обновляет счётчик внутри массива; при успехе возвращается итоговое количество столбцов.<br />
+<p>Функция НЕ обновляет счётный элемент массива, однако при успехе возвращает итоговое количество столбцов.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ArrayColDelete.htm">_ArrayColDelete</a></p>
@@ -61,7 +61,7 @@
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Original"</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../libfunctions/_ArrayColInsert.htm"><span class="S15">_ArrayColInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
-<span class="S1">; Теперь 2D массив.</span><br>
+<span class="S1">; Теперь двумерный массив.</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Col 0 inserted"</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../libfunctions/_ArrayColInsert.htm"><span class="S15">_ArrayColInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
