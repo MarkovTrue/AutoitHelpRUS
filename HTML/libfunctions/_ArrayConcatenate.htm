@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayConcatenate</h1>
-<p class="funcdesc">Объединяет два массива – одномерных 1D или двумерных 2D с одинаковым числом столбцов.</p>
+<p class="funcdesc">Объединяет два массива – одномерных или двумерных с одинаковым числом столбцов.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayConcatenate.htm"><span class="S15">_ArrayConcatenate</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArrayTarget</span><span class="S8">,</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArraySource</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iStart</span></td>
-<td><strong>[необязательный]</strong> Индекс первого элемента исходного массива (по умолчанию 0)</td>
+<td><strong>[необязательный]</strong> Индекс первого элемента исходного массива (по умолчанию 0).</td>
 </tr>
 </table>
 
@@ -43,19 +43,19 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArrayTarget</span> не массив<br />
-2&nbsp;– <span class="S91">$aArraySource</span> не массив<br />
-3&nbsp;– <span class="S91">$aArrayTarget</span> не 1D и не 2D массив<br />
-4&nbsp;– несоответствие размерностей 1D/2D у <span class="S91">$aArrayTarget</span> и <span class="S91">$aArraySource</span><br />
-5&nbsp;– <span class="S91">$aArrayTarget</span> и <span class="S91">$aArraySource</span> имеют разное число столбцов (только для 2D массива)<br />
-6&nbsp;– <span class="S91">$iStart</span> вне границ массива</td>
+<td>1 – <span class="S91">$aArrayTarget</span> не является массивом<br />
+2 – <span class="S91">$aArraySource</span> не является массивом<br />
+3 – <span class="S91">$aArrayTarget</span> не является одномерным или двумерным массивом<br />
+4 – размерности <span class="S91">$aArrayTarget</span> и <span class="S91">$aArraySource</span> не совпадают<br />
+5 – <span class="S91">$aArrayTarget</span> и <span class="S91">$aArraySource</span> имеют разное число столбцов (только для двумерного массива)<br />
+6 – <span class="S91">$iStart</span> выходит за границы массива</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Параметр <span class="S91">$iStart</span> удобен при объединении массивов со счётчиком в элементе [0].<br />
+<p>Параметр <span class="S91">$iStart</span> удобен при объединении массивов, у которых в элементе [0] хранится счётчик.<br />
 <br />
-Функция НЕ обновляет счётчик целевого массива; при успехе возвращается итоговое количество строк в объединённом массиве.<br />
+Функция НЕ обновляет счётный элемент целевого массива, однако при успехе возвращает итоговое количество строк в объединённом массиве.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ArrayAdd.htm">_ArrayAdd</a></p>
