@@ -27,19 +27,19 @@
 </tr>
 <tr>
 <td><span class="S91">$iDitherType</span></td>
-<td>Константа типа дизеринга, задающая алгоритм сглаживания (<span class="S91">$GDIP_DitherType*</span>).</td>
+<td>Константа DitherType, задающая алгоритм дизеринга (<span class="S91">$GDIP_DitherType*</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$iPaletteType</span></td>
-<td>Константа типа палитры, задающая стандартную палитру для дизеринга (<span class="S91">$GDIP_PaletteType*</span>).</td>
+<td>Константа PaletteType, задающая стандартную палитру для дизеринга (<span class="S91">$GDIP_PaletteType*</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$tPalette</span></td>
-<td>Структура, задающая палитру, индексы которой хранятся в пиксельных данных преобразованного изображения.</td>
+<td>Структура, задающая палитру, индексы которой хранятся в данных пикселей преобразованного изображения.</td>
 </tr>
 <tr>
 <td><span class="S91">$fAlphaThresholdPercent</span></td>
-<td><strong>[необязательный]</strong> Вещественное число из промежутка [0.0; 100.0], определяющее, какие пиксели исходного изображения будут отображены в прозрачный цвет в итоговом изображении.</td>
+<td><strong>[необязательный]</strong> Вещественное число от 0.0 до 100.0, задающее, какие пиксели исходного изображения станут прозрачным цветом в преобразованном изображении.</td>
 </tr>
 </table>
 
@@ -65,7 +65,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Исходные пиксельные данные изображения заменяются новыми.<br />
+<p>Исходные данные пикселей в изображении заменяются новыми.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GDIPlus_PaletteInitialize.htm">_GDIPlus_PaletteInitialize</a></p>
@@ -102,8 +102,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGraphics</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGui</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Преобразовать в 16-цветное изображение (4 бит/пикс) с дизерингом FixedHalftone27.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Преобразовать в 16-цветное изображение (4 бит/пикс) с дизерингом FixedHalftone27.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tPalette</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_PaletteInitialize.htm"><span class="S15">_GDIPlus_PaletteInitialize</span></a><span class="S8">(</span><span class="S3">16</span><span class="S8">,</span> <span class="S9">$GDIP_PaletteTypeFixedHalftone27</span><span class="S8">,</span> <span class="S3">16</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S9">$hImage</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapConvertFormat.htm"><span class="S15">_GDIPlus_BitmapConvertFormat</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">,</span> <span class="S9">$GDIP_PXF04INDEXED</span><span class="S8">,</span> <span class="S9">$GDIP_DitherTypeDualSpiral8x8</span><span class="S8">,</span> <span class="S9">$GDIP_PaletteTypeFixedHalftone27</span><span class="S8">,</span> <span class="S9">$tPalette</span><span class="S8">)</span><br>
 <br>
