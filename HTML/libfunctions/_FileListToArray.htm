@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_FileListToArray</h1>
-<p class="funcdesc">Возвращает список файлов и/или папок в указанной папке с поддержкой масок.(Аналог Dir /B с поддержкой шаблонов.).</p>
+<p class="funcdesc">Возвращает список файлов и\или папок в указанной папке с поддержкой масок.(Аналог Dir /B с поддержкой шаблонов.).</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;File.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_FileListToArray.htm"><span class="S15">_FileListToArray</span></a> <span class="S8">(</span> <span class="S9">$sFilePath</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sFilter</span> <span class="S8">=</span> <span class="S7">"*"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFlag</span> <span class="S8">=</span> <span class="S9">$FLTA_FILESFOLDERS</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bReturnPath</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -35,7 +35,7 @@
 </tr>
 <tr>
 <td><span class="S91">$bReturnPath</span></td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, возвращается полный путь к файлу/папке; иначе – путь относительно <span class="S91">$sFilePath</span>. По умолчанию <span class="S5">False</span>.</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, возвращается полный путь к файлу\папке, иначе путь относительно <span class="S91">$sFilePath</span>, по умолчанию <span class="S5">False</span>.</td>
 </tr>
 </table>
 
@@ -44,11 +44,11 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает одномерный массив:<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;= количество найденных файлов/папок<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;= 1-й файл/папка<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;= 2-й файл/папка<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;= 3-й файл/папка<br />
-<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span>&nbsp;= n-й файл/папка</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;= количество найденных файлов\папок<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;= 1-й файл\папка<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;= 2-й файл\папка<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;= 3-й файл\папка<br />
+<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span>&nbsp;= n-й файл\папка</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -83,8 +83,7 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить список всех файлов и папок на рабочем столе с параметрами по умолчанию.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить список всех файлов и папок на рабочем столе с параметрами по умолчанию.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aFileList</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArray.htm"><span class="S15">_FileListToArray</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@DesktopDir"><span class="S6">@DesktopDir</span></a><span class="S8">,</span> <span class="S7">"*"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Path was invalid."</span><span class="S8">)</span><br>
@@ -111,8 +110,7 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить список всех файлов и папок на рабочем столе с полными путями.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить список всех файлов и папок на рабочем столе с полными путями.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aFileList</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_FileListToArray.htm"><span class="S15">_FileListToArray</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@DesktopDir"><span class="S6">@DesktopDir</span></a><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Path was invalid."</span><span class="S8">)</span><br>
