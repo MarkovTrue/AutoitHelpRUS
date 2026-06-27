@@ -35,7 +35,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iSubItem</span></td>
-<td><strong>[необязательный]</strong> Подиндекс для сортировки в 2D-массивах (по умолчанию 0 = первый столбец).</td>
+<td><strong>[необязательный]</strong> Подиндекс для сортировки в двумерном массиве (по умолчанию 0 = первый столбец).</td>
 </tr>
 <tr>
 <td><span class="S91">$iPivot</span></td>
@@ -57,15 +57,15 @@
 <td class="valign-top"><span class="S61">@error</span>: </td>
 <td>1 – <span class="S91">$aArray</span> не является массивом<br />
 2 – <span class="S91">$iStart</span> больше <span class="S91">$iEnd</span><br />
-3 – <span class="S91">$iSubItem</span> превышает количество подэлементов<br />
+3 – <span class="S91">$iSubItem</span> больше количества подэлементов<br />
 4 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
 5 – <span class="S91">$aArray</span> пуст<br />
-6 – <span class="S91">$iPivot</span> используется с 2D-массивом</td>
+6 – <span class="S91">$iPivot</span> используется с двумерным массивом</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>По умолчанию UDF использует алгоритм быстрой сортировки. При задании параметра <span class="S91">$iPivot</span> для 1D-массивов применяется алгоритм двойного опорного элемента (DualPivotSort) – он может быть значительно быстрее для больших массивов (> 50 элементов), однако для 2D-массивов этот алгоритм значительно медленнее, и функция вернёт ошибку.<br />
+<p>По умолчанию UDF использует алгоритм быстрой сортировки. При задании параметра <span class="S91">$iPivot</span> для одномерных массивов применяется алгоритм двойного опорного элемента (DualPivotSort) – он может быть значительно быстрее для больших массивов (> 50 элементов), однако для двумерных массивов этот алгоритм значительно медленнее, и функция вернёт ошибку.<br />
 В обоих алгоритмах относительно короткие массивы сортируются методом вставок (&lt; 15 элементов при QuickSort; &lt; 45 элементов при DualPivotSort).<br />
 Гарантии, что конкретный алгоритм будет быстрее в отдельном случае, нет.<br />
 <br />
@@ -76,7 +76,7 @@
 <h3>Пример 1</h3>
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Используем 1D-массив.</span><br>
+<span class="S1">; Используем одномерный массив.</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <br>
@@ -97,7 +97,7 @@
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; использование 2D массива</span><br>
+<span class="S1">; использование двумерного массива</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <br>
