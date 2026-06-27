@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayInsert</h1>
-<p class="funcdesc">Вставляет новое значение в указанную позицию одномерного 1D или двумерного 2D массива.</p>
+<p class="funcdesc">Вставляет новое значение в указанную позицию одномерного или двумерного массива.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$vRange</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vValue</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sDelim_Item</span> <span class="S8">=</span> <span class="S7">"|"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sDelim_Row</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iForce</span> <span class="S8">=</span> <span class="S9">$ARRAYFILL_FORCE_DEFAULT</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,11 +27,11 @@
 </tr>
 <tr>
 <td><span class="S91">$vValue</span></td>
-<td><strong>[необязательный]</strong> Добавляемое значение или значения: одна переменная, строка с разделителями или 1D массив</td>
+<td><strong>[необязательный]</strong> Добавляемое значение или значения, может быть одной переменной, строкой с разделителями или одномерным массивом.</td>
 </tr>
 <tr>
 <td><span class="S91">$iStart</span></td>
-<td><strong>[необязательный]</strong> Столбец, с которого начинается вставка (только для 2D массива)</td>
+<td><strong>[необязательный]</strong> Столбец, с которого начинается вставка (только для двумерного массива).</td>
 </tr>
 <tr>
 <td><span class="S91">$sDelim_Item</span></td>
@@ -39,15 +39,15 @@
 </tr>
 <tr>
 <td><span class="S91">$sDelim_Row</span></td>
-<td><strong>[необязательный]</strong> Разделитель, по которому строка разбивается на строки массива (только для 2D массива)</td>
+<td><strong>[необязательный]</strong> Разделитель, по которому строка разбивается на строки массива (только для двумерного массива)</td>
 </tr>
 <tr>
 <td><span class="S91">$iForce</span></td>
 <td><strong>[необязательный]</strong> Сохраняет поведение по умолчанию,<br />
 <span class="default-const"><span class="S91">$ARRAYFILL_FORCE_DEFAULT</span></span> (0)<br />
-Добавляет <span class="S91">$vValue</span> одним элементом,<br />
+Принудительно добавляет <span class="S91">$vValue</span> как один элемент,<br />
 <span class="S91">$ARRAYFILL_FORCE_SINGLEITEM</span> (1)<br />
-Или приводит все добавляемые элементы к указанному типу:<br />
+Или принудительно задаёт тип данных для всех добавляемых элементов<br />
 <span class="S91">$ARRAYFILL_FORCE_INT</span> (2)<br />
 <span class="S91">$ARRAYFILL_FORCE_NUMBER</span> (3)<br />
 <span class="S91">$ARRAYFILL_FORCE_PTR</span> (4)<br />
@@ -69,53 +69,53 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив<br />
-2&nbsp;– <span class="S91">$aArray</span> не 1D и не 2D массив<br />
-3&nbsp;– <span class="S91">$vRange</span> задан в неверном формате (недопустимый символ или неупорядоченность)<br />
-4&nbsp;– <span class="S91">$vRange</span> не 1D массив или содержит только 1 элемент<br />
-5&nbsp;– границы <span class="S91">$vRange</span> вне границ массива<br />
-6&nbsp;– <span class="S91">$iStart</span> вне границ массива (только для 2D массива)<br />
-7&nbsp;– <span class="S91">$vValue</span> не 2D массив (только для 2D массива)<br />
-8&nbsp;– в <span class="S91">$vValue</span> слишком много столбцов для размещения в <span class="S91">$aArray</span></td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+3 – <span class="S91">$vRange</span> задан в неверном формате (недопустимый символ или неупорядоченность)<br />
+4 – <span class="S91">$vRange</span> не является одномерным массивом или содержит только 1 элемент<br />
+5 – значения <span class="S91">$vRange</span> выходят за границы массива<br />
+6 – <span class="S91">$iStart</span> выходит за границы массива (только для двумерного массива)<br />
+7 – <span class="S91">$vValue</span> не является двумерным массивом (только для двумерного массива)<br />
+8 – у <span class="S91">$vValue</span> слишком много столбцов для размещения в <span class="S91">$aArray</span></td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
 <p><span class="S91">$vRange</span> может быть строкой, задающей строки массива, перед которыми идёт вставка: одно число или диапазон "первая-последняя" через дефис (-); несколько диапазонов разделяются точкой с запятой (;).<br />
 <br />
-<span class="S91">$vRange</span> также может быть 1D массивом со списком строк для вставки, со счётчиком в элементе [0].<br />
+<span class="S91">$vRange</span> также может быть одномерным массивом со списком строк для вставки, со счётчиком в элементе [0].<br />
 <br />
 В обоих случаях строки должны идти по возрастанию, но могут повторяться.<br />
 <br />
-Если <span class="S91">$vValue</span> – строка с разделителями, все части вставляются как строки. Это поведение переопределяется параметром <span class="S91">$hDataType</span>, задающим нужный тип данных. Все части строки преобразуются к одному типу; для разных типов данных элементы передавайте массивом.<br />
+Если <span class="S91">$vValue</span> строка с разделителями, все части вставляются как строки. Это поведение переопределяется параметром <span class="S91">$hDataType</span>, задающим нужный тип данных. Все части строки преобразуются к одному типу, для разных типов данных элементы передавайте массивом.<br />
 <br />
 <br />
-Способ вставки зависит от типа <span class="S91">$vValue</span>; параметр <span class="S91">$iForce</span> может это поведение изменить. По умолчанию:<br />
+Способ вставки зависит от типа <span class="S91">$vValue</span>, однако параметр <span class="S91">$iForce</span> может это поведение изменить. По умолчанию:<br />
 <br />
-1D массивы:<br />
+Одномерные массивы:<br />
 &nbsp;&nbsp;&nbsp; Одиночное значение – вставляется 1 элемент, содержащий <span class="S91">$vValue</span><br />
 &nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Item</span> – вставляемые позиции соотносятся с частями строки<br />
-&nbsp;&nbsp;&nbsp; 1D массив с нулевым индексом – вставляемые позиции соотносятся с элементами массива<br />
+&nbsp;&nbsp;&nbsp; Одномерный массив с нулевым индексом – вставляемые позиции соотносятся с элементами массива<br />
 <br />
-2D массивы:<br />
+Двумерные массивы:<br />
 &nbsp;&nbsp;&nbsp; Одиночное значение – вставляется 1 строка с <span class="S91">$vValue</span> в первом столбце<br />
-&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Item</span> – вставляется 1 строка в первую позицию; столбцы заполняются при наличии нужного числа частей<br />
-&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Row</span> – вставляемые позиции соотносятся с частями строки; заполняется только 1 столбец<br />
+&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Item</span> – вставляется 1 строка в первую позицию, столбцы заполняются при наличии нужного числа частей<br />
+&nbsp;&nbsp;&nbsp; Строка с <span class="S91">$sDelim_Row</span> – вставляемые позиции соотносятся с частями строки, заполняется только 1 столбец<br />
 &nbsp;&nbsp;&nbsp; Строка с двумя разделителями – строки определяются по <span class="S91">$sDelim_Row</span>, столбцы – по <span class="S91">$sDelim_Item</span><br />
-&nbsp;&nbsp;&nbsp; 2D массив с нулевым индексом – вставляемые строки и столбцы соотносятся с массивом<br />
+&nbsp;&nbsp;&nbsp; двумерный массив с нулевым индексом – вставляемые строки и столбцы соотносятся с массивом<br />
 <br />
 Если в <span class="S91">$vValue</span> не хватает элементов, недостающие позиции заполняются пустой строкой (""). Лишние элементы игнорируются.<br />
 <br />
 Параметр <span class="S91">$iForce</span> задаёт способ вставки или тип добавляемых элементов:<br />
-&nbsp;&nbsp;&nbsp; – <span class="default-const"><span class="S91">$ARRAYFILL_FORCE_DEFAULT</span></span> (по умолчанию):<br />
+&nbsp;&nbsp;&nbsp; – <span class="default-const">$ARRAYFILL_FORCE_DEFAULT</span> (по умолчанию):<br />
  – Разбивка идёт как описано выше. Одиночные значения и элементы массива сохраняют свой тип; строки с разделителями вставляются как строки.<br />
 &nbsp;&nbsp;&nbsp; – <span class="S91">$ARRAYFILL_FORCE_SINGLEITEM</span>:<br />
- – Если <span class="S91">$aArray</span> 1D, <span class="S91">$vValue</span> вставляется одним элементом.<br />
- – Если <span class="S91">$aArray</span> 2D, параметр игнорируется.<br />
+ – Если <span class="S91">$aArray</span> одномерный, <span class="S91">$vValue</span> вставляется одним элементом.<br />
+ – Если <span class="S91">$aArray</span> двумерный, параметр игнорируется.<br />
 &nbsp;&nbsp;&nbsp; – <span class="S91">$ARRAYFILL_FORCE_INT</span>, <span class="S91">$ARRAYFILL_FORCE_NUMBER</span>, <span class="S91">$ARRAYFILL_FORCE_PTR</span>, <span class="S91">$ARRAYFILL_FORCE_HWND</span>, <span class="S91">$ARRAYFILL_FORCE_STRING</span><br />
  – Одиночное <span class="S91">$vValue</span> приводится к указанному типу (по умолчанию сохраняет существующий тип).<br />
  – Все части строки с разделителями приводятся к указанному типу (по умолчанию вставляются как строки). Для разных типов передавайте массив.<br />
- – Если <span class="S91">$vValue</span> – массив, параметр игнорируется и элементы вставляются с сохранением существующих типов.<br />
+ – Если <span class="S91">$vValue</span> массив, параметр игнорируется и элементы вставляются с сохранением существующих типов.<br />
 <br />
 Любое другое значение <span class="S91">$iForce</span> игнорируется.<br />
 <br />
@@ -139,23 +139,20 @@
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S7">"Insert above 2"</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"1D - Single item"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить строку с разделителями, позиции из массива диапазонов
-</span><br>
+<span class="S1">; Вставить строку с разделителями, позиции из массива диапазонов</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aRange</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">3</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">]</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFill</span> <span class="S8">=</span> <span class="S7">"Insert above 3|Insert above 5|Insert above 9"</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$aRange</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"1D - Delim String"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить 1D массив, позиции из строки диапазона
-</span><br>
+<span class="S1">; Вставить одномерный массив, позиции из строки диапазона</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aFill</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"Insert above 2"</span><span class="S8">,</span> <span class="S7">"Insert above 6.1"</span><span class="S8">,</span> <span class="S7">"Insert above 6.2"</span><span class="S8">,</span> <span class="S7">"Insert above 7"</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2;6;6;7"</span><span class="S8">,</span> <span class="S9">$aFill</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"1D - 1D array"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить 1D массив как единый элемент
-</span><br>
+<span class="S1">; Вставить одномерный массив как единый элемент</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aFill</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"Insert 0"</span><span class="S8">,</span> <span class="S7">"Insert 1"</span><span class="S8">,</span> <span class="S7">"Insert 2"</span><span class="S8">,</span> <span class="S7">"Insert 3"</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2"</span><span class="S8">,</span> <span class="S9">$aFill</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$ARRAYFILL_FORCE_SINGLEITEM</span><span class="S8">)</span><br>
@@ -182,37 +179,31 @@
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">,</span> <span class="S7">"Insert above 7-0"</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D - Single item"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить один элемент в заданный столбец
-</span><br>
+<span class="S1">; Вставить один элемент в заданный столбец</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S7">"Insert above 3-1"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D - Defined column"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить строку с разделителем элементов – 1 строка; остальные строки заполняются ""
-</span><br>
+<span class="S1">; Вставить строку с разделителем элементов – 1 строка; остальные строки заполняются ""</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFill</span> <span class="S8">=</span> <span class="S7">"Above 3-0|Above 3-1|Above 3-2"</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"3;5;9"</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D - Item delim string"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить строку с разделителем строк, позиции из массива диапазонов – 3 строки; остальные столбцы заполняются ""
-</span><br>
+<span class="S1">; Вставить строку с разделителем строк, позиции из массива диапазонов – 3 строки; остальные столбцы заполняются ""</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aRange</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">3</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">]</span><br>
 <span class="S9">$sFill</span> <span class="S8">=</span> <span class="S7">"Above 3-2"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Above 5-2"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Above 9-2"</span><br>
-<a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$aRange</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; Вставить в столбец 2
-</span><br>
+<a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$aRange</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; Вставить в столбец 2</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D - Item delim string"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить элемент как строку с разделителем строк – 4 строки
-</span><br>
+<span class="S1">; Вставить элемент как строку с разделителем строк – 4 строки</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <span class="S9">$sFill</span> <span class="S8">=</span> <span class="S7">"Above 3-0|3-1|3-2"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Above 5a|5-1a|5-2a"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Above 5b|5-1b|5-2b"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Above 9|9-1|9-2"</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"3;5;5;9"</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2D - Item &amp; row delim string"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Вставить 2D массив
-</span><br>
+<span class="S1">; Вставить двумерный массив</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aFill_1D</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S8">[</span><span class="S7">"Above 2"</span><span class="S8">,</span> <span class="S7">"2-1"</span><span class="S8">,</span> <span class="S7">"2-2"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S7">"Above 3"</span><span class="S8">,</span> <span class="S7">"3-1"</span><span class="S8">,</span> <span class="S7">"3-2"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S7">"Above 4"</span><span class="S8">,</span> <span class="S7">"4-1"</span><span class="S8">,</span> <span class="S7">"4-2"</span><span class="S8">]</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"2-4"</span><span class="S8">,</span> <span class="S9">$aFill_1D</span><span class="S8">)</span><br>
@@ -228,27 +219,23 @@
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray_Base</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S8">[</span><span class="S7">"Org Item 0 - 0"</span><span class="S8">,</span> <span class="S7">"Org Item 0 - 1"</span><span class="S8">]</span><span class="S8">,</span> <span class="S8">[</span><span class="S7">"Org Item 1 - 0"</span><span class="S8">,</span> <span class="S7">"Org Item 1 - 1"</span><span class="S8">]</span><span class="S8">]</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray</span><br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFill</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S3">2</span>&nbsp;<span class="S1">; Здесь добавляется с типом Number
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFill</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S3">2</span>&nbsp;<span class="S1">; Здесь добавляется с типом Number</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Delimited string to add"</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">)</span><br>
 <br>
 <span class="S1">; Добавить элементы через строку с разделителями</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"0;1"</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Converted to string"</span><span class="S8">)</span><br>
-<span class="S1">; Но при вставке преобразуется в тип String
-</span><br>
+<span class="S1">; Но при вставке преобразуется в тип String</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Result"</span><span class="S8">,</span> <span class="S7">"Data:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Datatype:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../functions/VarGetType.htm"><span class="S4">VarGetType</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 <span class="S1">; Добавить элементы через строку с разделителями</span><br>
 <span class="S9">$aArray</span> <span class="S8">=</span> <span class="S9">$aArray_Base</span><br>
-<span class="S1">; Теперь принудительно сохраняем тип
-</span><br>
+<span class="S1">; Теперь принудительно сохраняем тип</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hDataType</span> <span class="S8">=</span> <a class="le" href="../functions/Number.htm"><span class="S4">Number</span></a><br>
 <a class="le" href="../libfunctions/_ArrayInsert.htm"><span class="S15">_ArrayInsert</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"0;1"</span><span class="S8">,</span> <span class="S9">$sFill</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$ARRAYFILL_FORCE_NUMBER</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Forced to number"</span><span class="S8">)</span><br>
-<span class="S1">; Тип данных сохранён
-</span><br>
+<span class="S1">; Тип данных сохранён</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Result"</span><span class="S8">,</span> <span class="S7">"Data:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Datatype:"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../functions/VarGetType.htm"><span class="S4">VarGetType</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span><br>
 </p>
 <object id="hhctrl3" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\_ArrayInsert[3].au3,"></object>
