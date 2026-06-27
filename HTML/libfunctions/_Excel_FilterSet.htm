@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_FilterSet</h1>
-<p class="funcdesc">Устанавливает или снимает определения фильтров и фильтрует диапазон.</p>
+<p class="funcdesc">Устанавливает и отменяет определения фильтров и фильтрует диапазон.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span></a> <span class="S8">(</span> <span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$vWorksheet</span><span class="S8">,</span> <span class="S9">$vRange</span><span class="S8">,</span> <span class="S9">$iField</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sCriteria1</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iOperator</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sCriteria2</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,31 +23,31 @@
 </tr>
 <tr>
 <td><span class="S91">$vWorksheet</span></td>
-<td>Имя, индекс или объект листа для фильтрации. При значении Default используется активный лист.</td>
+<td>Имя, индекс или объект листа для фильтрации. При значении Default фильтруется активный лист.</td>
 </tr>
 <tr>
 <td><span class="S91">$vRange</span></td>
-<td>Объект Range или диапазон A1, задающий столбцы для фильтрации.<br />
-При значении Default фильтрация выполняется по всем используемым столбцам указанного листа.</td>
+<td>Объект Range или диапазон A1 для указания столбцов фильтрации.<br />
+Используйте Default для фильтрации всех заполненных столбцов указанного листа.</td>
 </tr>
 <tr>
 <td><span class="S91">$iField</span></td>
-<td>Целочисленное смещение поля, по которому выполняется фильтрация (крайнее левое поле имеет номер 1).<br />
-При значении 0 все автофильтры на листе снимаются.</td>
+<td>Целочисленное смещение поля, по которому строится фильтр (самое левое поле – 1).<br />
+При 0 удаляются все автофильтры листа.</td>
 </tr>
 <tr>
 <td><span class="S91">$sCriteria1</span></td>
-<td><strong>[необязательный]</strong> Критерий отбора (строка или массив строк). "=" – найти пустые поля, "&lt;&gt;" – непустые поля.<br />
-Если не указан, критерий равен "Все".<br />
-При Operator = xlTop10Items параметр Criteria1 задаёт количество элементов (например, "10").</td>
+<td><strong>[необязательный]</strong> Критерий (строка или массив строк). Используйте "=" для пустых полей или "&lt;&gt;" для непустых полей.<br />
+Если опущен, критерий – All (все).<br />
+При Operator = xlTop10Items Criteria1 задаёт количество элементов (например, "10").</td>
 </tr>
 <tr>
 <td><span class="S91">$iOperator</span></td>
-<td><strong>[необязательный]</strong> Константа XlAutoFilterOperator, задающая тип фильтра.</td>
+<td><strong>[необязательный]</strong> Одна из констант перечисления XlAutoFilterOperator, задающая тип фильтра.</td>
 </tr>
 <tr>
 <td><span class="S91">$sCriteria2</span></td>
-<td><strong>[необязательный]</strong> Второй критерий отбора (строка). Используется совместно с Criteria1 и Operator для составного условия.</td>
+<td><strong>[необязательный]</strong> Второй критерий (строка). Используется с Criteria1 и Operator для составного критерия.</td>
 </tr>
 </table>
 
@@ -63,29 +63,17 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oWorkbook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$vRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-4 – ошибка метода Filter.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+<td>1 – <span class="S91">$oWorkbook</span> не является объектом или не является объектом книги<br />
+2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы, либо <span class="S91">$vWorksheet</span> не является объектом листа. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$vRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – ошибка, возвращённая методом Filter. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
 <p>Динамический фильтр:<br />
-Для фильтрации столбцов данных установите <span class="S91">$iOperator</span> в <span class="S91">$xlFilterDynamic</span>, а <span class="S91">$sCriteria1</span> – в любую константу XlDynamicFilterCriteria.<br />
-Подробности см. в примере 2.<br />
+Для фильтрации столбцов данных установите <span class="S91">$iOperator</span> в <span class="S91">$xlFilterDynamic</span> и <span class="S91">$sCriteria1</span> в любое значение из перечисления XlDynamicFilterCriteria.<br />
+Детали см. в примере 2.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_Excel_FilterGet.htm">_Excel_FilterGet</a></p>
@@ -111,37 +99,30 @@
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example"</span><span class="S8">,</span> <span class="S7">"Press Enter to set the first filter!"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Фильтруем весь активный лист по столбцу 1.
-</span><br>
-<span class="S1">; Показываем только строки, где значение в указанном столбце >20 и <40.
-</span><br>
+<span class="S1">; Фильтруем весь активный лист по столбцу 1.</span><br>
+<span class="S1">; Показываем только строки, где значение в указанном столбце &gt;20 и &lt;40.</span><br>
 <a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"A1:E30"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"&gt;20"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"&lt;40"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 1"</span><span class="S8">,</span> <span class="S7">"Error filtering data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 1"</span><span class="S8">,</span> <span class="S7">"Filtered on column 'A'. Only show rows with values &gt;20 and &lt;40."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Добавляем фильтр по столбцу 2.
-</span><br>
-<span class="S1">; Показываем только строки, где значение в указанном столбце <310.
-</span><br>
+<span class="S1">; Добавляем фильтр по столбцу 2.</span><br>
+<span class="S1">; Показываем только строки, где значение в указанном столбце &lt;310.</span><br>
 <a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S7">"&lt;310"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 2"</span><span class="S8">,</span> <span class="S7">"Error filtering data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 1"</span><span class="S8">,</span> <span class="S7">"Added filter on column 'B'. Only show rows with values &lt;310."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Снимаем фильтр с столбца 1.
-</span><br>
+<span class="S1">; Снимаем фильтр с столбца 1.</span><br>
 <a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 3"</span><span class="S8">,</span> <span class="S7">"Error filtering data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 1"</span><span class="S8">,</span> <span class="S7">"Removed filter from column 'A'."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Отображаем только выбранные значения (20, 40 и 60) столбца 2.
-</span><br>
+<span class="S1">; Отображаем только выбранные значения (20, 40 и 60) столбца 2.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aShow</span><span class="S8">[</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"20"</span><span class="S8">,</span> <span class="S7">"40"</span><span class="S8">,</span> <span class="S7">"60"</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$aShow</span><span class="S8">,</span> <span class="S9">$xlFilterValues</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 4"</span><span class="S8">,</span> <span class="S7">"Error filtering data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 1"</span><span class="S8">,</span> <span class="S7">"Set filter in column 'B' to only display selected values (20, 40 and 60)."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Снимаем все фильтры.
-</span><br>
+<span class="S1">; Снимаем все фильтры.</span><br>
 <a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 5"</span><span class="S8">,</span> <span class="S7">"Error filtering data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 1"</span><span class="S8">,</span> <span class="S7">"All filters removed."</span><span class="S8">)</span><br>
@@ -167,17 +148,14 @@
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example"</span><span class="S8">,</span> <span class="S7">"Press Enter to set the first filter!"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Фильтруем столбец M по дате. Показываем все даты в октябре 2013 и 2014 года.
-</span><br>
-<span class="S1">; 0 – год, 1 – месяц, 2 – день, 3 – час, 4 – минута, 5 – секунда
-</span><br>
+<span class="S1">; Фильтруем столбец M по дате. Показываем все даты в октябре 2013 и 2014 года.</span><br>
+<span class="S1">; 0 – год, 1 – месяц, 2 – день, 3 – час, 4 – минута, 5 – секунда</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aShow</span><span class="S8">[</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"01/10/2013"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"01/10/2014"</span><span class="S8">]</span><br>
 <a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">13</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlFilterValues</span><span class="S8">,</span> <span class="S9">$aShow</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 6"</span><span class="S8">,</span> <span class="S7">"Error filtering data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 2"</span><span class="S8">,</span> <span class="S7">"Column 'M' filtered by date. Show all dates in October of 2013 and 2014."</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Фильтруем столбец M по дате. Показываем все даты прошлого года.
-</span><br>
+<span class="S1">; Фильтруем столбец M по дате. Показываем все даты прошлого года.</span><br>
 <a class="le" href="../libfunctions/_Excel_FilterSet.htm"><span class="S15">_Excel_FilterSet</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S3">13</span><span class="S8">,</span> <span class="S9">$xlFilterLastYear</span><span class="S8">,</span> <span class="S9">$xlFilterDynamic</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 7"</span><span class="S8">,</span> <span class="S7">"Error filtering data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_FilterSet Example 2"</span><span class="S8">,</span> <span class="S7">"Column 'M' filtered by date. Show all dates of last year."</span><span class="S8">)</span><br>
