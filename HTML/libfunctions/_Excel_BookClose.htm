@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_BookClose</h1>
-<p class="funcdesc">Закрывает указанную книгу.</p>
+<p class="funcdesc">Закрывает указанную рабочую книгу.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_BookClose.htm"><span class="S15">_Excel_BookClose</span></a> <span class="S8">(</span> <span class="S9">$oWorkbook</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bSave</span> <span class="S8">=</span> <span class="S5">True</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$oWorkbook</span></td>
-<td style="width:85%">Объект книги.</td>
+<td style="width:85%">Объект рабочей книги.</td>
 </tr>
 <tr>
 <td><span class="S91">$bSave</span></td>
@@ -39,13 +39,9 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oWorkbook</span> не является объектом<br />
-2 – <span class="S91">$bSave</span> не является булевым значением<br />
-3 – Excel вернул ошибку.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+<td>1 – <span class="S91">$oWorkbook</span> не является объектом или не является объектом книги<br />
+2 – ошибка при сохранении книги. <span class="S61">@extended</span> содержит COM-код ошибки метода Save<br />
+3 – ошибка при закрытии книги. <span class="S61">@extended</span> содержит COM-код ошибки метода Close</td>
 </tr>
 </table>
 
