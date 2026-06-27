@@ -23,20 +23,21 @@
 </tr>
 <tr>
 <td><span class="S91">$vSheet</span></td>
-<td><strong>[необязательный]</strong> Объект, имя или индекс листа, перед/после которого добавляется новый лист.<br />
--1 – добавить перед последним или после последнего листа (по умолчанию Default = активный лист).</td>
+<td><strong>[необязательный]</strong> Объект, индекс или имя листа, перед или после которого вставляется новый лист.<br />
+-1 = вставить перед или после последнего листа (по умолчанию Default = активный лист)</td>
 </tr>
 <tr>
 <td><span class="S91">$bBefore</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – добавить лист перед <span class="S91">$vSheet</span>, <span class="S5">False</span> – после (по умолчанию <span class="S5">True</span>).</td>
+<td><strong>[необязательный]</strong> Новый лист вставляется перед <span class="S91">$vSheet</span> при <span class="S5">True</span> и после <span class="S91">$vSheet</span> при <span class="S5">False</span> (по умолчанию <span class="S5">True</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$iCount</span></td>
-<td><strong>[необязательный]</strong> Количество добавляемых листов. Максимум 255 (по умолчанию 1).</td>
+<td><strong>[необязательный]</strong> Число вставляемых листов (по умолчанию 1). Максимум 255.</td>
 </tr>
 <tr>
 <td><span class="S91">$sName</span></td>
-<td><strong>[необязательный]</strong> Имя нового листа. Для нескольких листов – имена через "|", назначаются слева направо (по умолчанию "").</td>
+<td><strong>[необязательный]</strong> Имена создаваемых листов (по умолчанию "" = по стандартному правилу именования новых листов Excel).<br />
+При <span class="S91">$iCount</span> больше 1 можно указать несколько имён через | (вертикальная черта). Листы именуются слева направо.</td>
 </tr>
 </table>
 
@@ -44,7 +45,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает объект первого добавленного листа.</td>
+<td style="width:90%">Возвращает объект (первого) добавленного листа.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -52,28 +53,12 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oWorkbook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vSheet</span> недопустимы либо <span class="S91">$vSheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$iCount</span> > 255<br />
-4 – ошибка при добавлении листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-5 – лист с указанным именем уже существует.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит порядковый номер имени в <span class="S91">$sName</span><br />
-6 – ошибка при переименовании листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+<td>1 – <span class="S91">$oWorkbook</span> не является объектом или не является объектом книги<br />
+2 – <span class="S91">$vSheet</span> недопустим. Имя или индекс не существует. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – указанный лист уже существует. <span class="S61">@extended</span> содержит номер имени в <span class="S91">$sName</span><br />
+4 – ошибка при добавлении листа. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+5 – ошибка при установке имени новых листов. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+6 – параметр <span class="S91">$iCount</span> больше 255</td>
 </tr>
 </table>
 
@@ -100,8 +85,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Добавляем новый лист после последнего и называем его "Test".
-</span><br>
+<span class="S1">; Добавляем новый лист после последнего и называем его "Test".</span><br>
 <a class="le" href="../libfunctions/_Excel_SheetAdd.htm"><span class="S15">_Excel_SheetAdd</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S7">"Test1|Test2"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetAdd Example 1"</span><span class="S8">,</span> <span class="S7">"Error adding sheets."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetAdd Example 1"</span><span class="S8">,</span> <span class="S7">"Two sheets added after the last one."</span><span class="S8">)</span><br>
@@ -126,8 +110,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Добавляем 3 новых листа перед листом 1 и задаём им имена.
-</span><br>
+<span class="S1">; Добавляем 3 новых листа перед листом 1 и задаём им имена.</span><br>
 <a class="le" href="../libfunctions/_Excel_SheetAdd.htm"><span class="S15">_Excel_SheetAdd</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetAdd Example 2"</span><span class="S8">,</span> <span class="S7">"Error adding sheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetAdd Example 2"</span><span class="S8">,</span> <span class="S7">"Sheet added before sheet 2."</span><span class="S8">)</span><br>
@@ -152,8 +135,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Добавляем новый лист после листа "Sheet2" и называем его "Test".
-</span><br>
+<span class="S1">; Добавляем новый лист после листа "Sheet2" и называем его "Test".</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oSheet</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Excel_SheetAdd.htm"><span class="S15">_Excel_SheetAdd</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S7">"Index"</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_SheetAdd Example 3"</span><span class="S8">,</span> <span class="S7">"Error adding sheet."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <span class="S9">$oSheet</span>.<span class="Scom">Range</span><span class="S8">(</span><span class="S7">"A1"</span><span class="S8">)</span>.<span class="Scom">Value</span> <span class="S8">=</span> <span class="S7">"Index"</span><br>
