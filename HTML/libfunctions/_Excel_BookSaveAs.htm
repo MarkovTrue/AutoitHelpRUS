@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_BookSaveAs</h1>
-<p class="funcdesc">Сохраняет указанную книгу под новым именем и/или в новом формате.</p>
+<p class="funcdesc">Сохраняет указанную рабочую книгу под новым именем и/или в новом формате.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_BookSaveAs.htm"><span class="S15">_Excel_BookSaveAs</span></a> <span class="S8">(</span> <span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S9">$sFilePath</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iFormat</span> <span class="S8">=</span> <span class="S9">$xlWorkbookDefault</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bOverWrite</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sPassword</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sWritePassword</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bReadOnlyRecommended</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$oWorkbook</span></td>
-<td style="width:85%">Объект сохраняемой книги.</td>
+<td style="width:85%">Объект сохраняемой рабочей книги.</td>
 </tr>
 <tr>
 <td><span class="S91">$sFilePath</span></td>
@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iFormat</span></td>
-<td><strong>[необязательный]</strong> Формат файла Excel. Допустимые значения – константы XlFileFormat.</td>
+<td><strong>[необязательный]</strong> Формат файла Excel для записи. Может быть любым значением перечисления XlFileFormat.</td>
 </tr>
 <tr>
 <td><span class="S91">$bOverWrite</span></td>
@@ -35,15 +35,15 @@
 </tr>
 <tr>
 <td><span class="S91">$sPassword</span></td>
-<td><strong>[необязательный]</strong> Пароль для защиты файла. При значении Default пароль не задаётся (по умолчанию Default).</td>
+<td><strong>[необязательный]</strong> Пароль для защиты файла. При значении Default пароль не устанавливается (по умолчанию Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$sWritePassword</span></td>
-<td><strong>[необязательный]</strong> Пароль для защиты файла от записи. При значении Default пароль не задаётся (по умолчанию Default).</td>
+<td><strong>[необязательный]</strong> Пароль для защиты файла от записи. При значении Default пароль не устанавливается (по умолчанию Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$bReadOnlyRecommended</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – при открытии файла отображать сообщение с рекомендацией открыть его в режиме только для чтения (по умолчанию <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> – при открытии файла отображать рекомендацию открыть его в режиме только для чтения (по умолчанию <span class="S5">False</span>).</td>
 </tr>
 </table>
 
@@ -63,18 +63,14 @@
 2 – <span class="S91">$iFormat</span> не является числом<br />
 3 – файл существует, флаг перезаписи не установлен<br />
 4 – файл существует, но не может быть удалён<br />
-5 – ошибка при сохранении книги.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки метода SaveAs.</td>
+5 – ошибка при сохранении книги. <span class="S61">@extended</span> содержит COM-код ошибки метода SaveAs</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Начиная с Excel 2007, необходимо указывать как параметр <span class="S91">$iFormat</span>, так и соответствующее расширение файла в <span class="S91">$sFilePath</span>.<br />
+<p>Начиная с Excel 2007 необходимо указывать как параметр <span class="S91">$iFormat</span>, так и соответствующее расширение файла в <span class="S91">$sFilePath</span>.<br />
 Например, <span class="S91">$iFormat</span> = <span class="S91">$xlExcel8</span> с расширением "xlsx" вернёт ошибку.<br />
-Возможные значения форматов см. в перечислении XlFileFormat в файле <span class="S7">ExcelConstants.au3</span>.<br />
+Возможные значения см. в перечислении XlFileFormat в файле <span class="S7">ExcelConstants.au3</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_Excel_BookSave.htm">_Excel_BookSave</a></p>
