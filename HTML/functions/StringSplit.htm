@@ -26,8 +26,8 @@
 </tr>
 <tr>
 <td>flag</td>
-<td><strong>[необязательный]</strong> Изменяет режим разбиения; для нескольких режимов значения флагов складываются:<br>
-<span class="default-const">$STR_CHRSPLIT</span> (0) = каждый символ строки разделителей является точкой разбиения (по умолчанию)<br>
+<td><strong>[необязательный]</strong> Изменяет режим разбиения, для нескольких режимов значения флагов складываются:<br>
+<span class="default-const"><span class="S91">$STR_CHRSPLIT</span></span> (0) = каждый символ строки разделителей является точкой разбиения (по умолчанию)<br>
 <span class="S91">$STR_ENTIRESPLIT</span> (1) = для разбиения требуется совпадение всей строки разделителей<br>
 <span class="S91">$STR_NOCOUNT</span> (2) = не помещать счётчик в первый элемент, массив фактически становится 0-базированным (для получения размера массива используйте <a href="UBound.htm"><span class="S4">UBound</span><span class="S8">()</span></a>).<br>
 <br>
@@ -36,18 +36,18 @@
 </table>
 
 <h2>Возвращаемое значение</h2>
-Возвращает массив: по умолчанию первый элемент (<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>) содержит количество возвращённых строк, остальные элементы (<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> и т.д.) содержат разделённые подстроки. Если параметр flag равен <span class="S91">$STR_NOCOUNT</span> (2), счётчик в первом элементе не возвращается.<br />
+Возвращает массив, по умолчанию первый элемент (<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>) содержит количество возвращённых строк, остальные элементы (<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> и т.д.) содержат разделённые подстроки. Если параметр <em>flag</em> равен <span class="S91">$STR_NOCOUNT</span> (2), счётчик в первом элементе не возвращается.<br />
 <br />
 Если разделители не найдены, <span class="S61">@error</span> устанавливается в 1:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;Если flag не равен <span class="S91">$STR_NOCOUNT</span>, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> устанавливается в 1, а полная строка возвращается в <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;Если flag равен <span class="S91">$STR_NOCOUNT</span>, полная строка возвращается в <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Если <em>flag</em> не равен <span class="S91">$STR_NOCOUNT</span>, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> устанавливается в 1, а полная строка возвращается в <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Если <em>flag</em> равен <span class="S91">$STR_NOCOUNT</span>, полная строка возвращается в <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>.<br />
 
 <h2>Примечания</h2>
 <p>Если в качестве разделителя задана пустая строка "", каждый символ возвращается как отдельный элемент.<br />
 <br />
-Если строка разделителей содержит несколько символов, поведение функции зависит от флага. При <span class="S91">$STR_CHRSPLIT</span> строка разбивается по каждому вхождению каждого символа разделителя; при <span class="S91">$STR_ENTIRESPLIT</span> – только при совпадении всей строки разделителей. См. второй пример ниже.<br />
+Если строка разделителей содержит несколько символов, поведение функции зависит от флага. При <span class="S91">$STR_CHRSPLIT</span> строка разбивается по каждому вхождению каждого символа разделителя, при <span class="S91">$STR_ENTIRESPLIT</span> только при совпадении всей строки разделителей. См. второй пример ниже.<br />
 <br />
-Обратите внимание: макрос <span class="S61">@CRLF</span> фактически является двухсимвольной строкой, поэтому без флага <span class="S91">$STR_ENTIRESPLIT</span> могут появиться лишние пустые строки, так как разбиение происходит и по <span class="S61">@CR</span>, и по <span class="S61">@LF</span>.<br />
+Обратите внимание, макрос <span class="S61">@CRLF</span> фактически является двухсимвольной строкой, поэтому без флага <span class="S91">$STR_ENTIRESPLIT</span> могут появиться лишние пустые строки, так как разбиение происходит и по <span class="S61">@CR</span>, и по <span class="S61">@LF</span>.<br />
 <br />
 <a href="StringSplit.htm"><span class="S4">StringSplit</span><span class="S8">()</span></a> очень удобна как альтернатива <a href="StringInStr.htm"><span class="S4">StringInStr</span><span class="S8">()</span></a> и как средство заполнения массива.<br />
 </p>
