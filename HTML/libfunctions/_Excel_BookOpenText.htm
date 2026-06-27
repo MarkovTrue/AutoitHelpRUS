@@ -31,8 +31,8 @@
 </tr>
 <tr>
 <td><span class="S91">$iDataType</span></td>
-<td><strong>[необязательный]</strong> Указывает формат столбца с данными в файле. Может быть любым из значений перечисления XlTextParsingType.<br />
-Если задано ключевое слово Default, Excel пытается определить формат столбца (по умолчанию Default).</td>
+<td><strong>[необязательный]</strong> Задаёт формат столбцов данных в файле. Может быть любым значением из перечисления XlTextParsingType.<br />
+При значении Default Excel пытается определить формат столбцов (по умолчанию Default).</td>
 </tr>
 <tr>
 <td><span class="S91">$sTextQualifier</span></td>
@@ -40,7 +40,7 @@
 </tr>
 <tr>
 <td><span class="S91">$bConsecutiveDelimiter</span></td>
-<td><strong>[необязательный]</strong> <span class="S5">True</span> – несколько последовательных разделителей считаются одним (по умолчанию <span class="S5">False</span>).</td>
+<td><strong>[необязательный]</strong> <span class="S5">True</span> – несколько последовательных разделителей считаются одним разделителем (по умолчанию <span class="S5">False</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$sDelimiter</span></td>
@@ -52,7 +52,7 @@
 Интерпретация зависит от значения DataType.<br />
 При разборе разделённых данных это массив двухэлементных массивов, каждый из которых<br />
 задаёт параметры преобразования для конкретного столбца.<br />
-Первый элемент: номер столбца (начиная с 1), второй элемент – константа XlColumnDataType,<br />
+Первый элемент – номер столбца (начиная с 1), второй элемент – одна из констант XlColumnDataType,<br />
 определяющая способ разбора столбца (по умолчанию Default).</td>
 </tr>
 <tr>
@@ -72,7 +72,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iOrigin</span></td>
-<td><strong>[необязательный]</strong> Происхождение текстового файла. Допустимые значения – константы XlPlatform.<br />
+<td><strong>[необязательный]</strong> Происхождение текстового файла. Может быть одной из констант XlPlatform.<br />
 Также можно указать целое число – номер кодовой страницы.<br />
 Например, "1256" означает арабскую кодировку (Windows).<br />
 Если параметр опущен, используется текущая настройка параметра "Источник файла" в мастере импорта текста.</td>
@@ -83,7 +83,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает объект книги.</td>
+<td style="width:90%">Возвращает объект рабочей книги.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -91,13 +91,9 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oExcel</span> не является объектом или объектом приложения<br />
+<td>1 – <span class="S91">$oExcel</span> не является объектом или не является объектом приложения<br />
 2 – указанный файл <span class="S91">$sFilePath</span> не существует<br />
-3 – не удалось открыть или разобрать <span class="S91">$sFilePath</span>.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки метода OpenText.</td>
+3 – не удалось открыть или разобрать <span class="S91">$sFilePath</span>. <span class="S61">@extended</span> содержит COM-код ошибки метода OpenText</td>
 </tr>
 </table>
 
