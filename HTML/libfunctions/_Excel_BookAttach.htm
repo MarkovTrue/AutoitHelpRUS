@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_Excel_BookAttach</h1>
-<p class="funcdesc">Подключается к первому экземпляру книги, для которого строка поиска совпадает согласно выбранному режиму.</p>
+<p class="funcdesc">Подключается к первому найденному экземпляру рабочей книги, имя которой совпадает со строкой поиска в соответствии с выбранным режимом.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Excel.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_Excel_BookAttach.htm"><span class="S15">_Excel_BookAttach</span></a> <span class="S8">(</span> <span class="S9">$sString</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sMode</span> <span class="S8">=</span> <span class="S7">"FilePath"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$oInstance</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,14 +23,14 @@
 </tr>
 <tr>
 <td><span class="S91">$sMode</span></td>
-<td><strong>[необязательный]</strong> Режим поиска:<br />
+<td><strong>[необязательный]</strong> Задаёт режим поиска:<br />
 FileName – имя открытой книги<br />
 FilePath – полный путь к открытой книге (по умолчанию)<br />
 Title – заголовок окна Excel.</td>
 </tr>
 <tr>
 <td><span class="S91">$oInstance</span></td>
-<td><strong>[необязательный]</strong> Объект экземпляра Excel для поиска (по умолчанию ключевое слово Default для поиска во всех экземплярах).</td>
+<td><strong>[необязательный]</strong> Объект экземпляра Excel для поиска (по умолчанию Default = все экземпляры).</td>
 </tr>
 </table>
 
@@ -38,7 +38,7 @@ Title – заголовок окна Excel.</td>
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает объект книги Excel.</td>
+<td style="width:90%">Возвращает объект рабочей книги Excel.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -46,9 +46,8 @@ Title – заголовок окна Excel.</td>
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – произошла ошибка или <span class="S91">$sString</span> не найдена ни в одной из открытых книг<br />
-<span class="S61">@extended</span> содержит код COM-ошибки<br />
-2 – недопустимое знач ение <span class="S91">$sMode</span><br /></td>
+<td>1 – произошла ошибка или <span class="S91">$sString</span> не найдена ни в одной из открытых книг. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+2 – <span class="S91">$sMode</span> недопустим</td>
 </tr>
 </table>
 
