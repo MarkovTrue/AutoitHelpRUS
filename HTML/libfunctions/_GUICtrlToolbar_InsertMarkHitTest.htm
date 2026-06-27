@@ -85,14 +85,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить метку вставки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlToolbar_SetInsertMark.htm"><span class="S15">_GUICtrlToolbar_SetInsertMark</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выполнить проверку попадания метки вставки 1
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выполнить проверку попадания метки вставки 1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aMark</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlToolbar_InsertMarkHitTest.htm"><span class="S15">_GUICtrlToolbar_InsertMarkHitTest</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Index ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aMark</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Relationship .: "</span> <span class="S8">&amp;</span> <span class="S9">$aMark</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выполнить проверку попадания метки вставки 2
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Выполнить проверку попадания метки вставки 2</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aRect</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlToolbar_GetButtonRect.htm"><span class="S15">_GUICtrlToolbar_GetButtonRect</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span> <span class="S9">$e_idSave</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aMark</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlToolbar_InsertMarkHitTest.htm"><span class="S15">_GUICtrlToolbar_InsertMarkHitTest</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span> <span class="S9">$aRect</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aRect</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Index ........: "</span> <span class="S8">&amp;</span> <span class="S9">$aMark</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
