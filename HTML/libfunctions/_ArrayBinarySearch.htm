@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_ArrayBinarySearch</h1>
-<p class="funcdesc">Ищет значение в одномерном 1D или двумерном 2D массиве алгоритмом бинарного поиска.</p>
+<p class="funcdesc">Выполняет поиск в одномерном или двумерном массиве методом бинарного поиска.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_ArrayBinarySearch.htm"><span class="S15">_ArrayBinarySearch</span></a> <span class="S8">(</span> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">ByRef</span></a> <span class="S9">$aArray</span><span class="S8">,</span> <span class="S9">$vValue</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iStart</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iEnd</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iColumn</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,15 +27,15 @@
 </tr>
 <tr>
 <td><span class="S91">$iStart</span></td>
-<td><strong>[необязательный]</strong> Индекс массива для начала поиска</td>
+<td><strong>[необязательный]</strong> Индекс массива для начала поиска.</td>
 </tr>
 <tr>
 <td><span class="S91">$iEnd</span></td>
-<td><strong>[необязательный]</strong> Индекс элемента, на котором заканчивается поиск</td>
+<td><strong>[необязательный]</strong> Индекс элемента, на котором заканчивается поиск.</td>
 </tr>
 <tr>
 <td><span class="S91">$iColumn</span></td>
-<td><strong>[необязательный]</strong> Столбец массива для поиска</td>
+<td><strong>[необязательный]</strong> Столбец массива для поиска.</td>
 </tr>
 </table>
 
@@ -51,18 +51,18 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$aArray</span> не массив<br />
-2&nbsp;– <span class="S91">$vValue</span> вне диапазона значений массива<br />
-3&nbsp;– <span class="S91">$vValue</span> не найден в массиве<br />
-4&nbsp;– <span class="S91">$iStart</span> больше <span class="S91">$iEnd</span><br />
-5&nbsp;– <span class="S91">$aArray</span> не 1D и не 2D массив<br />
-6&nbsp;– <span class="S91">$aArray</span> пуст<br />
-7&nbsp;– <span class="S91">$iColumn</span> вне границ массива</td>
+<td>1 – <span class="S91">$aArray</span> не является массивом<br />
+2 – <span class="S91">$vValue</span> вне диапазона значений массива<br />
+3 – <span class="S91">$vValue</span> не найден в массиве<br />
+4 – <span class="S91">$iStart</span> больше <span class="S91">$iEnd</span><br />
+5 – <span class="S91">$aArray</span> не является одномерным или двумерным массивом<br />
+6 – <span class="S91">$aArray</span> пуст<br />
+7 – <span class="S91">$iColumn</span> выходит за границы массива</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Перед бинарным поиском массив (для 2D массива – заданный столбец) ОБЯЗАН быть отсортирован по ВОЗРАСТАНИЮ, иначе результат не определён.<br />
+<p>При выполнении бинарного поиска массив (или указанный столбец для двумерного массива) ДОЛЖЕН быть отсортирован в порядке ВОЗРАСТАНИЯ. В противном случае результат не определён.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ArrayFindAll.htm">_ArrayFindAll</a>, <a href="_ArraySearch.htm">_ArraySearch</a></p>
@@ -85,13 +85,11 @@
 <a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"Array"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Ищем в столбце 0
-</span><br>
+<span class="S1">; Ищем в столбце 0</span><br>
 <span class="S9">$iIndex</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayBinarySearch.htm"><span class="S15">_ArrayBinarySearch</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"#10"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Index"</span><span class="S8">,</span> <span class="S9">$iIndex</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Ищем в столбце 1
-</span><br>
+<span class="S1">; Ищем в столбце 1</span><br>
 <span class="S9">$iIndex</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ArrayBinarySearch.htm"><span class="S15">_ArrayBinarySearch</span></a><span class="S8">(</span><span class="S9">$aArray</span><span class="S8">,</span> <span class="S7">"#31"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Index"</span><span class="S8">,</span> <span class="S9">$iIndex</span><span class="S8">)</span><br>
 </p>
@@ -100,20 +98,17 @@
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; используем массив, возвращённый StringSplit()
-</span><br>
+<span class="S1">; используем массив, возвращённый StringSplit()</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Array.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$avArray</span> <span class="S8">=</span> <a class="le" href="../functions/StringSplit.htm"><span class="S4">StringSplit</span></a><span class="S8">(</span><span class="S7">"a,b,d,c,e,f,g,h,i"</span><span class="S8">,</span> <span class="S7">","</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; сортируем массив для бинарного поиска
-</span><br>
+<span class="S1">; сортируем массив для бинарного поиска</span><br>
 <a class="le" href="../libfunctions/_ArraySort.htm"><span class="S15">_ArraySort</span></a><span class="S8">(</span><span class="S9">$avArray</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; начать с индекса 1, пропустив $avArray[0]</span><br>
 <br>
-<span class="S1">; вывести отсортированный массив
-</span><br>
+<span class="S1">; вывести отсортированный массив</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$avArray</span><span class="S8">,</span> <span class="S7">"$avArray AFTER _ArraySort()"</span><span class="S8">)</span><br>
 <br>
 <span class="S1">; начать с индекса 1, пропустив $avArray[0]</span><br>
