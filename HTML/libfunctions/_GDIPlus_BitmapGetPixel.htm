@@ -23,11 +23,11 @@
 </tr>
 <tr>
 <td><span class="S91">$iX</span></td>
-<td>Координата X пикселя.</td>
+<td>X-координата пикселя.</td>
 </tr>
 <tr>
 <td><span class="S91">$iY</span></td>
-<td>Координата Y пикселя.</td>
+<td>Y-координата пикселя.</td>
 </tr>
 </table>
 
@@ -35,7 +35,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает цвет пикселя изображения.</td>
+<td style="width:90%">Возвращает цвет пикселя растрового изображения.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -75,18 +75,15 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iY</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iHeight</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iX</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iWidth</span> <span class="S8">-</span> <span class="S3">1</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iColor</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapGetPixel.htm"><span class="S15">_GDIPlus_BitmapGetPixel</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">)</span>&nbsp;<span class="S1">; Получить текущий цвет пикселя.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapSetPixel.htm"><span class="S15">_GDIPlus_BitmapSetPixel</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">,</span> <a class="le" href="../functions/BitXOR.htm"><span class="S4">BitXOR</span></a><span class="S8">(</span><span class="S3">0x00FFFFFF</span><span class="S8">,</span> <span class="S9">$iColor</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Инвертировать только RGB-составляющие цвета пикселя.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iColor</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapGetPixel.htm"><span class="S15">_GDIPlus_BitmapGetPixel</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">)</span>&nbsp;<span class="S1">;Получить текущий цвет пикселя.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapSetPixel.htm"><span class="S15">_GDIPlus_BitmapSetPixel</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">,</span> <a class="le" href="../functions/BitXOR.htm"><span class="S4">BitXOR</span></a><span class="S8">(</span><span class="S3">0x00FFFFFF</span><span class="S8">,</span> <span class="S9">$iColor</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">;Инвертировать только RGB-составляющие цвета пикселя.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"GDI+ Example ("</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">)</span>&nbsp;<span class="S1">;создать тестовый GUI</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGraphics</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;создать графический объект из дескриптора окна</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImage.htm"><span class="S15">_GDIPlus_GraphicsDrawImage</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; Скопировать инвертированное изображение в графический объект (GUI).
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImage.htm"><span class="S15">_GDIPlus_GraphicsDrawImage</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S9">$hBitmap</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">;Скопировать инвертированное изображение в графический объект (GUI).</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
