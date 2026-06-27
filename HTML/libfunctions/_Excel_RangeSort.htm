@@ -84,36 +84,12 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – <span class="S91">$oWorkbook</span> не является объектом или объектом книги<br />
-2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-3 – <span class="S91">$vRange</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-4 – <span class="S91">$vKey1</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-5 – <span class="S91">$vKey2</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-6 – <span class="S91">$vKey3</span> недопустим.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки<br />
-7 – ошибка метода Sort.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит код COM-ошибки.</td>
+2 – имя или индекс <span class="S91">$vWorksheet</span> недопустимы либо <span class="S91">$vWorksheet</span> не является объектом листа. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+3 – <span class="S91">$vRange</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+4 – <span class="S91">$vKey1</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+5 – <span class="S91">$vKey2</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+6 – <span class="S91">$vKey3</span> недопустим. <span class="S61">@extended</span> содержит COM-код ошибки<br />
+7 – ошибка метода Sort. <span class="S61">@extended</span> содержит COM-код ошибки</td>
 </tr>
 </table>
 
@@ -137,8 +113,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Сортируем диапазон с заголовками по столбцу I по возрастанию.
-</span><br>
+<span class="S1">; Сортируем диапазон с заголовками по столбцу I по возрастанию.</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeSort Example 1"</span><span class="S8">,</span> <span class="S7">"Press OK to sort range I1:K7. Key is column I."</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeSort.htm"><span class="S15">_Excel_RangeSort</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"I1:K7"</span><span class="S8">,</span> <span class="S7">"I:I"</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlYes</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeSort Example 1"</span><span class="S8">,</span> <span class="S7">"Error sorting data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -164,8 +139,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Сортируем диапазон с заголовками по столбцу K по убыванию. Числа сортируем как текст.
-</span><br>
+<span class="S1">; Сортируем диапазон с заголовками по столбцу K по убыванию. Числа сортируем как текст.</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeSort Example 2"</span><span class="S8">,</span> <span class="S7">"Press OK to sort range I1:K7. Key is column K."</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeSort.htm"><span class="S15">_Excel_RangeSort</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"I1:K7"</span><span class="S8">,</span> <span class="S7">"K:K"</span><span class="S8">,</span> <span class="S9">$xlDescending</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlYes</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeSort Example 2"</span><span class="S8">,</span> <span class="S7">"Error sorting data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
@@ -191,8 +165,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Сортируем диапазон с заголовками по строке 1 (заголовкам столбцов) по убыванию.
-</span><br>
+<span class="S1">; Сортируем диапазон с заголовками по строке 1 (заголовкам столбцов) по убыванию.</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeSort Example 3"</span><span class="S8">,</span> <span class="S7">"Press OK to sort range I1:K7. Key is row 1."</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_Excel_RangeSort.htm"><span class="S15">_Excel_RangeSort</span></a><span class="S8">(</span><span class="S9">$oWorkbook</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"I1:K7"</span><span class="S8">,</span> <span class="S7">"1:1"</span><span class="S8">,</span> <span class="S9">$xlDescending</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlYes</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S9">$xlSortRows</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Excel UDF: _Excel_RangeSort Example 3"</span><span class="S8">,</span> <span class="S7">"Error sorting data."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
