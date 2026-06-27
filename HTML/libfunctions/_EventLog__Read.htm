@@ -50,11 +50,11 @@
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> – время получения записи для записи в журнал<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – идентификатор события<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> – тип события. Возможные значения:<br />
-1 – ошибка<br />
-2 – предупреждение<br />
-4 – информация<br />
-8 – аудит успеха<br />
-16 – аудит отказа<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1 – ошибка<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2 – предупреждение<br />
+&nbsp;&nbsp;&nbsp;&nbsp;4 – информация<br />
+&nbsp;&nbsp;&nbsp;&nbsp;8 – аудит успеха<br />
+&nbsp;&nbsp;&nbsp;&nbsp;16 – аудит отказа<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span> – строка типа события<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">9</span><span class="S8">]</span> – категория события<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span> – источник события<br />
@@ -96,11 +96,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">596</span><span class="S8">,</span> <span class="S3">294</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Читаем самую последнюю запись журнала событий.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Читаем самую последнюю запись журнала событий.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hEventLog</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_EventLog__Open.htm"><span class="S15">_EventLog__Open</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S7">"Application"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aEvent</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_EventLog__Read.htm"><span class="S15">_EventLog__Read</span></a><span class="S8">(</span><span class="S9">$hEventLog</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span>&nbsp;<span class="S1">; Читаем последнее событие.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aEvent</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_EventLog__Read.htm"><span class="S15">_EventLog__Read</span></a><span class="S8">(</span><span class="S9">$hEventLog</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span>&nbsp;<span class="S1">; Читаем последнее событие.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $hEventLog = _EventLog__Open("", "System")
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $aEvent = _EventLog__Read($hEventLog)
