@@ -23,7 +23,8 @@
 </tr>
 <tr>
 <td><span class="S91">$iFmt</span></td>
-<td><strong>[необязательный]</strong> 0 – возвращает mm/dd/yyyy hh:mm:ss (по умолчанию)<br />
+<td><strong>[необязательный]</strong><br />
+0 – возвращает mm/dd/yyyy hh:mm:ss (по умолчанию)<br />
 1 – возвращает yyyy/mm/dd hh:mm:ss<br />
 2 – возвращает wday, n MMM yyyy hh:mm:ss UTC (см. раздел Примечания)<br />
 3 – возвращает yyyy-mm-ddThh:mm:ssZ (ISO8601) (см. раздел Примечания)<br />
@@ -31,7 +32,8 @@
 </tr>
 <tr>
 <td><span class="S91">$iType</span></td>
-<td><strong>[необязательный]</strong> 0 – <span class="S91">$tSYSTEMTIME</span> содержит местное время (по умолчанию)<br />
+<td><strong>[необязательный]</strong><br />
+0 – <span class="S91">$tSYSTEMTIME</span> содержит местное время (по умолчанию)<br />
 1 – <span class="S91">$tSYSTEMTIME</span> содержит системное время (UTC).</td>
 </tr>
 </table>
@@ -40,9 +42,9 @@
 Возвращает строку даты/времени в формате, заданном <span class="S91">$iFmt</span>.<br />
 
 <h2>Примечания</h2>
-<p><span class="S91">$iFmt</span> = 0 или 1 не используют <span class="S91">$iType</span>, так как просто форматируют параметр <span class="S91">$tSYSTEMTIME</span>, независимо от того, содержит ли он системное или локальное время.<br />
+<p>При <span class="S91">$iFmt</span> = 0 или 1, параметр <span class="S91">$iType</span> не используется, функция просто форматирует <span class="S91">$tSYSTEMTIME</span> независимо от того, содержит ли он системное или местное время.<br />
 <br />
-Для iFmt = 2 (UTC) или 3 (ISO8601) <span class="S91">$iType</span> определяет, является ли время локальным или системным.<br />
+При <span class="S91">$iFmt</span> = 2 (UTC) или 3 (ISO8601), параметр <span class="S91">$iType</span> определяет является ли время местным или системным.<br />
 <br />
 Время UTC совпадает с GMT (Greenwich Meridian Time).<br />
 </p>
@@ -76,31 +78,24 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aOld</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Date_Time_GetTimeZoneInformation.htm"><span class="S15">_Date_Time_GetTimeZoneInformation</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">ShowTimeZoneInformation</span><span class="S8">(</span><span class="S9">$aOld</span><span class="S8">,</span> <span class="S7">"Time Zone info"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tTime</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Date_Time_GetSystemTime.htm"><span class="S15">_Date_Time_GetSystemTime</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; UTC.
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tTime</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Date_Time_GetSystemTime.htm"><span class="S15">_Date_Time_GetSystemTime</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; UTC
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Просто форматируем $tTime, не зависит от $iType.
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Просто форматируем $tTime, не зависит от $iType.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"System date/time (0)       : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; mm/dd/yyyy hh:mm:ss
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"System date/time (0)       : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; mm/dd/yyyy hh:mm:ss.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"System date/time (1)       : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; yyyy/mm/dd hh:mm:ss.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S8">)</span><br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображаем системную дату/время.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"System date/time (UTC)     : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; wday, nn MMM yyyy hh:mm:ss UTC – системное время.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"System date/time (ISO8601) : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; yyyy/mm/ddThh:mm:ssZ – системное время.
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"System date/time (1)       : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; yyyy/mm/dd hh:mm:ss
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображаем местную дату/время.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображаем системную дату/время.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"System date/time (UTC)     : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; wday, nn MMM yyyy hh:mm:ss UTC – системное время.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"System date/time (ISO8601) : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; yyyy/mm/ddThh:mm:ssZ – системное время.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S8">)</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображаем местную дату/время.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tTime</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Date_Time_GetLocalTime.htm"><span class="S15">_Date_Time_GetLocalTime</span></a><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Local  date/time (UTC)     : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; wday, nn MMM yyyy hh:mm:ss UTC – местное время.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Local  date/time (ISO8601) : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; yyyy/mm/ddThh:mm:ss-hh:mm – местное время.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Local  date/time (UTC)     : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; wday, nn MMM yyyy hh:mm:ss UTC – местное время.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Local  date/time (ISO8601) : "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_Date_Time_SystemTimeToDateTimeStr.htm"><span class="S15">_Date_Time_SystemTimeToDateTimeStr</span></a><span class="S8">(</span><span class="S9">$tTime</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; yyyy/mm/ddThh:mm:ss-hh:mm – местное время.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
