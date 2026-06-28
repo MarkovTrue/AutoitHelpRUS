@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>DllStructGetPtr</h1>
-<p class="funcdesc">Возвращает указатель на структуру или на элемент структуры.</p>
+<p class="funcdesc">Возвращает указатель на структуру или на её элемент.</p>
 <p class="codeheader"><a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a> <span class="S8">(</span> <span class="S0">Struct</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">Element</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -22,7 +22,7 @@
 </tr>
 <tr>
 <td>Element</td>
-<td><strong>[необязательный]</strong> Элемент структуры, указатель которого нужен: номер, начиная с 1, или имя элемента, определённое в <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
+<td><strong>[необязательный]</strong> Элемент структуры, указатель которого нужен: номер начиная с 1 или имя элемента, заданное в <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
 </tr>
 </table>
 
@@ -39,7 +39,7 @@
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>1 – структура не является допустимой структурой, возвращённой <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.<br />
-2 – элемент выходит за пределы диапазона.</td>
+2&nbsp;– элемент вне диапазона.</td>
 </tr>
 </table>
 
@@ -155,7 +155,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; структуру *tSTRUCT3, будет float (элемент приводится из int в float).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; – используется оператор приведения "reinterpret_cast".</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; – Используется оператор приведения "reinterpret_cast".</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить данные первого элемента (int) в $tSTRUCT1.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
