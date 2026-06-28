@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$iEntries</span></td>
-<td style="width:85%">Количество записей.</td>
+<td style="width:85%">Количество элементов.</td>
 </tr>
 <tr>
 <td><span class="S91">$iPaletteType</span></td>
@@ -27,13 +27,13 @@
 </tr>
 <tr>
 <td><span class="S91">$iOptimalColors</span></td>
-<td><strong>[необязательный]</strong> Целое число, задающее количество цветов в оптимальной палитре для указанного битмапа.<br />
-Если значение больше 0, параметр <span class="S91">$iPaletteType</span> должен быть PaletteTypeOptimal, а параметр <span class="S91">$hBitmap</span> – указывать на объект Bitmap.</td>
+<td><strong>[необязательный]</strong> Целое число, задающее количество цветов в оптимальной палитре на основе указанного растрового изображения.<br />
+Если этот параметр больше 0, параметр palettetype должен быть равен PaletteTypeOptimal, а параметр bitmap должен указывать на объект Bitmap.</td>
 </tr>
 <tr>
 <td><span class="S91">$bUseTransparentColor</span></td>
-<td><strong>[необязательный]</strong> Логическое значение, определяющее, включать ли прозрачный цвет в палитру.<br />
-TRUE – включить; FALSE – не включать.</td>
+<td><strong>[необязательный]</strong> Логическое значение, задающее, включать ли прозрачный цвет в палитру.<br />
+Установите TRUE, чтобы включить прозрачный цвет; иначе FALSE.</td>
 </tr>
 <tr>
 <td><span class="S91">$hBitmap</span></td>
@@ -45,7 +45,7 @@ TRUE – включить; FALSE – не включать.</td>
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает структуру DllStruct Palette:<br />
+<td style="width:90%">Возвращает DllStruct палитры:<br />
 Flags&nbsp;– <span class="S91">$iPaletteFlags</span><br />
 Count&nbsp;– <span class="S91">$iEntries</span><br />
 ARGB&nbsp;– массив UINT цветов ARGB.</td>
@@ -100,8 +100,7 @@ ARGB&nbsp;– массив UINT цветов ARGB.</td>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGraphics</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGui</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;конвертировать в 16-цветный битмап (4 бит/пикс) с дизерингом FixedHalftone27
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Преобразовать в 16-цветное изображение (4 бит/пикс) с дизерингом FixedHalftone27.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tPalette</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_PaletteInitialize.htm"><span class="S15">_GDIPlus_PaletteInitialize</span></a><span class="S8">(</span><span class="S3">16</span><span class="S8">,</span> <span class="S9">$GDIP_PaletteTypeFixedHalftone27</span><span class="S8">,</span> <span class="S3">16</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">,</span> <span class="S9">$hImage</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapConvertFormat.htm"><span class="S15">_GDIPlus_BitmapConvertFormat</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">,</span> <span class="S9">$GDIP_PXF04INDEXED</span><span class="S8">,</span> <span class="S9">$GDIP_DitherTypeDualSpiral8x8</span><span class="S8">,</span> <span class="S9">$GDIP_PaletteTypeFixedHalftone27</span><span class="S8">,</span> <span class="S9">$tPalette</span><span class="S8">)</span><br>
 <br>
