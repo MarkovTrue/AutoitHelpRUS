@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_PenGetMiterLimit</h1>
-<p class="funcdesc">Возвращает предел длины среза, установленный для объекта Pen.</p>
+<p class="funcdesc">Возвращает текущий предел среза угла, заданный для объекта Pen.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_PenGetMiterLimit.htm"><span class="S15">_GDIPlus_PenGetMiterLimit</span></a> <span class="S8">(</span> <span class="S9">$hPen</span> <span class="S8">)</span></p>
 
@@ -27,7 +27,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает предел длины среза объекта Pen.</td>
+<td style="width:90%">Возвращает предел среза угла объекта Pen.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -40,9 +40,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Длина среза – это расстояние от точки пересечения внутренних стенок линий в стыке до точки пересечения внешних стенок.<br />
-При малом угле между линиями длина среза может быть очень большой.<br />
-Предел длины среза – это максимально допустимое отношение длины среза к ширине линии.<br />
+<p>Длина среза – это расстояние от пересечения внутренних краёв линий в месте соединения до пересечения внешних краёв.<br />
+Длина среза может быть большой, когда угол между двумя линиями мал.<br />
+Предел среза – это максимально допустимое отношение длины среза к ширине линии.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GDIPlus_PenSetMiterLimit.htm">_GDIPlus_PenSetMiterLimit</a></p>
