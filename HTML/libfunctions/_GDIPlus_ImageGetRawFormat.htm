@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_ImageGetRawFormat</h1>
-<p class="funcdesc">Возвращает GUID формата файла и название формата изображения.</p>
+<p class="funcdesc">Возвращает GUID формата файла и имя формата изображения.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_ImageGetRawFormat.htm"><span class="S15">_GDIPlus_ImageGetRawFormat</span></a> <span class="S8">(</span> <span class="S9">$hImage</span> <span class="S8">)</span></p>
 
@@ -27,9 +27,9 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив следующего формата:<br />
-[0]&nbsp;– строка GUID формата файла<br />
-[1]&nbsp;– строка с названием формата изображения</td>
+<td style="width:90%">Возвращает массив следующего вида:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– строка GUID формата файла<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– строка имени формата изображения</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -41,10 +41,10 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>10 – недопустимый формат.<br />
-11&nbsp;– недопустимый дескриптор изображения.<br />
-12&nbsp;– недопустимый GUID формата файла.<br />
-13&nbsp;– неизвестный GUID формата файла.</td>
+<td>10 – недопустимый необработанный формат<br />
+11 – недопустимый дескриптор изображения<br />
+12 – недопустимый GUID формата файла<br />
+13 – неизвестный GUID формата файла</td>
 </tr>
 </table>
 
