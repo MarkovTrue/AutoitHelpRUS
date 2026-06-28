@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>DllStructSetData</h1>
-<p class="funcdesc">Устанавливает данные элемента структуры.</p>
+<p class="funcdesc">Записывает данные в элемент структуры.</p>
 <p class="codeheader"><a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a> <span class="S8">(</span> <span class="S0">Struct</span><span class="S8">,</span> <span class="S0">Element</span><span class="S8">,</span> <span class="S0">value</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">index</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -22,15 +22,15 @@
 </tr>
 <tr>
 <td>Element</td>
-<td>Элемент структуры, к которому нужно обратиться: номер, начиная с 1, или имя элемента, определённое в <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
+<td>Элемент структуры, к которому нужно обратиться: номер начиная с 1 или имя элемента, заданное в <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
 </tr>
 <tr>
 <td>value</td>
-<td>Новое значение для помещения в элемент структуры.</td>
+<td>Новое значение, которое нужно записать в элемент структуры.</td>
 </tr>
 <tr>
 <td>index</td>
-<td><strong>[необязательный]</strong> Для элементов-массивов задаёт индекс (начиная с 1) для установки значения. Если параметр опущен или равен ключевому слову Default, будет установлено столько значения, сколько возможно, начиная с индекса 1 (удобно для быстрой установки строк). <strong>Не используется для элементов, не являющихся массивами.</strong></td>
+<td><strong>[необязательный]</strong> Для элементов-массивов задаёт индекс (начиная с 1) для записи. Если опущен или равен ключевому слову <a href="../keywords/Default.htm">Default</a>, в элемент записывается столько значения, сколько помещается, начиная с индекса 1 (удобно для быстрой записи строк). <strong>Для элементов, не являющихся массивами, не используется.</strong></td>
 </tr>
 </table>
 
@@ -38,7 +38,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает значение, считанное обратно из структуры.</td>
+<td style="width:90%">Возвращает значение, прочитанное обратно из структуры.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -46,17 +46,17 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – структура не соответствует структуре, возвращенной <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.<br />
-2 – элемент выходит за пределы диапазона или неизвестен.<br />
-3 – индекс выходит за пределы диапазона.<br />
-4 – неизвестный тип данных элемента<br />
-5 – индекс &lt;=0.</td>
+<td>1 – структура не является допустимой структурой, возвращённой <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.<br />
+2&nbsp;– элемент вне диапазона или неизвестен.<br />
+3&nbsp;– индекс вне диапазона.<br />
+4&nbsp;– неизвестный тип данных элемента.<br />
+5&nbsp;– индекс &lt;= 0.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Если элемент имеет тип char[n], wchar[n] или byte[n], данные могут быть строкой; byte[n] также принимает двоичные данные. В остальных случаях данные должны быть либо типом AutoIt, совместимым с типом элемента, либо числом, которое будет преобразовано в нужный тип.<br />
-Нативные строки AutoIt неявно преобразуются в ANSI перед копированием в элемент char[n] или byte[n]. При ожидании кодировки UTF-8 (например, в DllCall) необходимо самостоятельно конвертировать Unicode-строки.<br />
+<p>Если элемент имеет тип char[n], wchar[n] или byte[n], данными может быть строка. byte[n] также принимает двоичные данные. В остальных случаях данные должны быть либо типом AutoIt, совместимым с типом элемента, либо числом, которое будет преобразовано к нужному типу.<br />
+Строки AutoIt перед копированием в элемент char[n] или byte[n] неявно преобразуются в ANSI. Если элемент ожидает кодировку UTF-8 (например, в DllCall), Unicode-строки нужно преобразовать самостоятельно.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="DllStructCreate.htm">DllStructCreate</a>, <a href="DllStructGetData.htm">DllStructGetData</a>, <a href="DllStructGetSize.htm">DllStructGetSize</a></p>
@@ -118,7 +118,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">255</span><span class="S8">)</span>&nbsp;<span class="S1">; Или "var2" вместо 2.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать данные элемента var3 (uint) в $tSTRUCT1.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S7">"var3"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; -1 (signed int) будет преобразовано в unsigned int.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S7">"var3"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; -1 (Signed int) будет преобразовано в unsigned int.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Или 3 вместо "var3".</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать данные элемента var4 (char) в $tSTRUCT1.</span><br>
