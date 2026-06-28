@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_LineBrushSetColors</h1>
-<p class="funcdesc">Задаёт начальный и конечный цвета кисти линейного градиента.</p>
+<p class="funcdesc">Задаёт начальный и конечный цвета линейной градиентной кисти.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_LineBrushSetColors.htm"><span class="S15">_GDIPlus_LineBrushSetColors</span></a> <span class="S8">(</span> <span class="S9">$hLineGradientBrush</span><span class="S8">,</span> <span class="S9">$iARGBStart</span><span class="S8">,</span> <span class="S9">$iARGBEnd</span> <span class="S8">)</span></p>
 
@@ -23,11 +23,11 @@
 </tr>
 <tr>
 <td><span class="S91">$iARGBStart</span></td>
-<td>Компоненты Alpha, Red, Green, Blue начального цвета.</td>
+<td>Компоненты Alpha, Red, Green и Blue начального цвета.</td>
 </tr>
 <tr>
 <td><span class="S91">$iARGBEnd</span></td>
-<td>Компоненты Alpha, Red, Green, Blue конечного цвета.</td>
+<td>Компоненты Alpha, Red, Green и Blue конечного цвета.</td>
 </tr>
 </table>
 
@@ -76,37 +76,26 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBrush</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_LineBrushCreate.htm"><span class="S15">_GDIPlus_LineBrushCreate</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">280</span><span class="S8">,</span> <span class="S3">570</span><span class="S8">,</span> <span class="S3">0xFFFFFF00</span><span class="S8">,</span> <span class="S3">0xFF4020FF</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">;создать линейную градиентную кисть с отражением</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">4</span>&nbsp;<span class="S1">;использовать 4 коэффициента и позиции
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">4</span>&nbsp;<span class="S1">; использовать 4 коэффициента и позиции</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; Фактор</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; Позиция</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">;смешивание 100% (переход от красного к зелёному завершается в первых 20%)
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.2</span>&nbsp;<span class="S1">;расстояние от левой границы кисти – 20%
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">;смешивание 0% (переход от зелёного к красному с 20% до 70%)
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.7</span>&nbsp;<span class="S1">;расстояние от левой границы кисти – 70%
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">;смешивание 100% (переход с 70% до 100%)
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">;расстояние от левой границы кисти – 100%
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">; смешивание 100% (переход от красного к зелёному завершается в первых 20% от левой границы)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.2</span>&nbsp;<span class="S1">; расстояние от левой границы кисти – 20%</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">; смешивание 0% (переход от зелёного к красному с 20% до 70% от левой границы)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.7</span>&nbsp;<span class="S1">; расстояние от левой границы кисти – 70%</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">; смешивание 100% (переход от красного к зелёному с 70% до 100%)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aBlends</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">; расстояние от левой границы кисти – 100%</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_LineBrushSetBlend.htm"><span class="S15">_GDIPlus_LineBrushSetBlend</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">,</span> <span class="S9">$aBlends</span><span class="S8">)</span>&nbsp;<span class="S1">;задать позиции и коэффициенты кисти
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_LineBrushSetBlend.htm"><span class="S15">_GDIPlus_LineBrushSetBlend</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">,</span> <span class="S9">$aBlends</span><span class="S8">)</span>&nbsp;<span class="S1">; задать позиции и коэффициенты кисти линейного градиента</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillEllipse.htm"><span class="S15">_GDIPlus_GraphicsFillEllipse</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">380</span><span class="S8">,</span> <span class="S3">500</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">;нарисовать яйцо</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsClear.htm"><span class="S15">_GDIPlus_GraphicsClear</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S3">0xFF000000</span> <span class="S8">+</span> <span class="S9">$iBgColor</span><span class="S8">)</span>&nbsp;<span class="S1">;очистить битмап
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_LineBrushSetColors.htm"><span class="S15">_GDIPlus_LineBrushSetColors</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">,</span> <span class="S3">0xFFFFFFFF</span><span class="S8">,</span> <span class="S3">0xFF000000</span><span class="S8">)</span>&nbsp;<span class="S1">;перевести цвета в оттенки серого
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsClear.htm"><span class="S15">_GDIPlus_GraphicsClear</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S3">0xFF000000</span> <span class="S8">+</span> <span class="S9">$iBgColor</span><span class="S8">)</span>&nbsp;<span class="S1">;очистить битмап</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_LineBrushSetColors.htm"><span class="S15">_GDIPlus_LineBrushSetColors</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">,</span> <span class="S3">0xFFFFFFFF</span><span class="S8">,</span> <span class="S3">0xFF000000</span><span class="S8">)</span>&nbsp;<span class="S1">;перевести цвета в оттенки серого</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillEllipse.htm"><span class="S15">_GDIPlus_GraphicsFillEllipse</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">380</span><span class="S8">,</span> <span class="S3">500</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">;нарисовать яйцо снова
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillEllipse.htm"><span class="S15">_GDIPlus_GraphicsFillEllipse</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">380</span><span class="S8">,</span> <span class="S3">500</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">;нарисовать яйцо снова</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
