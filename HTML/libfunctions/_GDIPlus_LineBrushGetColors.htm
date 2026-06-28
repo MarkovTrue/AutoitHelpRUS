@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_LineBrushGetColors</h1>
-<p class="funcdesc">Возвращает начальный и конечный цвета кисти линейного градиента.</p>
+<p class="funcdesc">Возвращает начальный и конечный цвета линейной градиентной кисти.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_LineBrushGetColors.htm"><span class="S15">_GDIPlus_LineBrushGetColors</span></a> <span class="S8">(</span> <span class="S9">$hLineGradientBrush</span> <span class="S8">)</span></p>
 
@@ -27,17 +27,13 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив с начальным и конечным цветами кисти LinearGradientBrush:<br />
-[0]&nbsp;- Начальный цвет<br />
-[1]&nbsp;- Конечный цвет</td>
+<td style="width:90%">Возвращает массив начального и конечного цветов LinearGradientBrush:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– начальный цвет<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– конечный цвет</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Устанавливает <span class="S61">@error</span> в ненулевое значение.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Может содержать код ошибки GPSTATUS (* см. <span class="S7">GPIPlusConstants.au3</span>).</td>
+<td>Устанавливает флаг <span class="S61">@error</span> ≠ 0, <span class="S61">@extended</span> может содержать код ошибки GPSTATUS (<span class="S91">$GDIP_ERR*</span> см. <span class="S7">GPIPlusConstants.au3</span>).</td>
 </tr>
 </table>
 
