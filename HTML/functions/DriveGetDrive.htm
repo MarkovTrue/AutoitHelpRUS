@@ -18,14 +18,14 @@
 <table>
 <tr>
 <td style="width:15%">type</td>
-<td style="width:85%">Тип диска для поиска:<br />
-   <span class="S91">$DT_ALL</span> ("ALL")<br />
-   <span class="S91">$DT_CDROM</span> ("CDROM")<br />
-   <span class="S91">$DT_REMOVABLE</span> ("REMOVABLE")<br />
-   <span class="S91">$DT_FIXED</span> ("FIXED")<br />
-   <span class="S91">$DT_NETWORK</span> ("NETWORK")<br />
-   <span class="S91">$DT_RAMDISK</span> ("RAMDISK")<br />
-   <span class="S91">$DT_UNKNOWN</span> ("UNKNOWN")<br />
+<td style="width:85%">Тип искомых дисков:<br />
+<span class="S91">$DT_ALL</span> ("ALL")<br />
+<span class="S91">$DT_CDROM</span> ("CDROM")<br />
+<span class="S91">$DT_REMOVABLE</span> ("REMOVABLE")<br />
+<span class="S91">$DT_FIXED</span> ("FIXED")<br />
+<span class="S91">$DT_NETWORK</span> ("NETWORK")<br />
+<span class="S91">$DT_RAMDISK</span> ("RAMDISK")<br />
+<span class="S91">$DT_UNKNOWN</span> ("UNKNOWN")<br />
 <br />
 Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
@@ -35,7 +35,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив строк (буква диска с двоеточием) найденных дисков. Нулевой элемент массива содержит количество найденных дисков.</td>
+<td style="width:90%">Возвращает массив строк (буква диска с двоеточием) найденных дисков. Нулевой элемент массива содержит количество дисков.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -44,8 +44,8 @@
 </table>
 
 <h2>Примечания</h2>
-<p><span class="S61">@error</span> устанавливается в 1, если параметр не является ни константой $, ни эквивалентной строкой, либо если у компьютера нет дисков запрошенного типа.<br />
-Пример: на компьютере без CD/DVD-привода <a class="le" href="DriveGetDrive.htm"><span class="S4">DriveGetDrive</span></a><span class="S8">(</span>"CDROM"<span class="S8">)</span> устанавливает значение <span class="S61">@error</span> = 1<br />
+<p><span class="S61">@error</span> устанавливается в 1, если параметр не является ни $-константой, ни равнозначной строкой, либо если на компьютере нет дисков запрошенного типа.<br />
+Пример: на компьютере без привода CD/DVD вызов <a class="le" href="DriveGetDrive.htm"><span class="S4">DriveGetDrive</span></a><span class="S8">(</span>"CDROM"<span class="S8">)</span> устанавливает <span class="S61">@error</span> в 1.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="DriveGetFileSystem.htm">DriveGetFileSystem</a>, <a href="DriveGetLabel.htm">DriveGetLabel</a>, <a href="DriveGetSerial.htm">DriveGetSerial</a>, <a href="DriveGetType.htm">DriveGetType</a>, <a href="DriveSetLabel.htm">DriveSetLabel</a>, <a href="DriveSpaceFree.htm">DriveSpaceFree</a>, <a href="DriveSpaceTotal.htm">DriveSpaceTotal</a>, <a href="DriveStatus.htm">DriveStatus</a></p>
