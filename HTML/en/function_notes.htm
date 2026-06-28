@@ -22,13 +22,13 @@
   <br />
   <p>Many functions contain optional parameters that can be omitted. If you wish to specify an optional parameter, however, all preceding parameters must be specified!<br />
   For example, consider <em><a href="functions/Run.htm">Run</a> ( "filename", ["workingdir" [, flag]] )</em>. If you wish to specify the <em>flag</em>, you <strong>must</strong> specify a <em>workingdir</em>.<br />
-<p>When an optional parameter needs to be defined and is preceded by one or more optional parameters, the default value must be given for that parameter. Generally speaking functions should accept the <a href="keywords/Default.htm">Default</a> keyword when you wish to use the default parameter. See the corresponding optional parameter description for more details.</p>
+</p><p>When an optional parameter needs to be defined and is preceded by one or more optional parameters, the default value must be given for that parameter. Generally speaking functions should accept the <a href="keywords/Default.htm">Default</a> keyword when you wish to use the default parameter. See the corresponding optional parameter description for more details.</p>
   <br />
   Many Win___ functions contain an optional parameter "text". This parameter is intended to help differentiate between windows that have identical titles.<br />
   <br />
 <strong>Success/failure indication of internal AutoIt functions</strong><br />
   <br />
-  Some functions use the <strong>Return value</strong> to indicate success/failure, others set the <strong>@error flag</strong>. Some do both....<br />
+  Some functions use the <strong>Return value</strong> to indicate success/failure, others set the <strong><span class="S61">@error</span> flag</strong>. Some do both....<br />
   <br />
   If the <strong>Return value</strong> method is used, the Help file will specify the expected value for success/failure - but the success value is typically non-zero to allow easy to read code...<br />
 <p class="codebox">
@@ -38,16 +38,16 @@
   <br />
   When the documentation states that the return value = none, AutoIt always returns a value to avoid errors. 1 is usually the value returned, but you should not depend on this return value.<br />
   <br />
-  If the <strong>@error flag</strong> method is used, @error = 0 always indicates success. Other @error values indicate a problem and are defined in the Help file for the function.<br />
+  If the <strong><span class="S61">@error</span> flag</strong> method is used, <span class="S61">@error</span> = 0 always indicates success. Other <span class="S61">@error</span> values indicate a problem and are defined in the Help file for the function.<br />
 <p class="codebox">
 <span><a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$sFileRead</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../functions/FileReadLine.htm"><span class="S4">FileReadLine</span></a><span class="S8">(</span><span class="S7">"C:\someFile.txt"</span><span class="S8">)</span><br /><a class="codeSnippetLink" href="../keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">-</span></a><span class="S3">1</span><span class="S0"> </span><a class="codeSnippetLink" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">; End-of-file was reached.</span></span>
 </p>
   <br />
   <br />
-  If a function uses the <strong>@error flag</strong> method, the flag should be checked immediately after the function returns as @error will be reset to 0 when entering the next function. No attempt to use or access the function return value should be made if the @error flag has been set as in that case the return value is generally undefined...<br />
+  If a function uses the <strong><span class="S61">@error</span> flag</strong> method, the flag should be checked immediately after the function returns as <span class="S61">@error</span> will be reset to 0 when entering the next function. No attempt to use or access the function return value should be made if the <span class="S61">@error</span> flag has been set as in that case the return value is generally undefined...<br />
   <br />
   <strong>Success/failure indication of user-written functions</strong><br />
   <br />
-  The return value, @error, and @extended macros are normally set by the author using the <a href="keywords/Func.htm">Return</a>/<a href="functions/SetError.htm">SetError</a>/<a href="functions/SetExtended.htm">SetExtended</a> functions within the code. See the documentation for the specific user-written library to determine the specific values that are used.<br />
+  The return value, <span class="S61">@error</span>, and <span class="S61">@extended</span> macros are normally set by the author using the <a href="keywords/Func.htm">Return</a>/<a href="functions/SetError.htm">SetError</a>/<a href="functions/SetExtended.htm">SetExtended</a> functions within the code. See the documentation for the specific user-written library to determine the specific values that are used.<br />
 </body>
 </html>
