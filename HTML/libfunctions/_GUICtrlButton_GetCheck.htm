@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlButton_GetCheck</h1>
-<p class="funcdesc">Получает состояние флажка элемента управления Button.</p>
+<p class="funcdesc">Возвращает состояние отметки переключателя или флажка.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiButton.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlButton_GetCheck.htm"><span class="S15">_GUICtrlButton_GetCheck</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">)</span></p>
 
@@ -27,8 +27,12 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращаемое значение для кнопок со стилями <span class="S91">$BS_AUTOCHECKBOX</span>, <span class="S91">$BS_AUTORADIOBUTTON</span>,<br />
-<span class="S91">$BS_AUTO3STATE</span>, <span class="S91">$BS_CHECKBOX</span>, <span class="S91">$BS_RADIOBUTTON</span> или <span class="S91">$BS_3STATE</span>.</td>
+<td style="width:90%">Для кнопки, созданной со стилем <span class="S91">$BS_AUTOCHECKBOX</span>, <span class="S91">$BS_AUTORADIOBUTTON</span>,<br />
+<span class="S91">$BS_AUTO3STATE</span>, <span class="S91">$BS_CHECKBOX</span>, <span class="S91">$BS_RADIOBUTTON</span> или <span class="S91">$BS_3STATE</span>, возвращаемое значение может быть одним из:<br />
+<br />
+<span class="S91">$BST_CHECKED</span>&nbsp;– кнопка отмечена.<br />
+<span class="S91">$BST_INDETERMINATE</span>&nbsp;– кнопка серая, что означает неопределённое состояние (только если кнопка имеет стиль <span class="S91">$BS_3STATE</span> или <span class="S91">$BS_AUTO3STATE</span>).<br />
+<span class="S91">$BST_UNCHECKED</span>&nbsp;кнопка снята.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -37,7 +41,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если у кнопки иной стиль, функция возвращает 0.<br />
+<p>Если кнопка имеет стиль, отличный от перечисленных, возвращается ноль.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlButton_GetState.htm">_GUICtrlButton_GetState</a>, <a href="_GUICtrlButton_SetCheck.htm">_GUICtrlButton_SetCheck</a></p>
