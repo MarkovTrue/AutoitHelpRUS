@@ -18,11 +18,11 @@
 <table>
 <tr>
 <td style="width:15%">Struct</td>
-<td style="width:85%">Строка, описывающая создаваемую структуру (см. раздел Примечания).</td>
+<td style="width:85%">Строка с описанием создаваемой структуры (см. раздел Примечания).</td>
 </tr>
 <tr>
 <td>Pointer</td>
-<td><strong>[необязательный]</strong> Если указан, структура не будет выделять память, а будет использовать предоставленный указатель.</td>
+<td><strong>[необязательный]</strong> Если задан, структура не выделяет память, а использует переданный указатель.</td>
 </tr>
 </table>
 
@@ -38,10 +38,10 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – переменная, переданная в DllStructCreate, не является строкой.<br />
-2 – в переданной строке обнаружен неизвестный тип данных.<br />
-3 – не удалось выделить память для структуры, или Pointer = 0.<br />
-4 – ошибка при выделении памяти для переданной строки.</td>
+<td>1 – переданная в DllStructCreate переменная не является строкой.<br />
+2&nbsp;– в переданной строке встречается неизвестный тип данных.<br />
+3&nbsp;– не удалось выделить память под структуру, или <em>Pointer</em> = 0.<br />
+4&nbsp;– ошибка выделения памяти под переданную строку.</td>
 </tr>
 </table><br />
 <table>
@@ -152,39 +152,39 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Каждый тип данных должен быть разделён точкой с запятой ';'.<br />
+<p>Типы данных разделяются точкой с запятой ';'.<br />
 <br />
-Массивы создаются добавлением '[размер]' после типа данных: <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"int;char[128]"<span class="S8">)</span><br />
+Массив задаётся добавлением '[размер]' после типа данных: <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"int;char[128]"<span class="S8">)</span><br />
 <br />
-Имя элемента можно добавить аналогично объявлению в стиле C: <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"int n;char buffer[128]"<span class="S8">)</span>.<br />
-Это имя можно использовать вместо номера элемента в других функциях DllStruct... Имя должно состоять из букв, цифр и символов подчёркивания.<br />
+Элементу можно дать имя, как в объявлении на языке C: <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"int n;char buffer[128]"<span class="S8">)</span>.<br />
+Это имя можно использовать вместо номера элемента в других функциях DllStruct... Имя должно состоять из букв, цифр и знака подчёркивания.<br />
 <br />
-Если набор типов данных определяется как "struct{}" в объявлении C, необходимо использовать "STRUCT; ...; ENDSTRUCT;".<br />
-Это нужно для соблюдения выравнивания внутри всей структуры. Если все типы данных находятся в определённой структуре, не требуется – применяется неявное выравнивание.<br />
+Если набор типов оформлен как "struct{}" в объявлении C, нужно использовать "STRUCT; ...; ENDSTRUCT;".<br />
+Это нужно, чтобы соблюсти выравнивание внутри всей создаваемой структуры. Если же все типы данных входят в определяемую структуру, этого не требуется – выравнивание выполняется неявно.<br />
 <br />
-<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"int;STRUCT;ptr;int;ENDSTRUCT;int"<span class="S8">)</span>    ; структура занимает 32 байта в Windows 64-бит и 16 в Windows 32-бит<br />
-<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"int;ptr;int;int"<span class="S8">)</span>    ; структура занимает 24 байта в Windows 64-бит и 16 в Windows 32-бит<br />
+<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"int;STRUCT;ptr;int;ENDSTRUCT;int"<span class="S8">)</span>&nbsp;&nbsp;&nbsp; ; структура занимает 32 байта в 64-битной Windows и 16 в 32-битной<br />
+<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"int;ptr;int;int"<span class="S8">)</span>&nbsp;&nbsp;&nbsp; ; структура занимает 24 байта в 64-битной Windows и 16 в 32-битной<br />
 <br />
-Для нестандартного выравнивания добавьте перед структурой ключевое слово align. Значение n по умолчанию равно 8. Допустимые значения: 1, 2, 4, 8 и 16. Выравнивание члена будет кратно n или кратно размеру члена – <strong>что меньше</strong>. Это эквивалентно опции <span class="S111">#pragma</span> pack компилятора Microsoft Visual C++.<br />
+Для другого выравнивания добавьте перед структурой ключевое слово align. Значение n по умолчанию равно 8. Допустимы значения 1, 2, 4, 8 и 16. Член выравнивается по границе, кратной n или размеру самого члена, <strong>смотря что меньше</strong>. Это соответствует опции <span class="S111">#pragma</span> pack компилятора Microsoft Visual C++.<br />
 <br />
-<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"short;int"<span class="S8">)</span> ; структура 8 байт, "int" на смещении 4<br />
-<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"align 2;short;int"<span class="S8">)</span> ; структура 6 байт, "int" на смещении 2<br />
+<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"short;int"<span class="S8">)</span> ; структура занимает 8 байт, "int" расположен по смещению 4<br />
+<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"align 2;short;int"<span class="S8">)</span> ; структура занимает 6 байт, "int" расположен по смещению 2<br />
 <br />
-<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"byte;double"<span class="S8">)</span> ; структура 16 байт, "double" на смещении 8<br />
-<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"align 4;byte;double"<span class="S8">)</span> ; структура 12 байт, "double" на смещении 4<br />
+<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"byte;double"<span class="S8">)</span> ; структура занимает 16 байт, "double" расположен по смещению 8<br />
+<a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span>"align 4;byte;double"<span class="S8">)</span> ; структура занимает 12 байт, "double" расположен по смещению 4<br />
 <br />
-Если требуется изменить выравнивание, "align" можно использовать перед первым элементом, для которого нужно изменение.<br />
-"align" или "align 8" восстанавливают выравнивание по умолчанию.<br />
+Если выравнивание нужно изменить, "align" можно поставить перед первым элементом, для которого нужно изменение.<br />
+"align" или "align 8" возвращают выравнивание по умолчанию.<br />
 <br />
-Для освобождения выделенной памяти установите возвращённую переменную в 0.<br />
+Чтобы освободить выделенную память, просто присвойте возвращённой переменной 0.<br />
 <br />
-<strong>Применяются следующие правила совокупного выравнивания:</strong><br />
+<strong>Действуют следующие правила выравнивания совокупных типов:</strong><br />
 Выравнивание массива совпадает с выравниванием одного из его элементов.<br />
 <br />
-Выравнивание начала структуры равно максимальному выравниванию любого из её членов.<br />
-Каждый член структуры размещается в соответствии с его выравниванием согласно таблице выше, что требует неявного внутреннего заполнения в зависимости от предыдущего члена.<br />
+Выравнивание начала структуры равно наибольшему выравниванию среди её членов.<br />
+Каждый член структуры размещается со своим выравниванием согласно таблице выше, что требует неявного внутреннего заполнения в зависимости от предыдущего члена.<br />
 <br />
-Размер структуры кратен её выравниванию, что требует заполнения после последнего члена.<br />
+Размер структуры кратен её выравниванию, поэтому после последнего члена тоже может добавляться заполнение.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="DllCall.htm">DllCall</a>, <a href="DllStructGetData.htm">DllStructGetData</a>, <a href="DllStructGetPtr.htm">DllStructGetPtr</a>, <a href="DllStructGetSize.htm">DllStructGetSize</a>, <a href="DllStructSetData.htm">DllStructSetData</a>, <a href="IsDllStruct.htm">IsDllStruct</a></p>
@@ -246,7 +246,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">255</span><span class="S8">)</span>&nbsp;<span class="S1">; Или "var2" вместо 2.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать данные элемента var3 (uint) в $tSTRUCT1.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S7">"var3"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; -1 (signed int) будет преобразовано в unsigned int.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S7">"var3"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; -1 (Signed int) будет преобразовано в unsigned int.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Или 3 вместо "var3".</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать данные элемента var4 (char) в $tSTRUCT1.</span><br>
