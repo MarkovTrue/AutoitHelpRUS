@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_PathWindingModeOutline</h1>
-<p class="funcdesc">Преобразует и сглаживает путь, затем преобразует точки данных так, чтобы они представляли только контур пути.</p>
+<p class="funcdesc">Преобразует и сглаживает контур, затем меняет его точки данных так, чтобы они представляли только обводку контура.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_PathWindingModeOutline.htm"><span class="S15">_GDIPlus_PathWindingModeOutline</span></a> <span class="S8">(</span> <span class="S9">$hPath</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$hMatrix</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$fFlatness</span> <span class="S8">=</span> <span class="S3">0.25</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,8 +27,8 @@
 </tr>
 <tr>
 <td><span class="S91">$fFlatness</span></td>
-<td><strong>[необязательный]</strong> Вещественное число, задающее максимально допустимое отклонение сглаженного приближения от исходного пути.<br />
-Чем меньше значение, тем больше отрезков в приближении.</td>
+<td><strong>[необязательный]</strong> Вещественное число, задающее максимальную погрешность между контуром и его сглаженной аппроксимацией.<br />
+Уменьшение сглаженности увеличивает количество отрезков в аппроксимации.</td>
 </tr>
 </table>
 
@@ -85,14 +85,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathAddLine.htm"><span class="S15">_GDIPlus_PathAddLine</span></a><span class="S8">(</span><span class="S9">$hPath</span><span class="S8">,</span> <span class="S3">294</span><span class="S8">,</span> <span class="S3">330</span><span class="S8">,</span> <span class="S3">48</span><span class="S8">,</span> <span class="S3">151</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathAddLine.htm"><span class="S15">_GDIPlus_PathAddLine</span></a><span class="S8">(</span><span class="S9">$hPath</span><span class="S8">,</span> <span class="S3">352</span><span class="S8">,</span> <span class="S3">151</span><span class="S8">,</span> <span class="S3">106</span><span class="S8">,</span> <span class="S3">330</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hPath_Clone</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_PathClone.htm"><span class="S15">_GDIPlus_PathClone</span></a><span class="S8">(</span><span class="S9">$hPath</span><span class="S8">)</span>&nbsp;<span class="S1">;создать копию пути
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hPath_Clone</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_PathClone.htm"><span class="S15">_GDIPlus_PathClone</span></a><span class="S8">(</span><span class="S9">$hPath</span><span class="S8">)</span>&nbsp;<span class="S1">;Создать копию пути</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hMatrix</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_MatrixCreate.htm"><span class="S15">_GDIPlus_MatrixCreate</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_MatrixTranslate.htm"><span class="S15">_GDIPlus_MatrixTranslate</span></a><span class="S8">(</span><span class="S9">$hMatrix</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathTransform.htm"><span class="S15">_GDIPlus_PathTransform</span></a><span class="S8">(</span><span class="S9">$hPath_Clone</span><span class="S8">,</span> <span class="S9">$hMatrix</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathWindingModeOutline.htm"><span class="S15">_GDIPlus_PathWindingModeOutline</span></a><span class="S8">(</span><span class="S9">$hPath_Clone</span><span class="S8">)</span>&nbsp;<span class="S1">;контур
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathWindingModeOutline.htm"><span class="S15">_GDIPlus_PathWindingModeOutline</span></a><span class="S8">(</span><span class="S9">$hPath_Clone</span><span class="S8">)</span>&nbsp;<span class="S1">;Контур</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawString.htm"><span class="S15">_GDIPlus_GraphicsDrawString</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S7">"original path of 3 connected lines"</span><span class="S8">,</span> <span class="S3">40</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillPath.htm"><span class="S15">_GDIPlus_GraphicsFillPath</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hPath</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">;Залить path в дескрипторе графики (GUI)</span><br>
