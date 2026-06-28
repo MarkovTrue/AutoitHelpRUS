@@ -19,21 +19,21 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив следующего формата:<br />
-[0][&nbsp;0] - Количество кодировщиков<br />
-[1][&nbsp;1] - Идентификатор кодека<br />
-[1][&nbsp;2] - Идентификатор формата файла<br />
-[1][&nbsp;3] - Название кодека<br />
-[1][&nbsp;4] - DLL, содержащая код кодека<br />
-[1][&nbsp;5] - Название формата файла, используемого кодеком<br />
-[1][&nbsp;6] - Расширения файлов, связанные с кодеком<br />
-[1][&nbsp;7] - MIME-тип кодека<br />
-[1][&nbsp;8] - Комбинация флагов <span class="S91">$GDIP_ICF</span><br />
-[1][&nbsp;9] - Версия кодека<br />
-[1][10]&nbsp;- Количество сигнатур формата файла<br />
-[1][11]&nbsp;- Количество байт в каждой сигнатуре<br />
-[1][12]&nbsp;- Указатель на шаблон каждой сигнатуры<br />
-[1][13]&nbsp;- Указатель на маску каждой сигнатуры</td>
+<td style="width:90%">Возвращает массив следующего вида:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – количество кодировщиков<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – идентификатор кодека<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – идентификатор формата файла<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – имя кодека<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> – DLL, в которой находится код<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> – имя формата файла, используемого кодеком<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – расширения имён файлов, связанные с кодеком<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> – MIME-тип кодека<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span> – комбинация флагов <span class="S91">$GDIP_ICF</span><br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">9</span><span class="S8">]</span> – версия кодека<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span>&nbsp;– количество сигнатур, используемых форматом файла<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">11</span><span class="S8">]</span>&nbsp;– количество байтов в каждой сигнатуре<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">12</span><span class="S8">]</span>&nbsp;– указатель на шаблон каждой сигнатуры<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">13</span><span class="S8">]</span>&nbsp;– указатель на маску каждой сигнатуры</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
