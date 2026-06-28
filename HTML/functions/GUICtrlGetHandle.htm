@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>GUICtrlGetHandle</h1>
-<p class="funcdesc">Возвращает дескриптор элемента управления, а также специальные дескрипторы элементов (Menu, ContextMenu, TreeViewItem).</p>
+<p class="funcdesc">Возвращает дескриптор элемента управления, а также некоторые специальные дескрипторы (Menu, ContextMenu, TreeViewItem).</p>
 <p class="codeheader"><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a> <span class="S8">(</span> <span class="S0">controlID</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -26,7 +26,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает дескриптор для указанного controlID.</td>
+<td style="width:90%">Возвращает дескриптор для указанного <em>controlID</em>.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -35,9 +35,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Следующие элементы управления не возвращают дескриптор: <a class="le" href="GUICtrlCreateDummy.htm"><span class="S4">GUICtrlCreateDummy</span></a><span class="S8">()</span>, <a class="le" href="GUICtrlCreateGraphic.htm"><span class="S4">GUICtrlCreateGraphic</span></a><span class="S8">()</span>, <a class="le" href="GUICtrlCreateObj.htm"><span class="S4">GUICtrlCreateObj</span></a><span class="S8">()</span>, <a class="le" href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">()</span> и <a class="le" href="GUICtrlCreateTabItem.htm"><span class="S4">GUICtrlCreateTabItem</span></a><span class="S8">()</span>.<br />
+<p>Дескриптор не возвращают следующие элементы управления: <a href="GUICtrlCreateDummy.htm"><span class="S4">GUICtrlCreateDummy</span><span class="S8">()</span></a>, <a href="GUICtrlCreateGraphic.htm"><span class="S4">GUICtrlCreateGraphic</span><span class="S8">()</span></a>, <a href="GUICtrlCreateObj.htm"><span class="S4">GUICtrlCreateObj</span><span class="S8">()</span></a>, <a href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span><span class="S8">()</span></a> и <a href="GUICtrlCreateTabItem.htm"><span class="S4">GUICtrlCreateTabItem</span><span class="S8">()</span></a>.<br />
 <br />
-Eлементами ListViewItem и TabItem управляют через индексы. Для получения индекса этих элементов используйте <a class="le" href="DllCall.htm"><span class="S4">DllCall</span></a><span class="S8">()</span> и <a class="le" href="DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">()</span>.<br />
+Элементами ListViewItem и TabItem управляют через индексы. Чтобы получить индекс такого элемента, используйте <a href="DllCall.htm"><span class="S4">DllCall</span><span class="S8">()</span></a> и <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="IsHWnd.htm">IsHWnd</a></p>
@@ -72,9 +72,9 @@ Eлементами ListViewItem и TabItem управляют через инд
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idBtn_End</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"End"</span><span class="S8">,</span> <span class="S3">110</span><span class="S8">,</span> <span class="S3">140</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$idMnu_File</span><span class="S8">,</span> <span class="S3">0xEEBB99</span><span class="S8">)</span>&nbsp;<span class="S1">; значение цвета в формате BGR</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$idMnu_Options</span><span class="S8">,</span> <span class="S3">0x66BB99</span><span class="S8">)</span>&nbsp;<span class="S1">; значение цвета в формате BGR</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$idMnu_Help</span><span class="S8">,</span> <span class="S3">0x99BBEE</span><span class="S8">)</span>&nbsp;<span class="S1">; значение цвета в формате BGR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$idMnu_File</span><span class="S8">,</span> <span class="S3">0xEEBB99</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение цвета в формате BGR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$idMnu_Options</span><span class="S8">,</span> <span class="S3">0x66BB99</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение цвета в формате BGR</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">SetMenuColor</span><span class="S8">(</span><span class="S9">$idMnu_Help</span><span class="S8">,</span> <span class="S3">0x99BBEE</span><span class="S8">)</span>&nbsp;<span class="S1">; Значение цвета в формате BGR</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
