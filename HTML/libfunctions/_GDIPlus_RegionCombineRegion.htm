@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_RegionCombineRegion</h1>
-<p class="funcdesc">Обновляет регион в соответствии с результатом операции над собой и другим регионом.</p>
+<p class="funcdesc">Обновляет область, оставляя только её часть, пересекающуюся с другой областью.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_RegionCombineRegion.htm"><span class="S15">_GDIPlus_RegionCombineRegion</span></a> <span class="S8">(</span> <span class="S9">$hRegionDst</span><span class="S8">,</span> <span class="S9">$hRegionSrc</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iCombineMode</span> <span class="S8">=</span> <span class="S3">2</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,18 +23,18 @@
 </tr>
 <tr>
 <td><span class="S91">$hRegionSrc</span></td>
-<td>Указатель на объект Region, используемый для обновления <span class="S91">$hRegionDst</span>.</td>
+<td>Указатель на объект Region, используемый для обновления объекта Region <span class="S91">$hRegionDst</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$iCombineMode</span></td>
-<td><strong>[необязательный]</strong> Режим объединения, задающий способ сочетания регионов:<br />
-0 – существующий регион заменяется новым<br />
-1 – существующий регион заменяется пересечением себя и нового региона<br />
-2 – существующий регион заменяется объединением себя и нового региона<br />
-3 – существующий регион заменяется результатом XOR двух регионов.<br />
-Точка входит в XOR двух регионов, если она принадлежит одному из них, но не обоим сразу<br />
-4 – существующий регион заменяется той его частью, которая находится вне нового региона<br />
-5 – существующий регион заменяется той частью нового региона, которая находится вне существующего</td>
+<td><strong>[необязательный]</strong> Режим объединения, задающий способ объединения областей:<br />
+0 – существующая область заменяется новой<br />
+1 – существующая область заменяется пересечением себя и новой области<br />
+2 – существующая область заменяется объединением себя и новой области<br />
+3 – существующая область заменяется результатом операции XOR над двумя областями.<br />
+Точка входит в XOR двух областей, если находится в одной из них, но не в обеих<br />
+4 – существующая область заменяется своей частью, находящейся вне новой области<br />
+5 – существующая область заменяется частью новой области, находящейся вне существующей</td>
 </tr>
 </table>
 
@@ -113,7 +113,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionTranslate.htm"><span class="S15">_GDIPlus_RegionTranslate</span></a><span class="S8">(</span><span class="S9">$hRegion1</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionTranslate.htm"><span class="S15">_GDIPlus_RegionTranslate</span></a><span class="S8">(</span><span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hRegion</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_RegionClone.htm"><span class="S15">_GDIPlus_RegionClone</span></a><span class="S8">(</span><span class="S9">$hRegion1</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionCombineRegion.htm"><span class="S15">_GDIPlus_RegionCombineRegion</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span>&nbsp;<span class="S1">; исключающее ИЛИ</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionCombineRegion.htm"><span class="S15">_GDIPlus_RegionCombineRegion</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span>&nbsp;<span class="S1">;исключающее ИЛИ</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillRegion.htm"><span class="S15">_GDIPlus_GraphicsFillRegion</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionDispose.htm"><span class="S15">_GDIPlus_RegionDispose</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">)</span><br>
 <br>
@@ -121,7 +121,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionTranslate.htm"><span class="S15">_GDIPlus_RegionTranslate</span></a><span class="S8">(</span><span class="S9">$hRegion1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">400</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionTranslate.htm"><span class="S15">_GDIPlus_RegionTranslate</span></a><span class="S8">(</span><span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">400</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hRegion</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_RegionClone.htm"><span class="S15">_GDIPlus_RegionClone</span></a><span class="S8">(</span><span class="S9">$hRegion1</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionCombineRegion.htm"><span class="S15">_GDIPlus_RegionCombineRegion</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span>&nbsp;<span class="S1">; вычитание 2 из 1</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionCombineRegion.htm"><span class="S15">_GDIPlus_RegionCombineRegion</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span>&nbsp;<span class="S1">;вычитание 2 из 1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillRegion.htm"><span class="S15">_GDIPlus_GraphicsFillRegion</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionDispose.htm"><span class="S15">_GDIPlus_RegionDispose</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">)</span><br>
 <br>
@@ -129,7 +129,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionTranslate.htm"><span class="S15">_GDIPlus_RegionTranslate</span></a><span class="S8">(</span><span class="S9">$hRegion1</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionTranslate.htm"><span class="S15">_GDIPlus_RegionTranslate</span></a><span class="S8">(</span><span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hRegion</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_RegionClone.htm"><span class="S15">_GDIPlus_RegionClone</span></a><span class="S8">(</span><span class="S9">$hRegion1</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionCombineRegion.htm"><span class="S15">_GDIPlus_RegionCombineRegion</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span>&nbsp;<span class="S1">; вычитание 1 из 2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionCombineRegion.htm"><span class="S15">_GDIPlus_RegionCombineRegion</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hRegion2</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span>&nbsp;<span class="S1">;вычитание 1 из 2</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillRegion.htm"><span class="S15">_GDIPlus_GraphicsFillRegion</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hRegion</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_RegionDispose.htm"><span class="S15">_GDIPlus_RegionDispose</span></a><span class="S8">(</span><span class="S9">$hRegion</span><span class="S8">)</span><br>
 <br>
