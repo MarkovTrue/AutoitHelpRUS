@@ -11,31 +11,31 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>HttpSetProxy</h1>
-<p class="funcdesc">Задаёт интернет-прокси для HTTP-доступа.</p>
+<p class="funcdesc">Задаёт интернет-прокси для доступа по HTTP.</p>
 <p class="codeheader"><a class="le" href="../functions/HttpSetProxy.htm"><span class="S4">HttpSetProxy</span></a> <span class="S8">(</span> <span class="S0">mode</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"proxy:port"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"username"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"password"</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">mode</td>
-<td style="width:85%">Режим использования прокси:<br />
-<span class="default-const"><span class="S91">$PROXY_IE</span></span> (0) = (по умолчанию) Использовать текущие настройки прокси Internet Explorer.<br />
-<span class="S91">$PROXY_NONE</span> (1) = Без прокси (прямое подключение).<br />
-<span class="S91">$PROXY_SPECIFIED</span> (2) = Использовать указанный прокси.<br />
+<td style="width:85%">Режим работы прокси:<br />
+<span class="default-const"><span class="S91">$PROXY_IE</span></span> (0) = (по умолчанию) использовать текущие настройки прокси Internet Explorer.<br />
+<span class="S91">$PROXY_NONE</span> (1) = не использовать прокси (прямой доступ)<br />
+<span class="S91">$PROXY_SPECIFIED</span> (2) = использовать указанный прокси<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 <tr>
 <td>proxy:port</td>
-<td><strong>[необязательный]</strong> Адрес и порт используемого прокси-сервера. См. раздел Примечания.</td>
+<td><strong>[необязательный]</strong> Адрес и порт прокси. См. раздел Примечания.</td>
 </tr>
 <tr>
 <td>username</td>
-<td><strong>[необязательный]</strong> Имя пользователя для прокси (если требуется).</td>
+<td><strong>[необязательный]</strong> Имя пользователя для прокси, если требуется.</td>
 </tr>
 <tr>
 <td>password</td>
-<td><strong>[необязательный]</strong> Пароль для прокси (если требуется).</td>
+<td><strong>[необязательный]</strong> Пароль для прокси, если требуется.</td>
 </tr>
 </table>
 
@@ -44,14 +44,14 @@
 
 
 <h2>Примечания</h2>
-<p>Поддерживаются только прокси-серверы типа CERN.<br />
+<p>Поддерживаются только прокси-серверы CERN.<br />
 <br />
-Прокси-серверы состоят из веб-адреса и номера порта. Большинство провайдеров используют порт 8080. Если прокси имеет адрес "www.proxy.com" и порт 8080, установить его можно следующим образом:<br />
+Прокси-сервер обычно состоит из веб-адреса и номера порта. Большинство провайдеров используют порт 8080. Если ваш прокси "www.proxy.com", а порт "8080", задайте прокси так:<br />
 <a href="HttpSetProxy.htm"><span class="S4">HttpSetProxy</span></a><span class="S8">(</span>2, "www.proxy.com:8080"<span class="S8">)</span><br />
 <br />
-Большинство прокси-серверов не требуют имени пользователя и пароля.<br />
+Большинству прокси-серверов имя пользователя и пароль не нужны.<br />
 <br />
-При использовании режима 0 можно указать имя пользователя и пароль, которые будут применяться с прокси, настроенным в Internet Explorer.<br />
+В режиме <span class="S91">$PROXY_IE</span> (0) можно указать имя пользователя и пароль, и они будут использоваться с прокси, настроенным в Internet Explorer.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="FtpSetProxy.htm">FtpSetProxy</a>, <a href="InetGet.htm">InetGet</a>, <a href="InetGetSize.htm">InetGetSize</a>, <a href="InetRead.htm">InetRead</a></p>
