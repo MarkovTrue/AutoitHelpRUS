@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_LineBrushCreateFromRectWithAngle</h1>
-<p class="funcdesc">Создаёт объект LinearGradientBrush по прямоугольнику, граничным цветам и углу направления.</p>
+<p class="funcdesc">Создаёт объект LinearGradientBrush из прямоугольника, граничных цветов и угла направления.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_LineBrushCreateFromRectWithAngle.htm"><span class="S15">_GDIPlus_LineBrushCreateFromRectWithAngle</span></a> <span class="S8">(</span> <span class="S9">$tRECTF</span><span class="S8">,</span> <span class="S9">$iARGBClr1</span><span class="S8">,</span> <span class="S9">$iARGBClr2</span><span class="S8">,</span> <span class="S9">$fAngle</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bIsAngleScalable</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWrapMode</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$tRECTF</span></td>
-<td style="width:85%">Структура , задающая начальную и конечную точки градиента.</td>
+<td style="width:85%">Структура <a class="le" href="../libfunctions/$tagGDIPRECTF.htm"><span class="S91">$tagGDIPRECTF</span></a>, задающая начальную и конечную точки градиента.</td>
 </tr>
 <tr>
 <td><span class="S91">$iARGBClr1</span></td>
@@ -31,20 +31,20 @@
 </tr>
 <tr>
 <td><span class="S91">$fAngle</span></td>
-<td>В зависимости от значения <em></em> – базовый угол или угол направления в градусах (см. раздел Примечания).</td>
+<td>В зависимости от значения <span class="S91">$fIsAngleScalable</span>, это угол в градусах (см. раздел Примечания).</td>
 </tr>
 <tr>
 <td><span class="S91">$bIsAngleScalable</span></td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span> – угол направления является масштабируемым; иначе – фиксированным.</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, угол направляющей линии масштабируемый. Иначе немасштабируемый.</td>
 </tr>
 <tr>
 <td><span class="S91">$iWrapMode</span></td>
-<td><strong>[необязательный]</strong> Режим мозаичного заполнения областей кистью:<br />
-0 - Без отражения<br />
-1 - Плитки отражаются горизонтально при переходе к следующей плитке в строке<br />
-2 - Плитки отражаются вертикально при переходе к следующей плитке в столбце<br />
-3 - Плитки отражаются горизонтально по строке и вертикально по столбцу<br />
-4 - Без мозаики.</td>
+<td><strong>[необязательный]</strong> Задаёт способ замостки областей, заполняемых кистью:<br />
+0 – замостка без отражения<br />
+1 – плитки отражаются по горизонтали при переходе от одной к следующей в строке<br />
+2 – плитки отражаются по вертикали при переходе от одной к следующей в столбце<br />
+3 – плитки отражаются по горизонтали вдоль строки и по вертикали вдоль столбца<br />
+4 – замостка не выполняется</td>
 </tr>
 </table>
 
@@ -65,8 +65,8 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если <em></em> равен <span class="S5">True</span>, параметр <em></em> задаёт базовый угол, из которого вычисляется угол направления. Иначе <em></em> задаёт угол направления напрямую. Угол измеряется от верхнего края прямоугольника в градусах. Градиент следует вдоль направляющей линии.<br />
-По окончании работы вызовите <a href="_GDIPlus_BrushDispose.htm"><span class="S15">_GDIPlus_BrushDispose</span><span class="S8">()</span></a> для освобождения ресурсов объекта.<br />
+<p>Если <span class="S91">$fIsAngleScalable</span> равно <span class="S5">True</span>, <span class="S91">$iAngle</span> задаёт базовый угол, от которого вычисляется угол направляющей линии. Иначе <span class="S91">$iAngle</span> задаёт угол направляющей линии. Угол отсчитывается от верха прямоугольника и должен быть в градусах. Градиент следует вдоль направляющей линии.<br />
+Закончив работу с объектом, вызовите <a class="le" href="_GDIPlus_BrushDispose.htm"><span class="S15">_GDIPlus_BrushDispose</span></a><span class="S8">()</span> для освобождения его ресурсов.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GDIPlus_BrushDispose.htm">_GDIPlus_BrushDispose</a></p>
