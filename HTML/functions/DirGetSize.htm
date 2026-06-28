@@ -23,11 +23,11 @@
 <tr>
 <td>flag</td>
 <td><strong>[необязательный]</strong> Флаг, определяющий поведение и результат функции; может быть комбинацией следующих значений:<br />
-   <span class="default-const"><span class="S91">$DIR_DEFAULT</span></span> (0) = (по умолчанию)<br />
-   <span class="S91">$DIR_EXTENDED</span> (1) = расширенный режим включён – возвращает массив с дополнительной информацией (см. раздел Примечания).<br />
-   <span class="S91">$DIR_NORECURSE</span> (2) = не учитывать файлы в подкаталогах (рекурсивный режим выключен)<br />
+<span class="default-const"><span class="S91">$DIR_DEFAULT</span></span> (0) = (по умолчанию)<br />
+<span class="S91">$DIR_EXTENDED</span> (1) = расширенный режим включён – возвращает массив с дополнительной информацией (см. раздел Примечания).<br />
+<span class="S91">$DIR_NORECURSE</span> (2) = не учитывать размер файлов в подкаталогах (рекурсивный режим выключен)<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -35,7 +35,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает размеры, большие или равные нулю.</td>
+<td style="width:90%">Возвращает размер, больший или равный нулю.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -46,7 +46,7 @@
 <h2>Примечания</h2>
 <p>Если скрипт приостановлен, эта функция тоже приостанавливается и продолжит работу только после возобновления скрипта!<br />
 <br />
-При использовании расширенного режима функция возвращает одномерный массив со следующими элементами:<br />
+В расширенном режиме функция возвращает одномерный массив со следующими элементами:<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = размер<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = количество файлов<br />
 <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> = количество каталогов<br />
