@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td style="width:15%">text</td>
-<td style="width:85%">Определения заголовков столбцов, разделённые символом <span class="S4">Opt</span><span class="S8">(</span>"GUIDataSeparatorChar"<span class="S8">)</span>.</td>
+<td style="width:85%">Определения заголовков столбцов, разделённые символом <a href="AutoItSetOption.htm#GUIDataSeparatorChar">Opt("GUIDataSeparatorChar")</a>.</td>
 </tr>
 <tr>
 <td>left</td>
@@ -38,7 +38,7 @@
 </tr>
 <tr>
 <td>style</td>
-<td><strong>[необязательный]</strong> Задаёт стиль элемента управления. См. <a href="../appendix/GUIStyles.htm#ListView">приложение "Стили элементов управления GUI"</a>.<br />
+<td><strong>[необязательный]</strong> Задаёт стиль элемента управления. См. <a href="../appendix/GUIStyles.htm#ListView">Стили GUI и элементов</a>.<br />
 по умолчанию (-1) : <span class="S91">$LVS_SHOWSELALWAYS</span>, <span class="S91">$LVS_SINGLESEL</span><br />
 принудительный стиль : <span class="S91">$LVS_REPORT</span></td>
 </tr>
@@ -62,26 +62,26 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Для добавления элементов в ListView используйте <a href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span><span class="S8">()</span></a>.<br />
+<p>Чтобы добавить строки в ListView, используйте <a href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span><span class="S8">()</span></a><br />
 <br />
-По умолчанию ListView отображается как в Проводнике в режиме подробностей (стиль <span class="S91">$LVS_REPORT</span> обязателен).<br />
-Начальную ширину столбца можно управлять, добавляя пробелы к определению заголовка. Столбец может расширяться при добавлении элементов через <a href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span><span class="S8">()</span></a> в соответствии с размером элемента. Размер столбца может быть до 25 символов. При обновлении через <a href="GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span><span class="S8">()</span></a> ширина не изменяется.<br />
+По умолчанию ListView выглядит как режим "Таблица" в Проводнике (стиль <span class="S91">$LVS_REPORT</span> задаётся принудительно).<br />
+Начальной шириной столбца можно управлять, дополняя определение заголовка пробелами. Столбец может расшириться при вызове <a href="GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span><span class="S8">()</span></a> в зависимости от размера строки. Ширина столбца достигает примерно 25 символов. При обновлении через <a href="GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span><span class="S8">()</span></a> размер не меняется.<br />
 <br />
-Для создания ListView со стилем Icon, SmallIcon или List используйте после создания <a href="GUICtrlSetStyle.htm"><span class="S4">GUICtrlSetStyle</span><span class="S8">()</span></a> со стилями <span class="S91">$LVS_ICON</span>, <span class="S91">$LVS_LIST</span> или <span class="S91">$LVS_SMALLICON</span>.<br />
+Чтобы создать ListView со стилем Icon, SmallIcon или List, сразу после создания вызовите <a href="GUICtrlSetStyle.htm"><span class="S4">GUICtrlSetStyle</span><span class="S8">()</span></a> со стилями <span class="S91">$LVS_ICON</span>, <span class="S91">$LVS_LIST</span> или <span class="S91">$LVS_SMALLICON</span>.<br />
 <br />
-Сортировка списка по клику на заголовок столбца (как в Проводнике) в настоящий момент не реализована.<br />
+Сортировка списка по щелчку на заголовке столбца (как в Проводнике) пока не реализована.<br />
 <br />
-Для визуального выделения всей строки используйте <a href="../appendix/GUIStyles.htm#Extended">расширенный стиль</a> LVS_EX_FULLROWSELECT.<br />
+Чтобы визуально выделять всю строку, используйте <a href="../appendix/GUIStyles.htm#Extended">расширенный стиль</a> LVS_EX_FULLROWSELECT.<br />
 <br />
-Для объединения стилей с стилем по умолчанию используйте <a href="BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_LISTVIEW</span></span>, новый_стиль, ...<span class="S8">)</span>.<br />
-Для использования указанных значений необходимо <span class="S111">#include</span> <span class="S7">&lt;ListViewConstants.au3&gt;</span> в скрипт.<br />
+Чтобы сочетать стили со стилем по умолчанию, используйте <a href="BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="default-const"><span class="S91">$GUI_SS_DEFAULT_LISTVIEW</span></span>, новый_стиль, ...<span class="S8">)</span>.<br />
+Чтобы использовать перечисленные выше значения, добавьте в скрипт <span class="S111">#include</span> <span class="S7">&lt;ListViewConstants.au3&gt;</span>.<br />
 <br />
-Если добавить стиль <span class="S91">$LVS_EX_CHECKBOXES</span> к ListView, границы исчезнут. Добавьте стиль <span class="S91">$WS_EX_CLIENTEDGE</span> для их отображения.<br />
+Если добавить к ListView стиль <span class="S91">$LVS_EX_CHECKBOXES</span>, рамка исчезает. Чтобы показать её, добавьте стиль <span class="S91">$WS_EX_CLIENTEDGE</span>.<br />
 <br />
 <br />
-Специальный флаг <span class="S91">$GUI_BKCOLOR_LV_ALTERNATE</span> используется с элементом управления ListView для задания чередующегося фона строк ListviewItems.<br />
-Нечётные строки получат цвет, заданный через <a href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span><span class="S8">()</span></a> элемента управления ListView.<br />
-Чётные строки получат цвет, заданный через <a href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span><span class="S8">()</span></a> элемента управления ListviewItem.<br />
+Специальный флаг <span class="S91">$GUI_BKCOLOR_LV_ALTERNATE</span> позволяет задать для ListView чередующийся фон строк.<br />
+Нечётные строки получают цвет, заданный через <a href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span><span class="S8">()</span></a> для элемента управления ListView.<br />
+Чётные строки получают цвет, заданный через <a href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span><span class="S8">()</span></a> для элемента управления ListViewItem.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="AutoItSetOption.htm#GUICoordMode ">GUICoordMode (Option)</a>, <a href="GUICtrlCreateListViewItem.htm">GUICtrlCreateListViewItem</a>, <a href="GUICtrlRegisterListViewSort.htm">GUICtrlRegisterListViewSort</a>, <a href="GUICtrlSetData.htm">GUICtrlSetData</a>, <a href="AutoItSetOption.htm#GUIDataSeparatorChar ">GUIDataSeparatorChar (Option)</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
@@ -100,7 +100,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"listview items"</span><span class="S8">,</span> <span class="S3">220</span><span class="S8">,</span> <span class="S3">250</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$WS_EX_ACCEPTFILES</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetBkColor.htm"><span class="S4">GUISetBkColor</span></a><span class="S8">(</span><span class="S3">0x00E0FFFF</span><span class="S8">)</span>&nbsp;<span class="S1">; изменит цвет фона</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idListview</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">(</span><span class="S7">"col1  |col2|col3  "</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">)</span>&nbsp;<span class="S1">;,$LVS_SORTDESCENDING)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idListview</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">(</span><span class="S7">"col1  |col2|col3  "</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">)</span>&nbsp;<span class="S1">; ,$LVS_SORTDESCENDING)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Value?"</span><span class="S8">,</span> <span class="S3">75</span><span class="S8">,</span> <span class="S3">170</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLVi_Item1</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"item2|col22|col23"</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLVi_Item2</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"item1|col12|col13"</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
