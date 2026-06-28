@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_FontGetHeight</h1>
-<p class="funcdesc">Возвращает межстрочный интервал шрифта в единицах указанного объекта Graphics.</p>
+<p class="funcdesc">Возвращает межстрочный интервал шрифта в текущих единицах указанного объекта Graphics.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_FontGetHeight.htm"><span class="S15">_GDIPlus_FontGetHeight</span></a> <span class="S8">(</span> <span class="S9">$hFont</span><span class="S8">,</span> <span class="S9">$hGraphics</span> <span class="S8">)</span></p>
 
@@ -31,7 +31,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает межстрочный интервал данного шрифта.</td>
+<td style="width:90%">Возвращает межстрочный интервал шрифта.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -44,8 +44,8 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Межстрочный интервал – это вертикальное расстояние между базовыми линиями двух последовательных строк текста.<br />
-Таким образом, он включает как пустое пространство между строками, так и высоту самих символов.<br />
+<p>Межстрочный интервал – это расстояние по вертикали между базовыми линиями двух соседних строк текста.<br />
+Таким образом, он включает пустое пространство между строками и высоту самого символа.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GdipGetFontHeight">GdipGetFontHeight</a> в библиотеке MSDN
