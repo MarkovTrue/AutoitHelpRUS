@@ -51,14 +51,14 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Функция пытается встроить "ActiveX-элемент управления" или "объект-документ" в GUI.<br />
-Встраивать можно не каждый элемент: они должны как минимум поддерживать интерфейс IDispatch.<br />
+<p>Функция пытается встроить в GUI ActiveX-элемент управления или объект-документ.<br />
+Встроить можно не любой элемент: он должен как минимум поддерживать интерфейс IDispatch.<br />
 <br />
-См. <a href="../intro/ComRef.htm">справочник Obj/COM</a> для получения дополнительных сведений об объектах.<br />
+Подробнее об объектах см. <a href="../intro/ComRef.htm">справочник по Obj/COM</a>.<br />
 <br />
-"Объекты-документы" видны только при использовании в <a href="GUICreate.htm"><span class="S4">GUICreate</span><span class="S8">()</span></a> стиля Windows <span class="S91">$WS_CLIPCHILDREN</span>.<br />
+Объекты-документы видны только в том случае, если в <a href="GUICreate.htm"><span class="S4">GUICreate</span><span class="S8">()</span></a> задан стиль Windows <span class="S91">$WS_CLIPCHILDREN</span>.<br />
 <br />
-Функции GUI <a href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span><span class="S8">()</span></a> и GUICtrlSet не влияют на этот элемент управления. Управлять объектом можно только через методы и свойства переменной <span class="S91">$ObjectVar</span>.<br />
+Функции GUI <a href="GUICtrlRead.htm"><span class="S4">GUICtrlRead</span><span class="S8">()</span></a> и GUICtrlSet на этот элемент управления не влияют. Управлять объектом можно только через его методы и свойства, обращаясь к <span class="S91">$ObjectVar</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="IsObj.htm">IsObj</a>, <a href="ObjCreate.htm">ObjCreate</a>, <a href="ObjEvent.htm">ObjEvent</a>, <a href="ObjGet.htm">ObjGet</a></p>
@@ -93,7 +93,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idButton_Home</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"AutoIt Home"</span><span class="S8">,</span> <span class="S3">230</span><span class="S8">,</span> <span class="S3">420</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idButton_Stop</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Stop"</span><span class="S8">,</span> <span class="S3">330</span><span class="S8">,</span> <span class="S3">420</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span>&nbsp;<span class="S1">;Показать GUI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span>&nbsp;<span class="S1">; Показать GUI</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$oIE</span>.<span class="Scom">navigate</span><span class="S8">(</span><span class="S7">"http://google.com"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">3000</span><span class="S8">)</span><br>
