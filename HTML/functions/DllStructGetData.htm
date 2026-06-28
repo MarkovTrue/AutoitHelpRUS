@@ -22,12 +22,12 @@
 </tr>
 <tr>
 <td>Element</td>
-<td>Элемент структуры, к которому нужно обратиться: номер, начиная с 1, или имя элемента, определённое в <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
+<td>Элемент структуры, к которому нужно обратиться: номер начиная с 1 или имя элемента, заданное в <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
 </tr>
 <tr>
 <td>index</td>
-<td><strong>[необязательный]</strong> Для элементов, определённых через [], задаёт индекс (начиная с 1) для получения. Если параметр опущен или равен ключевому слову <a href="../keywords/Default.htm">Default</a>, то для char[n], wchar[n] и byte[n] возвращаются все элементы (удобно для быстрого получения).<br />
-<strong>Не используется для элементов без [].</strong></td>
+<td><strong>[необязательный]</strong> Для элементов, объявленных с [], задаёт индекс (начиная с 1) для чтения. Если опущен или равен ключевому слову <a href="../keywords/Default.htm">Default</a>, то для char[n], wchar[n] и byte[n] читаются все элементы (удобно для быстрого чтения).<br />
+<strong>Для элементов без [] не используется.</strong></td>
 </tr>
 </table>
 
@@ -43,18 +43,17 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – структура не является допустимой структурой, возвращённой <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.<br>
-2&nbsp;– элемент выходит за пределы диапазона или неизвестен.<br>
-3&nbsp;– индекс выходит за пределы диапазона.<br>
-4&nbsp;– неизвестный тип данных элемента.<br>
+<td>1 – структура не является допустимой структурой, возвращённой <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.<br />
+2&nbsp;– элемент вне диапазона или неизвестен.<br />
+3&nbsp;– индекс вне диапазона.<br />
+4&nbsp;– неизвестный тип данных элемента.<br />
 5&nbsp;– индекс &lt;= 0.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Если элемент имеет тип char или char[n], wchar или wchar[n], всегда возвращается <a href="String.htm"><span class="S4">String</span><span class="S8">()</span></a>;<br />
-если элемент имеет тип byte[n] и индекс не указан, возвращается двоичный тип;<br />
-в остальных случаях возвращается наиболее подходящий тип данных AutoIt, соответствующий типу элемента (например, byte возвращает Int32, float возвращает Double).<br />
+<p>Если элемент имеет тип char или char[n], wchar или wchar[n], всегда возвращается <a href="String.htm"><span class="S4">String</span><span class="S8">()</span></a>.<br />
+Если элемент имеет тип byte[n] и индекс опущен, возвращаются двоичные данные, в остальных случаях возвращается наиболее подходящий тип данных AutoIt, соответствующий типу элемента (например, byte даёт Int32, float даёт Double).<br />
 </p>
 <h2>См. также</h2>
 <p><a href="DllStructCreate.htm">DllStructCreate</a>, <a href="DllStructSetData.htm">DllStructSetData</a></p>
@@ -116,7 +115,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">255</span><span class="S8">)</span>&nbsp;<span class="S1">; Или "var2" вместо 2.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать данные элемента var3 (uint) в $tSTRUCT1.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S7">"var3"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; -1 (signed int) будет преобразовано в unsigned int.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tSTRUCT1</span><span class="S8">,</span> <span class="S7">"var3"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; -1 (Signed int) будет преобразовано в unsigned int.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Или 3 вместо "var3".</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать данные элемента var4 (char) в $tSTRUCT1.</span><br>
