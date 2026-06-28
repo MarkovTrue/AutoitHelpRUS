@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_GraphicsMeasureString</h1>
-<p class="funcdesc">Измеряет размер строки текста.</p>
+<p class="funcdesc">Измеряет размер строки.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_GraphicsMeasureString.htm"><span class="S15">_GDIPlus_GraphicsMeasureString</span></a> <span class="S8">(</span> <span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S9">$sString</span><span class="S8">,</span> <span class="S9">$hFont</span><span class="S8">,</span> <span class="S9">$tLayout</span><span class="S8">,</span> <span class="S9">$hFormat</span> <span class="S8">)</span></p>
 
@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td><span class="S91">$hFont</span></td>
-<td>Дескриптор шрифта для рисования строки.</td>
+<td>Дескриптор шрифта для отрисовки строки.</td>
 </tr>
 <tr>
 <td><span class="S91">$tLayout</span></td>
@@ -35,7 +35,7 @@
 </tr>
 <tr>
 <td><span class="S91">$hFormat</span></td>
-<td>Дескриптор формата строки.</td>
+<td>Дескриптор формата строки для её отрисовки.</td>
 </tr>
 </table>
 
@@ -44,9 +44,9 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив следующего вида:<br />
-[0]&nbsp;– структура <a class="le" href="../libfunctions/$tagGDIPRECTF.htm"><span class="S91">$tagGDIPRECTF</span></a>, получающая прямоугольник, ограничивающий строку<br />
-[1]&nbsp;– количество символов, фактически поместившихся в прямоугольник компоновки<br />
-[2]&nbsp;– количество строк, поместившихся в прямоугольник компоновки</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– структура <a class="le" href="../libfunctions/$tagGDIPRECTF.htm"><span class="S91">$tagGDIPRECTF</span></a>, получающая прямоугольник, ограничивающий строку<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– число символов, фактически поместившихся в прямоугольник разметки<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– число строк, поместившихся в прямоугольник разметки</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
