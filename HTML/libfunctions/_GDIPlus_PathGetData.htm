@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_PathGetData</h1>
-<p class="funcdesc">Возвращает массив точек и типов из пути.</p>
+<p class="funcdesc">Возвращает массив точек и их типов из контура.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_PathGetData.htm"><span class="S15">_GDIPlus_PathGetData</span></a> <span class="S8">(</span> <span class="S9">$hPath</span> <span class="S8">)</span></p>
 
@@ -27,20 +27,20 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив точек и типов, задающий конечные и управляющие точки линий и кривых Безье, из которых строится путь:<br />
-[0][0] – количество точек и типов<br />
-[1][0] – X-координата точки 1<br />
-[1][1] – Y-координата точки 1<br />
-[1][2] – тип точки 1<br />
-[n][0] – X-координата точки n<br />
-[n][1] – Y-координата точки n<br />
-[1][2] – тип точки n<br />
-Каждый тип точки принимает одно из следующих значений:<br />
-0x00 – точка является началом фигуры<br />
-0x01 – точка является одним из двух конечных узлов линии<br />
-0x03 – точка является конечным или управляющим узлом кубической кривой Безье<br />
-0x20 – точка является маркером<br />
-0x80 – точка является последней точкой замкнутого подпути (фигуры)</td>
+<td style="width:90%">Возвращает массив точек и их типов, задающих конечные и контрольные точки линий и кривых Безье, используемых для рисования контура, а также типы точек:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– количество точек и типов<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– X-координата точки 1<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Y-координата точки 1<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– тип точки 1<br />
+<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– X-координата точки n<br />
+<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Y-координата точки n<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– тип точки n<br />
+Тип каждой точки – одно из значений:<br />
+0x00&nbsp;– точка является началом фигуры<br />
+0x01&nbsp;– точка является одним из двух концов линии<br />
+0x03&nbsp;– точка является концом или контрольной точкой кубической кривой Безье<br />
+0x20&nbsp;– точка является маркером<br />
+0x80&nbsp;– точка является последней в замкнутом подконтуре (фигуре)</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
