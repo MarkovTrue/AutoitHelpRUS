@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_PathWarp</h1>
-<p class="funcdesc">Применяет деформирующее преобразование к пути, одновременно сглаживая его (преобразуя кривые в последовательность прямых линий).</p>
+<p class="funcdesc">Применяет деформирующее преобразование к контуру. Функция также сглаживает контур (преобразует в последовательность прямых линий).</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_PathWarp.htm"><span class="S15">_GDIPlus_PathWarp</span></a> <span class="S8">(</span> <span class="S9">$hPath</span><span class="S8">,</span> <span class="S9">$hMatrix</span><span class="S8">,</span> <span class="S9">$aPoints</span><span class="S8">,</span> <span class="S9">$nX</span><span class="S8">,</span> <span class="S9">$nY</span><span class="S8">,</span> <span class="S9">$nWidth</span><span class="S8">,</span> <span class="S9">$nHeight</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iWarpMode</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$fFlatness</span> <span class="S8">=</span> <span class="S3">0.25</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,22 +27,22 @@
 </tr>
 <tr>
 <td><span class="S91">$aPoints</span></td>
-<td>Массив вершин параллелограмма, которые совместно с параметрами прямоугольника задают режим деформации:<br />
-[0][0] – количество точек; допустимые значения: 3 или 4<br />
-[1][0] – X-координата точки 1<br />
-[1][1] – Y-координата точки 1<br />
-[2][0] – X-координата точки 2<br />
-[2][1] – Y-координата точки 2<br />
-[n][0] – X-координата точки n<br />
-[n][1] – Y-координата точки n</td>
+<td>Массив точек параллелограмма, которые вместе с параметрами прямоугольника задают режим деформации:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – количество точек, должно быть 3 или 4<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – X-координата точки 1<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – Y-координата точки 1<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – X-координата точки 2<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – Y-координата точки 2<br />
+<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – X-координата точки n<br />
+<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – Y-координата точки n</td>
 </tr>
 <tr>
 <td><span class="S91">$nX</span></td>
-<td>X-координата верхнего левого угла прямоугольника, преобразуемого в параллелограмм, заданный <span class="S91">$aPoints</span>.</td>
+<td>X-координата левого верхнего угла прямоугольника, преобразуемого в параллелограмм, заданный <span class="S91">$aPoints</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$nY</span></td>
-<td>Y-координата верхнего левого угла прямоугольника, преобразуемого в параллелограмм, заданный <span class="S91">$aPoints</span>.</td>
+<td>Y-координата левого верхнего угла прямоугольника, преобразуемого в параллелограмм, заданный <span class="S91">$aPoints</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$nWidth</span></td>
@@ -55,13 +55,13 @@
 <tr>
 <td><span class="S91">$iWarpMode</span></td>
 <td><strong>[необязательный]</strong> Вид применяемой деформации:<br />
-0 – перспективная деформация<br />
-1 – билинейная деформация</td>
+0 – перспективный режим деформации<br />
+1 – билинейный режим деформации</td>
 </tr>
 <tr>
 <td><span class="S91">$fFlatness</span></td>
-<td><strong>[необязательный]</strong> Вещественное число, влияющее на количество отрезков при аппроксимации исходного пути.<br />
-Малые значения дают больше отрезков, большие – меньше.</td>
+<td><strong>[необязательный]</strong> Вещественное число, влияющее на количество отрезков, используемых для аппроксимации исходного контура.<br />
+Малые значения означают много отрезков, большие – мало.</td>
 </tr>
 </table>
 
@@ -116,12 +116,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hPath</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_PathCreate.htm"><span class="S15">_GDIPlus_PathCreate</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">;Создать новый объект path</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hFormat</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_StringFormatCreate.htm"><span class="S15">_GDIPlus_StringFormatCreate</span></a><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_StringFormatSetAlign.htm"><span class="S15">_GDIPlus_StringFormatSetAlign</span></a><span class="S8">(</span><span class="S9">$hFormat</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">;выравнивание по центру
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_StringFormatSetAlign.htm"><span class="S15">_GDIPlus_StringFormatSetAlign</span></a><span class="S8">(</span><span class="S9">$hFormat</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">;выравнивание по центру</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hFamily</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_FontFamilyCreate.htm"><span class="S15">_GDIPlus_FontFamilyCreate</span></a><span class="S8">(</span><span class="S7">"Arial Black"</span><span class="S8">)</span>&nbsp;<span class="S1">;Создать объект font family</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tLayout</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_RectFCreate.htm"><span class="S15">_GDIPlus_RectFCreate</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span>&nbsp;<span class="S1">;создать ограничивающий прямоугольник строки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tLayout</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_RectFCreate.htm"><span class="S15">_GDIPlus_RectFCreate</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span>&nbsp;<span class="S1">;создать ограничивающий прямоугольник строки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathAddString.htm"><span class="S15">_GDIPlus_PathAddString</span></a><span class="S8">(</span><span class="S9">$hPath</span><span class="S8">,</span> <span class="S7">"AutoIt rulez!"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@LF"><span class="S6">@LF</span></a> <span class="S8">&amp;</span> <span class="S7">"and so does"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@LF"><span class="S6">@LF</span></a> <span class="S8">&amp;</span> <span class="S7">"STAR WARS ;)"</span><span class="S8">,</span> <span class="S9">$tLayout</span><span class="S8">,</span> <span class="S9">$hFamily</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">64</span><span class="S8">,</span> <span class="S9">$hFormat</span><span class="S8">)</span>&nbsp;<span class="S1">;Добавить контур строки в path</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aPoints</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
@@ -135,8 +133,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aPoints</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$iW</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aPoints</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$iH</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathWarp.htm"><span class="S15">_GDIPlus_PathWarp</span></a><span class="S8">(</span><span class="S9">$hPath</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$aPoints</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span>&nbsp;<span class="S1">;деформировать путь
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathWarp.htm"><span class="S15">_GDIPlus_PathWarp</span></a><span class="S8">(</span><span class="S9">$hPath</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$aPoints</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iW</span><span class="S8">,</span> <span class="S9">$iH</span><span class="S8">)</span>&nbsp;<span class="S1">;деформировать путь</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillPath.htm"><span class="S15">_GDIPlus_GraphicsFillPath</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hPath</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">;Нарисовать path в дескрипторе графики (GUI)</span><br>
 <br>
