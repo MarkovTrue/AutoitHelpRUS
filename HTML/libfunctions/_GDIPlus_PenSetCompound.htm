@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_PenSetCompound</h1>
-<p class="funcdesc">Задаёт составной массив для объекта Pen.</p>
+<p class="funcdesc">Задаёт составной массив объекта Pen.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <span class="S0">_GDIPlus_PenSetCompound</span> <span class="S8">(</span> <span class="S9">$hPen</span><span class="S8">,</span> <span class="S9">$aCompounds</span> <span class="S8">)</span></p>
 
@@ -24,10 +24,10 @@
 <tr>
 <td><span class="S91">$aCompounds</span></td>
 <td>Массив составных значений:<br />
-[0] – количество составных значений<br />
-[1] – составное значение 1<br />
-[2] – составное значение 2<br />
-[n] – составное значение n</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – количество составных значений<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – составное значение 1<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – составное значение 2<br />
+<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span> – составное значение n</td>
 </tr>
 </table>
 
@@ -48,12 +48,10 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Элементы массива должны идти в возрастающем порядке и находиться в диапазоне от 0 до 1.<br />
-Предположим, перо должно рисовать две параллельные линии: ширина первой – 20% ширины пера,<br />
-ширина зазора между ними – 50% ширины пера,<br />
-а ширина второй линии – 30% ширины пера.<br />
-Для этого нужно создать объект Pen и массив составных значений.<br />
-Затем передать в <a class="le" href="_GDIPlus_PenSetCompound.htm"><span class="S15">_GDIPlus_PenSetCompound</span></a><span class="S8">()</span> массив со значениями 0.0, 0.2, 0.7 и 1.0.<br />
+<p>Элементы массива должны идти по возрастанию, быть не меньше 0 и не больше 1.<br />
+Предположим, перо должно рисовать две параллельные линии, где ширина первой линии составляет 20 процентов ширины пера, ширина промежутка между двумя линиями составляет 50 процентов ширины пера, а ширина второй линии составляет 30 процентов ширины пера.<br />
+Сначала создайте объект Pen и массив составных значений.<br />
+Затем задайте составной массив, передав массив со значениями 0.0, 0.2, 0.7 и 1.0 в функцию <a class="le" href="_GDIPlus_PenSetCompound.htm"><span class="S15">_GDIPlus_PenSetCompound</span></a><span class="S8">()</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GDIPlus_PenCreate.htm">_GDIPlus_PenCreate</a></p>
@@ -89,23 +87,19 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PenSetLineJoin.htm"><span class="S15">_GDIPlus_PenSetLineJoin</span></a><span class="S8">(</span><span class="S9">$hPen</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">6</span>&nbsp;<span class="S1">;количество элементов в составном массиве
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">6</span>&nbsp;<span class="S1">;количество элементов в составном массиве</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span>&nbsp;<span class="S1">;
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.3</span>&nbsp;<span class="S1">;первая линия [0 до 0.3] * PenWidth
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.3</span>&nbsp;<span class="S1">;первая линия [0 до 0.3] * PenWidth</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.55</span>&nbsp;<span class="S1">;
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.7</span>&nbsp;<span class="S1">;вторая линия [0.55 до 0.7] * PenWidth
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.7</span>&nbsp;<span class="S1">;вторая линия [0.55 до 0.7] * PenWidth</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0.9</span>&nbsp;<span class="S1">;
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">;третья линия [0.9 до 1] * PenWidth
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aCompounds</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span>&nbsp;<span class="S1">;третья линия [0.9 до 1] * PenWidth</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_GDIPlus_PenSetCompound</span><span class="S8">(</span><span class="S9">$hPen</span><span class="S8">,</span> <span class="S9">$aCompounds</span><span class="S8">)</span><br>
 <br>
