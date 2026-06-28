@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>BlockInput</h1>
-<p class="funcdesc">Отключает/включает мышь и клавиатуру.</p>
+<p class="funcdesc">Отключает или включает мышь и клавиатуру.</p>
 <p class="codeheader"><a class="le" href="../functions/BlockInput.htm"><span class="S4">BlockInput</span></a> <span class="S8">(</span> <span class="S0">flag</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -21,7 +21,7 @@
 <td style="width:85%"><span class="S91">$BI_DISABLE</span> (1) = отключить пользовательский ввод<br />
 <span class="S91">$BI_ENABLE</span> (0) = включить пользовательский ввод<br />
 <br />
-Константы определены в файле "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -33,16 +33,16 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0. Ввод уже включён или не используется <span class="S111">#RequireAdmin</span>.</td>
+<td>Возвращает 0, если ввод уже включён или не используется <span class="S111">#RequireAdmin</span>.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>В таблице ниже показано, как поведение <a href="BlockInput.htm"><span class="S4">BlockInput</span><span class="S8">()</span></a> зависит от версии Windows. Однако нажатие <em>Ctrl+Alt+Del</em> на любой платформе повторно включит ввод – это особенность Windows API.<br />
+<p>В таблице ниже показано, как поведение <a href="BlockInput.htm"><span class="S4">BlockInput</span><span class="S8">()</span></a> зависит от версии Windows. При этом на любой платформе нажатие <em>Ctrl+Alt+Del</em> снова разрешает ввод из-за особенности Windows API.<br />
 <table>
 <tr>
 <td style="width:15%"><strong><em>Операционная система</strong></em></td>
-<td style="width:85%"><strong><em>Поведение "<a href="BlockInput.htm"><span class="S4">BlockInput</span><span class="S8">()</span></a>"</strong></em></td>
+<td style="width:85%"><strong><em>Результат "<a href="BlockInput.htm"><span class="S4">BlockInput</span><span class="S8">()</span></a>"</strong></em></td>
 </tr>
 <tr>
 <td>Windows XP</td>
@@ -50,10 +50,10 @@
 </tr>
 <tr>
 <td>Windows Vista и выше</td>
-<td>Пользовательский ввод блокируется только при использовании <strong><span class="S111">#RequireAdmin</span></strong>, AutoIt может имитировать ввод мышью и клавиатурой.</td>
+<td>Пользовательский ввод блокируется, если используется <strong><span class="S111">#RequireAdmin</span></strong>, AutoIt может имитировать ввод мышью и клавиатурой.</td>
 </tr>
 </table><br />
-<a href="BlockInput.htm"><span class="S4">BlockInput</span><span class="S8">()</span></a> влияет только на пользовательский ввод. Ввод от функций вроде <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>, <a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> или <a href="MouseMove.htm"><span class="S4">MouseMove</span><span class="S8">()</span></a> продолжает работать.<br />
+<a href="BlockInput.htm"><span class="S4">BlockInput</span><span class="S8">()</span></a> влияет только на пользовательский ввод. Ввод от таких функций, как <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>, <a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> или <a href="MouseMove.htm"><span class="S4">MouseMove</span><span class="S8">()</span></a>, продолжает работать.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Send.htm">Send</a>, <a href="ControlSend.htm">ControlSend</a>, <a href="MouseMove.htm">MouseMove</a></p>
