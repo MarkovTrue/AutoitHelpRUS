@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_ImageAttributesSetColorKeys</h1>
-<p class="funcdesc">Устанавливает или сбрасывает цветовой ключ (диапазон прозрачности) для указанной категории.</p>
+<p class="funcdesc">Задаёт или снимает цветовой ключ (диапазон прозрачности) для указанной категории.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_ImageAttributesSetColorKeys.htm"><span class="S15">_GDIPlus_ImageAttributesSetColorKeys</span></a> <span class="S8">(</span> <span class="S9">$hImageAttributes</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iColorAdjustType</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bEnable</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iARGBLow</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iARGBHigh</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,24 +23,24 @@
 </tr>
 <tr>
 <td><span class="S91">$iColorAdjustType</span></td>
-<td><strong>[необязательный]</strong> Категория, для которой устанавливается или сбрасывается цветовой ключ:<br />
-0 – коррекция цвета применяется ко всем категориям без собственных настроек<br />
-1 – коррекция применяется к растровым изображениям<br />
-2 – коррекция применяется к операциям кисти в метафайлах<br />
-3 – коррекция применяется к операциям пера в метафайлах<br />
-4 – коррекция применяется к тексту, рисуемому в метафайлах</td>
+<td><strong>[необязательный]</strong> Категория, для которой задаётся или снимается цветовой ключ:<br />
+0 – коррекция цвета применяется ко всем категориям, не имеющим собственных настроек<br />
+1 – коррекция цвета применяется к растровым изображениям<br />
+2 – коррекция цвета применяется к операциям кисти в метафайлах<br />
+3 – коррекция цвета применяется к операциям пера в метафайлах<br />
+4 – коррекция цвета применяется к тексту, рисуемому в метафайлах</td>
 </tr>
 <tr>
 <td><span class="S91">$bEnable</span></td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, диапазон прозрачности для указанной категории применяется; иначе – прозрачность</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, для указанной категории применяется диапазон прозрачности; иначе прозрачность</td>
 </tr>
 <tr>
 <td><span class="S91">$iARGBLow</span></td>
-<td><strong>[необязательный]</strong> Компоненты Alpha, Red, Green и Blue цвета, задающего нижнюю границу цветового ключа.</td>
+<td><strong>[необязательный]</strong> Компоненты Alpha, Red, Green и Blue цвета, задающего нижнее значение цветового ключа.</td>
 </tr>
 <tr>
 <td><span class="S91">$iARGBHigh</span></td>
-<td><strong>[необязательный]</strong> Компоненты Alpha, Red, Green и Blue цвета, задающего верхнюю границу цветового ключа.</td>
+<td><strong>[необязательный]</strong> Компоненты Alpha, Red, Green и Blue цвета, задающего верхнее значение цветового ключа.</td>
 </tr>
 </table>
 
@@ -61,7 +61,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Любой цвет, у которого все три компонента (красный, зелёный, синий) находятся в пределах между соответствующими компонентами верхнего и нижнего цветовых ключей, становится прозрачным.<br />
+<p>Любой цвет, у которого каждый из трёх компонентов (красный, зелёный, синий) находится между соответствующими компонентами верхнего и нижнего цветовых ключей, становится прозрачным.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GdipSetImageAttributesColorKeys">GdipSetImageAttributesColorKeys</a> в библиотеке MSDN
@@ -88,8 +88,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGraphics</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;создать графический объект из дескриптора окна</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIA</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageAttributesCreate.htm"><span class="S15">_GDIPlus_ImageAttributesCreate</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">;создать объект ImageAttribute</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageAttributesSetColorKeys.htm"><span class="S15">_GDIPlus_ImageAttributesSetColorKeys</span></a><span class="S8">(</span><span class="S9">$hIA</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S3">0x00000000</span><span class="S8">,</span> <span class="S3">0x00F7F7F7</span><span class="S8">)</span>&nbsp;<span class="S1">;сделать диапазон цветов прозрачным
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageAttributesSetColorKeys.htm"><span class="S15">_GDIPlus_ImageAttributesSetColorKeys</span></a><span class="S8">(</span><span class="S9">$hIA</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S3">0x00000000</span><span class="S8">,</span> <span class="S3">0x00F7F7F7</span><span class="S8">)</span>&nbsp;<span class="S1">;сделать диапазон цветов прозрачным</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hHBmp</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_ScreenCapture_Capture.htm"><span class="S15">_ScreenCapture_Capture</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">)</span>&nbsp;<span class="S1">;создать GDI bitmap захватом области рабочего стола</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromHBITMAP.htm"><span class="S15">_GDIPlus_BitmapCreateFromHBITMAP</span></a><span class="S8">(</span><span class="S9">$hHBmp</span><span class="S8">)</span>&nbsp;<span class="S1">;преобразовать GDI bitmap в GDI+</span><br>
