@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>GUICtrlCreateGroup</h1>
-<p class="funcdesc">Создаёт элемент управления Group (группа) для GUI.</p>
+<p class="funcdesc">Создаёт элемент управления Group (группу) для GUI.</p>
 <p class="codeheader"><a class="le" href="../functions/GUICtrlCreateGroup.htm"><span class="S4">GUICtrlCreateGroup</span></a> <span class="S8">(</span> <span class="S7">"text"</span><span class="S8">,</span> <span class="S0">left</span><span class="S8">,</span> <span class="S0">top</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">width</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">height</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">style</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">exStyle</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -38,7 +38,7 @@
 </tr>
 <tr>
 <td>style</td>
-<td><strong>[необязательный]</strong> Задаёт стиль элемента управления. См. <a href="../appendix/GUIStyles.htm">приложение "Стили элементов управления GUI"</a>.<br />
+<td><strong>[необязательный]</strong> Задаёт стиль элемента управления. См. <a href="../appendix/GUIStyles.htm">Стили GUI и элементов</a>.<br />
 по умолчанию (-1) : нет.<br />
 принудительные стили : <span class="S91">$WS_GROUP</span>, <span class="S91">$BS_GROUPBOX</span>.</td>
 </tr>
@@ -61,12 +61,12 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Элемент управления Group – это тонкая рамка вокруг элементов управления (обычно переключателей), объединяющая их визуально. Одновременно в группе может быть выбран только один переключатель.<br />
-Если нужно несколько групп без видимой рамки, используйте <a class="le" href="GUIStartGroup.htm"><span class="S4">GUIStartGroup</span></a><span class="S8">()</span> для группировки переключателей.<br />
+<p>Элемент управления Group рисует вокруг других элементов управления (обычно переключателей) тонкую рамку, визуально объединяющую их. В одной группе одновременно может быть выбран только один переключатель.<br />
+Чтобы сделать несколько групп без видимой рамки, объединяйте переключатели через <a href="GUIStartGroup.htm"><span class="S4">GUIStartGroup</span><span class="S8">()</span></a>.<br />
 <br />
-Для использования указанных выше значений необходимо включить в скрипт <span class="S111">#include</span> <span class="S7">&lt;ButtonConstants.au3&gt;</span>.<br />
+Чтобы использовать перечисленные выше значения, добавьте в скрипт <span class="S111">#include</span> <span class="S7">&lt;ButtonConstants.au3&gt;</span>.<br />
 <br />
-Изменение размера по умолчанию: <span class="S91">$GUI_DOCKAUTO</span> – автоматическое изменение размера и позиции.<br />
+Изменение размера по умолчанию: <span class="S91">$GUI_DOCKAUTO</span>, размер и положение меняются автоматически.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="AutoItSetOption.htm#GUICoordMode ">GUICoordMode (Option)</a>, <a href="GUIStartGroup.htm">GUIStartGroup</a></p>
@@ -85,7 +85,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateGroup.htm"><span class="S4">GUICtrlCreateGroup</span></a><span class="S8">(</span><span class="S7">"Group 1"</span><span class="S8">,</span> <span class="S3">190</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">,</span> <span class="S3">90</span><span class="S8">,</span> <span class="S3">140</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateRadio.htm"><span class="S4">GUICtrlCreateRadio</span></a><span class="S8">(</span><span class="S7">"Radio 1"</span><span class="S8">,</span> <span class="S3">210</span><span class="S8">,</span> <span class="S3">90</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateRadio.htm"><span class="S4">GUICtrlCreateRadio</span></a><span class="S8">(</span><span class="S7">"Radio 2"</span><span class="S8">,</span> <span class="S3">210</span><span class="S8">,</span> <span class="S3">110</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateGroup.htm"><span class="S4">GUICtrlCreateGroup</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">99</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">99</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">;закрываем группу</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateGroup.htm"><span class="S4">GUICtrlCreateGroup</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">99</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">99</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; закрываем группу</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span>&nbsp;<span class="S1">; отобразит пустое диалоговое окно</span><br>
 <br>
