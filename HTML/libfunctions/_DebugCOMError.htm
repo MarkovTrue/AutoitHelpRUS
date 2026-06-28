@@ -34,12 +34,12 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает 1, если <span class="S91">$iComDebug</span> = 0 или 1; устанавливает <span class="S61">@extended</span>:<br />
+<td style="width:90%">Возвращает 1, если <span class="S91">$iComDebug</span> = 0 или 1 и устанавливает <span class="S61">@extended</span>:<br />
 0 – обработчик COM-ошибок не инициализирован<br />
 1 – обработчик COM-ошибок инициализирован<br />
 2 – обработчик COM-ошибок уже был активен<br />
 3 – обработчик COM-ошибок уже отключён<br />
-Возвращает 1, если <span class="S91">$iComDebug</span> = -1; устанавливает <span class="S61">@error</span> и <span class="S61">@extended</span> с текущими параметрами:<br />
+Возвращает 1, если <span class="S91">$iComDebug</span> = -1 и устанавливает <span class="S61">@error</span> и <span class="S61">@extended</span> с текущими параметрами:<br />
 <span class="S61">@error</span> = текущий уровень отладки<br />
 <span class="S61">@extended</span> = текущий флаг завершения скрипта.</td>
 </tr>
@@ -73,7 +73,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Debug.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <br>
-<a class="le" href="../libfunctions/_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">(</span><span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; 1 = записывать сообщения с временными метками в окно журнала отчётов.</span><br>
+<a class="le" href="../libfunctions/_DebugSetup.htm"><span class="S15">_DebugSetup</span></a><span class="S8">(</span><span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; 1 = Записывать сообщения с временными метками в окно журнала отчётов.</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
