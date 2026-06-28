@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_PenCreate2</h1>
-<p class="funcdesc">Создаёт объект Pen на основе атрибутов кисти.</p>
+<p class="funcdesc">Создаёт объект Pen, использующий атрибуты кисти.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_PenCreate2.htm"><span class="S15">_GDIPlus_PenCreate2</span></a> <span class="S8">(</span> <span class="S9">$hBrush</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$nWidth</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iUnit</span> <span class="S8">=</span> <span class="S3">2</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,18 +23,18 @@
 </tr>
 <tr>
 <td><span class="S91">$nWidth</span></td>
-<td><strong>[необязательный]</strong> Ширина пера в единицах измерения, заданных параметром <span class="S91">$iUnit</span></td>
+<td><strong>[необязательный]</strong> Ширина пера в единицах, заданных параметром <span class="S91">$iUnit</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$iUnit</span></td>
 <td><strong>[необязательный]</strong> Единица измерения размера пера:<br />
 0 – мировые координаты, нефизическая единица<br />
-1 – единицы устройства<br />
-2 – 1 пиксель<br />
-3 – 1 пункт (1/72 дюйма)<br />
-4 – 1 дюйм<br />
-5 – 1/300 дюйма<br />
-6 – 1 миллиметр</td>
+1 – единицы устройства отображения<br />
+2 – единица равна 1 пикселю<br />
+3 – единица равна 1 пункту или 1/72 дюйма<br />
+4 – единица равна 1 дюйму<br />
+5 – единица равна 1/300 дюйма<br />
+6 – единица равна 1 миллиметру</td>
 </tr>
 </table>
 
@@ -55,7 +55,8 @@
 </table>
 
 <h2>Примечания</h2>
-<p>После завершения работы вызовите <a href="_GDIPlus_PenDispose.htm"><span class="S15">_GDIPlus_PenDispose</span><span class="S8">()</span></a>, чтобы освободить объект из памяти.</p>
+<p>Закончив работу с объектом, вызовите <a class="le" href="_GDIPlus_PenDispose.htm"><span class="S15">_GDIPlus_PenDispose</span></a><span class="S8">()</span> для освобождения его ресурсов.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GDIPlus_PenDispose.htm">_GDIPlus_PenDispose</a></p>
 
