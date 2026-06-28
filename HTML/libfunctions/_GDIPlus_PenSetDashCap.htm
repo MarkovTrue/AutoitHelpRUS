@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_PenSetDashCap</h1>
-<p class="funcdesc">Задаёт стиль наконечников штрихов пера.</p>
+<p class="funcdesc">Задаёт стиль окончания штрихов пера.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_PenSetDashCap.htm"><span class="S15">_GDIPlus_PenSetDashCap</span></a> <span class="S8">(</span> <span class="S9">$hPen</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iDash</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,10 +23,10 @@
 </tr>
 <tr>
 <td><span class="S91">$iDash</span></td>
-<td><strong>[необязательный]</strong> Стиль наконечников штрихов. Возможные значения:<br />
-<span class="S91">$GDIP_DASHCAPFLAT</span> – квадратный наконечник, срезающий оба конца каждого штриха<br />
-<span class="S91">$GDIP_DASHCAPROUND</span> – круглый наконечник, скругляющий оба конца каждого штриха<br />
-<span class="S91">$GDIP_DASHCAPTRIANGLE</span> – треугольный наконечник, заостряющий оба конца каждого штриха.</td>
+<td><strong>[необязательный]</strong> Стиль окончания штрихов. Одно из значений:<br />
+<span class="S91">$GDIP_DASHCAPFLAT</span> – квадратное окончание, обрезающее оба конца каждого штриха<br />
+<span class="S91">$GDIP_DASHCAPROUND</span> – круглое окончание, закругляющее оба конца каждого штриха<br />
+<span class="S91">$GDIP_DASHCAPTRIANGLE</span> – треугольное окончание, заостряющее оба конца каждого штриха.</td>
 </tr>
 </table>
 
@@ -77,8 +77,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PenSetDashStyle.htm"><span class="S15">_GDIPlus_PenSetDashStyle</span></a><span class="S8">(</span><span class="S9">$hPen</span><span class="S8">,</span> <span class="S9">$GDIP_DASHSTYLEDASHDOT</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PenSetDashCap.htm"><span class="S15">_GDIPlus_PenSetDashCap</span></a><span class="S8">(</span><span class="S9">$hPen</span><span class="S8">,</span> <span class="S9">$GDIP_DASHCAPTRIANGLE</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать стиль наконечников штрихов пера
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать стиль колпачка штриха</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <span class="S7">"Pen dash cap: "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GDIPlus_PenGetDashCap.htm"><span class="S15">_GDIPlus_PenGetDashCap</span></a><span class="S8">(</span><span class="S9">$hPen</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нарисовать линию</span><br>
