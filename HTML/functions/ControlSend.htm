@@ -55,16 +55,16 @@
 </table>
 
 <h2>Примечания</h2>
-<p><a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> работает аналогично <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>, но может отправлять нажатия клавиш непосредственно в окно/элемент управления, а не только в активное окно.<br />
+<p><a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> работает похоже на <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>, но отправляет нажатия клавиш напрямую окну или элементу управления, а не только активному окну.<br />
 <br />
-<a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> ненадёжна только для командных строк, которые работают иначе, чем обычные окна (похоже, проверяют физическое состояние клавиш вместо приёма сообщений о нажатиях). Для обычных окон <a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> значительно надёжнее обычного <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> – и да, она передаёт shift, ctrl, alt и т.д.<br />
+<a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> ненадёжна только с окнами командной строки: они работают иначе, чем обычные окна (похоже, проверяют физическое состояние клавиш, а не принимают сообщения о нажатиях). Для обычных окон <a href="ControlSend.htm"><span class="S4">ControlSend</span><span class="S8">()</span></a> заметно надёжнее обычного <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> – и да, она передаёт Shift, Ctrl, Alt и подобные.<br />
 <br />
-Как отмечено в справке <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>, клавиатуры, отправляющие разные символы при нажатом CAPS LOCK и клавише Shift, не могут быть эмулированы. Пример – чешская клавиатура. Хорошим решением является использование <a href="ControlSetText.htm"><span class="S4">ControlSetText</span><span class="S8">()</span></a>.<br />
+Как сказано в справке по <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>, раскладки, которые при включённом CAPS LOCK и нажатом Shift дают другие символы, имитировать нельзя. Например, чешская раскладка. Обойти это можно через <a href="ControlSetText.htm"><span class="S4">ControlSetText</span><span class="S8">()</span></a>.<br />
 <br />
-Элемент управления может сначала потребовать фокус через команду <a href="ControlFocus.htm"><span class="S4">ControlFocus</span><span class="S8">()</span></a>, особенно при работе с controlID, созданным самим скриптом.<br />
+Возможно, элементу управления сначала придётся передать фокус командой <a href="ControlFocus.htm"><span class="S4">ControlFocus</span><span class="S8">()</span></a>, особенно если <em>controlID</em> создан самим скриптом.<br />
 <br />
-<a href="AutoItSetOption.htm#SendKeyDelay">Opt("SendKeyDelay",...)</a> задаёт длину кратковременной паузы между отправляемыми нажатиями клавиш.<br />
-<a href="AutoItSetOption.htm#SendKeyDownDelay">Opt("SendKeyDownDelay",...)</a> задаёт время удержания клавиши перед её отпусканием при нажатии.<br />
+<a href="AutoItSetOption.htm#SendKeyDelay">Opt("SendKeyDelay",...)</a> меняет длительность короткой паузы между отправляемыми нажатиями.<br />
+<a href="AutoItSetOption.htm#SendKeyDownDelay">Opt("SendKeyDownDelay",...)</a> меняет время удержания клавиши перед отпусканием при нажатии.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ControlCommand.htm">ControlCommand</a>, <a href="ControlFocus.htm">ControlFocus</a>, <a href="ControlSetText.htm">ControlSetText</a>, <a href="Send.htm">Send</a>, <a href="AutoItSetOption.htm#SendKeyDelay ">SendKeyDelay (Option)</a>, <a href="AutoItSetOption.htm#SendKeyDownDelay ">SendKeyDownDelay (Option)</a></p>
