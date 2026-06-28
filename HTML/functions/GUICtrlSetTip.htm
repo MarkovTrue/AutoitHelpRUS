@@ -11,40 +11,40 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>GUICtrlSetTip</h1>
-<p class="funcdesc">Устанавливает текст всплывающей подсказки для элемента управления.</p>
+<p class="funcdesc">Задаёт текст всплывающей подсказки для элемента управления.</p>
 <p class="codeheader"><a class="le" href="../functions/GUICtrlSetTip.htm"><span class="S4">GUICtrlSetTip</span></a> <span class="S8">(</span> <span class="S0">controlID</span><span class="S8">,</span> <span class="S0">tiptext</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"title"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">icon</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">options</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">controlID</td>
-<td style="width:85%">Идентификатор элемента управления (controlID), возвращённый функцией <a href="GUICtrlCreateManagement.htm">GUICtrlCreate...()</a>, или -1 для последнего созданного элемента.</td>
+<td style="width:85%">Идентификатор элемента управления (<em>controlID</em>), возвращённый функцией <a href="GUICtrlCreateManagement.htm">GUICtrlCreate...()</a>, или -1 для последнего созданного элемента.</td>
 </tr>
 <tr>
 <td>tiptext</td>
-<td>Текст подсказки, отображаемый при наведении курсора на элемент управления.</td>
+<td>Текст подсказки, отображаемый при наведении мыши на элемент управления.</td>
 </tr>
 <tr>
 <td>title</td>
-<td><strong>[необязательный]</strong> Заголовок всплывающей подсказки.</td>
+<td><strong>[необязательный]</strong> Заголовок подсказки.</td>
 </tr>
 <tr>
 <td>icon</td>
-<td><strong>[необязательный]</strong> Стандартный значок рядом с заголовком (требует наличия заголовка):<br />
-<span class="S91">$TIP_NOICON</span> (0) = Без значка<br />
-<span class="S91">$TIP_INFOICON</span> (1) = Информационный значок<br />
-<span class="S91">$TIP_WARNINGICON</span> (2) = Значок предупреждения<br />
-<span class="S91">$TIP_ERRORICON</span> (3) = Значок ошибки<br />
+<td><strong>[необязательный]</strong> Стандартный значок рядом с заголовком (нужен заголовок):<br />
+<span class="S91">$TIP_NOICON</span> (0) = без значка<br />
+<span class="S91">$TIP_INFOICON</span> (1) = информационный значок<br />
+<span class="S91">$TIP_WARNINGICON</span> (2) = значок предупреждения<br />
+<span class="S91">$TIP_ERRORICON</span> (3) = значок ошибки<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 <tr>
 <td>options</td>
-<td><strong>[необязательный]</strong> Параметры отображения подсказки (можно суммировать):<br />
-<span class="S91">$TIP_BALLOON</span> (1) = Отображать в виде выноски.<br />
-<span class="S91">$TIP_CENTER</span> (2) = Выравнивать подсказку по горизонтальному центру элемента управления.<br />
+<td><strong>[необязательный]</strong> Параметры отображения подсказки (можно складывать):<br />
+<span class="S91">$TIP_BALLOON</span> (1) = показывать в виде выноски.<br />
+<span class="S91">$TIP_CENTER</span> (2) = выравнивать подсказку по центру элемента управления по горизонтали.<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -62,9 +62,9 @@
 
 <h2>Примечания</h2>
 <p>Текст подсказки отображается в прямоугольной области всплывающей подсказки.<br />
-Для пропуска необязательного параметра с сохранением значения по умолчанию используйте ключевое слово <a href="../keywords/Default.htm">Default</a>.<br />
-Для создания многострочных подсказок можно использовать <span class="S61">@CR</span> или <span class="S61">@LF</span>.<br />
-Для отображения значка необходимо указать непустой заголовок. Значок размещается в той же строке, что и заголовок, поэтому заголовок обязателен.<br />
+Чтобы пропустить необязательный параметр, сохранив его значение по умолчанию, используйте ключевое слово <a href="../keywords/Default.htm">Default</a>.<br />
+Для многострочных подсказок можно использовать <span class="S61">@CR</span> или <span class="S61">@LF</span>.<br />
+Чтобы показать значок, задайте непустой заголовок: значок располагается в одной строке с заголовком, поэтому заголовок обязателен.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...</a></p>
