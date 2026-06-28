@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GDIPlus_PathIterNextMarkerPath</h1>
-<p class="funcdesc">Возвращает следующий раздел пути, ограниченный маркерами.</p>
+<p class="funcdesc">Возвращает следующую секцию контура итератора, ограниченную маркерами.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GDIPlus.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_PathIterNextMarkerPath.htm"><span class="S15">_GDIPlus_PathIterNextMarkerPath</span></a> <span class="S8">(</span> <span class="S9">$hPathIter</span><span class="S8">,</span> <span class="S9">$hPath</span> <span class="S8">)</span></p>
 
@@ -31,20 +31,16 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает количество точек в извлечённом разделе или 0, если разделов больше нет.</td>
+<td style="width:90%">Возвращает количество точек в полученной секции или 0, если секций больше нет.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>-1 и устанавливает флаг <span class="S61">@error</span> в ненулевое значение.</td>
-</tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Может содержать GPSTATUS (<span class="S91">$GDIP_ERR*</span> см. <span class="S7">GDIPlusConstants.au3</span>).</td>
+<td>Возвращает -1 и устанавливает флаг <span class="S61">@error</span> ненулевым, <span class="S61">@extended</span> может содержать код ошибки GPSTATUS (<span class="S91">$GDIP_ERR*</span> см. <span class="S7">GDIPlusConstants.au3</span>).</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Функция задаёт точки данных указанного объекта GraphicsPath в соответствии с точками извлечённого раздела.<br />
+<p>Функция задаёт точки данных указанного объекта GraphicsPath так, чтобы они совпадали с точками данных полученной секции.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GDIPlus_PathIterRewind.htm">_GDIPlus_PathIterRewind</a>, <a href="_GDIPlus_PathSetMarker.htm">_GDIPlus_PathSetMarker</a></p>
@@ -92,11 +88,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PathReset.htm"><span class="S15">_GDIPlus_PathReset</span></a><span class="S8">(</span><span class="S9">$hSubPath</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;например, буква A состоит из двух подпутей – сравните с _GDIPlus_PathIterNextSubpathPath
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;например, буква A состоит из двух подпутей – сравните с _GDIPlus_PathIterNextSubpathPath</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iPointCount</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_PathIterNextMarkerPath.htm"><span class="S15">_GDIPlus_PathIterNextMarkerPath</span></a><span class="S8">(</span><span class="S9">$hIter</span><span class="S8">,</span> <span class="S9">$hSubPath</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iPointCount</span> <span class="S8">&lt;=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a>&nbsp;<span class="S1">;фигур больше нет
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iPointCount</span> <span class="S8">&lt;=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a>&nbsp;<span class="S1">;фигур больше нет</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_PenSetColor.htm"><span class="S15">_GDIPlus_PenSetColor</span></a><span class="S8">(</span><span class="S9">$hPen</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">0xFF000000</span><span class="S8">,</span> <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">0xFF</span><span class="S8">,</span> <span class="S3">0xFFFFFF</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BrushSetSolidColor.htm"><span class="S15">_GDIPlus_BrushSetSolidColor</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S3">0xFF000000</span><span class="S8">,</span> <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">0xFF</span><span class="S8">,</span> <span class="S3">0xFFFFFF</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
