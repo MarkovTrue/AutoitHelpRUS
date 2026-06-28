@@ -34,12 +34,12 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – структура не соответствует структуре, возвращенной <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
+<td>1 – структура не является допустимой структурой, возвращённой <a href="DllStructCreate.htm"><span class="S4">DllStructCreate</span><span class="S8">()</span></a>.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Используется, когда данные в структуре должны содержать её размер.<br />
+<p>Используется, когда одно из полей структуры должно хранить её размер.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="DllStructCreate.htm">DllStructCreate</a>, <a href="DllStructSetData.htm">DllStructSetData</a></p>
@@ -66,11 +66,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs Примечания:</span><span class="S2"></span><br>
-<span class="S2">		– выравнивание данных по умолчанию составляет 4 байта, поэтому каждый элемент занимает не менее 4 байт.</span><br>
-<span class="S2">		– минимальный размер можно получить, установив выравнивание 1 в начале определения структуры: "align 1;struct; ..."</span><br>
+<span class="S2">		– Выравнивание данных по умолчанию составляет 4 байта, поэтому каждый элемент занимает не менее 4 байт.</span><br>
+<span class="S2">		– Минимальный размер можно получить, установив выравнивание 1 в начале определения структуры: "align 1;struct; ..."</span><br>
 <span class="S2">
 </span><br>
-<span class="S2">		– подробная информация о размере структуры:</span><br>
+<span class="S2">		– Подробная информация о размере структуры:</span><br>
 <span class="S2">		var1: int – 4 байта</span><br>
 <span class="S2">		var2: byte – 1 байт + 3 байта выравнивания = 4 байта</span><br>
 <span class="S2">		var3: uint – 4 байта</span><br>
