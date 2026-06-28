@@ -18,11 +18,11 @@
 <table>
 <tr>
 <td style="width:15%">text</td>
-<td style="width:85%">Текст подэлементов, разделённый символом <span class="S4">Opt</span><span class="S8">(</span>"GUIDataSeparatorChar"<span class="S8">)</span>.</td>
+<td style="width:85%">Текст подэлементов, разделённый символом <a href="AutoItSetOption.htm#GUIDataSeparatorChar">Opt("GUIDataSeparatorChar")</a>.</td>
 </tr>
 <tr>
 <td>listviewID</td>
-<td>controlID элемента управления ListView, в который добавляется элемент.</td>
+<td>controlID элемента управления ListView, которому принадлежит строка.</td>
 </tr>
 </table>
 
@@ -39,16 +39,16 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Эта функция создаёт отдельные элементы ListView, которые можно выбирать. Элементы работают как обычные элементы управления и могут обновляться через <a class="le" href="GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span></a><span class="S8">()</span>.<br />
-Элементы удаляются, как любые другие элементы управления, через <a class="le" href="GUICtrlDelete.htm"><span class="S4">GUICtrlDelete</span></a><span class="S8">()</span>.<br />
-Элементы ListView можно перетаскивать в элемент управления Edit или Input с состоянием <span class="S91">$GUI_DROPACCEPTED</span>.<br />
-См. <a class="le" href="GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">()</span> о расширении столбцов.<br />
+<p>Эта функция создаёт отдельные строки ListView, которые можно выбирать. Строки работают как обычные элементы управления, их значение задаётся через <a href="GUICtrlSetData.htm"><span class="S4">GUICtrlSetData</span><span class="S8">()</span></a>.<br />
+Удаляются строки, как любые другие элементы управления, через <a href="GUICtrlDelete.htm"><span class="S4">GUICtrlDelete</span><span class="S8">()</span></a>.<br />
+Строки ListView можно перетаскивать в элемент управления Edit или Input, находящийся в состоянии <span class="S91">$GUI_DROPACCEPTED</span>.<br />
+Об изменении ширины столбца см. <a href="GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span><span class="S8">()</span></a>.<br />
 <br />
-Специальный флаг <span class="S91">$GUI_BKCOLOR_LV_ALTERNATE</span> позволяет задать чередующийся фон строк ListView.<br />
-Нечётные строки получат цвет, заданный через <a class="le" href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span></a><span class="S8">()</span> для элемента управления ListView.<br />
-Чётные строки получат цвет, заданный через <a class="le" href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span></a><span class="S8">()</span> для элемента управления ListViewItem.<br />
+Специальный флаг <span class="S91">$GUI_BKCOLOR_LV_ALTERNATE</span> позволяет задать для ListView чередующийся фон строк.<br />
+Нечётные строки получают цвет, заданный через <a href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span><span class="S8">()</span></a> для элемента управления ListView.<br />
+Чётные строки получают цвет, заданный через <a href="GUICtrlSetBkColor.htm"><span class="S4">GUICtrlSetBkColor</span><span class="S8">()</span></a> для элемента управления ListViewItem.<br />
 <br />
-Указанные выше константы определены в <span class="S111">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br />
+Перечисленные выше константы определены в <span class="S111">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br />
 </p>
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateListView.htm">GUICtrlCreateListView</a>, <a href="GUICtrlDelete.htm">GUICtrlDelete</a>, <a href="GUICtrlRead.htm">GUICtrlRead</a>, <a href="GUICtrlSetData.htm">GUICtrlSetData</a>, <a href="GUICtrlSetState.htm">GUICtrlSetState</a>, <a href="AutoItSetOption.htm#GUIDataSeparatorChar ">GUIDataSeparatorChar (Option)</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
@@ -67,7 +67,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"listview items"</span><span class="S8">,</span> <span class="S3">220</span><span class="S8">,</span> <span class="S3">250</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$WS_EX_ACCEPTFILES</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetBkColor.htm"><span class="S4">GUISetBkColor</span></a><span class="S8">(</span><span class="S3">0x00E0FFFF</span><span class="S8">)</span>&nbsp;<span class="S1">; изменит цвет фона</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idListview</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">(</span><span class="S7">"col1  |col2|col3  "</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">)</span>&nbsp;<span class="S1">;,$LVS_SORTDESCENDING)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idListview</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListView.htm"><span class="S4">GUICtrlCreateListView</span></a><span class="S8">(</span><span class="S7">"col1  |col2|col3  "</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">)</span>&nbsp;<span class="S1">; ,$LVS_SORTDESCENDING)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idButton</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Value?"</span><span class="S8">,</span> <span class="S3">75</span><span class="S8">,</span> <span class="S3">170</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLVi_Item1</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"item2|col22|col23"</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idLVi_Item2</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"item1|col12|col13"</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
