@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>DirRemove</h1>
-<p class="funcdesc">Удаляет каталог/папку.</p>
+<p class="funcdesc">Удаляет каталог или папку.</p>
 <p class="codeheader"><a class="le" href="../functions/DirRemove.htm"><span class="S4">DirRemove</span></a> <span class="S8">(</span> <span class="S7">"path"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">recurse</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -22,11 +22,11 @@
 </tr>
 <tr>
 <td>recurse</td>
-<td><strong>[необязательный]</strong> Флаг, указывающий, нужно ли удалять подкаталоги.<br />
-   <span class="default-const"><span class="S91">$DIR_DEFAULT</span></span> (0) = (по умолчанию) удаляет папку только если она пуста<br />
-   <span class="S91">$DIR_REMOVE</span> (1) = удаляет файлы и подкаталоги (аналог команды DelTree в DOS)<br />
+<td><strong>[необязательный]</strong> Флаг указывает, удалять ли также подкаталоги.<br />
+<span class="default-const"><span class="S91">$DIR_DEFAULT</span></span> (0) = (по умолчанию) удаляет папку, только если она пуста<br />
+<span class="S91">$DIR_REMOVE</span> (1) = удаляет файлы и подкаталоги (как команда DelTree в DOS)<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -38,12 +38,12 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0, если при удалении каталога произошла ошибка (или если каталог не существует).</td>
+<td>Возвращает 0 при ошибке удаления каталога (или если каталог не существует).</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Некоторые атрибуты каталога могут делать удаление невозможным; в этом случае используйте <a href="FileSetAttrib.htm"><span class="S4">FileSetAttrib</span><span class="S8">()</span></a> для изменения атрибутов каталога.<br />
+<p>Некоторые атрибуты каталога могут сделать удаление невозможным, поэтому при необходимости измените атрибуты каталога через <a href="FileSetAttrib.htm"><span class="S4">FileSetAttrib</span><span class="S8">()</span></a>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="DirCopy.htm">DirCopy</a>, <a href="DirCreate.htm">DirCreate</a>, <a href="DirMove.htm">DirMove</a>, <a href="FileDelete.htm">FileDelete</a>, <a href="FileRecycle.htm">FileRecycle</a></p>
