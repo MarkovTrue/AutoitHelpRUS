@@ -21,7 +21,7 @@
 <strong>Необязательные параметры</strong><br />
   <br />
   <p>Многие функции содержат необязательные параметры, которые можно опустить. Но если вы хотите указать необязательный параметр, нужно указать и все предшествующие ему параметры!<br />
-  Например, рассмотрим <em><a href="functions/Run.htm">Run</a> ( "filename", ["workingdir" [, flag]] )</em>. Если вы хотите задать <em>flag</em>, вы <strong>обязаны</strong> указать <em>workingdir</em>.<br />
+  Например, рассмотрим <em><a href="functions/Run.htm">Run</a> ( "filename", ["workingdir" [, flag]] )</em>. Если вы хотите задать <em>flag</em>, вы <strong>обязаны</strong> указать <em>workingdir</em>.</p>
 <p>Если необязательный параметр нужно задать, а перед ним стоят один или несколько других необязательных, для них нужно указать значения по умолчанию. Как правило, функции принимают ключевое слово <a href="keywords/Default.htm">Default</a>, когда вы хотите использовать значение по умолчанию. Подробнее смотрите в описании соответствующего необязательного параметра.</p>
   <br />
   Многие функции Win___ содержат необязательный параметр <em>text</em>. Этот параметр помогает различать окна с одинаковыми заголовками.<br />
@@ -32,7 +32,7 @@
   <br />
   Если используется метод <strong>возвращаемого значения</strong>, в справке указано ожидаемое значение для успеха/ошибки, но значение успеха обычно ненулевое, чтобы код легко читался...<br />
 <p class="codebox">
-<span><a class="codeSnippetLink" href="keywords/If.htm"><span class="S5">If</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">;...функция сработала.</span><br /><a class="codeSnippetLink" href="keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">;...функция не сработала.</span></span>
+<span><a class="codeSnippetLink" href="keywords/If.htm"><span class="S5">If</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">; ...функция сработала.</span><br /><a class="codeSnippetLink" href="keywords/If.htm"><span class="S5">If</span></a><span class="S0"> </span><a class="codeSnippetLink" href="intro/lang_operators.htm"><span class="S5">Not</span></a><span class="S0"> SomeUserFunc</span><span class="S8">()</span><span class="S0"> </span><a class="codeSnippetLink" href="keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><span class="S0"> </span><span class="S1">; ...функция не сработала.</span></span>
 </p>
   <br />
   <br />
