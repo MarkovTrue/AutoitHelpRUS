@@ -11,14 +11,14 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>GUICtrlSetGraphic</h1>
-<p class="funcdesc">Изменяет данные графического элемента управления.</p>
+<p class="funcdesc">Изменяет содержимое графического элемента управления.</p>
 <p class="codeheader"><a class="le" href="../functions/GUICtrlSetGraphic.htm"><span class="S4">GUICtrlSetGraphic</span></a> <span class="S8">(</span> <span class="S0">controlID</span><span class="S8">,</span> <span class="S0">type</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">par1</span> <span class="S8">[</span><span class="S8">,</span> ... <span class="S0">par6</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">controlID</td>
-<td style="width:85%">Идентификатор элемента управления (controlID), возвращённый функцией <a class="le" href="GUICtrlCreateGraphic.htm"><span class="S4">GUICtrlCreateGraphic</span></a><span class="S8">()</span>.</td>
+<td style="width:85%">Идентификатор элемента управления (<em>controlID</em>), возвращённый функцией <a href="GUICtrlCreateGraphic.htm"><span class="S4">GUICtrlCreateGraphic</span><span class="S8">()</span></a>.</td>
 </tr>
 <tr>
 <td>type</td>
@@ -39,15 +39,14 @@
 <tr>
 <td class="valign-top">Ошибка:</td>
 <td>Возвращает 0.<br />
--1 при недопустимых данных.</td>
+-1&nbsp;при недопустимых данных.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Координаты точки (x,y) указываются относительно координат <a class="le" href="GUICtrlCreateGraphic.htm"><span class="S4">GUICtrlCreateGraphic</span></a><span class="S8">()</span>. Точка может выходить за пределы графического элемента управления, но должна находиться в пределах окна GUI.<br />
+<p>Положение точки (x,y) задаётся относительно координат <a href="GUICtrlCreateGraphic.htm"><span class="S4">GUICtrlCreateGraphic</span><span class="S8">()</span></a>. Точка может находиться за пределами графического элемента управления, но внутри окна GUI.<br />
 <br />
 <a id="Graphic Type table"></a><strong>Таблица типов графики</strong><br />
-<br />
 <table>
 <tr class="header">
 <th><strong>Тип</strong></th>
@@ -58,7 +57,7 @@
 <tr>
 <td><span class="S91">$GUI_GR_COLOR</span></td>
 <td>Color [,BkColor]</td>
-<td>Задаёт цвет следующих рисунков. Если BkColor равен <span class="S91">$GUI_GR_NOBKCOLOR</span>, фигура не заливается (по умолчанию). Для Color цвет линии по умолчанию черный.</td>
+<td>Задаёт цвет последующих рисунков. Если BkColor равен <span class="S91">$GUI_GR_NOBKCOLOR</span>, по умолчанию фигура не заливается. Цвет линии Color по умолчанию чёрный.</td>
 </tr>
 
 <tr>
@@ -94,13 +93,13 @@
 <tr>
 <td><span class="S91">$GUI_GR_RECT</span></td>
 <td>x,y,w,h</td>
-<td>Рисует прямоугольник. При w=h получается квадрат.</td>
+<td>Рисует прямоугольник. Если w=h, получится квадрат.</td>
 </tr>
 
 <tr>
 <td><span class="S91">$GUI_GR_ELLIPSE</span></td>
 <td>x,y,w,h</td>
-<td>Рисует эллипс. При w=h получается окружность.</td>
+<td>Рисует эллипс. Если w=h, получится окружность.</td>
 </tr>
 
 <tr>
@@ -112,7 +111,7 @@
 <tr>
 <td><span class="S91">$GUI_GR_CLOSE</span></td>
 <td>&nbsp;</td>
-<td>Закрывает текущий рисунок. Добавляется к <span class="S91">$GUI_GR_LINE</span> или <span class="S91">$GUI_GR_BEZIER</span> для замыкания. При одиночном использовании игнорируется.</td>
+<td>Замыкает текущий рисунок. Добавляется к <span class="S91">$GUI_GR_LINE</span> или <span class="S91">$GUI_GR_BEZIER</span> для замыкания. Сам по себе игнорируется.</td>
 </tr>
 
 <tr>
@@ -124,24 +123,24 @@
 <tr>
 <td><span class="S91">$GUI_GR_HINT</span></td>
 <td>&nbsp;</td>
-<td>Отображает управляющие и конечные точки кривой Безье/линии.</td>
+<td>Показывает управляющую и конечную точки кривой Безье или линии.</td>
 </tr>
 
 <tr>
 <td><span class="S91">$GUI_GR_PENSIZE</span></td>
 <td>n</td>
-<td>Задаёт размер пера для следующих рисунков. Должен быть указан до <span class="S91">$GUI_GR_COLOR</span>, чтобы вступить в силу.</td>
+<td>Задаёт толщину пера для последующих рисунков. Чтобы значение учлось, задайте его до <span class="S91">$GUI_GR_COLOR</span>.</td>
 </tr>
 
 <tr>
 <td><span class="S91">$GUI_GR_NOBKCOLOR</span></td>
 <td>&nbsp;</td>
-<td>Фиктивный BkColor, запрещающий заливку замкнутых фигур. Только контур.</td>
+<td>Фиктивный BkColor: запрещает заливку замкнутых фигур, остаётся только контур.</td>
 </tr>
 </table><br />
-В силу конструктивных ограничений фигуры RECT, ELLIPSE и PIE рисуются первыми. Например, LINE всегда будет нарисована поверх RECT. Если порядок рисования важен для внешнего вида, рекомендуется использовать несколько графических элементов управления вместо одного.<br />
+Из-за особенностей реализации фигуры RECT, ELLIPSE и PIE рисуются первыми. Например, LINE всегда рисуется поверх RECT. Если порядок рисования важен для внешнего вида, лучше использовать несколько графических элементов управления, а не один для всего рисунка.<br />
 <br />
-Если между несколькими вызовами <a class="le" href="GUICtrlSetGraphic.htm"><span class="S4">GUICtrlSetGraphic</span></a><span class="S8">()</span> используется <a class="le" href="Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">()</span> или другие функции, изменяющие состояние Windows, для перерисовки необходимо вызвать <a class="le" href="GUICtrlSetGraphic.htm"><span class="S4">GUICtrlSetGraphic</span></a><span class="S8">(</span> ,<span class="S91">$GUI_GR_REFRESH</span><span class="S8">)</span>.<br />
+Если между несколькими вызовами <a class="le" href="GUICtrlSetGraphic.htm"><span class="S4">GUICtrlSetGraphic</span></a><span class="S8">()</span> есть <a class="le" href="Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">()</span> или другие функции, меняющие состояние окна, то для перерисовки нужно вызвать <a class="le" href="GUICtrlSetGraphic.htm"><span class="S4">GUICtrlSetGraphic</span></a><span class="S8">(</span> , <span class="S91">$GUI_GR_REFRESH</span><span class="S8">)</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateGraphic.htm">GUICtrlCreateGraphic</a></p>
@@ -168,9 +167,8 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iInc</span> <span class="S8">=</span> <span class="S3">1</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;$i=5	; uncomment to delete starting from last define Graphic control
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;$iInc=-1
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $i=5	; раскомментируйте, чтобы удалять начиная с последнего созданного графического элемента управления</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; $iInc=-1
 </span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
