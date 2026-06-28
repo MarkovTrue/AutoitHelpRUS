@@ -22,15 +22,15 @@
 </tr>
 <tr>
 <td>menuID</td>
-<td>Позволяет создать подменю в указанном меню. Если равен -1 то ссылается на меню первого уровня.</td>
+<td>Позволяет создать подменю в указанном меню. Если равен -1, ссылается на меню первого уровня.</td>
 </tr>
 <tr>
 <td>menuentry</td>
-<td><strong>[необязательный]</strong> Позволяет задать номер позиции создаваемого элемента. Нумерация начинается с 0.</td>
+<td><strong>[необязательный]</strong> Позволяет задать номер создаваемого пункта. Пункты нумеруются начиная с 0.</td>
 </tr>
 <tr>
 <td>menuradioitem</td>
-<td><strong>[необязательный]</strong> 0 = создать обычный пункт меню (по умолчанию), 1 = создать пункт меню с переключателем.</td>
+<td><strong>[необязательный]</strong> 0 (по умолчанию) = создать обычный пункт меню, 1 = создать пункт меню с переключателем</td>
 </tr>
 </table>
 
@@ -47,9 +47,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Для установки или изменения параметров элемента управления см. функции GUICtrlUpdate...().<br />
+<p>Чтобы задать или изменить параметры элемента управления, см. функции <a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...()</a>.<br />
 <br />
-Если параметр Text равен "", создаётся разделительная линия. <a class="le" href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">()</span> применяется так же, как для других элементов управления. См. пример.<br />
+Если параметр <em>text</em> равен "", создаётся разделительная линия. <a href="GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span><span class="S8">()</span></a> применяется так же, как для других элементов управления. См. пример.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="GUICtrlCreateContextMenu.htm">GUICtrlCreateContextMenu</a>, <a href="GUICtrlCreateMenu.htm">GUICtrlCreateMenu</a>, <a href="GUICtrlUpdateManagement.htm">GUICtrlUpdate...</a>, <a href="GUIGetMsg.htm">GUIGetMsg</a></p>
@@ -79,9 +79,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMni_Exit</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">"Exit"</span><span class="S8">,</span> <span class="S9">$idMnu_File</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMnu_RecentFiles</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenu.htm"><span class="S4">GUICtrlCreateMenu</span></a><span class="S8">(</span><span class="S7">"Recent Files"</span><span class="S8">,</span> <span class="S9">$idMnu_File</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S9">$idMnu_File</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; создать разделительную линию</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S9">$idMnu_File</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span>&nbsp;<span class="S1">; Создать разделительную линию</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMnu_View</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenu.htm"><span class="S4">GUICtrlCreateMenu</span></a><span class="S8">(</span><span class="S7">"View"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; создаётся перед меню "?"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMnu_View</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenu.htm"><span class="S4">GUICtrlCreateMenu</span></a><span class="S8">(</span><span class="S7">"View"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; Создаётся перед меню "?"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$idMni_ViewStatus</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateMenuItem.htm"><span class="S4">GUICtrlCreateMenuItem</span></a><span class="S8">(</span><span class="S7">"Statusbar"</span><span class="S8">,</span> <span class="S9">$idMnu_View</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$GUI_CHECKED</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">130</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
