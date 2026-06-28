@@ -22,11 +22,11 @@
 </tr>
 <tr>
 <td>shift</td>
-<td><strong>[необязательный]</strong> Число бит для циклического сдвига влево (отрицательные значения выполняют сдвиг вправо). По умолчанию 1.</td>
+<td><strong>[необязательный]</strong> Число бит для циклического сдвига влево (отрицательные значения сдвигают вправо). По умолчанию 1.</td>
 </tr>
 <tr>
 <td>size</td>
-<td><strong>[необязательный]</strong> Символ, указывающий число битов, участвующих в циклическом сдвиге. По умолчанию – "W" (16 битов). См. ниже.</td>
+<td><strong>[необязательный]</strong> Символ, указывающий число бит, участвующих в циклическом сдвиге. По умолчанию 16 бит. См. ниже.</td>
 </tr>
 </table>Параметр <em>size</em>:<br />
 <table>
@@ -48,17 +48,17 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает значение, сдвинутое по кругу на заданное число бит.</td>
+<td style="width:90%">Возвращает значение, циклически сдвинутое на заданное число бит.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Устанавливает <span class="S61">@error</span> ≠ 0 при недопустимом size.</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0 при недопустимом <em>size</em>.</td>
 </tr>
 </table><br />
 
 
 <h2>Примечания</h2>
-<p>Напомним: для чисел можно использовать шестнадцатеричную запись.<br />
+<p>Помните, что для чисел можно использовать шестнадцатеричную запись.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="BitAND.htm">BitAND</a>, <a href="BitNOT.htm">BitNOT</a>, <a href="BitOR.htm">BitOR</a>, <a href="BitShift.htm">BitShift</a>, <a href="BitXOR.htm">BitXOR</a>, <a href="Hex.htm">Hex</a></p>
@@ -72,7 +72,7 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Примечание: "b" – это символ байта.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Примечание: "b" обозначает байт.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Присвоить локальной переменной результат циклического сдвига влево для 2.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iBitRotate1</span> <span class="S8">=</span> <a class="le" href="../functions/BitRotate.htm"><span class="S4">BitRotate</span></a><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span>&nbsp;<span class="S1">; 2 = 0010b сдвиг влево на 1 -&gt; 4 = 0100b</span><br>
