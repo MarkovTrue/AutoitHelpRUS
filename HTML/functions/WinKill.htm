@@ -18,11 +18,11 @@
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс закрываемого окна. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, которое нужно закрыть. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст закрываемого окна. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, которое нужно закрыть. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 </table>
 
@@ -34,12 +34,12 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Функция возвращает только значение успеха.</td>
+<td>Возвращает только значение успеха.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>В отличие от <a href="WinClose.htm"><span class="S4">WinClose</span><span class="S8">()</span></a>, функция <a href="WinKill.htm"><span class="S4">WinKill</span><span class="S8">()</span></a> принудительно завершает процесс окна, если оно не закрывается достаточно быстро. В результате пользователь может не успеть ответить на диалоги с запросом сохранения данных. Хотя <a href="WinKill.htm"><span class="S4">WinKill</span><span class="S8">()</span></a> работает как со свёрнутыми, так и со скрытыми окнами, некоторые окна (в частности, окна проводника) можно завершить только через <a href="WinClose.htm"><span class="S4">WinClose</span><span class="S8">()</span></a>.<br />
+<p>Отличие этой функции от <a href="WinClose.htm"><span class="S4">WinClose</span><span class="S8">()</span></a> в том, что <a href="WinKill.htm"><span class="S4">WinKill</span><span class="S8">()</span></a> принудительно завершает окно, если оно не закрывается достаточно быстро. Поэтому пользователь может не успеть ответить на диалоги с предложением сохранить данные. Хотя <a href="WinKill.htm"><span class="S4">WinKill</span><span class="S8">()</span></a> может работать как со свёрнутыми, так и со скрытыми окнами, некоторые окна (в частности окна проводника) можно завершить только через <a href="WinClose.htm"><span class="S4">WinClose</span><span class="S8">()</span></a>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessClose.htm">ProcessClose</a>, <a href="WinActivate.htm">WinActivate</a>, <a href="WinClose.htm">WinClose</a>, <a href="WinSetState.htm">WinSetState</a></p>
