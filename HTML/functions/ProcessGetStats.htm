@@ -11,22 +11,22 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>ProcessGetStats</h1>
-<p class="funcdesc">Возвращает массив с данными о памяти или операциях ввода-вывода выполняющегося процесса.</p>
+<p class="funcdesc">Возвращает массив со сведениями о памяти или вводе-выводе запущенного процесса.</p>
 <p class="codeheader"><a class="le" href="../functions/ProcessGetStats.htm"><span class="S4">ProcessGetStats</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S7">"process"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">type</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">process</td>
-<td style="width:85%"><strong>[необязательный]</strong> Имя или PID процесса. По умолчанию (-1) – текущий процесс.</td>
+<td style="width:85%"><strong>[необязательный]</strong> Имя или PID процесса, о котором нужны сведения. По умолчанию (-1) текущий процесс.</td>
 </tr>
 <tr>
 <td>type</td>
 <td><strong>[необязательный]</strong><br />
-<span class="default-const"><span class="S91">$PROCESS_STATS_MEMORY</span></span> (0) = (по умолчанию) данные о памяти.<br />
-<span class="S91">$PROCESS_STATS_IO</span> (1) = данные о вводе-выводе.<br />
+<span class="default-const"><span class="S91">$PROCESS_STATS_MEMORY</span></span> (0) = (по умолчанию) сведения о памяти.<br />
+<span class="S91">$PROCESS_STATS_IO</span> (1) = сведения о вводе-выводе.<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -34,7 +34,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив данных (см. раздел Примечания).</td>
+<td style="width:90%">Возвращает массив со сведениями (см. раздел Примечания).</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -43,20 +43,20 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Возвращаемый массив одномерный и устроен следующим образом:<br />
+<p>Возвращаемый массив одномерный и устроен так:<br />
 <br />
-Type = <span class="S91">$PROCESS_STATS_MEMORY</span><br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = WorkingSetSize<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = PeakWorkingSetSize<br />
+Тип = <span class="S91">$PROCESS_STATS_MEMORY</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = размер рабочего набора (WorkingSetSize)<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = пиковый размер рабочего набора (PeakWorkingSetSize)<br />
 <br />
 <br />
-Type = <span class="S91">$PROCESS_STATS_IO</span><br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = количество выполненных операций чтения.<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = количество выполненных операций записи.<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> = количество прочих операций ввода-вывода (не чтение и не запись).<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> = количество прочитанных байт.<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> = количество записанных байт.<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> = количество байт, переданных в прочих операциях ввода-вывода.<br />
+Тип = <span class="S91">$PROCESS_STATS_IO</span><br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = число выполненных операций чтения.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = число выполненных операций записи.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> = число операций ввода-вывода, кроме чтения и записи.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> = число прочитанных байт.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> = число записанных байт.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> = число байт, переданных в операциях, кроме чтения и записи.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessList.htm">ProcessList</a></p>
