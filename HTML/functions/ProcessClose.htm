@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td style="width:15%">process</td>
-<td style="width:85%">Имя или PID завершаемого процесса.</td>
+<td style="width:85%">Имя или PID процесса для завершения.</td>
 </tr>
 </table>
 
@@ -34,25 +34,25 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – Ошибка OpenProcess<br />
-2&nbsp;– Ошибка AdjustTokenPrivileges<br />
-3&nbsp;– Ошибка TerminateProcess<br />
-4&nbsp;– Невозможно проверить существование процесса</td>
+<td>1 – Ошибка WinAPI OpenProcess<br />
+2 – Ошибка WinAPI AdjustTokenPrivileges<br />
+3 – Ошибка WinAPI TerminateProcess<br />
+4 – Невозможно проверить существование процесса.</td>
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Устанавливается в значение GetLastError() Windows API.</td>
+<td>Устанавливается равным WinAPI GetLastError().</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Имена процессов указываются без пути, например "notepad.exe" или "winword.exe".<br />
+<p>В качестве имени процесса указывается имя исполняемого файла без указания пути, например "notepad.exe" или "winword.exe"<br />
 <br />
-Если несколько процессов имеют одинаковое имя, завершается тот, у которого наибольший PID – независимо от времени запуска.<br />
+Если несколько процессов имеют одинаковое имя, завершается процесс с наибольшим PID, независимо от того, как давно он был создан.<br />
 <br />
-PID – уникальный номер, идентифицирующий процесс. Его можно получить через <a href="ProcessExists.htm"><span class="S4">ProcessExists</span><span class="S8">()</span></a> или <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>.<br />
+PID является уникальным числом, идентифицирующим процесс. PID можно получить с помощью функций <a href="ProcessExists.htm"><span class="S4">ProcessExists</span><span class="S8">()</span></a> или <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>.<br />
 <br />
-Процесс опрашивается приблизительно каждые 250 миллисекунд.<br />
+Процесс опрашивается примерно каждые 250 миллисекунд.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessExists.htm">ProcessExists</a>, <a href="ProcessList.htm">ProcessList</a>, <a href="ProcessWait.htm">ProcessWait</a>, <a href="ProcessWaitClose.htm">ProcessWaitClose</a>, <a href="Run.htm">Run</a>, <a href="RunAs.htm">RunAs</a>, <a href="Shutdown.htm">Shutdown</a>, <a href="WinClose.htm">WinClose</a>, <a href="WinKill.htm">WinKill</a></p>
