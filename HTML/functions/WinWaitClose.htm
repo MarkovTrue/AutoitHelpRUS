@@ -11,22 +11,22 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>WinWaitClose</h1>
-<p class="funcdesc">Приостанавливает выполнение скрипта до исчезновения указанного окна.</p>
+<p class="funcdesc">Приостанавливает выполнение скрипта, пока указанное окно не перестанет существовать.</p>
 <p class="codeheader"><a class="le" href="../functions/WinWaitClose.htm"><span class="S4">WinWaitClose</span></a> <span class="S8">(</span> <span class="S7">"title"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"text"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">timeout</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс проверяемого окна. См. <a href="../intro/windowsadvanced.htm">особенности задания заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, которое нужно проверить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст проверяемого окна. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">особенности задания текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, которое нужно проверить. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 <tr>
 <td>timeout</td>
-<td><strong>[необязательный]</strong> Время ожидания в секундах, если окно не закрывается. По умолчанию – 0 (без ограничения).</td>
+<td><strong>[необязательный]</strong> Таймаут в секундах, если окно не закрыто. По умолчанию 0 (без таймаута).</td>
 </tr>
 </table>
 
@@ -43,7 +43,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если окно уже не существует на момент вызова, функция немедленно вернёт 1. Опрос состояния окна выполняется каждые ~250 миллисекунд.<br />
+<p>Если на момент вызова окна уже нет, функция сразу возвращает 1. Окно опрашивается примерно каждые 250 миллисекунд.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessWaitClose.htm">ProcessWaitClose</a>, <a href="WinActive.htm">WinActive</a>, <a href="WinExists.htm">WinExists</a>, <a href="WinWait.htm">WinWait</a>, <a href="WinWaitActive.htm">WinWaitActive</a>, <a href="AutoItSetOption.htm#WinWaitDelay ">WinWaitDelay (Option)</a>, <a href="WinWaitNotActive.htm">WinWaitNotActive</a></p>
