@@ -11,26 +11,26 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>WinSetOnTop</h1>
-<p class="funcdesc">Изменяет атрибут окна "Поверх всех".</p>
+<p class="funcdesc">Изменяет атрибут окна "Поверх всех" (Always On Top).</p>
 <p class="codeheader"><a class="le" href="../functions/WinSetOnTop.htm"><span class="S4">WinSetOnTop</span></a> <span class="S8">(</span> <span class="S7">"title"</span><span class="S8">,</span> <span class="S7">"text"</span><span class="S8">,</span> <span class="S0">flag</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс изменяемого окна. См. <a href="../intro/windowsadvanced.htm">особенности задания заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, которое нужно изменить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td>Текст изменяемого окна. См. <a href="../intro/windowsbasic.htm#specialtext">особенности задания текста</a>.</td>
+<td>Текст окна, которое нужно изменить. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 <tr>
 <td>flag</td>
-<td>Определяет, должен ли флаг "TOPMOST" быть установлен для окна.<br />
-<span class="S91">$WINDOWS_NOONTOP</span> (0) – снять флаг "поверх всех"<br />
-<span class="S91">$WINDOWS_ONTOP</span> (1) – установить флаг "поверх всех"<br />
+<td>Определяет, нужно ли установить у окна флаг "TOPMOST".<br />
+<span class="S91">$WINDOWS_NOONTOP</span> (0) = снять флаг размещения поверх всех<br />
+<span class="S91">$WINDOWS_ONTOP</span> (1) = установить флаг размещения поверх всех<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в файле <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -47,7 +47,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Сторонние программы, добавляющие пункт "Поверх всех" в контекстное меню, могут не обновлять свой пункт меню в соответствии с изменением статуса TOPMOST, внесённым AutoIt.<br />
+<p>Сторонние программы, добавляющие в контекстное меню пункт "Always On Top", могут не обновить этот пункт при изменении статуса TOPMOST, вызванном AutoIt.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="WinSetState.htm">WinSetState</a></p>
@@ -64,13 +64,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получаем дескриптор активного окна.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/WinGetHandle.htm"><span class="S4">WinGetHandle</span></a><span class="S8">(</span><span class="S7">"[ACTIVE]"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем активное окно поверх всех по дескриптору, возвращённому WinGetHandle.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Устанавливаем активное окно поверх всех окон по дескриптору, возвращённому WinGetHandle.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetOnTop.htm"><span class="S4">WinSetOnTop</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$WINDOWS_ONTOP</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Ждём 2 секунды для отображения изменения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Снимаем флаг "поверх всех" с активного окна.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Убираем расположение активного окна поверх всех окон.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetOnTop.htm"><span class="S4">WinSetOnTop</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$WINDOWS_NOONTOP</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>
