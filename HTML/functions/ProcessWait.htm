@@ -11,18 +11,18 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>ProcessWait</h1>
-<p class="funcdesc">Приостанавливает выполнение скрипта до появления указанного процесса.</p>
+<p class="funcdesc">Приостанавливает выполнение скрипта, пока не появится указанный процесс.</p>
 <p class="codeheader"><a class="le" href="../functions/ProcessWait.htm"><span class="S4">ProcessWait</span></a> <span class="S8">(</span> <span class="S7">"process"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">timeout</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">process</td>
-<td style="width:85%">Имя ожидаемого процесса.</td>
+<td style="width:85%">Имя процесса для проверки.</td>
 </tr>
 <tr>
 <td>timeout</td>
-<td><strong>[необязательный]</strong> Время ожидания в секундах. По умолчанию ожидание неограниченно.</td>
+<td><strong>[необязательный]</strong> Время ожидания появления процесса (в секундах). По умолчанию скрипт ждёт бесконечно долго.</td>
 </tr>
 </table>
 
@@ -34,16 +34,16 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0, если истёк таймаут ожидания.</td>
+<td>Возвращает 0, если время ожидания истекло.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Имена процессов указываются без пути, например "notepad.exe" или "winword.exe".<br />
+<p>В качестве имени процесса указывается имя исполняемого файла без указания пути, например "notepad.exe" или "winword.exe"<br />
 <br />
-Процесс опрашивается приблизительно каждые 250 миллисекунд.<br />
+Процесс опрашивается примерно каждые 250 миллисекунд.<br />
 <br />
-Эта функция единственная среди процессных, которая не принимает PID. Поскольку PID назначаются случайно, ожидание конкретного PID не имеет смысла.<br />
+Это единственная функция среди функций работы с процессами, которая не принимает PID в качестве параметра <em>process</em>. Поскольку PID назначаются случайно, ожидать процесс с конкретным PID не имеет смысла.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessClose.htm">ProcessClose</a>, <a href="ProcessExists.htm">ProcessExists</a>, <a href="ProcessList.htm">ProcessList</a>, <a href="ProcessWaitClose.htm">ProcessWaitClose</a>, <a href="RunAsWait.htm">RunAsWait</a>, <a href="RunWait.htm">RunWait</a>, <a href="WinGetProcess.htm">WinGetProcess</a>, <a href="WinWait.htm">WinWait</a>, <a href="WinWaitActive.htm">WinWaitActive</a></p>
