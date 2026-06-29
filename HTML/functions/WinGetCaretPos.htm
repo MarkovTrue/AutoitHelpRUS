@@ -11,16 +11,16 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>WinGetCaretPos</h1>
-<p class="funcdesc">Возвращает координаты курсора (каретки) в окне переднего плана.</p>
+<p class="funcdesc">Возвращает координаты каретки в окне переднего плана.</p>
 <p class="codeheader"><a class="le" href="../functions/WinGetCaretPos.htm"><span class="S4">WinGetCaretPos</span></a> <span class="S8">(</span>  <span class="S8">)</span></p>
 
 <h2>Возвращаемое значение</h2>
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив из 2 элементов со следующей информацией:<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;= координата X<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;= координата Y</td>
+<td style="width:90%">Возвращает массив из 2 элементов со следующими данными:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;= X-координата<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;= Y-координата</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -29,7 +29,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p><a href="WinGetCaretPos.htm"><span class="S4">WinGetCaretPos</span><span class="S8">()</span></a> может возвращать неточные значения для приложений MDI (Multiple Document Interface) при использовании абсолютного режима CaretCoordMode. Обходной путь см. в примере. Примечание: некоторые приложения всегда возвращают одни и те же координаты независимо от положения каретки!<br />
+<p><a href="WinGetCaretPos.htm"><span class="S4">WinGetCaretPos</span><span class="S8">()</span></a> может возвращать неточные значения для приложений с многооконным интерфейсом (MDI), если используется абсолютный режим CaretCoordMode. Обходной приём смотрите в примере. Примечание: некоторые приложения сообщают фиксированные координаты независимо от положения каретки!<br />
 </p>
 <h2>См. также</h2>
 <p><a href="AutoItSetOption.htm#CaretCoordMode ">CaretCoordMode (Option)</a></p>
