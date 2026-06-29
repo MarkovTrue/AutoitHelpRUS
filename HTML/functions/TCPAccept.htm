@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>TCPAccept</h1>
-<p class="funcdesc">Принимает входящее соединение на сокете.</p>
+<p class="funcdesc">Разрешает попытку входящего подключения на сокете.</p>
 <p class="codeheader"><a class="le" href="../functions/TCPAccept.htm"><span class="S4">TCPAccept</span></a> <span class="S8">(</span> <span class="S0">mainsocket</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -34,8 +34,8 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>-2 – нет соединения.<br />
-Код возврата Windows API WSAGetLastError (см. <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).</td>
+<td>-2 – нет подключения.<br />
+Значение, возвращаемое Windows API WSAGetLastError (см. <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).</td>
 </tr>
 </table>
 
@@ -65,7 +65,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iPort</span> <span class="S8">=</span> <span class="S3">65432</span>&nbsp;<span class="S1">; Порт, используемый для подключения.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Привязать к указанному IP-адресу и порту с максимум 100 ожидающих соединений.</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;(Подробнее см. пример этой функции).</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; (Подробнее см. пример этой функции).</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iListenSocket</span> <span class="S8">=</span> <a class="le" href="../functions/TCPListen.htm"><span class="S4">TCPListen</span></a><span class="S8">(</span><span class="S9">$sIPAddress</span><span class="S8">,</span> <span class="S9">$iPort</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <span class="S3">0</span><br>
 <br>
@@ -89,7 +89,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_ICONERROR</span> <span class="S8">+</span> <span class="S9">$MB_SYSTEMMODAL</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Could not accept the incoming connection, Error code: "</span> <span class="S8">&amp;</span> <span class="S9">$iError</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_WinAPI_GetErrorMessage.htm"><span class="S15">_WinAPI_GetErrorMessage</span></a><span class="S8">(</span><span class="S9">$iError</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <span class="S9">$iSocket</span> <span class="S8">&lt;&gt;</span> <span class="S8">-</span><span class="S3">1</span>&nbsp;<span class="S1">;если не равно -1 – клиент подключён.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <span class="S9">$iSocket</span> <span class="S8">&lt;&gt;</span> <span class="S8">-</span><span class="S3">1</span>&nbsp;<span class="S1">; если не равно -1 – клиент подключён.</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть слушающий сокет, чтобы разрешить дальнейшие привязки.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/TCPCloseSocket.htm"><span class="S4">TCPCloseSocket</span></a><span class="S8">(</span><span class="S9">$iListenSocket</span><span class="S8">)</span><br>
