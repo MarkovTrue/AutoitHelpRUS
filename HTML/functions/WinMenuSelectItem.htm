@@ -11,46 +11,46 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>WinMenuSelectItem</h1>
-<p class="funcdesc">Вызывает пункт меню окна.</p>
+<p class="funcdesc">Выбирает пункт меню в окне.</p>
 <p class="codeheader"><a class="le" href="../functions/WinMenuSelectItem.htm"><span class="S4">WinMenuSelectItem</span></a> <span class="S8">(</span> <span class="S7">"title"</span><span class="S8">,</span> <span class="S7">"text"</span><span class="S8">,</span> <span class="S7">"item"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"item"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"item"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"item"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"item"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"item"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"item"</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс окна, пункт меню которого нужно выбрать. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, в котором нужно выбрать пункт. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td>Текст окна, пункт меню которого нужно выбрать. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td>Текст окна, в котором нужно выбрать пункт. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 <tr>
 <td>item</td>
-<td>Text of Menu Item.</td>
+<td>Текст пункта меню.</td>
 </tr>
 <tr>
 <td>item</td>
-<td><strong>[необязательный]</strong> Text of SubMenu item</td>
+<td><strong>[необязательный]</strong> Текст пункта подменю</td>
 </tr>
 <tr>
 <td>item</td>
-<td><strong>[необязательный]</strong> Text of SubMenu item</td>
+<td><strong>[необязательный]</strong> Текст пункта подменю</td>
 </tr>
 <tr>
 <td>item</td>
-<td><strong>[необязательный]</strong> Text of SubMenu item</td>
+<td><strong>[необязательный]</strong> Текст пункта подменю</td>
 </tr>
 <tr>
 <td>item</td>
-<td><strong>[необязательный]</strong> Text of SubMenu item</td>
+<td><strong>[необязательный]</strong> Текст пункта подменю</td>
 </tr>
 <tr>
 <td>item</td>
-<td><strong>[необязательный]</strong> Text of SubMenu item</td>
+<td><strong>[необязательный]</strong> Текст пункта подменю</td>
 </tr>
 <tr>
 <td>item</td>
-<td><strong>[необязательный]</strong> Text of SubMenu item</td>
+<td><strong>[необязательный]</strong> Текст пункта подменю</td>
 </tr>
 </table>
 
@@ -67,9 +67,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Обратите внимание, что пункты меню с подчёркнутой буквой содержат символ & для обозначения подчёркивания. Например, пункт <strong><u>Ф</u>айл</strong> требует текста "&Файл", а <strong>Кон&amp;вертировать</strong> – "Кон&вертировать". Доступ к пунктам возможен на глубину до шести уровней; при этом окно может быть неактивным, свёрнутым и/или скрытым.<br />
+<p>Учтите, что подчёркнутые пункты меню фактически содержат символ & для обозначения подчёркивания. Так, пункт меню <strong><u>F</u>ile</strong> на самом деле требует текста "&File", а <strong>Con<u>v</u>ert</strong> – текста "Con&vert". Доступ к пунктам меню возможен на глубину до шести уровней, окно при этом может быть неактивным, свёрнутым и/или даже скрытым.<br />
 <br />
-<a href="WinMenuSelectItem.htm"><span class="S4">WinMenuSelectItem</span><span class="S8">()</span></a> работает только со стандартными меню. К сожалению, многие современные меню реализованы как пользовательские элементы управления или панели инструментов, имитирующие меню. Это характерно для большинства приложений Microsoft.<br />
+<a href="WinMenuSelectItem.htm"><span class="S4">WinMenuSelectItem</span><span class="S8">()</span></a> работает только со стандартными меню. К сожалению, многие современные меню на деле написаны вручную или являются панелями инструментов, "притворяющимися" меню. Это верно для большинства приложений Microsoft.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ControlCommand.htm">ControlCommand</a>, <a href="Send.htm">Send</a></p>
