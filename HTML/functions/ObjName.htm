@@ -11,27 +11,27 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>ObjName</h1>
-<p class="funcdesc">Возвращает имя или описание интерфейса объекта.</p>
+<p class="funcdesc">Возвращает имя объекта или описание его интерфейса.</p>
 <p class="codeheader"><a class="le" href="../functions/ObjName.htm"><span class="S4">ObjName</span></a> <span class="S8">(</span> <span class="S9">$Objectvariable</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">Flag</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$Objectvariable</span></td>
-<td style="width:85%">Переменная, содержащая объект, чьё имя нужно получить.</td>
+<td style="width:85%">Переменная, содержащая объект, имя которого нужно получить.</td>
 </tr>
 <tr>
 <td>Flag</td>
 <td><strong>[необязательный]</strong><br />
-<span class="default-const"><span class="S91">$OBJ_NAME</span></span> (1) = (по умолчанию) Имя объекта<br />
-<span class="S91">$OBJ_STRING</span> (2) = Строка описания объекта<br />
+<span class="default-const"><span class="S91">$OBJ_NAME</span></span> (1) = (по умолчанию) имя объекта<br />
+<span class="S91">$OBJ_STRING</span> (2) = строка с описанием объекта<br />
 <span class="S91">$OBJ_PROGID</span> (3) = ProgID объекта<br />
-<span class="S91">$OBJ_FILE</span> (4) = Файл, связанный с объектом в реестре<br />
-<span class="S91">$OBJ_MODULE</span> (5) = Имя модуля, в котором выполняется объект (WIN XP и выше). Маршаллер для не-inproc объектов.<br />
+<span class="S91">$OBJ_FILE</span> (4) = файл, связанный с объектом в реестре<br />
+<span class="S91">$OBJ_MODULE</span> (5) = имя модуля, в котором выполняется объект (Windows XP и выше). Для внепроцессных объектов используется маршалер.<br />
 <span class="S91">$OBJ_CLSID</span> (6) = CLSID кокласса объекта<br />
 <span class="S91">$OBJ_IID</span> (7) = IID интерфейса объекта<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -39,7 +39,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает строку с именем объекта.</td>
+<td style="width:90%">Возвращает строку с именем.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -48,7 +48,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Не все объекты поддерживают флаги 2-7. Всегда проверяйте <span class="S61">@error</span> в таких случаях.<br />
+<p>Не все объекты поддерживают флаги от 2 до 7. В этих случаях всегда проверяйте <span class="S61">@error</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="IsObj.htm">IsObj</a>, <a href="ObjCreate.htm">ObjCreate</a>, <a href="ObjGet.htm">ObjGet</a></p>
