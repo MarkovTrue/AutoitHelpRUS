@@ -11,14 +11,14 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>Shutdown</h1>
-<p class="funcdesc">Выполняет завершение работы системы.</p>
+<p class="funcdesc">Завершает работу системы.</p>
 <p class="codeheader"><a class="le" href="../functions/Shutdown.htm"><span class="S4">Shutdown</span></a> <span class="S8">(</span> <span class="S0">code</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">code</td>
-<td style="width:85%">Комбинация кодов завершения работы. См. раздел Примечания.</td>
+<td style="width:85%">Комбинация кодов завершения. См. раздел Примечания.</td>
 </tr>
 </table>
 
@@ -30,26 +30,26 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0 и устанавливает значение <span class="S61">@error</span> = значение Windows API GetLastError().</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> равным значению Windows API GetLastError().</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Код завершения работы является комбинацией следующих значений:<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$SD_LOGOFF</span> (0) – выход из системы<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$SD_SHUTDOWN</span> (1) – завершение работы<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$SD_REBOOT</span> (2) – перезагрузка<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$SD_FORCE</span> (4) – принудительно<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$SD_POWERDOWN</span> (8) – выключение питания<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$SD_FORCEHUNG</span> (16) – принудительно при зависании<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$SD_STANDBY</span> (32) – ждущий режим<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$SD_HIBERNATE</span> (64) – спящий режим<br />
+<p>Код завершения представляет собой комбинацию следующих значений:<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$SD_LOGOFF</span> (0) = выход из системы<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$SD_SHUTDOWN</span> (1) = завершение работы<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$SD_REBOOT</span> (2) = перезагрузка<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$SD_FORCE</span> (4) = принудительно<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$SD_POWERDOWN</span> (8) = выключение питания<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$SD_FORCEHUNG</span> (16) = принудительно при зависании<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$SD_STANDBY</span> (32) = ждущий режим<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$SD_HIBERNATE</span> (64) = спящий режим<br />
 <br />
 Константы определены в <span class="S7">AutoItConstants.au3</span>.<br />
 <br />
-Нужные значения следует объединять через <a href="BitOR.htm"><span class="S4">BitOR</span><span class="S8">()</span></a>. Например, для завершения работы с выключением питания: <a href="BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S91">$SD_SHUTDOWN</span>, <span class="S91">$SD_POWERDOWN</span><span class="S8">)</span>.<br />
+Нужные значения объединяйте через <a href="BitOR.htm"><span class="S4">BitOR</span><span class="S8">()</span></a>. Например, чтобы завершить работу и выключить питание, код будет <a href="BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S91">$SD_SHUTDOWN</span>, <span class="S91">$SD_POWERDOWN</span><span class="S8">)</span>.<br />
 <br />
-Standby и Hibernate игнорируются, если установлены другие коды.<br />
+Ждущий или спящий режим игнорируются, если заданы другие коды.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessClose.htm">ProcessClose</a></p>
