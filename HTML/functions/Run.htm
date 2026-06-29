@@ -33,13 +33,13 @@
 </tr>
 <tr>
 <td>opt_flag</td>
-<td><strong>[необязательный]</strong> Управляет взаимодействием родительского и дочернего процессов.<br />
+<td><strong>[необязательный]</strong> Управляет различными параметрами взаимодействия родительского и дочернего процессов.<br />
 <span class="S91">$STDIN_CHILD</span> (0x1) = предоставить дескриптор потока STDIN дочернего процесса<br />
 <span class="S91">$STDOUT_CHILD</span> (0x2) = предоставить дескриптор потока STDOUT дочернего процесса<br />
 <span class="S91">$STDERR_CHILD</span> (0x4) = предоставить дескриптор потока STDERR дочернего процесса<br />
-<span class="S91">$STDERR_MERGED</span> (0x8) = один дескриптор для STDOUT и STDERR; подразумевает <span class="S91">$STDOUT_CHILD</span> и <span class="S91">$STDERR_CHILD</span><br />
-<span class="S91">$STDIO_INHERIT_PARENT</span> (0x10) = передать дочернему процессу потоки STDIO родителя; несовместим с другими STDIO-флагами; полезен только если родитель скомпилирован как консольное приложение<br />
-<span class="S91">$RUN_CREATE_NEW_CONSOLE</span> (0x10000) = дочерний консольный процесс создаётся в собственном окне, а не в окне родителя; полезен только для консольных приложений<br />
+<span class="S91">$STDERR_MERGED</span> (0x8) = предоставить один дескриптор для STDOUT и STDERR. Подразумевает оба флага <span class="S91">$STDOUT_CHILD</span> и <span class="S91">$STDERR_CHILD</span>.<br />
+<span class="S91">$STDIO_INHERIT_PARENT</span> (0x10) = передать дочернему процессу потоки STDIO родителя. Этот флаг нельзя сочетать с другими флагами STDIO. Полезен только когда родитель скомпилирован как консольное приложение.<br />
+<span class="S91">$RUN_CREATE_NEW_CONSOLE</span> (0x10000) = дочерний консольный процесс создаётся со своим окном вместо использования окна родителя. Полезен только когда родитель скомпилирован как консольное приложение.<br />
 <br />
 Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
@@ -58,20 +58,20 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Пути, содержащие пробелы, необходимо заключать в кавычки.<br />
+<p>Пути с пробелами нужно заключать в кавычки.<br />
 <br />
-Для выполнения DOS (консольных) команд используйте: <em><a href="Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S61">@ComSpec</span> &amp; " /c " &amp; 'commandName', "", <span class="S61">@SW_HIDE</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp; ; не забудьте пробел перед "/c"</em><br />
+Чтобы выполнить команды DOS (консоли), попробуйте <em><a href="Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S61">@ComSpec</span> & " /c " & 'commandName', "", <span class="S61">@SW_HIDE</span><span class="S8">)</span>&nbsp;&nbsp;&nbsp; ; не забудьте " " перед "/c"</em><br />
 <br />
-После запуска программы выполнение скрипта продолжается. Чтобы дождаться завершения дочернего процесса, используйте <a href="RunWait.htm"><span class="S4">RunWait</span><span class="S8">()</span></a>.<br />
+После запуска указанной программы скрипт продолжает работу. Чтобы приостановить выполнение скрипта до завершения запущенной программы, используйте функцию <a href="RunWait.htm"><span class="S4">RunWait</span><span class="S8">()</span></a>.<br />
 <br />
-Передав нужные значения в параметр Standard I/O, вы можете взаимодействовать с дочерним процессом через <a href="StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a>, <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> и <a href="StdoutRead.htm"><span class="S4">StdoutRead</span><span class="S8">()</span></a>. Складывайте флаги (или используйте <span class="S91">$STDERR_CHILD</span>, <span class="S91">$STDIN_CHILD</span>, <span class="S91">$STDOUT_CHILD</span>) для управления несколькими потоками.<br />
+Если передать параметр стандартного ввода-вывода с подходящими значениями, можно взаимодействовать с дочерним процессом через функции <a href="StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a>, <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> и <a href="StdoutRead.htm"><span class="S4">StdoutRead</span><span class="S8">()</span></a>. Объединяйте значения флагов (или используйте <span class="S91">$STDERR_CHILD</span>, <span class="S91">$STDIN_CHILD</span> и <span class="S91">$STDOUT_CHILD</span>), чтобы управлять несколькими потоками.<br />
 <br />
-Для закрытия потоков необходимо выполнение следующих условий:<br />
-1) Дочерний процесс закрыл свой конец потока (это происходит при завершении процесса).<br />
-2) AutoIt должен прочитать все захваченные потоки до конца данных.<br />
-3) Если дочернему процессу предоставлен STDIN, необходимо вызвать <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> для его закрытия. После того как все потоки признаются ненужными, внутренние ресурсы освобождаются автоматически.<br />
+Чтобы потоки закрылись, должны выполняться следующие условия:<br />
+1) Дочерний процесс закрыл свой конец потока (это происходит при закрытии дочернего процесса).<br />
+2) AutoIt должен прочитать все захваченные потоки, пока в них есть данные.<br />
+3) Если дочернему процессу предоставлен STDIN, для закрытия потока нужно вызвать <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a>. Как только все потоки определяются как больше не нужные, все внутренние ресурсы автоматически освобождаются.<br />
 <br />
-<a href="StdioClose.htm"><span class="S4">StdioClose</span><span class="S8">()</span></a> позволяет принудительно закрыть потоки STDIO.<br />
+<a href="StdioClose.htm"><span class="S4">StdioClose</span><span class="S8">()</span></a> можно использовать, чтобы принудительно закрыть потоки STDIO.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ConsoleRead.htm">ConsoleRead</a>, <a href="ProcessClose.htm">ProcessClose</a>, <a href="RunAs.htm">RunAs</a>, <a href="RunAsWait.htm">RunAsWait</a>, <a href="RunWait.htm">RunWait</a>, <a href="ShellExecute.htm">ShellExecute</a>, <a href="ShellExecuteWait.htm">ShellExecuteWait</a>, <a href="StderrRead.htm">StderrRead</a>, <a href="StdinWrite.htm">StdinWrite</a>, <a href="StdioClose.htm">StdioClose</a>, <a href="StdoutRead.htm">StdoutRead</a></p>
