@@ -18,22 +18,22 @@
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс окна, состояние которого нужно изменить. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, состояние которого нужно изменить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td>Текст окна, состояние которого нужно изменить. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td>Текст окна, состояние которого нужно изменить. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 <tr>
 <td>flag</td>
-<td>Флаг отображения окна:<br />
-<span class="S61">@SW_HIDE</span> – скрыть окно<br />
-<span class="S61">@SW_SHOW</span> – показать ранее скрытое окно<br />
-<span class="S61">@SW_MINIMIZE</span> – свернуть окно<br />
-<span class="S61">@SW_MAXIMIZE</span> – развернуть окно<br />
-<span class="S61">@SW_RESTORE</span> – восстановить свёрнутое или развёрнутое окно<br />
-<span class="S61">@SW_DISABLE</span> – отключить окно<br />
-<span class="S61">@SW_ENABLE</span> – включить окно.</td>
+<td>Флаг показа окна:<br />
+<span class="S61">@SW_HIDE</span> = скрыть окно<br />
+<span class="S61">@SW_SHOW</span> = показать ранее скрытое окно<br />
+<span class="S61">@SW_MINIMIZE</span> = свернуть окно<br />
+<span class="S61">@SW_MAXIMIZE</span> = развернуть окно<br />
+<span class="S61">@SW_RESTORE</span> = отменить сворачивание или разворачивание окна<br />
+<span class="S61">@SW_DISABLE</span> = сделать окно недоступным<br />
+<span class="S61">@SW_ENABLE</span> = сделать окно доступным.</td>
 </tr>
 </table>
 
@@ -50,7 +50,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если несколько окон соответствуют критериям, используется наиболее недавно активное.<br />
+<p>Если критериям соответствует несколько окон, используется то, которое было активным последним.<br />
 <span class="S61">@SW_MINIMIZE</span> и <span class="S61">@SW_MAXIMIZE</span> работают даже с модальными диалоговыми окнами.<br />
 </p>
 <h2>См. также</h2>
