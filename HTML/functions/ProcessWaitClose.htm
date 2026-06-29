@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>ProcessWaitClose</h1>
-<p class="funcdesc">Приостанавливает выполнение скрипта до завершения указанного процесса.</p>
+<p class="funcdesc">Приостанавливает выполнение скрипта, пока указанный процесс не перестанет существовать.</p>
 <p class="codeheader"><a class="le" href="../functions/ProcessWaitClose.htm"><span class="S4">ProcessWaitClose</span></a> <span class="S8">(</span> <span class="S7">"process"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">timeout</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -22,7 +22,7 @@
 </tr>
 <tr>
 <td>timeout</td>
-<td><strong>[необязательный]</strong> Время ожидания в секундах. По умолчанию ожидание неограниченно.</td>
+<td><strong>[необязательный]</strong> Время ожидания процесса (в секундах). По умолчанию скрипт ждёт бесконечно долго.</td>
 </tr>
 </table>
 
@@ -30,22 +30,22 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает 1; <span class="S61">@extended</span> устанавливается в код завершения процесса (см. раздел Примечания).</td>
+<td style="width:90%">Возвращает 1 и устанавливает <span class="S61">@extended</span> в код завершения процесса (см. раздел Примечания).</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0, если истёк таймаут ожидания.</td>
+<td>Возвращает 0, если время ожидания истекло.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Имена процессов указываются без пути, например "notepad.exe" или "winword.exe".<br />
+<p>В качестве имени процесса указывается имя исполняемого файла без указания пути, например "notepad.exe" или "winword.exe"<br />
 <br />
-PID – уникальный номер, идентифицирующий процесс. Его можно получить через <a href="ProcessExists.htm"><span class="S4">ProcessExists</span><span class="S8">()</span></a> или <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>.<br />
+PID является уникальным числом, идентифицирующим процесс. PID можно получить с помощью функций <a href="ProcessExists.htm"><span class="S4">ProcessExists</span><span class="S8">()</span></a> или <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>.<br />
 <br />
-Процесс опрашивается приблизительно каждые 250 миллисекунд.<br />
+Процесс опрашивается примерно каждые 250 миллисекунд.<br />
 <br />
-Если процесс уже завершился, возвращается 1, а <span class="S61">@extended</span> устанавливается в 0xCCCCCCCC.<br />
+Если процесс уже завершился, возвращается 1, а <span class="S61">@extended</span> устанавливается равным 0xCCCCCCCC.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessClose.htm">ProcessClose</a>, <a href="ProcessExists.htm">ProcessExists</a>, <a href="ProcessList.htm">ProcessList</a>, <a href="ProcessWait.htm">ProcessWait</a>, <a href="RunAsWait.htm">RunAsWait</a>, <a href="RunWait.htm">RunWait</a>, <a href="WinGetProcess.htm">WinGetProcess</a>, <a href="WinWaitClose.htm">WinWaitClose</a></p>
