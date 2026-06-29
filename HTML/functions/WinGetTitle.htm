@@ -18,11 +18,11 @@
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс окна, заголовок которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, заголовок которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст окна, заголовок которого нужно получить. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, заголовок которого нужно получить. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 </table>
 
@@ -30,7 +30,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает строку, содержащую полный заголовок окна.</td>
+<td style="width:90%">Возвращает строку с полным заголовком окна.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -39,7 +39,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p><a href="WinGetTitle.htm"><span class="S4">WinGetTitle</span></a><span class="S8">(</span>"[active]"<span class="S8">)</span> возвращает заголовок активного окна. <a href="WinGetTitle.htm"><span class="S4">WinGetTitle</span><span class="S8">()</span></a> работает как со свёрнутыми, так и со скрытыми окнами. Если несколько окон соответствуют критериям, используется наиболее недавно активное.<br />
+<p><a href="WinGetTitle.htm"><span class="S4">WinGetTitle</span></a><span class="S8">(</span>"[active]"<span class="S8">)</span> возвращает заголовок активного окна. <a href="WinGetTitle.htm"><span class="S4">WinGetTitle</span><span class="S8">()</span></a> работает как со свёрнутыми, так и со скрытыми окнами. Если критериям соответствует несколько окон, используется то, которое было активным последним.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="AutoItWinGetTitle.htm">AutoItWinGetTitle</a>, <a href="WinGetText.htm">WinGetText</a>, <a href="WinSetTitle.htm">WinSetTitle</a>, <a href="AutoItSetOption.htm#WinTitleMatchMode ">WinTitleMatchMode (Option)</a></p>
