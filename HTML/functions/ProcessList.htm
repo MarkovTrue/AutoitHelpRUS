@@ -11,14 +11,14 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>ProcessList</h1>
-<p class="funcdesc">Возвращает массив с именами и PID выполняющихся процессов.</p>
+<p class="funcdesc">Возвращает массив со списком запущенных процессов (имена и PID).</p>
 <p class="codeheader"><a class="le" href="../functions/ProcessList.htm"><span class="S4">ProcessList</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S7">"name"</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">name</td>
-<td style="width:85%"><strong>[необязательный]</strong> Если указано имя, возвращаются только процессы с этим именем.</td>
+<td style="width:85%"><strong>[необязательный]</strong> Если задано имя, возвращаются только процессы с этим именем.</td>
 </tr>
 </table>
 
@@ -26,26 +26,26 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив имён и PID процессов (см. раздел Примечания).</td>
+<td style="width:90%">Возвращает массив имён процессов и PID (см. раздел Примечания).</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Устанавливает значение <span class="S61">@error</span> = 1, если массив не удалось построить.</td>
+<td>Устанавливает <span class="S61">@error</span> = 1, если массив не удалось построить.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Возвращаемый массив двумерный и устроен следующим образом:<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = Количество процессов<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = Имя 1-го процесса<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = PID 1-го процесса<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = Имя 2-го процесса<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = PID 2-го процесса<br />
-&nbsp;&nbsp;&nbsp; ...<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = Имя n-го процесса<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = PID n-го процесса<br />
-<br />
-Список может быть пустым, если <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = 0; <span class="S61">@error</span> в этом случае не устанавливается.<br />
+<p>Возвращаемый массив двумерный и устроен следующим образом:<br>
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = Количество процессов<br>
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = Имя 1-го процесса<br>
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = PID 1-го процесса<br>
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = Имя 2-го процесса<br>
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = PID 2-го процесса<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = Имя n-го процесса<br>
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = PID n-го процесса<br>
+<br>
+Список может быть пустым, если <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = 0. <span class="S61">@error</span> в этом случае не устанавливается.<br>
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessClose.htm">ProcessClose</a>, <a href="ProcessExists.htm">ProcessExists</a>, <a href="ProcessGetStats.htm">ProcessGetStats</a>, <a href="ProcessSetPriority.htm">ProcessSetPriority</a>, <a href="ProcessWait.htm">ProcessWait</a>, <a href="ProcessWaitClose.htm">ProcessWaitClose</a>, <a href="WinGetProcess.htm">WinGetProcess</a></p>
