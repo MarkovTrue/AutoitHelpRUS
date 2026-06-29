@@ -11,18 +11,18 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>WinGetState</h1>
-<p class="funcdesc">Получает состояние указанного окна.</p>
+<p class="funcdesc">Получает состояние заданного окна.</p>
 <p class="codeheader"><a class="le" href="../functions/WinGetState.htm"><span class="S4">WinGetState</span></a> <span class="S8">(</span> <span class="S7">"title"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"text"</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс окна, состояние которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, состояние которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст окна, состояние которого нужно получить. По умолчанию – пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, состояние которого нужно получить. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 </table>
 
@@ -30,7 +30,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает значение, описывающее состояние окна. Значения суммируются, поэтому для проверки нужного флага используйте <a href="BitAND.htm"><span class="S4">BitAND</span><span class="S8">()</span></a>:<br />
+<td style="width:90%">Возвращает значение, обозначающее состояние окна. Значения складываются, поэтому используйте <a href="BitAND.htm"><span class="S4">BitAND</span><span class="S8">()</span></a>, чтобы проверить интересующую часть:<br />
 <span class="S91">$WIN_STATE_EXISTS</span>&nbsp;(1) = окно существует<br />
 <span class="S91">$WIN_STATE_VISIBLE</span>&nbsp;(2) = окно видимо<br />
 <span class="S91">$WIN_STATE_ENABLED</span>&nbsp;(4) = окно доступно<br />
@@ -43,7 +43,7 @@
 <td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0, если окно не найдено.</td>
 </tr>
 </table><br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".<br />
+Константы определены в <span class="S7">AutoItConstants.au3</span>.<br />
 
 
 <h2>См. также</h2>
