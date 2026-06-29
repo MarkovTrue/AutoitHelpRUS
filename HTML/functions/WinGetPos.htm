@@ -11,18 +11,18 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>WinGetPos</h1>
-<p class="funcdesc">Получает позицию и размер указанного окна.</p>
+<p class="funcdesc">Получает положение и размер заданного окна.</p>
 <p class="codeheader"><a class="le" href="../functions/WinGetPos.htm"><span class="S4">WinGetPos</span></a> <span class="S8">(</span> <span class="S7">"title"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"text"</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс окна, позицию/размер которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, положение и размер которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст окна, позицию/размер которого нужно получить. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, положение и размер которого нужно получить. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 </table>
 
@@ -30,11 +30,11 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив из 4 элементов со следующей информацией:<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;= позиция X<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;= позиция Y<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;= ширина<br />
-<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;= высота</td>
+<td style="width:90%">Возвращает массив из 4 элементов со следующими данными:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;= X-координата<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;= Y-координата<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;= Ширина<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;= Высота</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -43,8 +43,8 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Для свёрнутых окон <a href="WinGetPos.htm"><span class="S4">WinGetPos</span><span class="S8">()</span></a> возвращает отрицательные значения, например -32000, но корректно работает со скрытыми (несвёрнутыми) окнами.<br />
-При заголовке "Program Manager" функция возвращает размер рабочего стола. Если несколько окон соответствуют критериям, используется наиболее недавно активное.<br />
+<p><a href="WinGetPos.htm"><span class="S4">WinGetPos</span><span class="S8">()</span></a> возвращает отрицательные числа, например -32000, для свёрнутых окон, но корректно работает с (несвёрнутыми) скрытыми окнами.<br />
+Если задан заголовок окна "Program Manager", функция вернёт размер рабочего стола. Если критериям соответствует несколько окон, используется то, которое было активным последним.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="WinGetClientSize.htm">WinGetClientSize</a>, <a href="WinGetState.htm">WinGetState</a>, <a href="WinMove.htm">WinMove</a></p>
