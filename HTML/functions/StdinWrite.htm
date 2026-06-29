@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>StdinWrite</h1>
-<p class="funcdesc">Записывает данные в поток STDIN ранее запущенного дочернего процесса.</p>
+<p class="funcdesc">Записывает заданное число символов в поток STDIN ранее запущенного дочернего процесса.</p>
 <p class="codeheader"><a class="le" href="../functions/StdinWrite.htm"><span class="S4">StdinWrite</span></a> <span class="S8">(</span> <span class="S0">process_id</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">data</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -22,7 +22,7 @@
 </tr>
 <tr>
 <td>data</td>
-<td><strong>[необязательный]</strong> Данные для записи. Текст или двоичные данные.</td>
+<td><strong>[необязательный]</strong> Данные, которые нужно вывести. Это могут быть текст или двоичные данные.</td>
 </tr>
 </table>
 
@@ -30,24 +30,24 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает количество записанных символов.</td>
+<td style="width:90%">Возвращает число записанных символов.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Устанавливает <span class="S61">@error</span> ≠ 0, если STDIN не был перенаправлен или при иной ошибке.</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0, если STDIN не был перенаправлен для процесса или произошла другая ошибка.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p><a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> записывает данные в стандартный поток ввода консольного дочернего процесса. При вызове <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a> для этого процесса параметр STD I/O должен включать значение <span class="S91">$STDIN_CHILD</span> (1) (см. описание функции <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>).<br>
-<br>
-Второй необязательный параметр – строка, которую <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> записывает в поток. Если функция вызвана без второго аргумента, поток закрывается и дальнейшая запись становится невозможной.<br>
-<br>
-Поток представляет собой буфер FIFO ограниченного размера. Если в момент вызова функции (кроме случая закрытия потока) в буфере нет места, <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> блокируется до тех пор, пока дочерний процесс не закроет поток или не прочитает достаточно данных. В это время процесс AutoIt приостанавливается: горячие клавиши, сообщения GUI и другие события не обрабатываются.<br>
-<br>
-Перед записью символы преобразуются в ANSI.<br>
-<br>
-Двоичные данные записываются как есть без преобразования в строку. Для вывода шестнадцатеричного представления двоичных данных используйте явное приведение через <a href="String.htm"><span class="S4">String</span><span class="S8">()</span></a>.<br>
+<p><a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> пишет в стандартный поток ввода консоли дочернего процесса, который консольные приложения обычно используют для чтения ввода от пользователя, то есть с клавиатуры. При вызове <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a> для дочернего процесса, в который нужно писать, параметр STD I/O должен включать значение <span class="S91">$STDIN_CHILD</span> (1), чтобы эта функция работала правильно (см. функцию <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>).<br />
+<br />
+Необязательный второй параметр задаёт строку, которую нужно записать в поток через <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a>. Если вызвать функцию без второго аргумента, <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> закрывает поток и делает его недоступным для дальнейшей записи.<br />
+<br />
+Поток представляет собой буфер ограниченного произвольного размера, работающий по принципу очереди; если в момент вызова функции (кроме случая вызова для закрытия потока) в потоке нет места для новых символов, <a href="StdinWrite.htm"><span class="S4">StdinWrite</span><span class="S8">()</span></a> блокирует выполнение (приостанавливает) и не возвращает управление, пока дочерний процесс не закроет поток или не прочитает из него достаточно символов, чтобы запись завершилась. Это означает, что процесс AutoIt будет остановлен, и не будет обработки горячих клавиш, сообщений GUI и т.п., пока дочерний процесс не прочитает из потока STDIN.<br />
+<br />
+Символы преобразуются в ANSI перед записью.<br />
+<br />
+Двоичные данные записываются как есть. Они не преобразуются в строку. Чтобы вывести шестнадцатеричное представление двоичных данных, используйте функцию <a href="String.htm"><span class="S4">String</span><span class="S8">()</span></a>, чтобы явно привести данные к строке.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Run.htm">Run</a>, <a href="RunAs.htm">RunAs</a>, <a href="StderrRead.htm">StderrRead</a>, <a href="StdioClose.htm">StdioClose</a>, <a href="StdoutRead.htm">StdoutRead</a></p>
