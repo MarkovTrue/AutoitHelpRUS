@@ -11,22 +11,22 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>WinWaitActive</h1>
-<p class="funcdesc">Приостанавливает выполнение скрипта до активации указанного окна.</p>
+<p class="funcdesc">Приостанавливает выполнение скрипта, пока указанное окно не станет активным.</p>
 <p class="codeheader"><a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a> <span class="S8">(</span> <span class="S7">"title"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"text"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">timeout</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс проверяемого окна. См. <a href="../intro/windowsadvanced.htm">особенности задания заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, которое нужно проверить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст проверяемого окна. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">особенности задания текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, которое нужно проверить. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 <tr>
 <td>timeout</td>
-<td><strong>[необязательный]</strong> Время ожидания в секундах, если окно не становится активным. По умолчанию – 0 (без ограничения).</td>
+<td><strong>[необязательный]</strong> Таймаут в секундах, если окно не активно. По умолчанию 0 (без таймаута).</td>
 </tr>
 </table>
 
@@ -34,7 +34,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает дескриптор запрошенного окна.</td>
+<td style="width:90%">Возвращает дескриптор указанного окна.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
