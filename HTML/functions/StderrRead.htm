@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>StderrRead</h1>
-<p class="funcdesc">Читает данные из потока STDERR ранее запущенного дочернего процесса.</p>
+<p class="funcdesc">Читает из потока STDERR ранее запущенного дочернего процесса.</p>
 <p class="codeheader"><a class="le" href="../functions/StderrRead.htm"><span class="S4">StderrRead</span></a> <span class="S8">(</span> <span class="S0">process_id</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">peek</span> <span class="S8">=</span> <span class="S5">False</span> <span class="S8">[</span><span class="S8">,</span> <a class="le" href="../functions/Binary.htm"><span class="S4">binary</span></a> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -22,11 +22,11 @@
 </tr>
 <tr>
 <td>peek</td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, прочитанные символы не удаляются из потока.</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, функция не удаляет прочитанные символы из потока.</td>
 </tr>
 <tr>
 <td>binary</td>
-<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, данные читаются в двоичном формате вместо текстового (по умолчанию текст).</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, функция читает данные как двоичные, а не как текст (по умолчанию текст).</td>
 </tr>
 </table>
 
@@ -38,15 +38,15 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Устанавливает <span class="S61">@error</span> ≠ 0 при достижении EOF, если STDERR не был перенаправлен или при иной ошибке.</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0, если достигнут конец файла (EOF), STDERR не был перенаправлен для процесса или произошла другая ошибка.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p><a href="StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a> читает данные из стандартного потока вывода консольного дочернего процесса. При вызове <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a> для этого процесса параметр STD I/O должен включать значение <span class="S91">$STDERR_CHILD</span> (4) (см. описание функции <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>).<br />
-<a href="StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a> не блокирует выполнение и возвращает управление немедленно. Для получения всех данных необходимо вызывать функцию в цикле.<br />
-Просмотр (peek) не удаляет данные из буфера, однако возвращает доступные данные в обычном режиме.<br />
-По умолчанию данные возвращаются в текстовом формате. Если использовать параметр двоичного режима, данные будут возвращены в двоичном формате.<br />
+<p><a href="StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a> читает из стандартного потока вывода консоли дочернего процесса, который консольные приложения обычно используют для вывода на экран. При вызове <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a> для дочернего процесса, из которого нужно читать, параметр STD I/O должен включать значение <span class="S91">$STDERR_CHILD</span> (4), чтобы эта функция работала правильно (см. функцию <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>).<br />
+<a href="StderrRead.htm"><span class="S4">StderrRead</span><span class="S8">()</span></a> не блокирует выполнение, она возвращает управление сразу. Чтобы получить все данные, её нужно вызывать в цикле.<br />
+Подглядывание в поток не удаляет данные из буфера, однако возвращает доступные данные как обычно.<br />
+По умолчанию данные возвращаются в текстовом виде. С параметром binary данные возвращаются в двоичном виде.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Run.htm">Run</a>, <a href="RunAs.htm">RunAs</a>, <a href="StdinWrite.htm">StdinWrite</a>, <a href="StdioClose.htm">StdioClose</a>, <a href="StdoutRead.htm">StdoutRead</a></p>
