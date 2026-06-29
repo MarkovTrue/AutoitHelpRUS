@@ -11,14 +11,14 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>MouseClick</h1>
-<p class="funcdesc">Выполняет операцию нажатия кнопки мыши.</p>
+<p class="funcdesc">Выполняет щелчок мышью.</p>
 <p class="codeheader"><a class="le" href="../functions/MouseClick.htm"><span class="S4">MouseClick</span></a> <span class="S8">(</span> <span class="S7">"button"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">x</span><span class="S8">,</span> <span class="S0">y</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">clicks</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">speed</span> <span class="S8">=</span> <span class="S3">10</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">button</td>
-<td style="width:85%">Кнопка для нажатия:<br />
+<td style="width:85%">Нажимаемая кнопка:<br />
 <span class="S91">$MOUSE_CLICK_LEFT</span> ("left")<br />
 <span class="S91">$MOUSE_CLICK_RIGHT</span> ("right")<br />
 <span class="S91">$MOUSE_CLICK_MIDDLE</span> ("middle")<br />
@@ -27,15 +27,15 @@
 <span class="S91">$MOUSE_CLICK_PRIMARY</span> ("primary")<br />
 <span class="S91">$MOUSE_CLICK_SECONDARY</span> ("secondary")<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 <tr>
 <td>x, y</td>
-<td><strong>[необязательный]</strong> Координаты x/y для перемещения курсора мыши. Если координаты не указаны, используется текущее положение (по умолчанию).</td>
+<td><strong>[необязательный]</strong> Координаты x/y, куда переместить мышь. Если координаты x и y не заданы, используется текущая позиция (по умолчанию).</td>
 </tr>
 <tr>
 <td>clicks</td>
-<td><strong>[необязательный]</strong> Количество кликов мышью. По умолчанию 1.</td>
+<td><strong>[необязательный]</strong> Сколько раз щёлкнуть мышью. По умолчанию 1.</td>
 </tr>
 <tr>
 <td>speed</td>
@@ -51,15 +51,15 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0, если кнопка не входит в список или указан недопустимый параметр (например, x без y).</td>
+<td>Возвращает 0, если кнопки нет в списке или параметры недопустимы (например, задан x без y).</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p><a id="remarks"></a>Если строка кнопки пустая, нажимается левая кнопка.<br />
-Если x или y равно <a href="../keywords/Default.htm">ключевому слову Default</a>, перемещение по соответствующей координате не происходит.<br />
+<p><a id="remarks"></a>Если кнопка задана пустой строкой, выполняется щелчок левой кнопкой.<br />
+Если x или y равны ключевому слову <a href="../keywords/Default.htm">Default</a>, перемещение по соответствующей координате не происходит.<br />
 <br />
-Если пользователь поменял местами левую и правую кнопки мыши в панели управления, поведение кнопок изменяется. "left" и "right" всегда нажимают именно эти физические кнопки, независимо от смены. Кнопки "primary" и "main" выполняют основное нажатие независимо от смены. Кнопки "secondary" и "menu" обычно вызывают контекстное меню независимо от смены.<br />
+Если пользователь поменял местами левую и правую кнопки мыши в панели управления, поведение кнопок отличается. "left" и "right" всегда нажимают именно эти кнопки, независимо от перестановки. Кнопка "primary" или "main" соответствует основному щелчку, независимо от перестановки. Кнопки "secondary" или "menu" обычно вызывают контекстное меню, независимо от перестановки.<br />
 <br />
 <a id="table"></a><br />
 <table>
