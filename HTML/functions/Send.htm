@@ -11,14 +11,14 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>Send</h1>
-<p class="funcdesc">Отправляет эмулированные нажатия клавиш в активное окно.</p>
+<p class="funcdesc">Отправляет имитированные нажатия клавиш в активное окно.</p>
 <p class="codeheader"><a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a> <span class="S8">(</span> <span class="S7">"keys"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">flag</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">keys</td>
-<td style="width:85%">Последовательность клавиш для отправки.</td>
+<td style="width:85%">Последовательность отправляемых клавиш.</td>
 </tr>
 <tr>
 <td>flag</td>
@@ -26,7 +26,7 @@
 <span class="default-const"><span class="S91">$SEND_DEFAULT</span></span> (0) = текст содержит специальные символы, такие как + и ! для имитации нажатий SHIFT и ALT (по умолчанию).<br>
 <span class="S91">$SEND_RAW</span> (1) = клавиши отправляются как есть.<br>
 <br>
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -42,7 +42,7 @@
 '!'<br />
 Отправляет нажатие ALT. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"This is text!a"</span><span class="S8">)</span> отправит текст "This is text", а затем нажмёт "ALT+a".<br />
 <br />
-Примечание: некоторые программы различают регистр букв при комбинациях с ALT: "!A" означает ALT+SHIFT+A, а "!a" – ALT+a. В случае сомнений используйте строчные буквы!<br />
+Примечание: некоторые программы различают регистр букв при комбинациях с ALT, то есть "!A" означает ALT+SHIFT+A, а "!a" – ALT+a. В случае сомнений используйте строчные буквы!<br />
 <br />
 '+'<br />
 Отправляет нажатие SHIFT. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"Hell+o"</span><span class="S8">)</span> отправит текст "HellO", а <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!+a"</span><span class="S8">)</span> отправит "ALT+SHIFT+a".<br />
@@ -50,7 +50,7 @@
 '^'<br />
 Отправляет нажатие CTRL. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"^!a"</span><span class="S8">)</span> отправит "CTRL+ALT+a".<br />
 <br />
-Примечание: некоторые программы различают регистр букв при комбинациях с CTRL: "^A" означает CTRL+SHIFT+A, а "^a" – CTRL+a. В случае сомнений используйте строчные буквы!<br />
+Примечание: некоторые программы различают регистр букв при комбинациях с CTRL, то есть "^A" означает CTRL+SHIFT+A, а "^a" – CTRL+a. В случае сомнений используйте строчные буквы!<br />
 <br />
 '#'<br />
 Отправляет нажатие клавиши Windows. Например, <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"#r"</span><span class="S8">)</span> отправит Win+r, открывая диалог <a href="Run.htm"><span class="S4">Run</span><span class="S8">()</span></a>.<br />
@@ -58,7 +58,7 @@
 <br />
 С помощью SendCapslockMode можно отключить CAPS LOCK перед началом операции <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a> и восстановить его по завершении.<br />
 Однако если пользователь удерживает Shift в момент вызова <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>, текст может быть отправлен в верхнем регистре.<br />
-Один из способов обойти это, отправить <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{SHIFTDOWN}{SHIFTUP}"</span><span class="S8">)</span> перед другими операциями <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>.<br />
+Обойти это можно, отправив <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{SHIFTDOWN}{SHIFTUP}"</span><span class="S8">)</span> перед другими операциями <a href="Send.htm"><span class="S4">Send</span><span class="S8">()</span></a>.<br />
 <br />
 Некоторые клавиатуры, например чешская, при включённом CAPS LOCK или нажатом Shift отправляют другие символы. В реализации AutoIt символ, набранный при CAPS LOCK, отправляется как Shift-символ, поэтому <strong>такой вариант работать не будет.</strong><br />
 Определённые специальные клавиши можно отправлять, заключая их имена в фигурные скобки:<br />
@@ -435,16 +435,16 @@
 <p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ASC 2709}"</span><span class="S8">)</span> или <a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ASC 0xA95}"</span><span class="S8">)</span></p>
 <br />
 Одну клавишу можно отправлять несколько раз:
-<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{DEL 4}"</span><span class="S8">)</span> <span class="S1">;нажать DEL 4 раза</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{S 30}"</span><span class="S8">)</span> <span class="S1">;отправить 30 символов 'S'</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"+{TAB 4}"</span><span class="S8">)</span> <span class="S1">;нажать SHIFT+TAB 4 раза</span></p>
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{DEL 4}"</span><span class="S8">)</span> <span class="S1">; нажать DEL 4 раза</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{S 30}"</span><span class="S8">)</span> <span class="S1">; отправить 30 символов 'S'</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"+{TAB 4}"</span><span class="S8">)</span> <span class="S1">; нажать SHIFT+TAB 4 раза</span></p>
 <br />
 При нулевом счётчике клавиша не отправляется, что удобно для программного управления:
-<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{M "</span> &amp; <span class="S91">$iCount</span> &amp; <span class="S7">"}"</span><span class="S8">)</span> <span class="S1">;нажать M столько раз, сколько задано в <span class="S91">$iCount</span></span></p>
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{M "</span> &amp; <span class="S91">$iCount</span> &amp; <span class="S7">"}"</span><span class="S8">)</span> <span class="S1">; нажать M столько раз, сколько задано в <span class="S91">$iCount</span></span></p>
 <br />
 Удержание клавиши:
-<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{a down}"</span><span class="S8">)</span> <span class="S1">;удержать клавишу A</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{a up}"</span><span class="S8">)</span> <span class="S1">;отпустить клавишу A</span></p>
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{a down}"</span><span class="S8">)</span> <span class="S1">; удержать клавишу A</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{a up}"</span><span class="S8">)</span> <span class="S1">; отпустить клавишу A</span></p>
 <br />
 Управление состоянием CapsLock, NumLock и ScrollLock:
-<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{NumLock on}"</span><span class="S8">)</span> <span class="S1">;включить NumLock</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{CapsLock off}"</span><span class="S8">)</span> <span class="S1">;выключить CapsLock</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ScrollLock toggle}"</span><span class="S8">)</span> <span class="S1">;переключить ScrollLock</span></p>
+<p class="codebox"><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{NumLock on}"</span><span class="S8">)</span> <span class="S1">; включить NumLock</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{CapsLock off}"</span><span class="S8">)</span> <span class="S1">; выключить CapsLock</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ScrollLock toggle}"</span><span class="S8">)</span> <span class="S1">; переключить ScrollLock</span></p>
 <br />
 Если нужно использовать переменную для счётчика:
 <p class="codebox"><span class="S91">$n</span> <span class="S8">=</span> <span class="S3">4</span><br><a href="Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"+{TAB "</span> &amp; <span class="S91">$n</span> &amp; <span class="S7">"}"</span><span class="S8">)</span></p>
