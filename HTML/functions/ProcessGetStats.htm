@@ -11,20 +11,20 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>ProcessGetStats</h1>
-<p class="funcdesc">Возвращает массив со сведениями о памяти или вводе-выводе запущенного процесса.</p>
+<p class="funcdesc">Возвращает массив с информацией о памяти или вводе-выводе запущенного процесса.</p>
 <p class="codeheader"><a class="le" href="../functions/ProcessGetStats.htm"><span class="S4">ProcessGetStats</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S7">"process"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">type</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">process</td>
-<td style="width:85%"><strong>[необязательный]</strong> Имя или PID процесса, о котором нужны сведения. По умолчанию (-1) текущий процесс.</td>
+<td style="width:85%"><strong>[необязательный]</strong> Имя или PID процесса, о котором нужна информация. По умолчанию (-1) текущий процесс.</td>
 </tr>
 <tr>
 <td>type</td>
 <td><strong>[необязательный]</strong><br />
-<span class="default-const"><span class="S91">$PROCESS_STATS_MEMORY</span></span> (0) = (по умолчанию) сведения о памяти.<br />
-<span class="S91">$PROCESS_STATS_IO</span> (1) = сведения о вводе-выводе.<br />
+<span class="default-const"><span class="S91">$PROCESS_STATS_MEMORY</span></span> (0) = (по умолчанию) информация о памяти.<br />
+<span class="S91">$PROCESS_STATS_IO</span> (1) = информация о вводе-выводе.<br />
 <br />
 Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
@@ -34,7 +34,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив со сведениями (см. раздел Примечания).</td>
+<td style="width:90%">Возвращает массив данных с информацией (см. раздел Примечания).</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -43,20 +43,20 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Возвращаемый массив одномерный и устроен так:<br />
+<p>Возвращаемый массив одномерный и содержит следующую информацию:<br />
 <br />
 Тип = <span class="S91">$PROCESS_STATS_MEMORY</span><br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = размер рабочего набора (WorkingSetSize)<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = пиковый размер рабочего набора (PeakWorkingSetSize)<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = занимаемый размер (WorkingSetSize)<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = максимальный занимаемый размер (PeakWorkingSetSize)<br />
 <br />
 <br />
 Тип = <span class="S91">$PROCESS_STATS_IO</span><br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = число выполненных операций чтения.<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = число выполненных операций записи.<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> = число операций ввода-вывода, кроме чтения и записи.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = количество выполненных операций чтения.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = количество выполненных операций записи.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> = количество операций ввода-вывода, кроме чтения и записи.<br />
 &nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> = число прочитанных байт.<br />
 &nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> = число записанных байт.<br />
-&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> = число байт, переданных в операциях, кроме чтения и записи.<br />
+&nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> = число байт, переданных во время операций, кроме чтения и записи.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessList.htm">ProcessList</a></p>
@@ -73,7 +73,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить данные о памяти текущего процесса.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aMemory</span> <span class="S8">=</span> <a class="le" href="../functions/ProcessGetStats.htm"><span class="S4">ProcessGetStats</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если $aMemory является массивом – вывести сведения о процессе.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Если $aMemory является массивом, показываем следующие сведения о процессе.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/IsArray.htm"><span class="S4">IsArray</span></a><span class="S8">(</span><span class="S9">$aMemory</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"WorkingSetSize: "</span> <span class="S8">&amp;</span> <span class="S9">$aMemory</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"PeakWorkingSetSize: "</span> <span class="S8">&amp;</span> <span class="S9">$aMemory</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
