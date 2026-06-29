@@ -11,18 +11,18 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>WinGetClassList</h1>
-<p class="funcdesc">Получает список классов окна.</p>
+<p class="funcdesc">Получает классы из окна.</p>
 <p class="codeheader"><a class="le" href="../functions/WinGetClassList.htm"><span class="S4">WinGetClassList</span></a> <span class="S8">(</span> <span class="S7">"title"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S7">"text"</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс окна, классы которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, из которого нужно получить классы. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст окна, классы которого нужно получить. По умолчанию пустая строка. См. раздел <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, из которого нужно получить классы. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 </table>
 
@@ -30,7 +30,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает строку, содержащую считанные классы окна.</td>
+<td style="width:90%">Возвращает строку с прочитанными классами окна.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -39,7 +39,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Имена классов разделены символом перевода строки (<span class="S61">@LF</span>). <a href="WinGetClassList.htm"><span class="S4">WinGetClassList</span><span class="S8">()</span></a> работает как со свёрнутыми, так и со скрытыми окнами. Можно получить до 64 КБ текста. Если несколько окон соответствуют критериям, классы считываются из наиболее недавно активного окна.<br />
+<p>Имена классов разделяются переводом строки (<span class="S61">@LF</span>). <a href="WinGetClassList.htm"><span class="S4">WinGetClassList</span><span class="S8">()</span></a> работает как со свёрнутыми, так и со скрытыми окнами. Можно получить до 64 КБ текста.&nbsp;&nbsp;&nbsp; Если критериям соответствует несколько окон, классы считываются из окна, которое было активным последним.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ControlCommand.htm">ControlCommand</a>, <a href="WinGetText.htm">WinGetText</a></p>
