@@ -18,21 +18,21 @@
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%"><strong>[необязательный]</strong> Заголовок/hWnd/класс окон, список которых нужно получить. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%"><strong>[необязательный]</strong> Заголовок / дескриптор / класс окон, список которых нужно получить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст окон, список которых нужно получить. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окон, список которых нужно получить. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 </table>
 
 <h2>Возвращаемое значение</h2>
-Возвращает массив заголовков и дескрипторов окон, соответствующих критериям.<br />
+Возвращает массив заголовков и дескрипторов подходящих окон.<br />
 
 <h2>Примечания</h2>
-<p>Если заголовок и текст не указаны, возвращаются все окна верхнего уровня.<br />
+<p>Если заголовок и текст не заданы, возвращаются все окна верхнего уровня.<br />
 <br />
-Возвращаемый массив двумерный и имеет следующую структуру:<br />
+Возвращаемый массив двумерный и устроен так:<br />
 &nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = количество возвращённых окон<br />
 &nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = заголовок 1-го окна<br />
 &nbsp;&nbsp;&nbsp; <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> = дескриптор 1-го окна (HWND)<br />
