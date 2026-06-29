@@ -11,23 +11,23 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>TraySetClick</h1>
-<p class="funcdesc">Устанавливает режим кликов по значку трея, какие нажатия мыши отображают меню трея.</p>
+<p class="funcdesc">Задаёт режим щелчков по значку в трее – какие щелчки мышью открывают меню трея.</p>
 <p class="codeheader"><a class="le" href="../functions/TraySetClick.htm"><span class="S4">TraySetClick</span></a> <span class="S8">(</span> <span class="S0">flag</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">flag</td>
-<td style="width:85%"><span class="S91">$TRAY_CLICK_SHOW</span> (0) = меню трея не показывается при нажатии мыши<br />
+<td style="width:85%"><span class="S91">$TRAY_CLICK_SHOW</span> (0) = меню трея не открывается щелчком мыши<br />
 <span class="S91">$TRAY_CLICK_PRIMARYDOWN</span> (1) = нажатие основной кнопки мыши<br />
 <span class="S91">$TRAY_CLICK_PRIMARYUP</span> (2) = отпускание основной кнопки мыши<br />
 <span class="S91">$TRAY_DBLCLICK_PRIMARY</span> (4) = двойной щелчок основной кнопкой мыши<br />
 <span class="S91">$TRAY_CLICK_SECONDARYDOWN</span> (8) = нажатие дополнительной кнопки мыши<br />
 <span class="S91">$TRAY_CLICK_SECONDARYUP</span> (16) = отпускание дополнительной кнопки мыши<br />
 <span class="S91">$TRAY_DBLCLICK_SECONDARY</span> (32) = двойной щелчок дополнительной кнопкой мыши<br />
-<span class="S91">$TRAY_CLICK_HOVERING</span> (64) = наведение указателя на значок трея<br />
+<span class="S91">$TRAY_CLICK_HOVERING</span> (64) = наведение на значок в трее<br />
 <br />
-Константы определены в "<span class="S7">TrayConstants.au3</span>".</td>
+Константы определены в <span class="S7">TrayConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -36,8 +36,8 @@
 
 
 <h2>Примечания</h2>
-<p>Эти флаги НЕ являются значениями событий трея!<br />
-Значение по умолчанию: "9" – меню трея отображается при нажатии основной или дополнительной кнопки мыши.<br />
+<p>Эти флаги НЕ являются значениями событий трея!<br>
+Значение по умолчанию: "9" – меню трея отображается при нажатии основной или дополнительной кнопки мыши.<br>
 </p>
 <h2>См. также</h2>
 <p><a href="TraySetOnEvent.htm">TraySetOnEvent</a></p>
