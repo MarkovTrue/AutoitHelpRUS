@@ -11,28 +11,28 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>UDPRecv</h1>
-<p class="funcdesc">Получает данные из открытого сокета.</p>
+<p class="funcdesc">Принимает данные из открытого сокета.</p>
 <p class="codeheader"><a class="le" href="../functions/UDPRecv.htm"><span class="S4">UDPRecv</span></a> <span class="S8">(</span> <span class="S0">socketarray</span><span class="S8">,</span> <span class="S0">maxlen</span> <span class="S8">[</span><span class="S8">,</span> <span class="S0">flag</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
 <table>
 <tr>
 <td style="width:15%">socketarray</td>
-<td style="width:85%">Сокет/массив, возвращённый функцией <a href="UDPBind.htm"><span class="S4">UDPBind</span><span class="S8">()</span></a>.</td>
+<td style="width:85%">Сокет-массив, возвращённый функцией <a href="UDPBind.htm"><span class="S4">UDPBind</span><span class="S8">()</span></a>.</td>
 </tr>
 <tr>
 <td>maxlen</td>
-<td>Максимальное количество принимаемых символов.</td>
+<td>Максимальное число принимаемых символов.</td>
 </tr>
 <tr>
 <td>flag</td>
 <td><strong>[необязательный]</strong><br />
-<span class="default-const"><span class="S91">$UDP_DATA_DEFAULT</span></span> (0) – автоопределение двоичных/строковых данных.<br />
-<span class="S91">$UDP_DATA_BINARY</span> (1) – возвращать двоичные данные.<br />
-<span class="S91">$UDP_DATA_ARRAY</span> (2) – возвращать массив: [0] данные, [1] IP-адрес источника, [2] порт источника.<br />
-Для обоих режимов используйте значение 3.<br />
+<span class="default-const"><span class="S91">$UDP_DATA_DEFAULT</span></span> (0) – автоопределение между двоичными данными и строкой.<br />
+<span class="S91">$UDP_DATA_BINARY</span> (1) – возвращать двоичные данные<br />
+<span class="S91">$UDP_DATA_ARRAY</span> (2) – возвращается в виде массива: <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> данные, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> IP-адрес отправителя, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> порт отправителя.<br />
+Чтобы получить и то, и другое, используйте 3.<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -40,7 +40,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает двоичные данные или строку, отправленные открытым сокетом, либо массив при flag = 2 или 3.</td>
+<td style="width:90%">Возвращает двоичные данные или строку, отправленные через открытый сокет, либо массив, если <em>flag</em> равен 2 или 3.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -48,16 +48,16 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>-1 – недействительный сокет.<br />
--2 – нет соединения.<br />
--3 или -4 – недействительный socketarray.<br />
-Код возврата Windows API WSAGetLastError (см. <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).</td>
+<td>-1 – недопустимый сокет.<br />
+-2&nbsp;– нет подключения.<br />
+-3&nbsp;или -4 – недопустимый <em>socketarray</em>.<br />
+Значение, возвращаемое Windows API WSAGetLastError (см. <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Для обратной совместимости функция по умолчанию пытается вернуть строку. Если среди принятых данных есть нулевые байты (0x00), возвращается тип Binary.<br />
-Чтобы функция всегда возвращала двоичные данные (наиболее надёжный вариант), используйте параметр flag = 1.<br />
+<p>Для обратной совместимости функция по умолчанию пытается возвращать строки. Если приняты нулевые символы (0x00), возвращается двоичный тип.<br />
+Чтобы функция всегда возвращала двоичные данные (наиболее разумный вариант), задайте параметру <em>flag</em> значение 1.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="BinaryLen.htm">BinaryLen</a>, <a href="BinaryMid.htm">BinaryMid</a>, <a href="UDPBind.htm">UDPBind</a>, <a href="UDPOpen.htm">UDPOpen</a>, <a href="UDPSend.htm">UDPSend</a></p>
