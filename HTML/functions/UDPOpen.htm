@@ -27,10 +27,10 @@
 <tr>
 <td>flag</td>
 <td><strong>[необязательный]</strong><br />
-<span class="default-const"><span class="S91">$UDP_OPEN_DEFAULT</span></span> (0) – (по умолчанию) дополнительные параметры не устанавливаются.<br />
-<span class="S91">$UDP_OPEN_BROADCAST</span> (1) – разрешить широковещательную рассылку на адрес "255.255.255.255".<br />
+<span class="default-const"><span class="S91">$UDP_OPEN_DEFAULT</span></span> (0) – (по умолчанию) дополнительные опции не задаются.<br />
+<span class="S91">$UDP_OPEN_BROADCAST</span> (1) – разрешить широковещание на адрес "255.255.255.255".<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".</td>
+Константы определены в <span class="S7">AutoItConstants.au3</span>.</td>
 </tr>
 </table>
 
@@ -38,11 +38,11 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив: <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – реальный сокет, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – указанный IP-адрес, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – порт. Эта информация необходима для последующих вызовов <a href="UDPSend.htm"><span class="S4">UDPSend</span><span class="S8">()</span></a>, которым передаётся данная структура/массив сокета.</td>
+<td style="width:90%">Возвращает массив: <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> содержит сам сокет, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> содержит указанный IP-адрес, <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> содержит порт. Эти данные нужны при последующих вызовах <a href="UDPSend.htm"><span class="S4">UDPSend</span><span class="S8">()</span></a>, куда передаётся эта структура-массив сокета.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает <span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>=0 и устанавливает <span class="S61">@error</span> ≠ 0.</td>
+<td><span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> = 0, и устанавливается значение <span class="S61">@error</span> ≠ 0.</td>
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
@@ -51,7 +51,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Используется клиентом для взаимодействия с сервером.<br />
+<p>Эта функция используется клиентом для связи с сервером.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="UDPBind.htm">UDPBind</a>, <a href="UDPCloseSocket.htm">UDPCloseSocket</a>, <a href="UDPRecv.htm">UDPRecv</a>, <a href="UDPSend.htm">UDPSend</a></p>
