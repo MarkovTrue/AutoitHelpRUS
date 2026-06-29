@@ -35,36 +35,36 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Код завершения можно получить через <span class="S61">@exitCode</span>.<br />
-Способ завершения доступен через <span class="S61">@exitMethod</span>.<table>
+<p>Код выхода можно получить через <span class="S61">@exitCode</span>.<br />
+Способ выхода можно получить через <span class="S61">@exitMethod</span>.<table>
 <tr>
 <td style="width:15%"><span class="S91">$EXITCLOSE_NORMAL</span> (0)</td>
-<td style="width:85%">Нормальное закрытие.</td>
+<td style="width:85%">обычное завершение.</td>
 </tr>
 <tr>
 <td><span class="S91">$EXITCLOSE_BYEXIT</span> (1)</td>
-<td>Закрытие функцией Exit.</td>
+<td>завершение функцией Exit.</td>
 </tr>
 <tr>
 <td><span class="S91">$EXITCLOSE_BYCLICK</span> (2)</td>
-<td>Закрытие по нажатию "Выход" в системном трее.</td>
+<td>завершение щелчком по пункту выхода в системном трее.</td>
 </tr>
 <tr>
 <td><span class="S91">$EXITCLOSE_BYLOGOFF</span> (3)</td>
-<td>Закрытие при выходе пользователя из системы.</td>
+<td>завершение при выходе пользователя из системы.</td>
 </tr>
 <tr>
 <td><span class="S91">$EXITCLOSE_BYSHUTDOWN</span> (4)</td>
-<td>Закрытие при завершении работы Windows.</td>
+<td>завершение при выключении Windows.</td>
 </tr>
 </table><br />
-<span class="S61">@exitMethod</span> можно отформатировать с помощью <a href="../libfunctions/_FormatAutoItExitMethod.htm">_FormatAutoItExitMethod()</a>.<br />
+<span class="S61">@exitMethod</span> можно отформатировать через <a href="../libfunctions/_FormatAutoItExitMethod.htm">_FormatAutoItExitMethod()</a>.<br />
 <br />
-Если используется <span class="S4">Opt</span><span class="S8">(</span>"SetExitCode", 1<span class="S8">)</span>, <span class="S61">@exitCode</span> устанавливается согласно сообщению о фатальной ошибке – см. <a href="../appendix/Exitcodes.htm">коды завершения AutoIt3</a>.<br />
+Если используется <span class="S4">Opt</span><span class="S8">(</span>"SetExitCode", 1<span class="S8">)</span>, <span class="S61">@exitCode</span> устанавливается в соответствии с сообщением о фатальной ошибке – см. <a href="../appendix/Exitcodes.htm">Коды выхода при фатальных ошибках AutoIt3</a>.<br />
 <br />
-Если подключён "<span class="S7">AutoItExitCodes.au3</span>", можно вызвать <a href="../libfunctions/_FormatAutoItExitCode.htm">_FormatAutoItExitCode()</a> для получения строкового представления <span class="S61">@ExitCode</span>.<br />
+Если подключён <span class="S7">AutoItExitCodes.au3</span>, можно вызвать <a href="../libfunctions/_FormatAutoItExitCode.htm">_FormatAutoItExitCode()</a>, чтобы получить строковое представление <span class="S61">@ExitCode</span>.<br />
 <br />
-Константы определены в "<span class="S7">AutoItConstants.au3</span>".<br />
+Константы определены в <span class="S7">AutoItConstants.au3</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="../keywords/Exit.htm">Exit</a>, <a href="OnAutoItExitUnRegister.htm">OnAutoItExitUnRegister</a>, <a href="../keywords/OnAutoItStartRegister.htm">OnAutoItStartRegister</a>, <a href="AutoItSetOption.htm#SetExitCode ">SetExitCode (Option)</a>, <a href="../libfunctions/_FormatAutoItExitCode.htm">_FormatAutoItExitCode</a>, <a href="../libfunctions/_FormatAutoItExitMethod.htm">_FormatAutoItExitMethod</a></p>
