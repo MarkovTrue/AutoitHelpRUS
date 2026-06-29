@@ -18,11 +18,11 @@
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс закрываемого окна. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, которое нужно закрыть. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст закрываемого окна. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, которое нужно закрыть. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 </table>
 
@@ -39,7 +39,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Функция отправляет окну сообщение о закрытии; результат зависит от окна (оно может запросить сохранение данных и т.д.). Чтобы принудительно закрыть окно, используйте <a href="WinKill.htm"><span class="S4">WinKill</span><span class="S8">()</span></a>. Если несколько окон соответствуют критериям, закрывается то из них, которое было активно последним.<br />
+<p>Эта функция отправляет окну сообщение о закрытии, результат зависит от самого окна (оно может запросить сохранение данных и т.п.). Чтобы закрыть окно принудительно, используйте функцию <a href="WinKill.htm"><span class="S4">WinKill</span><span class="S8">()</span></a>. Если критериям соответствует несколько окон, закрывается то, которое было активным последним.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ProcessClose.htm">ProcessClose</a>, <a href="WinActivate.htm">WinActivate</a>, <a href="WinExists.htm">WinExists</a>, <a href="WinKill.htm">WinKill</a>, <a href="WinMove.htm">WinMove</a>, <a href="WinSetState.htm">WinSetState</a>, <a href="AutoItSetOption.htm#WinTitleMatchMode ">WinTitleMatchMode (Option)</a></p>
