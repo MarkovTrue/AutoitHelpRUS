@@ -18,11 +18,11 @@
 <table>
 <tr>
 <td style="width:15%">title</td>
-<td style="width:85%">Заголовок/hWnd/класс окна, текст которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Специальное определение заголовка</a>.</td>
+<td style="width:85%">Заголовок / дескриптор / класс окна, текст которого нужно получить. См. <a href="../intro/windowsadvanced.htm">Заголовки и текст окон (расширенно)</a>.</td>
 </tr>
 <tr>
 <td>text</td>
-<td><strong>[необязательный]</strong> Текст окна, из которого нужно получить содержимое. По умолчанию пустая строка. См. <a href="../intro/windowsbasic.htm#specialtext">Специальное определение текста</a>.</td>
+<td><strong>[необязательный]</strong> Текст окна, из которого нужно получить текст. См. <a href="../intro/windowsbasic.htm#specialtext">Заголовки и текст окон (основы)</a>.</td>
 </tr>
 </table>
 
@@ -30,7 +30,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает строку, содержащую считанный текст окна.</td>
+<td style="width:90%">Возвращает строку с прочитанным текстом окна.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -39,9 +39,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Можно получить до 64 КБ текста окна. <a href="WinGetText.htm"><span class="S4">WinGetText</span><span class="S8">()</span></a> работает со свёрнутыми окнами, но для скрытых окон требуется предварительно установить <a href="AutoItSetOption.htm#WinDetectHiddenText">Opt("WinDetectHiddenText", 1)</a>.<br />
-Если несколько окон соответствуют критериям, возвращается информация из наиболее недавно активного.<br />
-Используйте <a href="WinGetText.htm"><span class="S4">WinGetText</span></a><span class="S8">(</span>"[active]"<span class="S8">)</span>, чтобы получить текст активного окна.<br />
+<p>Можно получить до 64 КБ текста окна. <a href="WinGetText.htm"><span class="S4">WinGetText</span><span class="S8">()</span></a> работает со свёрнутыми окнами, но со скрытыми окнами работает только если задано <a href="AutoItSetOption.htm#WinDetectHiddenText">Opt("WinDetectHiddenText", 1)</a><br />
+Если критериям <a href="WinGetText.htm"><span class="S4">WinGetText</span><span class="S8">()</span></a> соответствует несколько окон, возвращается информация для окна, которое было активным последним.<br />
+Чтобы получить текст активного окна, используйте <a href="WinGetText.htm"><span class="S4">WinGetText</span></a><span class="S8">(</span>"[active]"<span class="S8">)</span>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="ControlGetText.htm">ControlGetText</a>, <a href="WinGetClassList.htm">WinGetClassList</a>, <a href="WinGetTitle.htm">WinGetTitle</a></p>
