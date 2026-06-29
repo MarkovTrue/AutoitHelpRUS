@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>StdioClose</h1>
-<p class="funcdesc">Освобождает все ресурсы, связанные с STDIO-перенаправлением ранее запущенного процесса.</p>
+<p class="funcdesc">Закрывает все ресурсы, связанные с процессом, ранее запущенным с перенаправлением STDIO.</p>
 <p class="codeheader"><a class="le" href="../functions/StdioClose.htm"><span class="S4">StdioClose</span></a> <span class="S8">(</span> <span class="S0">process_id</span> <span class="S8">)</span></p>
 
 <h2>Параметры</h2>
@@ -30,12 +30,12 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Возвращает 0, если для процесса не было настроено перенаправление STDIO или ресурсы уже закрыты.</td>
+<td>Возвращает 0, если у процесса не было перенаправления STDIO или оно уже закрыто.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Функция закрывает все дескрипторы и освобождает ресурсы, связанные с STDIO. После вызова чтение данных STDIO из процесса становится невозможным; любые данные, ожидающие обработки, будут потеряны.<br />
+<p>Эта функция закрывает все дескрипторы и освобождает все ресурсы, связанные с STDIO. Прочитать данные STDIO процесса больше будет нельзя. Все необработанные данные будут потеряны.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="Run.htm">Run</a>, <a href="RunAs.htm">RunAs</a>, <a href="StderrRead.htm">StderrRead</a>, <a href="StdinWrite.htm">StdinWrite</a>, <a href="StdoutRead.htm">StdoutRead</a></p>
