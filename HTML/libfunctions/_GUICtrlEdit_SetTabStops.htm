@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlEdit_SetTabStops</h1>
-<p class="funcdesc">Задаёт позиции табуляции в Edit.</p>
+<p class="funcdesc">Устанавливает позиции табуляции.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiEdit.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlEdit_SetTabStops.htm"><span class="S15">_GUICtrlEdit_SetTabStops</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$aTabStops</span> <span class="S8">)</span></p>
 
@@ -23,10 +23,12 @@
 </tr>
 <tr>
 <td><span class="S91">$aTabStops</span></td>
-<td>Массив позиций табуляции в формате:<br />
+<td>массив позиций табуляции в следующем формате:<br />
 [0] – позиция табуляции 1<br />
-[2] – позиция табуляции 2<br />
-[n] – позиция табуляции n</td>
+[1] – позиция табуляции 2<br />
+[n] – позиция табуляции n<br />
+<br />
+Позиции табуляции могут быть в пикселах (по умолчанию) или единицах диалога с использованием флага 0x8000.</td>
 </tr>
 </table>
 
@@ -72,8 +74,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_SetText.htm"><span class="S15">_GUICtrlEdit_SetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"1st"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"2nd"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"3rd"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <span class="S7">"Set Tab Stops"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; установить позиции табуляции
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить позиции табуляции</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_SetTabStops.htm"><span class="S15">_GUICtrlEdit_SetTabStops</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S9">$aTabStops</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Цикл до выхода пользователя.</span><br>

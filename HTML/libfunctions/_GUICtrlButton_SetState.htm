@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlButton_SetState</h1>
-<p class="funcdesc">Устанавливает состояние элемента управления Button.</p>
+<p class="funcdesc">Задаёт состояние подсветки кнопки. Состояние подсветки определяет, подсвечена ли кнопка так, как будто пользователь её нажал.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiButton.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlButton_SetState.htm"><span class="S15">_GUICtrlButton_SetState</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bHighlighted</span> <span class="S8">=</span> <span class="S5">True</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$bHighlighted</span></td>
-<td><strong>[необязательный]</strong> Подсвечена ли кнопка.</td>
+<td><strong>[необязательный]</strong> Задаёт, подсвечена ли кнопка.</td>
 </tr>
 </table>
 
@@ -32,7 +32,10 @@
 
 
 <h2>Примечания</h2>
-<p>Подсветка влияет только на внешний вид кнопки. Она не меняет состояние флажка или радио-кнопки.<br />
+<p>Подсветка влияет только на внешний вид кнопки. Она не влияет на состояние отметки переключателя или флажка.<br />
+<br />
+Кнопка автоматически подсвечивается, когда пользователь наводит на неё курсор и нажимает и удерживает левую кнопку мыши.<br />
+Подсветка снимается, когда пользователь отпускает кнопку мыши.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlButton_GetState.htm">_GUICtrlButton_GetState</a>, <a href="_GUICtrlButton_SetCheck.htm">_GUICtrlButton_SetCheck</a></p>

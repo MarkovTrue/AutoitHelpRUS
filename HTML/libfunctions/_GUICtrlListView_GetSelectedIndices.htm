@@ -33,13 +33,20 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает выделяет.</td>
+<td style="width:90%">Возвращает индексы выделённых элементов в зависимости от <span class="S91">$bArray</span>:<br />
+Массив&nbsp;– со следующим форматом<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– количество элементов в массиве (n)<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– индекс первого элемента<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– индекс второго элемента<br />
+<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span>&nbsp;– индекс последнего элемента<br />
+Строка&nbsp;– со следующим форматом<br />
+"0|1|2|n"</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
 <td>Зависит от <span class="S91">$bArray</span>:<br />
 Array&nbsp;– массив следующего формата<br />
-[0]&nbsp;– количество элементов в массиве (0)<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– количество элементов в массиве (0)<br />
 String&nbsp;– пустая строка ("").</td>
 </tr>
 </table>

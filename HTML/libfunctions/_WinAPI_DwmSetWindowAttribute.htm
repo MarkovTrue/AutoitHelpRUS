@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_WinAPI_DwmSetWindowAttribute</h1>
-<p class="funcdesc">Задаёт значение указанных атрибутов отрисовки неклиентской области, применяемых к окну.</p>
+<p class="funcdesc">Задаёт значение указанных атрибутов отрисовки неклиентской области для окна.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DwmSetWindowAttribute.htm"><span class="S15">_WinAPI_DwmSetWindowAttribute</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iAttribute</span><span class="S8">,</span> <span class="S9">$iData</span> <span class="S8">)</span></p>
 
@@ -19,25 +19,41 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$hWnd</span></td>
-<td style="width:85%">Дескриптор окна, к которому применяется заданный атрибут.</td>
+<td style="width:85%">Дескриптор окна, к которому применяется атрибут.</td>
 </tr>
 <tr>
 <td><span class="S91">$iAttribute</span></td>
-<td>Атрибут, применяемый к окну. Принимает одно из значений:<br />
+<td>Атрибут, применяемый к окну. Параметр может принимать одно из следующих значений:<br />
 <strong>Windows Vista или новее</strong><br />
-<span class="S91">$DWMWA_NCRENDERING_POLICY</span> – <span class="S91">$iData</span> может быть DWMNCRP_USEWINDOWSTYLE, DWMNCRP_DISABLED или DWMNCRP_ENABLED<br />
-<span class="S91">$DWMWA_TRANSITIONS_FORCEDISABLED</span> – <span class="S91">$iData</span> <span class="S5">True</span>/<span class="S5">False</span><br />
-<span class="S91">$DWMWA_ALLOW_NCPAINT</span> – <span class="S91">$iData</span> <span class="S5">True</span>/<span class="S5">False</span><br />
-<span class="S91">$DWMWA_NONCLIENT_RTL_LAYOUT</span> – <span class="S91">$iData</span> <span class="S5">True</span>/<span class="S5">False</span><br />
-<span class="S91">$DWMWA_FORCE_ICONIC_REPRESENTATION</span> – <span class="S91">$iData</span> <span class="S5">True</span>/<span class="S5">False</span><br />
-<span class="S91">$DWMWA_FLIP3D_POLICY</span> – <span class="S91">$iData</span> может быть DWMFLIP3D_DEFAULT, DWMFLIP3D_EXCLUDEBELOW или DWMFLIP3D_EXCLUDEABOVE<br />
-<span class="S91">$DWMWA_HAS_ICONIC_BITMAP</span> – <span class="S91">$iData</span> <span class="S5">True</span>/<span class="S5">False</span><br />
-<span class="S91">$DWMWA_DISALLOW_PEEK</span> – <span class="S91">$iData</span> <span class="S5">True</span>/<span class="S5">False</span><br />
-<span class="S91">$DWMWA_EXCLUDED_FROM_PEEK</span> – <span class="S91">$iData</span> <span class="S5">True</span>/<span class="S5">False</span>.</td>
+<span class="S91">$DWMWA_NCRENDERING_POLICY</span>, <span class="S91">$iData</span> может быть DWMNCRP_USEWINDOWSTYLE, DWMNCRP_DISABLED, DWMNCRP_ENABLED<br />
+<span class="S91">$DWMWA_TRANSITIONS_FORCEDISABLED</span><br />
+<span class="S91">$DWMWA_ALLOW_NCPAINT</span><br />
+<span class="S91">$DWMWA_NONCLIENT_RTL_LAYOUT</span><br />
+<span class="S91">$DWMWA_FORCE_ICONIC_REPRESENTATION</span><br />
+<span class="S91">$DWMWA_FLIP3D_POLICY</span>, <span class="S91">$iData</span> может быть DWMFLIP3D_DEFAULT, DWMFLIP3D_EXCLUDEBELOW, DWMFLIP3D_EXCLUDEABOVE<br />
+<br />
+<strong>Windows 7 или новее</strong><br />
+<span class="S91">$DWMWA_HAS_ICONIC_BITMAP</span><br />
+<span class="S91">$DWMWA_DISALLOW_PEEK</span><br />
+<span class="S91">$DWMWA_EXCLUDED_FROM_PEEK</span><br />
+<br />
+<strong>Windows 8 или новее</strong><br />
+<span class="S91">$DWMWA_CLOAK</span><br />
+<span class="S91">$DWMWA_FREEZE_REPRESENTATION</span><br />
+<span class="S91">$DWMWA_PASSIVE_UPDATE_MODE</span><br />
+<br />
+<strong>Windows 11 (<span class="S61">@OSBuild</span> = 22000) или новее</strong><br />
+<span class="S91">$DWMWA_USE_HOSTBACKDROPBRUSH</span><br />
+<span class="S91">$DWMWA_USE_IMMERSIVE_DARK_MODE</span> (особый случай для <span class="S61">@OSBuild</span> &lt;= 18985)<br />
+<span class="S91">$DWMWA_WINDOW_CORNER_PREFERENCE</span>, <span class="S91">$iData</span> может быть DWMWCP_DEFAULT, DWMWCP_DONOTROUND, DWMWCP_ROUND, DWMWCP_ROUNDSMALL<br />
+<span class="S91">$DWMWA_BORDER_COLOR</span> <span class="S91">$iData</span> = Colorref<br />
+<span class="S91">$DWMWA_CAPTION_COLOR</span> <span class="S91">$iData</span> = Colorref<br />
+<span class="S91">$DWMWA_TEXT_COLOR</span> <span class="S91">$iData</span> = Colorref<br />
+<span class="S91">$DWMWA_VISIBLE_FRAME_BORDER_THICKNESS</span> <span class="S91">$iData</span> = UINT.</td>
 </tr>
 <tr>
 <td><span class="S91">$iData</span></td>
-<td>Значение атрибута. Конкретные значения см. в описании <span class="S91">$iAttribute</span>; в остальных случаях <span class="S5">True</span>/<span class="S5">False</span>.</td>
+<td>Значение атрибута. Конкретные значения смотрите в <span class="S91">$iAttribute</span>, иначе <span class="S5">True</span>/<span class="S5">False</span>.</td>
 </tr>
 </table>
 
@@ -83,8 +99,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI с различными элементами управления.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">,</span> <span class="S3">165</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetThemeAppProperties.htm"><span class="S15">_WinAPI_SetThemeAppProperties</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; необходимо для корректной работы GUICtrlSetColor() на CheckBox
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetThemeAppProperties.htm"><span class="S15">_WinAPI_SetThemeAppProperties</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">)</span>&nbsp;<span class="S1">; необходимо для корректной работы GUICtrlSetColor() на CheckBox</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать элемент checkbox.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_idChk_DarkMode</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateCheckbox.htm"><span class="S4">GUICtrlCreateCheckbox</span></a><span class="S8">(</span><span class="S7">"Use Dark mode frame"</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">125</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">)</span><br>
@@ -105,12 +120,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$g_idChk_DarkMode</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S0">_IsChecked</span><span class="S8">(</span><span class="S9">$g_idChk_DarkMode</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;  включение тёмной темы рамки окна
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S0">_IsChecked</span><span class="S8">(</span><span class="S9">$g_idChk_DarkMode</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;  включение тёмной темы рамки окна</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_iSet</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_DwmSetWindowAttribute.htm"><span class="S15">_WinAPI_DwmSetWindowAttribute</span></a><span class="S8">(</span><span class="S9">$g_hGUI</span><span class="S8">,</span> <span class="S9">$DWMWA_USE_IMMERSIVE_DARK_MODE</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">LetsSeeTheDifference</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;  отключение тёмной темы рамки окна
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;  отключение тёмной темы рамки окна</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_iSet</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_DwmSetWindowAttribute.htm"><span class="S15">_WinAPI_DwmSetWindowAttribute</span></a><span class="S8">(</span><span class="S9">$g_hGUI</span><span class="S8">,</span> <span class="S9">$DWMWA_USE_IMMERSIVE_DARK_MODE</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">LetsSeeTheDifference</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
@@ -148,10 +161,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_RedrawWindow.htm"><span class="S15">_WinAPI_RedrawWindow</span></a><span class="S8">(</span><span class="S9">$g_hGUI</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$RDW_UPDATENOW</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinActivate.htm"><span class="S4">WinActivate</span></a><span class="S8">(</span><span class="S7">"[CLASS:Progman;]"</span><span class="S8">)</span>&nbsp;<span class="S1">; Для обновления рамки.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinActivate.htm"><span class="S4">WinActivate</span></a><span class="S8">(</span><span class="S9">$g_hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;              Нужно только для постоянных переключений в этом демо.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinActivate.htm"><span class="S4">WinActivate</span></a><span class="S8">(</span><span class="S7">"[CLASS:Progman;]"</span><span class="S8">)</span>&nbsp;<span class="S1">; Для обновления рамки.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinActivate.htm"><span class="S4">WinActivate</span></a><span class="S8">(</span><span class="S9">$g_hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;              Нужно только для постоянных переключений в этом демо.</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;LetsSeeTheDifference
 </span><br>
 <br>

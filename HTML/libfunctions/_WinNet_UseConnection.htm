@@ -69,12 +69,9 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив со следующим форматом:
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– Если <span class="S5">True</span>, подключение было выполнено с использованием переадресации локального устройства
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Если <span class="S91">$sLocalName</span> указывает локальное устройство, это имя локального устройства.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Если&nbsp;<span class="S91">$sLocalName</span> не указывает устройство и сеть требует переадресации локального устройства,
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;или&nbsp;если установлен бит 4 (принудительная переадресация), буфер получает имя переадресованного локального устройства.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В противном случае&nbsp;имя, скопированное в буфер, является имя удалённого ресурса.</td>
+<td style="width:90%">Возвращает массив со следующей структурой:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – если <span class="S5">True</span>, подключение было выполнено с использованием переадресации локального устройства<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – если <span class="S91">$sLocalName</span> указывает локальное устройство, это имя локального устройства. Если <span class="S91">$sLocalName</span> не указывает устройство и сеть требует переадресации локального устройства, или если установлен бит 4 (принудительная переадресация), буфер получает имя переадресованного локального устройства. В противном случае имя, скопированное в буфер, является именем удалённого ресурса.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>

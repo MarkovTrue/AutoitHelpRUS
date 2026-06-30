@@ -58,9 +58,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Дескриптором, возвращённым <a class="le" href="_ClipBoard_GetData.htm"><span class="S15">_ClipBoard_GetData</span></a><span class="S8">()</span>, управляет буфер обмена, а не приложение.<br />
-Данные необходимо скопировать немедленно. Приложение не должно освобождать дескриптор или оставлять его заблокированным.<br />
-Не используйте дескриптор после вызова <a class="le" href="_ClipBoard_Empty.htm"><span class="S15">_ClipBoard_Empty</span></a><span class="S8">()</span>, <a class="le" href="_ClipBoard_Close.htm"><span class="S15">_ClipBoard_Close</span></a><span class="S8">()</span> или <a class="le" href="_ClipBoard_SetData.htm"><span class="S15">_ClipBoard_SetData</span></a><span class="S8">()</span> с тем же форматом.<br />
+<p>Дескриптором, который возвращает функция <a href="_ClipBoard_GetData.htm"><span class="S15">_ClipBoard_GetData</span><span class="S8">()</span></a>, управляет буфер обмена, а не приложение.<br />
+Данные копируйте сразу. Приложению нельзя освобождать дескриптор или оставлять его заблокированным.<br />
+Нельзя обращаться к дескриптору после вызова <a href="_ClipBoard_Empty.htm"><span class="S15">_ClipBoard_Empty</span><span class="S8">()</span></a> или <a href="_ClipBoard_Close.htm"><span class="S15">_ClipBoard_Close</span><span class="S8">()</span></a>, а также после <a href="_ClipBoard_SetData.htm"><span class="S15">_ClipBoard_SetData</span><span class="S8">()</span></a> с тем же форматом.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ClipBoard_GetData.htm">_ClipBoard_GetData</a>, <a href="_ClipBoard_SetData.htm">_ClipBoard_SetData</a></p>

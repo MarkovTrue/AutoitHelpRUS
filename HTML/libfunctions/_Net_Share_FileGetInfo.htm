@@ -34,8 +34,8 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив со следующим форматом:<br />
-[0]&nbsp;– номер ID, назначенный ресурсу при его открытии<br />
-[1]&nbsp;– разрешения доступа, связанные с открывающим приложением:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– номер ID, назначенный ресурсу при его открытии<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– разрешения доступа, связанные с открывающим приложением:<br />
 1&nbsp;– разрешение на чтение ресурса и выполнение ресурса<br />
 2&nbsp;– разрешение на запись в ресурс.<br />
 4&nbsp;– разрешение на создание ресурса<br />
@@ -43,9 +43,9 @@
 16&nbsp;– разрешение на удаление<br />
 32&nbsp;– разрешение на изменение атрибутов<br />
 64&nbsp;– разрешение на изменение ACL<br />
-[2]&nbsp;– содержит количество блокировок файлов на ресурсе<br />
-[3]&nbsp;– указывает путь открытого ресурса<br />
-[4]&nbsp;– указывает, какой пользователь или какой компьютер открыл ресурс</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– содержит количество блокировок файлов на ресурсе<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– указывает путь открытого ресурса<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span>&nbsp;– указывает, какой пользователь или какой компьютер открыл ресурс</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -95,8 +95,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Entries read ............: "</span> <span class="S8">&amp;</span> <span class="S9">$aFile</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить информацию для каждого открытого файла (как и информация <em>$aFile</em>)
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить информацию для каждого открытого файла (как и информация &lt;em&gt;$aFile&lt;/em&gt;)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iI</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$aFile</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aInfo</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Net_Share_FileGetInfo.htm"><span class="S15">_Net_Share_FileGetInfo</span></a><span class="S8">(</span><span class="S9">$sServer</span><span class="S8">,</span> <span class="S9">$aFile</span><span class="S8">[</span><span class="S9">$iI</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Error ...................: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><br>

@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$vKey</span></td>
-<td style="width:85%"><strong>[необязательный]</strong> Клавиша для проверки (строка), <span class="S91">$VK_*</span> как определено в "<span class="S7">WinAPIvkeysConstants.au3</span>" или массив клавиш для проверки. Если Default, то внутренний дескриптор DLL будет закрыт. Не забудьте закрыть его с помощью <a class="le" href="_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">()</span> когда он больше не нужен.</td>
+<td style="width:85%"><strong>[необязательный]</strong> Клавиша для проверки (строка), <span class="S91">$VK_*</span> как определено в <span class="S7">WinAPIvkeysConstants.au3</span> или массив клавиш для проверки. Если Default, то внутренний дескриптор DLL будет закрыт. Не забудьте закрыть его с помощью <a class="le" href="_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">()</span> когда он больше не нужен.</td>
 </tr>
 <tr>
 <td><span class="S91">$vDLL</span></td>
@@ -49,7 +49,7 @@
 Если вы используете <span class="S91">$vDLL</span> = Default и не завершаете скрипт AutoIt, а затем перестаёте использовать <a class="le" href="_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">(</span>...<span class="S8">)</span>,<br />
 тогда вызовите <a class="le" href="_IsPressed.htm"><span class="S15">_IsPressed</span></a><span class="S8">()</span> для закрытия внутреннего дескриптора.<br />
 <br />
-Если <span class="S91">$vKey</span> – строка или <span class="S91">$VK_*</span>, как определено в "<span class="S7">WinAPIvkeysConstants.au3</span>", то<br />
+Если <span class="S91">$vKey</span> – строка или <span class="S91">$VK_*</span>, как определено в <span class="S7">WinAPIvkeysConstants.au3</span>, то<br />
 &nbsp;&nbsp;&nbsp; <a href="_IsPressed.htm"><span class="S15">_IsPressed</span><span class="S8">()</span></a> будет возвращать 1, пока клавиша нажата.<br />
 &nbsp;&nbsp;&nbsp; Даже кратковременное нажатие может привести к нескольким возвращаемым значениям в цикле.<br />
 &nbsp;&nbsp;&nbsp; Если вызванный код не содержит блокирующую функцию (такую как MsgBox) и пользователю не требуются несколько возвращений,<br />

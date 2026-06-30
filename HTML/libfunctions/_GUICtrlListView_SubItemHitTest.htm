@@ -32,7 +32,19 @@
 </table>
 
 <h2>Возвращаемое значение</h2>
-Возвращает массив.
+<br />
+Возвращает массив со следующим форматом:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – индекс элемента на указанной позиции (отсчёт от 0) или -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – индекс подэлемента на указанной позиции (отсчёт от 0) или -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция в окне элемента управления, но не на элементе<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция над значком элемента<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция над текстом элемента<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция над изображением состояния элемента<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция где-то на элементе<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция выше клиентской области элемента управления<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция ниже клиентской области элемента управления<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">9</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция слева от клиентской области<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция справа от клиентской области
 
 <h2>См. также</h2>
 <p><a href="_GUICtrlListView_HitTest.htm">_GUICtrlListView_HitTest</a></p>
@@ -137,7 +149,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нет возвращаемого значения</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_RCLICK</span>&nbsp;<span class="S1">; Отправляется элементом list-view при клике правой кнопкой мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_RCLICK"</span><span class="S8">,</span> <span class="S9">$tagNMITEMACTIVATE</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Index,SubItem,NewState,OldState,Changed,X,Y,lParam,KeyFlags"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Return 1 ; чтобы запретить стандартную обработку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return 1 ; чтобы запретить стандартную обработку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; разрешить стандартную обработку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_RDBLCLK</span>&nbsp;<span class="S1">; Отправляется элементом list-view при двойном клике правой кнопкой мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_RDBLCLK"</span><span class="S8">,</span> <span class="S9">$tagNMITEMACTIVATE</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Index,SubItem,NewState,OldState,Changed,X,Y,lParam,KeyFlags"</span><span class="S8">)</span><br>

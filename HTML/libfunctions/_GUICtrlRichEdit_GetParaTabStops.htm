@@ -27,7 +27,26 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает строка, состоящая из значений, разделённых точками с запятой (;).</td>
+<td style="width:90%">Возвращает строку, состоящую из значений, разделённых точками с запятой (;).<br />
+значение 1 – количество табуляций<br />
+значения 2 по <value 1> + 1 – описание табуляции:<br />
+абсолютная позиция табуляции (в единицах пространства)<br />
+вид табуляции<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l – левая табуляция<br />
+&nbsp;&nbsp;&nbsp;&nbsp;c – центральная табуляция<br />
+&nbsp;&nbsp;&nbsp;&nbsp;r – десятичная табуляция<br />
+&nbsp;&nbsp;&nbsp;&nbsp;b – линейка табуляции (вертикальная линия, как в Word)<br />
+вид заполнителя.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;. – точечный заполнитель<br />
+&nbsp;&nbsp;&nbsp;&nbsp;- – пунктирный заполнитель<br />
+&nbsp;&nbsp;&nbsp;&nbsp;_ – подчёркивание заполнителя<br />
+&nbsp;&nbsp;&nbsp;&nbsp;= – двойная линия заполнителя<br />
+&nbsp;&nbsp;&nbsp;&nbsp;t – толстая линия заполнителя<br />
+&nbsp;&nbsp;&nbsp;&nbsp;a пробел – без заполнителя<br />
+значение <value 1> + 2 – область действия:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;a – все (или только) выбранные абзацы имеют эти параметры<br />
+&nbsp;&nbsp;&nbsp;&nbsp;f – первый выбранный абзац имеет эти параметры, но другие нет<br />
+&nbsp;&nbsp;&nbsp;&nbsp;c – текущий абзац имеет эти параметры</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -96,7 +115,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_SetParaTabStops.htm"><span class="S15">_GUICtrlRichEdit_SetParaTabStops</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <span class="S7">"2.3r="</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Report</span><span class="S8">(</span><span class="S7">"3. Change tabstops of both paragraphs"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">5</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол – можно посмотреть настройки в Word</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол, чтобы посмотреть настройки в Word</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_Deselect.htm"><span class="S15">_GUICtrlRichEdit_Deselect</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_StreamToFile.htm"><span class="S15">_GUICtrlRichEdit_StreamToFile</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@DesktopDir"><span class="S6">@DesktopDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\gcre.rtf"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idBtn_Next</span><span class="S8">,</span> <span class="S9">$GUI_DISABLE</span><span class="S8">)</span><br>

@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlButton_GetSplitInfo</h1>
-<p class="funcdesc">Получает информацию о разделённой кнопке.</p>
+<p class="funcdesc">Возвращает сведения о раздельной кнопке (split button).</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiButton.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlButton_GetSplitInfo.htm"><span class="S15">_GUICtrlButton_GetSplitInfo</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">)</span></p>
 
@@ -27,11 +27,15 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив следующего формата:<br />
-[0]&nbsp;– дескриптор списка изображений<br />
-[1]&nbsp;– стиль разделённой кнопки (один из <span class="S91">$BCSS_*</span>)<br />
-[2]&nbsp;– размер: ширина<br />
-[3]&nbsp;– размер: высота</td>
+<td style="width:90%">Возвращает массив:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– дескриптор списка изображений<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– стиль раздельной кнопки, один или несколько из:<br />
+<span class="S91">$BCSS_ALIGNLEFT</span>&nbsp;– выровнять изображение или глиф по горизонтали к левому краю<br />
+<span class="S91">$BCSS_IMAGE</span>&nbsp;– рисовать значок в качестве глифа<br />
+<span class="S91">$BCSS_NOSPLIT</span>&nbsp;– без разделения<br />
+<span class="S91">$BCSS_STRETCH</span>&nbsp;– растягивать глиф, по возможности сохраняя пропорции<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– ширина глифа<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– высота глифа</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>

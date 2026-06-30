@@ -40,7 +40,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">1 и устанавливает флаг <span class="S61">@extended</span> на 0 или одно из следующих значений (только в <strong>Windows 7 или выше</strong>).<br />
+<td style="width:90%">Возвращает 1 и устанавливает флаг <span class="S61">@extended</span> на 0 или одно из следующих значений (только в <strong>Windows 7 или выше</strong>).<br />
 <span class="S91">$MSGFLTINFO_ALLOWED_HIGHER</span><br />
 <span class="S91">$MSGFLTINFO_ALREADYALLOWED_FORWND</span><br />
 <span class="S91">$MSGFLTINFO_ALREADYDISALLOWED_FORWND</span><br />
@@ -49,7 +49,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>0 и устанавливает флаг <span class="S61">@error</span> в ненулевое значение, вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения расширенной информации об ошибке.</td>
+<td>Возвращает 0 и устанавливает <span class="S61">@error</span> ≠ 0, вызовите <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> для получения расширенной информации об ошибке.</td>
 </tr>
 </table>
 

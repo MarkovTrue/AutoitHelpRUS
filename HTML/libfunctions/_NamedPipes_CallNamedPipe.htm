@@ -46,8 +46,8 @@
 <td><strong>[необязательный]</strong> Количество миллисекунд для ожидания доступности именованного канала.<br />
 Помимо числовых значений можно указать следующие специальные значения:<br />
 -1 – ждать бесконечно<br />
-0 – использует тайм-аут по умолчанию, указанный при вызове <em><a class="le" href="_NamedPipes_CreateNamedPipe.htm"><span class="S15">_NamedPipes_CreateNamedPipe</span></a><span class="S8">()</span></em><br />
-1 – не ждать. Если канал недоступен – вернуть ошибку</td>
+ 0 – использует тайм-аут по умолчанию, указанный при вызове <a class="le" href="_NamedPipes_CreateNamedPipe.htm"><span class="S15">_NamedPipes_CreateNamedPipe</span></a><span class="S8">()</span><br />
+ 1 – не ждать. Если канал недоступен – вернуть ошибку</td>
 </tr>
 </table>
 
@@ -64,9 +64,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Вызов <em><a class="le" href="_NamedPipes_CallNamedPipe.htm"><span class="S15">_NamedPipes_CallNamedPipe</span></a><span class="S8">()</span></em> эквивалентен вызову функций <em><a class="le" href="_WinAPI_CreateFile.htm"><span class="S15">_WinAPI_CreateFile</span></a><span class="S8">()</span></em> (или <em><a class="le" href="_NamedPipes_WaitNamedPipe.htm"><span class="S15">_NamedPipes_WaitNamedPipe</span></a><span class="S8">()</span></em>, если <em><a class="le" href="_WinAPI_CreateFile.htm"><span class="S15">_WinAPI_CreateFile</span></a><span class="S8">()</span></em> не может открыть канал немедленно), <em>TransactNamedPipe</em> и <em>CloseHandle</em>.<br />
-<em><a class="le" href="_WinAPI_CreateFile.htm"><span class="S15">_WinAPI_CreateFile</span></a><span class="S8">()</span></em> вызывается с флагом доступа GENERIC_READ | GENERIC_WRITE и флагом наследования дескриптора <span class="S5">False</span>.<br />
-<em><a class="le" href="_NamedPipes_CallNamedPipe.htm"><span class="S15">_NamedPipes_CallNamedPipe</span></a><span class="S8">()</span></em> не удаётся выполнить, если канал является каналом байтового типа.<br />
+<p>Вызов <a class="le" href="_NamedPipes_CallNamedPipe.htm"><span class="S15">_NamedPipes_CallNamedPipe</span></a><span class="S8">()</span> эквивалентен вызову функций <a class="le" href="_WinAPI_CreateFile.htm"><span class="S15">_WinAPI_CreateFile</span></a><span class="S8">()</span> (или <a class="le" href="_NamedPipes_WaitNamedPipe.htm"><span class="S15">_NamedPipes_WaitNamedPipe</span></a><span class="S8">()</span>, если <a class="le" href="_WinAPI_CreateFile.htm"><span class="S15">_WinAPI_CreateFile</span></a><span class="S8">()</span> не может открыть канал немедленно), <em>TransactNamedPipe</em> и <em>CloseHandle</em>.<br />
+<a class="le" href="_WinAPI_CreateFile.htm"><span class="S15">_WinAPI_CreateFile</span></a><span class="S8">()</span> вызывается с флагом доступа GENERIC_READ | GENERIC_WRITE и флагом наследования дескриптора <span class="S5">False</span>.<br />
+<a class="le" href="_NamedPipes_CallNamedPipe.htm"><span class="S15">_NamedPipes_CallNamedPipe</span></a><span class="S8">()</span> не удаётся выполнить, если канал является каналом байтового типа.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_NamedPipes_TransactNamedPipe.htm">_NamedPipes_TransactNamedPipe</a>, <a href="_NamedPipes_WaitNamedPipe.htm">_NamedPipes_WaitNamedPipe</a></p>

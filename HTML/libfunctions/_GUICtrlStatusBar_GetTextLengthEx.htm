@@ -28,7 +28,12 @@
 </table>
 
 <h2>Возвращаемое значение</h2>
-Возвращает текст.
+Возвращает тип операции рисования. Тип может быть одним из следующих значений:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;0 – текст рисуется с границей, чтобы выглядеть ниже плоскости окна<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$SBT_NOBORDERS</span> – текст рисуется без границ<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$SBT_OWNERDRAW</span> – текст рисуется родительским окном<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$SBT_POPOUT</span> – текст рисуется с границей, чтобы выглядеть выше плоскости окна<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$SBT_RTLREADING</span> – текст будет отображаться в направлении, противоположном тексту в родительском окне<br />
 
 <h2>См. также</h2>
 <p><a href="_GUICtrlStatusBar_GetTextFlags.htm">_GUICtrlStatusBar_GetTextFlags</a>, <a href="_GUICtrlStatusBar_GetTextLength.htm">_GUICtrlStatusBar_GetTextLength</a></p>

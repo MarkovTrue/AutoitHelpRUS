@@ -36,13 +36,41 @@
 </tr>
 <tr>
 <td><span class="S91">$iState</span></td>
-<td>Задаёт начальное состояние элемента рамки. Если <span class="S91">$iType</span> = <span class="S91">$DFC_BUTTON</span>, <span class="S91">$iState</span> принимает одно из значений:<br />
-<span class="S91">$DFCS_BUTTON3STATE</span> – кнопка с тремя состояниями<br />
+<td>Задаёт начальное состояние элемента-рамки. Если <span class="S91">$iType</span> равен <span class="S91">$DFC_BUTTON</span>, <span class="S91">$iState</span> может быть одним из следующих значений:<br />
+<span class="S91">$DFCS_BUTTON3STATE</span> – трёхпозиционная кнопка<br />
 <span class="S91">$DFCS_BUTTONCHECK</span> – флажок<br />
-<span class="S91">$DFCS_BUTTONPUSH</span> – обычная нажимаемая кнопка<br />
-<span class="S91">$DFCS_BUTTONRADIO</span> – радиокнопка<br />
-<span class="S91">$DFCS_BUTTONRADIOIMAGE</span> – радиокнопка с изображением (нерасширенная)<br />
-<span class="S91">$DFCS_BUTTONRADIOMASK</span> – маска радиокнопки.</td>
+<span class="S91">$DFCS_BUTTONPUSH</span> – нажимная кнопка<br />
+<span class="S91">$DFCS_BUTTONRADIO</span> – переключатель<br />
+<span class="S91">$DFCS_BUTTONRADIOIMAGE</span> – изображение для переключателя (неквадратному нужно изображение)<br />
+<span class="S91">$DFCS_BUTTONRADIOMASK</span> – маска для переключателя (неквадратному нужна маска)<br />
+Если <span class="S91">$iType</span> равен <span class="S91">$DFC_CAPTION</span>, <span class="S91">$iState</span> может быть одним из следующих значений:<br />
+<span class="S91">$DFCS_CAPTIONCLOSE</span> – кнопка «Закрыть»<br />
+<span class="S91">$DFCS_CAPTIONHELP</span> – кнопка «Справка»<br />
+<span class="S91">$DFCS_CAPTIONMAX</span> – кнопка «Развернуть»<br />
+<span class="S91">$DFCS_CAPTIONMIN</span> – кнопка «Свернуть»<br />
+<span class="S91">$DFCS_CAPTIONRESTORE</span> – кнопка «Восстановить»<br />
+Если <span class="S91">$iType</span> равен <span class="S91">$DFC_MENU</span>, <span class="S91">$iState</span> может быть одним из следующих значений:<br />
+<span class="S91">$DFCS_MENUARROW</span> – стрелка подменю<br />
+<span class="S91">$DFCS_MENUARROWRIGHT</span> – стрелка подменю, указывающая влево. Используется для каскадных меню справа налево в языках с письмом справа налево, таких как арабский или иврит<br />
+<span class="S91">$DFCS_MENUBULLET</span> – маркер<br />
+<span class="S91">$DFCS_MENUCHECK</span> – флажок<br />
+Если <span class="S91">$iType</span> равен <span class="S91">$DFC_SCROLL</span>, <span class="S91">$iState</span> может быть одним из следующих значений:<br />
+<span class="S91">$DFCS_SCROLLCOMBOBOX</span> – полоса прокрутки combo box<br />
+<span class="S91">$DFCS_SCROLLDOWN</span> – стрелка вниз полосы прокрутки<br />
+<span class="S91">$DFCS_SCROLLLEFT</span> – стрелка влево полосы прокрутки<br />
+<span class="S91">$DFCS_SCROLLRIGHT</span> – стрелка вправо полосы прокрутки<br />
+<span class="S91">$DFCS_SCROLLSIZEGRIP</span> – уголок изменения размера в правом нижнем углу окна<br />
+<span class="S91">$DFCS_SCROLLSIZEGRIPRIGHT</span> – уголок изменения размера в левом нижнем углу окна. Используется в языках с письмом справа налево, таких как арабский или иврит<br />
+<span class="S91">$DFCS_SCROLLUP</span> – стрелка вверх полосы прокрутки<br />
+Следующий стиль можно использовать для подгонки ограничивающего прямоугольника нажимной кнопки:<br />
+<span class="S91">$DFCS_ADJUSTRECT</span> – ограничивающий прямоугольник подгоняется так, чтобы исключить окружающий край нажимной кнопки<br />
+Одно или несколько из следующих значений можно использовать, чтобы задать рисуемое состояние элемента управления:<br />
+<span class="S91">$DFCS_CHECKED</span> – кнопка отмечена<br />
+<span class="S91">$DFCS_FLAT</span> – у кнопки плоская граница<br />
+<span class="S91">$DFCS_HOT</span> – кнопка с горячей подсветкой<br />
+<span class="S91">$DFCS_INACTIVE</span> – кнопка неактивна (серая)<br />
+<span class="S91">$DFCS_PUSHED</span> – кнопка нажата<br />
+<span class="S91">$DFCS_TRANSPARENT</span> – фон остаётся нетронутым. Этот флаг можно комбинировать только с <span class="S91">$DFCS_MENUARROWUP</span> или <span class="S91">$DFCS_MENUARROWDOWN</span>.</td>
 </tr>
 </table>
 

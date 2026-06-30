@@ -19,7 +19,16 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$iStyle</span></td>
-<td style="width:85%">Координаты.</td>
+<td style="width:85%">Стиль кисти. Может быть одним из следующих стилей:<br />
+<span class="S91">$BS_DIBPATTERN</span><br />
+<span class="S91">$BS_DIBPATTERN8X8</span><br />
+<span class="S91">$BS_DIBPATTERNPT</span><br />
+<span class="S91">$BS_HATCHED</span><br />
+<span class="S91">$BS_HOLLOW</span><br />
+<span class="S91">$BS_NULL</span><br />
+<span class="S91">$BS_PATTERN</span><br />
+<span class="S91">$BS_PATTERN8X8</span><br />
+<span class="S91">$BS_SOLID</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iRGB</span></td>
@@ -27,7 +36,22 @@
 </tr>
 <tr>
 <td><span class="S91">$iHatch</span></td>
-<td>Дескриптор растрового изображения.</td>
+<td><strong>[необязательный]</strong> Стиль штриховки. Смысл зависит от стиля кисти, заданного параметром <span class="S91">$iStyle</span>.<br />
+<span class="S91">$BS_DIBPATTERN</span><br />
+Содержит дескриптор упакованного DIB.<br />
+<br />
+<span class="S91">$BS_DIBPATTERNPT</span><br />
+Содержит указатель на упакованный DIB.<br />
+<br />
+<span class="S91">$BS_HATCHED</span><br />
+Задаёт ориентацию линий штриховки. Может быть одной из констант ориентации (<span class="S91">$HS_*</span>).<br />
+<br />
+<span class="S91">$BS_PATTERN</span><br />
+Содержит дескриптор битмапа, задающего узор. Битмап не может быть DIB-section.<br />
+<br />
+<span class="S91">$BS_HOLLOW</span><br />
+<span class="S91">$BS_SOLID</span> (по умолчанию)<br />
+Игнорируется.</td>
 </tr>
 </table>
 

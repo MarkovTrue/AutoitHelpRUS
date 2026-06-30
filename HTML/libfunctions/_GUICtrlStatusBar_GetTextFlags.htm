@@ -28,7 +28,12 @@
 </table>
 
 <h2>Возвращаемое значение</h2>
-Возвращает текст.
+Возвращает значение, в котором младшее слово определяет длину текста в символах, старшее слово определяет тип операции, используемой для отрисовки текста. Тип может быть одним из следующих значений:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;0 – текст отрисовывается с рамкой, чтобы казаться ниже плоскости окна<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$SBT_NOBORDERS</span> – текст отрисовывается без рамки<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$SBT_OWNERDRAW</span> – текст отрисовывается родительским окном<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$SBT_POPOUT</span> – текст отрисовывается с рамкой, чтобы казаться выше плоскости окна<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$SBT_RTLREADING</span> – текст отображается в направлении, противоположном тексту в родительском окне<br />
 
 <h2>См. также</h2>
 <p><a href="_GUICtrlStatusBar_GetTextLength.htm">_GUICtrlStatusBar_GetTextLength</a>, <a href="_GUICtrlStatusBar_GetTextLengthEx.htm">_GUICtrlStatusBar_GetTextLengthEx</a></p>

@@ -73,19 +73,16 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;SQLite.dll.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StringConstants.au3&gt;</span><br>
 <br>
-<span class="S1">; Имена файлов
-</span><br>
+<span class="S1">; Имена файлов</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sTsvFile</span> <span class="S8">=</span> <a class="le" href="../functions/FileGetShortName.htm"><span class="S4">FileGetShortName</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_TempFile.htm"><span class="S15">_TempFile</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">,</span> <span class="S7">"~"</span><span class="S8">,</span> <span class="S7">".tsv"</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sDbFile</span> <span class="S8">=</span> <a class="le" href="../functions/FileGetShortName.htm"><span class="S4">FileGetShortName</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_TempFile.htm"><span class="S15">_TempFile</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@TempDir"><span class="S6">@TempDir</span></a><span class="S8">,</span> <span class="S7">"~"</span><span class="S8">,</span> <span class="S7">".db"</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создание файла TSV
-</span><br>
+<span class="S1">; Создание файла TSV</span><br>
 <a class="le" href="../functions/FileWriteLine.htm"><span class="S4">FileWriteLine</span></a><span class="S8">(</span><span class="S9">$sTsvFile</span><span class="S8">,</span> <span class="S7">"a"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"b"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"c"</span><span class="S8">)</span><br>
 <a class="le" href="../functions/FileWriteLine.htm"><span class="S4">FileWriteLine</span></a><span class="S8">(</span><span class="S9">$sTsvFile</span><span class="S8">,</span> <span class="S7">"a1"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"b1"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"c1"</span><span class="S8">)</span><br>
 <a class="le" href="../functions/FileWriteLine.htm"><span class="S4">FileWriteLine</span></a><span class="S8">(</span><span class="S9">$sTsvFile</span><span class="S8">,</span> <span class="S7">"a2"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"b2"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"c2"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; импорт (используя SQLite3.exe)
-</span><br>
+<span class="S1">; импорт (используя SQLite3.exe)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sIn</span><span class="S8">,</span> <span class="S9">$sOut</span><span class="S8">,</span> <span class="S9">$i</span><span class="S8">,</span> <span class="S9">$sCreate</span> <span class="S8">=</span> <span class="S7">"CREATE TABLE TblImport ("</span><span class="S1">;
 </span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S0">_StringCountOccurance</span><span class="S8">(</span><a class="le" href="../functions/FileReadLine.htm"><span class="S4">FileReadLine</span></a><span class="S8">(</span><span class="S9">$sTsvFile</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a><span class="S8">)</span> <span class="S8">+</span> <span class="S3">1</span><br>
@@ -93,14 +90,12 @@
 <a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <span class="S9">$sCreate</span> <span class="S8">=</span> <a class="le" href="../functions/StringTrimRight.htm"><span class="S4">StringTrimRight</span></a><span class="S8">(</span><span class="S9">$sCreate</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">");"</span><br>
 <span class="S9">$sIn</span> <span class="S8">=</span> <span class="S9">$sCreate</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a>&nbsp;<span class="S1">; Создать таблицу</span><br>
-<span class="S9">$sIn</span> <span class="S8">&amp;=</span> <span class="S7">".separator \t"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a>&nbsp;<span class="S1">; Выбор @TAB в качестве разделителя
-</span><br>
+<span class="S9">$sIn</span> <span class="S8">&amp;=</span> <span class="S7">".separator \t"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a>&nbsp;<span class="S1">; Выбор @TAB в качестве разделителя</span><br>
 <span class="S9">$sIn</span> <span class="S8">&amp;=</span> <span class="S7">".import '"</span> <span class="S8">&amp;</span> <span class="S9">$sTsvFile</span> <span class="S8">&amp;</span> <span class="S7">"' TblImport"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>
 <a class="le" href="../libfunctions/_SQLite_SQLiteExe.htm"><span class="S15">_SQLite_SQLiteExe</span></a><span class="S8">(</span><span class="S9">$sDbFile</span><span class="S8">,</span> <span class="S9">$sIn</span><span class="S8">,</span> <span class="S9">$sOut</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображение таблицы (используя SQLite3.dll)
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отображение таблицы (используя SQLite3.dll)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iRows</span><span class="S8">,</span> <span class="S9">$iColumns</span><span class="S8">,</span> <span class="S9">$aRes</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SQLite_Startup.htm"><span class="S15">_SQLite_Startup</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
@@ -110,8 +105,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_SQLite_LibVersion="</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_SQLite_LibVersion.htm"><span class="S15">_SQLite_LibVersion</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S9">$sDbFile</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SQLite_GetTable2D.htm"><span class="S15">_SQLite_GetTable2D</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"SELECT ROWID,* FROM TblImport;"</span><span class="S8">,</span> <span class="S9">$aRes</span><span class="S8">,</span> <span class="S9">$iRows</span><span class="S8">,</span> <span class="S9">$iColumns</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SQLite_Display2DResult.htm"><span class="S15">_SQLite_Display2DResult</span></a><span class="S8">(</span><span class="S9">$aRes</span><span class="S8">)</span>&nbsp;<span class="S1">; Вывод в консоль
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SQLite_Display2DResult.htm"><span class="S15">_SQLite_Display2DResult</span></a><span class="S8">(</span><span class="S9">$aRes</span><span class="S8">)</span>&nbsp;<span class="S1">; Вывод в консоль</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_SQLite_Shutdown.htm"><span class="S15">_SQLite_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
@@ -122,8 +116,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Удаление временных файлов
-</span><br>
+<span class="S1">; Удаление временных файлов</span><br>
 <a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sTsvFile</span><span class="S8">)</span><br>
 <a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sDbFile</span><span class="S8">)</span><br>
 <br>
@@ -136,8 +129,7 @@
 <span class="S1">; 3      a2        b2        c2
 </span><br>
 <br>
-<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_StringCountOccurance</span><span class="S8">(</span><span class="S9">$sSearchString</span><span class="S8">,</span> <span class="S9">$sSubString</span><span class="S8">,</span> <span class="S9">$iCaseSense</span> <span class="S8">=</span> <span class="S9">$STR_NOCASESENSE</span><span class="S8">)</span>&nbsp;<span class="S1">; Возврат количества $sSubString в $sSearchString
-</span><br>
+<a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_StringCountOccurance</span><span class="S8">(</span><span class="S9">$sSearchString</span><span class="S8">,</span> <span class="S9">$sSubString</span><span class="S8">,</span> <span class="S9">$iCaseSense</span> <span class="S8">=</span> <span class="S9">$STR_NOCASESENSE</span><span class="S8">)</span>&nbsp;<span class="S1">; Возврат количества $sSubString в $sSearchString</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iOccCnt</span> <span class="S8">=</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span><span class="S9">$sSearchString</span><span class="S8">,</span> <span class="S9">$sSubString</span><span class="S8">,</span> <span class="S9">$iCaseSense</span><span class="S8">,</span> <span class="S9">$iOccCnt</span><span class="S8">)</span> <span class="S8">&gt;</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>

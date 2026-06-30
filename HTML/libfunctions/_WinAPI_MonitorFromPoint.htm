@@ -55,24 +55,20 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIMisc.au3&gt;</span><br>
 <br>
-<span class="S1">; чтобы проверить как это работает на "двойном мониторе", просто переместите мышь на второй монитор и запустите этот скрипт снова
-</span><br>
+<span class="S1">; Чтобы проверить, как это работает на "двойном мониторе", просто переместите мышь на второй монитор и снова запустите этот скрипт</span><br>
 <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить координаты мыши
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить координаты мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tPos</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetMousePos.htm"><span class="S15">_WinAPI_GetMousePos</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'MouseX = '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tPos</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'MouseY = '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tPos</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить $hMonitor из ранее определённых координат мыши
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить $hMonitor из ранее определённых координат мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMonitor</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_MonitorFromPoint.htm"><span class="S15">_WinAPI_MonitorFromPoint</span></a><span class="S8">(</span><span class="S9">$tPos</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'@@ Debug('</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@ScriptLineNumber"><span class="S6">@ScriptLineNumber</span></a> <span class="S8">&amp;</span> <span class="S7">') : $hMonitor = '</span> <span class="S8">&amp;</span> <span class="S9">$hMonitor</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">'&gt;Error code: '</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">'    Extended code: 0x'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Hex.htm"><span class="S4">Hex</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span>&nbsp;<span class="S1">;### Отладочная консоль</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить данные монитора $aData, соответствующие ранее определённым координатам
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить данные монитора $aData, соответствующие ранее определённым координатам</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aData</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetMonitorInfo.htm"><span class="S15">_WinAPI_GetMonitorInfo</span></a><span class="S8">(</span><span class="S9">$hMonitor</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">'Handle:      '</span> <span class="S8">&amp;</span> <span class="S9">$hMonitor</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>

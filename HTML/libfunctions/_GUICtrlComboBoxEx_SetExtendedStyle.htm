@@ -23,7 +23,11 @@
 </tr>
 <tr>
 <td><span class="S91">$iExStyle</span></td>
-<td>изображение</td>
+<td>Расширенные стили элемента управления:<br />
+<span class="S91">$CBES_EX_CASESENSITIVE</span> – поиск в списке учитывает регистр<br />
+<span class="S91">$CBES_EX_NOEDITIMAGE</span> – поле ввода и раскрывающийся список не показывают изображения элементов<br />
+<span class="S91">$CBES_EX_NOEDITIMAGEINDENT</span> – поле ввода и раскрывающийся список не показывают изображения элементов<br />
+<span class="S91">$CBES_EX_NOSIZELIMIT</span> – позволяет уменьшать ComboBoxEx по вертикали ниже размера вложенного combo box.</td>
 </tr>
 <tr>
 <td><span class="S91">$iExMask</span></td>
@@ -56,8 +60,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"ComboBoxEx Get/Set Extended Style (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">420</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hCombo</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlComboBoxEx_Create.htm"><span class="S15">_GUICtrlComboBoxEx_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">414</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить расширенный стиль
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить расширенный стиль</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_SetExtendedStyle.htm"><span class="S15">_GUICtrlComboBoxEx_SetExtendedStyle</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span> <span class="S9">$CBES_EX_CASESENSITIVE</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
@@ -77,8 +80,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_AddString.htm"><span class="S15">_GUICtrlComboBoxEx_AddString</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"%03d : string"</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить расширенный стиль
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить расширенный стиль</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <span class="S7">"Extend Styles found: "</span> <span class="S8">&amp;</span> <span class="S0">_DisplayExtendStringList</span><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>

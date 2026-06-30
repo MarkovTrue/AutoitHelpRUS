@@ -23,7 +23,10 @@
 </tr>
 <tr>
 <td><span class="S91">$vPartEdge</span></td>
-<td><strong>[необязательный]</strong> Ширина элемента управления.</td>
+<td><strong>[необязательный]</strong> Ширина части или частей. Для более чем одной части передайте массив с нулевым индексом в формате:<br />
+<span class="S91">$vPartEdge</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – правый край части №1<br />
+<span class="S91">$vPartEdge</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – правый край части №2<br />
+<span class="S91">$vPartEdge</span><span class="S8">[</span>n<span class="S8">]</span> – правый край части n</td>
 </tr>
 <tr>
 <td><span class="S91">$vPartText</span></td>
@@ -34,7 +37,11 @@
 </tr>
 <tr>
 <td><span class="S91">$iStyles</span></td>
-<td><strong>[необязательный]</strong> Стиль элемента управления.</td>
+<td><strong>[необязательный]</strong> Стили элемента управления:<br />
+<span class="S91">$SBARS_SIZEGRIP</span> – строка состояния включает уголок изменения размера в правом конце<br />
+<span class="S91">$SBARS_TOOLTIPS</span> – строка состояния имеет всплывающие подсказки<br />
+<br />
+Принудительно: <span class="S91">$WS_CHILD</span>, <span class="S91">$WS_VISIBLE</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$iExStyles</span></td>
@@ -257,7 +264,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"StatusBar Create (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">450</span><span class="S8">,</span> <span class="S3">320</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;задать части и текст</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; задать части и текст</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aText</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"Left Justified"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"Centered"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"Right Justified"</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aParts</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">100</span><span class="S8">,</span> <span class="S3">175</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hStatus</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_Create.htm"><span class="S15">_GUICtrlStatusBar_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$aParts</span><span class="S8">,</span> <span class="S9">$aText</span><span class="S8">)</span><br>
@@ -430,7 +437,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"StatusBar Create (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">450</span><span class="S8">,</span> <span class="S3">320</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; подгоняет массив к самому большому переданному массиву (на этот раз самый большой – массив текстов)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; подгоняет массив к самому большому переданному массиву (на этот раз самый большой массив текстов)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aText</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"Left Justified"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"Centered"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"Right Justified"</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aParts</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">100</span><span class="S8">,</span> <span class="S3">175</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hStatus</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_Create.htm"><span class="S15">_GUICtrlStatusBar_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$aParts</span><span class="S8">,</span> <span class="S9">$aText</span><span class="S8">)</span><br>
@@ -518,7 +525,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"StatusBar Create (v"</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@AutoItVersion"><span class="S6">@AutoItVersion</span></a> <span class="S8">&amp;</span> <span class="S7">")"</span><span class="S8">,</span> <span class="S3">450</span><span class="S8">,</span> <span class="S3">320</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; подгоняет массив к самому большому переданному массиву (на этот раз – массив ширин частей)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; подгоняет массив к самому большому переданному массиву (на этот раз массив ширин частей)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aText</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S7">"Left Justified"</span><span class="S8">,</span> <a class="le" href="../macros.htm#@TAB"><span class="S6">@TAB</span></a> <span class="S8">&amp;</span> <span class="S7">"Centered"</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aParts</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">100</span><span class="S8">,</span> <span class="S3">175</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hStatus</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_Create.htm"><span class="S15">_GUICtrlStatusBar_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S9">$aParts</span><span class="S8">,</span> <span class="S9">$aText</span><span class="S8">)</span><br>

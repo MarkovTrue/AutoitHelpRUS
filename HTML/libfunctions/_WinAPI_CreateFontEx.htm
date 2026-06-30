@@ -35,7 +35,22 @@
 </tr>
 <tr>
 <td><span class="S91">$iWeight</span></td>
-<td>Координаты.</td>
+<td><strong>[необязательный]</strong> Толщина шрифта в диапазоне от 0 до 1000 или одно из следующих значений.<br />
+<span class="S91">$FW_DONTCARE</span><br />
+<span class="S91">$FW_THIN</span><br />
+<span class="S91">$FW_EXTRALIGHT</span><br />
+<span class="S91">$FW_ULTRALIGHT</span><br />
+<span class="S91">$FW_LIGHT</span><br />
+<span class="S91">$FW_NORMAL</span> (по умолчанию)<br />
+<span class="S91">$FW_REGULAR</span><br />
+<span class="S91">$FW_MEDIUM</span><br />
+<span class="S91">$FW_SEMIBOLD</span><br />
+<span class="S91">$FW_DEMIBOLD</span><br />
+<span class="S91">$FW_BOLD</span><br />
+<span class="S91">$FW_EXTRABOLD</span><br />
+<span class="S91">$FW_ULTRABOLD</span><br />
+<span class="S91">$FW_HEAVY</span><br />
+<span class="S91">$FW_BLACK</span></td>
 </tr>
 <tr>
 <td><span class="S91">$bItalic</span></td>
@@ -51,23 +66,78 @@
 </tr>
 <tr>
 <td><span class="S91">$iCharSet</span></td>
-<td>Имя.</td>
+<td><strong>[необязательный]</strong> Набор символов. Может быть одним из следующих значений.<br />
+<span class="S91">$ANSI_CHARSET</span><br />
+<span class="S91">$BALTIC_CHARSET</span><br />
+<span class="S91">$CHINESEBIG5_CHARSET</span><br />
+<span class="S91">$DEFAULT_CHARSET</span> (по умолчанию)<br />
+<span class="S91">$EASTEUROPE_CHARSET</span><br />
+<span class="S91">$GB2312_CHARSET</span><br />
+<span class="S91">$GREEK_CHARSET</span><br />
+<span class="S91">$HANGEUL_CHARSET</span><br />
+<span class="S91">$MAC_CHARSET</span><br />
+<span class="S91">$OEM_CHARSET</span><br />
+<span class="S91">$RUSSIAN_CHARSET</span><br />
+<span class="S91">$SHIFTJIS_CHARSET</span><br />
+<span class="S91">$SYMBOL_CHARSET</span><br />
+<span class="S91">$TURKISH_CHARSET</span><br />
+<span class="S91">$VIETNAMESE_CHARSET</span><br />
+Корейская языковая версия Windows:<br />
+<span class="S91">$JOHAB_CHARSET</span><br />
+Ближневосточная языковая версия Windows:<br />
+<span class="S91">$ARABIC_CHARSET</span><br />
+<span class="S91">$HEBREW_CHARSET</span><br />
+Тайская языковая версия Windows:<br />
+<span class="S91">$THAI_CHARSET</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iOutPrecision</span></td>
-<td>Строка.</td>
+<td><strong>[необязательный]</strong> Точность вывода. Может быть одним из следующих значений.<br />
+<span class="S91">$OUT_CHARACTER_PRECIS</span><br />
+<span class="default-const"><span class="S91">$OUT_DEFAULT_PRECIS</span></span> (по умолчанию)<br />
+<span class="S91">$OUT_DEVICE_PRECIS</span><br />
+<span class="S91">$OUT_OUTLINE_PRECIS</span><br />
+<span class="S91">$OUT_PS_ONLY_PRECIS</span><br />
+<span class="S91">$OUT_RASTER_PRECIS</span><br />
+<span class="S91">$OUT_STRING_PRECIS</span><br />
+<span class="S91">$OUT_STROKE_PRECIS</span><br />
+<span class="S91">$OUT_TT_ONLY_PRECIS</span><br />
+<span class="S91">$OUT_TT_PRECIS</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iClipPrecision</span></td>
-<td>Значение.</td>
+<td><strong>[необязательный]</strong> Точность отсечения. Может быть одним или несколькими из следующих значений.<br />
+<span class="S91">$CLIP_CHARACTER_PRECIS</span><br />
+<span class="default-const"><span class="S91">$CLIP_DEFAULT_PRECIS</span></span> (по умолчанию)<br />
+<span class="S91">$CLIP_DFA_DISABLE</span><br />
+<span class="S91">$CLIP_EMBEDDED</span><br />
+<span class="S91">$CLIP_LH_ANGLES</span><br />
+<span class="S91">$CLIP_DFA_OVERRIDE</span><br />
+<span class="S91">$CLIP_STROKE_PRECIS</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iQuality</span></td>
-<td>Значение.</td>
+<td><strong>[необязательный]</strong> Качество вывода. Может быть одним из следующих значений.<br />
+<span class="S91">$ANTIALIASED_QUALITY</span><br />
+<span class="S91">$CLEARTYPE_QUALITY</span><br />
+<span class="S91">$DEFAULT_QUALITY</span> (по умолчанию)<br />
+<span class="S91">$DRAFT_QUALITY</span><br />
+<span class="S91">$NONANTIALIASED_QUALITY</span><br />
+<span class="S91">$PROOF_QUALITY</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iPitchAndFamily</span></td>
-<td>Координаты.</td>
+<td><strong>[необязательный]</strong> Шаг и семейство шрифта. Два младших бита задают шаг шрифта и могут быть одним из следующих значений.<br />
+<span class="S91">$DEFAULT_PITCH</span> (по умолчанию)<br />
+<span class="S91">$FIXED_PITCH</span><br />
+<span class="S91">$VARIABLE_PITCH</span><br />
+Четыре старших бита задают семейство шрифта и могут быть одним из следующих значений.<br />
+<span class="S91">$FF_DECORATIVE</span><br />
+<span class="S91">$FF_DONTCARE</span><br />
+<span class="S91">$FF_MODERN</span><br />
+<span class="S91">$FF_ROMAN</span><br />
+<span class="S91">$FF_SCRIPT</span><br />
+<span class="S91">$FF_SWISS</span></td>
 </tr>
 <tr>
 <td><span class="S91">$sFaceName</span></td>
@@ -75,7 +145,10 @@
 </tr>
 <tr>
 <td><span class="S91">$iStyle</span></td>
-<td>Значение.</td>
+<td><strong>[необязательный]</strong> Стиль шрифта. Может быть одним или несколькими из следующих значений.<br />
+<span class="S91">$FS_REGULAR</span> (по умолчанию)<br />
+<span class="S91">$FS_BOLD</span><br />
+<span class="S91">$FS_ITALIC</span></td>
 </tr>
 </table>
 

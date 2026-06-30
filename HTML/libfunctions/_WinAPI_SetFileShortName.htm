@@ -25,8 +25,8 @@
 </tr>
 <tr>
 <td><span class="S91">$sShortName</span></td>
-<td>Допустимое короткое имя для файла. Если указанное короткое имя уже существует, функция<br />
-завершается неудачей и код последней ошибки – ERROR_ALREADY_EXISTS (183).</td>
+<td>Допустимое короткое имя для файла. Если указанное имя уже существует, функция<br />
+завершается неудачей и последний код ошибки будет ERROR_ALREADY_EXISTS (183).</td>
 </tr>
 </table>
 
@@ -76,8 +76,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Включение привилегии "SeRestorePrivilege" для выполнения операции переименования
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Включение привилегии "SeRestorePrivilege" для выполнения операции переименования</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hToken</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_OpenProcessToken.htm"><span class="S15">_WinAPI_OpenProcessToken</span></a><span class="S8">(</span><a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$TOKEN_ADJUST_PRIVILEGES</span><span class="S8">,</span> <span class="S9">$TOKEN_QUERY</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aAdjust</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_AdjustTokenPrivileges.htm"><span class="S15">_WinAPI_AdjustTokenPrivileges</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">,</span> <span class="S9">$SE_RESTORE_NAME</span><span class="S8">,</span> <span class="S9">$SE_PRIVILEGE_ENABLED</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">)</span><br>
@@ -91,20 +90,17 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugReport.htm"><span class="S15">_DebugReport</span></a><span class="S8">(</span><span class="S7">'Old short name: '</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_WinAPI_PathStripPath.htm"><span class="S15">_WinAPI_PathStripPath</span></a><span class="S8">(</span><a class="le" href="../functions/FileGetShortName.htm"><span class="S4">FileGetShortName</span></a><span class="S8">(</span><span class="S9">$sTemp</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установка короткого имени "TEMP.TXT" для файла
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установка короткого имени "TEMP.TXT" для файла</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hFile</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateFileEx.htm"><span class="S15">_WinAPI_CreateFileEx</span></a><span class="S8">(</span><span class="S9">$sTemp</span><span class="S8">,</span> <span class="S9">$OPEN_EXISTING</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$GENERIC_WRITE</span><span class="S8">,</span> <span class="S9">$STANDARD_RIGHTS_DELETE</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$FILE_FLAG_BACKUP_SEMANTICS</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetFileShortName.htm"><span class="S15">_WinAPI_SetFileShortName</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">,</span> <span class="S7">'TEMP.TXT'</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hFile</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugReport.htm"><span class="S15">_DebugReport</span></a><span class="S8">(</span><span class="S7">'New short name: '</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_WinAPI_PathStripPath.htm"><span class="S15">_WinAPI_PathStripPath</span></a><span class="S8">(</span><a class="le" href="../functions/FileGetShortName.htm"><span class="S4">FileGetShortName</span></a><span class="S8">(</span><span class="S9">$sTemp</span><span class="S8">)</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удаление временного файла
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Удаление временного файла</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/FileDelete.htm"><span class="S4">FileDelete</span></a><span class="S8">(</span><span class="S9">$sTemp</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Восстановление привилегии "SeRestorePrivilege" по умолчанию
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Восстановление привилегии "SeRestorePrivilege" по умолчанию</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_AdjustTokenPrivileges.htm"><span class="S15">_WinAPI_AdjustTokenPrivileges</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$aAdjust</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hToken</span><span class="S8">)</span><br>
 <br>

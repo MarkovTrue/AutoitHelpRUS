@@ -23,7 +23,23 @@
 </tr>
 <tr>
 <td><span class="S91">$iEventMask</span></td>
-<td><span class="S91">$iEventMask</span> – позиция конечного символа</td>
+<td>Комбинация через BitOR:<br />
+<span class="S91">$ENM_CHANGE</span> – отправляет уведомления <span class="S91">$EN_CHANGE</span> (пользователь мог изменить текст)<br />
+<span class="S91">$ENM_CORRECTTEXT</span> – отправляет уведомления <span class="S91">$EN_CORRECTTEXT</span> (родительское окно может отменить исправление текста)<br />
+<span class="S91">$ENM_DRAGDROPDONE</span> – отправляет уведомления <span class="S91">$EN_DRAGDROPDONE</span> (операция перетаскивания завершена)<br />
+<span class="S91">$ENM_DROPFILES</span> – отправляет уведомления <span class="S91">$EN_DROPFILES</span> (пользователь пытается перетащить файлы в элемент)<br />
+<span class="S91">$ENM_KEYEVENTS</span> – отправляет уведомления <span class="S91">$EN_MSGFILTER</span> для событий клавиатуры<br />
+<span class="S91">$ENM_LINK</span> – отправляет уведомления <span class="S91">$EN_LINK</span>, когда указатель мыши над текстом с атрибутом ссылки и когда пользователь щёлкает мышью [2.0+]<br />
+<span class="S91">$ENM_MOUSEEVENTS</span> – отправляет родительскому окну уведомления <span class="S91">$EN_MSGFILTER</span> для событий мыши<br />
+<span class="S91">$ENM_OBJECTPOSITIONS</span> – отправляет уведомления <span class="S91">$EN_OBJECTPOSITIONS</span>, когда элемент считывает объекты<br />
+<span class="S91">$ENM_PROTECTED</span> – отправляет уведомления <span class="S91">$EN_PROTECTED</span>, когда пользователь пытается изменить символы с атрибутом защиты<br />
+<span class="S91">$ENM_REQUESTRESIZE</span> – отправляет уведомления <span class="S91">$EN_REQUESTRESIZE</span>, что содержимое элемента меньше или больше размера его окна<br />
+<span class="S91">$ENM_SCROLL</span> – отправляет уведомления <span class="S91">$EN_HSCROLL</span> и <span class="S91">$EN_VSCROLL</span>, когда пользователь щёлкает горизонтальную или вертикальную полосу прокрутки<br />
+<span class="S91">$ENM_SCROLLEVENTS</span> – отправляет уведомления EN_MSGFILTER для событий колеса мыши<br />
+<span class="S91">$ENM_SELCHANGE</span> – отправляет уведомления EN_SELCHANGE при изменении текущего выделения<br />
+<span class="S91">$ENM_UPDATE</span> – отправляет уведомления EN_UPDATE, когда элемент собирается перерисоваться<br />
+или<br />
+<span class="S91">$ENM_NONE</span> – отключает отправку уведомлений родительскому окну.</td>
 </tr>
 </table>
 
@@ -45,7 +61,12 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Числа в скобках указывают, к каким версиям применяются параметры маски.</p>
+<p>Числа в скобках указывают, к каким версиям применяются параметры маски.<br />
+<br />
+<span class="S91">$ENM_IMECHANGE</span> применяется только к азиатским версиям Windows.<br />
+<br />
+Уведомления <span class="S91">$EN_UPDATE</span> всегда отправляются, кроме как когда версия 4.0 эмулирует версию 1.0<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlRichEdit_AutoDetectURL.htm">_GUICtrlRichEdit_AutoDetectURL</a></p>
 

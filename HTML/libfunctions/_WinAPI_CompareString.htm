@@ -72,7 +72,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если оба сравниваемых значения у функции <a href="_WinAPI_CompareString.htm"><span class="S15">_WinAPI_CompareString</span><span class="S8">()</span></a> идентичны, возвращается <span class="S91">$CSTR_EQUAL</span>.<br />
+<p>Обычно для сравнений без учёта регистра <a href="_WinAPI_CompareString.htm"><span class="S15">_WinAPI_CompareString</span><span class="S8">()</span></a> преобразует нижнее "i" в верхнее "I", даже если локаль – турецкая или азербайджанская.<br />
+Флаг <span class="S91">$NORM_LINGUISTIC_CASING</span> переопределяет это поведение для турецкой или азербайджанской локали.<br />
+Если этот флаг указан в сочетании с турецкой или азербайджанской локалью, LATIN SMALL LETTER DOTLESS I (U+0131) – это нижняя форма LATIN CAPITAL LETTER I (U+0049), а LATIN SMALL LETTER I (U+0069) – это нижняя форма LATIN CAPITAL LETTER I WITH DOT ABOVE (U+0130).<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=CompareString">CompareString</a> в библиотеке MSDN
@@ -92,8 +94,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">;Создать массив строк ("Item*")
-</span><br>
+<span class="S1">; Создать массив строк ("Item*")</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aItem</span><span class="S8">[</span><span class="S3">100</span><span class="S8">]</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aItem</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aItem</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'Item'</span> <span class="S8">&amp;</span> <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
@@ -101,13 +102,12 @@
 <br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aItem</span><span class="S8">,</span> <span class="S7">'Initial array'</span><span class="S8">)</span><br>
 <br>
-<span class="S1">;Простая сортировка массива
-</span><br>
+<span class="S1">; Простая сортировка массива</span><br>
 <a class="le" href="../libfunctions/_ArraySort.htm"><span class="S15">_ArraySort</span></a><span class="S8">(</span><span class="S9">$aItem</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aItem</span><span class="S8">,</span> <span class="S7">'Simple sorting'</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Sort array (bubble sort) ignoring case sensitive and according to the digits
+<span class="S1">; Простая сортировка массива
 </span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sTemp</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aItem</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">2</span><br>

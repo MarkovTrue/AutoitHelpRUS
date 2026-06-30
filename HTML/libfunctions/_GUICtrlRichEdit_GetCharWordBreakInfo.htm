@@ -31,7 +31,12 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает строка, состоящая из разделённых запятыми значений.</td>
+<td style="width:90%">Возвращает строку, состоящую из разделённых запятыми значений:<br />
+значение 1 – флаги разрыва слова:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;c – строка может быть разбита после этого символа<br />
+&nbsp;&nbsp;&nbsp;&nbsp;d – символ является разделителем конца слова. Строки могут быть разбиты после разделителей<br />
+&nbsp;&nbsp;&nbsp;&nbsp;w – символ является пробелом (конечные пробелы не включаются в длину строки)<br />
+значение 2 – класс символа: число</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -45,7 +50,16 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Строки могут разбиваться на разделителях или между символами разных классов.</p>
+<p>Строки могут разбиваться на разделителях или между символами разных классов.<br />
+<br />
+Классы символов определяются процедурами разрыва слов.<br />
+Классы в процедуре по умолчанию:<br />
+&nbsp;&nbsp;&nbsp; 0 = буквено-цифровой символ,<br />
+&nbsp;&nbsp;&nbsp; 1 = другой печатаемый символ (кроме дефиса),<br />
+&nbsp;&nbsp;&nbsp; 2 = пробел,<br />
+&nbsp;&nbsp;&nbsp; 3 = табуляция,<br />
+&nbsp;&nbsp;&nbsp; 4 = дефис или конец абзаца.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlRichEdit_GetCharPosOfNextWord.htm">_GUICtrlRichEdit_GetCharPosOfNextWord</a>, <a href="_GUICtrlRichEdit_GetCharPosOfPreviousWord.htm">_GUICtrlRichEdit_GetCharPosOfPreviousWord</a></p>
 

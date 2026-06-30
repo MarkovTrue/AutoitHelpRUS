@@ -27,11 +27,11 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив со следующими данными:<br />
-[0]&nbsp;– старшая версия.<br />
-[1]&nbsp;– младшая версия.<br />
-[2]&nbsp;– номер сборки.<br />
-[3]&nbsp;– платформа, под которую собрана DLL (<span class="S91">$DLLVER_PLATFORM_*</span>).</td>
+<td style="width:90%">Возвращает массив со следующей информацией:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – основная версия<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – дополнительная версия<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – номер сборки<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – платформа, для которой собрана DLL (<span class="S91">$DLLVER_PLATFORM_*</span>).</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -44,8 +44,8 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Это не API. DllGetVersion экспортируется по имени из каждой DLL, которая её реализует.<br />
-Сейчас её реализует большинство DLL Windows Shell и common controls – в том числе shell32.dll, comctl32.dll, shdocvw.dll и shlwapi.dll.<br />
+<p>Эта функция не является частью API. Она экспортируется по имени из каждой DLL, которая её реализует.<br />
+Сейчас DllGetVersion реализуют большинство DLL оболочки Windows и общих элементов управления, среди них (но не только) shell32.dll, comctl32.dll, shdocvw.dll и shlwapi.dll.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=DllGetVersion">DllGetVersion</a> в библиотеке MSDN

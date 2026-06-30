@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_WinAPI_GetDriveType</h1>
-<p class="funcdesc">Определяет тип диска: съёмный, локальный, CD-ROM, RAM-диск или сетевой.</p>
+<p class="funcdesc">Определяет, является ли дисковый накопитель съёмным, постоянным, CD-ROM, RAM-диском или сетевым диском.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIFiles.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_WinAPI_GetDriveType.htm"><span class="S15">_WinAPI_GetDriveType</span></a> <span class="S8">(</span> <span class="S8">[</span><span class="S9">$sDrive</span> <span class="S8">=</span> <span class="S7">''</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -27,7 +27,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает тип диска (<span class="S91">$DRIVE_*</span>).</td>
+<td style="width:90%">Возвращает тип диска (константы <span class="S91">$DRIVE_*</span>).</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -52,13 +52,10 @@
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Определить тип домашнего диска – обычно это диск C:\.
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iTypeOfDrive</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDriveType.htm"><span class="S15">_WinAPI_GetDriveType</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@HomeDrive"><span class="S6">@HomeDrive</span></a><span class="S8">)</span>&nbsp;<span class="S1">; Например, C:
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Определить тип домашнего диска – обычно это диск C:\.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iTypeOfDrive</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetDriveType.htm"><span class="S15">_WinAPI_GetDriveType</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@HomeDrive"><span class="S6">@HomeDrive</span></a><span class="S8">)</span>&nbsp;<span class="S1">; Например, C:</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать переменную для отображаемого сообщения.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать переменную для отображаемого сообщения.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sMessage</span> <span class="S8">=</span> <span class="S7">""</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iTypeOfDrive</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$DRIVE_UNKNOWN</span><br>
@@ -77,8 +74,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sMessage</span> <span class="S8">=</span> <span class="S7">"The drive is a RAM disk."</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать сообщение о типе диска.
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать сообщение о типе диска.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$sMessage</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

@@ -27,11 +27,41 @@
 </tr>
 <tr>
 <td><span class="S91">$hInst</span></td>
-<td>Дескриптор экземпляра.</td>
+<td>Дескриптор экземпляра модуля с исполняемым файлом, содержащим ресурс битмапа.<br />
+Чтобы использовать дескрипторы битмапов вместо идентификаторов ресурсов, задайте 0. Можно добавить системные битмапы кнопок, указав -1 в <span class="S91">$hInst</span> и одно из следующих значений в <span class="S91">$iID</span>:<br />
+<span class="S91">$IDB_STD_LARGE_COLOR</span> – добавляет большие цветные стандартные битмапы<br />
+<span class="S91">$IDB_STD_SMALL_COLOR</span> – добавляет маленькие цветные стандартные битмапы<br />
+<span class="S91">$IDB_VIEW_LARGE_COLOR</span> – добавляет большие цветные битмапы вида<br />
+<span class="S91">$IDB_VIEW_SMALL_COLOR</span> – добавляет маленькие цветные битмапы вида.</td>
 </tr>
 <tr>
 <td><span class="S91">$iID</span></td>
-<td>Идентификатор команды.</td>
+<td>Если <span class="S91">$hInst</span> равен 0, задайте здесь дескриптор битмапа с изображениями кнопок.<br />
+Иначе задайте идентификатор ресурса битмапа с изображениями кнопок.<br />
+Ниже приведены идентификаторы ресурсов стандартных битмапов и битмапов вида:<br />
+<span class="S91">$STD_COPY</span> – изображение «Копировать»<br />
+<span class="S91">$STD_CUT</span> – изображение «Вырезать»<br />
+<span class="S91">$STD_DELETE</span> – изображение «Удалить»<br />
+<span class="S91">$STD_FILENEW</span> – изображение «Новый файл»<br />
+<span class="S91">$STD_FILEOPEN</span> – изображение «Открыть файл»<br />
+<span class="S91">$STD_FILESAVE</span> – изображение «Сохранить файл»<br />
+<span class="S91">$STD_FIND</span> – изображение «Найти»<br />
+<span class="S91">$STD_HELP</span> – изображение «Справка»<br />
+<span class="S91">$STD_PASTE</span> – изображение «Вставить»<br />
+<span class="S91">$STD_PRINT</span> – изображение «Печать»<br />
+<span class="S91">$STD_PRINTPRE</span> – изображение «Предварительный просмотр»<br />
+<span class="S91">$STD_PROPERTIES</span> – изображение «Свойства»<br />
+<span class="S91">$STD_REDOW</span> – изображение «Повторить»<br />
+<span class="S91">$STD_REPLACE</span> – изображение «Заменить»<br />
+<span class="S91">$STD_UNDO</span> – изображение «Отменить»<br />
+<span class="S91">$VIEW_DETAILS</span> – изображение «Таблица»<br />
+<span class="S91">$VIEW_LARGEICONS</span> – изображение «Крупные значки»<br />
+<span class="S91">$VIEW_LIST</span> – изображение «Список»<br />
+<span class="S91">$VIEW_SMALLICONS</span> – изображение «Мелкие значки»<br />
+<span class="S91">$VIEW_SORTDATE</span> – изображение «Сортировка по дате»<br />
+<span class="S91">$VIEW_SORTNAME</span> – изображение «Сортировка по имени»<br />
+<span class="S91">$VIEW_SORTSIZE</span> – изображение «Сортировка по размеру»<br />
+<span class="S91">$VIEW_SORTTYPE</span> – изображение «Сортировка по типу».</td>
 </tr>
 </table>
 

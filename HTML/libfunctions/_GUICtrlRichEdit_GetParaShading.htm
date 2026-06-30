@@ -27,7 +27,43 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает строка, состоящая из значений, разделённых точками с запятой.</td>
+<td style="width:90%">параметры первого выделенного абзаца – строка, состоящая из значений, разделённых точками с запятой (:):<br />
+значение 1 – Вес – процент цвета переднего плана, остальное – фон<br />
+значение 2 – стиль – строка, содержащая одно из следующих значений:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;non – нет<br />
+&nbsp;&nbsp;&nbsp;&nbsp;dhz – тёмная горизонталь<br />
+&nbsp;&nbsp;&nbsp;&nbsp;dvt – тёмная вертикаль<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ddd – тёмная диагональ вниз<br />
+&nbsp;&nbsp;&nbsp;&nbsp;dud – тёмная диагональ вверх<br />
+&nbsp;&nbsp;&nbsp;&nbsp;dgr – тёмная сетка<br />
+&nbsp;&nbsp;&nbsp;&nbsp;dtr – тёмный трельяж<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lhz – светлая горизонталь<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lvt – светлая вертикаль<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ldd – светлая диагональ вниз<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lud – светлая диагональ вверх<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lgr – светлая сетка<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ltr – светлый трельяж<br />
+значение 3 – Цвет переднего плана – одно из следующих значений:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"blk" – чёрный<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"blu" – синий<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"cyn" – голубой<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"grn" – зелёный<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"mag" – пурпурный<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"red" – красный<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"yel" – жёлтый<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"whi" – белый<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"dbl" – тёмно-синий<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"dgn" – тёмно-зелёный<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"dmg" – тёмно-пурпурный<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"drd" – тёмно-красный<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"dyl" – тёмно-жёлтый<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"dgy" – тёмно-серый<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"lgy" – светло-серый<br />
+значение 4 – Цвет фона – те же значения, что и для цвета переднего плана<br />
+значение 5 – область действия:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;a – все (или только) выделенные абзацы имеют эти параметры<br />
+&nbsp;&nbsp;&nbsp;&nbsp;f – первый выделенный абзац имеет эти параметры, но другие нет<br />
+&nbsp;&nbsp;&nbsp;&nbsp;c – текущий абзац имеет эти параметры</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -94,7 +130,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_SetParaShading.htm"><span class="S15">_GUICtrlRichEdit_SetParaShading</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S7">"dgr"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Report</span><span class="S8">(</span><span class="S7">"3. Change shading of both paragraphs"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">4</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол – можно посмотреть настройки в Word</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол, чтобы посмотреть настройки в Word</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_Deselect.htm"><span class="S15">_GUICtrlRichEdit_Deselect</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_StreamToFile.htm"><span class="S15">_GUICtrlRichEdit_StreamToFile</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@DesktopDir"><span class="S6">@DesktopDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\gcre.rtf"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idBtn_Next</span><span class="S8">,</span> <span class="S9">$GUI_DISABLE</span><span class="S8">)</span><br>

@@ -98,7 +98,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlHeader_ClearFilter.htm"><span class="S15">_GUICtrlHeader_ClearFilter</span></a><span class="S8">(</span><span class="S9">$g_hHeader</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <span class="S7">"Filter 0 Cleared"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Зарегистрировать WM_NOTIFY для обработки $HDN_FILTERBTNCLICK</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Зарегистрировать WM_NOTIFY для обработки $HDN_FILTERBTNCLICK</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_Register</span><span class="S8">(</span><span class="S9">$_g_idLst_Memo</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoMsgBoxStatus</span><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">; больше действий нет, ждём закрытия GUI</span><br>
@@ -124,7 +124,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sText</span> <span class="S8">=</span> <span class="S7">" Text = "</span> <span class="S8">&amp;</span> <span class="S0">_GUICtrlHeader_GetFilterText</span><span class="S8">(</span><span class="S9">$g_hHeader</span><span class="S8">,</span> <span class="S9">$iColumn</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$HDN_FILTERBTNCLICK"</span><span class="S8">,</span> <span class="S9">$tagNMHDFILTERBTNCLICK</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Item"</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Return True  ; Уведомление $HDN_FILTERCHANGE будет отправлено родительскому окну header-а</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return True  ; Уведомление $HDN_FILTERCHANGE будет отправлено родительскому окну header-а</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Это уведомление даёт родительскому окну возможность синхронизировать элементы интерфейса</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span>&nbsp;<span class="S1">; Если уведомление отправлять не нужно</span><br>
 <br>

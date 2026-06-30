@@ -19,15 +19,15 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$vData</span></td>
-<td style="width:85%">Данные в двоичном или строковом формате, либо NULL (0) – в этом случае владелец предоставляет данные по запросу (см. ниже).<br />
-ВАЖНО: если передана строка не типа <span class="S91">$CF_TEXT</span>, <span class="S91">$CF_OEMTEXT</span> или <span class="S91">$CF_UNICODETEXT</span>, она будет трактоваться как строка ANSI.<br />
-Для принудительной передачи Unicode-строк для других типов передавайте данные в двоичном формате.<br />
-Не передавайте <span class="S91">$CF_UNICODETEXT</span> в двоичном формате – это приведёт к искажению данных.<br />
-Если <span class="S91">$vData</span> равен NULL, окно будет предоставлять данные в указанном формате по запросу.<br />
-Если окно откладывает отрисовку, оно должно обрабатывать сообщения <span class="S91">$WM_RENDERFORMAT</span> и <span class="S91">$WM_RENDERALLFORMATS</span>.<br />
-При успешном выполнении функции система становится владельцем объекта, идентифицируемого <span class="S91">$hMemory</span>.<br />
-После передачи владения приложение не должно записывать данные или освобождать память, но может блокировать и читать их до вызова <a class="le" href="_ClipBoard_Close.htm"><span class="S15">_ClipBoard_Close</span></a><span class="S8">()</span>.<br />
-Память должна быть разблокирована перед закрытием буфера обмена.<br />
+<td style="width:85%">Данные в двоичном или строковом формате либо NULL (0) (тогда данные предоставляет владелец, см. ниже).<br />
+ВАЖНО: если передана строка не типа <span class="S91">$CF_TEXT</span>, <span class="S91">$CF_OEMTEXT</span> или <span class="S91">$CF_UNICODETEXT</span>, она будет воспринята как ANSI-строка.<br />
+Чтобы задать строки Unicode для остальных типов, передавайте данные в двоичном формате.<br />
+Также НЕ передавайте <span class="S91">$CF_UNICODETEXT</span> в двоичном формате (данные исказятся).<br />
+Если <span class="S91">$vData</span> равно NULL, окно предоставляет данные в указанном формате по запросу.<br />
+Если окно откладывает предоставление данных, оно должно обрабатывать сообщения <span class="S91">$WM_RENDERFORMAT</span> и <span class="S91">$WM_RENDERALLFORMATS</span>.<br />
+При успешном выполнении функции объект, заданный параметром <span class="S91">$hMemory</span>, переходит во владение системы.<br />
+После передачи владения системе приложению нельзя записывать или освобождать данные, но можно блокировать и читать их до вызова <a href="_ClipBoard_Close.htm"><span class="S15">_ClipBoard_Close</span><span class="S8">()</span></a>.<br />
+Память нужно разблокировать до закрытия буфера обмена.<br />
 Если <span class="S91">$hMemory</span> указывает на объект памяти, он должен быть выделен с флагом <span class="S91">$GMEM_MOVEABLE</span>.</td>
 </tr>
 <tr>
@@ -71,7 +71,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Функция выполняет все необходимые действия для помещения данных в буфер обмена: выделяет глобальный объект памяти, открывает буфер, помещает данные и закрывает его. Для более точного управления процессом используйте <a class="le" href="_ClipBoard_SetDataEx.htm"><span class="S15">_ClipBoard_SetDataEx</span></a><span class="S8">()</span>.<br />
+<p>Функция делает всё необходимое, чтобы поместить данные в буфер обмена: выделяет глобальный объект памяти, открывает буфер, кладёт в него данные и закрывает. Для более точного управления записью данных используйте <a href="_ClipBoard_SetDataEx.htm"><span class="S15">_ClipBoard_SetDataEx</span><span class="S8">()</span></a>.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ClipBoard_Empty.htm">_ClipBoard_Empty</a>, <a href="_ClipBoard_GetData.htm">_ClipBoard_GetData</a>, <a href="_ClipBoard_GetDataEx.htm">_ClipBoard_GetDataEx</a>, <a href="_ClipBoard_SetDataEx.htm">_ClipBoard_SetDataEx</a></p>

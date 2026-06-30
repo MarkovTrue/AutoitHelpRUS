@@ -75,15 +75,15 @@ DomainName\UserName.</td>
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив, содержащий следующую информацию:
-[0]&nbsp;– имя пользователя, включая имя домена (если необходимо).
-[1]&nbsp;– пароль.
-[2]&nbsp;– состояние флажка "Сохранить".
-[3]&nbsp;– пакет аутентификации.</td>
+<td style="width:90%">Возвращает массив, содержащий следующую информацию:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– имя пользователя, включая имя домена (если необходимо).<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– пароль.<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– состояние флажка "Сохранить".<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– пакет аутентификации.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Устанавливает флаг <span class="S61">@error</span> в ненулевое значение. Если функция отменена пользователем, флаг <span class="S61">@extended</span> будет
+<td>Устанавливает <span class="S61">@error</span> ≠ 0. Если функция отменена пользователем, флаг <span class="S61">@extended</span> будет
 содержать&nbsp;код ошибки системы ERROR_CANCELLED (1223). Любое другое значение указывает, что функция
 не смогла&nbsp;загрузиться.</td>
 </tr>

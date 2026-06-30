@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_WinAPI_SetWindowRgn</h1>
-<p class="funcdesc">Задаёт область окна (window region).</p>
+<p class="funcdesc">Устанавливает область окна для окна.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_WinAPI_SetWindowRgn.htm"><span class="S15">_WinAPI_SetWindowRgn</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$hRgn</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bRedraw</span> <span class="S8">=</span> <span class="S5">True</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,11 +23,11 @@
 </tr>
 <tr>
 <td><span class="S91">$hRgn</span></td>
-<td>Дескриптор области (region). Эта область становится новой областью окна.</td>
+<td>Дескриптор области. Функция устанавливает область окна на эту область. Если этот параметр имеет значение NULL, функция устанавливает область окна в NULL.</td>
 </tr>
 <tr>
 <td><span class="S91">$bRedraw</span></td>
-<td><strong>[необязательный]</strong> Перерисовывать ли окно после установки региона.</td>
+<td><strong>[необязательный]</strong> Если <span class="S5">True</span>, окно перерисовывается после установки области. Если <span class="S5">False</span>, окно не перерисовывается. По умолчанию <span class="S5">True</span>.</td>
 </tr>
 </table>
 
@@ -68,7 +68,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPISys.au3&gt;</span><br>
 <br>
-<span class="S1">; получить высоту заголовка и ширину рамки окна – может отличаться в зависимости от темы XP (вкл./выкл.)</span><br>
+<span class="S1">; получить высоту заголовка и ширину рамки окна; может отличаться в зависимости от темы XP (вкл./выкл.)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_iHtit</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetSystemMetrics.htm"><span class="S15">_WinAPI_GetSystemMetrics</span></a><span class="S8">(</span><span class="S9">$SM_CYCAPTION</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_iFrame</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetSystemMetrics.htm"><span class="S15">_WinAPI_GetSystemMetrics</span></a><span class="S8">(</span><span class="S9">$SM_CXDLGFRAME</span><span class="S8">)</span><br>
 <br>

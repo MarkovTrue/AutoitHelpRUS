@@ -36,13 +36,10 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Функция <a href="_WinAPI_CreateANDBitmap.htm"><span class="S15">_WinAPI_CreateANDBitmap</span><span class="S8">()</span></a> создаёт 1-битный AND-маскированный DIB из 32-битного DIB или DDB.<br />
-Если исходный битмап не 32-битный или сжат, функция завершается с ошибкой.<br />
-<br />
-Возвращённый битмап можно использовать для создания значка через <a href="_WinAPI_CreateIconIndirect.htm"><span class="S15">_WinAPI_CreateIconIndirect</span><span class="S8">()</span></a>.<br />
-<br />
-Когда битмап больше не нужен, удалите его функцией <a href="_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span><span class="S8">()</span></a>.<br />
-</p>
+<p>The <a href="_WinAPI_CreateANDBitmap.htm">_WinAPI_CreateANDрастровое изображение()</a> создаёт 1 bits-per-pixel AND маска DIB from the 32 bits-per-pixel DIB или DDB.<br />
+если исходное растровое изображение не имеет формата 32 бит/пикс, или если это сжатое растровое изображение, функция fails.<br /><br />
+вы можете использовать the растровое изображение returned by this function to create значок by используя функцию <a href="_WinAPI_CreateIconIndirect.htm">_WinAPI_CreateзначокIndirect()</a>.<br /><br />
+после использования the растровое изображение, удалите его, используя the <a href="_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span><span class="S8">()</span></a> function.<br /></p>
 <h2>См. также</h2>
 <p><a href="_WinAPI_CreateIconIndirect.htm">_WinAPI_CreateIconIndirect</a>, <a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject</a></p>
 
@@ -62,8 +59,7 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$sPng</span> <span class="S8">=</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">'Silverlight.png'</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$a_hBitmap</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br>
-<span class="S1">; Создание растрового изображения 32 бит/пикс
-</span><br>
+<span class="S1">; Создание растрового изображения 32 бит/пикс</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_hDll</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hPng</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageLoadFromFile.htm"><span class="S15">_GDIPlus_ImageLoadFromFile</span></a><span class="S8">(</span><span class="S9">$sPng</span><span class="S8">)</span><br>
 <span class="S9">$a_hBitmap</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateDIBFromBitmap.htm"><span class="S15">_GDIPlus_BitmapCreateDIBFromBitmap</span></a><span class="S8">(</span><span class="S9">$hPng</span><span class="S8">)</span><br>
@@ -72,8 +68,7 @@
 <a class="le" href="../libfunctions/_GDIPlus_ImageDispose.htm"><span class="S15">_GDIPlus_ImageDispose</span></a><span class="S8">(</span><span class="S9">$hPng</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создание растрового изображения 1 бит/пикс
-</span><br>
+<span class="S1">; Создание растрового изображения 1 бит/пикс</span><br>
 <span class="S9">$a_hBitmap</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateANDBitMap.htm"><span class="S15">_WinAPI_CreateANDBitmap</span></a><span class="S8">(</span><span class="S9">$a_hBitmap</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 <br>
 <span class="S1">; Создать GUI</span><br>
@@ -90,8 +85,7 @@
 <span class="S1">; Показать GUI</span><br>
 <a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-<span class="S1">; Создание и сохранение значка в файл .ico
-</span><br>
+<span class="S1">; Создание и сохранение значка в файл .ico</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hIcon</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sPath</span> <span class="S8">=</span> <a class="le" href="../functions/FileSaveDialog.htm"><span class="S4">FileSaveDialog</span></a><span class="S8">(</span><span class="S7">'Save Icon'</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a><span class="S8">,</span> <span class="S7">'Icon Files (*.ico)'</span><span class="S8">,</span> <span class="S3">2</span> <span class="S8">+</span> <span class="S3">16</span><span class="S8">,</span> <a class="le" href="../libfunctions/_WinAPI_PathStripPath.htm"><span class="S15">_WinAPI_PathStripPath</span></a><span class="S8">(</span><a class="le" href="../libfunctions/_WinAPI_PathRenameExtension.htm"><span class="S15">_WinAPI_PathRenameExtension</span></a><span class="S8">(</span><span class="S9">$sPng</span><span class="S8">,</span> <span class="S7">'.ico'</span><span class="S8">)</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$hForm</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$sPath</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>

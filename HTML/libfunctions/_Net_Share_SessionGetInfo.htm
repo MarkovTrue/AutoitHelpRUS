@@ -24,7 +24,7 @@
 </tr>
 <tr>
 <td><span class="S91">$sClientName</span></td>
-<td>Имя сессии компьютера, для которой должна быть возвращена информация.<br />
+<td>Указывает имя сессии компьютера, для которой должна быть возвращена информация.<br />
 Этот параметр не может быть пуст.</td>
 </tr>
 <tr>
@@ -39,15 +39,15 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив со следующим форматом:<br />
-[0]&nbsp;– имя компьютера, установившего сессию<br />
-[1]&nbsp;– имя пользователя, установившего сессию<br />
-[2]&nbsp;– количество файлов, устройств и каналов, открытых во время сессии<br />
-[3]&nbsp;– количество секунд, в течение которых сессия была активна<br />
-[4]&nbsp;– количество секунд, в течение которых сессия была неактивна<br />
-[5]&nbsp;– указывает, как пользователь установил сессию:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– имя компьютера, установившего сессию<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– имя пользователя, установившего сессию<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– количество файлов, устройств и каналов, открытых во время сессии<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– количество секунд, в течение которых сессия была активна<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span>&nbsp;– количество секунд, в течение которых сессия была неактивна<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span>&nbsp;– указывает, как пользователь установил сессию:<br />
 1&nbsp;– пользователь установил сессию с использованием гостевой учётной записи<br />
 2&nbsp;– пользователь установил сессию без использования шифрования пароля<br />
-[6]&nbsp;– указывает тип клиента, установившего сессию</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span>&nbsp;– указывает тип клиента, установившего сессию</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -91,8 +91,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sServer</span> <span class="S8">=</span> <a class="le" href="../functions/InputBox.htm"><span class="S4">InputBox</span></a><span class="S8">(</span><span class="S7">"NetWork Demo"</span><span class="S8">,</span> <span class="S7">"Enter Server Name:"</span><span class="S8">,</span> <span class="S7">"\\MyServer"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">130</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить информацию о сессии
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить информацию о сессии</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aInfo</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Net_Share_SessionGetInfo.htm"><span class="S15">_Net_Share_SessionGetInfo</span></a><span class="S8">(</span><span class="S9">$sServer</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ComputerName"><span class="S6">@ComputerName</span></a><span class="S8">,</span> <span class="S7">"Administrator"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Error ..........: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Computer name ..: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>

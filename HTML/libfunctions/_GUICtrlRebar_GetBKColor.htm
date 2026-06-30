@@ -50,12 +50,12 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"Rebar"</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">396</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$WS_MINIMIZEBOX</span><span class="S8">,</span> <span class="S9">$WS_CAPTION</span><span class="S8">,</span> <span class="S9">$WS_POPUP</span><span class="S8">,</span> <span class="S9">$WS_SYSMENU</span><span class="S8">,</span> <span class="S9">$WS_MAXIMIZEBOX</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создание элемента управления Rebar</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создание элемента управления Rebar</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hReBar</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlRebar_Create.htm"><span class="S15">_GUICtrlRebar_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$CCS_TOP</span><span class="S8">,</span> <span class="S9">$WS_BORDER</span><span class="S8">,</span> <span class="S9">$RBS_VARHEIGHT</span><span class="S8">,</span> <span class="S9">$RBS_AUTOSIZE</span><span class="S8">,</span> <span class="S9">$RBS_BANDBORDERS</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">396</span><span class="S8">,</span> <span class="S3">250</span><span class="S8">,</span> <span class="S9">$WS_VSCROLL</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создание панели инструментов для размещения в Rebar</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создание панели инструментов для размещения в Rebar</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hToolbar</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlToolbar_Create.htm"><span class="S15">_GUICtrlToolbar_Create</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$TBSTYLE_FLAT</span><span class="S8">,</span> <span class="S9">$CCS_NORESIZE</span><span class="S8">,</span> <span class="S9">$CCS_NOPARENTALIGN</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавить стандартные системные изображения</span><br>
@@ -73,13 +73,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlToolbar_AddButtonSep.htm"><span class="S15">_GUICtrlToolbar_AddButtonSep</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlToolbar_AddButton.htm"><span class="S15">_GUICtrlToolbar_AddButton</span></a><span class="S8">(</span><span class="S9">$hToolbar</span><span class="S8">,</span> <span class="S9">$e_idHelp</span><span class="S8">,</span> <span class="S9">$STD_HELP</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создание поля ввода для размещения в Rebar</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создание поля ввода для размещения в Rebar</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idInput</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">"Input control"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить полосу с элементом управления</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавить полосу с элементом управления</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRebar_AddBand.htm"><span class="S15">_GUICtrlRebar_AddBand</span></a><span class="S8">(</span><span class="S9">$hReBar</span><span class="S8">,</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idInput</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S7">"Name:"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить полосу с элементом управления в начало Rebar</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Добавить полосу с элементом управления в начало Rebar</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRebar_AddToolBarBand.htm"><span class="S15">_GUICtrlRebar_AddToolBarBand</span></a><span class="S8">(</span><span class="S9">$hReBar</span><span class="S8">,</span> <span class="S9">$hToolbar</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idBtn_Exit</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Exit"</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">,</span> <span class="S3">360</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">)</span><br>

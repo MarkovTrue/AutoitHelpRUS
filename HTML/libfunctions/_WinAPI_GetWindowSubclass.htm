@@ -24,7 +24,7 @@
 <tr>
 <td><span class="S91">$pSubclassProc</span></td>
 <td>Указатель на оконную процедуру. Указатель и идентификатор подкласса вместе однозначно идентифицируют callback подкласса.<br />
-(Подробности – см. MSDN).</td>
+(Подробности см. MSDN).</td>
 </tr>
 <tr>
 <td><span class="S91">$idSubClass</span></td>
@@ -98,8 +98,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idInput03</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iNewRefData</span> <span class="S8">=</span> <a class="le" href="../functions/Number.htm"><span class="S4">Number</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlRead.htm"><span class="S4">GUICtrlRead</span></a><span class="S8">(</span><span class="S9">$idInput03</span><span class="S8">)</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обновить номер пользовательских данных
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обновить номер пользовательских данных</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_SetWindowSubclass.htm"><span class="S15">_WinAPI_SetWindowSubclass</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$g_idInput01</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$g_pInputSubClassProc</span><span class="S8">,</span> <span class="S3">1000</span><span class="S8">,</span> <span class="S9">$iNewRefData</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/ToolTip.htm"><span class="S4">ToolTip</span></a><span class="S8">(</span><span class="S7">"&gt;&gt;&gt; outside subclass Reference data = "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_WinAPI_GetWindowSubclass.htm"><span class="S15">_WinAPI_GetWindowSubclass</span></a><span class="S8">(</span><a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$g_idInput01</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$g_pInputSubClassProc</span><span class="S8">,</span> <span class="S3">1000</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>

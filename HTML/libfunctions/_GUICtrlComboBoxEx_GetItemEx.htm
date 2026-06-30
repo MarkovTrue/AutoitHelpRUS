@@ -79,17 +79,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_AddString.htm"><span class="S15">_GUICtrlComboBoxEx_AddString</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"%03d : string"</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Установить отступ элемента</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить отступ элемента</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_SetItemIndent.htm"><span class="S15">_GUICtrlComboBoxEx_SetItemIndent</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать структуру
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать структуру</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tItem</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagCOMBOBOXEXITEM</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать маску для запрашиваемых данных
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать маску для запрашиваемых данных</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tItem</span><span class="S8">,</span> <span class="S7">"Mask"</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$CBEIF_IMAGE</span><span class="S8">,</span> <span class="S9">$CBEIF_INDENT</span><span class="S8">,</span> <span class="S9">$CBEIF_LPARAM</span><span class="S8">,</span> <span class="S9">$CBEIF_SELECTEDIMAGE</span><span class="S8">,</span> <span class="S9">$CBEIF_OVERLAY</span><span class="S8">)</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать индекс запрашиваемого элемента
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать индекс запрашиваемого элемента</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tItem</span><span class="S8">,</span> <span class="S7">"Item"</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_GetItemEx.htm"><span class="S15">_GUICtrlComboBoxEx_GetItemEx</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span> <span class="S9">$tItem</span><span class="S8">)</span><br>

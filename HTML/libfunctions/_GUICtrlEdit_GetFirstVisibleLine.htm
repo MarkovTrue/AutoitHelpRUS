@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlEdit_GetFirstVisibleLine</h1>
-<p class="funcdesc">Возвращает индекс (с нуля) верхней видимой строки в многострочном Edit.</p>
+<p class="funcdesc">Получает индекс (начиная с 0) верхней видимой строки в многострочном элементе управления Edit.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiEdit.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlEdit_GetFirstVisibleLine.htm"><span class="S15">_GUICtrlEdit_GetFirstVisibleLine</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">)</span></p>
 
@@ -24,11 +24,10 @@
 </table>
 
 <h2>Возвращаемое значение</h2>
-Возвращает&nbsp;индекс (с нуля) верхней видимой строки.<br />
+Возвращает индекс (начиная с 0) верхней видимой строки в многострочном элементе управления Edit.
 
 <h2>Примечания</h2>
-<p>Количество и длина строк в поле редактирования зависят от ширины элемента и текущей настройки переноса по словам.<br />
-</p>
+<p>Количество строк и длина строк в элементе управления Edit определяют, где появляется конкретная строка и видима ли строка.</p>
 <h2 class="bottom">Пример</h2>
 
 <p id="copytext1" class="codebox">

@@ -40,7 +40,10 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Этот вызов заставляет Desktop Window Manager (DWM) сбросить текущие битмапы окна и запросить новые, когда они снова понадобятся. <a href="_WinAPI_DwmInvalidateIconicBitmaps.htm"><span class="S15">_WinAPI_DwmInvalidateIconicBitmaps</span><span class="S8">()</span></a> следует вызывать только когда битмапы значков и миниатюр устарели.<br />
+<p>Вызов этой функции приводит к тому, что Desktop Window Manager (DWM) устаревает текущие битмапы окна и запрашивает новые у окна, когда они снова понадобятся. <a href="_WinAPI_DwmInvalidateIconicBitmaps.htm"><span class="S15">_WinAPI_DwmInvalidateIconicBitmaps</span><span class="S8">()</span></a> не следует вызывать часто.<br />
+Частые вызовы могут привести к снижению производительности, так как новые битмапы создаются и извлекаются.<br />
+<br />
+Эта функция требует <strong>Windows 7 или позже</strong>.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=DwmInvalidateIconicBitmaps">DwmInvalidateIconicBitmaps</a> в библиотеке MSDN

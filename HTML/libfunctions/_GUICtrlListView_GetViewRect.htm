@@ -26,10 +26,10 @@
 <h2>Возвращаемое значение</h2>
 <br />
 Возвращает массив следующего формата:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[0]&nbsp;– X-координата левого верхнего угла прямоугольника<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[1]&nbsp;– Y-координата левого верхнего угла прямоугольника<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[2]&nbsp;– X-координата правого нижнего угла прямоугольника<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[3]&nbsp;– Y-координата правого нижнего угла прямоугольника
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– X-координата левого верхнего угла прямоугольника<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Y-координата левого верхнего угла прямоугольника<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– X-координата правого нижнего угла прямоугольника<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– Y-координата правого нижнего угла прямоугольника
 
 <h2>Примечания</h2>
 В представлении значков или мелких значков возвращает общее количество элементов.
@@ -65,8 +65,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать вид</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SetView.htm"><span class="S15">_GUICtrlListView_SetView</span></a><span class="S8">(</span><span class="S9">$idListview</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">Получает
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получает</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aRect</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlListView_GetViewRect.htm"><span class="S15">_GUICtrlListView_GetViewRect</span></a><span class="S8">(</span><span class="S9">$idListview</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"View Tile: [%d, %d, %d, %d]"</span><span class="S8">,</span> <span class="S9">$aRect</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aRect</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aRect</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aRect</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>

@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlEdit_Undo</h1>
-<p class="funcdesc">Отменяет последнюю операцию редактирования в Edit.</p>
+<p class="funcdesc">Отменяет последнюю операцию элемента управления Edit в очереди отмены.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiEdit.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlEdit_Undo.htm"><span class="S15">_GUICtrlEdit_Undo</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">)</span></p>
 
@@ -62,8 +62,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_AppendText.htm"><span class="S15">_GUICtrlEdit_AppendText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"Append to the end?"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; отменить
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отменить</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <span class="S7">"Undo"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_Undo.htm"><span class="S15">_GUICtrlEdit_Undo</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">)</span><br>
 <br>

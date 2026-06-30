@@ -99,8 +99,7 @@ dвоичные данные, а не данные, предоставляемы
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <a class="le" href="../keywords/Dim.htm"><span class="S5">Const</span></a> <span class="S9">$tagNEWHEADER</span> <span class="S8">=</span> <span class="S7">'ushort Reserved;ushort ResType;ushort ResCount;'</span>&nbsp;<span class="S1">; &amp; $tagICONRESDIR[ResCount]
 </span><br>
 <br>
-<span class="S1">; Выберите значок для обновления ресурса
-</span><br>
+<span class="S1">; Выбор значка для обновления ресурса</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sIcon</span> <span class="S8">=</span> <a class="le" href="../functions/FileOpenDialog.htm"><span class="S4">FileOpenDialog</span></a><span class="S8">(</span><span class="S7">'Select File'</span><span class="S8">,</span> <a class="le" href="../macros.htm#@ScriptDir"><span class="S6">@ScriptDir</span></a> <span class="S8">&amp;</span> <span class="S7">'\Extras'</span><span class="S8">,</span> <span class="S7">'Icon Files (*.ico)'</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$FD_FILEMUSTEXIST</span><span class="S8">,</span> <span class="S9">$FD_PATHMUSTEXIST</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">'Script.ico'</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <span class="S9">$sIcon</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>

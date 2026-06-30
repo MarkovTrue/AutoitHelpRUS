@@ -49,11 +49,6 @@
 <td class="valign-top"><span class="S61">@error</span>:</td>
 <td>Возвращает 11, если HICON не удалось создать из <span class="S91">$sIconFile</span>.</td>
 </tr>
-<tr>
-<td class="valign-top"><span class="S61">@extended</span>:</td>
-<td>Содержит результат <a class="le" href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span></a><span class="S8">()</span>.<br />
-12&nbsp;– не удалось задать <span class="S91">$sIconFile</span>.</td>
-</tr>
 </table>
 
 <h2>Примечания</h2>
@@ -145,7 +140,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoCreate</span><span class="S8">(</span><span class="S3">2</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class="S3">444</span><span class="S8">,</span> <span class="S3">259</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать части</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aParts</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">75</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">]</span>&nbsp;<span class="S1">;, 400]
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aParts</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">75</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">,</span> <span class="S3">300</span><span class="S8">]</span>&nbsp;<span class="S1">; Создать элемент memo
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetParts.htm"><span class="S15">_GUICtrlStatusBar_SetParts</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S9">$aParts</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S7">"Part 0"</span><span class="S8">)</span><br>

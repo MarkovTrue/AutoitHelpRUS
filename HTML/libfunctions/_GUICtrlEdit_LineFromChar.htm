@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlEdit_LineFromChar</h1>
-<p class="funcdesc">Возвращает индекс строки, содержащей указанный индекс символа.</p>
+<p class="funcdesc">Получает индекс строки, содержащей указанный индекс символа.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiEdit.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlEdit_LineFromChar.htm"><span class="S15">_GUICtrlEdit_LineFromChar</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iIndex</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iIndex</span></td>
-<td><strong>[необязательный]</strong> Индекс символа, находящегося в строке, номер которой нужно получить</td>
+<td><strong>[необязательный]</strong> индекс символа символа, содержащегося в номере строки, который нужно найти</td>
 </tr>
 </table>
 
@@ -59,8 +59,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_SetText.htm"><span class="S15">_GUICtrlEdit_SetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; строка из символа
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Строка из символа</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRandom</span> <span class="S8">=</span> <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <a class="le" href="../libfunctions/_GUICtrlEdit_GetTextLen.htm"><span class="S15">_GUICtrlEdit_GetTextLen</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_SetSel.htm"><span class="S15">_GUICtrlEdit_SetSel</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S9">$iRandom</span> <span class="S8">-</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iRandom</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatusBar</span><span class="S8">,</span> <span class="S7">"Character  "</span> <span class="S8">&amp;</span> <span class="S9">$iRandom</span> <span class="S8">&amp;</span> <span class="S7">" is in a line: "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUICtrlEdit_LineFromChar.htm"><span class="S15">_GUICtrlEdit_LineFromChar</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S9">$iRandom</span><span class="S8">)</span><span class="S8">)</span><br>

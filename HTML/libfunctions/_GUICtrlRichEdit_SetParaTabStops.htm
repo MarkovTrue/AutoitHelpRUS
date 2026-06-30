@@ -23,7 +23,20 @@
 </tr>
 <tr>
 <td><span class="S91">$sTabStops</span></td>
-<td><span class="S91">$sTabStops</span> – строка, состоящая из групп, разделённых точкой с запятой (;)</td>
+<td>Строка из групп, разделённых ; (точкой с запятой). Формат группы:<br />
+абсолютная позиция табуляции (в единицах пробела)<br />
+тип табуляции<br />
+l – табуляция по левому краю<br />
+c – табуляция по центру<br />
+r – десятичная табуляция<br />
+b – табуляция-черта<br />
+тип заполнителя<br />
+. – точечный заполнитель<br />
+- – штриховой заполнитель<br />
+_ – подчёркивающий заполнитель<br />
+= – заполнитель двойной линией<br />
+t – заполнитель толстой линией<br />
+пробел – без заполнителя</td>
 </tr>
 </table>
 
@@ -49,7 +62,12 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Чтобы вставить табуляцию в элемент управления, нажмите Ctrl+Tab.</p>
+<p>Чтобы сбросить табуляции, выполните <a href="_GUICtrlRichEdit_SetParaTabStops.htm"><span class="S15">_GUICtrlRichEdit_SetParaTabStops</span></a><span class="S8">(</span><span class="S91">$hWnd</span>, ""<span class="S8">)</span>.<br />
+<br />
+Для установки «единиц пробела» вызовите <a href="_GUICtrlRichEdit_SetSpaceUnit.htm"><span class="S15">_GUICtrlRichEdit_SetSpaceUnit</span><span class="S8">()</span></a> (по умолчанию дюймы).<br />
+<br />
+Чтобы вставить табуляцию в элемент управления, нажмите Ctrl+Tab.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlRichEdit_GetParaTabStops.htm">_GUICtrlRichEdit_GetParaTabStops</a>, <a href="_GUICtrlRichEdit_SetSpaceUnit.htm">_GUICtrlRichEdit_SetSpaceUnit</a>, <a href="_GUICtrlRichEdit_SetTabStops.htm">_GUICtrlRichEdit_SetTabStops</a></p>
 
@@ -105,7 +123,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_SetParaTabStops.htm"><span class="S15">_GUICtrlRichEdit_SetParaTabStops</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <span class="S7">"2.3r="</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Report</span><span class="S8">(</span><span class="S7">"3. Change tabstops of both paragraphs"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">5</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол – можно посмотреть настройки в Word</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол, чтобы посмотреть настройки в Word</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_Deselect.htm"><span class="S15">_GUICtrlRichEdit_Deselect</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_StreamToFile.htm"><span class="S15">_GUICtrlRichEdit_StreamToFile</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@DesktopDir"><span class="S6">@DesktopDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\gcre.rtf"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idBtn_Next</span><span class="S8">,</span> <span class="S9">$GUI_DISABLE</span><span class="S8">)</span><br>

@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlRichEdit_SetParaSpacing</h1>
-<p class="funcdesc">Устанавливает расстояние между абзацами для абзацев с выделенным текстом или, если текст не выделен, для текста, вставленного в точку вставки.</p>
+<p class="funcdesc">Задаёт интервалы для абзацев с выделенным текстом или, если выделения нет, для текста, вставляемого в точке вставки.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiRichEdit.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlRichEdit_SetParaSpacing.htm"><span class="S15">_GUICtrlRichEdit_SetParaSpacing</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$vInter</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iBefore</span> <span class="S8">=</span> <span class="S5">Default</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iAfter</span> <span class="S8">=</span> <span class="S5">Default</span><span class="S8">]</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,17 +23,17 @@
 </tr>
 <tr>
 <td><span class="S91">$vInter</span></td>
-<td><strong>[необязательный]</strong> Интервал между строками:<br />
-либо число – в единицах пробела<br />
+<td><strong>[необязательный]</strong> межстрочный интервал:<br />
+либо число – в единицах измерения<br />
 либо "&lt;число&gt; lines" – в строках</td>
 </tr>
 <tr>
 <td><span class="S91">$iBefore</span></td>
-<td><strong>[необязательный]</strong> расстояние перед абзаца(ев) (в единицах расстояния)</td>
+<td><strong>[необязательный]</strong> интервал перед абзацами (в единицах измерения)</td>
 </tr>
 <tr>
 <td><span class="S91">$iAfter</span></td>
-<td><strong>[необязательный]</strong> расстояние после абзаца(ев) (в единицах расстояния)</td>
+<td><strong>[необязательный]</strong> интервал после абзацев (в единицах измерения)</td>
 </tr>
 </table>
 
@@ -49,16 +49,19 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>101 - <span class="S91">$hWnd</span> is not a handle<br />
-103&nbsp;- <span class="S91">$iBefore</span> is neither a positive number nor zero<br />
-104&nbsp;- <span class="S91">$iAfter</span> is neither a positive number nor zero<br />
-1021&nbsp;- <span class="S91">$vInter</span> is invalid<br />
-1022&nbsp;- Only 1, 1.5 and 2 line spacing can be set via "<n> lines"</td>
+<td>101 – <span class="S91">$hWnd</span> не является дескриптором<br />
+103 – <span class="S91">$iBefore</span> не является ни положительным числом, ни нулём<br />
+104 – <span class="S91">$iAfter</span> не является ни положительным числом, ни нулём<br />
+1021 – <span class="S91">$vInter</span> недопустим<br />
+1022 – через "&lt;n&gt; lines" можно задать только межстрочный интервал 1, 1.5 и 2</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Устанавливаются только параметры, которые не являются параметрами по умолчанию.</p>
+<p>Устанавливаются только значения, отличные от заданных по умолчанию.<br />
+<br />
+Чтобы задать единицы измерения, вызовите <a href="_GUICtrlRichEdit_SetSpaceUnit.htm"><span class="S15">_GUICtrlRichEdit_SetSpaceUnit</span><span class="S8">()</span></a>. Изначально дюймы.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlRichEdit_GetParaSpacing.htm">_GUICtrlRichEdit_GetParaSpacing</a>, <a href="_GUICtrlRichEdit_SetSpaceUnit.htm">_GUICtrlRichEdit_SetSpaceUnit</a></p>
 

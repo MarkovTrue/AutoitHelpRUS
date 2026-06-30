@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$tXFORM</span></td>
-<td>Структура <span class="S91">$tagXFORM</span> с данными преобразования.</td>
+<td>Структура <span class="S91">$tagXFORM</span>, которая задаёт мировую трансформацию.</td>
 </tr>
 </table>
 
@@ -40,12 +40,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Функция <a href="_WinAPI_SetWorldTransform.htm"><span class="S15">_WinAPI_SetWorldTransform</span><span class="S8">()</span></a> сработает только если для контекста устройства предварительно установлен графический режим<br />
-<span class="S91">$GM_ADVANCED</span> через <a href="_WinAPI_SetGraphicsMode.htm"><span class="S15">_WinAPI_SetGraphicsMode</span><span class="S8">()</span></a>. Аналогично, нельзя вернуть<br />
-режим обратно в <span class="S91">$GM_COMPATIBLE</span> по умолчанию, пока мировое преобразование не сброшено в тождественное<br />
-повторным вызовом <a href="_WinAPI_SetWorldTransform.htm"><span class="S15">_WinAPI_SetWorldTransform</span><span class="S8">()</span></a>.<br />
+<p>Функция <a href="_WinAPI_SetWorldTransform.htm"><span class="S15">_WinAPI_SetWorldTransform</span><span class="S8">()</span></a> завершится неудачей, если графический режим для данного контекста устройства не был установлен на <span class="S91">$GM_ADVANCED</span> путём предварительного вызова <a href="_WinAPI_SetGraphicsMode.htm"><span class="S15">_WinAPI_SetGraphicsMode</span><span class="S8">()</span></a>. Аналогичным образом, не будет возможности сбросить графический режим контекста устройства в режим по умолчанию <span class="S91">$GM_COMPATIBLE</span>, если мировое преобразование предварительно не было сброшено на преобразование идентичности по умолчанию путём вызова <a href="_WinAPI_SetWorldTransform.htm"><span class="S15">_WinAPI_SetWorldTransform</span><span class="S8">()</span></a>.<br />
 <br />
-Для любых мировых координат (x, y) преобразованные координаты страницы (x', y') считаются по формуле:<br />
+Для любых координат (x, y) в мировом пространстве преобразованные координаты в пространстве страницы (x', y') можно определить по следующему алгоритму:<br />
 &nbsp;&nbsp;&nbsp; x' = x * eM11 + y * eM21 + eDx<br />
 &nbsp;&nbsp;&nbsp; y' = x * eM12 + y * eM22 + eDy<br />
 </p>

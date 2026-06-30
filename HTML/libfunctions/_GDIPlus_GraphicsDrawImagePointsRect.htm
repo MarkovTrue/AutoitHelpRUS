@@ -120,7 +120,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sWow64</span> <span class="S8">=</span> <span class="S7">""</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@AutoItX64"><span class="S6">@AutoItX64</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sWow64</span> <span class="S8">=</span> <span class="S7">"\Wow6432Node"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;получить каталог установки AutoIt</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить каталог установки AutoIt</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sRegPath</span> <span class="S8">=</span> <span class="S7">"HKLM\SOFTWARE"</span> <span class="S8">&amp;</span> <span class="S9">$sWow64</span> <span class="S8">&amp;</span> <span class="S7">"\AutoIt v3\AutoIt"</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFile</span> <span class="S8">=</span> <a class="le" href="../functions/RegRead.htm"><span class="S4">RegRead</span></a><span class="S8">(</span><span class="S9">$sRegPath</span><span class="S8">,</span> <span class="S7">"InstallDir"</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"\Examples\GUI\logo4.gif"</span><br>
@@ -130,7 +130,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hImage</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageLoadFromFile.htm"><span class="S15">_GDIPlus_ImageLoadFromFile</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">;создать объект изображения на основе файла</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hImage</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageLoadFromFile.htm"><span class="S15">_GDIPlus_ImageLoadFromFile</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">; создать объект изображения на основе файла</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span> <span class="S8">+</span> <span class="S9">$MB_ICONHAND</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"An error has occured - unable to load image!"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
@@ -142,7 +142,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать GUI</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGUI</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">"GDI+"</span><span class="S8">,</span> <span class="S3">800</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGraphic</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">;Создать графический объект из дескриптора окна</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGraphic</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span>&nbsp;<span class="S1">; Создать графический объект из дескриптора окна</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iImgW</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetWidth.htm"><span class="S15">_GDIPlus_ImageGetWidth</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iImgH</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetHeight.htm"><span class="S15">_GDIPlus_ImageGetHeight</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span><br>
@@ -154,7 +154,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;освободить ресурсы</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; освободить ресурсы</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageDispose.htm"><span class="S15">_GDIPlus_ImageDispose</span></a><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDispose.htm"><span class="S15">_GDIPlus_GraphicsDispose</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>

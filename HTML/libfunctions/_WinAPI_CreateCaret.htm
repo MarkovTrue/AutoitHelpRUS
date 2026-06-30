@@ -48,8 +48,11 @@
 </table>
 
 <h2>Примечания</h2>
-<p><a href="_WinAPI_CreateCaret.htm"><span class="S15">_WinAPI_CreateCaret</span><span class="S8">()</span></a> автоматически уничтожает прежнюю форму каретки, если она была, независимо от того, какому окну каретка принадлежит.<br />
-Каретка остаётся скрытой до тех пор, пока приложение не вызовет <a href="_WinAPI_ShowCaret.htm"><span class="S15">_WinAPI_ShowCaret</span><span class="S8">()</span></a>, чтобы сделать её видимой.<br />
+<p><a href="_WinAPI_CreateCaret.htm"><span class="S15">_WinAPI_CreateCaret</span><span class="S8">()</span></a> автоматически уничтожает прежнюю форму каретки, если она существовала, независимо от того, какому окну она принадлежит. Каретка остаётся скрытой до тех пор, пока приложение не вызовет функцию <a href="_WinAPI_ShowCaret.htm"><span class="S15">_WinAPI_ShowCaret</span><span class="S8">()</span></a> для её отображения.<br />
+<br />
+Система предоставляет одну каретку на очередь. Окно должно создавать каретку только тогда, когда оно имеет фокус клавиатуры или активно. Окно должно уничтожать каретку перед тем, как потеряет фокус клавиатуры или станет неактивным.<br />
+<br />
+Вы можете получить ширину или высоту системной границы окна, используя функцию <a href="_WinAPI_GetSystemMetrics.htm"><span class="S15">_WinAPI_GetSystemMetrics</span><span class="S8">()</span></a>, указав значения <span class="S91">$SM_CXBORDER</span> и <span class="S91">$SM_CYBORDER</span>. Использование ширины или высоты границы окна гарантирует, что каретка будет видима на экране высокого разрешения.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_WinAPI_GetSystemMetrics.htm">_WinAPI_GetSystemMetrics</a>, <a href="_WinAPI_ShowCaret.htm">_WinAPI_ShowCaret</a></p>

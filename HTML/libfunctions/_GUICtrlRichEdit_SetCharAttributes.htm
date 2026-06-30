@@ -23,18 +23,36 @@
 </tr>
 <tr>
 <td><span class="S91">$sStatesAndEffects</span></td>
-<td><span class="S91">$sStatesAndEffects</span> – строка, состоящая из трёх символьных групп: + (или -) для включения/отключения, атрибут, пробел</td>
+<td>Строка из групп по три символа.<br />
+<br />
+Первый символ: + или - чтобы включить или выключить.<br />
+Второй и третий символы: двухбуквенное сокращение атрибута.<br />
+bo&nbsp;– полужирный<br />
+di&nbsp;– отключить, символы отображаются с тенью [nd]<br />
+em&nbsp;– рельефный [nd]<br />
+hi&nbsp;– скрыть, то есть не отображать<br />
+im&nbsp;– вдавленный [nd]<br />
+it&nbsp;– курсив<br />
+li&nbsp;– отправлять сообщения EN_LINK, когда курсор мыши над текстом с этим атрибутом<br />
+ou&nbsp;– контурный [nd]<br />
+pr&nbsp;– отправлять EN_PROTECT при попытке изменения<br />
+re&nbsp;– пометить как изменённый [nd]<br />
+sh&nbsp;– с тенью [nd]<br />
+sm&nbsp;– малые прописные буквы [nd]<br />
+st&nbsp;– зачёркнутый<br />
+sb&nbsp;– подстрочный [nd]<br />
+sp&nbsp;– надстрочный [nd]<br />
+un&nbsp;– подчёркнутый</td>
 </tr>
 <tr>
 <td><span class="S91">$bWord</span></td>
 <td><strong>[необязательный]</strong> <span class="S5">True</span><br />
-Если текст выделен – применить атрибут к целым словам в выделенном тексте.<br />
-Если не выделен:<br />
-– если точка вставки находится внутри слова или в его конце, атрибут применяется к слову;<br />
-– иначе атрибут применяется к тексту, вводимому в точке вставки.<br />
+Если текст выделен, атрибут применяется к целым словам в выделенном тексте.<br />
+Если текст не выделен и точка вставки находится внутри слова или его конце, атрибут применяется к слову.<br />
+Иначе к тексту, вводимому в точке вставки.<br />
 <span class="S5">False</span> (по умолчанию)<br />
-Если текст выделен – применить атрибут к выделенному тексту.<br />
-Иначе – к тексту, вводимому в точке вставки.</td>
+Если текст выделен, атрибут применяется к выделенному тексту.<br />
+Иначе к тексту, вводимому в точке вставки.</td>
 </tr>
 </table>
 
@@ -108,7 +126,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_SetCharAttributes.htm"><span class="S15">_GUICtrlRichEdit_SetCharAttributes</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <span class="S7">"+bo"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Report</span><span class="S8">(</span><span class="S7">"2. Some characters bolded"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S3">3</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол – можно посмотреть настройки в Word</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Передать весь текст на Рабочий стол, чтобы посмотреть настройки в Word</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_Deselect.htm"><span class="S15">_GUICtrlRichEdit_Deselect</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRichEdit_StreamToFile.htm"><span class="S15">_GUICtrlRichEdit_StreamToFile</span></a><span class="S8">(</span><span class="S9">$g_hRichEdit</span><span class="S8">,</span> <a class="le" href="../macros.htm#@DesktopDir"><span class="S6">@DesktopDir</span></a> <span class="S8">&amp;</span> <span class="S7">"\gcre.rtf"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlSetState.htm"><span class="S4">GUICtrlSetState</span></a><span class="S8">(</span><span class="S9">$idBtn_Next</span><span class="S8">,</span> <span class="S9">$GUI_DISABLE</span><span class="S8">)</span><br>

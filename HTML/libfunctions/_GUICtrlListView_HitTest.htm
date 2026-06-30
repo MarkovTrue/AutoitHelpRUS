@@ -35,7 +35,17 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив.</td>
+<td style="width:90%">Возвращает массив в следующем формате:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – индекс элемента в позиции (с нулевым смещением), или -1<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция в клиентской области, но не на элементе<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция над иконкой элемента<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция над текстом элемента<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция над изображением состояния элемента<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция где-то на элементе<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция выше клиентской области<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция ниже клиентской области<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция левее клиентской области<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">9</span><span class="S8">]</span> – <span class="S5">True</span>, если позиция правее клиентской области</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -151,7 +161,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нет возвращаемого значения</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_RCLICK</span>&nbsp;<span class="S1">; Отправляется элементом list-view при клике правой кнопкой мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_RCLICK"</span><span class="S8">,</span> <span class="S9">$tagNMITEMACTIVATE</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Index,SubItem,NewState,OldState,Changed,X,Y,lParam,KeyFlags"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Return 1 ; чтобы запретить стандартную обработку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return 1 ; чтобы запретить стандартную обработку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; разрешить стандартную обработку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_RDBLCLK</span>&nbsp;<span class="S1">; Отправляется элементом list-view при двойном клике правой кнопкой мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_RDBLCLK"</span><span class="S8">,</span> <span class="S9">$tagNMITEMACTIVATE</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"IDFrom,,Index,SubItem,NewState,OldState,Changed,X,Y,lParam,KeyFlags"</span><span class="S8">)</span><br>

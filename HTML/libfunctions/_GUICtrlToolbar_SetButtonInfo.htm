@@ -27,15 +27,38 @@
 </tr>
 <tr>
 <td><span class="S91">$iImage</span></td>
-<td><strong>[необязательный]</strong> индекс изображения кнопки</td>
+<td><strong>[необязательный]</strong> 0-based индекс изображения кнопки.<br />
+Задайте <span class="S91">$I_IMAGECALLBACK</span>, и элемент управления отправит уведомление <span class="S91">$TBN_GETDISPINFO</span> для получения индекса изображения, когда оно понадобится.<br />
+Задайте <span class="S91">$I_IMAGENONE</span>, чтобы указать, что у кнопки нет изображения.<br />
+В разметке кнопки будет место только для текста.<br />
+Задайте <span class="S91">$I_IMAGE</span> (по умолчанию), если у кнопки есть изображение.<br />
+Если кнопка является разделителем, это ширина разделителя в пикселах.</td>
 </tr>
 <tr>
 <td><span class="S91">$iState</span></td>
-<td><strong>[необязательный]</strong> состояние кнопки</td>
+<td><strong>[необязательный]</strong> Состояние кнопки. Может быть комбинацией следующих значений:<br />
+<span class="S91">$TBSTATE_CHECKED</span> – кнопка нажата<br />
+<span class="S91">$TBSTATE_PRESSED</span> – кнопка нажата<br />
+<span class="S91">$TBSTATE_ENABLED</span> – кнопка принимает ввод пользователя<br />
+<span class="S91">$TBSTATE_HIDDEN</span> – кнопка не видна<br />
+<span class="S91">$TBSTATE_INDETERMINATE</span> – кнопка неактивна (серая)<br />
+<span class="S91">$TBSTATE_WRAP</span> – за кнопкой следует перенос строки<br />
+<span class="S91">$TBSTATE_ELLIPSES</span> – текст кнопки обрезается<br />
+<span class="S91">$TBSTATE_MARKED</span> – кнопка помечена.</td>
 </tr>
 <tr>
 <td><span class="S91">$iStyle</span></td>
-<td><strong>[необязательный]</strong> стиль кнопки</td>
+<td><strong>[необязательный]</strong> Стиль кнопки. Может быть комбинацией следующих значений:<br />
+<span class="S91">$BTNS_AUTOSIZE</span> – элемент управления не назначает стандартную ширину<br />
+<span class="S91">$BTNS_BUTTON</span> – обычная кнопка<br />
+<span class="S91">$BTNS_CHECK</span> – переключается между нажатым и ненажатым состоянием<br />
+<span class="S91">$BTNS_CHECKGROUP</span> – кнопка остаётся нажатой, пока не нажата другая кнопка<br />
+<span class="S91">$BTNS_DROPDOWN</span> – создаёт раскрывающуюся кнопку, способную показывать список<br />
+<span class="S91">$BTNS_GROUP</span> – кнопка остаётся нажатой, пока не нажата другая кнопка<br />
+<span class="S91">$BTNS_NOPREFIX</span> – текст кнопки не имеет префикса ускорителя<br />
+<span class="S91">$BTNS_SEP</span> – создаёт разделитель<br />
+<span class="S91">$BTNS_SHOWTEXT</span> – текст кнопки должен отображаться<br />
+<span class="S91">$BTNS_WHOLEDROPDOWN</span> – у кнопки будет стрелка раскрытия.</td>
 </tr>
 <tr>
 <td><span class="S91">$iWidth</span></td>

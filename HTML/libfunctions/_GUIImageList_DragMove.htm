@@ -78,17 +78,17 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SetColumnWidth.htm"><span class="S15">_GUICtrlListView_SetColumnWidth</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SetColumnWidth.htm"><span class="S15">_GUICtrlListView_SetColumnWidth</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SetExtendedListViewStyle.htm"><span class="S15">_GUICtrlListView_SetExtendedListViewStyle</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$LVS_EX_GRIDLINES</span><span class="S8">,</span> <span class="S9">$LVS_EX_FULLROWSELECT</span><span class="S8">,</span> <span class="S9">$LVS_EX_CHECKBOXES</span><span class="S8">)</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Использование изображений подэлементов</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SetExtendedListViewStyle.htm"><span class="S15">_GUICtrlListView_SetExtendedListViewStyle</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">,</span> <a class="le" href="../functions/BitOR.htm"><span class="S4">BitOR</span></a><span class="S8">(</span><span class="S9">$LVM_SETEXTENDEDLISTVIEWSTYLE</span><span class="S8">,</span> <span class="S9">$LVS_EX_SUBITEMIMAGES</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать список изображений</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hImages</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUIImageList_Create.htm"><span class="S15">_GUIImageList_Create</span></a><span class="S8">(</span><span class="S9">$iImage_width</span><span class="S8">,</span> <span class="S9">$iImage_height</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$x</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">21</span><br>
@@ -97,19 +97,19 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SetImageList.htm"><span class="S15">_GUICtrlListView_SetImageList</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">,</span> <span class="S9">$hImages</span><span class="S8">,</span> <span class="S9">$LVSIL_SMALL</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Зарегистрировать функции событий</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Зарегистрировать функции событий</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_Register</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><span class="S9">$WM_LBUTTONUP</span><span class="S8">,</span> <span class="S7">"WM_LBUTTONUP"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><span class="S9">$WM_MOUSEMOVE</span><span class="S8">,</span> <span class="S7">"WM_MOUSEMOVE"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить элементы listview с изображениями</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$y</span> <span class="S8">=</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iIndex</span><br>
@@ -125,14 +125,14 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;-----------------------------------------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; -----------------------------------------------------------------------------------------
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Эта case-инструкция выходит и обновляет код при необходимости</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Эта case-инструкция выходит и обновляет код при необходимости</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$GUI_EVENT_CLOSE</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/ExitLoop.htm"><span class="S5">ExitLoop</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;-----------------------------------------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; -----------------------------------------------------------------------------------------
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;разместить здесь весь прочий код</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; разместить здесь весь прочий код</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;;;
 </span><br>
@@ -229,17 +229,17 @@
 </span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">WM_MOUSEMOVE</span><span class="S8">(</span><span class="S9">$hWndGUI</span><span class="S8">,</span> <span class="S9">$iMsgID</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$iMsgID</span><span class="S8">,</span> <span class="S9">$wParam</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; элемент не перетаскивается – здесь закончили</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; элемент не перетаскивается, здесь закончили</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$g_bDragging</span> <span class="S8">=</span> <span class="S5">False</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; обновить перемещение изображения</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aPos</span> <span class="S8">=</span> <a class="le" href="../functions/ControlGetPos.htm"><span class="S4">ControlGetPos</span></a><span class="S8">(</span><span class="S9">$hWndGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$g_hListView</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$x</span> <span class="S8">=</span> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$lParam</span><span class="S8">,</span> <span class="S3">0xFFFF</span><span class="S8">)</span> <span class="S8">-</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
@@ -263,19 +263,19 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aPos</span> <span class="S8">=</span> <a class="le" href="../functions/ControlGetPos.htm"><span class="S4">ControlGetPos</span></a><span class="S8">(</span><span class="S9">$hWndGUI</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S9">$g_hListView</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$x</span> <span class="S8">=</span> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$lParam</span><span class="S8">,</span> <span class="S3">0xFFFF</span><span class="S8">)</span> <span class="S8">-</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$y</span> <span class="S8">=</span> <a class="le" href="../functions/BitShift.htm"><span class="S4">BitShift</span></a><span class="S8">(</span><span class="S9">$lParam</span><span class="S8">,</span> <span class="S3">16</span><span class="S8">)</span> <span class="S8">-</span> <span class="S9">$aPos</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; перетаскивание завершено</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIImageList_DragLeave.htm"><span class="S15">_GUIImageList_DragLeave</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIImageList_EndDrag.htm"><span class="S15">_GUIImageList_EndDrag</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUIImageList_Destroy.htm"><span class="S15">_GUIImageList_Destroy</span></a><span class="S8">(</span><span class="S9">$g_ahDragImageList</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_ReleaseCapture.htm"><span class="S15">_WinAPI_ReleaseCapture</span></a><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; выполнить hit-тест и проверить, закончилось ли перетаскивание внутри listview</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tStruct_LVHITTESTINFO</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagLVHITTESTINFO</span><span class="S8">)</span><br>
 <br>
@@ -284,22 +284,22 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SendMessage.htm"><span class="S15">_SendMessage</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">,</span> <span class="S9">$LVM_HITTEST</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tStruct_LVHITTESTINFO</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S7">"wparam"</span><span class="S8">,</span> <span class="S7">"ptr"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iFlags</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tStruct_LVHITTESTINFO</span><span class="S8">,</span> <span class="S7">"Flags"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugInfo</span><span class="S8">(</span><span class="S7">"WM_LBUTTONUP"</span><span class="S8">,</span> <span class="S7">"x,y,iFlags"</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">,</span> <span class="S9">$y</span><span class="S8">,</span> <span class="S9">$iFlags</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; // За пределами ListView?</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">==</span> <span class="S8">-</span><span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; // Не на элементе?</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$iFlags</span><span class="S8">,</span> <span class="S9">$LVHT_ONITEMLABEL</span><span class="S8">)</span> <span class="S8">==</span> <span class="S3">0</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$iFlags</span><span class="S8">,</span> <span class="S9">$LVHT_ONITEMSTATEICON</span><span class="S8">)</span> <span class="S8">==</span> <span class="S3">0</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">And</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$iFlags</span><span class="S8">,</span> <span class="S9">$LVHT_ONITEMICON</span><span class="S8">)</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; вставка должна быть не ближе чем через 2 элемента сверху или снизу, чтобы не создать дубликат</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&lt;</span> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">-</span> <span class="S3">1</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&gt;</span> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">+</span> <span class="S3">1</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugInfo</span><span class="S8">(</span><span class="S7">"WM_LBUTTONUP"</span><span class="S8">,</span> <span class="S7">"To"</span><span class="S8">,</span> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><br>
@@ -307,19 +307,19 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$GUI_RUNDEFMSG</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iFrom_index</span> <span class="S8">=</span> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">&gt;</span> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$iFrom_index</span> <span class="S8">=</span> <span class="S9">$g_aIndex</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">+</span> <span class="S3">1</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; скопировать изображения, текст и состояние элемента и его подэлементов</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$x</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../libfunctions/_GUICtrlListView_GetColumnCount.htm"><span class="S15">_GUICtrlListView_GetColumnCount</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_LVCopyItem</span><span class="S8">(</span><span class="S9">$iFrom_index</span><span class="S8">,</span> <span class="S9">$i_NewIndex</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <a class="le" href="../functions/SetError.htm"><span class="S4">SetError</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$GUI_RUNDEFMSG</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; удалить из</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ------------------------------------------------------
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_DeleteItem.htm"><span class="S15">_GUICtrlListView_DeleteItem</span></a><span class="S8">(</span><span class="S9">$g_hListView</span><span class="S8">,</span> <span class="S9">$iFrom_index</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
@@ -333,7 +333,7 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">WM_NOTIFY</span><span class="S8">(</span><span class="S9">$hWndGUI</span><span class="S8">,</span> <span class="S9">$iMsgID</span><span class="S8">,</span> <span class="S9">$wParam</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S11">#forceref</span> <span class="S9">$hWndGUI</span><span class="S8">,</span> <span class="S9">$iMsgID</span><span class="S8">,</span> <span class="S9">$wParam</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tNMHDR</span><span class="S8">,</span> <span class="S9">$iCode</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">,</span> <span class="S9">$y</span><span class="S8">,</span> <span class="S9">$tNMLISTVIEW</span><span class="S8">,</span> <span class="S9">$hWndFrom</span><span class="S8">,</span> <span class="S9">$tDraw</span><span class="S8">,</span> <span class="S9">$iDrawStage</span><span class="S8">,</span> <span class="S9">$iItemSpec</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tNMHDR</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span>&nbsp;<span class="S1">;NMHDR (hwndFrom, idFrom, code)
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tNMHDR</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">)</span>&nbsp;<span class="S1">; NMHDR (hwndFrom, idFrom, code)
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iCode</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tNMHDR</span><span class="S8">,</span> <span class="S7">"Code"</span><span class="S8">)</span><br>

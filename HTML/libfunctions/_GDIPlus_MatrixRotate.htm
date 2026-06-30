@@ -83,7 +83,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нарисовать одно изображение в другом</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hGraphic</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageGetGraphicsContext.htm"><span class="S15">_GDIPlus_ImageGetGraphicsContext</span></a><span class="S8">(</span><span class="S9">$hImage1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;DrawInsert($hGraphic, $hImage2, $iX, $iY, $fAngle,    $iWidth,    $iHeight, $iARGB = 0xFF000000, $iPenWidth = 1)
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; DrawInsert($hGraphic, $hImage2, $iX, $iY, $fAngle,    $iWidth,    $iHeight, $iARGB = 0xFF000000, $iPenWidth = 1)
 </span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">DrawInsert</span><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hImage2</span><span class="S8">,</span> <span class="S3">350</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iWidth</span> <span class="S8">+</span> <span class="S3">2</span><span class="S8">,</span> <span class="S9">$iHeight</span> <span class="S8">+</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">0xFFFF8000</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">DrawInsert</span><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hImage2</span><span class="S8">,</span> <span class="S3">340</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">15</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">,</span> <span class="S3">0xFFFF8000</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span><br>
@@ -130,14 +130,14 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">DrawInsert</span><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hImage2</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">,</span> <span class="S9">$fAngle</span><span class="S8">,</span> <span class="S9">$iWidth</span><span class="S8">,</span> <span class="S9">$iHeight</span><span class="S8">,</span> <span class="S9">$iARGB</span> <span class="S8">=</span> <span class="S3">0xFF000000</span><span class="S8">,</span> <span class="S9">$iPenWidth</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMatrix</span><span class="S8">,</span> <span class="S9">$hPen2</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Матрица вращения</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Матрица вращения</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hMatrix</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_MatrixCreate.htm"><span class="S15">_GDIPlus_MatrixCreate</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_MatrixRotate.htm"><span class="S15">_GDIPlus_MatrixRotate</span></a><span class="S8">(</span><span class="S9">$hMatrix</span><span class="S8">,</span> <span class="S9">$fAngle</span><span class="S8">,</span> <span class="S7">"False"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsSetTransform.htm"><span class="S15">_GDIPlus_GraphicsSetTransform</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hMatrix</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImage.htm"><span class="S15">_GDIPlus_GraphicsDrawImage</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S9">$hImage2</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;получить pen + цвет</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить pen + цвет</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hPen2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_PenCreate.htm"><span class="S15">_GDIPlus_PenCreate</span></a><span class="S8">(</span><span class="S9">$iARGB</span><span class="S8">,</span> <span class="S9">$iPenWidth</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нарисовать рамку вокруг вставленного изображения</span><br>

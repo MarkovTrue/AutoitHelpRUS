@@ -53,14 +53,10 @@
 <span class="S1">; Разрешить приём WM_DROPFILES от процессов с меньшими привилегиями (Windows Vista и выше)</span><br>
 <span class="S2">#cs
 </span><span class="S2"></span><br>
-<span class="S2">	Если IsAdmin() Первое слово предложенияn
-</span><br>
-<span class="S2">		_WinAPI_ChangeWindowMessageFilterEx($g_hLabel, $WM_COPYGLOBALDATA, $MSGFLT_ALLOW)
-</span><br>
-<span class="S2">		_WinAPI_ChangeWindowMessageFilterEx($g_hLabel, $WM_DROPFILES, $MSGFLT_ALLOW)
-</span><br>
-<span class="S2">	EndЕсли
-</span><br>
+<span class="S2">	If IsAdmin() Then</span><br>
+<span class="S2">		_WinAPI_ChangeWindowMessageFilterEx($g_hLabel, $WM_COPYGLOBALDATA, $MSGFLT_ALLOW)</span><br>
+<span class="S2">		_WinAPI_ChangeWindowMessageFilterEx($g_hLabel, $WM_DROPFILES, $MSGFLT_ALLOW)</span><br>
+<span class="S2">	EndIf</span><br>
 <span class="S2">#ce
 </span><br>
 <br>

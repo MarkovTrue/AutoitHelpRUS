@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_WinAPI_DwmSetIconicThumbnail</h1>
-<p class="funcdesc">Задаёт статический значковый битмап окна или вкладки для использования в качестве миниатюры.</p>
+<p class="funcdesc">Задаёт статичный растр значка для окна или вкладки, используемый как эскиз.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DwmSetIconicThumbnail.htm"><span class="S15">_WinAPI_DwmSetIconicThumbnail</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$hBitmap</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bFrame</span> <span class="S8">=</span> <span class="S5">False</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -23,13 +23,13 @@
 </tr>
 <tr>
 <td><span class="S91">$hBitmap</span></td>
-<td>Дескриптор device-independent bitmap (DIB), представляющего указанное окно.</td>
+<td>Дескриптор аппаратно-независимого растрового изображения (DIB), представляющего указанное окно.</td>
 </tr>
 <tr>
 <td><span class="S91">$bFrame</span></td>
-<td><strong>[необязательный]</strong> Показывать ли рамку вокруг переданной миниатюры:<br />
-<span class="S5">True</span> – показывать.<br />
-<span class="S5">False</span> – не показывать (по умолчанию).</td>
+<td><strong>[необязательный]</strong> Показывать ли рамку вокруг эскиза, допустимые значения:<br />
+<span class="S5">True</span>	– показывать рамку.<br />
+<span class="S5">False</span> – не показывать рамку (по умолчанию).</td>
 </tr>
 </table>
 
@@ -50,8 +50,15 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Окно обычно вызывает <a href="_WinAPI_DwmSetIconicThumbnail.htm"><span class="S15">_WinAPI_DwmSetIconicThumbnail</span><span class="S8">()</span></a> после получения сообщения WM_DWMSENDICONICTHUMBNAIL.<br />
-Миниатюра не должна превышать максимальные x- и y-координаты, заданные в WM_DWMSENDICONICTHUMBNAIL.<br />
+<p>Обычно окно вызывает <a href="_WinAPI_DwmSetIconicThumbnail.htm"><span class="S15">_WinAPI_DwmSetIconicThumbnail</span><span class="S8">()</span></a> после получения сообщения WM_DWMSENDICONICTHUMBNAIL.<br />
+Эскиз не должен превышать максимальные координаты x и y, указанные в WM_DWMSENDICONICTHUMBNAIL.<br />
+Эскиз также должен иметь 32-битную глубину цвета.<br />
+<br />
+DWM использует копию растра, но приложение может освободить эту копию в любой момент из-за ограничений памяти.<br />
+В этом случае окно не уведомляется, но может получить повторный запрос WM_DWMSENDICONICTHUMBNAIL, когда эскиз понадобится снова.<br />
+Исходный растр остаётся во владении вызывающей стороны, и она отвечает за освобождение используемых им ресурсов, когда он больше не нужен.<br />
+<br />
+Эта функция требует <strong>Windows 7 или новее</strong>.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=DwmSetIconicThumbnail">DwmSetIconicThumbnail</a> в библиотеке MSDN

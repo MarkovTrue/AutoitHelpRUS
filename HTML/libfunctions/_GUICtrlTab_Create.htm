@@ -39,7 +39,43 @@
 </tr>
 <tr>
 <td><span class="S91">$iStyle</span></td>
-<td><strong>[необязательный]</strong> Ширина элемента управления.</td>
+<td><strong>[необязательный]</strong> Стили элемента управления:<br />
+<span class="S91">$TCS_BOTTOM</span> – вкладки появляются снизу элемента управления<br />
+<span class="S91">$TCS_BUTTONS</span> – вкладки выглядят как кнопки, рамка вокруг области отображения не рисуется<br />
+<span class="S91">$TCS_FIXEDWIDTH</span> – все вкладки одинаковой ширины<br />
+<span class="S91">$TCS_FLATBUTTONS</span> – выделенные вкладки выглядят вдавленными в фон, остальные – на одном уровне с фоном.<br />
+Влияет только на вкладки со стилем <span class="S91">$TCS_BUTTONS</span>.<br />
+<span class="S91">$TCS_FOCUSNEVER</span> – элемент управления не получает фокус ввода при щелчке<br />
+<span class="S91">$TCS_FOCUSONBUTTONDOWN</span> – элемент управления получает фокус ввода при щелчке<br />
+<span class="S91">$TCS_FORCEICONLEFT</span> – значки выравниваются по левому краю каждой вкладки фиксированной ширины.<br />
+Этот стиль можно использовать только со стилем <span class="S91">$TCS_FIXEDWIDTH</span>.<br />
+<span class="S91">$TCS_FORCELABELLEFT</span> – подписи выравниваются по левому краю каждой вкладки фиксированной ширины.<br />
+Подпись отображается сразу справа от значка, а не по центру.<br />
+Этот стиль можно использовать только со стилем <span class="S91">$TCS_FIXEDWIDTH</span>, и он подразумевает стиль <span class="S91">$TCS_FORCEICONLEFT</span>.<br />
+<span class="S91">$TCS_HOTTRACK</span> – элементы под указателем автоматически подсвечиваются.<br />
+Проверить, включена ли горячая подсветка, можно вызовом SystemParametersInfo.<br />
+<span class="S91">$TCS_MULTILINE</span> – при необходимости отображается несколько рядов вкладок, чтобы все были видны сразу<br />
+<span class="S91">$TCS_MULTISELECT</span> – можно выделять несколько вкладок, удерживая CTRL при щелчке.<br />
+Этот стиль нужно использовать со стилем <span class="S91">$TCS_BUTTONS</span>.<br />
+<span class="S91">$TCS_OWNERDRAWFIXED</span> – за отрисовку вкладок отвечает родительское окно<br />
+<span class="S91">$TCS_RAGGEDRIGHT</span> – ряды вкладок не растягиваются на всю ширину элемента управления.<br />
+Это значение по умолчанию.<br />
+<span class="S91">$TCS_RIGHT</span> – вкладки появляются вертикально справа у элементов со стилем <span class="S91">$TCS_VERTICAL</span>.<br />
+Это значение равно <span class="S91">$TCS_BOTTOM</span>. Стиль не поддерживается при использовании визуальных стилей.<br />
+<span class="S91">$TCS_RIGHTJUSTIFY</span> – ширина каждой вкладки при необходимости увеличивается, чтобы каждый ряд заполнял всю ширину элемента.<br />
+Стиль игнорируется, если не указан также стиль <span class="S91">$TCS_MULTILINE</span>.<br />
+<span class="S91">$TCS_SCROLLOPPOSITE</span> – ненужные вкладки прокручиваются на противоположную сторону при выборе вкладки<br />
+<span class="S91">$TCS_SINGLELINE</span> – отображается только один ряд вкладок. При необходимости пользователь может прокрутить, чтобы увидеть больше.<br />
+Это значение по умолчанию.<br />
+<span class="S91">$TCS_TABS</span> – вкладки выглядят как вкладки, вокруг области отображения рисуется рамка.<br />
+Это значение по умолчанию.<br />
+<span class="S91">$TCS_TOOLTIPS</span> – с элементом управления связана всплывающая подсказка<br />
+<span class="S91">$TCS_VERTICAL</span> – вкладки появляются слева, текст вкладок отображается вертикально.<br />
+Этот стиль допустим только со стилем <span class="S91">$TCS_MULTILINE</span>.<br />
+Чтобы вкладки появлялись справа, используйте также стиль <span class="S91">$TCS_RIGHT</span>.<br />
+<br />
+По умолчанию: <span class="S91">$TCS_HOTTRACK</span><br />
+Принудительно: <span class="S91">$WS_CHILD</span>, <span class="S91">$WS_CLIPSIBLINGS</span>, <span class="S91">$WS_VISIBLE</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$iExStyle</span></td>
@@ -78,8 +114,7 @@
 <h3>Пример 1</h3>
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; =; == Пример 1: создание через UDF
-</span><br>
+<span class="S1">; =; == Пример 1: создание через UDF</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\WM_NOTIFY.au3"</span><br>
@@ -126,22 +161,20 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iCode</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_CLICK</span>&nbsp;<span class="S1">; Пользователь кликнул левой кнопкой мыши в элементе управления</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_CLICK"</span><span class="S8">,</span> <span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возвращаемое значение элементом вкладок игнорируется
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Возвращаемое значение элементом вкладок игнорируется</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_DBLCLK</span>&nbsp;<span class="S1">; Пользователь дважды кликнул левой кнопкой мыши в элементе управления</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_DBLCLK"</span><span class="S8">,</span> <span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return 1 ; ненулевое – запретить стандартную обработку</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; ноль – разрешить стандартную обработку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return 1 ; ненулевое значение запрещает стандартную обработку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; ноль разрешает стандартную обработку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_RCLICK</span>&nbsp;<span class="S1">; Пользователь кликнул правой кнопкой мыши в элементе управления</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_RCLICK"</span><span class="S8">,</span> <span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return 1 ; ненулевое – запретить стандартную обработку</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; ноль – разрешить стандартную обработку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return 1 ; ненулевое значение запрещает стандартную обработку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; ноль разрешает стандартную обработку</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_RDBLCLK</span>&nbsp;<span class="S1">; Пользователь дважды кликнул правой кнопкой мыши в элементе управления</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_RDBLCLK"</span><span class="S8">,</span> <span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return 1 ; ненулевое – запретить стандартную обработку</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; ноль – разрешить стандартную обработку</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_RELEASEDCAPTURE</span>&nbsp;<span class="S1">; элемент освобождает захват мыши
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Return 1 ; ненулевое значение запрещает стандартную обработку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S3">0</span>&nbsp;<span class="S1">; ноль разрешает стандартную обработку</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$NM_RELEASEDCAPTURE</span>&nbsp;<span class="S1">; элемент освобождает захват мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugEvent</span><span class="S8">(</span><span class="S7">"$NM_RELEASEDCAPTURE"</span><span class="S8">,</span> <span class="S9">$tagNMHDR</span><span class="S8">,</span> <span class="S9">$lParam</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Нет возвращаемого значения</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
@@ -155,8 +188,7 @@
 <h3>Example (OutProcess) : Tab Create to an External process</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; == Example (OutProcess) : Tab Create to an External process
-</span><br>
+<span class="S1">; == Пример (OutProcess): Tab Create во внешнем процессе</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">"Extras\HelpFileInternals.au3"</span><br>
 <br>

@@ -78,7 +78,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sWow64</span> <span class="S8">=</span> <span class="S7">""</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@AutoItX64"><span class="S6">@AutoItX64</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S9">$sWow64</span> <span class="S8">=</span> <span class="S7">"\Wow6432Node"</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;получить каталог установки AutoIt</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; получить каталог установки AutoIt</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sRegPath</span> <span class="S8">=</span> <span class="S7">"HKLM\SOFTWARE"</span> <span class="S8">&amp;</span> <span class="S9">$sWow64</span> <span class="S8">&amp;</span> <span class="S7">"\AutoIt v3\AutoIt"</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sFile</span> <span class="S8">=</span> <a class="le" href="../functions/RegRead.htm"><span class="S4">RegRead</span></a><span class="S8">(</span><span class="S9">$sRegPath</span><span class="S8">,</span> <span class="S7">"InstallDir"</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">"\Examples\GUI\logo4.gif"</span><br>

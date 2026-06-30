@@ -31,7 +31,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td><span class="S5">False</span> и устанавливает <span class="S61">@error</span> в ненулевое значение.</td>
+<td><span class="S5">False</span> и устанавливает <span class="S61">@error</span> ≠ 0.</td>
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@extended</span>:</td>
@@ -65,7 +65,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hBrush</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_LineBrushCreate.htm"><span class="S15">_GDIPlus_LineBrushCreate</span></a><span class="S8">(</span><span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">410</span><span class="S8">,</span> <span class="S3">410</span><span class="S8">,</span> <span class="S3">0xFF000000</span><span class="S8">,</span> <span class="S3">0xFFFFFFFF</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_LineBrushSetSigmaBlend.htm"><span class="S15">_GDIPlus_LineBrushSetSigmaBlend</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_LineBrushResetTransform.htm"><span class="S15">_GDIPlus_LineBrushResetTransform</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">;сбросить угол в ноль</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_LineBrushResetTransform.htm"><span class="S15">_GDIPlus_LineBrushResetTransform</span></a><span class="S8">(</span><span class="S9">$hBrush</span><span class="S8">)</span>&nbsp;<span class="S1">; сбросить угол в ноль</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsFillRect.htm"><span class="S15">_GDIPlus_GraphicsFillRect</span></a><span class="S8">(</span><span class="S9">$hGraphic</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S3">400</span><span class="S8">,</span> <span class="S9">$hBrush</span><span class="S8">)</span><br>
 <br>

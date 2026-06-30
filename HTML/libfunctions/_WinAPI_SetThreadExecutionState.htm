@@ -41,12 +41,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Функция <a href="_WinAPI_SetThreadExecutionState.htm"><span class="S15">_WinAPI_SetThreadExecutionState</span><span class="S8">()</span></a> не может использоваться для предотвращения переноса компьютера в режим сна пользователем.
-Приложения должны учитывать, что пользователь ожидает определённого поведения при закрытии крышки ноутбука или нажатии кнопки питания.
+<p>Функция <a href="_WinAPI_SetThreadExecutionState.htm"><span class="S15">_WinAPI_SetThreadExecutionState</span><span class="S8">()</span></a> не может использоваться для предотвращения перевода компьютера в режим сна пользователем. Приложения должны уважать ожидания пользователя в отношении определённого поведения при закрытии крышки ноутбука или нажатии кнопки питания.<br />
 <br />
-Эта функция не предотвращает запуск экранной заставки.
-Согласно <a href="https://docs.microsoft.com/en-us/windows/desktop/api/winbase/nf-winbase-setthreadexecutionstate">Microsoft Docs</a> <span class="S91">$ES_USER_PRESENT</span> не должна использоваться, и <span class="S91">$ES_AWAYMODE_REQUIRED</span> следует использовать только в крайнем случае.
-Константы определены в <span class="S7">APIProcConstants.au3</span>
+Эта функция не предотвращает запуск экранной заставки. Согласно <a href="https://docs.microsoft.com/en-us/windows/desktop/api/winbase/nf-winbase-setthreadexecutionstate">Microsoft Docs</a>, <span class="S91">$ES_USER_PRESENT</span> не должна использоваться, а <span class="S91">$ES_AWAYMODE_REQUIRED</span> следует использовать только в крайнем случае. Константы определены в <span class="S7">APIProcConstants.au3</span>.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=SetThreadExecutionState">SetThreadExecutionState</a> в библиотеке MSDN

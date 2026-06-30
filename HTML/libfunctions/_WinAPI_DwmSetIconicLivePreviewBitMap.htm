@@ -55,8 +55,13 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Окно обычно вызывает <a href="_WinAPI_DwmSetIconicLivePreviewBitmap.htm"><span class="S15">_WinAPI_DwmSetIconicLivePreviewBitmap</span><span class="S8">()</span></a> в ответ на сообщение WM_DWMSENDICONICLIVEPREVIEWBITMAP.<br />
-Возвращаемый битмап не должен быть больше клиентской области окна или максимальных x- и y-координат, заданных в WM_DWMSENDICONICLIVEPREVIEWBITMAP.<br />
+<p>Окно обычно вызывает функцию <a href="_WinAPI_DwmSetIconicLivePreviewBitmap.htm"><span class="S15">_WinAPI_DwmSetIconicLivePreviewBitmap</span><span class="S8">()</span></a> в ответ на сообщение WM_DWMSENDICONICLIVEPREVIEWBITMAP.<br />
+Возвращаемый битмап не должен быть больше клиентской области окна или рамки и должен иметь глубину цвета 32 бита.<br />
+<br />
+DWM использует копию битмапа, но вызывающий сохраняет собственность на исходный битмап и ответственен за освобождение используемых им ресурсов, когда они больше не нужны.<br />
+DWM не сохраняет копию битмапа, когда он перестаёт отображать Live Preview.<br />
+<br />
+Эта функция требует <strong>Windows 7 или более поздней версии</strong>.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=DwmSetIconicLivePreviewBitmap">DwmSetIconicLivePreviewBitmap</a> в библиотеке MSDN

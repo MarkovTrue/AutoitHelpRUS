@@ -43,7 +43,11 @@
 </tr>
 <tr>
 <td><span class="S91">$vNewItem</span></td>
-<td>Содержимое нового пункта меню. Интерпретация зависит от значения параметра <span class="S91">$iFlags</span>.</td>
+<td>Задаёт содержимое нового пункта меню. Трактовка <span class="S91">$vNewItem</span> зависит от того, какой флаг включает параметр <span class="S91">$iFlags</span> – <span class="S91">$MF_BITMAP</span>, <span class="S91">$MF_OWNERDRAW</span> или <span class="S91">$MF_STRING</span>:<br />
+<span class="S91">$MF_BITMAP</span> – содержит дескриптор битмапа<br />
+<span class="S91">$MF_OWNERDRAW</span> – содержит заданное приложением значение для хранения дополнительных данных о пункте меню.<br />
+&nbsp;&nbsp;&nbsp; Значение находится в члене ItemData структуры, на которую указывает параметр lParam сообщения <span class="S91">$WM_MEASUREITEM</span> или <span class="S91">$WM_DRAWITEM</span>, отправляемого при создании меню или обновлении его вида.<br />
+<span class="S91">$MF_STRING</span> – содержит строку.</td>
 </tr>
 </table>
 

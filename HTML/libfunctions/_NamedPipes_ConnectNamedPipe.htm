@@ -44,8 +44,8 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если клиент подключается до вызова функции, функция возвращает нуль, а <em><a class="le" href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span></a><span class="S8">()</span></em> вернёт <span class="S91">$ERROR_PIPE_CONNECTED</span> (определён в <span class="S7">APIErrorsConstants.au3</span>).<br />
-Это может произойти, если клиент подключается в интервале между вызовом <em><a class="le" href="_NamedPipes_CreateNamedPipe.htm"><span class="S15">_NamedPipes_CreateNamedPipe</span></a><span class="S8">()</span></em> и вызовом <em><a class="le" href="_NamedPipes_ConnectNamedPipe.htm"><span class="S15">_NamedPipes_ConnectNamedPipe</span></a><span class="S8">()</span></em>.<br />
+<p>Если клиент подключается до вызова функции, функция возвращает нуль, а <a class="le" href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span></a><span class="S8">()</span> вернёт <span class="S91">$ERROR_PIPE_CONNECTED</span> (определён в <span class="S7">APIErrorsConstants.au3</span>).<br />
+Это может произойти, если клиент подключается в интервале между вызовом <a class="le" href="_NamedPipes_CreateNamedPipe.htm"><span class="S15">_NamedPipes_CreateNamedPipe</span></a><span class="S8">()</span> и вызовом <a class="le" href="_NamedPipes_ConnectNamedPipe.htm"><span class="S15">_NamedPipes_ConnectNamedPipe</span></a><span class="S8">()</span>.<br />
 В этой ситуации между клиентом и сервером существует хорошее соединение, несмотря на то, что функция возвращает нуль.<br />
 </p>
 <h2>См. также</h2>

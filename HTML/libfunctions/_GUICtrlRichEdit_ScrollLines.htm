@@ -39,14 +39,19 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>101 – <span class="S91">$hWnd</span> не является дескриптором<br />
-102&nbsp;– <span class="S91">$iQlines</span> не является числом<br />
-700&nbsp;– попытка прокрутки однострочного элемента</td>
+<td>101 – дескриптор <span class="S91">$hWnd</span> неверный<br />
+102 – <span class="S91">$iQlines</span> не является числом<br />
+700 – попытка прокрутить элемент с одной строкой</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Для прокрутки вниз установите <span class="S91">$iQlines</span> на положительное значение; для прокрутки вверх – на отрицательное.</p>
+<p>Для прокрутки вниз установите <span class="S91">$iQlines</span> в положительное значение, для прокрутки вверх в отрицательное.<br />
+<br />
+<a href="_GUICtrlRichEdit_ScrollLines.htm"><span class="S15">_GUICtrlRichEdit_ScrollLines</span><span class="S8">()</span></a> работает корректно:<br />
+&nbsp;&nbsp;&nbsp; если <span class="S91">$iQlines</span> превышает количество строк ниже текущей, она прокручивает вверх, чтобы показать только последнюю строку;<br />
+&nbsp;&nbsp;&nbsp; если <span class="S91">$iQlines</span> отрицателен и указывает строку до первой, она прокручивает вверх, чтобы показать первую строку в верхней части окна элемента управления.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlRichEdit_ScrollLineOrPage.htm">_GUICtrlRichEdit_ScrollLineOrPage</a>, <a href="_GUICtrlRichEdit_ScrollToCaret.htm">_GUICtrlRichEdit_ScrollToCaret</a></p>
 

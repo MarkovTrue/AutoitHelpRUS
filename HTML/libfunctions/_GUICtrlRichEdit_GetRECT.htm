@@ -27,7 +27,11 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив, состоящий из координат x и y.</td>
+<td style="width:90%">Возвращает массив, состоящий из координат x и y:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – левая координата<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – верхняя координата<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – правая координата<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – нижняя координата</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -40,7 +44,12 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Прямоугольник форматирования – это область, в которой отображается текст, часть которой может быть невидимой.</p>
+<p>Прямоугольник форматирования задаёт область, в которой отображается текст (часть может быть невидимой).<br />
+<br />
+Все возвращаемые значения выражены в диалоговых единицах, привязанных к элементу управления.<br />
+<br />
+В соответствии с MSDN возвращаемые значения могут не совпадать с точностью с заданными в <a href="_GUICtrlRichEdit_SetRECT.htm"><span class="S15">_GUICtrlRichEdit_SetRECT</span><span class="S8">()</span></a>.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlRichEdit_SetRECT.htm">_GUICtrlRichEdit_SetRECT</a></p>
 

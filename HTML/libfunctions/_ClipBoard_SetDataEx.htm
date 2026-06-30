@@ -19,11 +19,11 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$hMemory</span></td>
-<td style="width:85%">Дескриптор данных в указанном формате. Может быть NULL – в этом случае окно будет предоставлять данные по запросу.<br />
-Если окно откладывает отрисовку, оно должно обрабатывать сообщения <span class="S91">$WM_RENDERFORMAT</span> и <span class="S91">$WM_RENDERALLFORMATS</span>.<br />
-При успешном выполнении функции система становится владельцем объекта <span class="S91">$hMemory</span>.<br />
-После передачи владения приложение не должно записывать данные или освобождать память, но может блокировать и читать их до вызова <a class="le" href="_ClipBoard_Close.htm"><span class="S15">_ClipBoard_Close</span></a><span class="S8">()</span>.<br />
-Память должна быть разблокирована перед закрытием буфера обмена.<br />
+<td style="width:85%">Дескриптор данных в указанном формате. Может быть NULL, и тогда окно предоставляет данные в этом формате по запросу.<br />
+Если окно откладывает предоставление данных, оно должно обрабатывать сообщения <span class="S91">$WM_RENDERFORMAT</span> и <span class="S91">$WM_RENDERALLFORMATS</span>.<br />
+При успешном выполнении функции объект, заданный параметром <span class="S91">$hMemory</span>, переходит во владение системы.<br />
+После передачи владения системе приложению нельзя записывать или освобождать данные, но можно блокировать и читать их до вызова <a href="_ClipBoard_Close.htm"><span class="S15">_ClipBoard_Close</span><span class="S8">()</span></a>.<br />
+Память нужно разблокировать до закрытия буфера обмена.<br />
 Если <span class="S91">$hMemory</span> указывает на объект памяти, он должен быть выделен с флагом <span class="S91">$GMEM_MOVEABLE</span>.</td>
 </tr>
 <tr>
@@ -68,8 +68,8 @@
 
 <h2>Примечания</h2>
 <p>Параметр <span class="S91">$iFormat</span> может задавать зарегистрированный или стандартный формат буфера обмена.<br />
-Если приложение вызывает функцию в ответ на <span class="S91">$WM_RENDERFORMAT</span> или <span class="S91">$WM_RENDERALLFORMATS</span>, дескриптор нельзя использовать после её завершения.<br />
-Если <a class="le" href="_ClipBoard_Open.htm"><span class="S15">_ClipBoard_Open</span></a><span class="S8">()</span> была вызвана с NULL-дескриптором, <a class="le" href="_ClipBoard_Empty.htm"><span class="S15">_ClipBoard_Empty</span></a><span class="S8">()</span> устанавливает владельца буфера в NULL, что приведёт к ошибке этой функции.<br />
+Если приложение вызывает эту функцию в ответ на <span class="S91">$WM_RENDERFORMAT</span> или <span class="S91">$WM_RENDERALLFORMATS</span>, то после её вызова дескриптор использовать нельзя.<br />
+Если приложение вызывает <a href="_ClipBoard_Open.htm"><span class="S15">_ClipBoard_Open</span><span class="S8">()</span></a> с дескриптором NULL, то <a href="_ClipBoard_Empty.htm"><span class="S15">_ClipBoard_Empty</span><span class="S8">()</span></a> устанавливает владельца буфера обмена в NULL; из-за этого функция завершается с ошибкой.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_ClipBoard_Empty.htm">_ClipBoard_Empty</a>, <a href="_ClipBoard_GetData.htm">_ClipBoard_GetData</a>, <a href="_ClipBoard_Open.htm">_ClipBoard_Open</a>, <a href="_ClipBoard_SetData.htm">_ClipBoard_SetData</a></p>

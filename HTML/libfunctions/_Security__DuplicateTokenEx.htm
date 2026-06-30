@@ -67,10 +67,9 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hProcess</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_OpenProcess.htm"><span class="S15">_WinAPI_OpenProcess</span></a><span class="S8">(</span><span class="S9">$PROCESS_ALL_ACCESS</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <a class="le" href="../functions/ProcessExists.htm"><span class="S4">ProcessExists</span></a><span class="S8">(</span><span class="S7">"explorer.exe"</span><span class="S8">)</span><span class="S8">)</span><br>
 <span class="S1">; В случае успеха</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$hProcess</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Токен...
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Токен...</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hTokOriginal</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Security__OpenProcessToken.htm"><span class="S15">_Security__OpenProcessToken</span></a><span class="S8">(</span><span class="S9">$hProcess</span><span class="S8">,</span> <span class="S9">$TOKEN_ALL_ACCESS</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Дескриптор процесса больше не нужен – закрыть</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Дескриптор процесса больше не нужен, закрыть его</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hProcess</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; В случае успеха</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$hTokOriginal</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
@@ -78,15 +77,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hTokDuplicate</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Security__DuplicateTokenEx.htm"><span class="S15">_Security__DuplicateTokenEx</span></a><span class="S8">(</span><span class="S9">$hTokOriginal</span><span class="S8">,</span> <span class="S9">$TOKEN_ALL_ACCESS</span><span class="S8">,</span> <span class="S9">$SECURITYIMPERSONATION</span><span class="S8">,</span> <span class="S9">$TOKENPRIMARY</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть исходный токен</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hTokOriginal</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаётся основной токен (!)
-</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ... Сделайте что-то с этим токеном здесь ...
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаётся основной токен (!)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; ... Сделайте что-то с этим токеном здесь ...</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"DuplicateTokenEx"</span><span class="S8">,</span> <span class="S7">"$hTokDuplicate = "</span> <span class="S8">&amp;</span> <span class="S9">$hTokDuplicate</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть этот токен по завершении
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Закрыть этот токен по завершении</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span></a><span class="S8">(</span><span class="S9">$hTokDuplicate</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>

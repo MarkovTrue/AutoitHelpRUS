@@ -49,7 +49,12 @@
 
 
 <h2>Примечания</h2>
-Сортировать
+<p>Это базовая функция сортировки. Для продвинутой сортировки см. <a href="../functions/GUICtrlRegisterListViewSort.htm"><span class="S4">GUICtrlRegisterListViewSort</span><span class="S8">()</span></a>.<br />
+<br />
+Переключение направления сортировки – нормальное поведение, когда сортировка инициируется щелчком по заголовку столбца. Можно отключить это переключение, установив <span class="S91">$bToggleSense</span> равным <span class="S5">False</span> при вызове функции откуда-то ещё.<br />
+<br />
+Если функция вызывается из нескольких функций и нужно переключать направление сортировки, критично, чтобы <span class="S91">$vSortSense</span> была в глобальной области видимости. Иначе направление будет сбрасываться каждый раз, когда создаётся <span class="S91">$vSortSense</span>, и переключение не будет работать.<br />
+</p>
 <h2 class="bottom">Пример</h2>
 
 <p id="copytext1" class="codebox">
@@ -59,8 +64,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;StructureConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsNotifsConstants.au3&gt;</span><br>
 <br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_idListView</span><span class="S8">,</span> <span class="S9">$g_bSortSense</span> <span class="S8">=</span> <span class="S5">True</span>&nbsp;<span class="S1">Устанавливает
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Global</span></a> <span class="S9">$g_idListView</span><span class="S8">,</span> <span class="S9">$g_bSortSense</span> <span class="S8">=</span> <span class="S5">True</span>&nbsp;<span class="S1">; Устанавливает</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
@@ -82,11 +86,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idButton_Add</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$sData</span> <span class="S8">=</span> <a class="le" href="../functions/Chr.htm"><span class="S4">Chr</span></a><span class="S8">(</span><a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">65</span><span class="S8">,</span> <span class="S3">90</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S9">$sData</span><span class="S8">,</span> <span class="S9">$g_idListView</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SimpleSort.htm"><span class="S15">_GUICtrlListView_SimpleSort</span></a><span class="S8">(</span><span class="S9">$g_idListView</span><span class="S8">,</span> <span class="S9">$g_bSortSense</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span>&nbsp;<span class="S1">; Не переключать направление сортировки при следующей вставке
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SimpleSort.htm"><span class="S15">_GUICtrlListView_SimpleSort</span></a><span class="S8">(</span><span class="S9">$g_idListView</span><span class="S8">,</span> <span class="S9">$g_bSortSense</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S5">False</span><span class="S8">)</span>&nbsp;<span class="S1">; Не переключать направление сортировки при следующей вставке</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idButton_Set</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_bSortSense</span> <span class="S8">=</span> <span class="S5">False</span>&nbsp;<span class="S1">; Сбросить на сортировку по возрастанию при следующей сортировке
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_bSortSense</span> <span class="S8">=</span> <span class="S5">False</span>&nbsp;<span class="S1">; Сбросить на сортировку по возрастанию при следующей сортировке</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
@@ -104,8 +106,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$hWndListView</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iCode</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LVN_COLUMNCLICK</span>&nbsp;<span class="S1">; Был кликнут столбец</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SimpleSort.htm"><span class="S15">_GUICtrlListView_SimpleSort</span></a><span class="S8">(</span><span class="S9">$hWndListView</span><span class="S8">,</span> <span class="S9">$g_bSortSense</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tNMHDR</span><span class="S8">,</span> <span class="S7">"SubItem"</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">Сортировать
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SimpleSort.htm"><span class="S15">_GUICtrlListView_SimpleSort</span></a><span class="S8">(</span><span class="S9">$hWndListView</span><span class="S8">,</span> <span class="S9">$g_bSortSense</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tNMHDR</span><span class="S8">,</span> <span class="S7">"SubItem"</span><span class="S8">)</span><span class="S8">)</span>&nbsp;<span class="S1">; Сортировать</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S9">$GUI_RUNDEFMSG</span><br>

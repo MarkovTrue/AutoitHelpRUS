@@ -51,7 +51,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>0, <span class="S91">$pBits</span> установлено в 0.</td>
+<td>Возвращает 0, <span class="S91">$pBits</span> установлено в 0.</td>
 </tr>
 </table>
 
@@ -75,8 +75,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIGdi.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIHObj.au3&gt;</span><br>
 <br>
-<span class="S1">; Создание растрового изображения 32 бит/пикс
-</span><br>
+<span class="S1">; Создание растрового изображения 32 бит/пикс</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tBIV5HDR</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagBITMAPV5HEADER</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tBIV5HDR</span><span class="S8">,</span> <span class="S7">'bV5Size'</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tBIV5HDR</span><span class="S8">)</span><span class="S8">)</span><br>
@@ -109,8 +108,7 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$pBits</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_CreateDIBSection.htm"><span class="S15">_WinAPI_CreateDIBSection</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S9">$tBIV5HDR</span><span class="S8">,</span> <span class="S9">$DIB_RGB_COLORS</span><span class="S8">,</span> <span class="S9">$pBits</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Растровое изображение
-</span><br>
+<span class="S1">; Растровое изображение</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tBits</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">'dword[65536]'</span><span class="S8">,</span> <span class="S9">$pBits</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$y</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">255</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$x</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S3">256</span><br>
@@ -130,8 +128,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_DeleteObject.htm"><span class="S15">_WinAPI_DeleteObject</span></a><span class="S8">(</span><span class="S9">$hBitmap</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<span class="S1">; Установка зелёного цвета фона и отображение GUI
-</span><br>
+<span class="S1">; Установка зелёного цвета фона и отображение GUI</span><br>
 <a class="le" href="../functions/GUISetBkColor.htm"><span class="S4">GUISetBkColor</span></a><span class="S8">(</span><span class="S3">0x0000FF</span><span class="S8">)</span><br>
 <a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>

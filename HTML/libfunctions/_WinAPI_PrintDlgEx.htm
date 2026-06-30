@@ -30,7 +30,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">1, флаг <span class="S61">@extended</span> будет содержать одно из следующих значений.<br />
+<td style="width:90%">Возвращает 1, флаг <span class="S61">@extended</span> будет содержать одно из следующих значений.<br />
 <span class="S91">$PD_RESULT_APPLY</span><br />
 <span class="S91">$PD_RESULT_CANCEL</span><br />
 <span class="S91">$PD_RESULT_PRINT</span></td>
@@ -66,8 +66,7 @@
 <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_Example</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать структуру PRINTDLGEX и установить начальные значения для количества копий, начальной и конечной страницы
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создать структуру PRINTDLGEX и установить начальные значения для количества копий, начальной и конечной страницы</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tPRINTPAGERANGE</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagPRINTPAGERANGE</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPRINTPAGERANGE</span><span class="S8">,</span> <span class="S7">'FromPage'</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPRINTPAGERANGE</span><span class="S8">,</span> <span class="S7">'ToPage'</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span><br>
@@ -83,19 +82,16 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPRINTDLGEX</span><span class="S8">,</span> <span class="S7">'Copies'</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tPRINTDLGEX</span><span class="S8">,</span> <span class="S7">'StartPage'</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить лист свойств печати
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отобразить лист свойств печати</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../libfunctions/_WinAPI_PrintDlgEx.htm"><span class="S15">_WinAPI_PrintDlgEx</span></a><span class="S8">(</span><span class="S9">$tPRINTDLGEX</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$PD_RESULT_PRINT</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пользователь нажал кнопку "Печать"
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пользователь нажал кнопку "Печать"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$PD_RESULT_APPLY</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пользователь нажал кнопку "Применить" и позже нажал кнопку "Отмена"
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Пользователь нажал кнопку "Применить" и позже нажал кнопку "Отмена"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$PD_RESULT_CANCEL</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>

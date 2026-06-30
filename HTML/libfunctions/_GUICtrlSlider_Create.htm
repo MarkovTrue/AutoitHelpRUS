@@ -39,7 +39,26 @@
 </tr>
 <tr>
 <td><span class="S91">$iStyle</span></td>
-<td><strong>[необязательный]</strong> Стиль элемента управления.</td>
+<td><strong>[необязательный]</strong> Стиль элемента управления:<br />
+<span class="S91">$TBS_AUTOTICKS</span> – добавляет деления при установке диапазона ползунка сообщением TBM_SETRANGE<br />
+<span class="S91">$TBS_BOTH</span> – размещает деления с обеих сторон ползунка<br />
+<span class="S91">$TBS_BOTTOM</span> – размещает деления снизу горизонтального ползунка<br />
+<span class="S91">$TBS_DOWNISLEFT</span> – "вниз" равно "влево", "вверх" равно "вправо"<br />
+<span class="S91">$TBS_ENABLESELRANGE</span> – деления в начале и конце диапазона выделения отображаются треугольниками<br />
+&nbsp;&nbsp;&nbsp; (вместо вертикальных штрихов), а диапазон выделения подсвечивается.<br />
+<span class="S91">$TBS_FIXEDLENGTH</span> – позволяет менять размер ползунка сообщением <span class="S91">$TBM_SETTHUMBLENGTH</span><br />
+<span class="S91">$TBS_HORZ</span> – горизонтальный ползунок. Это значение по умолчанию<br />
+<span class="S91">$TBS_LEFT</span> – размещает деления слева от вертикального ползунка<br />
+<span class="S91">$TBS_NOTHUMB</span> – у ползунка нет бегунка<br />
+<span class="S91">$TBS_NOTICKS</span> – на ползунке не размещаются деления<br />
+<span class="S91">$TBS_REVERSED</span> – меньшее число означает "выше", а большее "ниже"<br />
+<span class="S91">$TBS_RIGHT</span> – размещает деления справа от вертикального ползунка<br />
+<span class="S91">$TBS_TOP</span> – размещает деления сверху горизонтального ползунка<br />
+<span class="S91">$TBS_TOOLTIPS</span> – создаёт всплывающую подсказку по умолчанию, показывающую текущую позицию ползунка<br />
+<span class="S91">$TBS_VERT</span> – создаёт вертикальный ползунок<br />
+<br />
+По умолчанию: <span class="S91">$TBS_AUTOTICKS</span><br />
+Принудительно: <span class="S91">$WS_CHILD</span>, <span class="S91">$WS_VISIBLE</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$iExStyle</span></td>

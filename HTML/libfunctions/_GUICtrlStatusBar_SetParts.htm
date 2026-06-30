@@ -29,7 +29,10 @@
 </tr>
 <tr>
 <td><span class="S91">$vPartWidth</span></td>
-<td><strong>[необязательный]</strong> Ширина элемента управления.</td>
+<td><strong>[необязательный]</strong> Размер частей. Может быть массивом целых чисел с нулевым индексом в формате:<br />
+<span class="S91">$vPartWidth</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – ширина части №1<br />
+<span class="S91">$vPartWidth</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – ширина части №2<br />
+<span class="S91">$vPartWidth</span><span class="S8">[</span>n<span class="S8">]</span> – ширина части n</td>
 </tr>
 </table>
 
@@ -81,7 +84,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aParts</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">75</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetParts.htm"><span class="S15">_GUICtrlStatusBar_SetParts</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S9">$aParts</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Установить текст / получить ширину</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст / получить ширину</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iParts</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetCount.htm"><span class="S15">_GUICtrlStatusBar_GetCount</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iI</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iParts</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S7">"Text "</span> <span class="S8">&amp;</span> <span class="S9">$iI</span><span class="S8">,</span> <span class="S9">$iI</span><span class="S8">)</span><br>
@@ -124,7 +127,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aPartWidth</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">75</span><span class="S8">,</span> <span class="S3">75</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetParts.htm"><span class="S15">_GUICtrlStatusBar_SetParts</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S9">$aPartWidth</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Установить текст / получить ширину</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст / получить ширину</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iParts</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetCount.htm"><span class="S15">_GUICtrlStatusBar_GetCount</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iI</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iParts</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S7">"Text "</span> <span class="S8">&amp;</span> <span class="S9">$iI</span><span class="S8">,</span> <span class="S9">$iI</span><span class="S8">)</span><br>
@@ -166,7 +169,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать части</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetParts.htm"><span class="S15">_GUICtrlStatusBar_SetParts</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">,</span> <span class="S3">75</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Установить текст / получить ширину</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст / получить ширину</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iParts</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetCount.htm"><span class="S15">_GUICtrlStatusBar_GetCount</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iI</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iParts</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S7">"Text "</span> <span class="S8">&amp;</span> <span class="S9">$iI</span><span class="S8">,</span> <span class="S9">$iI</span><span class="S8">)</span><br>
@@ -210,7 +213,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Сбросить до одной части</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetParts.htm"><span class="S15">_GUICtrlStatusBar_SetParts</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Установить текст / получить ширину</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст / получить ширину</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iParts</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlStatusBar_GetCount.htm"><span class="S15">_GUICtrlStatusBar_GetCount</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iI</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iParts</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatus</span><span class="S8">,</span> <span class="S7">"Text "</span> <span class="S8">&amp;</span> <span class="S9">$iI</span><span class="S8">,</span> <span class="S9">$iI</span><span class="S8">)</span><br>

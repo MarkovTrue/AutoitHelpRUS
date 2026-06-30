@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_WinAPI_DrawThemeTextEx</h1>
-<p class="funcdesc">Рисует текст с цветом и шрифтом, заданными визуальным стилем.</p>
+<p class="funcdesc">Рисует текст цветом и шрифтом, заданными визуальным стилем.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPITheme.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_WinAPI_DrawThemeTextEx.htm"><span class="S15">_WinAPI_DrawThemeTextEx</span></a> <span class="S8">(</span> <span class="S9">$hTheme</span><span class="S8">,</span> <span class="S9">$iPartID</span><span class="S8">,</span> <span class="S9">$iStateID</span><span class="S8">,</span> <span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$tRECT</span><span class="S8">,</span> <span class="S9">$iFlags</span><span class="S8">,</span> <span class="S9">$tDTTOPTS</span> <span class="S8">)</span></p>
 
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iPartID</span></td>
-<td>Часть, имеющая нужный вид текста. Если значение равно 0, текст рисуется шрифтом по умолчанию или шрифтом, выбранным в контекст устройства.</td>
+<td>Часть с нужным оформлением текста. Если значение равно 0, текст рисуется шрифтом по умолчанию или шрифтом, выбранным в контекст устройства.</td>
 </tr>
 <tr>
 <td><span class="S91">$iStateID</span></td>
@@ -43,11 +43,11 @@
 </tr>
 <tr>
 <td><span class="S91">$iFlags</span></td>
-<td>Задаёт флаги форматирования строки (<span class="S91">$DT_*</span> определены в "<span class="S7">APIGdiConstants.au3</span>").</td>
+<td>Флаги форматирования строки (<span class="S91">$DT_*</span>, определены в <span class="S7">APIGdiConstants.au3</span>).</td>
 </tr>
 <tr>
 <td><span class="S91">$tDTTOPTS</span></td>
-<td>Структура <span class="S91">$tagDTTOPTS</span>, определяющая дополнительные параметры форматирования.</td>
+<td>Структура <span class="S91">$tagDTTOPTS</span> с дополнительными параметрами форматирования.</td>
 </tr>
 </table>
 
@@ -123,8 +123,7 @@
 <a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_DrawText</span><span class="S8">(</span><span class="S9">$hDC</span><span class="S8">,</span> <span class="S9">$sText</span><span class="S8">,</span> <span class="S9">$tRECT</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Первоначальная идея Authenticity
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Первоначальная идея Authenticity</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iWidth</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S3">3</span><span class="S8">)</span> <span class="S8">-</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iHeight</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span> <span class="S8">-</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <br>

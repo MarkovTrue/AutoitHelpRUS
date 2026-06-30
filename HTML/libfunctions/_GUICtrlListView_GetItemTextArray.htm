@@ -31,12 +31,16 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив.</td>
+<td style="width:90%">Возвращает массив со следующей структурой:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – количество столбцов в массиве (n)<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – текст первого столбца<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – текст второго столбца<br />
+<span class="S91">$aArray</span><span class="S8">[</span>n<span class="S8">]</span> – текст последнего столбца</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
 <td>Возвращает массив следующего формата:<br />
-[0]&nbsp;– количество столбцов в массиве (0)</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– количество столбцов в массиве (0)</td>
 </tr>
 </table>
 
@@ -70,8 +74,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@SW_SHOW"><span class="S6">@SW_SHOW</span></a><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">Получает элемент
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получает элемент</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aItem</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlListView_GetItemTextArray.htm"><span class="S15">_GUICtrlListView_GetItemTextArray</span></a><span class="S8">(</span><span class="S9">$idListview</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$aItem</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sText</span> <span class="S8">&amp;=</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"Column[%2d] %s"</span><span class="S8">,</span> <span class="S9">$i</span><span class="S8">,</span> <span class="S9">$aItem</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><br>

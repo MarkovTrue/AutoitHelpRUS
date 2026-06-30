@@ -85,87 +85,69 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs ==========================================================
 </span><span class="S2"></span><br>
-<span class="S2">		https://www.autoitscript.com/forum/topic/210029-keypress-simulation-with-winapi-functions-directly/#comment-1518451
-</span><br>
+<span class="S2">		https://www.autoitscript.com/forum/topic/210029-keypress-simulation-with-winapi-functions-directly/#comment-1518451</span><br>
 <span class="S2">
 </span><br>
-<span class="S2">	    Используя SendInput win32 API, этот пример отправляет строку
-</span><br>
-<span class="S2">	    из "a" в последний активный экземпляр блокнота (если он существует).
-</span><br>
+<span class="S2">	    Используя SendInput win32 API, этот пример отправляет строку</span><br>
+<span class="S2">	    из "a" в последний активный экземпляр блокнота (если он существует).</span><br>
 <span class="S2">
 </span><br>
-<span class="S2">	    Примечание:
-</span><br>
-<span class="S2">	    Если пользователь нажимает другие клавиши во время отправки строки "a",
-</span><br>
-<span class="S2">	    они буферизуются и отображаются ПОСЛЕ строки "a"
-</span><br>
+<span class="S2">	    Примечание:</span><br>
+<span class="S2">	    Если пользователь нажимает другие клавиши во время отправки строки "a",</span><br>
+<span class="S2">	    они буферизуются и отображаются ПОСЛЕ строки "a"</span><br>
 <span class="S2">
 </span><br>
-<span class="S2">	    Это огромное различие с функцией Send(), где
-</span><br>
-<span class="S2">	    отображение будет перемешиваться, когда вы отправляете, например.
-</span><br>
-<span class="S2">	    строку из 5000 "a" с одной инструкцией Send().
-</span><br>
+<span class="S2">	    Это огромное различие с функцией Send(), где</span><br>
+<span class="S2">	    отображение будет перемешиваться, когда вы отправляете, например.</span><br>
+<span class="S2">	    строку из 5000 "a" с одной инструкцией Send().</span><br>
 <span class="S2">
 </span><br>
-<span class="S2">		Функция SendInput работает путём внедрения серии смоделированных событий ввода в поток ввода устройства.
-</span><br>
-<span class="S2">		Эффект похож на повторный вызов функции keybd_event или mouse_event, за исключением того, что система гарантирует, что никакие другие события ввода не будут перемешиваться с смоделированными событиями.
-</span><br>
-<span class="S2">		Когда вызов завершён, возвращаемое значение указывает количество успешно воспроизведённых событий ввода. Если это значение равно нулю, ввод был заблокирован.
-</span><br>
+<span class="S2">		Функция SendInput работает путём внедрения серии смоделированных событий ввода в поток ввода устройства.</span><br>
+<span class="S2">		Эффект похож на повторный вызов функции keybd_event или mouse_event, за исключением того, что система гарантирует, что никакие другие события ввода не будут перемешиваться с смоделированными событиями.</span><br>
+<span class="S2">		Когда вызов завершён, возвращаемое значение указывает количество успешно воспроизведённых событий ввода. Если это значение равно нулю, ввод был заблокирован.</span><br>
 <span class="S2">	#ce ==========================================================
 </span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Строка перемещена внутри функции, иначе скрипт не будет работать с AutoIt 3.3.14.5 ("includes chain" изменилась с 3.3.14.5 на 3.3.16.1)
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Строка перемещена внутри функции, иначе скрипт не будет работать с AutoIt 3.3.14.5 ("includes chain" изменилась с 3.3.14.5 на 3.3.16.1)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iNumberOfInputs</span> <span class="S8">=</span> <span class="S3">500</span> <span class="S8">*</span> <span class="S3">2</span>&nbsp;<span class="S1">; =&gt; 1000 вводов (нажатие/отпускание) =&gt; 500 символов отображено
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iNumberOfInputs</span> <span class="S8">=</span> <span class="S3">500</span> <span class="S8">*</span> <span class="S3">2</span>&nbsp;<span class="S1">; =&gt; 1000 вводов (нажатие/отпускание) =&gt; 500 символов отображено</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$iNumberOfInputs</span> <span class="S8">&lt;</span> <span class="S3">2</span> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Or</span></a> <span class="S8">(</span><span class="S8">(</span><span class="S9">$iNumberOfInputs</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">&lt;&gt;</span> <a class="le" href="../functions/Int.htm"><span class="S4">Int</span></a><span class="S8">(</span><span class="S9">$iNumberOfInputs</span> <span class="S8">/</span> <span class="S3">2</span><span class="S8">)</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_ICONERROR</span><span class="S8">,</span> <span class="S7">"$iNumberOfInputs"</span><span class="S8">,</span> <span class="S7">"It has to be an even number, greater or equal to 2"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Создание структуры для получения размера
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создание структуры для получения размера</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tKeybdInput</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagKEYBDINPUT</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Создание буфера массива вводов
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создание буфера массива вводов</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tInputArray</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"byte bytes[%i];"</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tKeybdInput</span><span class="S8">)</span> <span class="S8">*</span> <span class="S9">$iNumberOfInputs</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$iNumberOfInputs</span> <span class="S8">-</span> <span class="S3">3</span> <a class="le" href="../keywords/For.htm"><span class="S5">Step</span></a> <span class="S3">2</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Загрузить input array[$i]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить input array[$i]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagKEYBDINPUT</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tInputArray</span><span class="S8">)</span> <span class="S8">+</span> <span class="S8">(</span><span class="S9">$i</span> <span class="S8">*</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tKeybdInput</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span>.<span class="Scom">wVk</span> <span class="S8">=</span> <span class="S9">$VK_A</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Загрузить input array[$i + 1]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить input array[$i + 1]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagKEYBDINPUT</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tInputArray</span><span class="S8">)</span> <span class="S8">+</span> <span class="S8">(</span><span class="S8">(</span><span class="S9">$i</span> <span class="S8">+</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">*</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tKeybdInput</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span>.<span class="Scom">wvk</span> <span class="S8">=</span> <span class="S9">$VK_A</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span>.<span class="Scom">dwFlags</span> <span class="S8">=</span> <span class="S9">$KEYEVENTF_KEYUP</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Загрузить input array[$i]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить input array[$i]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagKEYBDINPUT</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tInputArray</span><span class="S8">)</span> <span class="S8">+</span> <span class="S8">(</span><span class="S9">$i</span> <span class="S8">*</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tKeybdInput</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span>.<span class="Scom">wVk</span> <span class="S8">=</span> <span class="S9">$VK_RETURN</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Загрузить input array[$i + 1]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Загрузить input array[$i + 1]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagKEYBDINPUT</span><span class="S8">,</span> <a class="le" href="../functions/DllStructGetPtr.htm"><span class="S4">DllStructGetPtr</span></a><span class="S8">(</span><span class="S9">$tInputArray</span><span class="S8">)</span> <span class="S8">+</span> <span class="S8">(</span><span class="S8">(</span><span class="S9">$i</span> <span class="S8">+</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">*</span> <a class="le" href="../functions/DllStructGetSize.htm"><span class="S4">DllStructGetSize</span></a><span class="S8">(</span><span class="S9">$tKeybdInput</span><span class="S8">)</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span>.<span class="Scom">wvk</span> <span class="S8">=</span> <span class="S9">$VK_RETURN</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tKeybdInput</span>.<span class="Scom">dwFlags</span> <span class="S8">=</span> <span class="S9">$KEYEVENTF_KEYUP</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Активирование окна блокнота
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Активирование окна блокнота</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../intro/lang_operators.htm"><span class="S5">Not</span></a> <a class="le" href="../functions/WinActivate.htm"><span class="S4">WinActivate</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">)</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Run.htm"><span class="S4">Run</span></a><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinWaitActive.htm"><span class="S4">WinWaitActive</span></a><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Отправка ввода
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Отправка ввода</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$nResult</span> <span class="S8">=</span> <span class="S0">_WinAPI_SendInput</span><span class="S8">(</span><span class="S9">$INPUT_KEYBOARD</span><span class="S8">,</span> <span class="S9">$iNumberOfInputs</span><span class="S8">,</span> <span class="S9">$tInputArray</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$nResult</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
@@ -182,8 +164,7 @@
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; == Example 2 : _WinAPI_SendInout() for $INPUT_MOUSE entry
-</span><br>
+<span class="S1">; == Пример 2: _WinAPI_SendInout() для записи $INPUT_MOUSE</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIError.au3&gt;</span><br>
@@ -195,18 +176,12 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S2">#cs
 </span><span class="S2"></span><br>
-<span class="S2">		INPUT input;
-</span><br>
-<span class="S2">		input.type = INPUT_MOUSE;
-</span><br>
-<span class="S2">		input.mi.mouseData = 0;
-</span><br>
-<span class="S2">		input.mi.dx = x * (65536 / GetSystemMetrics(SM_CXSCREEN)); //x being coord in pixels
-</span><br>
-<span class="S2">		input.mi.dy =  y * (65536 / GetSystemMetrics(SM_CYSCREEN)); //y being coord in pixels
-</span><br>
-<span class="S2">		input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE;
-</span><br>
+<span class="S2">		INPUT input;</span><br>
+<span class="S2">		input.type = INPUT_MOUSE;</span><br>
+<span class="S2">		input.mi.mouseData = 0;</span><br>
+<span class="S2">		input.mi.dx = x * (65536 / GetSystemMetrics(SM_CXSCREEN)); //x – координата в пикселях</span><br>
+<span class="S2">		input.mi.dy =  y * (65536 / GetSystemMetrics(SM_CYSCREEN)); //y – координата в пикселях</span><br>
+<span class="S2">		input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE;</span><br>
 <span class="S2">		SendInput(1, &amp;input, sizeof(input));
 </span><br>
 <span class="S2">	#ce

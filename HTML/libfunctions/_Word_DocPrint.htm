@@ -87,17 +87,17 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oDoc</span> не является объектом
-2&nbsp;– Ошибка установки ориентации страницы. <span class="S61">@extended</span> задан код ошибки COM
-3&nbsp;– <span class="S61">@error</span> возвращён при установке активного принтера в <span class="S91">$sPrinter</span>
-4&nbsp;– При печати файла произошла ошибка. <span class="S61">@extended</span> задан код ошибки COM</td>
+<td>1 – <span class="S91">$oDoc</span> не является объектом<br />
+2&nbsp;– ошибка при установке ориентации страницы, <span class="S61">@extended</span> содержит код ошибки COM<br />
+3&nbsp;– <span class="S61">@error</span> возвращен при установке активного принтера в <span class="S91">$sPrinter</span><br />
+4&nbsp;– при печати файла произошла ошибка, <span class="S61">@extended</span> содержит код ошибки COM</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p>Указание <span class="S91">$bBackground</span> НЕ приостанавливает скрипт до завершения печати документа, оно только приостанавливает
-до завершения отправки документа на принтер в Microsoft Word.
-Если вы указали принтер, обратите внимание, что \\servername\printer, похоже, чувствителен к регистру.
+<p>Указание <span class="S91">$bBackground</span> НЕ приостанавливает скрипт до завершения печати документа, оно только приостанавливает до того, как Microsoft Word закончит отправку документа на принтер.<br />
+<br />
+Если указать принтер, обратите внимание, что \\servername\printer, похоже, чувствителен к регистру.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_Word_DocExport.htm">_Word_DocExport</a></p>

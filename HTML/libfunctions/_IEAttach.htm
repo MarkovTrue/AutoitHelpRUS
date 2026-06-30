@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_IEAttach</h1>
-<p class="funcdesc">Подключиться к указанному экземпляру Internet Explorer, где подстрока строки поиска совпадает (на основе выбранного режима).</p>
+<p class="funcdesc">Подключается к указанному экземпляру Internet Explorer, где подстрока строки поиска совпадает (на основе выбранного режима).</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_IEAttach.htm"><span class="S15">_IEAttach</span></a> <span class="S8">(</span> <span class="S9">$sString</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$sMode</span> <span class="S8">=</span> <span class="S7">"title"</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iInstance</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -64,7 +64,7 @@
 <h2>Примечания</h2>
 <p><a href="_IEAttach.htm"><span class="S15">_IEAttach</span><span class="S8">()</span></a> обеспечивает параметр "dialogbox" для подключения к модальным и немодальным диалоговым окнам, созданным браузером.<br />
 Важно отметить, что не все диалоговые окна, созданные при взаимодействии с браузером, можно подключать и контролировать таким образом.<br />
-Многие из этих диалоговых окон на самом деле являются стандартными окнами и могут быть контролированы через традиционные функции окон AutoIt. Надежный способ отличить эти типы окон – использовать инструмент "AutoIt Window Info" для их проверки – если окно содержит элемент управления под названием "Internet Explorer_Server", то можно подключиться к нему с помощью этой функции, если нет – это стандартное окно и должны использоваться традиционные функции окон AutoIt для его управления.<br />
+Многие из этих диалоговых окон на самом деле являются стандартными окнами и могут быть контролированы через традиционные функции окон AutoIt. Надежный способ отличить эти типы окон, использовать инструмент "AutoIt Window Info" для их проверки, если окно содержит элемент управления под названием "Internet Explorer_Server", то можно подключиться к нему с помощью этой функции, если нет, это стандартное окно и должны использоваться традиционные функции окон AutoIt для его управления.<br />
 <br />
 Окна HyperTextApplication (.hta) могут быть подключены с использованием опции "embedded".<br />
 <br />
@@ -80,7 +80,7 @@
 <br />
 Значения <span class="S91">$iInstance</span> > 1 устанавливаются равными 1 и выводится предупреждающее сообщение при использовании режима "hwnd" или режима "dialogbox" при передаче HWnd в <span class="S91">$sString</span>.<br />
 <br />
-Режимы "dialogbox" и "embedded" можно использовать для подключения к стандартным окнам браузера, но возвращаемый объект – это верхнее окно в браузере, а не объект InternetExplorer.<br />
+Режимы "dialogbox" и "embedded" можно использовать для подключения к стандартным окнам браузера, но возвращаемый объект, это верхнее окно в браузере, а не объект InternetExplorer.<br />
 Объекты Window не предоставляют доступ ко всем атрибутам объекта InternetExplorer (например, текст состояния, адресная строка и т. д.).<br />
 Кроме того, если попытаться использовать функцию типа <a href="_IENavigate.htm"><span class="S15">_IENavigate</span><span class="S8">()</span></a> на таком объекте, могут возникнуть ошибки COM из-за способа реализации вкладок в IE7.<br />
 Может быть полезно находить экземпляры браузера таким способом, но рекомендуется немедленно использовать <a href="_IEAttach.htm"><span class="S15">_IEAttach</span><span class="S8">()</span></a> с одним из других режимов и с использованием информации, полученной из объекта Window, чтобы получить ссылку на связанный объект InternetExplorer.<br />
@@ -93,8 +93,7 @@
 <h3>Пример 1</h3>
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Подключиться к браузеру с "AutoIt" в заголовке, отобразить URL
-</span><br>
+<span class="S1">; Подключиться к браузеру с "AutoIt" в заголовке, отобразить URL</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
@@ -113,10 +112,8 @@
 <h3>Пример 2</h3>
 <p id="copytext2" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl2');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext2');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Подключение к браузеру с "простой HTML-страницей"
-</span><br>
-<span class="S1">; в тексте его документа верхнего уровня
-</span><br>
+<span class="S1">; Подключение к браузеру с "простой HTML-страницей"</span><br>
+<span class="S1">; в тексте его документа верхнего уровня</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
 <br>
@@ -130,8 +127,7 @@
 <h3>Пример 3</h3>
 <p id="copytext3" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl3');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext3');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Подключиться к элементу управления браузера, встроенному в другое окно
-</span><br>
+<span class="S1">; Подключиться к элементу управления браузера, встроенному в другое окно</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
 <br>
@@ -143,12 +139,9 @@
 <h3>Пример 4</h3>
 <p id="copytext4" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl4');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext4');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Подключиться к 3-му элементу управления браузера, встроенному в другое окно
-</span><br>
-<span class="S1">; Используй расширенный синтаксис заголовка окна для 2-го окна
-</span><br>
-<span class="S1">; со строкой 'ICQ' в заголовке
-</span><br>
+<span class="S1">; Подключиться к 3-му элементу управления браузера, встроенному в другое окно</span><br>
+<span class="S1">; Используй расширенный синтаксис заголовка окна для 2-го окна</span><br>
+<span class="S1">; со строкой 'ICQ' в заголовке</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
 <br>
@@ -159,10 +152,8 @@
 <h3>Пример 5</h3>
 <p id="copytext5" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl5');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext5');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; Создать массив ссылок на объекты для всех текущих экземпляров браузера
-</span><br>
-<span class="S1">; Первый элемент массива будет содержать количество найденных экземпляров
-</span><br>
+<span class="S1">; Создать массив ссылок на объекты для всех текущих экземпляров браузера</span><br>
+<span class="S1">; Первый элемент массива будет содержать количество найденных экземпляров</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;IE.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>

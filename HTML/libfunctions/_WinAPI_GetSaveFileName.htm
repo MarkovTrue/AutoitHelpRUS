@@ -24,7 +24,7 @@
 <tr>
 <td><span class="S91">$sFilter</span></td>
 <td><strong>[необязательный]</strong> пары строк фильтра (например "Text Files (*.txt)|All Files (*.*)")<br />
-Первая строка в каждой паре – это отображаемая строка, описывающая фильтр (например "Text Files")<br />
+Первая строка в каждой паре задаёт отображаемый текст, описывающий фильтр (например "Text Files")<br />
 Вторая строка задаёт шаблон фильтра (например "*.TXT")<br />
 Для указания нескольких шаблонов фильтра для одной отображаемой строки используйте точку с запятой для разделения шаблонов (например "*.TXT;*.DOC;*.BAK")<br />
 Строка шаблона может быть комбинацией допустимых символов имени файла и подстановочного символа звёздочки (*)<br />
@@ -65,13 +65,13 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив в следующем формате:<br />
-[0]&nbsp;– содержит количество строк (2)<br />
-[1]&nbsp;– содержит выбранный путь<br />
-[2]&nbsp;– содержит выбранный файл</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– содержит количество строк (2)<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– содержит выбранный путь<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– содержит выбранный файл</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>устанавливает флаг <span class="S61">@error</span> в ненулевое значение, вызовите <a href="_WinAPI_CommDlgExtendedError.htm"><span class="S15">_WinAPI_CommDlgExtendedError</span><span class="S8">()</span></a> для получения расширенной информации об ошибке.</td>
+<td>устанавливает <span class="S61">@error</span> ≠ 0, вызовите <a href="_WinAPI_CommDlgExtendedError.htm"><span class="S15">_WinAPI_CommDlgExtendedError</span><span class="S8">()</span></a> для получения расширенной информации об ошибке.</td>
 </tr>
 </table>
 
@@ -117,8 +117,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <a class="le" href="../functions/GUIGetMsg.htm"><span class="S4">GUIGetMsg</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$idBtn_Dialog</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aFile</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetSaveFileName.htm"><span class="S15">_WinAPI_GetSaveFileName</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; использовать значения по умолчанию
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aFile</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_GetSaveFileName.htm"><span class="S15">_WinAPI_GetSaveFileName</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; используйте значения по умолчанию</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iError</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iExtended</span> <span class="S8">=</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><br>

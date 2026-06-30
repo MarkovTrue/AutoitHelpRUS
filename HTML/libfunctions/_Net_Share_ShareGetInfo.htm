@@ -33,16 +33,16 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив со следующим форматом:<br />
-[0]&nbsp;– имя общего ресурса<br />
-[1]&nbsp;– тип общего ресурса. Может быть комбинацией:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– имя общего ресурса<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– тип общего ресурса. Может быть комбинацией:<br />
 <span class="S91">$STYPE_DISKTREE</span>&nbsp;– очередь печати<br />
 <span class="S91">$STYPE_PRINTQ</span>&nbsp;– дисковый диск<br />
 <span class="S91">$STYPE_DEVICE</span>&nbsp;– устройство связи<br />
 <span class="S91">$STYPE_IPC</span>&nbsp;– IPC<br />
 <span class="S91">$STYPE_SPECIAL</span>&nbsp;– специальный общий ресурс, зарезервированный для IPC$ или удалённого администрирования сервера<br />
 <span class="S91">$STYPE_TEMPORARY</span>&nbsp;– временный общий ресурс<br />
-[2]&nbsp;– содержит необязательный комментарий об общем ресурсе<br />
-[3]&nbsp;– указывает разрешения общего ресурса:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– содержит необязательный комментарий об общем ресурсе<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– указывает разрешения общего ресурса:<br />
 1&nbsp;– разрешение на чтение данных из ресурса и выполнение<br />
 2&nbsp;– разрешение на запись данных в ресурс<br />
 4&nbsp;– разрешение на создание экземпляра ресурса<br />
@@ -50,10 +50,10 @@
 16&nbsp;– разрешение на удаление ресурса<br />
 32&nbsp;– разрешение на изменение атрибутов ресурса<br />
 64&nbsp;– разрешение на изменение разрешений, назначенных ресурсу<br />
-[4]&nbsp;– указывает максимальное количество подключений, которое может иметь ресурс<br />
-[5]&nbsp;– указывает количество текущих подключений к ресурсу<br />
-[6]&nbsp;– указывает локальный путь для общего ресурса<br />
-[7]&nbsp;– указывает пароль общего ресурса</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span>&nbsp;– указывает максимальное количество подключений, которое может иметь ресурс<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span>&nbsp;– указывает количество текущих подключений к ресурсу<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span>&nbsp;– указывает локальный путь для общего ресурса<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span>&nbsp;– указывает пароль общего ресурса</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -82,8 +82,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;NetShare.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
 <br>
-<a class="le" href="../keywords/RequireAdmin.htm"><span class="S11">#RequireAdmin</span></a>&nbsp;<span class="S1">; необходимо для <em>_Net_Share_ShareAdd()</em>
-</span><br>
+<a class="le" href="../keywords/RequireAdmin.htm"><span class="S11">#RequireAdmin</span></a>&nbsp;<span class="S1">; необходимо для &lt;em&gt;_Net_Share_ShareAdd()&lt;/em&gt;</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>

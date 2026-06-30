@@ -35,7 +35,17 @@
 </tr>
 <tr>
 <td><span class="S91">$iWeight</span></td>
-<td>Координаты.</td>
+<td><strong>[необязательный]</strong> Толщина шрифта. Для удобства определены следующие значения:<br />
+<span class="S91">$FW_DONTCARE</span> – 0<br />
+<span class="S91">$FW_THIN</span> – 100<br />
+<span class="S91">$FW_EXTRALIGHT</span> – 200<br />
+<span class="S91">$FW_LIGHT</span> – 300<br />
+<span class="S91">$FW_NORMAL</span> – 400 (по умолчанию)<br />
+<span class="S91">$FW_MEDIUM</span> – 500<br />
+<span class="S91">$FW_SEMIBOLD</span> – 600<br />
+<span class="S91">$FW_BOLD</span> – 700<br />
+<span class="S91">$FW_EXTRABOLD</span> – 800<br />
+<span class="S91">$FW_HEAVY</span> – 900</td>
 </tr>
 <tr>
 <td><span class="S91">$bItalic</span></td>
@@ -51,23 +61,77 @@
 </tr>
 <tr>
 <td><span class="S91">$iCharset</span></td>
-<td>Имя.</td>
+<td><strong>[необязательный]</strong> Задаёт набор символов. Предопределены следующие значения:<br />
+<span class="S91">$ANSI_CHARSET</span> – 0<br />
+<span class="S91">$BALTIC_CHARSET</span> – 186<br />
+<span class="S91">$CHINESEBIG5_CHARSET</span> – 136<br />
+<span class="S91">$DEFAULT_CHARSET</span> – 1 (по умолчанию)<br />
+<span class="S91">$EASTEUROPE_CHARSET</span> – 238<br />
+<span class="S91">$GB2312_CHARSET</span> – 134<br />
+<span class="S91">$GREEK_CHARSET</span> – 161<br />
+<span class="S91">$HANGEUL_CHARSET</span> – 129<br />
+<span class="S91">$MAC_CHARSET</span> – 77<br />
+<span class="S91">$OEM_CHARSET</span> – 255<br />
+<span class="S91">$RUSSIAN_CHARSET</span> – 204<br />
+<span class="S91">$SHIFTJIS_CHARSET</span> – 128<br />
+<span class="S91">$SYMBOL_CHARSET</span> – 2<br />
+<span class="S91">$TURKISH_CHARSET</span> – 162<br />
+<span class="S91">$VIETNAMESE_CHARSET</span> – 163</td>
 </tr>
 <tr>
 <td><span class="S91">$iOutputPrec</span></td>
-<td>Имя.</td>
+<td><strong>[необязательный]</strong> Задаёт точность вывода. Может быть одним из следующих значений:<br />
+<span class="S91">$OUT_CHARACTER_PRECIS</span> – не используется<br />
+<span class="default-const"><span class="S91">$OUT_DEFAULT_PRECIS</span></span> – задаёт поведение сопоставителя шрифтов по умолчанию (по умолчанию)<br />
+<span class="S91">$OUT_DEVICE_PRECIS</span> – указывает сопоставителю выбрать устройственный шрифт, когда в системе несколько шрифтов с одинаковым именем<br />
+<span class="S91">$OUT_OUTLINE_PRECIS</span> – указывает сопоставителю выбирать из TrueType и других контурных шрифтов<br />
+<span class="S91">$OUT_PS_ONLY_PRECIS</span> – указывает сопоставителю выбирать только из PostScript-шрифтов.<br />
+Если PostScript-шрифтов в системе нет, сопоставитель возвращается к поведению по умолчанию<br />
+<span class="S91">$OUT_RASTER_PRECIS</span> – указывает сопоставителю выбрать растровый шрифт, когда в системе несколько шрифтов с одинаковым именем<br />
+<span class="S91">$OUT_STRING_PRECIS</span> – сопоставителем не используется, но возвращается при перечислении растровых шрифтов<br />
+<span class="S91">$OUT_STROKE_PRECIS</span> – сопоставителем не используется, но возвращается при перечислении TrueType, других контурных и векторных шрифтов<br />
+<span class="S91">$OUT_TT_ONLY_PRECIS</span> – указывает сопоставителю выбирать только из TrueType-шрифтов. Если их нет в системе, сопоставитель возвращается к поведению по умолчанию<br />
+<span class="S91">$OUT_TT_PRECIS</span> – указывает сопоставителю выбрать TrueType-шрифт, когда в системе несколько шрифтов с одинаковым именем.</td>
 </tr>
 <tr>
 <td><span class="S91">$iClipPrec</span></td>
-<td>Количество / Размер.</td>
+<td><strong>[необязательный]</strong> Задаёт точность отсечения. Может быть одним или несколькими из следующих значений:<br />
+<span class="S91">$CLIP_CHARACTER_PRECIS</span> – не используется<br />
+<span class="default-const"><span class="S91">$CLIP_DEFAULT_PRECIS</span></span> – задаёт поведение отсечения по умолчанию (по умолчанию)<br />
+<span class="S91">$CLIP_EMBEDDED</span> – нужно указать этот флаг для использования встроенного шрифта только для чтения<br />
+<span class="S91">$CLIP_LH_ANGLES</span> – при этом значении поворот всех шрифтов зависит от того, левосторонняя или правосторонняя ориентация системы координат.<br />
+Если не используется, устройственные шрифты всегда поворачиваются против часовой стрелки, а поворот остальных зависит от ориентации системы координат.<br />
+<span class="S91">$CLIP_MASK</span> – не используется<br />
+<span class="S91">$CLIP_STROKE_PRECIS</span> – сопоставителем не используется, но возвращается при перечислении растровых, векторных или TrueType-шрифтов<br />
+Для совместимости это значение всегда возвращается при перечислении шрифтов<br />
+<span class="S91">$CLIP_TT_ALWAYS</span> – не используется.</td>
 </tr>
 <tr>
 <td><span class="S91">$iQuality</span></td>
-<td>Координаты.</td>
+<td><strong>[необязательный]</strong> Задаёт качество вывода. Может быть одним из следующих значений:<br />
+<span class="S91">$ANTIALIASED_QUALITY</span> – шрифт сглаживается, если он это поддерживает и его размер не слишком мал или велик.<br />
+Кроме того, перед использованием в DIBSection нужно выбрать TrueType-шрифт в экранный DC, иначе сглаживание не происходит<br />
+<span class="S91">$DEFAULT_QUALITY</span> – внешний вид шрифта не важен (по умолчанию)<br />
+<span class="S91">$DRAFT_QUALITY</span> – внешний вид шрифта менее важен, чем при значении PROOF_QUALITY.<br />
+Для растровых шрифтов GDI включается масштабирование, то есть доступно больше размеров, но качество может быть ниже.<br />
+Полужирные, курсивные, подчёркнутые и зачёркнутые шрифты при необходимости синтезируются<br />
+<span class="S91">$NONANTIALIASED_QUALITY</span> – шрифт никогда не сглаживается<br />
+<span class="S91">$PROOF_QUALITY</span> – качество символов шрифта важнее точного соответствия атрибутам логического шрифта.<br />
+Для растровых шрифтов GDI масштабирование отключается и выбирается ближайший по размеру шрифт.<br />
+Хотя выбранный размер при PROOF_QUALITY может не соответствовать точно, качество шрифта высокое и нет искажений вида.<br />
+Полужирные, курсивные, подчёркнутые и зачёркнутые шрифты при необходимости синтезируются.</td>
 </tr>
 <tr>
 <td><span class="S91">$iPitch</span></td>
-<td>Координаты.</td>
+<td><strong>[необязательный]</strong> Задаёт шаг и семейство шрифта. Два младших бита задают шаг шрифта и могут быть одним из значений:<br />
+<span class="S91">$DEFAULT_PITCH</span>, <span class="S91">$FIXED_PITCH</span>, <span class="S91">$VARIABLE_PITCH</span><br />
+Четыре старших бита задают семейство шрифта и могут быть одним из значений:<br />
+<span class="S91">$FF_DECORATIVE</span> – декоративные шрифты. Пример – Old English<br />
+<span class="S91">$FF_DONTCARE</span> – использовать шрифт по умолчанию (по умолчанию)<br />
+<span class="S91">$FF_MODERN</span> – шрифты с постоянной шириной штриха, с засечками или без. Примеры – Pica, Elite, Courier New<br />
+<span class="S91">$FF_ROMAN</span> – шрифты с переменной шириной штриха и с засечками. Пример – MS Serif<br />
+<span class="S91">$FF_SCRIPT</span> – шрифты, имитирующие рукописный текст. Примеры – Script, Cursive<br />
+<span class="S91">$FF_SWISS</span> – шрифты с переменной шириной штриха и без засечек. Пример – MS Sans Serif.</td>
 </tr>
 <tr>
 <td><span class="S91">$sFace</span></td>

@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_GUICtrlListView_GetItem</h1>
-<p class="funcdesc">Извлекает атрибуты элемента.</p>
+<p class="funcdesc">Получает атрибуты элемента.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;GuiListView.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_GUICtrlListView_GetItem.htm"><span class="S15">_GUICtrlListView_GetItem</span></a> <span class="S8">(</span> <span class="S9">$hWnd</span><span class="S8">,</span> <span class="S9">$iIndex</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$iSubItem</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -32,7 +32,20 @@
 </table>
 
 <h2>Возвращаемое значение</h2>
-Возвращает массив.
+<br />
+Возвращает массив в следующем формате:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – состояние элемента, которое может быть комбинацией следующих значений:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 – элемент отмечен для операции вырезания и вставки<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 – элемент выделен как целевой объект перетаскивания<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 – элемент имеет фокус<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 – элемент выбран<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – индекс наложения изображения элемента (нумерация с 1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – индекс изображения состояния элемента (нумерация с 1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – текст элемента<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span> – индекс изображения элемента (нумерация с 0)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span> – определённое приложением значение элемента<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> – количество ширин изображения для отступа элемента<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> – идентификатор группы представления плиток, которая получает элемент
 
 <h2>См. также</h2>
 <p><a href="_GUICtrlListView_GetItemEx.htm">_GUICtrlListView_GetItemEx</a>, <a href="_GUICtrlListView_SetItem.htm">_GUICtrlListView_SetItem</a></p>
@@ -63,8 +76,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"Row 1"</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUICtrlCreateListViewItem.htm"><span class="S4">GUICtrlCreateListViewItem</span></a><span class="S8">(</span><span class="S7">"Row 2"</span><span class="S8">,</span> <span class="S9">$idListview</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать текст элемента 1
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать текст элемента 1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aItem</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlListView_GetItem.htm"><span class="S15">_GUICtrlListView_GetItem</span></a><span class="S8">(</span><span class="S9">$idListview</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Information"</span><span class="S8">,</span> <span class="S7">"Item 1 Text: "</span> <span class="S8">&amp;</span> <span class="S9">$aItem</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">)</span><br>
 <br>

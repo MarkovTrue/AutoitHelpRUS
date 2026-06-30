@@ -17,16 +17,16 @@
 
 <h2>Возвращаемое значение</h2>
 Возвращает массив, содержащий следующую информацию:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[0]&nbsp;– архитектура процессора установленной операционной системы (<span class="S91">$PROCESSOR_ARCHITECTURE_*</span>).<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[1]&nbsp;– размер страницы и гранулярность защиты страницы и выделения.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[2]&nbsp;– указатель на самый низкий адрес памяти, доступный для приложений и динамических библиотек ссылок (DLL).<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[3]&nbsp;– указатель на самый высокий адрес памяти, доступный для приложений и DLL.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[4]&nbsp;– маска, представляющая набор процессоров, установленных в систему. Бит 0 – процессор 0; бит 31 – процессор 31.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[5]&nbsp;– количество физических процессоров в системе.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[6]&nbsp;– устаревший член, сохранённый для совместимости (<span class="S91">$PROCESSOR_*</span>).<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[7]&nbsp;– гранулярность для начального адреса, по которому может быть выделена виртуальная память.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[8]&nbsp;– зависящий от архитектуры уровень процессора.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[9]&nbsp;– зависящая от архитектуры редакция процессора (0x0000xxyy; xx – модель; yy – ревизия).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– архитектура процессора установленной операционной системы (<span class="S91">$PROCESSOR_ARCHITECTURE_*</span>).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– размер страницы и гранулярность защиты страницы и выделения.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– указатель на самый низкий адрес памяти, доступный для приложений и динамических библиотек ссылок (DLL).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– указатель на самый высокий адрес памяти, доступный для приложений и DLL.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span>&nbsp;– маска, представляющая набор процессоров, установленных в систему. Бит 0 – процессор 0; бит 31 – процессор 31.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span>&nbsp;– количество физических процессоров в системе.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span>&nbsp;– устаревший член, сохранённый для совместимости (<span class="S91">$PROCESSOR_*</span>).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span>&nbsp;– гранулярность для начального адреса, по которому может быть выделена виртуальная память.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">8</span><span class="S8">]</span>&nbsp;– зависящий от архитектуры уровень процессора.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">9</span><span class="S8">]</span>&nbsp;– зависящая от архитектуры редакция процессора (0x0000xxyy; xx – модель; yy – ревизия).<br />
 
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetSystemInfo">GetSystemInfo</a> в библиотеке MSDN

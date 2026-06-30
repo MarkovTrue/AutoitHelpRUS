@@ -39,11 +39,30 @@
 </tr>
 <tr>
 <td><span class="S91">$iStyle</span></td>
-<td><strong>[необязательный]</strong> стиль кнопки</td>
+<td><strong>[необязательный]</strong> Стиль кнопки. Может быть комбинацией следующих значений:<br />
+<span class="S91">$BTNS_AUTOSIZE</span> – элемент управления не назначает кнопке стандартную ширину<br />
+<span class="S91">$BTNS_BUTTON</span> – обычная кнопка<br />
+<span class="S91">$BTNS_CHECK</span> – переключается между нажатым и ненажатым состоянием<br />
+<span class="S91">$BTNS_CHECKGROUP</span> – кнопка остаётся нажатой, пока не нажата другая кнопка группы<br />
+<span class="S91">$BTNS_DROPDOWN</span> – создаёт раскрывающуюся кнопку, способную показывать список<br />
+<span class="S91">$BTNS_GROUP</span> – кнопка остаётся нажатой, пока не нажата другая кнопка группы<br />
+<span class="S91">$BTNS_NOPREFIX</span> – текст кнопки не имеет префикса ускорителя<br />
+<span class="S91">$BTNS_SEP</span> – создаёт разделитель<br />
+<span class="S91">$BTNS_SHOWTEXT</span> – текст кнопки должен отображаться<br />
+<span class="S91">$BTNS_WHOLEDROPDOWN</span> – у кнопки будет стрелка раскрытия.</td>
 </tr>
 <tr>
 <td><span class="S91">$iState</span></td>
-<td><strong>[необязательный]</strong> состояние кнопки</td>
+<td><strong>[необязательный]</strong> Состояние кнопки. Может быть комбинацией следующих значений:<br />
+<span class="S91">$TBSTATE_CHECKED</span> – кнопка имеет стиль <span class="S91">$TBSTYLE_CHECK</span> и нажата<br />
+<span class="S91">$TBSTATE_PRESSED</span> – кнопка нажата<br />
+<span class="S91">$TBSTATE_ENABLED</span> – кнопка принимает ввод пользователя (по умолчанию)<br />
+<span class="S91">$TBSTATE_HIDDEN</span> – кнопка не видна и не может получать ввод пользователя<br />
+<span class="S91">$TBSTATE_INDETERMINATE</span> – кнопка неактивна (серая)<br />
+<span class="S91">$TBSTATE_WRAP</span> – за кнопкой следует перенос строки<br />
+<span class="S91">$TBSTATE_ELLIPSES</span> – текст кнопки обрезается и показывается многоточие<br />
+<span class="S91">$TBSTATE_MARKED</span> – кнопка помечена<br />
+По умолчанию: <span class="S91">$TBSTATE_ENABLED</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$iParam</span></td>

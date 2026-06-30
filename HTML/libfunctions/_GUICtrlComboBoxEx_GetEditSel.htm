@@ -28,8 +28,8 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив в следующем формате:<br />
-[0]&nbsp;– начальная позиция<br />
-[1]&nbsp;– конечная позиция</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– начальная позиция<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– конечная позиция</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -80,13 +80,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_AddString.htm"><span class="S15">_GUICtrlComboBoxEx_AddString</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span> <a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"%03d : string"</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">)</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">,</span> <span class="S9">$x</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">Next</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Задать текущее выделение</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать текущее выделение</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_SetCurSel.htm"><span class="S15">_GUICtrlComboBoxEx_SetCurSel</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span> <span class="S3">5</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Задать выделение Edit</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Задать выделение Edit</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlComboBoxEx_SetEditSel.htm"><span class="S15">_GUICtrlComboBoxEx_SetEditSel</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;Получить выделение в edit</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить выделение в edit</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aSel</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlComboBoxEx_GetEditSel.htm"><span class="S15">_GUICtrlComboBoxEx_GetEditSel</span></a><span class="S8">(</span><span class="S9">$hCombo</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><a class="le" href="../functions/StringFormat.htm"><span class="S4">StringFormat</span></a><span class="S8">(</span><span class="S7">"Selected: [%d][%d]"</span><span class="S8">,</span> <span class="S9">$aSel</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">,</span> <span class="S9">$aSel</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>

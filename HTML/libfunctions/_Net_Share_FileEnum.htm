@@ -31,7 +31,7 @@
 <tr>
 <td><span class="S91">$sUserName</span></td>
 <td><strong>[необязательный]</strong> Строка, указывающая имя пользователя.<br />
-Если не пуста – <span class="S91">$sUserName</span> служит уточнением для перечисления.</td>
+Если не пуста, <span class="S91">$sUserName</span> служит уточнением для перечисления.</td>
 </tr>
 </table>
 
@@ -40,9 +40,9 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив со следующим форматом:<br />
-[0][0]&nbsp;– количество записей в массиве (n)<br />
-[1][0]&nbsp;– номер ID, назначенный ресурсу при его открытии<br />
-[1][1]&nbsp;– разрешения доступа, связанные с открывающим приложением:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– количество записей в массиве (n)<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– номер ID, назначенный ресурсу при его открытии<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– разрешения доступа, связанные с открывающим приложением:<br />
 1&nbsp;– разрешение на чтение ресурса и выполнение ресурса<br />
 2&nbsp;– разрешение на запись в ресурс.<br />
 4&nbsp;– разрешение на создание ресурса<br />
@@ -50,9 +50,9 @@
 16&nbsp;– разрешение на удаление<br />
 32&nbsp;– разрешение на изменение атрибутов<br />
 64&nbsp;– разрешение на изменение ACL<br />
-[1][2]&nbsp;– содержит количество блокировок файлов на ресурсе<br />
-[1][3]&nbsp;– указывает путь открытого ресурса<br />
-[1][4]&nbsp;– указывает, какой пользователь или какой компьютер открыл ресурс</td>
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– содержит количество блокировок файлов на ресурсе<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– указывает путь открытого ресурса<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span>&nbsp;– указывает, какой пользователь или какой компьютер открыл ресурс</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>

@@ -44,7 +44,12 @@
 </table>
 
 <h2>Примечания</h2>
-индекс
+<p>Чтобы установить атрибуты элемента, установите член Item структуры <a class="le" href="../libfunctions/$tagLVITEM.htm"><span class="S91">$tagLVITEM</span></a> равным индексу элемента и установите член SubItem в ноль.<br />
+Для элемента вы можете установить члены State, Text, Image и Param структуры <a class="le" href="../libfunctions/$tagLVITEM.htm"><span class="S91">$tagLVITEM</span></a>.<br />
+<br />
+Чтобы установить текст подэлемента, установите члены Item и SubItem для указания конкретного подэлемента и используйте член Text для задания текста.<br />
+Вы не можете установить члены State или Param для подэлементов, поскольку подэлементы не имеют этих атрибутов.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="$tagLVITEM.htm">$tagLVITEM</a>, <a href="_GUICtrlListView_SetItem.htm">_GUICtrlListView_SetItem</a>, <a href="_GUICtrlListView_GetItemEx.htm">_GUICtrlListView_GetItemEx</a></p>
 

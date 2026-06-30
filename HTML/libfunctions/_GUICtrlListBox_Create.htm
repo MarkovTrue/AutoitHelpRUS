@@ -43,7 +43,27 @@
 </tr>
 <tr>
 <td><span class="S91">$iStyle</span></td>
-<td>элемент управления</td>
+<td><strong>[необязательный]</strong> Стиль элемента управления:<br />
+<span class="S91">$LBS_COMBOBOX</span> – уведомляет список, что он часть combo box<br />
+<span class="S91">$LBS_DISABLENOSCROLL</span> – показывает отключённую вертикальную полосу прокрутки<br />
+<span class="S91">$LBS_EXTENDEDSEL</span> – разрешает выделять несколько элементов<br />
+<span class="S91">$LBS_HASSTRINGS</span> – список содержит элементы-строки<br />
+<span class="S91">$LBS_MULTICOLUMN</span> – многоколоночный список с горизонтальной прокруткой<br />
+<span class="S91">$LBS_MULTIPLESEL</span> – включает или выключает выделение строки при каждом щелчке<br />
+<span class="S91">$LBS_NODATA</span> – список без данных<br />
+<span class="S91">$LBS_NOINTEGRALHEIGHT</span> – размер точно такой, какой задало приложение<br />
+<span class="S91">$LBS_NOREDRAW</span> – внешний вид списка не обновляется при изменениях<br />
+<span class="S91">$LBS_NOSEL</span> – элементы списка можно просматривать, но нельзя выделять<br />
+<span class="S91">$LBS_NOTIFY</span> – уведомляет при каждом щелчке или двойном щелчке по строке<br />
+<span class="S91">$LBS_OWNERDRAWFIXED</span> – список отрисовывается владельцем<br />
+<span class="S91">$LBS_OWNERDRAWVARIABLE</span> – список отрисовывается владельцем, с переменной высотой<br />
+<span class="S91">$LBS_SORT</span> – сортирует строки списка по алфавиту<br />
+<span class="S91">$LBS_STANDARD</span> – стандартный стиль списка<br />
+<span class="S91">$LBS_USETABSTOPS</span> – список распознаёт и раскрывает символы табуляции<br />
+<span class="S91">$LBS_WANTKEYBOARDINPUT</span> – владелец получает сообщения WM_VKEYTOITEM<br />
+<br />
+По умолчанию: <span class="S91">$LBS_SORT</span>, <span class="S91">$WS_HSCROLL</span>, <span class="S91">$WS_VSCROLL</span>, <span class="S91">$WS_BORDER</span><br />
+Принудительно: <span class="S91">$WS_CHILD</span>, <span class="S91">$WS_TABSTOP</span>, <span class="S91">$WS_VISIBLE</span>, <span class="S91">$LBS_NOTIFY</span>.</td>
 </tr>
 <tr>
 <td><span class="S91">$iExStyle</span></td>
@@ -125,28 +145,22 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$hWndFrom</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$g_hListBox</span><span class="S8">,</span> <span class="S9">$hWndListBox</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">Switch</span></a> <span class="S9">$iCode</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_DBLCLK</span>&nbsp;<span class="S1">; Отправляется, когда пользователь дважды щёлкает по строке в ListBox
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_DBLCLK</span>&nbsp;<span class="S1">; Отправляется, когда пользователь дважды щёлкает по строке в ListBox</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugInfo</span><span class="S8">(</span><span class="S7">"$LBN_DBLCLK"</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">,</span> <span class="S9">$hWndFrom</span><span class="S8">,</span> <span class="S9">$iIDFrom</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; нет возвращаемого значения</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_ERRSPACE</span>&nbsp;<span class="S1">; Отправляется, когда ListBox не может выделить достаточно памяти для выполнения конкретного запроса
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_ERRSPACE</span>&nbsp;<span class="S1">; Отправляется, когда ListBox не может выделить достаточно памяти для выполнения конкретного запроса</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugInfo</span><span class="S8">(</span><span class="S7">"$LBN_ERRSPACE"</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">,</span> <span class="S9">$hWndFrom</span><span class="S8">,</span> <span class="S9">$iIDFrom</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; нет возвращаемого значения</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_KILLFOCUS</span>&nbsp;<span class="S1">; Отправляется, когда ListBox теряет фокус клавиатуры
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_KILLFOCUS</span>&nbsp;<span class="S1">; Отправляется, когда ListBox теряет фокус клавиатуры</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugInfo</span><span class="S8">(</span><span class="S7">"$LBN_KILLFOCUS"</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">,</span> <span class="S9">$hWndFrom</span><span class="S8">,</span> <span class="S9">$iIDFrom</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; нет возвращаемого значения</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_SELCANCEL</span>&nbsp;<span class="S1">; Отправляется, когда пользователь отменяет выделение в ListBox
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_SELCANCEL</span>&nbsp;<span class="S1">; Отправляется, когда пользователь отменяет выделение в ListBox</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugInfo</span><span class="S8">(</span><span class="S7">"$LBN_SELCANCEL"</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">,</span> <span class="S9">$hWndFrom</span><span class="S8">,</span> <span class="S9">$iIDFrom</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; нет возвращаемого значения</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_SELCHANGE</span>&nbsp;<span class="S1">; Отправляется, когда выделение в ListBox изменилось
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_SELCHANGE</span>&nbsp;<span class="S1">; Отправляется, когда выделение в ListBox изменилось</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugInfo</span><span class="S8">(</span><span class="S7">"$LBN_SELCHANGE"</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">,</span> <span class="S9">$hWndFrom</span><span class="S8">,</span> <span class="S9">$iIDFrom</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; нет возвращаемого значения</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_SETFOCUS</span>&nbsp;<span class="S1">; Отправляется, когда ListBox получает фокус клавиатуры
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <span class="S9">$LBN_SETFOCUS</span>&nbsp;<span class="S1">; Отправляется, когда ListBox получает фокус клавиатуры</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_WM_NOTIFY_DebugInfo</span><span class="S8">(</span><span class="S7">"$LBN_SETFOCUS"</span><span class="S8">,</span> <span class="S7">"hWndFrom,IDFrom"</span><span class="S8">,</span> <span class="S9">$hWndFrom</span><span class="S8">,</span> <span class="S9">$iIDFrom</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; нет возвращаемого значения</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Switch.htm"><span class="S5">EndSwitch</span></a><br>

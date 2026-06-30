@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_WinAPI_GetCurrentThread</h1>
-<p class="funcdesc">Получает псевдодескриптор вызывающего потока.</p>
+<p class="funcdesc">Получает псевдо-дескриптор текущего потока.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIProc.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_WinAPI_GetCurrentThread.htm"><span class="S15">_WinAPI_GetCurrentThread</span></a> <span class="S8">(</span>  <span class="S8">)</span></p>
 
@@ -19,8 +19,7 @@
 Возвращает&nbsp;псевдодескриптор текущего потока.<br />
 
 <h2>Примечания</h2>
-<p>Псевдодескриптор – особая константа, которая интерпретируется как дескриптор текущего потока.<br />
-Вызывающий поток может использовать его, чтобы указать сам на себя везде, где требуется дескриптор потока.<br />
+<p>Псевдо-дескриптор – это специальная константа, в настоящее время (DWORD)-2, которая интерпретируется как дескриптор текущего потока во всех API, принимающих дескриптор потока как входные данные. Вызывающий поток может использовать этот дескриптор для указания собственного потока, когда требуется дескриптор потока. Псевдо-дескрипторы не наследуются дочерними процессами.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=GetCurrentThread">GetCurrentThread</a> в библиотеке MSDN

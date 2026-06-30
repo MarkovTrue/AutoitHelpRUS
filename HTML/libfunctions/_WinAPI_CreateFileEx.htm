@@ -23,19 +23,63 @@
 </tr>
 <tr>
 <td><span class="S91">$iCreation</span></td>
-<td>Координаты.</td>
+<td>Действие для существующего или несуществующего файла либо устройства. Должно быть одним из следующих значений, их нельзя комбинировать.<br />
+<span class="S91">$CREATE_NEW</span><br />
+<span class="S91">$CREATE_ALWAYS</span><br />
+<span class="S91">$OPEN_EXISTING</span><br />
+<span class="S91">$OPEN_ALWAYS</span><br />
+<span class="S91">$TRUNCATE_EXISTING</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iAccess</span></td>
-<td>Необязательный параметр.</td>
+<td><strong>[необязательный]</strong> Запрашиваемый доступ к файлу или устройству: чтение, запись, оба или ничего (ноль) (по умолчанию).<br />
+<span class="S91">$GENERIC_READ</span><br />
+<span class="S91">$GENERIC_WRITE</span><br />
+(подробнее см. MSDN)</td>
 </tr>
 <tr>
 <td><span class="S91">$iShare</span></td>
-<td>Файловый дескриптор.</td>
+<td><strong>[необязательный]</strong> Запрашиваемый режим совместного доступа к файлу или устройству: чтение, запись, оба, удаление, всё это или ничего.<br />
+Если параметр равен 0 (по умолчанию) и <a href="_WinAPI_CreateFileEx.htm"><span class="S15">_WinAPI_CreateFileEx</span><span class="S8">()</span></a> выполняется успешно, файл или устройство нельзя разделять и нельзя открыть снова, пока дескриптор не будет закрыт.<br />
+<span class="S91">$FILE_SHARE_DELETE</span><br />
+<span class="S91">$FILE_SHARE_READ</span><br />
+<span class="S91">$FILE_SHARE_WRITE</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iFlagsAndAttributes</span></td>
-<td>Координаты.</td>
+<td><strong>[необязательный]</strong> Атрибуты и флаги файла или устройства. Может быть одним или несколькими из следующих значений:<br />
+<span class="S91">$FILE_ATTRIBUTE_READONLY</span><br />
+<span class="S91">$FILE_ATTRIBUTE_HIDDEN</span><br />
+<span class="S91">$FILE_ATTRIBUTE_SYSTEM</span><br />
+<span class="S91">$FILE_ATTRIBUTE_DIRECTORY</span><br />
+<span class="S91">$FILE_ATTRIBUTE_ARCHIVE</span><br />
+<span class="S91">$FILE_ATTRIBUTE_DEVICE</span><br />
+<span class="S91">$FILE_ATTRIBUTE_NORMAL</span><br />
+<span class="S91">$FILE_ATTRIBUTE_TEMPORARY</span><br />
+<span class="S91">$FILE_ATTRIBUTE_SPARSE_FILE</span><br />
+<span class="S91">$FILE_ATTRIBUTE_REPARSE_POINT</span><br />
+<span class="S91">$FILE_ATTRIBUTE_COMPRESSED</span><br />
+<span class="S91">$FILE_ATTRIBUTE_OFFLINE</span><br />
+<span class="S91">$FILE_ATTRIBUTE_NOT_CONTENT_INDEXED</span><br />
+<span class="S91">$FILE_ATTRIBUTE_ENCRYPTED</span><br />
+<br />
+<span class="S91">$FILE_FLAG_BACKUP_SEMANTICS</span><br />
+<span class="S91">$FILE_FLAG_DELETE_ON_CLOSE</span><br />
+<span class="S91">$FILE_FLAG_NO_BUFFERING</span><br />
+<span class="S91">$FILE_FLAG_OPEN_NO_RECALL</span><br />
+<span class="S91">$FILE_FLAG_OPEN_REPARSE_POINT</span><br />
+<span class="S91">$FILE_FLAG_OVERLAPPED</span><br />
+<span class="S91">$FILE_FLAG_POSIX_SEMANTICS</span><br />
+<span class="S91">$FILE_FLAG_RANDOM_ACCESS</span><br />
+<span class="S91">$FILE_FLAG_SEQUENTIAL_SCAN</span><br />
+<span class="S91">$FILE_FLAG_WRITE_THROUGH</span><br />
+<br />
+<span class="S91">$SECURITY_ANONYMOUS</span> (по умолчанию)<br />
+<span class="S91">$SECURITY_CONTEXT_TRACKING</span><br />
+<span class="S91">$SECURITY_DELEGATION</span><br />
+<span class="S91">$SECURITY_EFFECTIVE_ONLY</span><br />
+<span class="S91">$SECURITY_IDENTIFICATION</span><br />
+<span class="S91">$SECURITY_IMPERSONATION</span></td>
 </tr>
 <tr>
 <td><span class="S91">$tSecurity</span></td>

@@ -24,7 +24,7 @@
 </tr>
 <tr>
 <td><span class="S91">$sShare</span></td>
-<td>Имя общего ресурса для установки информации.</td>
+<td>Указывает имя общего ресурса для установки информации.</td>
 </tr>
 <tr>
 <td><span class="S91">$sComment</span></td>
@@ -32,8 +32,8 @@
 </tr>
 <tr>
 <td><span class="S91">$iMaxUses</span></td>
-<td>Максимальное количество подключений, которое может принять ресурс.<br />
-Количество подключений неограничено, если это значение –1.</td>
+<td>Указывает максимальное количество подключений, которое может принять ресурс.<br />
+Количество подключений неограничено, если это значение -1.</td>
 </tr>
 </table>
 
@@ -71,8 +71,7 @@
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;NetShare.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WindowsStylesConstants.au3&gt;</span><br>
 <br>
-<a class="le" href="../keywords/RequireAdmin.htm"><span class="S11">#RequireAdmin</span></a>&nbsp;<span class="S1">; необходимо для <em>_Net_Share_ShareAdd()</em>
-</span><br>
+<a class="le" href="../keywords/RequireAdmin.htm"><span class="S11">#RequireAdmin</span></a>&nbsp;<span class="S1">; необходимо для &lt;em&gt;_Net_Share_ShareAdd()&lt;/em&gt;</span><br>
 <br>
 <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 <br>
@@ -103,8 +102,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <span class="S9">$bShareAdded</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Изменить информацию об общем ресурсе
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Изменить информацию об общем ресурсе</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_Net_Share_ShareSetInfo.htm"><span class="S15">_Net_Share_ShareSetInfo</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ComputerName"><span class="S6">@ComputerName</span></a><span class="S8">,</span> <span class="S9">$sShareName</span><span class="S8">,</span> <span class="S7">"New Comment"</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Показать сведения о добавленном общем ресурсе</span><br>

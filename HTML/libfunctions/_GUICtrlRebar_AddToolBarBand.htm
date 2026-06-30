@@ -32,7 +32,7 @@
 <tr>
 <td><span class="S91">$iIndex</span></td>
 <td><strong>[необязательный]</strong> Индекс позиции, в которую будет вставлена полоса (отсчёт от 0).<br />
-Если задать значение –1, новая полоса будет добавлена в конец.</td>
+Если задать значение -1, новая полоса будет добавлена в конец.</td>
 </tr>
 <tr>
 <td><span class="S91">$iStyle</span></td>
@@ -111,11 +111,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать поле ввода для размещения в rebar</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idInput</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">"Input control"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;добавить полосу с элементом управления</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить полосу с элементом управления</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRebar_AddBand.htm"><span class="S15">_GUICtrlRebar_AddBand</span></a><span class="S8">(</span><span class="S9">$hReBar</span><span class="S8">,</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idInput</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S7">"Name:"</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить полосу с элементом управления в начало Rebar
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить полосу с элементом управления в начало Rebar</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRebar_AddToolBarBand.htm"><span class="S15">_GUICtrlRebar_AddToolBarBand</span></a><span class="S8">(</span><span class="S9">$hReBar</span><span class="S8">,</span> <span class="S9">$hToolbar</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idBtn_Exit</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateButton.htm"><span class="S4">GUICtrlCreateButton</span></a><span class="S8">(</span><span class="S7">"Exit"</span><span class="S8">,</span> <span class="S3">150</span><span class="S8">,</span> <span class="S3">360</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">,</span> <span class="S3">25</span><span class="S8">)</span><br>

@@ -95,7 +95,14 @@ o – внешняя граница<br />
 </table>
 
 <h2>Примечания</h2>
-<p>Границы не отображаются в Rich Edit, но границы, созданные здесь, будут видны в Word.</p>
+<p>Для установки «единиц пробела» вызовите функцию <a href="_GUICtrlRichEdit_SetSpaceUnit.htm"><span class="S15">_GUICtrlRichEdit_SetSpaceUnit</span><span class="S8">()</span></a>. Изначально используются дюймы.<br />
+<br />
+Если текст выделен, значения по умолчанию берутся из первого абзаца с выделенным текстом. Если текст не выделен, значения по умолчанию берутся из текущего абзаца.<br />
+<br />
+Чтобы удалить границу, вызовите функцию с двумя параметрами: (<span class="S91">$hWnd</span>, "").<br />
+<br />
+Границы не отображаются в Rich Edit, но границы, созданные здесь, должны отображаться в Word.<br />
+</p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlRichEdit_GetParaBorder.htm">_GUICtrlRichEdit_GetParaBorder</a>, <a href="_GUICtrlRichEdit_SetSpaceUnit.htm">_GUICtrlRichEdit_SetSpaceUnit</a></p>
 

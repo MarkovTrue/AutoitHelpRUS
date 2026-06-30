@@ -44,10 +44,10 @@
 </tr>
 <tr>
 <td class="valign-top"><span class="S61">@error</span>:</td>
-<td>1 – <span class="S91">$oAppl</span> не является объектом
-2&nbsp;– <span class="S91">$vIndex</span> недействителен (< -1 или > Documents.Count)
-3&nbsp;– Указанный документ не найден или произошла ошибка. <span class="S61">@extended</span> задан код ошибки COM
-4&nbsp;– Ошибка, возвращённая при доступе к коллекции Documents. <span class="S61">@extended</span> задан код ошибки COM</td>
+<td>1 – <span class="S91">$oAppl</span> не является объектом<br />
+2 – <span class="S91">$vIndex</span> недействителен (меньше -1 или больше Documents.Count)<br />
+3 – Указанный документ не найден или произошла ошибка. <span class="S61">@extended</span> задан код ошибки COM<br />
+4 – Ошибка, возвращённая при доступе к коллекции Documents. <span class="S61">@extended</span> задан код ошибки COM.</td>
 </tr>
 </table>
 
@@ -67,21 +67,17 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oWord</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Word_Create.htm"><span class="S15">_Word_Create</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocGet Example"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Error creating the Word application object."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
-<span class="S1">; Открыть \Extras\test.doc только для чтения
-</span><br>
+<span class="S1">; Открыть \Extras\test.doc только для чтения</span><br>
 <a class="le" href="../libfunctions/_Word_DocOpen.htm"><span class="S15">_Word_DocOpen</span></a><span class="S8">(</span><span class="S9">$oWord</span><span class="S8">,</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">"Test.doc"</span><span class="S8">)</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocGet Example"</span><span class="S8">,</span> <span class="S7">"Error opening '.\Extras\Test.doc'."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
-<span class="S1">; Открыть \Extras\test2.doc только для чтения
-</span><br>
+<span class="S1">; Открыть \Extras\test2.doc только для чтения</span><br>
 <a class="le" href="../libfunctions/_Word_DocOpen.htm"><span class="S15">_Word_DocOpen</span></a><span class="S8">(</span><span class="S9">$oWord</span><span class="S8">,</span> <span class="S0">_Extras_PathFull</span><span class="S8">(</span><span class="S7">"Test2.doc"</span><span class="S8">)</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocGet Example"</span><span class="S8">,</span> <span class="S7">"Error opening '.\Extras\Test2.doc'."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>
 <br>
-<span class="S1">; Получить первый документ в коллекции, написать имя и общее количество документов
-</span><br>
-<span class="S1">; в консоль.
-</span><br>
+<span class="S1">; Получить первый документ в коллекции, написать имя и общее количество документов</span><br>
+<span class="S1">; в консоль.</span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$oDoc</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_Word_DocGet.htm"><span class="S15">_Word_DocGet</span></a><span class="S8">(</span><span class="S9">$oWord</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a> <a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Word UDF: _Word_DocGet Example"</span><span class="S8">,</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">"Error accessing collection of documents."</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a> <span class="S8">&amp;</span> <span class="S7">"@error = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <span class="S8">&amp;</span> <span class="S7">", @extended = "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@extended"><span class="S6">@extended</span></a><span class="S8">)</span><br>

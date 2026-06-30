@@ -95,10 +95,9 @@
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">Example</span><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aValent</span><span class="S8">[</span><span class="S3">19</span><span class="S8">]</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обратите внимание, что если хотя бы одно из указанных имён значений не найдено в заданном ключе реестра, функция завершится с ошибкой!
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обратите внимание, что если хотя бы одно из указанных имён значений не найдено в заданном ключе реестра, функция завершится с ошибкой!</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Обратите внимание, что если хотя бы одно из указанных имён значений не найдено в заданном ключе реестра, функция завершится с ошибкой!</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aValent</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'AppData'</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aValent</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'Cache'</span><br>
@@ -120,7 +119,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aValent</span><span class="S8">[</span><span class="S3">17</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'Startup'</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aValent</span><span class="S8">[</span><span class="S3">18</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">'Templates'</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aValent</span><span class="S8">,</span> <span class="S7">'_WinAPI_RegQueryMultipleValues'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugArrayDisplay.htm"><span class="S15">_DebugArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aValent</span><span class="S8">,</span> <span class="S7">'_WinAPI_RegQueryMultipleValues'</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hKey</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_WinAPI_RegOpenKey.htm"><span class="S15">_WinAPI_RegOpenKey</span></a><span class="S8">(</span><span class="S9">$HKEY_CURRENT_USER</span><span class="S8">,</span> <span class="S7">'Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'</span><span class="S8">,</span> <span class="S9">$KEY_QUERY_VALUE</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
@@ -139,7 +138,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_RegCloseKey.htm"><span class="S15">_WinAPI_RegCloseKey</span></a><span class="S8">(</span><span class="S9">$hKey</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aValent</span><span class="S8">,</span> <span class="S7">'_WinAPI_RegQueryMultipleValues'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugArrayDisplay.htm"><span class="S15">_DebugArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aValent</span><span class="S8">,</span> <span class="S7">'_WinAPI_RegQueryMultipleValues'</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <a class="le" href="../functions/UBound.htm"><span class="S4">UBound</span></a><span class="S8">(</span><span class="S9">$aValent</span><span class="S8">)</span> <span class="S8">-</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$aValent</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S7">'wchar['</span> <span class="S8">&amp;</span> <span class="S9">$aValent</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">&amp;</span> <span class="S7">']'</span><span class="S8">,</span> <span class="S9">$aValent</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">]</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
@@ -147,7 +146,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_WinAPI_FreeMemory.htm"><span class="S15">_WinAPI_FreeMemory</span></a><span class="S8">(</span><span class="S9">$pBuffer</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_DebugArrayDisplay</span><span class="S8">(</span><span class="S9">$aValent</span><span class="S8">,</span> <span class="S7">'_WinAPI_RegQueryMultipleValues'</span><span class="S8">)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_DebugArrayDisplay.htm"><span class="S15">_DebugArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aValent</span><span class="S8">,</span> <span class="S7">'_WinAPI_RegQueryMultipleValues'</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;Example
 </span><br>

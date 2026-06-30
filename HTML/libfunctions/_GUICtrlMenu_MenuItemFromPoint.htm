@@ -48,7 +48,7 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если <span class="S91">$hMenu</span> задаёт строку меню, координаты оконные. В противном случае – клиентские.<br />
+<p>Если <span class="S91">$hMenu</span> задаёт строку меню, координаты даны в окне. Иначе используются клиентские координаты.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=MenuItemFromPoint">MenuItemFromPoint</a> в библиотеке MSDN
@@ -76,21 +76,18 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hMain</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMenu_GetMenu.htm"><span class="S15">_GUICtrlMenu_GetMenu</span></a><span class="S8">(</span><span class="S9">$g_hWnd</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$hFile</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMenu_GetItemSubMenu.htm"><span class="S15">_GUICtrlMenu_GetItemSubMenu</span></a><span class="S8">(</span><span class="S9">$hMain</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открыть меню "Файл"
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Открыть меню "Файл"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"!f"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Навести мышь на пункт "Открыть"
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Навести мышь на пункт "Открыть"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tRECT</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMenu_GetItemRectEx.htm"><span class="S15">_GUICtrlMenu_GetItemRectEx</span></a><span class="S8">(</span><span class="S9">$g_hWnd</span><span class="S8">,</span> <span class="S9">$hFile</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$tPoint</span> <span class="S8">=</span> <span class="S0">_Lib_PointFromRect</span><span class="S8">(</span><span class="S9">$tRECT</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_Lib_GetXYFromPoint</span><span class="S8">(</span><span class="S9">$tPoint</span><span class="S8">,</span> <span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MouseMove.htm"><span class="S4">MouseMove</span></a><span class="S8">(</span><span class="S9">$iX</span><span class="S8">,</span> <span class="S9">$iY</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S3">1000</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить пункт меню под текущей позицией мыши
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Получить пункт меню под текущей позицией мыши</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iIndex</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GUICtrlMenu_MenuItemFromPoint.htm"><span class="S15">_GUICtrlMenu_MenuItemFromPoint</span></a><span class="S8">(</span><span class="S9">$g_hWnd</span><span class="S8">,</span> <span class="S9">$hFile</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Send.htm"><span class="S4">Send</span></a><span class="S8">(</span><span class="S7">"{ESC 2}"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">Writeln</span><span class="S8">(</span><span class="S7">"Menu item under cursor was: "</span> <span class="S8">&amp;</span> <span class="S9">$iIndex</span><span class="S8">)</span><br>

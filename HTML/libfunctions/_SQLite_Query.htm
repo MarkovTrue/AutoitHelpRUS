@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td><span class="S91">$hQuery</span></td>
-<td>Выходной параметр – дескриптор запроса.</td>
+<td>Выходной параметр, дескриптор запроса.</td>
 </tr>
 </table>
 
@@ -68,18 +68,15 @@
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <a class="le" href="../functions/ConsoleWrite.htm"><span class="S4">ConsoleWrite</span></a><span class="S8">(</span><span class="S7">"_SQLite_LibVersion="</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_SQLite_LibVersion.htm"><span class="S15">_SQLite_LibVersion</span></a><span class="S8">(</span><span class="S8">)</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@CRLF"><span class="S6">@CRLF</span></a><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; открыть :memory: базу данных</span><br>
-<a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"CREATE TABLE aTest (a,b,c);"</span><span class="S8">)</span>&nbsp;<span class="S1">; Создание таблицы
-</span><br>
+<a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"CREATE TABLE aTest (a,b,c);"</span><span class="S8">)</span>&nbsp;<span class="S1">; Создание таблицы</span><br>
 <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"INSERT INTO aTest(a,b,c) VALUES ('c','2','World');"</span><span class="S8">)</span>&nbsp;<span class="S1">; Вставить данные</span><br>
 <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"INSERT INTO aTest(a,b,c) VALUES ('b','3',' ');"</span><span class="S8">)</span>&nbsp;<span class="S1">; Вставить данные</span><br>
 <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"INSERT INTO aTest(a,b,c) VALUES ('a','1','Hello');"</span><span class="S8">)</span>&nbsp;<span class="S1">; Вставить данные</span><br>
-<a class="le" href="../libfunctions/_SQLite_Query.htm"><span class="S15">_SQLite_Query</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"SELECT c FROM aTest ORDER BY a;"</span><span class="S8">,</span> <span class="S9">$hQuery</span><span class="S8">)</span>&nbsp;<span class="S1">; запрос
-</span><br>
+<a class="le" href="../libfunctions/_SQLite_Query.htm"><span class="S15">_SQLite_Query</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"SELECT c FROM aTest ORDER BY a;"</span><span class="S8">,</span> <span class="S9">$hQuery</span><span class="S8">)</span>&nbsp;<span class="S1">; запрос</span><br>
 <a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <a class="le" href="../libfunctions/_SQLite_FetchData.htm"><span class="S15">_SQLite_FetchData</span></a><span class="S8">(</span><span class="S9">$hQuery</span><span class="S8">,</span> <span class="S9">$aRow</span><span class="S8">)</span> <span class="S8">=</span> <span class="S9">$SQLITE_OK</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$sMsg</span> <span class="S8">&amp;=</span> <span class="S9">$aRow</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
 <a class="le" href="../keywords/While.htm"><span class="S5">WEnd</span></a><br>
-<a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"DROP TABLE aTest;"</span><span class="S8">)</span>&nbsp;<span class="S1">; Удаление таблицы
-</span><br>
+<a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"DROP TABLE aTest;"</span><span class="S8">)</span>&nbsp;<span class="S1">; Удаление таблицы</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"SQLite"</span><span class="S8">,</span> <span class="S7">"Get Data using a Query : "</span> <span class="S8">&amp;</span> <span class="S9">$sMsg</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Shutdown.htm"><span class="S15">_SQLite_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>

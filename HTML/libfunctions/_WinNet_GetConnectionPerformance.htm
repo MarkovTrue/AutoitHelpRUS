@@ -35,15 +35,15 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив со следующим форматом:
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– Описание подключения. Может быть одним или несколькими из следующих:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Возвращённая информация относится к производительности сетевой карты
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Подключение не маршрутизируется
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;– Подключение над средой, которая обычно является медленной
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;– Некоторая из возвращённой информации вычисляется динамически
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Скорость носителя к сетевому ресурсу в 100 бит/с
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– Время задержки в одну сторону при отправке информации
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aInfo</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– Размер данных, которые приложение должно использовать при выполнении одного запроса к ресурсу.</td>
+<td style="width:90%">Возвращает массив со следующим форматом:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> – описание подключения. Может быть одним или несколькими из следующих:<br />
+1 – возвращённая информация относится к производительности сетевой карты<br />
+2 – подключение не маршрутизируется<br />
+4 – подключение использует среду, которая обычно медленная<br />
+8 – некоторая возвращённая информация вычисляется динамически<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> – скорость носителя к сетевому ресурсу в 100 бит/с<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> – задержка в одну сторону при отправке информации<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> – размер данных, которые приложение должно использовать при выполнении одного запроса к ресурсу</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>

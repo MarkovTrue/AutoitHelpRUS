@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$hDB</span></td>
-<td style="width:85%"><strong>[необязательный]</strong> Открытая база данных; по умолчанию – последняя открытая</td>
+<td style="width:85%"><strong>[необязательный]</strong> Открытая база данных; по умолчанию последняя открытая</td>
 </tr>
 <tr>
 <td><span class="S91">$bFKConstraints</span></td>
@@ -91,8 +91,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">6</span><br>
 <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMemDb2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; Создание базы данных в памяти (:memory:) с включёнными ограничениями внешних ключей
-</span><br>
+<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hMemDb2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_SQLite_Open.htm"><span class="S15">_SQLite_Open</span></a><span class="S8">(</span><span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">Default</span><span class="S8">,</span> <span class="S5">True</span><span class="S8">)</span>&nbsp;<span class="S1">; Создание базы данных в памяти (:memory:) с включёнными ограничениями внешних ключей</span><br>
 <a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"SQLite Error"</span><span class="S8">,</span> <span class="S7">"Can't create a memory Database with FKConstraints2!"</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Exit.htm"><span class="S5">Exit</span></a> <span class="S8">-</span><span class="S3">7</span><br>

@@ -34,13 +34,13 @@
 <td style="width:90%">Возвращает длину строки в TCHARs, указанной параметром <span class="S91">$iIndex</span>.</td>
 </tr>
 <tr>
-<td class="valign-top">Failure: </td>
-<td>0, если <span class="S91">$iIndex</span> больше, чем количество символов в элементе управления.</td>
+<td class="valign-top">Ошибка:</td>
+<td>Возвращает 0, если <span class="S91">$iIndex</span> больше, чем количество символов в элементе управления.</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p><span class="S91">$iIndex</span> = –1 указывает на текущий номер строки (строку, содержащую каретку).</p>
+<p><span class="S91">$iIndex</span> = -1 указывает на текущий номер строки (строку, содержащую каретку).</p>
 <h2 class="bottom">Пример</h2>
 
 <p id="copytext1" class="codebox">
@@ -72,8 +72,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить текст</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlEdit_SetText.htm"><span class="S15">_GUICtrlEdit_SetText</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <a class="le" href="../functions/FileRead.htm"><span class="S4">FileRead</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; длина строки
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Длина строки</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$iRandom</span> <span class="S8">=</span> <a class="le" href="../functions/Random.htm"><span class="S4">Random</span></a><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S3">7</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlStatusBar_SetText.htm"><span class="S15">_GUICtrlStatusBar_SetText</span></a><span class="S8">(</span><span class="S9">$hStatusBar</span><span class="S8">,</span> <span class="S7">"Length: "</span> <span class="S8">&amp;</span> <a class="le" href="../libfunctions/_GUICtrlEdit_LineLength.htm"><span class="S15">_GUICtrlEdit_LineLength</span></a><span class="S8">(</span><span class="S9">$idEdit</span><span class="S8">,</span> <span class="S9">$iRandom</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">" chars on Line Index: "</span> <span class="S8">&amp;</span> <span class="S9">$iRandom</span><span class="S8">)</span><br>
 <br>

@@ -44,7 +44,11 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Выделяет память для элементов в списке выпадающего списка.<br />
+<p>Помогает ускорить инициализацию элементов управления ComboBox с большим количеством элементов (более 100).<br />
+<br />
+Вы можете использовать приблизительные значения для параметров <span class="S91">$iNum</span> и <span class="S91">$iBytes</span>.<br />
+Если вы переоцените, будет выделена дополнительная память.<br />
+Если вы недооцените, для элементов, превышающих запрошенный объём, используется обычное распределение памяти.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlComboBox_AddDir.htm">_GUICtrlComboBox_AddDir</a>, <a href="_GUICtrlComboBox_AddString.htm">_GUICtrlComboBox_AddString</a>, <a href="_GUICtrlComboBox_InsertString.htm">_GUICtrlComboBox_InsertString</a></p>

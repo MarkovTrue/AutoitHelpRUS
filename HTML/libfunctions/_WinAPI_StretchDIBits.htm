@@ -102,15 +102,12 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>Устанавливает флаг <span class="S61">@error</span> в ненулевое значение (GDI_ERROR).</td>
+<td>Устанавливает <span class="S61">@error</span> ≠ 0 (GDI_ERROR).</td>
 </tr>
 </table>
 
 <h2>Примечания</h2>
-<p><a href="_WinAPI_StretchDIBits.htm"><span class="S15">_WinAPI_StretchDIBits</span><span class="S8">()</span></a> создаёт зеркальное изображение растрового изображения, если знаки параметров <span class="S91">$iWidthSrc</span> и <span class="S91">$iWidthDest</span>
-или если параметры <span class="S91">$iHeightSrc</span> и <span class="S91">$iHeightDest</span> отличаются. Если <span class="S91">$iWidthSrc</span> и <span class="S91">$iWidthDest</span> имеют разные знаки,
-функция создаёт зеркальное изображение растрового изображения вдоль оси x. Если <span class="S91">$iHeightSrc</span> и <span class="S91">$iHeightDest</span> имеют разные
-знаки, функция создаёт зеркальное изображение растрового изображения вдоль оси y.
+<p><a href="_WinAPI_StretchDIBits.htm"><span class="S15">_WinAPI_StretchDIBits</span><span class="S8">()</span></a> создаёт зеркальное изображение растрового изображения, если знаки параметров <span class="S91">$iWidthSrc</span> и <span class="S91">$iWidthDest</span> отличаются, или если отличаются параметры <span class="S91">$iHeightSrc</span> и <span class="S91">$iHeightDest</span>. Если <span class="S91">$iWidthSrc</span> и <span class="S91">$iWidthDest</span> имеют разные знаки, функция создаёт зеркальное изображение растрового изображения по оси x. Если <span class="S91">$iHeightSrc</span> и <span class="S91">$iHeightDest</span> имеют разные знаки, функция создаёт зеркальное изображение растрового изображения по оси y.<br />
 </p>
 <h2>Дополнительно</h2>
 <p>Искать <a href="https://learn.microsoft.com/en-us/search/?terms=StretchDIBits">StretchDIBits</a> в библиотеке MSDN

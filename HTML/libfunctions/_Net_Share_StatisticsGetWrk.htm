@@ -29,46 +29,46 @@
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
 <td style="width:90%">Возвращает массив со следующим форматом:<br />
-[&nbsp;0] – время начала сбора статистики. Значение хранится как количество прошедших секунд с 00:00:00, 1 января 1970 г.<br />
-[&nbsp;1] – байты, полученные рабочей станцией<br />
-[&nbsp;2] – блоки сообщений сервера (SMB), полученные рабочей станцией<br />
-[&nbsp;3] – байты, прочитанные запросами подкачки ввода-вывода<br />
-[&nbsp;4] – байты, прочитанные запросами без подкачки ввода-вывода<br />
-[&nbsp;5] – байты, прочитанные запросами кэша ввода-вывода<br />
-[&nbsp;6] – байты, прочитанные запросами диска ввода-вывода<br />
-[&nbsp;7] – байты, переданные рабочей станцией<br />
-[&nbsp;8] – SMB, переданные рабочей станцией<br />
-[&nbsp;9] – байты, записанные запросами подкачки ввода-вывода<br />
-[10]&nbsp;– байты, записанные запросами без подкачки ввода-вывода<br />
-[11]&nbsp;– байты, записанные запросами кэша ввода-вывода<br />
-[12]&nbsp;– байты, записанные запросами диска ввода-вывода<br />
-[13]&nbsp;– операции в сети, которые не удалось начать<br />
-[14]&nbsp;– операции в сети, которые не удалось завершить<br />
-[15]&nbsp;– операции чтения, инициированные рабочей станцией<br />
-[16]&nbsp;– операции прямого доступа к чтению, инициированные рабочей станцией<br />
-[17]&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы<br />
-[18]&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы, превышающие в два раза размер согласованного буфера сервера.<br />
-[19]&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы, которые меньше 1/4 размера согласованного буфера сервера.<br />
-[20]&nbsp;– операции записи, инициированные рабочей станцией<br />
-[21]&nbsp;– операции прямого доступа к записи, инициированные рабочей станцией<br />
-[22]&nbsp;– запросы на запись, которые рабочая станция отправила на серверы<br />
-[23]&nbsp;– запросы на запись, которые рабочая станция отправила на серверы, превышающие в два раза размер согласованного буфера сервера.<br />
-[24]&nbsp;– запросы на запись, которые рабочая станция отправила на серверы, которые меньше 1/4 размера согласованного буфера сервера.<br />
-[25]&nbsp;– запросы на прямое чтение, сделанные рабочей станцией, которые были отклонены<br />
-[26]&nbsp;– запросы на прямую запись, сделанные рабочей станцией, которые были отклонены<br />
-[27]&nbsp;– ошибки сети, полученные рабочей станцией<br />
-[28]&nbsp;– сессии рабочей станции, которые были установлены<br />
-[29]&nbsp;– случаи, когда рабочая станция попыталась создать сессию, но не удалась<br />
-[30]&nbsp;– подключения, которые не удалось выполнить<br />
-[31]&nbsp;– подключения PCNET, которые удалось выполнить<br />
-[32]&nbsp;– подключения LanManager 20, которые удалось выполнить<br />
-[33]&nbsp;– подключения LanManager 21, которые удалось выполнить<br />
-[34]&nbsp;– подключения Windows NT, которые удалось выполнить<br />
-[35]&nbsp;– случаи, когда рабочая станция была отключена сервером сети<br />
-[36]&nbsp;– сессии, которые истекли на рабочей станции<br />
-[37]&nbsp;– сетевые подключения, установленные рабочей станцией<br />
-[38]&nbsp;– ошибочные сетевые подключения для рабочей станции<br />
-[39]&nbsp;– текущие запросы, которые не были завершены</td>
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;0<span class="S8">]</span> – время начала сбора статистики. Значение хранится как количество прошедших секунд с 00:00:00, 1 января 1970 г.<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;1<span class="S8">]</span> – байты, полученные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;2<span class="S8">]</span> – блоки сообщений сервера (SMB), полученные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;3<span class="S8">]</span> – байты, прочитанные запросами подкачки ввода-вывода<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;4<span class="S8">]</span> – байты, прочитанные запросами без подкачки ввода-вывода<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;5<span class="S8">]</span> – байты, прочитанные запросами кэша ввода-вывода<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;6<span class="S8">]</span> – байты, прочитанные запросами диска ввода-вывода<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;7<span class="S8">]</span> – байты, переданные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;8<span class="S8">]</span> – SMB, переданные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span>&nbsp;9<span class="S8">]</span> – байты, записанные запросами подкачки ввода-вывода<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">10</span><span class="S8">]</span>&nbsp;– байты, записанные запросами без подкачки ввода-вывода<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">11</span><span class="S8">]</span>&nbsp;– байты, записанные запросами кэша ввода-вывода<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">12</span><span class="S8">]</span>&nbsp;– байты, записанные запросами диска ввода-вывода<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">13</span><span class="S8">]</span>&nbsp;– операции в сети, которые не удалось начать<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">14</span><span class="S8">]</span>&nbsp;– операции в сети, которые не удалось завершить<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">15</span><span class="S8">]</span>&nbsp;– операции чтения, инициированные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">16</span><span class="S8">]</span>&nbsp;– операции прямого доступа к чтению, инициированные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">17</span><span class="S8">]</span>&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">18</span><span class="S8">]</span>&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы, превышающие в два раза размер согласованного буфера сервера.<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">19</span><span class="S8">]</span>&nbsp;– запросы на чтение, которые рабочая станция отправила на серверы, которые меньше 1/4 размера согласованного буфера сервера.<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">20</span><span class="S8">]</span>&nbsp;– операции записи, инициированные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">21</span><span class="S8">]</span>&nbsp;– операции прямого доступа к записи, инициированные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">22</span><span class="S8">]</span>&nbsp;– запросы на запись, которые рабочая станция отправила на серверы<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">23</span><span class="S8">]</span>&nbsp;– запросы на запись, которые рабочая станция отправила на серверы, превышающие в два раза размер согласованного буфера сервера.<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">24</span><span class="S8">]</span>&nbsp;– запросы на запись, которые рабочая станция отправила на серверы, которые меньше 1/4 размера согласованного буфера сервера.<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">25</span><span class="S8">]</span>&nbsp;– запросы на прямое чтение, сделанные рабочей станцией, которые были отклонены<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">26</span><span class="S8">]</span>&nbsp;– запросы на прямую запись, сделанные рабочей станцией, которые были отклонены<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">27</span><span class="S8">]</span>&nbsp;– ошибки сети, полученные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">28</span><span class="S8">]</span>&nbsp;– сессии рабочей станции, которые были установлены<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">29</span><span class="S8">]</span>&nbsp;– случаи, когда рабочая станция попыталась создать сессию, но не удалась<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">30</span><span class="S8">]</span>&nbsp;– подключения, которые не удалось выполнить<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">31</span><span class="S8">]</span>&nbsp;– подключения PCNET, которые удалось выполнить<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">32</span><span class="S8">]</span>&nbsp;– подключения LanManager 20, которые удалось выполнить<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">33</span><span class="S8">]</span>&nbsp;– подключения LanManager 21, которые удалось выполнить<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">34</span><span class="S8">]</span>&nbsp;– подключения Windows NT, которые удалось выполнить<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">35</span><span class="S8">]</span>&nbsp;– случаи, когда рабочая станция была отключена сервером сети<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">36</span><span class="S8">]</span>&nbsp;– сессии, которые истекли на рабочей станции<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">37</span><span class="S8">]</span>&nbsp;– сетевые подключения, установленные рабочей станцией<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">38</span><span class="S8">]</span>&nbsp;– ошибочные сетевые подключения для рабочей станции<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">39</span><span class="S8">]</span>&nbsp;– текущие запросы, которые не были завершены</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>

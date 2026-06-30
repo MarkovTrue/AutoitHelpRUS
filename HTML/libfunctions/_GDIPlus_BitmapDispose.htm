@@ -61,9 +61,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Func.htm"><span class="S5">Return</span></a> <span class="S5">False</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">;инициализировать GDI+</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span>&nbsp;<span class="S1">; инициализировать GDI+</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromFile.htm"><span class="S15">_GDIPlus_BitmapCreateFromFile</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">;Создать объект Bitmap из файла.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$g_hBitmap</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_BitmapCreateFromFile.htm"><span class="S15">_GDIPlus_BitmapCreateFromFile</span></a><span class="S8">(</span><span class="S9">$sFile</span><span class="S8">)</span>&nbsp;<span class="S1">; Создать объект Bitmap из файла.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span> <span class="S8">+</span> <span class="S9">$MB_ICONHAND</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"An error has occured - unable to load image!"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
@@ -80,7 +80,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">EndIf</span></a><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageSaveToFile.htm"><span class="S15">_GDIPlus_ImageSaveToFile</span></a><span class="S8">(</span><span class="S9">$g_hBitmap</span><span class="S8">,</span> <span class="S9">$sNewJPGFile</span><span class="S8">)</span>&nbsp;<span class="S1">;Сохранить изображение в формате JPG.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_ImageSaveToFile.htm"><span class="S15">_GDIPlus_ImageSaveToFile</span></a><span class="S8">(</span><span class="S9">$g_hBitmap</span><span class="S8">,</span> <span class="S9">$sNewJPGFile</span><span class="S8">)</span>&nbsp;<span class="S1">; Сохранить изображение в формате JPG.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span> <span class="S8">+</span> <span class="S9">$MB_ICONHAND</span><span class="S8">)</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"An error has occured - unable to save image!"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
@@ -92,7 +92,7 @@
 </span><br>
 <br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">Func</span></a> <span class="S0">_ReleaseResources</span><span class="S8">(</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapDispose.htm"><span class="S15">_GDIPlus_BitmapDispose</span></a><span class="S8">(</span><span class="S9">$g_hBitmap</span><span class="S8">)</span>&nbsp;<span class="S1">;Освободить объект Bitmap.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_BitmapDispose.htm"><span class="S15">_GDIPlus_BitmapDispose</span></a><span class="S8">(</span><span class="S9">$g_hBitmap</span><span class="S8">)</span>&nbsp;<span class="S1">; Освободить объект Bitmap.</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Shutdown.htm"><span class="S15">_GDIPlus_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Func.htm"><span class="S5">EndFunc</span></a>&nbsp;&nbsp;&nbsp;<span class="S1">;==&gt;_ReleaseResources
 </span><br>

@@ -42,7 +42,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Ресурсы меню, назначенные окну, освобождаются автоматически. Если меню не назначено окну, приложение должно уничтожить его с помощью <em><a class="le" href="_GUICtrlMenu_DestroyMenu.htm"><span class="S15">_GUICtrlMenu_DestroyMenu</span></a><span class="S8">()</span></em>.<br />
+<p>Ресурсы меню, назначенные окну, освобождаются автоматически. Если меню не назначено окну, приложение должно освободить ресурсы, связанные с меню, перед закрытием.<br />
+Приложение освобождает ресурсы меню, вызывая функцию <a href="_GUICtrlMenu_DestroyMenu.htm"><span class="S15">_GUICtrlMenu_DestroyMenu</span><span class="S8">()</span></a>.<br />
+<span class="S91">$MNS_NOTIFYBYPOS</span> – это стиль заголовка меню и не имеет никакого эффекта при применении к отдельным подменю<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlMenu_CreatePopup.htm">_GUICtrlMenu_CreatePopup</a>, <a href="_GUICtrlMenu_DestroyMenu.htm">_GUICtrlMenu_DestroyMenu</a></p>

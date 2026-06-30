@@ -24,7 +24,7 @@
 </tr>
 <tr>
 <td><span class="S91">$iFileID</span></td>
-<td>Идентификатор файла открытого экземпляра ресурса для закрытия.</td>
+<td>Указывает идентификатор файла открытого экземпляра ресурса для закрытия.</td>
 </tr>
 </table>
 
@@ -78,8 +78,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Error ...................: "</span> <span class="S8">&amp;</span> <a class="le" href="../macros.htm#@error"><span class="S6">@error</span></a><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S0">_MemoWrite</span><span class="S8">(</span><span class="S7">"Entries read ............: "</span> <span class="S8">&amp;</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Принудительно закрыть любой открытый файл с именем "Test.txt"
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Принудительно закрыть любой открытый файл с именем "Test.txt"</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/For.htm"><span class="S5">For</span></a> <span class="S9">$iI</span> <span class="S8">=</span> <span class="S3">1</span> <a class="le" href="../keywords/For.htm"><span class="S5">To</span></a> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/If.htm"><span class="S5">If</span></a> <a class="le" href="../functions/StringInStr.htm"><span class="S4">StringInStr</span></a><span class="S8">(</span><span class="S9">$aInfo</span><span class="S8">[</span><span class="S9">$iI</span><span class="S8">]</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span><span class="S8">,</span> <span class="S7">"Test.txt"</span><span class="S8">)</span> <span class="S8">&gt;</span> <span class="S3">0</span> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Then</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_Net_Share_FileClose.htm"><span class="S15">_Net_Share_FileClose</span></a><span class="S8">(</span><span class="S9">$sServer</span><span class="S8">,</span> <span class="S9">$aInfo</span><span class="S8">[</span><span class="S9">$iI</span><span class="S8">]</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>

@@ -29,10 +29,10 @@
 
 <h2>Возвращаемое значение</h2>
 Возвращает массив в следующем формате:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[0]&nbsp;– X-координата верхнего левого угла прямоугольника<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[1]&nbsp;– Y-координата верхнего левого угла прямоугольника<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[2]&nbsp;– X-координата нижнего правого угла прямоугольника<br />
-&nbsp;&nbsp;&nbsp;&nbsp;[3]&nbsp;– Y-координата нижнего правого угла прямоугольника<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– X-координата верхнего левого угла прямоугольника<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Y-координата верхнего левого угла прямоугольника<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– X-координата нижнего правого угла прямоугольника<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– Y-координата нижнего правого угла прямоугольника<br />
 
 <h2>См. также</h2>
 <p><a href="_GUICtrlRebar_GetBandBorders.htm">_GUICtrlRebar_GetBandBorders</a>, <a href="_GUICtrlRebar_GetBandBordersEx.htm">_GUICtrlRebar_GetBandBordersEx</a>, <a href="_GUICtrlRebar_GetBandRectEx.htm">_GUICtrlRebar_GetBandRectEx</a></p>
@@ -84,7 +84,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; создать поле ввода для размещения в rebar</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$idInput</span> <span class="S8">=</span> <a class="le" href="../functions/GUICtrlCreateInput.htm"><span class="S4">GUICtrlCreateInput</span></a><span class="S8">(</span><span class="S7">"Input control"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">20</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;добавить полосу с элементом управления</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить полосу с элементом управления</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlRebar_AddBand.htm"><span class="S15">_GUICtrlRebar_AddBand</span></a><span class="S8">(</span><span class="S9">$hReBar</span><span class="S8">,</span> <a class="le" href="../functions/GUICtrlGetHandle.htm"><span class="S4">GUICtrlGetHandle</span></a><span class="S8">(</span><span class="S9">$idInput</span><span class="S8">)</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S7">"Name:"</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; добавить полосу с элементом управления в начало rebar</span><br>

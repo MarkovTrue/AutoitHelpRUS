@@ -85,7 +85,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$fCurSystem</span> <span class="S8">=</span> <span class="S0">_WinAPI_QueryProcessorUsage</span><span class="S8">(</span><span class="S5">True</span><span class="S8">)</span><br>
 <a class="le" href="../keywords/Do.htm"><span class="S5">Until</span></a> <span class="S9">$fCurSystem</span> <span class="S8">&lt;</span> <span class="S9">$fSystemPercent</span><br>
 <a class="le" href="../keywords/Do.htm"><span class="S5">Do</span></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">;на случай, если процессор не совсем неактивен !!!</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; на случай, если процессор не совсем неактивен !!!</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$nIOSleep</span> <span class="S8">+=</span> <span class="S3">1</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/Sleep.htm"><span class="S4">Sleep</span></a><span class="S8">(</span><span class="S9">$iRefresh</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S9">$fCurIO</span> <span class="S8">=</span> <span class="S0">_WinAPI_QueryDiskUsage</span><span class="S8">(</span><span class="S5">True</span><span class="S8">)</span><br>

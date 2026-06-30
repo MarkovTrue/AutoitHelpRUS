@@ -44,7 +44,12 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Выбирает первую строку, начинающуюся с символов, указанных в параметре <span class="S91">$sText</span>.<br />
+<p>Когда поиск достигает конца списка, он продолжает поиск с начала списка вплоть до элемента, указанного параметром <span class="S91">$iIndex</span>.<br />
+<br />
+Если <span class="S91">$iIndex</span> равен –1, поиск ведётся по всему списку с начала.<br />
+Строка выбирается только если символы, начиная с позиции поиска, совпадают с символами в строке поиска.<br />
+<br />
+Если найден совпадающий элемент, он выбирается и копируется в поле редактирования.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlComboBox_FindString.htm">_GUICtrlComboBox_FindString</a>, <a href="_GUICtrlComboBox_FindStringExact.htm">_GUICtrlComboBox_FindStringExact</a>, <a href="_GUICtrlComboBoxEx_FindStringExact.htm">_GUICtrlComboBoxEx_FindStringExact</a></p>

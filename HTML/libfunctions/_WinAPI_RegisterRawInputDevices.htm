@@ -100,8 +100,7 @@
 <br>
 <span class="S0">_SetBitmap</span><span class="S8">(</span><span class="S9">$g_idPic</span><span class="S8">,</span> <span class="S9">$g_ahPart</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Чтобы получить значения членов "UsagePage" и "Usage" этой структуры, прочитайте документацию HID Usage Tables
-</span><br>
+<span class="S1">; Чтобы получить значения членов "UsagePage" и "Usage" этой структуры, прочитайте документацию HID Usage Tables</span><br>
 <span class="S1">; http://www.usb.org/developers/devclass_docs/HID1_11.pdf
 </span><br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRID</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRAWINPUTDEVICE</span><span class="S8">)</span><br>
@@ -158,8 +157,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$iFlags</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructGetData.htm"><span class="S4">DllStructGetData</span></a><span class="S8">(</span><span class="S9">$tRIM</span><span class="S8">,</span> <span class="S7">'Flags'</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Select</span></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <a class="le" href="../functions/BitAND.htm"><span class="S4">BitAND</span></a><span class="S8">(</span><span class="S9">$iFlags</span><span class="S8">,</span> <span class="S9">$MOUSE_ATTRIBUTES_CHANGED</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вам нужно запросить атрибуты мыши и обновить растровое изображение...
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Вам необходимо запросить атрибуты мыши и обновить растровое изображение...</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">Case</span></a> <a class="le" href="../keywords/IfElseEndIf.htm"><span class="S5">Else</span></a><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Select.htm"><span class="S5">EndSelect</span></a><br>
@@ -236,14 +234,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$tRAWINPUTDEVICEs</span> <span class="S8">=</span> <a class="le" href="../functions/DllStructCreate.htm"><span class="S4">DllStructCreate</span></a><span class="S8">(</span><span class="S9">$tagRAWINPUTDEVICE</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="S7">';struct;ushort UsagePage2;ushort Usage2;dword Flags2;hwnd hTarget2;endstruct'</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'UsagePage'</span><span class="S8">,</span> <span class="S3">0x01</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'Usage'</span><span class="S8">,</span> <span class="S3">0x02</span><span class="S8">)</span>&nbsp;<span class="S1">; мышь
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'Usage'</span><span class="S8">,</span> <span class="S3">0x02</span><span class="S8">)</span>&nbsp;<span class="S1">; мышь</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'Flags'</span><span class="S8">,</span> <span class="S9">$RIDEV_INPUTSINK</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'hTarget'</span><span class="S8">,</span> <span class="S9">$hGui</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'UsagePage2'</span><span class="S8">,</span> <span class="S3">0x01</span><span class="S8">)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'Usage2'</span><span class="S8">,</span> <span class="S3">0x06</span><span class="S8">)</span>&nbsp;<span class="S1">; клавиатура
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'Usage2'</span><span class="S8">,</span> <span class="S3">0x06</span><span class="S8">)</span>&nbsp;<span class="S1">; клавиатура</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'Flags2'</span><span class="S8">,</span> <span class="S9">$RIDEV_INPUTSINK</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/DllStructSetData.htm"><span class="S4">DllStructSetData</span></a><span class="S8">(</span><span class="S9">$tRAWINPUTDEVICEs</span><span class="S8">,</span> <span class="S7">'hTarget2'</span><span class="S8">,</span> <span class="S9">$hGui</span><span class="S8">)</span><br>
 <br>

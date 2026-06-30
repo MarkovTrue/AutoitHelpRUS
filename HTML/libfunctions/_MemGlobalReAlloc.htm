@@ -47,11 +47,11 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если <a href="_MemGlobalReAlloc.htm">_MemGlobalReAlloc</a> перевыделяет перемещаемый объект, возвращаемое значение – дескриптор объекта памяти. Для преобразования дескриптора в указатель используйте функцию <a href="_MemGlobalLock.htm">_MemGlobalLock</a>.<br />
+<p>Если <a href="_MemGlobalReAlloc.htm">_MemGlobalReAlloc</a> перевыделяет перемещаемый объект, возвращаемое значение представляет собой дескриптор объекта памяти. Для преобразования дескриптора в указатель используйте функцию <a href="_MemGlobalLock.htm">_MemGlobalLock</a>.<br />
 <br />
-Если <a href="_MemGlobalReAlloc.htm">_MemGlobalReAlloc</a> перевыделяет неподвижный объект, значение возвращаемого дескриптора – адрес первого байта блока памяти. Для доступа к памяти процесс может просто привести возвращаемое значение к указателю.<br />
+Если <a href="_MemGlobalReAlloc.htm">_MemGlobalReAlloc</a> перевыделяет неподвижный объект, значение возвращаемого дескриптора является адресом первого байта блока памяти. Для доступа к памяти процесс может просто привести возвращаемое значение к указателю.<br />
 <br />
-Если <a href="_MemGlobalReAlloc.htm">_MemGlobalReAlloc</a> не удаётся, исходная память не освобождается и исходный дескриптор и указатель остаются действительными.<br />
+Если <a href="_MemGlobalReAlloc.htm">_MemGlobalReAlloc</a> завершается ошибкой, исходная память не освобождается и исходный дескриптор с указателем остаются действительными.<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_MemGlobalFree.htm">_MemGlobalFree</a>, <a href="_MemGlobalLock.htm">_MemGlobalLock</a>, <a href="_MemGlobalAlloc.htm">_MemGlobalAlloc</a>, <a href="_MemGlobalSize.htm">_MemGlobalSize</a>, <a href="_MemVirtualAlloc.htm">_MemVirtualAlloc</a></p>

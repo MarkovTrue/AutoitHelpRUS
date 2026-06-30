@@ -36,37 +36,37 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает массив со следующим форматом:
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– Область перечисления:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– Подключено
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Все ресурсы
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Запомнено
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– Тип ресурса:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– Диск
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Принтер
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Неизвестный
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– Параметр отображения:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– Универсальный
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Домен
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Сервер
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;– Сетевая папка
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;– Файл
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;– Группа
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;– Сеть
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;– Корень
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;– Административная папка
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;– Каталог
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;– Дерево
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;– Контейнер NDS
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– Использование ресурса. Может быть одним или несколькими из следующих:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– Ресурс является подключаемым
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– Ресурс является контейнером
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;– Ресурс подключён
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;– Ресурс зарезервирован
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span>&nbsp;– Локальное имя
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span>&nbsp;– Удалённое имя
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span>&nbsp;– Комментарий поставщика сети
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S91">$aResource</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span>&nbsp;– Имя поставщика, который владеет ресурсом.</td>
+<td style="width:90%">Возвращает массив со следующей структурой:<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span>&nbsp;– область перечисления:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– подключено<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– все ресурсы<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– запомнено<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span>&nbsp;– тип ресурса:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– диск<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– принтер<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– неизвестный<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span>&nbsp;– параметр отображения:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;– универсальный<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– домен<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– сервер<br />
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;– сетевая папка<br />
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;– файл<br />
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;– группа<br />
+&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;– сеть<br />
+&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;– корень<br />
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;– административная папка<br />
+&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;– каталог<br />
+&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;– дерево<br />
+&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;– контейнер NDS<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span>&nbsp;– использование ресурса (может быть одним или несколькими):<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;– ресурс является подключаемым<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;– ресурс является контейнером<br />
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;– ресурс подключён<br />
+&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;– ресурс зарезервирован<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span>&nbsp;– локальное имя<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">5</span><span class="S8">]</span>&nbsp;– удалённое имя<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span>&nbsp;– комментарий поставщика сети<br />
+<span class="S91">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span>&nbsp;– имя поставщика, который владеет ресурсом</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>

@@ -19,7 +19,13 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$iStyle</span></td>
-<td style="width:85%"><strong>[необязательный]</strong> Стиль меню (см. <em><a class="le" href="_GUICtrlMenu_CreateMenu.htm"><span class="S15">_GUICtrlMenu_CreateMenu</span></a><span class="S8">()</span></em>)</td>
+<td style="width:85%"><strong>[необязательный]</strong> Стиль меню. Может быть одним или несколькими из следующих значений:<br />
+<span class="S91">$MNS_AUTODISMISS</span> – меню автоматически закрывается, если мышь вне меню 10 секунд<br />
+<span class="S91">$MNS_CHECKORBMP</span> – для флажка и для битмапа резервируется одно и то же место (по умолчанию)<br />
+<span class="S91">$MNS_DRAGDROP</span> – пункты меню являются целями OLE-сброса или источниками перетаскивания<br />
+<span class="S91">$MNS_MODELESS</span> – немодальное меню<br />
+<span class="S91">$MNS_NOCHECK</span> – слева от пункта не резервируется место для флажка<br />
+<span class="S91">$MNS_NOTIFYBYPOS</span> – владелец меню получает сообщение WM_MENUCOMMAND вместо WM_COMMAND при выборе.</td>
 </tr>
 </table>
 
@@ -36,7 +42,9 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Ресурсы меню, назначенные окну, освобождаются автоматически. Если меню не назначено окну, приложение должно уничтожить его с помощью <em><a class="le" href="_GUICtrlMenu_DestroyMenu.htm"><span class="S15">_GUICtrlMenu_DestroyMenu</span></a><span class="S8">()</span></em>.<br />
+<p>Ресурсы меню, назначенные окну, освобождаются автоматически. Если меню не назначено окну, приложение должно освободить связанные с ним системные ресурсы перед закрытием.<br />
+Ресурсы меню освобождаются вызовом функции <a href="_GUICtrlMenu_DestroyMenu.htm"><span class="S15">_GUICtrlMenu_DestroyMenu</span><span class="S8">()</span></a>.<br />
+Стиль <span class="S91">$MNS_NOTIFYBYPOS</span> – это стиль заголовка меню, не имеет эффекта при применении к отдельным подменю<br />
 </p>
 <h2>См. также</h2>
 <p><a href="_GUICtrlMenu_CreateMenu.htm">_GUICtrlMenu_CreateMenu</a>, <a href="_GUICtrlMenu_DestroyMenu.htm">_GUICtrlMenu_DestroyMenu</a></p>

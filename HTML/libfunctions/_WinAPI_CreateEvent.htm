@@ -19,7 +19,10 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$tAttributes</span></td>
-<td style="width:85%">Дескриптор.</td>
+<td style="width:85%"><strong>[необязательный]</strong> Структура <a class="le" href="../libfunctions/$tagSECURITY_ATTRIBUTES.htm"><span class="S91">$tagSECURITY_ATTRIBUTES</span></a> или указатель на неё. Если 0, дескриптор не может быть унаследован дочерними процессами.<br />
+Член Descriptor структуры задаёт дескриптор безопасности нового события.<br />
+Если <span class="S91">$tAttributes</span> равен 0, событие получает дескриптор безопасности по умолчанию.<br />
+ACL в дескрипторе безопасности по умолчанию берутся из первичного или олицетворяющего токена создателя.</td>
 </tr>
 <tr>
 <td><span class="S91">$bManualReset</span></td>
@@ -31,7 +34,11 @@
 </tr>
 <tr>
 <td><span class="S91">$sName</span></td>
-<td>Дескриптор.</td>
+<td><strong>[необязательный]</strong> Имя объекта-события. Сравнение имён чувствительно к регистру.<br />
+Если <span class="S91">$sName</span> совпадает с именем существующего именованного события, функция запрашивает право доступа EVENT_ALL_ACCESS.<br />
+В этом случае параметры <span class="S91">$bManualReset</span> и <span class="S91">$bInitialState</span> игнорируются, так как они уже заданы создавшим процессом.<br />
+Если параметр <span class="S91">$tAttributes</span> не равен 0, он определяет, может ли дескриптор быть унаследован, но его член с дескриптором безопасности игнорируется.<br />
+Если имя пустое, объект-событие создаётся без имени.</td>
 </tr>
 </table>
 

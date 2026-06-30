@@ -23,12 +23,12 @@
 </tr>
 <tr>
 <td><span class="S91">$iID</span></td>
-<td>Идентификатор горячей клавиши. Приложение должно указать значение id в диапазоне<br />
+<td>Указывает идентификатор горячей клавиши. Приложение должно указать значение id в диапазоне<br />
 0x0000 по 0xBFFF.</td>
 </tr>
 <tr>
 <td><span class="S91">$iModifiers</span></td>
-<td>Клавиши, которые должны нажиматься в сочетании с клавишей, указанной параметром <span class="S91">$vKey</span><br />
+<td>Указывает клавиши, которые должны нажиматься в сочетании с клавишей, указанной параметром <span class="S91">$vKey</span><br />
 для создания сообщения WM_HOTKEY.<br />
 Параметр <span class="S91">$iModifiers</span> может быть комбинацией следующих значений.<br />
 <span class="S91">$MOD_ALT</span><br />
@@ -41,7 +41,7 @@
 </tr>
 <tr>
 <td><span class="S91">$vKey</span></td>
-<td>Код виртуальной клавиши горячей клавиши (<span class="S91">$VK_*</span>).</td>
+<td>Указывает код виртуальной клавиши горячей клавиши (<span class="S91">$VK_*</span>).</td>
 </tr>
 </table>
 
@@ -95,11 +95,9 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hWnd</span> <span class="S8">=</span> <a class="le" href="../functions/GUICreate.htm"><span class="S4">GUICreate</span></a><span class="S8">(</span><span class="S7">'Test '</span> <span class="S8">&amp;</span> <a class="le" href="../functions/StringReplace.htm"><span class="S4">StringReplace</span></a><span class="S8">(</span><a class="le" href="../macros.htm#@ScriptName"><span class="S6">@ScriptName</span></a><span class="S8">,</span> <span class="S7">'.au3'</span><span class="S8">,</span> <span class="S7">'()'</span><span class="S8">)</span><span class="S8">)</span><br>
 <a class="le" href="../functions/GUIRegisterMsg.htm"><span class="S4">GUIRegisterMsg</span></a><span class="S8">(</span><span class="S9">$WM_HOTKEY</span><span class="S8">,</span> <span class="S7">'WM_HOTKEY'</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; Установить ALT-D
-</span><br>
+<span class="S1">; Установить ALT-D</span><br>
 <a class="le" href="../libfunctions/_WinAPI_RegisterHotKey.htm"><span class="S15">_WinAPI_RegisterHotKey</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S3">0x0144</span><span class="S8">,</span> <span class="S9">$MOD_ALT</span><span class="S8">,</span> <span class="S3">0x44</span><span class="S8">)</span><br>
-<span class="S1">; Установить ESC
-</span><br>
+<span class="S1">; Установить ESC</span><br>
 <a class="le" href="../libfunctions/_WinAPI_RegisterHotKey.htm"><span class="S15">_WinAPI_RegisterHotKey</span></a><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">,</span> <span class="S3">0x011B</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0x1B</span><span class="S8">)</span><br>
 <br>
 <a class="le" href="../keywords/While.htm"><span class="S5">While</span></a> <span class="S3">1</span><br>

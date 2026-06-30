@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td><span class="S91">$aRow</span></td>
-<td>Выходной параметр – количество строк данных.</td>
+<td>Выходной параметр (количество строк данных).</td>
 </tr>
 </table>
 
@@ -75,8 +75,7 @@
 <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"INSERT INTO settings (key,value) VALUES ('2','setting two');"</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"INSERT INTO settings (key,value) VALUES ('3','setting Three');"</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Exec.htm"><span class="S15">_SQLite_Exec</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"INSERT INTO settings (key,value) VALUES ('4','setting Four');"</span><span class="S8">)</span><br>
-<a class="le" href="../libfunctions/_SQLite_QuerySingleRow.htm"><span class="S15">_SQLite_QuerySingleRow</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"SELECT value FROM settings WHERE key &gt; '2';"</span><span class="S8">,</span> <span class="S9">$aRow</span><span class="S8">)</span>&nbsp;<span class="S1">; Выбор одной строки и одного поля!
-</span><br>
+<a class="le" href="../libfunctions/_SQLite_QuerySingleRow.htm"><span class="S15">_SQLite_QuerySingleRow</span></a><span class="S8">(</span><span class="S8">-</span><span class="S3">1</span><span class="S8">,</span> <span class="S7">"SELECT value FROM settings WHERE key &gt; '2';"</span><span class="S8">,</span> <span class="S9">$aRow</span><span class="S8">)</span>&nbsp;<span class="S1">; Выбор одной строки и одного поля!</span><br>
 <a class="le" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"One of the values for key &gt; 2:"</span><span class="S8">,</span> <span class="S9">$aRow</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Close.htm"><span class="S15">_SQLite_Close</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_SQLite_Shutdown.htm"><span class="S15">_SQLite_Shutdown</span></a><span class="S8">(</span><span class="S8">)</span><br>

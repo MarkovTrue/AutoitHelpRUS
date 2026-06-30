@@ -124,8 +124,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SetItemGroupID.htm"><span class="S15">_GUICtrlListView_SetItemGroupID</span></a><span class="S8">(</span><span class="S9">$hListView</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GUICtrlListView_SetItemGroupID.htm"><span class="S15">_GUICtrlListView_SetItemGroupID</span></a><span class="S8">(</span><span class="S9">$hListView</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">2</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">Создаёт
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаёт</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGDIBmp</span> <span class="S8">=</span> <span class="S0">_CreateHBITMAP</span><span class="S8">(</span><span class="S9">$iLVWidth</span><span class="S8">,</span> <span class="S9">$iLVHeight</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Установить фоновое изображение ListView</span><br>
@@ -176,15 +175,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/WinSetTrans.htm"><span class="S4">WinSetTrans</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">,</span> <span class="S7">''</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../functions/GUISetState.htm"><span class="S4">GUISetState</span></a><span class="S8">(</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Рисует фон GUI
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Рисует фон GUI</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_Startup.htm"><span class="S15">_GDIPlus_Startup</span></a><span class="S8">(</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hImage</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_ImageLoadFromFile.htm"><span class="S15">_GDIPlus_ImageLoadFromFile</span></a><span class="S8">(</span><a class="le" href="../functions/RegRead.htm"><span class="S4">RegRead</span></a><span class="S8">(</span><span class="S7">'HKEY_CURRENT_USER\Control Panel\Desktop'</span><span class="S8">,</span> <span class="S7">'Wallpaper'</span><span class="S8">)</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGraphics</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_GDIPlus_GraphicsCreateFromHWND.htm"><span class="S15">_GDIPlus_GraphicsCreateFromHWND</span></a><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDrawImageRect.htm"><span class="S15">_GDIPlus_GraphicsDrawImageRect</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">,</span> <span class="S9">$hImage</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$iGUIWidth</span><span class="S8">,</span> <span class="S9">$iGUIHeight</span><span class="S8">)</span><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">Создаёт
-</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="S1">; Создаёт</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$hGDIBmp</span> <span class="S8">=</span> <span class="S0">_CreateHBITMAP</span><span class="S8">(</span><span class="S9">$hImage</span><span class="S8">,</span> <span class="S9">$iGUIWidth</span><span class="S8">,</span> <span class="S9">$iGUIHeight</span><span class="S8">)</span><br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a class="le" href="../libfunctions/_GDIPlus_GraphicsDispose.htm"><span class="S15">_GDIPlus_GraphicsDispose</span></a><span class="S8">(</span><span class="S9">$hGraphics</span><span class="S8">)</span><br>

@@ -23,7 +23,20 @@
 </tr>
 <tr>
 <td><span class="S91">$iIlluminant</span></td>
-<td>Значение.</td>
+<td><strong>[необязательный]</strong> Тип стандартного источника света, при котором рассматривается изображение. Может быть только одним из следующих значений:<br />
+<span class="default-const"><span class="S91">$ILLUMINANT_DEVICE_DEFAULT</span></span> (по умолчанию)<br />
+<span class="S91">$ILLUMINANT_A</span><br />
+<span class="S91">$ILLUMINANT_B</span><br />
+<span class="S91">$ILLUMINANT_C</span><br />
+<span class="S91">$ILLUMINANT_D50</span><br />
+<span class="S91">$ILLUMINANT_D55</span><br />
+<span class="S91">$ILLUMINANT_D65</span><br />
+<span class="S91">$ILLUMINANT_D75</span><br />
+<span class="S91">$ILLUMINANT_F2</span><br />
+<span class="S91">$ILLUMINANT_TUNGSTEN</span><br />
+<span class="S91">$ILLUMINANT_DAYLIGHT</span><br />
+<span class="S91">$ILLUMINANT_FLUORESCENT</span><br />
+<span class="S91">$ILLUMINANT_NTSC</span></td>
 </tr>
 <tr>
 <td><span class="S91">$iGammaR</span></td>
@@ -59,7 +72,10 @@
 </tr>
 <tr>
 <td><span class="S91">$iTint</span></td>
-<td>Количество / Размер.</td>
+<td><strong>[необязательный]</strong> Величина подстройки красного или зелёного оттенка, применяемая к исходному объекту.<br />
+Значение должно быть в диапазоне от -100 до 100.<br />
+Положительные числа сдвигают к красному, отрицательные – к зелёному.<br />
+Значение 0 (по умолчанию) означает отсутствие подстройки оттенка.</td>
 </tr>
 </table>
 

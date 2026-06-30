@@ -30,7 +30,7 @@
 <td><strong>[необязательный]</strong> Максимальное количество возвращаемых элементов<br />
 =0 : (по умолчанию) Разбивать по каждому экземпляру разделителя<br />
 >0 : Разбивать до достижения лимита, последний элемент будет содержать оставшуюся часть строки<br />
-<0 : Разбивать по каждому экземпляру, удаляя лимит элементов с конца массива.</td>
+&lt;0 : Разбивать по каждому экземпляру, удаляя лимит элементов с конца массива</td>
 </tr>
 </table>
 
@@ -51,56 +51,35 @@
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray1</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_StringExplode.htm"><span class="S15">_StringExplode</span></a><span class="S8">(</span><span class="S9">$sText</span><span class="S8">,</span> <span class="S7">"##"</span><span class="S8">,</span> <span class="S3">0</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray1</span><span class="S8">,</span> <span class="S7">"StringExplode 0"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; ОТОБРАЖЕНИЕ
-</span><br>
-<span class="S1">; [0] = один
-</span><br>
-<span class="S1">; [1] = два
-</span><br>
-<span class="S1">; [2] = три
-</span><br>
-<span class="S1">; [3] = четыре
-</span><br>
-<span class="S1">; [4] = пять
-</span><br>
-<span class="S1">; [5] = шесть
-</span><br>
-<span class="S1">; [6] = семь
-</span><br>
-<span class="S1">; [7] = восемь
-</span><br>
+<span class="S1">; ОТОБРАЖЕНИЕ</span><br>
+<span class="S1">; [0] = один</span><br>
+<span class="S1">; [1] = два</span><br>
+<span class="S1">; [2] = три</span><br>
+<span class="S1">; [3] = четыре</span><br>
+<span class="S1">; [4] = пять</span><br>
+<span class="S1">; [5] = шесть</span><br>
+<span class="S1">; [6] = семь</span><br>
+<span class="S1">; [7] = восемь</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray2</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_StringExplode.htm"><span class="S15">_StringExplode</span></a><span class="S8">(</span><span class="S9">$sText</span><span class="S8">,</span> <span class="S7">"##"</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray2</span><span class="S8">,</span> <span class="S7">"StringExplode 4"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; ОТОБРАЖЕНИЕ
-</span><br>
-<span class="S1">; [0] = один
-</span><br>
-<span class="S1">; [1] = два
-</span><br>
-<span class="S1">; [2] = три
-</span><br>
-<span class="S1">; [3] = четыре
-</span><br>
-<span class="S1">; [4] = пять##шесть##семь##восемь
-</span><br>
+<span class="S1">; ОТОБРАЖЕНИЕ</span><br>
+<span class="S1">; [0] = один</span><br>
+<span class="S1">; [1] = два</span><br>
+<span class="S1">; [2] = три</span><br>
+<span class="S1">; [3] = четыре</span><br>
+<span class="S1">; [4] = пять##шесть##семь##восемь</span><br>
 <br>
 <a class="le" href="../keywords/Dim.htm"><span class="S5">Local</span></a> <span class="S9">$aArray3</span> <span class="S8">=</span> <a class="le" href="../libfunctions/_StringExplode.htm"><span class="S15">_StringExplode</span></a><span class="S8">(</span><span class="S9">$sText</span><span class="S8">,</span> <span class="S7">"##"</span><span class="S8">,</span> <span class="S8">-</span><span class="S3">3</span><span class="S8">)</span><br>
 <a class="le" href="../libfunctions/_ArrayDisplay.htm"><span class="S15">_ArrayDisplay</span></a><span class="S8">(</span><span class="S9">$aArray3</span><span class="S8">,</span> <span class="S7">"StringExplode -3"</span><span class="S8">)</span><br>
 <br>
-<span class="S1">; ОТОБРАЖЕНИЕ
-</span><br>
-<span class="S1">; [0] = один
-</span><br>
-<span class="S1">; [1] = два
-</span><br>
-<span class="S1">; [2] = три
-</span><br>
-<span class="S1">; [3] = четыре
-</span><br>
-<span class="S1">; [4] = пять
-</span><br>
+<span class="S1">; ОТОБРАЖЕНИЕ</span><br>
+<span class="S1">; [0] = один</span><br>
+<span class="S1">; [1] = два</span><br>
+<span class="S1">; [2] = три</span><br>
+<span class="S1">; [3] = четыре</span><br>
+<span class="S1">; [4] = пять</span><br>
 </p>
 <object id="hhctrl1" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" style="position:absolute;left:-10000px;top:0"><param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Открыть пример"><param name="Item1" value=",Examples\HelpFile\_StringExplode.au3,"></object>
 </body>

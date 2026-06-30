@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_viGTL</h1>
-<p class="funcdesc">Перейти в локальный режим: приборы, принимающие эту команду, выходят из режима "удалённого управления" и переходят в режим "локального управления". Если прибор уже находится в режиме "локального управления", эта команда просто игнорируется. Обычно, если прибор не поддерживает эту команду, он просто остаётся в режиме "удалённого управления".</p>
+<p class="funcdesc">Переводит в локальный режим: приборы, принимающие эту команду, выходят из режима "удалённого управления" и переходят в режим "локального управления". Если прибор уже находится в режиме "локального управления", эта команда просто игнорируется. Обычно, если прибор не поддерживает эту команду, он просто остаётся в режиме "удалённого управления".</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Visa.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_viGTL.htm"><span class="S15">_viGTL</span></a> <span class="S8">(</span> <span class="S9">$hSession</span> <span class="S8">)</span></p>
 
@@ -20,7 +20,7 @@
 <tr>
 <td style="width:15%"><span class="S91">$hSession</span></td>
 <td style="width:85%">Дескриптор VISA (строка) или дескриптор сессии VISA (целое число).<br />
-Подробности – в разделе "Примечания" <a href="_viExecCommand.htm"><span class="S15">_viExecCommand</span><span class="S8">()</span></a>.</td>
+Подробности см. раздел Примечания <a href="_viExecCommand.htm"><span class="S15">_viExecCommand</span><span class="S8">()</span></a>.</td>
 </tr>
 </table>
 
@@ -32,7 +32,7 @@
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
-<td>-1, если DLL-библиотеку VISA не удаётся открыть<br />
+<td>Возвращает -1, если DLL-библиотеку VISA не удаётся открыть<br />
 или ненулевое значение, представляющее код ошибки VISA (см. руководство программиста VISA).</td>
 </tr>
 </table><br />
@@ -50,16 +50,12 @@
 
 <p id="copytext1" class="codebox">
 <span class="code-actions"><a class="le" href="javascript:void(0)" onclick="OpenScript('hhctrl1');return false;"><img class="code-btn code-btn-open" title="Открыть пример" src="../images/code-btn-open.gif" border="0" alt="Открыть"></a><a class="le" href="javascript:void(0)" onclick="ClipBoard('copytext1');return false;"><img class="code-btn" title="Копировать в буфер" src="../images/code-btn-copy.gif" border="0" alt="Копировать"></a></span>
-<span class="S1">; - Предполагает, что прибор установлен на адрес GPIB 3
-</span><br>
+<span class="S1">; - Предполагает, что прибор установлен на адрес GPIB 3</span><br>
 <span class="S1">; Если прибор находится по другому адресу, измените "GPIB::3::0" на</span><br>
 <span class="S1">; соответствующий дескриптор. То же самое для вызова _viOpen</span><br>
-<span class="S1">; Показывает, как использовать функцию _viGTL с дескриптором VISA и с
-</span><br>
-<span class="S1">; обработчиком устройства VISA. Сначала мы используем _viExecCommand, чтобы заставить прибор перейти
-</span><br>
-<span class="S1">; в режим "удалённого управления"
-</span><br>
+<span class="S1">; Показывает, как использовать функцию _viGTL с дескриптором VISA и с</span><br>
+<span class="S1">; Обработчиком устройства VISA. Сначала мы используем _viExecCommand, чтобы заставить прибор перейти</span><br>
+<span class="S1">; в режим "удалённого управления"</span><br>
 <br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;MsgBoxConstants.au3&gt;</span><br>
 <a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;Visa.au3&gt;</span><br>

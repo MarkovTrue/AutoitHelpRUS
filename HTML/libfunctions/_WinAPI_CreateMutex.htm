@@ -11,7 +11,7 @@
 <h1 class="small">Справочник функций</h1>
 <hr style="height:0px">
 <h1>_WinAPI_CreateMutex</h1>
-<p class="funcdesc">создаёт или открывает именованный или безымянный объект мьютекса.</p>
+<p class="funcdesc">Создаёт или открывает именованный или безымянный объект мьютекса.</p>
 <p class="codeheader"><a class="le" href="../keywords/include.htm"><span class="S11">#include</span></a> <span class="S7">&lt;WinAPIProc.au3&gt;</span><br>
 <a class="le" href="../libfunctions/_WinAPI_CreateMutex.htm"><span class="S15">_WinAPI_CreateMutex</span></a> <span class="S8">(</span> <span class="S9">$sMutex</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$bInitial</span> <span class="S8">=</span> <span class="S5">True</span> <span class="S8">[</span><span class="S8">,</span> <span class="S9">$tSecurity</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">]</span><span class="S8">]</span> <span class="S8">)</span></p>
 
@@ -19,15 +19,18 @@
 <table>
 <tr>
 <td style="width:15%"><span class="S91">$sMutex</span></td>
-<td style="width:85%">Имя.</td>
+<td style="width:85%">Имя объекта мьютекса. Сравнение имён чувствительно к регистру.</td>
 </tr>
 <tr>
 <td><span class="S91">$bInitial</span></td>
-<td>Значение.</td>
+<td><strong>[необязательный]</strong> Получает ли вызывающий процесс начальное владение объектом мьютекса, допустимые значения:<br />
+<span class="S5">True</span>	 – вызывающий поток получает начальное владение объектом мьютекса (по умолчанию).<br />
+<span class="S5">False</span>	 – вызывающий поток не получает владение объектом мьютекса.</td>
 </tr>
 <tr>
 <td><span class="S91">$tSecurity</span></td>
-<td>Координаты.</td>
+<td><strong>[необязательный]</strong> Структура <a class="le" href="../libfunctions/$tagSECURITY_ATTRIBUTES.htm"><span class="S91">$tagSECURITY_ATTRIBUTES</span></a>, задающая дескриптор безопасности для нового мьютекса.<br />
+Если параметр равен 0 (по умолчанию), мьютекс получает дескриптор безопасности по умолчанию.</td>
 </tr>
 </table>
 
@@ -35,7 +38,7 @@
 <table class="noborder">
 <tr>
 <td style="width:10%" class="valign-top">Успех:</td>
-<td style="width:90%">Возвращает дескриптор на созданный объект.</td>
+<td style="width:90%">Возвращает дескриптор созданного объекта мьютекса.</td>
 </tr>
 <tr>
 <td class="valign-top">Ошибка:</td>
@@ -44,8 +47,19 @@
 </table>
 
 <h2>Примечания</h2>
-<p>Если мьютекс именован, и объект уже существовал до вызова, функция возвращает дескриптор существующего объекта; <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> возвращает ERROR_ALREADY_EXISTS (183), параметр <span class="S91">$bInitial</span> игнорируется, и вызывающий поток не получает владения мьютексом.<br />
-</p>
+<p>Если мьютекс именованный и объект уже существовал до вызова функции, возвращается дескриптор существующего объекта, <a href="_WinAPI_GetLastError.htm"><span class="S15">_WinAPI_GetLastError</span><span class="S8">()</span></a> возвращает ERROR_ALREADY_EXISTS (183), параметр <span class="S91">$bInitial</span> игнорируется, а вызывающий поток не получает владение.<br />
+Однако если у вызывающей стороны ограниченные права доступа, функция завершится с ошибкой ERROR_ACCESS_DENIED (5), и тогда следует использовать <a href="_WinAPI_OpenMutex.htm"><span class="S15">_WinAPI_OpenMutex</span><span class="S8">()</span></a>.<br /><br />
+Любой процесс может передать дескриптор объекта мьютекса в вызов одной из функций ожидания.<br />
+Функции ожидания одного объекта возвращают управление, когда объект переходит в сигнальное состояние.<br />
+Функции ожидания нескольких объектов можно настроить на возврат либо при сигнале любого из объектов, либо при сигнале всех сразу.<br />
+Когда функция ожидания возвращает управление, ожидающий поток продолжает выполнение.<br /><br />
+Два или более процессов могут вызвать <a href="_WinAPI_CreateMutex.htm"><span class="S15">_WinAPI_CreateMutex</span><span class="S8">()</span></a> для создания одного и того же именованного мьютекса.<br />
+Первый процесс действительно создаёт мьютекс, а следующие процессы с достаточными правами доступа просто открывают дескриптор существующего мьютекса.<br />
+Это позволяет нескольким процессам получить дескрипторы одного мьютекса и избавляет от необходимости следить, чтобы процесс-создатель запускался первым.<br />
+При таком подходе задавайте параметр <span class="S91">$bInitial</span> равным <span class="S5">False</span>, иначе трудно определить, какой процесс получил начальное владение.<br /><br />
+Чтобы закрыть дескриптор, используйте <a href="_WinAPI_CloseHandle.htm"><span class="S15">_WinAPI_CloseHandle</span><span class="S8">()</span></a>.<br />
+Система закрывает дескриптор автоматически при завершении процесса.<br />
+Объект мьютекса уничтожается после закрытия его последнего дескриптора.<br /></p>
 <h2>См. также</h2>
 <p><a href="_WinAPI_CloseHandle.htm">_WinAPI_CloseHandle</a>, <a href="_WinAPI_OpenMutex.htm">_WinAPI_OpenMutex</a></p>
 

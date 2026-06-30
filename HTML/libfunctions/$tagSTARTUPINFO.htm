@@ -24,86 +24,86 @@
 </tr>
 <tr>
 <td>Reserved1</td>
-<td>Зарезервировано, должно быть нулём.</td>
+<td>Зарезервировано, должно быть ноль.</td>
 </tr>
 <tr>
 <td>Desktop</td>
-<td>Имя рабочего стола или имя рабочего стола и станции окна для этого процесса.</td>
+<td>Имя рабочего стола или имя рабочего стола и оконной станции для этого процесса.</td>
 </tr>
 <tr>
 <td>Title</td>
-<td>Для консольных процессов – заголовок, выводимый в строке заголовка, если создаётся новая консоль.</td>
+<td>Для консольных процессов: заголовок в строке заголовка, если создаётся новая консоль.</td>
 </tr>
 <tr>
 <td>X</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USEPOSITION</span>, содержит смещение x верхнего левого угла окна в пикселах (если создаётся новое окно).</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USEPOSITION</span>, это поле задаёт смещение по x левого верхнего угла окна (если создаётся новое окно), в пикселях.</td>
 </tr>
 <tr>
 <td>Y</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USEPOSITION</span>, содержит смещение y верхнего левого угла окна в пикселах (если создаётся новое окно).</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USEPOSITION</span>, это поле задаёт смещение по y левого верхнего угла окна (если создаётся новое окно), в пикселях.</td>
 </tr>
 <tr>
 <td>XSize</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESIZE</span>, содержит высоту окна в пикселах.</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USESIZE</span>, это поле задаёт высоту окна в пикселях.</td>
 </tr>
 <tr>
 <td>YSize</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESIZE</span>, содержит ширину окна в пикселах.</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USESIZE</span>, это поле задаёт ширину окна в пикселях.</td>
 </tr>
 <tr>
 <td>XCountChars</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USECOUNTCHARS</span>, содержит ширину буфера экрана консоли в символах (если создаётся новое консольное окно).</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USECOUNTCHARS</span> и в консольном процессе создаётся новое консольное окно, это поле задаёт ширину буфера экрана в символьных столбцах.</td>
 </tr>
 <tr>
 <td>YCountChars</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USECOUNTCHARS</span>, содержит высоту буфера экрана консоли в строках (если создаётся новое консольное окно).</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USECOUNTCHARS</span> и в консольном процессе создаётся новое консольное окно, это поле задаёт высоту буфера экрана в символьных строках.</td>
 </tr>
 <tr>
 <td>FillAttribute</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USEFILLATTRIBUTE</span>, содержит исходные цвета текста и фона консоли (если создаётся новое консольное окно).</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USEFILLATTRIBUTE</span>, это поле задаёт начальные цвета текста и фона, если в консольном приложении создаётся новое консольное окно.</td>
 </tr>
 <tr>
 <td>Flags</td>
-<td>Определяет, какие члены используются при создании окна процессом:<br />
-<span class="S91">$STARTF_FORCEONFEEDBACK</span> – курсор в режиме обратной связи в течение двух секунд после вызова CreateProcess.<br />
-Отображается курсор Working in Background.<br />
-Если за эти две секунды процесс выполнит первый вызов GUI, система даёт процессу ещё пять секунд.<br />
-Если за эти пять секунд процесс покажет окно, система даёт ещё пять секунд на завершение рисования окна.<br />
-Курсор обратной связи отключается после первого вызова GetMessage, независимо от того, рисует ли процесс.<br />
-<span class="S91">$STARTF_FORCEOFFFEEDBACK</span> – курсор обратной связи принудительно отключен при запуске процесса.<br />
-Отображается стандартный курсор Select.<br />
-<span class="S91">$STARTF_RUNFULLSCREEN</span> – процесс запускается в полноэкранном режиме, а не в оконном режиме.<br />
-Этот флаг действителен только для консольных приложений, запущенных на компьютере x86.<br />
-<span class="S91">$STARTF_USECOUNTCHARS</span> – члены XCountChars и YCountChars действительны.<br />
-<span class="S91">$STARTF_USEFILLATTRIBUTE</span> – член FillAttribute действителен.<br />
-<span class="S91">$STARTF_USEPOSITION</span> – члены X и Y действительны.<br />
-<span class="S91">$STARTF_USESHOWWINDOW</span> – член ShowWindow действителен.<br />
-<span class="S91">$STARTF_USESIZE</span> – члены XSize и YSize действительны.<br />
-<span class="S91">$STARTF_USESTDHANDLES</span> – члены hStdInput, hStdOutput и hStdError действительны.</td>
+<td>Определяет, какие поля используются при создании окна процессом:<br />
+<span class="S91">$STARTF_FORCEONFEEDBACK</span> – курсор находится в режиме обратной связи в течение двух секунд после вызова CreateProcess.<br />
+&nbsp;&nbsp;&nbsp; Отображается курсор "Работа в фоновом режиме".<br />
+&nbsp;&nbsp;&nbsp; Если за эти две секунды процесс делает первый вызов GUI, система даёт ему ещё пять секунд.<br />
+&nbsp;&nbsp;&nbsp; Если за эти пять секунд процесс показывает окно, система даёт ему ещё пять секунд на отрисовку окна.<br />
+&nbsp;&nbsp;&nbsp; После первого вызова GetMessage система убирает курсор обратной связи независимо от того, рисует ли процесс.<br />
+<span class="S91">$STARTF_FORCEOFFFEEDBACK</span> – указывает, что курсор обратной связи принудительно отключён во время запуска процесса.<br />
+&nbsp;&nbsp;&nbsp; Отображается обычный курсор выбора.<br />
+<span class="S91">$STARTF_RUNFULLSCREEN</span> – указывает, что процесс должен выполняться в полноэкранном режиме, а не в оконном.<br />
+&nbsp;&nbsp;&nbsp; Этот флаг действителен только для консольных приложений на компьютерах x86.<br />
+<span class="S91">$STARTF_USECOUNTCHARS</span> – поля XCountChars и YCountChars действительны<br />
+<span class="S91">$STARTF_USEFILLATTRIBUTE</span> – поле FillAttribute действительно<br />
+<span class="S91">$STARTF_USEPOSITION</span> – поля X и Y действительны<br />
+<span class="S91">$STARTF_USESHOWWINDOW</span> – поле ShowWindow действительно<br />
+<span class="S91">$STARTF_USESIZE</span> – поля XSize и YSize действительны<br />
+<span class="S91">$STARTF_USESTDHANDLES</span> – поля hStdInput, hStdOutput и hStdError действительны.</td>
 </tr>
 <tr>
 <td>ShowWindow</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESHOWWINDOW</span>, может быть любой из констант <span class="S91">$SW_</span>.</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USESHOWWINDOW</span>, это поле может быть любой из констант SW_.</td>
 </tr>
 <tr>
 <td>Reserved2</td>
-<td>Зарезервировано, должно быть нулём.</td>
+<td>Зарезервировано, должно быть ноль.</td>
 </tr>
 <tr>
 <td>Reserved3</td>
-<td>Зарезервировано, должно быть нулём.</td>
+<td>Зарезервировано, должно быть ноль.</td>
 </tr>
 <tr>
 <td>StdInput</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESTDHANDLES</span>, содержит дескриптор стандартного входа.</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USESTDHANDLES</span>, это поле задаёт дескриптор стандартного ввода.</td>
 </tr>
 <tr>
 <td>StdOutput</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESTDHANDLES</span>, содержит дескриптор стандартного выхода.</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USESTDHANDLES</span>, это поле задаёт дескриптор стандартного вывода.</td>
 </tr>
 <tr>
 <td>StdError</td>
-<td>Если <em>Flags</em> указывает <span class="S91">$STARTF_USESTDHANDLES</span>, содержит дескриптор стандартного потока ошибок.</td>
+<td>Если в Flags задан <span class="S91">$STARTF_USESTDHANDLES</span>, это поле задаёт дескриптор стандартного потока ошибок.</td>
 </tr>
 </table>
 
