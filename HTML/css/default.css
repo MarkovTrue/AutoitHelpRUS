@@ -248,6 +248,7 @@ pre, .code, .codeheader, .codebox {
     margin-bottom: 4px;
     white-space: normal;
     width: auto;
+    min-height: 24px;
     position: relative;
 }
 
