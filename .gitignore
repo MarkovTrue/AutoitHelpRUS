@@ -6,9 +6,14 @@
 
 # ...кроме готовой справки
 !/Assets/
+!/Preview/
 !/HTML/
 !/README.md
 !/.gitignore
 !/AutoIt.hhp
 !/AutoIt3 TOC.hhc
 !/AutoIt3 Index.hhk
+
+# ...но скрипт превью README остаётся локальным
+/Preview/BuildPreview.ps1
+/Preview/BuildHeaderIcon.py
