@@ -1,0 +1,110 @@
+<svg viewBox="0 0 1280 392" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Конвейер перевода справки AutoIt: английская справка режется на блоки, блоки идут через словарь повторов, нейросеть и пользовательские патчи, собираются в страницу, проходят глобальные патчи вёрстки и упаковываются в русский CHM.">
+  <desc>Анимация: пакеты текста идут по конвейеру, этапы подсвечиваются по очереди.</desc>
+  <defs>
+    <pattern id="gridP" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="392" rx="16" fill="#0b0e14"/>
+  <rect width="1280" height="392" rx="16" fill="url(#gridP)"/>
+  <g transform="translate(0,-44)">
+  <path d="M 190,240 L 375,240 C 400.0,240 400.0,122 425,122 L 655,122 C 680.0,122 680.0,240 705,240 L 1095,240" fill="none" stroke="#f0883e" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M 190,240 L 375,240 C 400.0,240 400.0,122 425,122 L 655,122 C 680.0,122 680.0,240 705,240 L 1095,240" fill="none" stroke="#f0883e" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="4 14">
+    <animate attributeName="stroke-dashoffset" from="72" to="0" dur="2.4s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 190,240 L 1095,240" fill="none" stroke="#a78bfa" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M 190,240 L 1095,240" fill="none" stroke="#a78bfa" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="4 14">
+    <animate attributeName="stroke-dashoffset" from="72" to="0" dur="2.4s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 190,240 L 375,240 C 400.0,240 400.0,358 425,358 L 655,358 C 680.0,358 680.0,240 705,240 L 1095,240" fill="none" stroke="#58a6ff" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M 190,240 L 375,240 C 400.0,240 400.0,358 425,358 L 655,358 C 680.0,358 680.0,240 705,240 L 1095,240" fill="none" stroke="#58a6ff" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="4 14">
+    <animate attributeName="stroke-dashoffset" from="72" to="0" dur="2.4s" repeatCount="indefinite"/>
+  </path>
+  <circle r="5" fill="#f0883e" opacity="0">
+    <animateMotion dur="7s" repeatCount="indefinite" path="M 190,240 L 375,240 C 400.0,240 400.0,122 425,122 L 655,122 C 680.0,122 680.0,240 705,240 L 1095,240" keyPoints="0;0;0.1725;0.6364;0.6564;0.6564" keyTimes="0;0.040;0.183;0.438;0.454;1" calcMode="linear"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.040;0.050;0.444;0.454;1" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="5" fill="#a78bfa" opacity="0">
+    <animateMotion dur="7s" repeatCount="indefinite" path="M 190,240 L 1095,240" keyPoints="0;0;0.2044;0.5691;1;1" keyTimes="0;0.040;0.183;0.438;0.740;1" calcMode="linear"/>
+    <animate attributeName="fill" values="#a78bfa;#a78bfa;#e9edf3;#3fb950;#3fb950" keyTimes="0;0.438;0.566;0.721;1" dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.040;0.050;0.740;0.770;1" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="5" fill="#58a6ff" opacity="0">
+    <animateMotion dur="7s" repeatCount="indefinite" path="M 190,240 L 375,240 C 400.0,240 400.0,358 425,358 L 655,358 C 680.0,358 680.0,240 705,240 L 1095,240" keyPoints="0;0;0.1725;0.6364;0.6564;0.6564" keyTimes="0;0.040;0.183;0.438;0.454;1" calcMode="linear"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.040;0.050;0.444;0.454;1" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <g>
+    <rect x="30" y="185" width="160" height="110" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+    <text x="110.0" y="213" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#71717a">ИСТОЧНИК</text>
+    <text x="110.0" y="241" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#e9edf3">AutoIt_en.chm</text>
+    <text x="110.0" y="263" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">3919 страниц</text>
+  </g>
+  <g>
+    <rect x="225" y="185" width="150" height="110" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+    <rect x="225" y="185" width="150" height="110" rx="12" fill="none" stroke="#f0883e" stroke-width="1.6" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;1;0;0" keyTimes="0;0.067;0.087;0.125;0.183;1" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="300.0" y="213" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#f0883e">01 РАЗБОР</text>
+    <text x="300.0" y="241" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#e9edf3">Блоки JSON</text>
+    <text x="300.0" y="263" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">Текст отдельно</text>
+    <text x="300.0" y="279" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">от вёрстки</text>
+  </g>
+  <g>
+    <rect x="425" y="74" width="230" height="96" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+    <rect x="425" y="74" width="230" height="96" rx="12" fill="none" stroke="#f0883e" stroke-width="1.6" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;1;0;0" keyTimes="0;0.222;0.242;0.311;0.400;1" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="540.0" y="102" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#f0883e">02 СЛОВАРЬ ПОВТОРОВ</text>
+    <text x="540.0" y="130" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#e9edf3">~40% текста</text>
+    <text x="540.0" y="152" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">+ 4272 комментария из примеров</text>
+  </g>
+  <g>
+    <rect x="425" y="192" width="230" height="96" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+    <rect x="425" y="192" width="230" height="96" rx="12" fill="none" stroke="#a78bfa" stroke-width="1.6" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;1;0;0" keyTimes="0;0.222;0.242;0.311;0.400;1" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="540.0" y="220" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#a78bfa">03 ПЕРЕВОД</text>
+    <text x="540.0" y="248" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#e9edf3">Нейросеть</text>
+    <text x="540.0" y="270" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">AZJIO · Код UDF · MSDN</text>
+  </g>
+  <g>
+    <rect x="425" y="310" width="230" height="96" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+    <rect x="425" y="310" width="230" height="96" rx="12" fill="none" stroke="#58a6ff" stroke-width="1.6" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;1;0;0" keyTimes="0;0.222;0.242;0.311;0.400;1" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="540.0" y="338" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#58a6ff">ПОЛЬЗОВАТЕЛЬСКИЕ ПАТЧИ</text>
+    <text x="540.0" y="366" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#e9edf3">Ручные правки</text>
+    <text x="540.0" y="388" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">Генерация их не затирает</text>
+  </g>
+  <g>
+    <rect x="705" y="185" width="160" height="110" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+    <rect x="705" y="185" width="160" height="110" rx="12" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;1;0;0" keyTimes="0;0.438;0.458;0.500;0.562;1" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="785.0" y="213" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#3fb950">04 СБОРКА</text>
+    <text x="785.0" y="241" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#e9edf3">Страница</text>
+    <text x="785.0" y="263" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">RU-блоки · Подсветка</text>
+    <text x="785.0" y="279" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">Ссылки · Оформление</text>
+  </g>
+  <g>
+    <rect x="900" y="185" width="160" height="110" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+    <rect x="900" y="185" width="160" height="110" rx="12" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;1;0;0" keyTimes="0;0.589;0.609;0.651;0.713;1" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="980.0" y="213" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#3fb950">05 ПАТЧИ ВЁРСТКИ</text>
+    <text x="980.0" y="241" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#e9edf3">Единый шаблон</text>
+    <text x="980.0" y="263" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">Таблицы · Код</text>
+    <text x="980.0" y="279" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">Параметры · Константы</text>
+  </g>
+  <g>
+    <rect x="1095" y="185" width="160" height="110" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+    <rect x="1095" y="185" width="160" height="110" rx="12" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0;1;1;0;0" keyTimes="0;0.730;0.750;0.795;0.860;1" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="1175.0" y="213" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#3fb950">06 УПАКОВКА</text>
+    <text x="1175.0" y="241" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#e9edf3">AutoIt_ru.chm</text>
+    <text x="1175.0" y="263" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">Кнопка РУС / ENG</text>
+    <text x="1175.0" y="279" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#a1a1aa">Штамп версии</text>
+  </g>
+  </g>
+</svg>

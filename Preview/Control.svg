@@ -1,0 +1,131 @@
+<svg viewBox="0 0 1110 384" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Контроль изменений: страница сверяется с английским оригиналом, старой русской справкой и версией из GIT, и коммитится в GIT по одной странице. Гейт откатывает страницу из GIT, если пропал перевод.">
+  <desc>Анимация: три источника сходятся в рабочую копию, в ней подсвечиваются изменённые блоки, в GIT появляется новый коммит.</desc>
+  <defs>
+    <pattern id="gridC" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1110" height="384" rx="16" fill="#0b0e14"/>
+  <rect width="1110" height="384" rx="16" fill="url(#gridC)"/>
+  <g transform="translate(0,-56)">
+  <path d="M 290,125 C 360,125 360,235 430,235" fill="none" stroke="#71717a" stroke-opacity="0.25" stroke-width="2"/>
+  <path d="M 290,125 C 360,125 360,235 430,235" fill="none" stroke="#71717a" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="4 14">
+    <animate attributeName="stroke-dashoffset" from="72" to="0" dur="2.4s" repeatCount="indefinite"/>
+  </path>
+  <circle r="5" fill="#71717a" opacity="0">
+    <animateMotion dur="8s" repeatCount="indefinite" path="M 290,125 C 360,125 360,235 430,235" keyPoints="0;0;1;1" keyTimes="0;0.02;0.14;1" calcMode="linear"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.02;0.03;0.13;0.14;1" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M 290,225 C 360,225 360,235 430,235" fill="none" stroke="#f0883e" stroke-opacity="0.25" stroke-width="2"/>
+  <path d="M 290,225 C 360,225 360,235 430,235" fill="none" stroke="#f0883e" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="4 14">
+    <animate attributeName="stroke-dashoffset" from="72" to="0" dur="2.4s" repeatCount="indefinite"/>
+  </path>
+  <circle r="5" fill="#f0883e" opacity="0">
+    <animateMotion dur="8s" repeatCount="indefinite" path="M 290,225 C 360,225 360,235 430,235" keyPoints="0;0;1;1" keyTimes="0;0.05;0.17;1" calcMode="linear"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.05;0.06;0.16;0.17;1" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M 290,325 C 360,325 360,235 430,235" fill="none" stroke="#58a6ff" stroke-opacity="0.25" stroke-width="2"/>
+  <path d="M 290,325 C 360,325 360,235 430,235" fill="none" stroke="#58a6ff" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="4 14">
+    <animate attributeName="stroke-dashoffset" from="72" to="0" dur="2.4s" repeatCount="indefinite"/>
+  </path>
+  <circle r="5" fill="#58a6ff" opacity="0">
+    <animateMotion dur="8s" repeatCount="indefinite" path="M 290,325 C 360,325 360,235 430,235" keyPoints="0;0;1;1" keyTimes="0;0.08;0.20;1" calcMode="linear"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.08;0.09;0.19;0.20;1" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M 750,235 L 880,235" fill="none" stroke="#a78bfa" stroke-opacity="0.3" stroke-width="2"/>
+  <circle r="5" fill="#a78bfa" opacity="0">
+    <animateMotion dur="8s" repeatCount="indefinite" path="M 750,235 L 880,235" keyPoints="0;0;1;1" keyTimes="0;0.44;0.56;1" calcMode="linear"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.44;0.45;0.55;0.56;1" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M 965,335 L 965,395 L 725,395 L 725,338" fill="none" stroke="#f85149" stroke-opacity="0.45" stroke-width="1.6" stroke-dasharray="6 8">
+    <animate attributeName="stroke-dashoffset" from="0" to="-56" dur="2.8s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 719,346 L 725,336 L 731,346" fill="none" stroke="#f85149" stroke-opacity="0.7" stroke-width="1.6"/>
+  <rect x="752" y="383" width="186" height="24" rx="12" fill="#0b0e14"/>
+  <text x="845" y="399" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10.5" fill="#f85149" fill-opacity="0.9">Пропал перевод → откат из GIT</text>
+  <rect x="60" y="90" width="230" height="70" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+  <rect x="60" y="90" width="230" height="70" rx="12" fill="none" stroke="#71717a" stroke-width="1.6" stroke-opacity="0">
+    <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.02;0.04;0.10;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <text x="175" y="118" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#71717a">EN ОРИГИНАЛ</text>
+  <text x="175" y="142" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e9edf3">AutoIt v3.3.18.0</text>
+  <rect x="60" y="190" width="230" height="70" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+  <rect x="60" y="190" width="230" height="70" rx="12" fill="none" stroke="#f0883e" stroke-width="1.6" stroke-opacity="0">
+    <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.05;0.07;0.13;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <text x="175" y="218" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#f0883e">СТАРАЯ RU</text>
+  <text x="175" y="242" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e9edf3">Справка AZJIO</text>
+  <rect x="60" y="290" width="230" height="70" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+  <rect x="60" y="290" width="230" height="70" rx="12" fill="none" stroke="#58a6ff" stroke-width="1.6" stroke-opacity="0">
+    <animate attributeName="stroke-opacity" values="0;0;1;0;0" keyTimes="0;0.08;0.10;0.16;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <text x="175" y="318" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#58a6ff">GIT</text>
+  <text x="175" y="342" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e9edf3">Последняя версия</text>
+  <rect x="430" y="132" width="320" height="206" rx="12" fill="#161b22" stroke="#a78bfa" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="590.0" y="158" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#a78bfa">SPLIT-VIEW · РАБОЧАЯ КОПИЯ</text>
+  <rect x="444" y="172" width="92" height="152" rx="6" fill="#1c2230"/>
+  <text x="452" y="188" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="9.5" fill="#71717a">EN</text>
+  <rect x="452" y="200" width="76" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="452" y="217" width="63" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="452" y="234" width="50" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="452" y="251" width="65" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="452" y="268" width="52" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="452" y="285" width="67" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="452" y="302" width="54" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="547" y="172" width="92" height="152" rx="6" fill="#1c2230"/>
+  <text x="555" y="188" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="9.5" fill="#58a6ff">GIT</text>
+  <rect x="555" y="200" width="76" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="555" y="217" width="63" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="552" y="214" width="69" height="12" rx="3" fill="#f47067" fill-opacity="0">
+    <animate attributeName="fill-opacity" values="0;0;0.45;0.45;0;0" keyTimes="0;0.22;0.25;0.9;0.95;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="555" y="234" width="50" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="555" y="251" width="65" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="552" y="248" width="71" height="12" rx="3" fill="#f47067" fill-opacity="0">
+    <animate attributeName="fill-opacity" values="0;0;0.45;0.45;0;0" keyTimes="0;0.28;0.31;0.9;0.95;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="555" y="268" width="52" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="552" y="265" width="58" height="12" rx="3" fill="#f47067" fill-opacity="0">
+    <animate attributeName="fill-opacity" values="0;0;0.45;0.45;0;0" keyTimes="0;0.34;0.37;0.9;0.95;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="555" y="285" width="67" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="555" y="302" width="54" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="650" y="172" width="92" height="152" rx="6" fill="#1c2230"/>
+  <text x="658" y="188" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="9.5" fill="#3fb950">Рабочая</text>
+  <rect x="658" y="200" width="76" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="658" y="217" width="63" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="655" y="214" width="69" height="12" rx="3" fill="#e3b341" fill-opacity="0">
+    <animate attributeName="fill-opacity" values="0;0;0.45;0.45;0;0" keyTimes="0;0.22;0.25;0.9;0.95;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="658" y="234" width="50" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="658" y="251" width="65" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="655" y="248" width="71" height="12" rx="3" fill="#e3b341" fill-opacity="0">
+    <animate attributeName="fill-opacity" values="0;0;0.45;0.45;0;0" keyTimes="0;0.28;0.31;0.9;0.95;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="658" y="268" width="52" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="655" y="265" width="58" height="12" rx="3" fill="#e3b341" fill-opacity="0">
+    <animate attributeName="fill-opacity" values="0;0;0.45;0.45;0;0" keyTimes="0;0.34;0.37;0.9;0.95;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="658" y="285" width="67" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <rect x="658" y="302" width="54" height="6" rx="3" fill="#ffffff" fill-opacity="0.13"/>
+  <text x="590.0" y="360" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#a1a1aa">Diff блоков · Diff исходника · Правка по клику</text>
+  <rect x="880" y="120" width="170" height="215" rx="12" fill="#161b22" stroke="#ffffff" stroke-opacity="0.09"/>
+  <rect x="880" y="120" width="170" height="215" rx="12" fill="none" stroke="#58a6ff" stroke-width="1.6" stroke-opacity="0">
+    <animate attributeName="stroke-opacity" values="0;0;1;1;0;0" keyTimes="0;0.56;0.58;0.66;0.72;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <text x="965.0" y="148" text-anchor="middle" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" letter-spacing="2" font-weight="700" fill="#58a6ff">GIT</text>
+  <text x="965.0" y="170" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#a1a1aa">Коммит = страница</text>
+  <path d="M 914,190 L 914,316" stroke="#58a6ff" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="914" cy="304" r="5" fill="#0b0e14" stroke="#58a6ff" stroke-width="1.6"/>
+  <text x="928" y="308" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" fill="#71717a">ProcessList.htm</text>
+  <circle cx="914" cy="272" r="5" fill="#0b0e14" stroke="#58a6ff" stroke-width="1.6"/>
+  <text x="928" y="276" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" fill="#71717a">ProcessGetStats.htm</text>
+  <circle cx="914" cy="240" r="5" fill="#0b0e14" stroke="#58a6ff" stroke-width="1.6"/>
+  <text x="928" y="244" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" fill="#71717a">ProcessExists.htm</text>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.57;0.59;0.90;0.95;1" dur="8s" repeatCount="indefinite"/>
+    <circle cx="914" cy="208" r="6" fill="#3fb950"/>
+    <text x="928" y="212" font-family="Consolas, 'DejaVu Sans Mono', 'Courier New', monospace" font-size="10" font-weight="700" fill="#3fb950">ProcessClose.htm</text>
+  </g>
+  </g>
+</svg>
